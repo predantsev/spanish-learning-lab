@@ -50,9 +50,27 @@ Source for C-020 and C-021: the owner's next 2026-10-07 response accepting the p
 | C-020 | Adopt recent-context selection, neutral external-assistance evidence, and structured supplemental content via the application API. Keep arbitrary HTML outside the proposed first version. Detailed implementation remains deferred. |
 | C-021 | Evaluate API plus a skill as the simpler integration instead of assuming an MCP server is required. Identify remaining product decisions and discuss them gradually. |
 
+Source for C-022: on 2026-10-07, after discussing the three personal-phrase entry paths, the owner explicitly requested all three for the future implementation. The discovery-only phase is unchanged.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-022 | Support all three personal-phrase entry paths: save a useful item from the course; add an existing Spanish phrase from outside the course with optional context; and capture an intended meaning in Ukrainian before knowing its Spanish wording. Unresolved entries remain drafts until the Spanish wording and meaning are checked; only ready entries become practice targets. |
+
+## Personal phrase collection
+
+Accepted capture workflow under C-022:
+
+- Course item: an explicit save-for-practice action preserves its reviewed wording and source context.
+- Existing Spanish phrase: capture the phrase and optional context; check meaning and correctness before treating it as an answer model.
+- Ukrainian intent: save a quick draft, then resolve it with the external assistant and store the checked Spanish expression. This path does not require embedded AI.
+
+Use distinct draft/needs-review and ready-for-practice states. Exact validation responsibility and UI wording remain to be specified; a structurally valid record alone does not prove language correctness. These states do not measure learner mastery. Personal records remain outside public source control.
+
+Next discussion: should practice cover an exact saved sentence, variations of a reusable construction, or both? Proposed default: both where appropriate, with variations limited to familiar vocabulary/grammar. This practice detail is not yet approved.
+
 ## Design directions and unresolved details
 
-The owner accepted the study/practice direction under C-014. Rows below retain candidate details; they are not empirical effectiveness claims or fully approved specifications. In particular P-009 capture mechanics and P-010 embedded AI remain undecided.
+The owner accepted the study/practice direction under C-014. Rows below retain candidate details; they are not empirical effectiveness claims or fully approved specifications. C-022 settles the three P-009 entry paths; phrase practice details, validation responsibility, and P-010 embedded AI remain undecided.
 
 | ID | Proposal | Example or unresolved detail |
 |---|---|---|
@@ -64,7 +82,7 @@ The owner accepted the study/practice direction under C-014. Rows below retain c
 | P-006 | Keep review manageable after missed days. | Explore a session limit, prioritization, and optional extra practice rather than mandatory completion of an unlimited backlog. |
 | P-007 | Use skill-specific hints and separate evidence for independent, hinted, and revealed answers. | A vocabulary hint must not automatically mark the whole grammar topic weak. Ambiguous errors need a focused follow-up rather than a confident diagnosis. |
 | P-008 | Alternate focused drills with optional contrast exercises across already studied tenses. | Forming a tense when its name is supplied differs from choosing it in context. Unstudied grammar should not silently enter a selected practice session. |
-| P-009 | Maintain a private personal phrase collection with an explicit add action. | Save intended meaning, a checked Spanish expression, and relevant context; practice both the phrase and variations of its reusable construction. Do not turn an unchecked attempt into a memorization target. |
+| P-009 | Maintain a private personal phrase collection with all three entry paths under C-022. | Capture is agreed; practicing exact phrases versus reusable variations and the detailed checking workflow remain open. Do not turn an unchecked attempt into a memorization target. |
 | P-010 | Explore a deterministic core with optional external assistant support. | See the deferred integration plan below. Embedded AI grading is a separate undecided feature; external help does not by itself solve arbitrary free-text grading during independent use. |
 
 ## Deferred external-assistant integration plan
@@ -132,7 +150,7 @@ The owner accepted this direction under C-020. Exact evidence weighting and inte
 
 ### Decisions intentionally deferred
 
-Exact transport and deployment; supported assistant hosts; endpoint schemas; authentication; storage; whether a helper script or later MCP adapter is useful; phrase capture; validation of generated content; detailed evidence weighting; and any embedded AI. API plus a skill is the recommended first integration in response to C-021, conditional on host tool/network access. No provider, model, price, or always-on background agent is selected. Arbitrary HTML embedding remains optional and deferred, not part of the proposed first implementation.
+Exact transport and deployment; supported assistant hosts; endpoint schemas; authentication; storage; whether a helper script or later MCP adapter is useful; detailed phrase validation and practice; validation of generated content; detailed evidence weighting; and any embedded AI. API plus a skill is the recommended first integration in response to C-021, conditional on host tool/network access. No provider, model, price, or always-on background agent is selected. Arbitrary HTML embedding remains optional and deferred, not part of the proposed first implementation.
 
 ### Feasibility source
 
@@ -155,7 +173,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 
 ## Discussion sequence
 
-1. Resolve how personal phrases enter the course: user-provided Spanish, a phrase written in the explanation language, selected lesson examples, or a combination. This informs the AI discussion without choosing a provider or model.
+1. Personal phrase entry paths are settled under C-022. Resolve exact-sentence versus reusable-construction practice and the checking workflow next; then move to the next topic.
 2. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
 3. Define target level, practical situations, Spanish variety, explanation/UI languages, and treatment of familiar foundations.
 4. Define session duration, device, and whether listening-only exercises belong in scope. Speaking remains excluded.
@@ -167,7 +185,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 
 ### Remaining product decisions
 
-- Personal phrase workflow: sources, entry language, checking the Spanish wording, and practicing reusable constructions versus fixed phrases. Start with one concrete learner situation rather than another architecture decision.
+- Personal phrase practice: checking responsibility and reusable constructions versus fixed phrases. All three entry paths are settled under C-022 and should not be reopened without new reason.
 - Course destination: target level and practical abilities, Spanish variety, explanation/UI languages, and how to move quickly through familiar foundations without losing practice access.
 - Session flow: time available, focused versus mixed practice, new-material balance, and recovery after missed days without an unbounded mandatory backlog.
 - Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
