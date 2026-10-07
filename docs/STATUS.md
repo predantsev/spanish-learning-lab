@@ -16,12 +16,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 - Recorded C-017 through C-021. The owner accepted recent-context selection, structured content via the API, and neutral assistance evidence; exact implementation and evidence weighting remain open. Removed MCP from the initial critical path after evaluating the simpler local workflow.
 - Created the public repository predantsev/spanish-learning-lab and the Startups checkout. Bootstrap documentation is tracked by issue #1 and delivered through its pull request.
 - No application, curriculum corpus, runtime, or technical stack has been created or selected.
-
 - Recorded C-022: save from course, add an existing Spanish phrase, and capture Ukrainian intent as a draft; all three are required for future implementation. Unchecked drafts must not enter practice as correct answer models.
+
+- Recorded C-023: combine exact saved-phrase recall with appropriate construction variations using familiar material. The core personal-phrase topic is now settled.
 
 ## Next conversation
 
-Integration is sufficiently planned for now: recommend API plus a skill using existing authorized tools, with MCP only if a later host requires it. Continue the personal-phrase topic by deciding exact-sentence versus reusable-construction practice and the checking workflow. All three entry paths are settled. Then move through the remaining product decisions in COURSE-DESIGN.md one at a time. Do not ask all questions at once. Integration implementation remains parked until course discovery is complete. Conversation remains excluded.
+Integration is sufficiently planned for now: recommend API plus a skill using existing authorized tools, with MCP only if a later host requires it. Next discuss the course destination: desired practical reading/writing abilities and curriculum depth, starting from the already-agreed beginner foundations. Personal-phrase capture and combined practice are settled; detailed checking responsibility belongs with content quality. Move through remaining decisions one at a time. Do not ask all questions at once. Integration implementation remains parked until course discovery is complete. Conversation remains excluded.
 
 ## Decisions and boundaries
 
@@ -45,3 +46,5 @@ Content-extension planning update: consulted OWASP XSS Prevention and MDN iframe
 API/skill planning update: read official OpenAI plugin architecture guidance on skills with existing tools; command -v confirmed local curl and python3 availability. API plus skill is feasible in principle for this local environment, but the future application's endpoint, authentication, and actual connectivity remain unverified. Documentation only.
 
 Personal-phrase capture update: recorded the owner's explicit approval of all three entry paths on 2026-10-07. Documentation only; no application feature is implemented.
+
+Personal-phrase practice update: recorded the owner's approval of combined exact-phrase and construction-variation practice. No implementation; next discovery topic is the course destination.
