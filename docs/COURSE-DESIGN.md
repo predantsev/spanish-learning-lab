@@ -35,6 +35,14 @@ Source for C-014 through C-016: the owner's next follow-up on 2026-10-07 agreein
 | C-015 | Plan an on-demand external assistant connection: the learner opens an assistant chat to discuss current application context, request help or additional practice, and request supported changes. Prefer an application API; CLI is an alternative. Plan a skill or equivalent operating instructions. |
 | C-016 | Resolve and record this integration direction first, then resume the personal-phrase discussion. Revisit detailed integration design after the remaining course requirements. This is planning authorization, not implementation authorization. |
 
+Source for C-017 through C-019: the owner's subsequent 2026-10-07 clarification accepting the integration direction and asking for context selection, assistance guidance, and safe content extension.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-017 | Let the assistant discover open learning contexts and use the most recently worked-on context as a likely default. Ask which context only when the target is ambiguous; multiple tabs alone must not force a question. |
+| C-018 | Plan adding material during an assistant conversation so that a new item/button can appear in the application without changing its code for each addition. Explore stored content and possibly external HTML, conditional on an acceptable security design. No database technology or arbitrary HTML execution is approved. |
+| C-019 | Provide a recommendation for external-assistance evidence and adjust the integration plan to accommodate content extension. Continue design only; implementation remains deferred. |
+
 ## Design directions and unresolved details
 
 The owner accepted the study/practice direction under C-014. Rows below retain candidate details; they are not empirical effectiveness claims or fully approved specifications. In particular P-009 capture mechanics and P-010 embedded AI remain undecided.
@@ -67,16 +75,17 @@ The application owns progress, learning events, and content versions; chat histo
 - Application API: explicit reads and bounded domain actions, sharing the same validation and persistence as the UI. Avoid arbitrary database editing or shell execution through this learning API.
 - MCP adapter: expose useful API operations as assistant tools. A CLI could be a thin optional client of the same operations; it is not a second required implementation.
 - Skill: explain the topic/skill model, how to fetch fresh context, how to distinguish assistance from independent evidence, and how to verify changes. Instructions alone do not create connectivity or grant access.
-- Context: identify the chosen application session/tab, topic, exercise, selected fragment when available, current attempt, requested hint state, relevant recent evidence, and revision/timestamp. Multiple tabs and unsaved attempts need explicit handling; do not assume a global "currently open" page.
+- Context: list open learning sessions/tabs with their topic, exercise, meaningful user activity time, focus/visibility when available, current attempt, hint state, and revision/timestamp. An explicit reference wins; otherwise use an unambiguous recent context and state the assumption briefly. Ask only if recent contexts conflict or the target is unclear. Background polling must not count as learner activity; closed/stale contexts must be labeled as such. Persist the last study location for resumption, while keeping each tab's unsaved attempt separate.
 - Access: authenticated, limited to the selected learner/session; expose only the context needed for the requested help. A same-machine connection is an initial candidate, not an approved hosting choice. Recheck host/client support when implementing; an arbitrary cloud chat cannot be assumed to reach a local API.
 
 ### Proposed increments and acceptance checks
 
-1. Define the application domain and minimal read/action contract during course implementation. Keep integration details deferred until the course scope is agreed.
-2. Implement a read-only connection: retrieve the intended open exercise and relevant attempt/hint history. Verify selection across two open tabs and refresh stale context.
-3. Add a bounded action: create and display a focused practice set from reviewed content, including only requested or already studied skills. Verify the result in the UI and ensure retries do not create duplicate sets.
-4. Add supported personal-content operations: draft/import exercises or phrases, validate them, retain provenance, and show changes with undo. AI-generated material is not automatically a reviewed answer key. Exact publication/review policy remains open.
-5. Add the skill and test the full request-to-UI workflow. Record external hints/answer reveals as assisted work through a supported mechanism; explanations in chat must not silently become independent mastery. If assistance cannot be captured reliably, mark the evidence incomplete instead of fabricating certainty.
+1. After course discovery, define versioned topic/exercise/attempt identifiers and a structured content format using supported UI blocks. Keep storage technology undecided.
+2. Provide an extension area that renders stored supplemental materials using those blocks; validate data, revisions, and permitted actions. A saved item should appear after refresh, preserving the current exercise and draft. Live updates are optional.
+3. Expose authorized API reads and writes, then an MCP adapter: discover contexts, read relevant evidence, create a focused practice set or supplemental material, and fetch the resulting state. Check recent-context selection across tabs, stale revisions, access boundaries, and duplicate request handling.
+4. Add the skill and neutral assistance recording; verify the full request-to-UI workflow and later independent practice. Record only assistance that is actually observed or learner-reported.
+5. Before release, test untrusted content rendering, rejected unsupported blocks/actions, learner-data isolation, invalid/oversized input, undo, and persistence. Schema validity does not establish language accuracy; generated answer keys need a separate content-quality check.
+6. Only if a concrete learning need exceeds supported blocks, evaluate isolated interactive HTML as a separate future capability. It is not part of the recommended initial content-extension scope.
 
 For writes, check the relevant revision, preserve current attempts and progress, record the operation, and verify persisted state. Avoid repeated confirmations for clear, authorized, reversible actions; ask only for genuinely ambiguous scope or consequential replacement/deletion.
 
@@ -84,9 +93,34 @@ For writes, check the relevant revision, preserve current attempts and progress,
 
 Changing a practice selection, preferences, or supported personal content belongs in the domain API. Changing layout behavior, adding new exercise types, or modifying algorithms remains ordinary repository development with review and tests. A learning API does not automatically grant code-editing capability or authorize implementation.
 
+### Content extension recommendation — pending owner adoption
+
+Use structured materials assembled from prebuilt blocks: explanations, examples, tables, comparison cards, revealable hints, multiple-choice items, gap-fills, translations, and supported practice sets. A title and internal material ID let the UI render a new card/button and open the material without accepting arbitrary executable button handlers.
+
+Proposed flow: assistant creates a material through the domain API; the application validates and persists it; an extension area lists the new item; the learner opens it. Preview/undo and version history preserve earlier content and exercise attempts. Per-user additions stay private by default; public course publication is a separate operation.
+
+Persisting a record does not require exposing database credentials or raw SQL to the assistant. The API owns storage and validation; a database or another store remains an implementation choice. Storing HTML in a database does not make its eventual rendering safe.
+
+Treat imported and assistant-authored content as untrusted data. Render text with contextual escaping, permit only specified block types and parameters, validate any allowed links/media, and reject arbitrary scripts, event handlers, executable templates, remote embeds, and network-fetch actions in the initial format. Any future Markdown support must explicitly disable raw HTML or use a reviewed sanitization policy. These are design requirements to verify, not an assurance that an unimplemented renderer is secure.
+
+External reference links, if supported, should open by explicit learner action in an isolated new tab with no opener and no learner state/credentials attached; they remain external sites, not trusted course components. Do not automatically fetch or embed an arbitrary submitted URL. Choosing a hosting product for an explainer does not establish the content's trustworthiness.
+
+Arbitrary interactive HTML would require separate-origin isolation, a tightly restricted sandbox, controls on network requests/navigation/downloads, and narrowly validated messages rather than access to course storage or API credentials. An iframe sandbox alone does not block every outbound request. Any such implementation needs its own threat review and tests; do not claim risk-free embedding.
+
+Security basis checked on 2026-10-07: [OWASP XSS Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) describes risks from executable untrusted content and contextual encoding/sanitization; [MDN iframe documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe) documents sandbox capabilities and cautions. The recommendation for this application is a design inference from those sources. A public source repository does not itself publish learner data or authorize API access; those boundaries still require a correct implementation.
+
+### External-assistance recommendation — pending owner adoption
+
+- Use neutral evidence labels, not punishment or a reduction of previously demonstrated competence merely for asking a question.
+- A general explanation is a learning event, not an automatic failure of the current attempt or whole topic.
+- A hint targeted at the current exercise marks the relevant part as assisted; a revealed answer marks that attempt as answer-seen. Neither is independent recall evidence.
+- After assistance, offer a different later exercise without hints to establish new independent evidence. Do not erase earlier valid evidence.
+- Record only help actually delivered through the integration or explicitly reported by the learner. No monitoring of unrelated chats or claim to detect all external help. If an assistance-recording operation fails, report incomplete evidence instead of silently certifying independent work.
+- Keep the exact weighting and review intervals open. Asking for help can increase practice opportunities without a shame-based score.
+
 ### Decisions intentionally deferred
 
-Exact transport and deployment; supported assistant hosts; endpoint/tool schemas; authentication; whether a CLI is useful; phrase capture; validation of generated content; external-assistance recording; and any embedded AI. No provider, model, price, or always-on background agent is selected.
+Exact transport and deployment; supported assistant hosts; endpoint/tool schemas; authentication; storage; whether a CLI is useful; phrase capture; validation of generated content; adoption of the structured-content and assistance recommendations above; and any embedded AI. No provider, model, price, or always-on background agent is selected. Arbitrary HTML embedding remains optional and deferred, not part of the proposed first implementation.
 
 ### Feasibility source
 
