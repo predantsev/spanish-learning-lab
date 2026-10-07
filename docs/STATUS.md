@@ -17,12 +17,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 - Created the public repository predantsev/spanish-learning-lab and the Startups checkout. Bootstrap documentation is tracked by issue #1 and delivered through its pull request.
 - No application, curriculum corpus, runtime, or technical stack has been created or selected.
 - Recorded C-022: save from course, add an existing Spanish phrase, and capture Ukrainian intent as a draft; all three are required for future implementation. Unchecked drafts must not enter practice as correct answer models.
-
 - Recorded C-023: combine exact saved-phrase recall with appropriate construction variations using familiar material. The core personal-phrase topic is now settled.
+
+- Recorded C-024: design through at least B2; deliver beginner-to-A2 first for owner testing, then B1 and B2. A possible C1 mention is pending clarification. Proposed an early pilot and continuity across stages; no implementation started.
 
 ## Next conversation
 
-Integration is sufficiently planned for now: recommend API plus a skill using existing authorized tools, with MCP only if a later host requires it. Next discuss the course destination: desired practical reading/writing abilities and curriculum depth, starting from the already-agreed beginner foundations. Personal-phrase capture and combined practice are settled; detailed checking responsibility belongs with content quality. Move through remaining decisions one at a time. Do not ask all questions at once. Integration implementation remains parked until course discovery is complete. Conversation remains excluded.
+Integration is sufficiently planned for now: recommend API plus a skill using existing authorized tools, with MCP only if a later host requires it. The A2-first -> B1 -> B2 roadmap is agreed. Await clarification of the possible C1 mention without blocking the confirmed roadmap; then discuss Spanish variety, followed by explanation/UI languages and treatment of familiar foundations one at a time. Personal-phrase capture and combined practice are settled; detailed checking responsibility belongs with content quality. Move through remaining decisions one at a time. Do not ask all questions at once. Integration implementation remains parked until course discovery is complete. Conversation remains excluded.
 
 ## Decisions and boundaries
 
@@ -47,4 +48,6 @@ API/skill planning update: read official OpenAI plugin architecture guidance on 
 
 Personal-phrase capture update: recorded the owner's explicit approval of all three entry paths on 2026-10-07. Documentation only; no application feature is implemented.
 
-Personal-phrase practice update: recorded the owner's approval of combined exact-phrase and construction-variation practice. No implementation; next discovery topic is the course destination.
+Personal-phrase practice update: recorded the owner's approval of combined exact-phrase and construction-variation practice. No implementation; core phrase design is settled.
+
+Staged-course planning update: recorded the owner request for A2-first delivery and a horizon of at least B2. Read Council of Europe skill-domain guidance and the Instituto Cervantes curriculum index; detailed curriculum mapping and proficiency validation have not been performed. No overall CEFR level is certified.
