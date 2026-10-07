@@ -43,6 +43,13 @@ Source for C-017 through C-019: the owner's subsequent 2026-10-07 clarification 
 | C-018 | Plan adding material during an assistant conversation so that a new item/button can appear in the application without changing its code for each addition. Explore stored content and possibly external HTML, conditional on an acceptable security design. No database technology or arbitrary HTML execution is approved. |
 | C-019 | Provide a recommendation for external-assistance evidence and adjust the integration plan to accommodate content extension. Continue design only; implementation remains deferred. |
 
+Source for C-020 and C-021: the owner's next 2026-10-07 response accepting the preceding recommendations, questioning whether MCP is necessary, and asking which course decisions remain.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-020 | Adopt recent-context selection, neutral external-assistance evidence, and structured supplemental content via the application API. Keep arbitrary HTML outside the proposed first version. Detailed implementation remains deferred. |
+| C-021 | Evaluate API plus a skill as the simpler integration instead of assuming an MCP server is required. Identify remaining product decisions and discuss them gradually. |
+
 ## Design directions and unresolved details
 
 The owner accepted the study/practice direction under C-014. Rows below retain candidate details; they are not empirical effectiveness claims or fully approved specifications. In particular P-009 capture mechanics and P-010 embedded AI remain undecided.
@@ -73,7 +80,8 @@ The application owns progress, learning events, and content versions; chat histo
 ### Proposed connection
 
 - Application API: explicit reads and bounded domain actions, sharing the same validation and persistence as the UI. Avoid arbitrary database editing or shell execution through this learning API.
-- MCP adapter: expose useful API operations as assistant tools. A CLI could be a thin optional client of the same operations; it is not a second required implementation.
+- Recommended initial client: use the documented application API directly through existing authorized HTTP/shell tools, guided by the skill. Add a small helper script only if repeated authentication, payload validation, or retries justify it; it is not a separate required service or CLI product.
+- Optional later MCP adapter: expose the same API operations if a selected assistant client needs MCP or native tool discovery materially helps. MCP is removed from the initial critical path. A skill alone cannot provide execution, network access, authentication, or permissions unavailable in the host environment.
 - Skill: explain the topic/skill model, how to fetch fresh context, how to distinguish assistance from independent evidence, and how to verify changes. Instructions alone do not create connectivity or grant access.
 - Context: list open learning sessions/tabs with their topic, exercise, meaningful user activity time, focus/visibility when available, current attempt, hint state, and revision/timestamp. An explicit reference wins; otherwise use an unambiguous recent context and state the assumption briefly. Ask only if recent contexts conflict or the target is unclear. Background polling must not count as learner activity; closed/stale contexts must be labeled as such. Persist the last study location for resumption, while keeping each tab's unsaved attempt separate.
 - Access: authenticated, limited to the selected learner/session; expose only the context needed for the requested help. A same-machine connection is an initial candidate, not an approved hosting choice. Recheck host/client support when implementing; an arbitrary cloud chat cannot be assumed to reach a local API.
@@ -82,8 +90,8 @@ The application owns progress, learning events, and content versions; chat histo
 
 1. After course discovery, define versioned topic/exercise/attempt identifiers and a structured content format using supported UI blocks. Keep storage technology undecided.
 2. Provide an extension area that renders stored supplemental materials using those blocks; validate data, revisions, and permitted actions. A saved item should appear after refresh, preserving the current exercise and draft. Live updates are optional.
-3. Expose authorized API reads and writes, then an MCP adapter: discover contexts, read relevant evidence, create a focused practice set or supplemental material, and fetch the resulting state. Check recent-context selection across tabs, stale revisions, access boundaries, and duplicate request handling.
-4. Add the skill and neutral assistance recording; verify the full request-to-UI workflow and later independent practice. Record only assistance that is actually observed or learner-reported.
+3. Expose and document authorized API reads and writes: discover contexts, read relevant evidence, create a focused practice set or supplemental material, and fetch the resulting state. Check recent-context selection across tabs, stale revisions, access boundaries, and duplicate request handling.
+4. Add the skill for direct API use through existing host tools and neutral assistance recording; verify the full request-to-UI workflow and later independent practice. Record only assistance that is actually observed or learner-reported. A helper script and a later MCP adapter are optional, not prerequisites.
 5. Before release, test untrusted content rendering, rejected unsupported blocks/actions, learner-data isolation, invalid/oversized input, undo, and persistence. Schema validity does not establish language accuracy; generated answer keys need a separate content-quality check.
 6. Only if a concrete learning need exceeds supported blocks, evaluate isolated interactive HTML as a separate future capability. It is not part of the recommended initial content-extension scope.
 
@@ -93,7 +101,9 @@ For writes, check the relevant revision, preserve current attempts and progress,
 
 Changing a practice selection, preferences, or supported personal content belongs in the domain API. Changing layout behavior, adding new exercise types, or modifying algorithms remains ordinary repository development with review and tests. A learning API does not automatically grant code-editing capability or authorize implementation.
 
-### Content extension recommendation — pending owner adoption
+### Accepted content extension direction
+
+The owner accepted this direction under C-020. Implementation choices and verification remain pending.
 
 Use structured materials assembled from prebuilt blocks: explanations, examples, tables, comparison cards, revealable hints, multiple-choice items, gap-fills, translations, and supported practice sets. A title and internal material ID let the UI render a new card/button and open the material without accepting arbitrary executable button handlers.
 
@@ -109,7 +119,9 @@ Arbitrary interactive HTML would require separate-origin isolation, a tightly re
 
 Security basis checked on 2026-10-07: [OWASP XSS Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) describes risks from executable untrusted content and contextual encoding/sanitization; [MDN iframe documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe) documents sandbox capabilities and cautions. The recommendation for this application is a design inference from those sources. A public source repository does not itself publish learner data or authorize API access; those boundaries still require a correct implementation.
 
-### External-assistance recommendation — pending owner adoption
+### Accepted external-assistance direction
+
+The owner accepted this direction under C-020. Exact evidence weighting and intervals remain open.
 
 - Use neutral evidence labels, not punishment or a reduction of previously demonstrated competence merely for asking a question.
 - A general explanation is a learning event, not an automatic failure of the current attempt or whole topic.
@@ -120,15 +132,15 @@ Security basis checked on 2026-10-07: [OWASP XSS Prevention](https://cheatsheets
 
 ### Decisions intentionally deferred
 
-Exact transport and deployment; supported assistant hosts; endpoint/tool schemas; authentication; storage; whether a CLI is useful; phrase capture; validation of generated content; adoption of the structured-content and assistance recommendations above; and any embedded AI. No provider, model, price, or always-on background agent is selected. Arbitrary HTML embedding remains optional and deferred, not part of the proposed first implementation.
+Exact transport and deployment; supported assistant hosts; endpoint schemas; authentication; storage; whether a helper script or later MCP adapter is useful; phrase capture; validation of generated content; detailed evidence weighting; and any embedded AI. API plus a skill is the recommended first integration in response to C-021, conditional on host tool/network access. No provider, model, price, or always-on background agent is selected. Arbitrary HTML embedding remains optional and deferred, not part of the proposed first implementation.
 
 ### Feasibility source
 
-On 2026-10-07, [official OpenAI documentation on skills and MCP](https://developers.openai.com/plugins/concepts/skills) was opened and read: MCP provides live information and controlled actions; skills describe workflows around those tools. This supports the proposed integration pattern, not an already-tested connection to this application. No application connection exists yet.
+On 2026-10-07, [official OpenAI documentation on skills and MCP](https://developers.openai.com/plugins/concepts/skills) was opened and read: MCP provides live information and controlled actions; skills describe workflows around those tools. A later check of [plugin architecture](https://developers.openai.com/plugins/concepts/plugins), specifically Skills and Choose a plugin shape, confirms that skills plus existing tools can suffice and MCP is optional. In this local Codex session, shell execution works and command -v resolved curl and python3. This supports recommending direct HTTP access from existing tools (design inference); network reachability, API authentication, and the complete application workflow are not yet verified. No application connection exists yet.
 
 ## Proposed evidence behavior
 
-These are design candidates, not implemented or approved rules:
+The general evidence direction is accepted under C-014 and C-020; exact weighting remains undecided, and no behavior is implemented:
 
 - Correct without help: evidence for that assessed skill and task type; later independent checks still matter.
 - Correct after a targeted hint: assisted evidence for the hinted skill, not identical to independent recall.
@@ -152,6 +164,18 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 7. Revisit the deferred external-assistant plan with the settled domain model and concrete user workflows.
 
 Discuss a small number of questions per turn. Answers may change the sequence. Do not treat suggested options as decisions.
+
+### Remaining product decisions
+
+- Personal phrase workflow: sources, entry language, checking the Spanish wording, and practicing reusable constructions versus fixed phrases. Start with one concrete learner situation rather than another architecture decision.
+- Course destination: target level and practical abilities, Spanish variety, explanation/UI languages, and how to move quickly through familiar foundations without losing practice access.
+- Session flow: time available, focused versus mixed practice, new-material balance, and recovery after missed days without an unbounded mandatory backlog.
+- Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
+- Exercise feedback: valid alternative translations, typing/accents versus grammar errors, hint levels, and what the app does when a free-text answer cannot be judged reliably without AI.
+- Content scope and quality: whether listening-only activities are included, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
+- Product environment and continuity: desktop/mobile, local/hosted operation, offline expectations, progress backup/export, and whether multiple devices are needed.
+
+These are open decisions, not a questionnaire to answer all at once. After resolving them, walk through one complete lesson and one return-to-practice session, then finalize acceptance criteria and the deferred integration design.
 
 ## Open boundaries
 
