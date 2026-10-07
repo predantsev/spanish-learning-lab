@@ -18,7 +18,7 @@ Source for C-006 through C-013: the owner's follow-up on 2026-10-07 specifying f
 
 | ID | Confirmed requirement |
 |---|---|
-| C-006 | Start the course from beginner foundations even for a returning learner. The final target level remains open. |
+| C-006 | Start the course from beginner foundations even for a returning learner. The course horizon is at least B2, delivered in stages under C-024. |
 | C-007 | Allow practice-only sessions with no obligation to study new material. The learner can choose a topic directly and identify topics previously studied outside the course. |
 | C-008 | A selected topic provides a rule refresher and continued varied written practice: translation, writing sentences, and selecting correct answers. |
 | C-009 | Use errors and requests for hints as evidence for more practice of the relevant skill, including targeted recommendations and its appearance in later sentences. The attribution and scheduling design remain open. |
@@ -61,6 +61,36 @@ Source for C-023: the owner explicitly accepted combining both phrase-practice m
 | ID | Confirmed requirement |
 |---|---|
 | C-023 | Combine recall of the saved phrase with appropriate variations of its reusable construction. Start from the saved phrase and introduce small variations using familiar vocabulary and grammar; preserve fixed expressions where variation is inappropriate. |
+
+Source for C-024: the owner requested a complete course designed to at least B2 on 2026-10-07, implemented in parts: strong A2 first for hands-on testing, then B1, then B2. The surrounding conversation remains discovery-only.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-024 | Plan the full course through at least B2 from the outset, with staged delivery: beginner foundations through a strong A2 as the first complete usable stage, followed by B1 and B2. The owner must be able to start testing the first stage without waiting for later stages. |
+
+## Course horizon and staged delivery
+
+Accepted sequence: beginner foundations including A1 -> strong A2 -> B1 -> B2. The owner may have mentioned C1 in an unclear dictated fragment; a clarification was asked. Beyond-B2 scope is unconfirmed and does not block the confirmed A2/B1/B2 plan. Do not assign C1 to the required roadmap without clarification.
+
+Level labels guide the in-scope curriculum and assessment; speaking/conversation remains excluded, and listening-only scope is still open. Course completion must not be presented as demonstrated overall CEFR proficiency across unassessed skills. The [Council of Europe self-assessment grid](https://www.coe.int/en/web/portfolio/self%20-assessment-grid), read on 2026-10-07, distinguishes listening, reading, spoken interaction, spoken production, and writing.
+
+Proposed design and delivery details, not yet a complete curriculum or authorized implementation plan:
+
+| Stage | Design now | Deliver after implementation authorization |
+|---|---|---|
+| Beginner through A2 | Detailed objectives, prerequisites, modules, exercise coverage, review links, and practical reading/writing checks. | The first complete in-scope course segment, available for daily use and owner testing. |
+| B1 | Map objectives, prerequisites, and the way earlier skills return in harder contexts. | Extend the same course after feedback on the A2 stage. |
+| B2 | Map objectives, prerequisites, and later assessment/transfer goals. | Extend the course again after B1, preserving earlier practice access. |
+
+Use one application and stable content/skill identifiers across stages. Adding B1/B2 should preserve progress, personal phrases, and review history, and should not require restarting the course. Later stages should be visibly planned/unavailable until implemented, not presented as completed content. No fixed lesson count or delivery date is selected.
+
+Suggested first-stage product scope: the course path, selected-topic practice, hint-aware review, progress persistence, and personal-phrase workflows. Final feature allocation, including API/skill delivery timing, remains to be agreed before implementation.
+
+Before authoring all A2 material, propose a small complete pilot module to test the learning loop and UI with the owner. This is early feedback, not a substitute for the requested full A2 stage or a claim of A2 readiness.
+
+Proposed meaning of a strong A2 stage: cover the mapped in-scope A1/A2 objectives with reviewed lessons and sufficient varied practice; offer cumulative independent reading/writing tasks and delayed mixed review; distinguish independent answers from hints. A single successful quiz or completed lesson does not prove durable mastery. Product completeness and an individual learner's assessed proficiency are separate.
+
+Use the [Instituto Cervantes Plan curricular index](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/indice.htm), read on 2026-10-07, as a source for Spanish-specific objectives/content inventories. It organizes objectives and language content by A1-A2, B1-B2, and C1-C2. Detailed mapping to this course is not yet done; do not infer that browsing the index establishes coverage. Author original course material and track source/content rights separately.
 
 ## Personal phrase collection
 
@@ -180,7 +210,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Define the course destination and practical reading/writing abilities first; then Spanish variety, explanation/UI languages, and treatment of familiar foundations. Ask one question at a time.
+2. The staged horizon through at least B2 and A2-first delivery are settled under C-024. Clarify the possible beyond-B2 mention, then discuss Spanish variety, explanation/UI languages, and treatment of familiar foundations one question at a time.
 3. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
 4. Define session duration, device, and whether listening-only exercises belong in scope. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
@@ -192,7 +222,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 ### Remaining product decisions
 
 - Personal phrase details: resolve checking responsibility with content quality and exact scheduling with review design. All three entry paths and the combined practice direction are settled under C-022/C-023.
-- Course destination: target level and practical abilities, Spanish variety, explanation/UI languages, and how to move quickly through familiar foundations without losing practice access.
+- Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish variety, explanation/UI languages, and handling familiar foundations remain open.
 - Session flow: time available, focused versus mixed practice, new-material balance, and recovery after missed days without an unbounded mandatory backlog.
 - Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
 - Exercise feedback: valid alternative translations, typing/accents versus grammar errors, hint levels, and what the app does when a free-text answer cannot be judged reliably without AI.
@@ -203,7 +233,7 @@ These are open decisions, not a questionnaire to answer all at once. After resol
 
 ## Open boundaries
 
-Target level and handling familiar foundations; Spanish variety; explanation/UI languages; desktop/mobile; session duration; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Beginner foundations and exclusion of conversation/speaking are settled.
+Beyond-B2 scope, detailed level mapping, and handling familiar foundations; Spanish variety; explanation/UI languages; desktop/mobile; session duration; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Beginner foundations, staged delivery through at least B2 with A2 first, and exclusion of conversation/speaking are settled.
 
 ## Reference inspected
 

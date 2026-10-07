@@ -10,4 +10,4 @@ The owner requested a public repository on 2026-10-07 and a discussion-first pro
 - [Current status](docs/STATUS.md): the next discussion and delivery state.
 - [Contributor instructions](AGENTS.md): scope and workflow.
 
-The curriculum, learner level, platform, technology, and license are undecided. Public visibility does not select a license. Do not import private learning records or third-party lesson materials into this repository.
+The course is planned from beginner foundations through at least B2, delivered as beginner-to-A2 first, then B1 and B2. Speaking/conversation is excluded; level labels guide the in-scope curriculum rather than certify overall proficiency. Detailed curriculum, platform, technology, and license remain undecided. Public visibility does not select a license. Do not import private learning records or third-party lesson materials into this repository.
