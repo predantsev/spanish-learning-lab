@@ -56,6 +56,12 @@ Source for C-022: on 2026-10-07, after discussing the three personal-phrase entr
 |---|---|
 | C-022 | Support all three personal-phrase entry paths: save a useful item from the course; add an existing Spanish phrase from outside the course with optional context; and capture an intended meaning in Ukrainian before knowing its Spanish wording. Unresolved entries remain drafts until the Spanish wording and meaning are checked; only ready entries become practice targets. |
 
+Source for C-023: the owner explicitly accepted combining both phrase-practice modes on 2026-10-07 and requested moving to the next topic once the current topic was sufficiently resolved.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-023 | Combine recall of the saved phrase with appropriate variations of its reusable construction. Start from the saved phrase and introduce small variations using familiar vocabulary and grammar; preserve fixed expressions where variation is inappropriate. |
+
 ## Personal phrase collection
 
 Accepted capture workflow under C-022:
@@ -66,11 +72,11 @@ Accepted capture workflow under C-022:
 
 Use distinct draft/needs-review and ready-for-practice states. Exact validation responsibility and UI wording remain to be specified; a structurally valid record alone does not prove language correctness. These states do not measure learner mastery. Personal records remain outside public source control.
 
-Next discussion: should practice cover an exact saved sentence, variations of a reusable construction, or both? Proposed default: both where appropriate, with variations limited to familiar vocabulary/grammar. This practice detail is not yet approved.
+Practice under C-023 combines the saved phrase with appropriate variations using familiar vocabulary and grammar. Exact variation frequency and any manual mode control remain implementation/design details, not a blocker to the next product discussion. Checking responsibility will be resolved with the wider content-quality workflow.
 
 ## Design directions and unresolved details
 
-The owner accepted the study/practice direction under C-014. Rows below retain candidate details; they are not empirical effectiveness claims or fully approved specifications. C-022 settles the three P-009 entry paths; phrase practice details, validation responsibility, and P-010 embedded AI remain undecided.
+The owner accepted the study/practice direction under C-014. Rows below retain candidate details; they are not empirical effectiveness claims or fully approved specifications. C-022 and C-023 settle the P-009 entry paths and combined practice direction; detailed scheduling, validation responsibility, and P-010 embedded AI remain undecided.
 
 | ID | Proposal | Example or unresolved detail |
 |---|---|---|
@@ -82,7 +88,7 @@ The owner accepted the study/practice direction under C-014. Rows below retain c
 | P-006 | Keep review manageable after missed days. | Explore a session limit, prioritization, and optional extra practice rather than mandatory completion of an unlimited backlog. |
 | P-007 | Use skill-specific hints and separate evidence for independent, hinted, and revealed answers. | A vocabulary hint must not automatically mark the whole grammar topic weak. Ambiguous errors need a focused follow-up rather than a confident diagnosis. |
 | P-008 | Alternate focused drills with optional contrast exercises across already studied tenses. | Forming a tense when its name is supplied differs from choosing it in context. Unstudied grammar should not silently enter a selected practice session. |
-| P-009 | Maintain a private personal phrase collection with all three entry paths under C-022. | Capture is agreed; practicing exact phrases versus reusable variations and the detailed checking workflow remain open. Do not turn an unchecked attempt into a memorization target. |
+| P-009 | Maintain a private personal phrase collection with all three entry paths under C-022. | Capture and combined exact-phrase/reusable-variation practice are agreed under C-022 and C-023; detailed scheduling and checking workflow remain open. Do not turn an unchecked attempt into a memorization target. |
 | P-010 | Explore a deterministic core with optional external assistant support. | See the deferred integration plan below. Embedded AI grading is a separate undecided feature; external help does not by itself solve arbitrary free-text grading during independent use. |
 
 ## Deferred external-assistant integration plan
@@ -173,9 +179,9 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 
 ## Discussion sequence
 
-1. Personal phrase entry paths are settled under C-022. Resolve exact-sentence versus reusable-construction practice and the checking workflow next; then move to the next topic.
-2. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
-3. Define target level, practical situations, Spanish variety, explanation/UI languages, and treatment of familiar foundations.
+1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
+2. Define the course destination and practical reading/writing abilities first; then Spanish variety, explanation/UI languages, and treatment of familiar foundations. Ask one question at a time.
+3. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
 4. Define session duration, device, and whether listening-only exercises belong in scope. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
 6. Agree on curriculum, sample lesson and review flows, acceptance criteria, and implementation scope.
@@ -185,7 +191,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 
 ### Remaining product decisions
 
-- Personal phrase practice: checking responsibility and reusable constructions versus fixed phrases. All three entry paths are settled under C-022 and should not be reopened without new reason.
+- Personal phrase details: resolve checking responsibility with content quality and exact scheduling with review design. All three entry paths and the combined practice direction are settled under C-022/C-023.
 - Course destination: target level and practical abilities, Spanish variety, explanation/UI languages, and how to move quickly through familiar foundations without losing practice access.
 - Session flow: time available, focused versus mixed practice, new-material balance, and recovery after missed days without an unbounded mandatory backlog.
 - Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
