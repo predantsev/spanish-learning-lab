@@ -1,14 +1,16 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-08. Status: first design draft for discussion, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-027. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-08. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
 Build from beginner foundations to a strong A2-aligned reading/writing curriculum, with grammar and vocabulary supporting practical written tasks. Repeated practice and personal phrases operate throughout. Speaking/conversation is excluded; listening-only activities remain undecided. No overall CEFR proficiency claim is implied.
 
-The map below is an original proposed teaching sequence, informed by sources S1-S3. It is not the sequence prescribed by Instituto Cervantes, and the grouping is not a fixed lesson count. Each row will need smaller lessons, reviewed examples, explicit accepted answers, and delayed checks. Topic familiarity may change pacing; it must not fabricate mastery evidence.
+Spanish of Spain is the main variety (C-028). UI, explanation, and hint languages remain undecided.
 
-## Proposed block map
+The map below is an original teaching sequence accepted as the planning outline under C-029, informed by sources S1-S3. It is not the sequence prescribed by Instituto Cervantes, and the grouping is not a fixed lesson count. Each row will need smaller lessons, reviewed examples, explicit accepted answers, and delayed checks. Topic familiarity may change pacing; it must not fabricate mastery evidence.
+
+## Accepted block outline
 
 | Draft ID | Learning focus | Written outcome | Foundation to revisit |
 |---|---|---|---|
@@ -27,7 +29,7 @@ The map below is an original proposed teaching sequence, informed by sources S1-
 | A2-07 | Requests, instructions, practical messages, and useful verb constructions | Read brief instructions and write a request with a reason | Pronoun placement and prior sentence patterns |
 | A2-08 | Cumulative reading and writing, including personal constructions | Read a short practical text and produce a suitable written response | Weak skills across A1/A2; later independent rechecks |
 
-Prerequisites express dependencies, not mandatory completion of every earlier exercise. In particular A2-06 needs prior exposure to each tense being contrasted. Exact ordering between the past-tense blocks is open until Spanish variety and the complete objective mapping are settled.
+Prerequisites express dependencies, not mandatory completion of every earlier exercise. In particular A2-06 needs prior exposure to each tense being contrasted. Detailed sequencing can be refined during complete objective mapping; Spanish of Spain is now selected.
 
 ## Threads that must not disappear between blocks
 
@@ -52,7 +54,7 @@ Candidate micro-lessons (grouping remains open):
 
 Exercise candidates: identify a written form, enter a short item from a meaning cue, repair punctuation, and transfer the same skill into a small sentence. Do not assess a new verb ending when the declared target is keyboard entry. Letter-sound material, if included for reading support, does not authorize spoken practice; any audio remains a separate scope decision.
 
-Recommended handling of familiar foundations: offer a short optional self-check and direct access to practice without forcing a long introduction. The exact skip/self-check policy is not yet approved.
+Accepted handling of familiar foundations (C-029): offer a short optional self-check and direct access to practice without forcing a long introduction. Detailed thresholds and evidence rules remain to be designed; skipping an introduction does not certify mastery.
 
 ## Example of later detailed design: A2-03
 
@@ -66,7 +68,7 @@ Possible loop: concise rule reference -> targeted form practice -> contextual ga
 
 For every block, record: objective IDs; small prerequisite skills; proposed micro-lessons; practical text contexts; independent tasks; hint levels; acceptable-answer policy; likely confusions; return points; personal-phrase opportunities; phone interaction; and source/linguistic-review status. Content IDs must remain stable as the outline evolves.
 
-Next steps: choose the main Spanish variety, discuss A1-01 and the treatment of familiar material, then detail the remaining blocks incrementally. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
+Next steps: settle UI/explanation/hint languages and the learning-session flow, then detail the blocks incrementally within the accepted outline. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
 
 ## Source record and limits
 
