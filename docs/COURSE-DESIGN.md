@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-07. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-08. This is a discovery document, not an approved implementation specification.
 
 ## Confirmed intent
 
@@ -67,6 +67,30 @@ Source for C-024: the owner requested a complete course designed to at least B2 
 | ID | Confirmed requirement |
 |---|---|
 | C-024 | Plan the full course through at least B2 from the outset, with staged delivery: beginner foundations through a strong A2 as the first complete usable stage, followed by B1 and B2. The owner must be able to start testing the first stage without waiting for later stages. |
+
+Source for C-025 through C-027: the owner's 2026-10-08 request to plan a later visual-design exploration, support course use and exercises on a phone, and begin detailed A1-A2 planning.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-025 | Include a dedicated later design stage: explore visual alternatives, create sketches/mockups, compare usability, and choose a direction before final UI implementation. |
+| C-026 | Support using the course on a mobile phone, including reading, scrolling, and completing exercises, alongside computer use. A native app, cloud sync, and specific hosting are not implied. |
+| C-027 | Begin detailed A1-A2 curriculum design now; keep B1-B2 at roadmap depth for the time being. This authorizes planning, not application implementation. |
+
+## Curriculum design documents
+
+[CURRICULUM-A1-A2.md](CURRICULUM-A1-A2.md) owns the evolving detailed first-stage syllabus. Its initial block map and A1-01 micro-lessons are proposals for discussion, not owner-approved content or completed coverage. Product scope and confirmed decisions remain in this document; current work remains in STATUS.md.
+
+## Planned visual design and mobile usability stage
+
+Accepted direction: C-025/C-026. Proposed execution sequence, to revisit after the main learning flows are settled:
+
+1. Gather visual references and sketch two or three alternatives around the same representative lesson and review task. Do not choose a theme from appearance alone.
+2. Compare course navigation, explanation, exercise entry, progressive hints, feedback, review selection, and the personal-phrase collection on both computer and phone.
+3. Prototype the chosen direction and test its primary flows before final UI implementation. Keep findings and the chosen design alongside the canonical product docs when this stage begins.
+
+A responsive browser application is the proposed initial delivery approach; native apps are not required by this request. Phone use must support actual practice, not just reading. Proposed checks: readable text, touch controls, on-screen keyboard and accented input, feedback visible while typing, resumable drafts, no hover-only controls, and alternatives to drag-only tasks. Verify on real mobile browsers in addition to viewport previews. Exact devices/browsers remain open.
+
+Phone usability and progress sharing between devices are separate requirements: cross-device sync, hosting/reachability, offline behavior, and accounts are still undecided. Do not promise that a laptop-only local server or browser-local progress will automatically be available on a phone.
 
 ## Course horizon and staged delivery
 
@@ -210,11 +234,11 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. The staged horizon through at least B2 and A2-first delivery are settled under C-024. Clarify the possible beyond-B2 mention, then discuss Spanish variety, explanation/UI languages, and treatment of familiar foundations one question at a time.
+2. Begin the detailed A1-A2 draft under C-027, using CURRICULUM-A1-A2.md. Confirm the main Spanish variety and discuss the first foundation block, then continue block by block. Beyond-B2 clarification remains non-blocking.
 3. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
-4. Define session duration, device, and whether listening-only exercises belong in scope. Speaking remains excluded.
+4. Define session duration and whether listening-only exercises belong in scope. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
-6. Agree on curriculum, sample lesson and review flows, acceptance criteria, and implementation scope.
+6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
 7. Revisit the deferred external-assistant plan with the settled domain model and concrete user workflows.
 
 Discuss a small number of questions per turn. Answers may change the sequence. Do not treat suggested options as decisions.
@@ -227,13 +251,14 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
 - Exercise feedback: valid alternative translations, typing/accents versus grammar errors, hint levels, and what the app does when a free-text answer cannot be judged reliably without AI.
 - Content scope and quality: whether listening-only activities are included, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
-- Product environment and continuity: desktop/mobile, local/hosted operation, offline expectations, progress backup/export, and whether multiple devices are needed.
+- Product environment and continuity: computer and phone use are settled; local/hosted operation, supported browsers, offline expectations, progress backup/export, and cross-device sync remain open.
+- Visual design: a comparison/prototyping stage is required; concepts and final UI direction are not selected.
 
 These are open decisions, not a questionnaire to answer all at once. After resolving them, walk through one complete lesson and one return-to-practice session, then finalize acceptance criteria and the deferred integration design.
 
 ## Open boundaries
 
-Beyond-B2 scope, detailed level mapping, and handling familiar foundations; Spanish variety; explanation/UI languages; desktop/mobile; session duration; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Beginner foundations, staged delivery through at least B2 with A2 first, and exclusion of conversation/speaking are settled.
+Beyond-B2 scope, detailed level mapping, and handling familiar foundations; Spanish variety; explanation/UI languages; supported computer/mobile browsers and cross-device continuity; session duration; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Beginner foundations, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
 
 ## Reference inspected
 
