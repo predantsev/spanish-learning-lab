@@ -76,9 +76,16 @@ Source for C-025 through C-027: the owner's 2026-10-08 request to plan a later v
 | C-026 | Support using the course on a mobile phone, including reading, scrolling, and completing exercises, alongside computer use. A native app, cloud sync, and specific hosting are not implied. |
 | C-027 | Begin detailed A1-A2 curriculum design now; keep B1-B2 at roadmap depth for the time being. This authorizes planning, not application implementation. |
 
+Source for C-028 and C-029: on 2026-10-08, the owner accepted the preceding A1-A2 outline and familiar-foundations proposal and explicitly selected Spanish of Spain.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-028 | Use Spanish of Spain as the main course variety for examples and language targets. UI and explanation languages remain a separate open decision. |
+| C-029 | Adopt the presented A1-A2 outline and a brief practical foundation with a short optional self-check for familiar basics, without forcing a long introduction. Detailed lessons, assessment thresholds, and coverage validation remain pending. |
+
 ## Curriculum design documents
 
-[CURRICULUM-A1-A2.md](CURRICULUM-A1-A2.md) owns the evolving detailed first-stage syllabus. Its initial block map and A1-01 micro-lessons are proposals for discussion, not owner-approved content or completed coverage. Product scope and confirmed decisions remain in this document; current work remains in STATUS.md.
+[CURRICULUM-A1-A2.md](CURRICULUM-A1-A2.md) owns the evolving detailed first-stage syllabus. Its initial block map and brief familiar-foundations approach are accepted under C-029. Detailed micro-lessons remain a working draft; this is not completed or validated coverage. Product scope and confirmed decisions remain in this document; current work remains in STATUS.md.
 
 ## Planned visual design and mobile usability stage
 
@@ -234,7 +241,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Begin the detailed A1-A2 draft under C-027, using CURRICULUM-A1-A2.md. Confirm the main Spanish variety and discuss the first foundation block, then continue block by block. Beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Next agree on UI, explanation, and hint languages. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
 4. Define session duration and whether listening-only exercises belong in scope. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
@@ -246,7 +253,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 ### Remaining product decisions
 
 - Personal phrase details: resolve checking responsibility with content quality and exact scheduling with review design. All three entry paths and the combined practice direction are settled under C-022/C-023.
-- Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish variety, explanation/UI languages, and handling familiar foundations remain open.
+- Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish of Spain and the brief familiar-foundations approach are settled; explanation/UI languages and detailed assessments remain open.
 - Session flow: time available, focused versus mixed practice, new-material balance, and recovery after missed days without an unbounded mandatory backlog.
 - Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
 - Exercise feedback: valid alternative translations, typing/accents versus grammar errors, hint levels, and what the app does when a free-text answer cannot be judged reliably without AI.
@@ -258,7 +265,7 @@ These are open decisions, not a questionnaire to answer all at once. After resol
 
 ## Open boundaries
 
-Beyond-B2 scope, detailed level mapping, and handling familiar foundations; Spanish variety; explanation/UI languages; supported computer/mobile browsers and cross-device continuity; session duration; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Beginner foundations, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
+Beyond-B2 scope, detailed level mapping, and assessment thresholds; explanation/UI languages; supported computer/mobile browsers and cross-device continuity; session duration; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
 
 ## Reference inspected
 

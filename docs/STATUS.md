@@ -15,7 +15,7 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 - Recorded C-014 through C-016 and a deferred external-assistant plan in COURSE-DESIGN.md. The revised recommendation is direct application API access plus a skill; MCP is optional for a later client need. No connection or skill has been implemented.
 - Recorded C-017 through C-021. The owner accepted recent-context selection, structured content via the API, and neutral assistance evidence; exact implementation and evidence weighting remain open. Removed MCP from the initial critical path after evaluating the simpler local workflow.
 - Created the public repository predantsev/spanish-learning-lab and the Startups checkout. Bootstrap documentation is tracked by issue #1 and delivered through its pull request.
-- No application, authored lesson corpus, runtime, or technical stack has been created or selected. A proposed A1-A2 curriculum draft now exists.
+- No application, authored lesson corpus, runtime, or technical stack has been created or selected. An accepted A1-A2 outline with draft detailed curriculum now exists.
 - Recorded C-022: save from course, add an existing Spanish phrase, and capture Ukrainian intent as a draft; all three are required for future implementation. Unchecked drafts must not enter practice as correct answer models.
 - Recorded C-023: combine exact saved-phrase recall with appropriate construction variations using familiar material. The core personal-phrase topic is now settled.
 - Recorded C-024: design through at least B2; deliver beginner-to-A2 first for owner testing, then B1 and B2. A possible C1 mention is pending clarification. Proposed an early pilot and continuity across stages; no implementation started.
@@ -23,9 +23,11 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 - Recorded C-025/C-026/C-027: later visual-design exploration, computer and phone practice, and detailed A1-A2 planning now.
 - Created docs/CURRICULUM-A1-A2.md with a proposed block map, review connections, first-block micro-lessons, and a later tense-module sketch. This is partial curriculum design, not completed content.
 
+- Recorded C-028/C-029: Spanish of Spain is the main variety; the owner accepted the A1-A2 outline and brief familiar-foundations approach with an optional self-check. Detailed lessons and assessments still need design and review.
+
 ## Next conversation
 
-Continue the A1-A2 draft one block at a time. A question about the main Spanish variety has been asked; the common foundation can proceed while it remains open. Discuss A1-01 and how familiar basics should be handled, then progressively expand the remaining blocks. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope, explanation/UI languages, and cross-device sync remain open; speaking is excluded.
+Next discuss UI, explanation, and hint languages, one focused decision at a time. Then settle the session flow and review behavior, while progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope, explanation/UI languages, and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -55,3 +57,5 @@ Personal-phrase practice update: recorded the owner's approval of combined exact
 Staged-course planning update: recorded the owner request for A2-first delivery and a horizon of at least B2. Read Council of Europe skill-domain guidance and the Instituto Cervantes curriculum index; detailed curriculum mapping and proficiency validation have not been performed. No overall CEFR level is certified.
 
 A1-A2 design start (2026-10-08): read Instituto Cervantes A1-A2 grammar and general objectives plus the curriculum index. The new syllabus records source sections and distinguishes the proposed teaching sequence from verified inventory contents. Detailed orthography/function/genre mapping and language review remain pending. No UI or mobile runtime was built.
+
+Course-direction acceptance (2026-10-08): recorded the owner's agreement with the preceding outline/familiar-foundations proposal and explicit choice of Spanish of Spain. Documentation consistency and git diff whitespace checks only; no implementation or new linguistic validation.
