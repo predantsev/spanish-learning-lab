@@ -90,6 +90,12 @@ Source for C-030 and C-031: the owner's 2026-10-08 follow-up selected Ukrainian 
 | C-030 | Initially provide the interface, instructions, explanations, hints, and feedback in Ukrainian only. Spanish of Spain remains the language being studied. No additional instructional language is required for the first release. |
 | C-031 | Plan internationalization from the outset so additional interface and instructional languages can be added later. Include future agent API support for preparing and adding translations. This is design scope, not authorization to implement or automatically publish unchecked translations. |
 
+Source for C-032: on 2026-10-08, the owner accepted the recommended-session proposal with free topic/mode selection and asked to move to the next discussion.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-032 | Combine a recommended session with direct access to course study, selected-topic/personal-phrase practice, and mixed review. Keep new material optional, offer flexible time guidance rather than a mandatory countdown, and allow stopping/resuming with saved work. Exact time presets and composition remain adjustable design details. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -103,9 +109,9 @@ Accepted scope: C-030/C-031. Proposed design details, with no library or storage
 
 Terminology and general design basis: [W3C, Localization vs. Internationalization](https://www.w3.org/International/questions/qa-i18n), read 2026-10-08, distinguishes preparing a product for localization from producing additional localizations and discusses separating localizable elements. The API and course-specific workflow above are design proposals, not W3C requirements or implemented behavior.
 
-## Session format: options for discussion
+## Accepted session format and design details
 
-The owner requested alternatives and trade-offs on 2026-10-08. None of the following defaults, durations, or session compositions is approved yet. Every option preserves the already accepted direct topic practice and optional new material (C-007).
+The owner accepted the recommended-plus-manual direction on 2026-10-08 under C-032. The comparison below records the alternatives considered; exact durations and composition remain design details. Direct topic practice and optional new material remain required (C-007).
 
 | Organization | Benefit | Trade-off |
 |---|---|---|
@@ -113,9 +119,9 @@ The owner requested alternatives and trade-offs on 2026-10-08. None of the follo
 | Learner-selected default: choose a topic, phrases, or review set each time | Direct control over today's need | More decisions; easy to overlook material that needs returning to |
 | Recommended session with manual overrides | Quick start while retaining topic and practice-only control | Recommendations must explain their selection and avoid unpredictable mixing |
 
-Recommended proposal: combine a suggested session with explicit course study, selected-topic/personal-phrase practice, and mixed review entry points. Personal phrases can be chosen separately or included where relevant, rather than requiring a separate mandatory daily routine.
+Accepted direction: combine a suggested session with explicit course study, selected-topic/personal-phrase practice, and mixed review entry points. Personal phrases can be chosen separately or included where relevant, rather than requiring a separate mandatory daily routine.
 
-Proposed flow:
+Accepted flow direction; exact presets and composition remain adjustable:
 
 1. Offer a suggested activity and resume access, plus direct topic selection. Show what the session covers and whether it includes anything new.
 2. Optionally choose a rough time budget, for example 5, 15, or 30 minutes, or no limit. These are illustrative product choices, not evidence-backed optimal durations or mandatory countdowns. Preserve the previous preference instead of requiring setup every visit.
@@ -125,7 +131,30 @@ Proposed flow:
 
 An illustrative 15-minute mixed session might allocate roughly 3 minutes to earlier material, 4 to a small new concept, and 8 to written practice; reading speed and hints can change this. Never cut off an answer or require the estimate to be met. Detailed intervals, mastery rules, grading, and missed-day scheduling remain separate next topics.
 
-Next focused question: whether this recommended-plus-manual structure fits the owner, before settling session length and composition in detail.
+The session direction is settled; continue with review and mastery controls below.
+
+## Review and mastery controls: next proposal
+
+Status: proposed for discussion on 2026-10-08, building on C-002/C-003/C-009/C-014/C-020. The owner has not yet approved the controls or scheduling policy below.
+
+Compare three approaches: manual-only selection gives control but requires the learner to remember what needs revisiting; a fixed timetable is predictable but handles different difficulties poorly; adaptive recommendations plus manual controls balance assistance and choice but must explain why an item returns. Recommend the third for this course. No scheduling library, algorithm, or interval constants are selected.
+
+Proposed behavior:
+
+- Schedule small skills, individual exceptions, and ready personal phrases, not an entire tense as a single pass/fail unit. Keep recognition, independent form production, and choosing a construction in context distinguishable. For example, recalling hacer -> hecho does not prove correct auxiliary selection or tense choice.
+- Offer a recall attempt before a refresher, while keeping the rule and hints accessible. Revisit with varied prompts using familiar vocabulary. Include relevant items in later mixed review only within the learner's selected scope.
+- Independent success supports gradually less frequent review. Success after a targeted hint or a revealed answer leads to an earlier independent check of the affected skill; immediately copying an answer is not durable recall evidence. Brief same-session practice can support learning, but later independent evidence remains distinct.
+- Attribute evidence only when the target and error are reasonably clear. A vocabulary hint must not mark conjugation weak; a general explanation does not automatically fail an attempt. Ambiguous grading should request a focused follow-up or remain uncertain. No inference from slow typing alone; phone entry and interruptions can affect elapsed time.
+- Preserve previous valid evidence after an error, rather than resetting the whole topic. Show neutral descriptions such as practiced, needs support, independently recalled, and stable in later checks; labels and thresholds are still proposals, not proficiency certification.
+- Provide a learner-controlled practice preference separate from observed evidence: repeat more; usual recommendations; I know this / occasional checks; and an explicit pause of automatic review. Pausing keeps manual access and history. Marking a skill known should reduce routine repetition and offer a brief optional check, without fabricating passed attempts or silently overriding a pause.
+- Explain recommendations from actual evidence (for example, a targeted hint on a previous attempt) instead of diagnosing the learner broadly. The preference applies to a visible skill/phrase or explicitly selected group.
+- Keep suggested review within the chosen session budget after missed days; prioritize a manageable selection rather than require clearing a growing backlog. Allow extra practice on demand. Missed days alone do not erase learning evidence or prove forgetting.
+
+Illustrative loop: the learner requests help with hecho, sees a short explanation, later produces it in a different familiar sentence without help, and encounters it again in a later session. Repeated independent successes can reduce frequency; a later relevant difficulty can bring it forward. Exact dates and evidence thresholds need a separate design and validation pass.
+
+Evidence basis: the abstract of [Karpicke and Roediger (2008), The critical importance of retrieval for learning](https://pubmed.ncbi.nlm.nih.gov/18276894/), read 2026-10-08, reports improved delayed recall from continued retrieval in a foreign-vocabulary experiment after initial successful recall. This motivates including later retrieval opportunities; it does not validate this application's grammar scheduler, UI labels, or any exact interval.
+
+Next focused decision: should marking something known keep occasional checks (recommended), with a separate explicit pause control, or remove it from automatic review? Discuss before approving the proposed controls. Answer checking remains the next separate topic.
 
 ## Curriculum design documents
 
@@ -285,9 +314,9 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. Next discuss the session-format options above. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Next discuss review and mastery controls above. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
-4. Define session duration and whether listening-only exercises belong in scope. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
+4. Refine optional time presets if needed and decide whether listening-only exercises belong in scope. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
 6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
 7. Revisit the deferred external-assistant plan with the settled domain model and concrete user workflows.
@@ -298,7 +327,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 
 - Personal phrase details: resolve checking responsibility with content quality and exact scheduling with review design. All three entry paths and the combined practice direction are settled under C-022/C-023.
 - Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish of Spain and the brief familiar-foundations approach are settled; Ukrainian instruction with future localization is settled; detailed assessments remain open.
-- Session flow: time available, focused versus mixed practice, new-material balance, and recovery after missed days without an unbounded mandatory backlog.
+- Session flow: recommended sessions with manual selection, optional new material, flexible time guidance, and resumable work are settled (C-032). Exact presets/composition and missed-day review prioritization remain to be refined.
 - Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
 - Exercise feedback: valid alternative translations, typing/accents versus grammar errors, hint levels, and what the app does when a free-text answer cannot be judged reliably without AI.
 - Content scope and quality: whether listening-only activities are included, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
@@ -309,7 +338,7 @@ These are open decisions, not a questionnaire to answer all at once. After resol
 
 ## Open boundaries
 
-Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; session duration; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
+Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
 
 ## Reference inspected
 

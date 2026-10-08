@@ -25,11 +25,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-028/C-029: Spanish of Spain is the main variety; the owner accepted the A1-A2 outline and brief familiar-foundations approach with an optional self-check. Detailed lessons and assessments still need design and review.
 
-- Recorded C-030/C-031: Ukrainian-only initial interface and instructional content, planned internationalization, and future agent API translation support. Added localization design proposals and three session-format alternatives; the recommended flexible session is not yet approved.
+- Recorded C-030/C-031: Ukrainian-only initial interface and instructional content, planned internationalization, and future agent API translation support. Added localization design proposals and three session-format alternatives; the recommended flexible session was subsequently accepted under C-032.
+
+- Recorded C-032: accepted recommended sessions plus manual topic/mode selection, optional new material, flexible time guidance, and stopping/resuming with saved work. Added adaptive review/mastery controls as unapproved proposals for the next discussion.
 
 ## Next conversation
 
-Next discuss the proposed session formats: course-led, learner-selected, or recommended with manual overrides. Ask one focused question about the recommended structure, then refine duration/composition before moving to repetition/mastery and answer checking. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope and cross-device sync remain open; speaking is excluded.
+Next discuss repetition/mastery: recommend adaptive per-skill review plus learner controls. The focused open decision is whether marking something known retains occasional checks, with a separate pause control. Proposed scheduling behavior is not yet approved. Discuss answer checking afterward; no need to reopen the accepted session format. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -63,4 +65,6 @@ A1-A2 design start (2026-10-08): read Instituto Cervantes A1-A2 grammar and gene
 
 Course-direction acceptance (2026-10-08): recorded the owner's agreement with the preceding outline/familiar-foundations proposal and explicit choice of Spanish of Spain. Documentation consistency and git diff whitespace checks only; no implementation or new linguistic validation.
 
-Localization/session planning (2026-10-08): recorded the owner's language decision and checked W3C internationalization terminology. Reviewed document consistency and whitespace. Session alternatives and illustrative timings are design proposals, not approved defaults or measured learning outcomes.
+Localization/session planning (2026-10-08): recorded the owner's language decision and checked W3C internationalization terminology. Reviewed document consistency and whitespace. Session alternatives and illustrative timings are design proposals, not measured learning outcomes; the general session direction was subsequently accepted under C-032.
+
+Session acceptance and review proposal (2026-10-08): recorded the owner's acceptance, checked documentation consistency and whitespace, and read the cited retrieval-study abstract. The research informs retrieval opportunities only; scheduling intervals, learner-control behavior, and grammar assessment remain proposals. No application implementation.
