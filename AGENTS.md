@@ -24,4 +24,4 @@ The primary Codex agent keeps docs/STATUS.md current at material milestones and 
 
 ## Docs localization
 
-None for documentation companions at this stage. Product languages are undecided.
+None for documentation companions at this stage. Product language decisions are recorded in docs/COURSE-DESIGN.md under C-030/C-031; repository documentation remains English.

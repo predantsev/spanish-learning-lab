@@ -25,9 +25,11 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-028/C-029: Spanish of Spain is the main variety; the owner accepted the A1-A2 outline and brief familiar-foundations approach with an optional self-check. Detailed lessons and assessments still need design and review.
 
+- Recorded C-030/C-031: Ukrainian-only initial interface and instructional content, planned internationalization, and future agent API translation support. Added localization design proposals and three session-format alternatives; the recommended flexible session is not yet approved.
+
 ## Next conversation
 
-Next discuss UI, explanation, and hint languages, one focused decision at a time. Then settle the session flow and review behavior, while progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope, explanation/UI languages, and cross-device sync remain open; speaking is excluded.
+Next discuss the proposed session formats: course-led, learner-selected, or recommended with manual overrides. Ask one focused question about the recommended structure, then refine duration/composition before moving to repetition/mastery and answer checking. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -36,6 +38,7 @@ Next discuss UI, explanation, and hint languages, one focused decision at a time
 - C-014 records acceptance of the general practice design, not blanket approval of every technical detail. Other product options remain proposals until agreed.
 - C-020 records acceptance of structured content, recent-context selection, and neutral assistance. C-021 asks for the simpler integration evaluation; API plus skill is now the recommendation, with execution/network access required and MCP optional.
 - Beginner foundations, independent practice selection, written exercises, adaptation to hints/errors, and exclusion of conversation/speaking are settled. An external-assistant connection is planned for later; embedded AI remains undecided.
+- The initial interface and instructional content are Ukrainian only; additional locales and agent-assisted translation are planned, not implemented.
 - Keep personal learning data out of this public repository.
 
 ## Verification
@@ -59,3 +62,5 @@ Staged-course planning update: recorded the owner request for A2-first delivery 
 A1-A2 design start (2026-10-08): read Instituto Cervantes A1-A2 grammar and general objectives plus the curriculum index. The new syllabus records source sections and distinguishes the proposed teaching sequence from verified inventory contents. Detailed orthography/function/genre mapping and language review remain pending. No UI or mobile runtime was built.
 
 Course-direction acceptance (2026-10-08): recorded the owner's agreement with the preceding outline/familiar-foundations proposal and explicit choice of Spanish of Spain. Documentation consistency and git diff whitespace checks only; no implementation or new linguistic validation.
+
+Localization/session planning (2026-10-08): recorded the owner's language decision and checked W3C internationalization terminology. Reviewed document consistency and whitespace. Session alternatives and illustrative timings are design proposals, not approved defaults or measured learning outcomes.

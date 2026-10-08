@@ -6,7 +6,7 @@ Updated: 2026-10-08. Status: outline and brief familiar-foundations approach acc
 
 Build from beginner foundations to a strong A2-aligned reading/writing curriculum, with grammar and vocabulary supporting practical written tasks. Repeated practice and personal phrases operate throughout. Speaking/conversation is excluded; listening-only activities remain undecided. No overall CEFR proficiency claim is implied.
 
-Spanish of Spain is the main variety (C-028). UI, explanation, and hint languages remain undecided.
+Spanish of Spain is the main variety (C-028). The initial interface, instructions, explanations, hints, and feedback are Ukrainian only, with future localization planned under C-030/C-031. Spanish remains the language being studied.
 
 The map below is an original teaching sequence accepted as the planning outline under C-029, informed by sources S1-S3. It is not the sequence prescribed by Instituto Cervantes, and the grouping is not a fixed lesson count. Each row will need smaller lessons, reviewed examples, explicit accepted answers, and delayed checks. Topic familiarity may change pacing; it must not fabricate mastery evidence.
 
@@ -68,7 +68,7 @@ Possible loop: concise rule reference -> targeted form practice -> contextual ga
 
 For every block, record: objective IDs; small prerequisite skills; proposed micro-lessons; practical text contexts; independent tasks; hint levels; acceptable-answer policy; likely confusions; return points; personal-phrase opportunities; phone interaction; and source/linguistic-review status. Content IDs must remain stable as the outline evolves.
 
-Next steps: settle UI/explanation/hint languages and the learning-session flow, then detail the blocks incrementally within the accepted outline. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
+Next steps: discuss the learning-session flow, then detail the blocks incrementally within the accepted outline. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
 
 ## Source record and limits
 
