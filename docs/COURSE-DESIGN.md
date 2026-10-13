@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-08. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-13. This is a discovery document, not an approved implementation specification.
 
 ## Confirmed intent
 
@@ -96,6 +96,12 @@ Source for C-032: on 2026-10-08, the owner accepted the recommended-session prop
 |---|---|
 | C-032 | Combine a recommended session with direct access to course study, selected-topic/personal-phrase practice, and mixed review. Keep new material optional, offer flexible time guidance rather than a mandatory countdown, and allow stopping/resuming with saved work. Exact time presets and composition remain adjustable design details. |
 
+Source for C-033: on 2026-10-13, the owner accepted the preceding review recommendations, including occasional checks after marking an item known and a separate pause, and requested moving to the next topic.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-033 | Use adaptive review for specific skills, exceptions, and ready phrases, with manual frequency controls. Independent success can reduce frequency; relevant errors or help can bring practice forward without resetting the whole topic. Marking an item known retains occasional checks; an explicit pause disables automatic selection while preserving history and manual access. Keep review manageable after missed days. Exact intervals, evidence thresholds, and labels remain to be designed. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -133,13 +139,13 @@ An illustrative 15-minute mixed session might allocate roughly 3 minutes to earl
 
 The session direction is settled; continue with review and mastery controls below.
 
-## Review and mastery controls: next proposal
+## Accepted review and mastery direction
 
-Status: proposed for discussion on 2026-10-08, building on C-002/C-003/C-009/C-014/C-020. The owner has not yet approved the controls or scheduling policy below.
+The owner accepted the general review direction and manual controls on 2026-10-13 under C-033, building on C-002/C-003/C-009/C-014/C-020. Exact scheduling, thresholds, UI labels, and diagnostic mechanisms remain design details.
 
-Compare three approaches: manual-only selection gives control but requires the learner to remember what needs revisiting; a fixed timetable is predictable but handles different difficulties poorly; adaptive recommendations plus manual controls balance assistance and choice but must explain why an item returns. Recommend the third for this course. No scheduling library, algorithm, or interval constants are selected.
+Compare three approaches: manual-only selection gives control but requires the learner to remember what needs revisiting; a fixed timetable is predictable but handles different difficulties poorly; adaptive recommendations plus manual controls balance assistance and choice but must explain why an item returns. The third is the accepted direction for this course. No scheduling library, algorithm, or interval constants are selected.
 
-Proposed behavior:
+Accepted behavior direction, with detailed mechanics still to be designed:
 
 - Schedule small skills, individual exceptions, and ready personal phrases, not an entire tense as a single pass/fail unit. Keep recognition, independent form production, and choosing a construction in context distinguishable. For example, recalling hacer -> hecho does not prove correct auxiliary selection or tense choice.
 - Offer a recall attempt before a refresher, while keeping the rule and hints accessible. Revisit with varied prompts using familiar vocabulary. Include relevant items in later mixed review only within the learner's selected scope.
@@ -154,7 +160,33 @@ Illustrative loop: the learner requests help with hecho, sees a short explanatio
 
 Evidence basis: the abstract of [Karpicke and Roediger (2008), The critical importance of retrieval for learning](https://pubmed.ncbi.nlm.nih.gov/18276894/), read 2026-10-08, reports improved delayed recall from continued retrieval in a foreign-vocabulary experiment after initial successful recall. This motivates including later retrieval opportunities; it does not validate this application's grammar scheduler, UI labels, or any exact interval.
 
-Next focused decision: should marking something known keep occasional checks (recommended), with a separate explicit pause control, or remove it from automatic review? Discuss before approving the proposed controls. Answer checking remains the next separate topic.
+Marking something known retains occasional checks; automatic review can be paused separately (C-033). Continue with written-answer checking below.
+
+## Written-answer checking: next proposal
+
+Status: proposed for discussion on 2026-10-13, not an approved grading architecture or implemented capability. Preserve written translation and sentence production under C-008; do not narrow the course to choice exercises just to simplify grading.
+
+| Approach | Benefit | Limitation |
+|---|---|---|
+| A single reference answer | Easy to author a basic comparison | Cannot by itself distinguish an incorrect answer from an unlisted valid wording; unsuitable as the sole correctness test |
+| Embedded AI for open responses | Candidate for flexible language review | Requires separate quality evaluation, uncertainty handling, cost/privacy choices, and provider integration; not approved |
+| Reviewed rules and answer variants, with an explicit unresolved path | Bounded exercises can work without embedded AI; unknown wording is not automatically penalized | Accepted variants require authoring/review; open writing sometimes needs a separate review step |
+
+Recommend the third as the initial design direction, with on-demand external assistance through the already planned API/skill connection. Embedded AI remains an option for a later explicit decision. This recommendation is based on the requested deterministic-core/external-assistant direction, not a completed feasibility or accuracy test.
+
+Proposed behavior:
+
+- Every exercise declares its target: form production, choosing a tense, meaning, a particular construction, or orthography. When a specific construction is required, state it before the attempt. A valid paraphrase that avoids the target is not automatically bad Spanish; explain that the target remains unassessed and offer a targeted retry.
+- For bounded exercises, use reviewed answers/alternatives and narrowly scoped rules. Preserve open translation and free writing, but do not claim exhaustive automatic coverage. Similarity to a reference string alone is not proof of semantic correctness or error.
+- Distinguish fully accepted, target demonstrated with a separate correction needed, confirmed target error, and not confidently assessed. These are proposed feedback categories, separate from independent/assisted/answer-seen evidence. A valid alternative does not need to match a preferred phrase verbatim.
+- Ignore harmless formatting differences where the exercise permits them. Keep accents, letter distinctions, and meaningful punctuation visible; never globally remove diacritics or infer that every one-character difference is a typing slip. Orthographic corrections should not automatically invalidate an independently established grammar skill. If the intended form is ambiguous, ask for a retry or leave that skill unresolved.
+- Give specific Ukrainian feedback: highlight the relevant span, briefly explain the rule, and offer a retry. Reveal the full answer on request; preserve the initial attempt and distinguish correction after help from independent first-attempt success. Exact hint levels and retry limits remain open.
+- If an answer is unlisted and cannot be judged reliably, say so, show a reference only on request, preserve the original answer, and allow skipping or requesting external review. An unresolved target yields neither a pass nor a failure; independently verified subskills may still retain their evidence. Self-reported correctness is labeled separately and must not silently become verified mastery.
+- The future assistant may review the prompt, target, original answer, and allowed context, then propose an explained verdict or a new accepted variant via the API. Store the review provenance separately from the original attempt. A content correction should permit correction of affected grading evidence without inventing independent attempts. Public publication and language validation remain separate operations.
+
+Orthography basis: [FundéuRAE, tilde diacrítica, uso](https://www.fundeu.es/recomendacion/tilde-diacritica/), checked 2026-10-13, distinguishes pairs including tú/tu and él/el by meaning or grammatical function. This supports preserving distinctions in evaluation; the feedback policy above is our proposal, not a prescribed grading scheme.
+
+Next focused decision: whether to use reviewed automatic checking for supported cases and an explicit unresolved/external-review path for others, without requiring embedded AI for every answer. Discuss strictness and hint details within this topic before moving to content quality and listening scope.
 
 ## Curriculum design documents
 
@@ -314,8 +346,8 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Next discuss review and mastery controls above. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
-3. Discuss how focused practice and mixed review should interact, and what "I have learned this" should change.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Next discuss written-answer checking above. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+3. Discuss written-answer checking: valid alternatives, target-specific feedback, orthography, and the unresolved/external-review path. Review-control direction is settled; exact scheduling and thresholds remain future design work.
 4. Refine optional time presets if needed and decide whether listening-only exercises belong in scope. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
 6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
@@ -328,7 +360,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Personal phrase details: resolve checking responsibility with content quality and exact scheduling with review design. All three entry paths and the combined practice direction are settled under C-022/C-023.
 - Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish of Spain and the brief familiar-foundations approach are settled; Ukrainian instruction with future localization is settled; detailed assessments remain open.
 - Session flow: recommended sessions with manual selection, optional new material, flexible time guidance, and resumable work are settled (C-032). Exact presets/composition and missed-day review prioritization remain to be refined.
-- Mastery and review control: what marking a skill learned changes, whether occasional checks continue, and how manual practice preferences interact with scheduling.
+- Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033). Exact scheduling, thresholds, and manual-preference weighting remain to be designed.
 - Exercise feedback: valid alternative translations, typing/accents versus grammar errors, hint levels, and what the app does when a free-text answer cannot be judged reliably without AI.
 - Content scope and quality: whether listening-only activities are included, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
 - Product environment and continuity: computer and phone use are settled; local/hosted operation, supported browsers, offline expectations, progress backup/export, and cross-device sync remain open.
@@ -338,7 +370,7 @@ These are open decisions, not a questionnaire to answer all at once. After resol
 
 ## Open boundaries
 
-Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; review algorithm and mastery criteria. Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
+Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; listening-only exercises; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; exact review algorithm and mastery evidence thresholds. Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
 
 ## Reference inspected
 

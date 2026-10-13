@@ -1,6 +1,6 @@
 # Current status
 
-Updated: 2026-10-08.
+Updated: 2026-10-13.
 
 ## Goal and phase
 
@@ -27,11 +27,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-030/C-031: Ukrainian-only initial interface and instructional content, planned internationalization, and future agent API translation support. Added localization design proposals and three session-format alternatives; the recommended flexible session was subsequently accepted under C-032.
 
-- Recorded C-032: accepted recommended sessions plus manual topic/mode selection, optional new material, flexible time guidance, and stopping/resuming with saved work. Added adaptive review/mastery controls as unapproved proposals for the next discussion.
+- Recorded C-032: accepted recommended sessions plus manual topic/mode selection, optional new material, flexible time guidance, and stopping/resuming with saved work. Added adaptive review/mastery controls, subsequently accepted under C-033.
+
+- Recorded C-033 (2026-10-13): adaptive per-skill review and manual controls are accepted; marking known retains occasional checks and a separate pause disables automatic review. Exact intervals and thresholds remain open. Added written-answer-checking alternatives and a recommended unresolved/external-review path as proposals.
 
 ## Next conversation
 
-Next discuss repetition/mastery: recommend adaptive per-skill review plus learner controls. The focused open decision is whether marking something known retains occasional checks, with a separate pause control. Proposed scheduling behavior is not yet approved. Discuss answer checking afterward; no need to reopen the accepted session format. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope and cross-device sync remain open; speaking is excluded.
+Next discuss written-answer checking: reviewed rules/variants for supported cases and an explicit unresolved state with optional external review. This architecture is proposed, not approved. Then refine correction strictness and hint/retry behavior before content quality/listening. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -68,3 +70,5 @@ Course-direction acceptance (2026-10-08): recorded the owner's agreement with th
 Localization/session planning (2026-10-08): recorded the owner's language decision and checked W3C internationalization terminology. Reviewed document consistency and whitespace. Session alternatives and illustrative timings are design proposals, not measured learning outcomes; the general session direction was subsequently accepted under C-032.
 
 Session acceptance and review proposal (2026-10-08): recorded the owner's acceptance, checked documentation consistency and whitespace, and read the cited retrieval-study abstract. The research informs retrieval opportunities only; scheduling intervals, learner-control behavior, and grammar assessment remain proposals. No application implementation.
+
+Review acceptance and answer-checking proposal (2026-10-13): recorded the owner's acceptance of the preceding recommendations, checked the cited FundéuRAE accent distinctions, and reviewed documentation consistency/whitespace. No grader, review scheduler, or external connection exists; accuracy and learning outcomes remain untested.

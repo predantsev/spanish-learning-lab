@@ -1,6 +1,6 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-08. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-13. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
@@ -68,7 +68,7 @@ Possible loop: concise rule reference -> targeted form practice -> contextual ga
 
 For every block, record: objective IDs; small prerequisite skills; proposed micro-lessons; practical text contexts; independent tasks; hint levels; acceptable-answer policy; likely confusions; return points; personal-phrase opportunities; phone interaction; and source/linguistic-review status. Content IDs must remain stable as the outline evolves.
 
-Next steps: the session direction is accepted under C-032; discuss review/mastery and answer checking, then detail the blocks incrementally within the accepted outline. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
+Next steps: the session direction is accepted under C-032; review controls are accepted under C-033; discuss answer checking, then detail the blocks incrementally within the accepted outline. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
 
 ## Source record and limits
 
