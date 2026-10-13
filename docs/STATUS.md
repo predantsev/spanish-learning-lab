@@ -31,9 +31,11 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-033 (2026-10-13): adaptive per-skill review and manual controls are accepted; marking known retains occasional checks and a separate pause disables automatic review. Exact intervals and thresholds remain open. Added written-answer-checking alternatives and a recommended unresolved/external-review path as proposals.
 
+- Recorded C-034 (2026-10-13): the answer-checking direction is accepted, including valid variants, targeted Ukrainian corrections, meaningful orthography, and unresolved answers with optional external review. Added listening-scope alternatives; deferred optional listening is recommended but not approved.
+
 ## Next conversation
 
-Next discuss written-answer checking: reviewed rules/variants for supported cases and an explicit unresolved state with optional external review. This architecture is proposed, not approved. Then refine correction strictness and hint/retry behavior before content quality/listening. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope and cross-device sync remain open; speaking is excluded.
+Next choose listening scope: entirely text-based, optional audio in the first stage, or optional audio considered after the written A1-A2 stage is tested (recommended proposal). Then discuss content preparation and linguistic review, including personal phrases. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening-only scope and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -72,3 +74,5 @@ Localization/session planning (2026-10-08): recorded the owner's language decisi
 Session acceptance and review proposal (2026-10-08): recorded the owner's acceptance, checked documentation consistency and whitespace, and read the cited retrieval-study abstract. The research informs retrieval opportunities only; scheduling intervals, learner-control behavior, and grammar assessment remain proposals. No application implementation.
 
 Review acceptance and answer-checking proposal (2026-10-13): recorded the owner's acceptance of the preceding recommendations, checked the cited FundéuRAE accent distinctions, and reviewed documentation consistency/whitespace. No grader, review scheduler, or external connection exists; accuracy and learning outcomes remain untested.
+
+Answer-checking acceptance (2026-10-13): recorded the owner's approval and moved the next discussion to listening scope. Checked documentation consistency and whitespace. Audio options are product proposals; no audio decision or implementation is claimed.
