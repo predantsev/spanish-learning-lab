@@ -102,6 +102,12 @@ Source for C-033: on 2026-10-13, the owner accepted the preceding review recomme
 |---|---|
 | C-033 | Use adaptive review for specific skills, exceptions, and ready phrases, with manual frequency controls. Independent success can reduce frequency; relevant errors or help can bring practice forward without resetting the whole topic. Marking an item known retains occasional checks; an explicit pause disables automatic selection while preserving history and manual access. Keep review manageable after missed days. Exact intervals, evidence thresholds, and labels remain to be designed. |
 
+Source for C-034: on 2026-10-13, the owner accepted the preceding written-answer-checking recommendations and asked to continue planning.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-034 | Check supported written answers using reviewed rules and acceptable variants. Distinguish accepted answers, demonstrated target skills with separate corrections, confirmed errors, and unresolved answers. Do not penalize an unlisted answer merely for differing from a reference; retain it for optional external review without awarding an unverified pass. Give targeted Ukrainian feedback and retries, with full answers available separately. Preserve meaningful orthographic distinctions and allow reviewed corrections to answer variants and prior grading. Embedded AI is not required for the initial direction; exact checking mechanisms remain to be designed. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -162,9 +168,9 @@ Evidence basis: the abstract of [Karpicke and Roediger (2008), The critical impo
 
 Marking something known retains occasional checks; automatic review can be paused separately (C-033). Continue with written-answer checking below.
 
-## Written-answer checking: next proposal
+## Accepted written-answer-checking direction
 
-Status: proposed for discussion on 2026-10-13, not an approved grading architecture or implemented capability. Preserve written translation and sentence production under C-008; do not narrow the course to choice exercises just to simplify grading.
+The owner accepted the direction on 2026-10-13 under C-034. Exact checking rules, hint levels, and implementation remain to be designed; no grader exists. Preserve written translation and sentence production under C-008; do not narrow the course to choice exercises just to simplify grading.
 
 | Approach | Benefit | Limitation |
 |---|---|---|
@@ -172,21 +178,39 @@ Status: proposed for discussion on 2026-10-13, not an approved grading architect
 | Embedded AI for open responses | Candidate for flexible language review | Requires separate quality evaluation, uncertainty handling, cost/privacy choices, and provider integration; not approved |
 | Reviewed rules and answer variants, with an explicit unresolved path | Bounded exercises can work without embedded AI; unknown wording is not automatically penalized | Accepted variants require authoring/review; open writing sometimes needs a separate review step |
 
-Recommend the third as the initial design direction, with on-demand external assistance through the already planned API/skill connection. Embedded AI remains an option for a later explicit decision. This recommendation is based on the requested deterministic-core/external-assistant direction, not a completed feasibility or accuracy test.
+The third is the accepted initial direction, with on-demand external assistance through the already planned API/skill connection. Embedded AI remains an option for a later explicit decision. This accepted direction follows the requested deterministic-core/external-assistant workflow; it is not a completed feasibility or accuracy test.
 
-Proposed behavior:
+Accepted feedback direction; detailed mechanisms remain open:
 
 - Every exercise declares its target: form production, choosing a tense, meaning, a particular construction, or orthography. When a specific construction is required, state it before the attempt. A valid paraphrase that avoids the target is not automatically bad Spanish; explain that the target remains unassessed and offer a targeted retry.
 - For bounded exercises, use reviewed answers/alternatives and narrowly scoped rules. Preserve open translation and free writing, but do not claim exhaustive automatic coverage. Similarity to a reference string alone is not proof of semantic correctness or error.
-- Distinguish fully accepted, target demonstrated with a separate correction needed, confirmed target error, and not confidently assessed. These are proposed feedback categories, separate from independent/assisted/answer-seen evidence. A valid alternative does not need to match a preferred phrase verbatim.
+- Distinguish fully accepted, target demonstrated with a separate correction needed, confirmed target error, and not confidently assessed. These accepted feedback categories remain separate from independent/assisted/answer-seen evidence. A valid alternative does not need to match a preferred phrase verbatim.
 - Ignore harmless formatting differences where the exercise permits them. Keep accents, letter distinctions, and meaningful punctuation visible; never globally remove diacritics or infer that every one-character difference is a typing slip. Orthographic corrections should not automatically invalidate an independently established grammar skill. If the intended form is ambiguous, ask for a retry or leave that skill unresolved.
 - Give specific Ukrainian feedback: highlight the relevant span, briefly explain the rule, and offer a retry. Reveal the full answer on request; preserve the initial attempt and distinguish correction after help from independent first-attempt success. Exact hint levels and retry limits remain open.
 - If an answer is unlisted and cannot be judged reliably, say so, show a reference only on request, preserve the original answer, and allow skipping or requesting external review. An unresolved target yields neither a pass nor a failure; independently verified subskills may still retain their evidence. Self-reported correctness is labeled separately and must not silently become verified mastery.
 - The future assistant may review the prompt, target, original answer, and allowed context, then propose an explained verdict or a new accepted variant via the API. Store the review provenance separately from the original attempt. A content correction should permit correction of affected grading evidence without inventing independent attempts. Public publication and language validation remain separate operations.
 
-Orthography basis: [FundéuRAE, tilde diacrítica, uso](https://www.fundeu.es/recomendacion/tilde-diacritica/), checked 2026-10-13, distinguishes pairs including tú/tu and él/el by meaning or grammatical function. This supports preserving distinctions in evaluation; the feedback policy above is our proposal, not a prescribed grading scheme.
+Orthography basis: [FundéuRAE, tilde diacrítica, uso](https://www.fundeu.es/recomendacion/tilde-diacritica/), checked 2026-10-13, distinguishes pairs including tú/tu and él/el by meaning or grammatical function. This supports preserving distinctions in evaluation; the accepted product feedback policy above is not a grading scheme prescribed by that source.
 
-Next focused decision: whether to use reviewed automatic checking for supported cases and an explicit unresolved/external-review path for others, without requiring embedded AI for every answer. Discuss strictness and hint details within this topic before moving to content quality and listening scope.
+The owner accepted supported automatic checking plus an unresolved/external-review path (C-034). Continue with listening scope and content quality; exact retry counts and hint mechanics can be refined when detailing exercises.
+
+## Listening scope: next discussion
+
+Status: options proposed on 2026-10-13; no audio feature or delivery stage has been approved. Speaking/conversation remains excluded under C-012.
+
+| Option | Benefit for this product | Trade-off |
+|---|---|---|
+| Keep this course entirely text-based | Concentrates content and validation on the requested written learning loop; every activity works silently | No listening practice inside this course |
+| Include optional listening in the first stage | Allows learning from spoken Spanish as well as text from the start | Adds audio preparation, linguistic checks, playback UX, and separate assessment design to the first delivery |
+| Deliver the written A1-A2 stage first, with optional listening considered as a later increment | Keeps the initial scope focused and leaves room to add another input mode after testing | Listening is unavailable in the first stage and must be separately designed later |
+
+Recommend the third as a product-scope proposal based on the owner's original written-practice priority and A2-first testing plan, not a claim that delaying listening is pedagogically superior. Do not reserve a delivery date or imply that a written course certifies full CEFR proficiency.
+
+If the owner chooses listening later or now, candidate activities are a short recording followed by a meaning question, a gap-fill, or optional dictation, with written/choice responses only. Merely playing an example aloud is reference audio, not automatically a listening assessment. Keep listening evidence distinct from spelling or grammar evidence; a combined task can involve multiple skills and needs careful attribution.
+
+Audio would be optional for ordinary written sessions. A transcript can support access and explanation, but viewing it changes the evidence from an unaided listening attempt; completing a text alternative must not certify listening performance. Spain Spanish remains the main target variety. Recording/TTS provider, licensing, voice selection, transcripts, replay controls, and audio quality review remain future design decisions. No microphone, speech recording, or conversation workflow is implied.
+
+Next focused question: choose text-only, optional audio in the first stage, or optional audio deferred until after testing the written first stage. After that, discuss original course-material preparation, linguistic review, personal-phrase validation, and updates.
 
 ## Curriculum design documents
 
@@ -346,8 +370,8 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Next discuss written-answer checking above. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
-3. Discuss written-answer checking: valid alternatives, target-specific feedback, orthography, and the unresolved/external-review path. Review-control direction is settled; exact scheduling and thresholds remain future design work.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Next discuss listening scope and content quality. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and decide whether listening-only exercises belong in scope. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
 6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
@@ -361,7 +385,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish of Spain and the brief familiar-foundations approach are settled; Ukrainian instruction with future localization is settled; detailed assessments remain open.
 - Session flow: recommended sessions with manual selection, optional new material, flexible time guidance, and resumable work are settled (C-032). Exact presets/composition and missed-day review prioritization remain to be refined.
 - Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033). Exact scheduling, thresholds, and manual-preference weighting remain to be designed.
-- Exercise feedback: valid alternative translations, typing/accents versus grammar errors, hint levels, and what the app does when a free-text answer cannot be judged reliably without AI.
+- Exercise feedback: valid alternatives, targeted corrections, meaningful orthography, and unresolved answers with optional external review are settled (C-034). Exact checking rules, hint levels, retry limits, and content-review mechanics remain open.
 - Content scope and quality: whether listening-only activities are included, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
 - Product environment and continuity: computer and phone use are settled; local/hosted operation, supported browsers, offline expectations, progress backup/export, and cross-device sync remain open.
 - Visual design: a comparison/prototyping stage is required; concepts and final UI direction are not selected.
