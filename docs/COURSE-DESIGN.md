@@ -121,6 +121,12 @@ Source for C-037: on 2026-10-14, the owner accepted including short audio exerci
 |---|---|
 | C-037 | Include a small set of everyday-phrase listening exercises using native speakers from Spain in the first usable A1-A2 version. Expand toward longer listening material incrementally. Clip counts, detailed coverage, sources, and production arrangements remain open; this authorizes planning only. |
 
+Source for C-038: on 2026-10-14, the owner accepted the prepared-course-plus-reviewed-additions model and requested moving to the next discussion.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-038 | Use a prepared reviewed course core with varied exercises and agent-assisted additions through the planned API. New material enters practice after review, including personal constructions. Maintain the draft/review/ready distinction. Review responsibility, audio sources, budgets, and detailed production arrangements remain open. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -227,13 +233,13 @@ Native-speaker recording provenance, permission to use/distribute it, accurate t
 
 First-stage inclusion is settled under C-037. Next discuss content preparation and review, including native-speaker audio and personal phrases.
 
-## Content preparation and quality: next proposal
+## Accepted content preparation model
 
-Status: proposed for discussion on 2026-10-14. Content sourcing, reviewers, budgets, and production are not yet selected or authorized.
+The owner accepted the prepared core plus reviewed additions on 2026-10-14 under C-038. Content sourcing, reviewers, budgets, and production are not yet selected or authorized.
 
-Three approaches to compare: a fixed prepared course is predictable but requires manual additions for new needs; generating each exercise during use offers flexibility but makes each new item another validation task and would introduce an unapproved runtime AI dependency; a prepared reviewed core plus reviewed extensions combines a stable course with personal additions. Recommend the third, consistent with the accepted structured-content API and unresolved-answer path.
+Three approaches to compare: a fixed prepared course is predictable but requires manual additions for new needs; generating each exercise during use offers flexibility but makes each new item another validation task and would introduce an unapproved runtime AI dependency; a prepared reviewed core plus reviewed extensions combines a stable course with personal additions. The third is accepted under C-038, consistent with the structured-content API and unresolved-answer path.
 
-Proposed workflow:
+Accepted workflow direction; detailed review responsibilities remain open:
 
 - Prepare original lessons against the agreed curriculum, using references to check coverage and language rather than importing whole third-party courses. Each small lesson includes a target/prerequisites, concise Ukrainian explanation, Spanish examples, varied written/listening tasks as applicable, accepted answers, hints, known confusions, and review links. Not every lesson must contain every exercise type.
 - Keep a reviewed bank of varied examples and, where useful, validated templates with allowed combinations. Do not assume arbitrary word substitution preserves naturalness or correct answers. Repetition may reuse skills without requiring an unlimited supply of newly generated items.
@@ -245,7 +251,21 @@ Proposed workflow:
 
 A proposed first content pilot combines one small grammar lesson, several everyday listening phrases, and a few personal phrases to test the workflow before authoring the complete A1-A2 corpus. It is an early milestone, not a substitute for the agreed first full course stage. Exact quantities remain open.
 
-Next focused question: adopt a prepared reviewed course core with agent-assisted additions entering practice after review? Then choose practical audio sourcing and review responsibility before environment/storage design.
+### Review responsibility: next discussion
+
+The content model is accepted under C-038; the options below are proposals, not engagements or implementation authorization.
+
+| Option | Proposed division of work | Trade-off |
+|---|---|---|
+| Agent-led checks against references | Prepare original content, perform a separate review pass, document supporting references and unresolved points | Does not establish human linguistic review; disagreements and uncertainty must remain visible |
+| Human review of every new item | A suitably qualified teacher/reviewer checks all new material before practice | Adds a reviewer-availability dependency and potentially a budget; no reviewer is currently committed |
+| Agent preparation plus targeted human review | Review internally first; ask a teacher/native speaker from Spain to examine the pilot, unclear expressions, and selected audio | Limits the external workload, but sampled review must not be represented as validation of every item |
+
+Recommend the third if a suitable reviewer is available, without making it an accepted requirement yet. A native speaker can help with pronunciation and naturalness; native-speaker status alone does not establish teaching/assessment expertise. Do not label material human-reviewed unless the relevant version was actually reviewed. Record review provenance and unresolved concerns. The owner confirms intended meaning of personal phrases; this is separate from linguistic validation. Known errors and unresolved answer-key disputes stay outside ready practice regardless of reviewer route.
+
+Existing human recordings with verified suitability and use permissions, or original recordings of our scripts, remain possible audio routes. Finding a language reviewer does not automatically secure audio rights or authorize recording, contact, hiring, or spending. Actual audio must be listened to and checked against its transcript; text review does not validate an unheard clip.
+
+Next focused question: does the owner have a teacher or native speaker from Spain who could review a small pilot occasionally, or should the initial plan assume no outside human involvement? If none is available, design a transparent reference-backed agent-review workflow and identify remaining linguistic/audio uncertainty before release, rather than silently replacing native recordings with synthetic speech or inventing human sign-off. After clarifying responsibility, investigate concrete audio sources and then discuss device access, storage, and progress continuity.
 
 ## Curriculum design documents
 
@@ -405,7 +425,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. Next discuss content preparation and quality. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Next clarify review responsibility and audio sourcing. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and review responsibility. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
