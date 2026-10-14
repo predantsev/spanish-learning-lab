@@ -33,11 +33,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-034 (2026-10-13): the answer-checking direction is accepted, including valid variants, targeted Ukrainian corrections, meaningful orthography, and unresolved answers with optional external review. Added listening-scope alternatives; the initial deferral recommendation was subsequently superseded by C-035/C-036 and the revised first-stage proposal.
 
-- Recorded C-035/C-036 (2026-10-14): listening using native Spain Spanish is required in the planned course; repeat unrecognized auditory material and progress from everyday phrases to sentences/texts. First-stage allocation and audio sources remain open. No audio corpus or implementation exists.
+- Recorded C-035/C-036 (2026-10-14): listening using native Spain Spanish is required in the planned course; repeat unrecognized auditory material and progress from everyday phrases to sentences/texts. First-stage inclusion was subsequently accepted under C-037; detailed audio coverage and sources remain open. No audio corpus or implementation exists.
+
+- Recorded C-037 (2026-10-14): short native-speaker everyday-phrase listening exercises are included in the first usable A1-A2 stage. Added a prepared-core-plus-reviewed-extensions content workflow as a proposal; sources, reviewers, and budgets remain open.
 
 ## Next conversation
 
-Next settle first-stage listening allocation: recommend a small native-speaker everyday-phrase component from the first usable stage, expanding toward longer material. Listening inclusion itself is settled. Then discuss audio sourcing, content preparation, and linguistic review, including personal phrases. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, listening delivery allocation, audio sources, and cross-device sync remain open; speaking is excluded.
+Next discuss content preparation: recommend a prepared reviewed course core plus agent-assisted extensions that enter practice after review. Then choose practical native-speaker audio sourcing and review responsibility, including personal phrases. First-stage listening inclusion is settled under C-037. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, detailed listening coverage, audio sources, and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -80,3 +82,5 @@ Review acceptance and answer-checking proposal (2026-10-13): recorded the owner'
 Answer-checking acceptance (2026-10-13): recorded the owner's approval and moved the next discussion to listening scope. Checked documentation consistency and whitespace. Audio options were product proposals at that point; listening inclusion was subsequently confirmed under C-035/C-036.
 
 Listening expansion (2026-10-14): recorded the owner's requested content and adaptive auditory-recognition practice. Checked document consistency and whitespace. Proposed exercise mechanics and first-stage allocation are not yet approved; no clip, voice, source license, or listening assessment has been validated.
+
+First-stage listening acceptance (2026-10-14): recorded the owner's approval and updated the planning sequence. Content-preparation and review arrangements remain proposals. Checked documentation consistency and whitespace; no recordings, purchases, reviewer engagements, or application implementation.

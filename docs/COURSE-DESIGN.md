@@ -24,7 +24,7 @@ Source for C-006 through C-013: the owner's follow-up on 2026-10-07 specifying f
 | C-009 | Use errors and requests for hints as evidence for more practice of the relevant skill, including targeted recommendations and its appearance in later sentences. The attribution and scheduling design remain open. |
 | C-010 | Address regular conjugation, exceptions, and confusion between tenses, including the distinction between forming a tense and choosing when to use it. |
 | C-011 | Support repeated practice of personally useful words and recurring expressions, even when they are not globally frequent. Capture and validation workflows remain to be designed. |
-| C-012 | Conversation and speaking practice are out of scope. Do not design a separate future conversation course. Listening is included under C-035/C-036; delivery allocation and content sourcing remain open. |
+| C-012 | Conversation and speaking practice are out of scope. Do not design a separate future conversation course. Listening is included under C-035/C-036; first-stage inclusion is settled under C-037; detailed coverage and content sourcing remain open. |
 | C-013 | Evaluate deterministic operation and possible AI assistance before selecting an architecture. The external-assistant direction is now planned under C-015; embedded model calls, paid API use, and implementation remain unapproved. |
 
 Source for C-014 through C-016: the owner's next follow-up on 2026-10-07 agreeing with the proposed course ideas and requesting a plan for an external assistant connection, to revisit after the other course discussions.
@@ -112,8 +112,14 @@ Source for C-035/C-036: on 2026-10-14, the owner requested listening to Spanish 
 
 | ID | Confirmed requirement |
 |---|---|
-| C-035 | Include listening comprehension in the planned course, using native speech from Spain as the target. Preserve the exclusion of learner speaking/conversation. Actual audio sources and delivery allocation remain to be agreed; synthetic speech is not approved as a substitute for native-speaker recordings. |
+| C-035 | Include listening comprehension in the planned course, using native speech from Spain as the target. Preserve the exclusion of learner speaking/conversation. Actual audio sources remain to be agreed; first-stage inclusion is settled under C-037; synthetic speech is not approved as a substitute for native-speaker recordings. |
 | C-036 | Track difficulty recognizing material by ear and revisit it adaptively. Begin with useful everyday phrases and progressively expand to sentences and connected texts. Keep auditory recognition evidence separate from knowing a written phrase or its meaning. |
+
+Source for C-037: on 2026-10-14, the owner accepted including short audio exercises in the first usable A1-A2 version and requested moving on.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-037 | Include a small set of everyday-phrase listening exercises using native speakers from Spain in the first usable A1-A2 version. Expand toward longer listening material incrementally. Clip counts, detailed coverage, sources, and production arrangements remain open; this authorizes planning only. |
 
 ## Language and localization direction
 
@@ -203,7 +209,7 @@ The owner accepted supported automatic checking plus an unresolved/external-revi
 
 ## Accepted listening direction and proposed first exercises
 
-Accepted scope: C-035/C-036. The prior suggestion to defer all audio is superseded as a recommendation. Listening is now required in the planned course; a small listening component in the first usable stage is the revised proposal, not yet an agreed delivery allocation. No audio corpus, recordings, or playback implementation exists.
+Accepted scope: C-035/C-036. The prior suggestion to defer all audio is superseded as a recommendation. Listening is required in the planned course; the owner accepted a small listening component in the first usable A1-A2 stage under C-037. No audio corpus, recordings, or playback implementation exists.
 
 The owner supplied everyday greetings/farewells and shop exchanges as starting contexts, including hola, buenas tardes, hasta luego, and ¿Algo más? These are examples of desired usefulness, not a researched frequency ranking or a fixed starter list. Build toward more substantial everyday expressions, short sentences, then brief connected messages/texts. Specific level placement and coverage need mapping; longer material should not introduce unexplained vocabulary simply to increase difficulty.
 
@@ -219,7 +225,27 @@ Proposed progression: short useful phrases -> familiar phrases within short sent
 
 Native-speaker recording provenance, permission to use/distribute it, accurate transcripts, and linguistic/audio review must be established before release. No selected source or license is claimed. If synthetic audio is considered later, discuss it explicitly and label it separately rather than presenting it as a human recording. Written-only sessions remain available; proposed audio controls must work on phones and should not require autoplay.
 
-Next focused decision: include a small set of native-speaker everyday-phrase listening exercises in the first usable A1-A2 stage, expanding toward longer material in later increments (recommended proposal). After delivery allocation, discuss how to source/prepare and review course content, including audio and personal phrases.
+First-stage inclusion is settled under C-037. Next discuss content preparation and review, including native-speaker audio and personal phrases.
+
+## Content preparation and quality: next proposal
+
+Status: proposed for discussion on 2026-10-14. Content sourcing, reviewers, budgets, and production are not yet selected or authorized.
+
+Three approaches to compare: a fixed prepared course is predictable but requires manual additions for new needs; generating each exercise during use offers flexibility but makes each new item another validation task and would introduce an unapproved runtime AI dependency; a prepared reviewed core plus reviewed extensions combines a stable course with personal additions. Recommend the third, consistent with the accepted structured-content API and unresolved-answer path.
+
+Proposed workflow:
+
+- Prepare original lessons against the agreed curriculum, using references to check coverage and language rather than importing whole third-party courses. Each small lesson includes a target/prerequisites, concise Ukrainian explanation, Spanish examples, varied written/listening tasks as applicable, accepted answers, hints, known confusions, and review links. Not every lesson must contain every exercise type.
+- Keep a reviewed bank of varied examples and, where useful, validated templates with allowed combinations. Do not assume arbitrary word substitution preserves naturalness or correct answers. Repetition may reuse skills without requiring an unlimited supply of newly generated items.
+- Agents may draft new explanations, examples, personal constructions, and practice sets through the planned API. Use the existing draft/needs-review/ready distinction. Generated content and a valid schema are not sufficient evidence that an item is suitable to teach.
+- A ready item needs a language/content check: Spain usage and naturalness, intended meaning, target level/prerequisites, adequate context, accepted alternatives, hint correctness, and consistency between task and answer. Technical checks and linguistic checks are separate. Review responsibility and what evidence suffices remain open; no mandatory paid teacher or automatic self-approval is implied.
+- Audio additionally needs confirmed native-speaker provenance, permission for the intended use, an accurate transcript, and a listening check of the actual recording. Candidate routes are existing recordings with suitable documented rights or original commissioned/volunteer recordings of our scripts. Neither route, supplier, budget, or set of clips is selected. Synthetic speech does not replace the native-speaker requirement without a new decision.
+- For personal phrases, save quickly as a private draft, clarify intended meaning, check the Spanish wording and permitted variations, then make the item eligible for practice. Approved lesson phrases can retain their source review; new paraphrases need review. Learner acknowledgement of intended meaning is distinct from linguistic validation.
+- Version published course items and reviewed personal additions. Provide a report-problem action; quarantine a suspect answer model from further practice while it is checked. Preserve original attempts and correct affected grading evidence when a content fault is confirmed. Public course publication remains separate from private learner additions.
+
+A proposed first content pilot combines one small grammar lesson, several everyday listening phrases, and a few personal phrases to test the workflow before authoring the complete A1-A2 corpus. It is an early milestone, not a substitute for the agreed first full course stage. Exact quantities remain open.
+
+Next focused question: adopt a prepared reviewed course core with agent-assisted additions entering practice after review? Then choose practical audio sourcing and review responsibility before environment/storage design.
 
 ## Curriculum design documents
 
@@ -241,7 +267,7 @@ Phone usability and progress sharing between devices are separate requirements: 
 
 Accepted sequence: beginner foundations including A1 -> strong A2 -> B1 -> B2. The owner may have mentioned C1 in an unclear dictated fragment; a clarification was asked. Beyond-B2 scope is unconfirmed and does not block the confirmed A2/B1/B2 plan. Do not assign C1 to the required roadmap without clarification.
 
-Level labels guide the in-scope curriculum and assessment; speaking/conversation remains excluded, and listening is included under C-035/C-036, with detailed coverage and delivery allocation pending. Course completion must not be presented as demonstrated overall CEFR proficiency across unassessed skills. The [Council of Europe self-assessment grid](https://www.coe.int/en/web/portfolio/self%20-assessment-grid), read on 2026-10-07, distinguishes listening, reading, spoken interaction, spoken production, and writing.
+Level labels guide the in-scope curriculum and assessment; speaking/conversation remains excluded, and listening is included under C-035/C-036, with first-stage inclusion settled under C-037 and detailed coverage pending. Course completion must not be presented as demonstrated overall CEFR proficiency across unassessed skills. The [Council of Europe self-assessment grid](https://www.coe.int/en/web/portfolio/self%20-assessment-grid), read on 2026-10-07, distinguishes listening, reading, spoken interaction, spoken production, and writing.
 
 Proposed design and delivery details, not yet a complete curriculum or authorized implementation plan:
 
@@ -379,9 +405,9 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Next settle its first-stage allocation and discuss content quality. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. Next discuss content preparation and quality. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
-4. Refine optional time presets if needed and settle listening delivery allocation and content sourcing. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
+4. Refine optional time presets if needed and settle content sourcing and review responsibility. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
 6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
 7. Revisit the deferred external-assistant plan with the settled domain model and concrete user workflows.
@@ -395,7 +421,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Session flow: recommended sessions with manual selection, optional new material, flexible time guidance, and resumable work are settled (C-032). Exact presets/composition and missed-day review prioritization remain to be refined.
 - Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033). Exact scheduling, thresholds, and manual-preference weighting remain to be designed.
 - Exercise feedback: valid alternatives, targeted corrections, meaningful orthography, and unresolved answers with optional external review are settled (C-034). Exact checking rules, hint levels, retry limits, and content-review mechanics remain open.
-- Content scope and quality: listening delivery allocation, native-speaker audio provenance, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
+- Content scope and quality: detailed listening coverage, native-speaker audio provenance, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
 - Product environment and continuity: computer and phone use are settled; local/hosted operation, supported browsers, offline expectations, progress backup/export, and cross-device sync remain open.
 - Visual design: a comparison/prototyping stage is required; concepts and final UI direction are not selected.
 
@@ -403,7 +429,7 @@ These are open decisions, not a questionnaire to answer all at once. After resol
 
 ## Open boundaries
 
-Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; listening delivery allocation and detailed exercise design; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; exact review algorithm and mastery evidence thresholds. Listening inclusion with adaptive recognition practice, Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
+Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; detailed listening coverage and exercise design; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; exact review algorithm and mastery evidence thresholds. Listening inclusion with adaptive recognition practice, Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
 
 ## Reference inspected
 
