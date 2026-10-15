@@ -1,6 +1,6 @@
 # Current status
 
-Updated: 2026-10-14.
+Updated: 2026-10-15.
 
 ## Goal and phase
 
@@ -37,11 +37,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-037 (2026-10-14): short native-speaker everyday-phrase listening exercises are included in the first usable A1-A2 stage. Added a prepared-core-plus-reviewed-extensions content workflow as a proposal; sources, reviewers, and budgets remain open.
 
-- Recorded C-038 (2026-10-14): prepared reviewed course core plus reviewed agent-assisted additions is accepted. Review responsibility remains open; added options for agent-led, comprehensive human, or targeted human review. No external reviewer or budget is selected.
+- Recorded C-038 (2026-10-14): prepared reviewed course core plus reviewed agent-assisted additions is accepted. Review responsibility was subsequently clarified under C-039; no external human reviewer or budget is selected.
+
+- Recorded C-039 (2026-10-15): no human reviewer is available; plan Codex-to-Claude and Claude-to-Codex content review. Added concrete model/effort recommendations, escalation, reference-backed disagreement handling, version-specific gates, and a calibration pilot to COURSE-DESIGN.md. Settings are unbenchmarked proposals; no model jobs or application implementation were started.
 
 ## Next conversation
 
-Next clarify whether a teacher/native speaker from Spain is available for occasional review of a small pilot or whether planning should assume no external human participation. Targeted human review after agent preparation is a recommendation, not a requirement or engagement. The content model is accepted under C-038. Then investigate actual native-speaker audio sources and discuss device access/storage. First-stage listening inclusion is settled under C-037. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, detailed listening coverage, audio sources, and cross-device sync remain open; speaking is excluded.
+Cross-provider review direction is settled under C-039 and the requested model/effort plan is recorded. Next investigate actual native-speaker audio sources and a feasible actual-audio validation route, then discuss device access/storage. Before future bulk content authoring, agree pilot quality thresholds and usage limits and calibrate the proposed pairs. First-stage listening inclusion is settled under C-037. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, detailed listening coverage, audio sources, and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -88,3 +90,5 @@ Listening expansion (2026-10-14): recorded the owner's requested content and ada
 First-stage listening acceptance (2026-10-14): recorded the owner's approval and updated the planning sequence. Content-preparation and review arrangements remain proposals. Checked documentation consistency and whitespace; no recordings, purchases, reviewer engagements, or application implementation.
 
 Content-model acceptance (2026-10-14): recorded the owner's approval and proposed review-responsibility options. Checked documentation consistency and whitespace; no content validation, reviewer availability, audio source, or provider pricing is claimed.
+
+Cross-provider review planning (2026-10-15): checked the official model/effort sources linked in COURSE-DESIGN.md and the current local canonical routing policy. Reviewed documentation consistency and whitespace. Provider guidance informs proposed settings only; no Spanish-content benchmark, human review, audio inspection, model dispatch, or runtime implementation was performed.

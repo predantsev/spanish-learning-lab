@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-14. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-15. This is a discovery document, not an approved implementation specification.
 
 ## Confirmed intent
 
@@ -127,6 +127,12 @@ Source for C-038: on 2026-10-14, the owner accepted the prepared-course-plus-rev
 |---|---|
 | C-038 | Use a prepared reviewed course core with varied exercises and agent-assisted additions through the planned API. New material enters practice after review, including personal constructions. Maintain the draft/review/ready distinction. Review responsibility, audio sources, budgets, and detailed production arrangements remain open. |
 
+Source for C-039: on 2026-10-15, after stating that no human reviewer is available, the owner explicitly requested a documented model/effort plan with Codex-authored material reviewed by Claude and Claude-authored material reviewed by Codex.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-039 | Plan reference-backed cross-provider content review without requiring a human reviewer. Codex authors receive Claude review; Claude authors receive Codex review. Record recommended concrete models and effort levels. Exact settings below are initial recommendations to evaluate, not measured Spanish-content performance or authorization to run production. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -235,37 +241,71 @@ First-stage inclusion is settled under C-037. Next discuss content preparation a
 
 ## Accepted content preparation model
 
-The owner accepted the prepared core plus reviewed additions on 2026-10-14 under C-038. Content sourcing, reviewers, budgets, and production are not yet selected or authorized.
+The owner accepted the prepared core plus reviewed additions on 2026-10-14 under C-038. C-039 adds cross-provider agent review without a required human reviewer. Content sourcing, budgets, production, and actual review runs remain pending.
 
 Three approaches to compare: a fixed prepared course is predictable but requires manual additions for new needs; generating each exercise during use offers flexibility but makes each new item another validation task and would introduce an unapproved runtime AI dependency; a prepared reviewed core plus reviewed extensions combines a stable course with personal additions. The third is accepted under C-038, consistent with the structured-content API and unresolved-answer path.
 
-Accepted workflow direction; detailed review responsibilities remain open:
+Accepted workflow direction, with the proposed review procedure below:
 
 - Prepare original lessons against the agreed curriculum, using references to check coverage and language rather than importing whole third-party courses. Each small lesson includes a target/prerequisites, concise Ukrainian explanation, Spanish examples, varied written/listening tasks as applicable, accepted answers, hints, known confusions, and review links. Not every lesson must contain every exercise type.
 - Keep a reviewed bank of varied examples and, where useful, validated templates with allowed combinations. Do not assume arbitrary word substitution preserves naturalness or correct answers. Repetition may reuse skills without requiring an unlimited supply of newly generated items.
 - Agents may draft new explanations, examples, personal constructions, and practice sets through the planned API. Use the existing draft/needs-review/ready distinction. Generated content and a valid schema are not sufficient evidence that an item is suitable to teach.
-- A ready item needs a language/content check: Spain usage and naturalness, intended meaning, target level/prerequisites, adequate context, accepted alternatives, hint correctness, and consistency between task and answer. Technical checks and linguistic checks are separate. Review responsibility and what evidence suffices remain open; no mandatory paid teacher or automatic self-approval is implied.
+- A ready item needs a language/content check: Spain usage and naturalness, intended meaning, target level/prerequisites, adequate context, accepted alternatives, hint correctness, and consistency between task and answer. Technical checks and linguistic checks are separate. C-039 assigns review to the opposite provider; the proposed evidence and release gates below still require calibration. No human sign-off is claimed.
 - Audio additionally needs confirmed native-speaker provenance, permission for the intended use, an accurate transcript, and a listening check of the actual recording. Candidate routes are existing recordings with suitable documented rights or original commissioned/volunteer recordings of our scripts. Neither route, supplier, budget, or set of clips is selected. Synthetic speech does not replace the native-speaker requirement without a new decision.
 - For personal phrases, save quickly as a private draft, clarify intended meaning, check the Spanish wording and permitted variations, then make the item eligible for practice. Approved lesson phrases can retain their source review; new paraphrases need review. Learner acknowledgement of intended meaning is distinct from linguistic validation.
 - Version published course items and reviewed personal additions. Provide a report-problem action; quarantine a suspect answer model from further practice while it is checked. Preserve original attempts and correct affected grading evidence when a content fault is confirmed. Public course publication remains separate from private learner additions.
 
 A proposed first content pilot combines one small grammar lesson, several everyday listening phrases, and a few personal phrases to test the workflow before authoring the complete A1-A2 corpus. It is an early milestone, not a substitute for the agreed first full course stage. Exact quantities remain open.
 
-### Review responsibility: next discussion
+### Cross-provider content-review plan
 
-The content model is accepted under C-038; the options below are proposals, not engagements or implementation authorization.
+Confirmed direction: C-039. The model choices, efforts, pilot size, and procedure below are planning recommendations dated 2026-10-15. They apply to preparing course materials and personal additions, not to mandatory AI calls during every learner exercise. No review job or model benchmark has run.
 
-| Option | Proposed division of work | Trade-off |
-|---|---|---|
-| Agent-led checks against references | Prepare original content, perform a separate review pass, document supporting references and unresolved points | Does not establish human linguistic review; disagreements and uncertainty must remain visible |
-| Human review of every new item | A suitably qualified teacher/reviewer checks all new material before practice | Adds a reviewer-availability dependency and potentially a budget; no reviewer is currently committed |
-| Agent preparation plus targeted human review | Review internally first; ask a teacher/native speaker from Spain to examine the pilot, unclear expressions, and selected audio | Limits the external workload, but sampled review must not be represented as validation of every item |
+#### Starting model and effort pairs
 
-Recommend the third if a suitable reviewer is available, without making it an accepted requirement yet. A native speaker can help with pronunciation and naturalness; native-speaker status alone does not establish teaching/assessment expertise. Do not label material human-reviewed unless the relevant version was actually reviewed. Record review provenance and unresolved concerns. The owner confirms intended meaning of personal phrases; this is separate from linguistic validation. Known errors and unresolved answer-key disputes stay outside ready practice regardless of reviewer route.
+| Work | Author | Reviewer in a fresh session | Reason for the initial choice |
+|---|---|---|---|
+| Codex prepares a bounded lesson, explanation, exercise set, or personal construction | GPT-6.1 Sol (`gpt-6.1-sol`), `high` | Claude Opus 5.5 (`claude-opus-5-5`), `medium` | Sol is the balanced authoring candidate; Opus starts at its documented default for a focused linguistic/content check. |
+| Claude prepares the same material | Claude Opus 5.5 (`claude-opus-5-5`), `medium` | GPT-6.1 Sol (`gpt-6.1-sol`), `xhigh` | Use a different provider and allocate additional reasoning to finding ambiguous prompts, valid alternatives, and unsupported rules. |
+| A routine pass is shallow or a difficult item remains disputed | Keep the original author and version history | For Codex-authored content: Opus 5.5 `xhigh`; for Claude-authored content: GPT-6 Astra (`gpt-6-astra`) `xhigh` | Escalate the relevant items, not the entire bank; retrieve evidence before repeating judgments. |
+| A pilot or complex module needs a dedicated adversarial audit beyond ordinary content review | Preserve the authored material unchanged for the audit | For Codex-authored content: Claude Fable 5.1 (`claude-fable-5-1`) `xhigh`; for Claude-authored content: GPT-6 Astra `xhigh` | Optional additional audit aimed at finding counterexamples. It supplements the primary opposite-provider check. |
 
-Existing human recordings with verified suitability and use permissions, or original recordings of our scripts, remain possible audio routes. Finding a language reviewer does not automatically secure audio rights or authorize recording, contact, hiring, or spending. Actual audio must be listened to and checked against its transcript; text review does not validate an unheard clip.
+The recommended initial production candidate is **Sol `high` author -> Opus `medium` reviewer**, with the reverse route fully supported. This is a starting hypothesis inferred from provider guidance, not evidence that either model is the best Spanish teacher. Equal effort labels across models do not imply equal work. Do not use `max` everywhere or choose a larger model solely because another model disagrees. Any author-side model substitution must retain an opposite-provider review of the resulting version.
 
-Next focused question: does the owner have a teacher or native speaker from Spain who could review a small pilot occasionally, or should the initial plan assume no outside human involvement? If none is available, design a transparent reference-backed agent-review workflow and identify remaining linguistic/audio uncertainty before release, rather than silently replacing native recordings with synthetic speech or inventing human sign-off. After clarifying responsibility, investigate concrete audio sources and then discuss device access, storage, and progress continuity.
+Before a future run, verify the actual model/version, supported effort, account access, tool/input capabilities, and applicable host policy. Record the resolved values; do not silently fall back to the author's provider. CLI aliases can change. This document does not change global orchestration settings or approve paid runs. On the maintainer workstation, follow the canonical `claude-orchestrator` routing policy for launches, including its per-task approval requirement when the agent selects Fable. Routine content review and a specialist adversarial audit are distinct scopes.
+
+#### Review procedure and evidence
+
+1. The author produces a small versioned batch with target skills, prerequisites, Ukrainian explanation, Spanish tasks, answer alternatives, hints, and references. New personal phrases include intended meaning and context; private learner data never enters this public repository.
+2. A fresh opposite-provider reviewer receives the brief and tasks without the author's reasoning or claimed confidence. First solve the tasks without the answer key; then inspect the key, explanations, hints, and sources. Additional reviewers must not see each other's verdicts before submitting their own.
+3. Check grammar, naturalness in Spain, Ukrainian meaning, misleading simplifications, level/prerequisites, target-skill alignment, adequate context, valid alternatives, and accidental vocabulary load. Distinguish genuine errors from optional stylistic preferences. A constrained exercise can require a particular form only if the instruction makes that constraint clear.
+4. Each finding identifies the item/version, exact disputed passage, proposed correction, and supporting reference or explicit unresolved uncertainty. Verify that cited passages actually exist and support the claim. Use appropriate RAE/FundeuRAE references for language questions and Instituto Cervantes inventories for curriculum mapping; neither a grammar reference nor model agreement certifies learning effectiveness.
+5. Resolve disagreements using the evidence and task context, not majority voting or confidence scores. Repair or simplify an ambiguous task, then re-review the revised version with the opposite provider. After two unsuccessful repair/review cycles, leave it `needs-review` and move on; do not turn an unresolved answer into a memorization target.
+6. Proposed `ready` gate: version-specific opposite-provider review completed, sources checked, no unresolved correctness/meaning/answer-acceptance findings, and relevant structural and media checks passed. Record author/reviewer model IDs, actual efforts, date, content revision, prompt/checklist version, findings, resolutions, and remaining limitations. Label this as model-reviewed, never human-reviewed or certified.
+7. A later content correction invalidates the affected prior review and triggers another check. Quarantine reported defects and preserve/correct learner evidence as described above. Review completion does not itself publish a public course release.
+
+Different providers can still share blind spots. Back-translation or Google Translate may expose a meaning mismatch, but agreement is not a correctness gate. A technically valid schema proves only structural validity.
+
+#### Calibration before bulk authoring
+
+Propose a small pilot of about 30-50 original, reference-backed items: regular/irregular forms, tense contrasts, everyday Spain usage, personal constructions, valid alternative answers, and intentionally ambiguous prompts. Include documented seeded mistakes and correct controls so a reviewer that rejects everything does not score well. Keep the defect labels hidden from reviewers. Expected results must have inspectable supporting passages; disputed cases are excluded from scored accuracy and tracked separately rather than resolved by another model vote.
+
+Compare both directions on the same held-out material. Start with the table above, then compare Opus `medium` with `xhigh` and Sol `high` with `xhigh` on missed cases and correct controls. Track missed substantive errors, false corrections/rejection of valid answers, ambiguity detection, source accuracy, repair cycles, elapsed time, and actual usage/cost where available. Keep prompt-tuning examples separate from the held-out set. Select the least costly configuration that meets agreed quality criteria; exact thresholds and spending limits must be set before the pilot. Repeat targeted calibration when the model/version or review instructions materially change. Coding benchmarks and general provider rankings are not Spanish-course evaluation results.
+
+#### Listening has an additional gate
+
+The text pairs above can review scripts, transcripts, questions, and answer keys; they are not assumed to hear audio. Before any listening item becomes ready, a separately verified audio-capable route must inspect the actual clip and its transcript/alignment, intelligibility, and intended target. Independent transcription can flag mismatches but does not certify native pronunciation or Spain provenance. Confirm native-speaker provenance and reuse rights from the recording source. If actual-audio checking or provenance is unavailable, keep the listening item pending. Audio model/service selection and source licensing are the next discussion; synthetic speech is not an implicit substitute under C-037.
+
+#### Source basis and limits
+
+Official documentation inspected on 2026-10-15:
+
+- [OpenAI model selection](https://developers.openai.com/api/docs/guides/model-selection): Sol balances complex work and cost; Astra is positioned for demanding analysis. Applying those roles to this course is an inference.
+- [GPT-6.1 Sol](https://developers.openai.com/api/docs/models/gpt-6.1-sol): supports `low`, `medium`, `high`, `xhigh`, and `max`; the default is `medium`. The authoring `high` and reviewing `xhigh` settings here are proposed overrides.
+- [Anthropic model selection](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model): Opus 5.5 is the capability-first starting point; Fable 5.1 is an escalation candidate. These are general recommendations, not a measured language-review ranking.
+- [Anthropic effort](https://platform.claude.com/docs/en/build-with-claude/effort): Opus 5.5 supports all five effort levels and defaults to `medium`; Fable 5.1 also supports `xhigh`. Effort needs task-specific evaluation.
+
+Local maintainer routing was also inspected on that date: current Opus default `medium`, deliberate `xhigh` escalation, and Fable `xhigh` for adversarial review. Its engineering measurements are not evidence of Spanish-content quality. Public contributors need the source links above, not the maintainer's local files. Availability and exact launch settings must be rechecked at execution time.
 
 ## Curriculum design documents
 
@@ -425,9 +465,9 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Next clarify review responsibility and audio sourcing. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039; next settle audio sourcing and actual-audio validation. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
-4. Refine optional time presets if needed and settle content sourcing and review responsibility. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
+4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
 6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
 7. Revisit the deferred external-assistant plan with the settled domain model and concrete user workflows.
