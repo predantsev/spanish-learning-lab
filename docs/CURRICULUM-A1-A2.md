@@ -1,10 +1,10 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-15. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-16. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
-Build from beginner foundations to a strong A2-aligned reading/writing/listening curriculum, with grammar and vocabulary supporting practical written tasks. Repeated practice and personal phrases operate throughout. Speaking/conversation is excluded; listening with native Spain Spanish and adaptive auditory-recognition practice is included under C-035/C-036. Short everyday-phrase audio exercises are included in the first usable stage under C-037; detailed coverage, sources, and objective mapping remain pending. No overall CEFR proficiency claim is implied.
+Build from beginner foundations to a strong A2-aligned reading/writing/listening curriculum, with grammar and vocabulary supporting practical written tasks. Repeated practice and personal phrases operate throughout. Speaking/conversation is excluded; listening targeting Spain Spanish with adaptive auditory-recognition practice is included under C-035/C-036; C-040 permits reviewed synthetic speech as the initial audio route. Short everyday-phrase audio exercises are included in the first usable stage under C-037; detailed coverage, sources, and objective mapping remain pending. No overall CEFR proficiency claim is implied.
 
 Spanish of Spain is the main variety (C-028). The initial interface, instructions, explanations, hints, and feedback are Ukrainian only, with future localization planned under C-030/C-031. Spanish remains the language being studied.
 
@@ -38,7 +38,7 @@ Prerequisites express dependencies, not mandatory completion of every earlier ex
 - Language detail: expand questions/negation, pronouns, prepositions, quantifiers, comparatives, connectors, and orthography alongside the headline verb topics. A tense-only syllabus would not meet the proposed curriculum.
 - Learning evidence: distinguish recognizing, recalling a form, using it in a sentence, and selecting it in context. Track targeted hints and answer reveals locally to the assessed skill.
 - Personal phrases: allow saving from a lesson, adding an external phrase, and capturing Ukrainian intent; only checked entries become practice models. Reuse both phrases and appropriate variations.
-- Listening: build from everyday phrases to sentences and brief connected texts, using native speech from Spain. Map listening targets and recording variants alongside the written curriculum; keep recognition, meaning, transcript-assisted work, and written production distinct. Initial short-phrase listening inclusion is settled under C-037; detailed module allocation remains open.
+- Listening: build from everyday phrases to sentences and brief connected texts, targeting Spain pronunciation with reviewed synthetic speech initially and suitable existing human recordings as later additions (C-040). Map listening targets and recording variants alongside the written curriculum; keep recognition, meaning, transcript-assisted work, and written production distinct. Initial short-phrase listening inclusion is settled under C-037; detailed module allocation remains open.
 - Review: revisit old skills in new but familiar contexts, including later sessions; the exact interval algorithm remains open. Do not introduce unknown grammar into a supposed recall check without explaining it.
 
 ## First block to detail together: A1-01
@@ -69,7 +69,7 @@ Possible loop: concise rule reference -> targeted form practice -> contextual ga
 
 For every block, record: objective IDs; small prerequisite skills; proposed micro-lessons; practical text contexts; independent tasks; hint levels; acceptable-answer policy; likely confusions; return points; personal-phrase opportunities; phone interaction; and source/linguistic-review status. Content IDs must remain stable as the outline evolves.
 
-Next steps: the session direction is accepted under C-032; review controls are accepted under C-033; answer-checking direction is accepted under C-034. Short audio exercises are included in the first stage under C-037. The content model is accepted under C-038. Cross-provider review and the initial model/effort plan are recorded under C-039 in COURSE-DESIGN.md. Next settle audio sourcing and actual-audio validation, then detail the blocks incrementally within the accepted outline; calibrate content review before bulk authoring. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
+Next steps: the session direction is accepted under C-032; review controls are accepted under C-033; answer-checking direction is accepted under C-034. Short audio exercises are included in the first stage under C-037. The content model is accepted under C-038. Cross-provider review and the initial model/effort plan are recorded under C-039 in COURSE-DESIGN.md. C-040 accepts pre-generated synthetic Spain Spanish with a small initial generation budget. Next settle device access/progress continuity, then detail the blocks incrementally within the accepted outline; calibrate content review and actual-audio validation before bulk authoring. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
 
 ## Source record and limits
 
