@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-15. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-16. This is a discovery document, not an approved implementation specification.
 
 ## Confirmed intent
 
@@ -112,14 +112,14 @@ Source for C-035/C-036: on 2026-10-14, the owner requested listening to Spanish 
 
 | ID | Confirmed requirement |
 |---|---|
-| C-035 | Include listening comprehension in the planned course, using native speech from Spain as the target. Preserve the exclusion of learner speaking/conversation. Actual audio sources remain to be agreed; first-stage inclusion is settled under C-037; synthetic speech is not approved as a substitute for native-speaker recordings. |
+| C-035 | Include listening comprehension in the planned course, using native speech from Spain as the target. Preserve the exclusion of learner speaking/conversation. Actual audio sources remain to be agreed; first-stage inclusion is settled under C-037; the original human-recording-only constraint is superseded by C-040, which permits reviewed synthetic Spain Spanish. |
 | C-036 | Track difficulty recognizing material by ear and revisit it adaptively. Begin with useful everyday phrases and progressively expand to sentences and connected texts. Keep auditory recognition evidence separate from knowing a written phrase or its meaning. |
 
 Source for C-037: on 2026-10-14, the owner accepted including short audio exercises in the first usable A1-A2 version and requested moving on.
 
 | ID | Confirmed requirement |
 |---|---|
-| C-037 | Include a small set of everyday-phrase listening exercises using native speakers from Spain in the first usable A1-A2 version. Expand toward longer listening material incrementally. Clip counts, detailed coverage, sources, and production arrangements remain open; this authorizes planning only. |
+| C-037 | Include a small set of everyday-phrase listening exercises using native speakers from Spain in the first usable A1-A2 version. Expand toward longer listening material incrementally. C-040 subsequently permits synthetic Spain Spanish for this first-stage material. Clip counts, detailed coverage, sources, and production arrangements remain open; this authorizes planning only. |
 
 Source for C-038: on 2026-10-14, the owner accepted the prepared-course-plus-reviewed-additions model and requested moving to the next discussion.
 
@@ -132,6 +132,12 @@ Source for C-039: on 2026-10-15, after stating that no human reviewer is availab
 | ID | Confirmed requirement |
 |---|---|
 | C-039 | Plan reference-backed cross-provider content review without requiring a human reviewer. Codex authors receive Claude review; Claude authors receive Codex review. Record recommended concrete models and effort levels. Exact settings below are initial recommendations to evaluate, not measured Spanish-content performance or authorization to run production. |
+
+Source for C-040: on 2026-10-16, the owner excluded a budget for hiring native speakers, proposed found recordings or voice-model generation with approximately $5-10 in one-time spending, and then accepted the proposed staged audio approach and requested moving on.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-040 | Use pre-generated, reviewed synthetic speech with pronunciation appropriate to Spain as the initial audio route; save and reuse the files. No budget for commissioned human recordings. Plan approximately $5-10 for an initial generation batch, not a guaranteed whole-course budget or recurring subscription. Compare a few voices before selecting a service; add suitable existing human recordings when available with appropriate rights. Clearly label synthetic audio. This accepts planning, not a purchase, subscription activation, or generation run. |
 
 ## Language and localization direction
 
@@ -235,9 +241,9 @@ Proposed exercise loop:
 
 Proposed progression: short useful phrases -> familiar phrases within short sentences/exchanges -> brief connected announcements/messages with gist and detail questions. Recorded exchanges are listening material only; there is no requirement for the learner to speak or record a response. Introduce voice/speed/context variation gradually, without making noisy audio or regional difficulty an initial requirement.
 
-Native-speaker recording provenance, permission to use/distribute it, accurate transcripts, and linguistic/audio review must be established before release. No selected source or license is claimed. If synthetic audio is considered later, discuss it explicitly and label it separately rather than presenting it as a human recording. Written-only sessions remain available; proposed audio controls must work on phones and should not require autoplay.
+C-040 permits synthetic Spain Spanish and supersedes the earlier human-recording-only boundary. Record whether a clip is synthetic or human, its source/model/voice and revision, intended-use permissions, accurate transcript, and actual-audio review before release. Human clips additionally require supported speaker/region provenance. No selected voice, source, or license is claimed. Written-only sessions remain available; proposed audio controls must work on phones and should not require autoplay.
 
-First-stage inclusion is settled under C-037. Next discuss content preparation and review, including native-speaker audio and personal phrases.
+First-stage inclusion is settled under C-037, content review under C-039, and the audio preparation direction under C-040. Next discuss device access and progress continuity.
 
 ## Accepted content preparation model
 
@@ -251,7 +257,7 @@ Accepted workflow direction, with the proposed review procedure below:
 - Keep a reviewed bank of varied examples and, where useful, validated templates with allowed combinations. Do not assume arbitrary word substitution preserves naturalness or correct answers. Repetition may reuse skills without requiring an unlimited supply of newly generated items.
 - Agents may draft new explanations, examples, personal constructions, and practice sets through the planned API. Use the existing draft/needs-review/ready distinction. Generated content and a valid schema are not sufficient evidence that an item is suitable to teach.
 - A ready item needs a language/content check: Spain usage and naturalness, intended meaning, target level/prerequisites, adequate context, accepted alternatives, hint correctness, and consistency between task and answer. Technical checks and linguistic checks are separate. C-039 assigns review to the opposite provider; the proposed evidence and release gates below still require calibration. No human sign-off is claimed.
-- Audio additionally needs confirmed native-speaker provenance, permission for the intended use, an accurate transcript, and a listening check of the actual recording. Candidate routes are existing recordings with suitable documented rights or original commissioned/volunteer recordings of our scripts. Neither route, supplier, budget, or set of clips is selected. Synthetic speech does not replace the native-speaker requirement without a new decision.
+- Audio follows C-040: pre-generated synthetic Spain Spanish initially, with suitably licensed existing human recordings as later additions. Check actual audio against the transcript and target, record origin and use permissions, and distinguish synthetic from human clips. Commissioned recordings are outside the budget. The approximate initial generation budget is accepted for planning; no supplier, voice, purchase, or batch is selected.
 - For personal phrases, save quickly as a private draft, clarify intended meaning, check the Spanish wording and permitted variations, then make the item eligible for practice. Approved lesson phrases can retain their source review; new paraphrases need review. Learner acknowledgement of intended meaning is distinct from linguistic validation.
 - Version published course items and reviewed personal additions. Provide a report-problem action; quarantine a suspect answer model from further practice while it is checked. Preserve original attempts and correct affected grading evidence when a content fault is confirmed. Public course publication remains separate from private learner additions.
 
@@ -294,7 +300,7 @@ Compare both directions on the same held-out material. Start with the table abov
 
 #### Listening has an additional gate
 
-The text pairs above can review scripts, transcripts, questions, and answer keys; they are not assumed to hear audio. Before any listening item becomes ready, a separately verified audio-capable route must inspect the actual clip and its transcript/alignment, intelligibility, and intended target. Independent transcription can flag mismatches but does not certify native pronunciation or Spain provenance. Confirm native-speaker provenance and reuse rights from the recording source. If actual-audio checking or provenance is unavailable, keep the listening item pending. Audio model/service selection and source licensing are the next discussion; synthetic speech is not an implicit substitute under C-037.
+The text pairs above can review scripts, transcripts, questions, and answer keys; they are not assumed to hear audio. Before any listening item becomes ready, a separately verified audio-capable route must inspect the actual clip and its transcript/alignment, intelligibility, and intended target. Independent transcription can flag mismatches but does not certify native pronunciation or Spain provenance. Under C-040, record synthetic model/voice provenance and check the intended Spain pronunciation; for human clips, confirm speaker/region provenance. Check reuse rights for either route. If actual-audio checking or required provenance is unavailable, keep the listening item pending. Exact service/voice selection and the audio-checking tool remain future execution decisions; generation is not authorized yet.
 
 #### Source basis and limits
 
@@ -306,6 +312,26 @@ Official documentation inspected on 2026-10-15:
 - [Anthropic effort](https://platform.claude.com/docs/en/build-with-claude/effort): Opus 5.5 supports all five effort levels and defaults to `medium`; Fable 5.1 also supports `xhigh`. Effort needs task-specific evaluation.
 
 Local maintainer routing was also inspected on that date: current Opus default `medium`, deliberate `xhigh` escalation, and Fable `xhigh` for adversarial review. Its engineering measurements are not evidence of Spanish-content quality. Public contributors need the source links above, not the maintainer's local files. Availability and exact launch settings must be rechecked at execution time.
+
+### Accepted audio preparation direction
+
+C-040 accepts the following sequence: review scripts first; compare approximately two or three candidate Spain Spanish voices on a small sample; estimate the initial batch including failed takes; generate within the agreed one-time limit after execution authorization; inspect and save the audio files for repeated playback. Generation is a preparation activity, not a per-playback model call. Hosting/storage costs and future regeneration are separate, still-unselected concerns. Do not promise the complete A1-B2 audio corpus for $5-10.
+
+ElevenLabs is a candidate for the first comparison, not a selected provider. Official pages inspected during the 2026-10-16 discussion: [TTS capabilities](https://elevenlabs.io/docs/overview/capabilities/text-to-speech) lists Spanish (Spain) and recommends a matching regional voice; [pricing](https://elevenlabs.io/pricing) lists standard Starter at $6/month before taxes with 30,000 credits and a commercial license, with Multilingual v2 charged at one credit per character; [subscription-end guidance](https://elevenlabs.io/docs/help-center/account/general/what-happens-to-my-content-after-my-subscription-ends) says the commercial license for content generated during the paid subscription continues after it ends, while continued hosted file availability is not guaranteed. These are dated source observations, not a purchase quote or a blanket redistribution license. Recheck the selected plan, voice, and applicable terms before generation or publishing audio assets; a public code license does not automatically cover audio.
+
+Illustrative capacity only: 100 phrases x 50 characters x 2 voices x 2 takes = 20,000 credits at one credit per character. Actual duration, quality, retries, taxes, and the chosen model affect the result. Save usable files and their provenance independently of the service. Synthetic audio must not be presented as a recording of a native speaker; later human recordings can broaden exposure without becoming a dependency for the pilot.
+
+## Device access and progress continuity: next discussion
+
+Computer and phone use is confirmed under C-026; the following delivery choices remain proposals:
+
+| Approach | Intended benefit | Trade-off to resolve |
+|---|---|---|
+| Separate browser-local progress on each device | Small initial operational scope | No automatic shared progress; would need export/import or later sync, plus backup planning. |
+| A private server running on the owner's computer | One progress store and a local assistant API | Phone access requires network reachability and the computer/server to be running; away-from-home access is a separate design problem. |
+| A hosted web application with private progress | Plan access from phone/computer independently of the owner's laptop and shared progress | Requires hosting, authentication/access control, backups, and a cost/privacy decision; offline use remains separate. |
+
+First resolve the use case: must phone practice work away from home when the computer is off? If yes, prefer exploring the hosted route with shared private progress. If no, a local server may be sufficient for the pilot. Then separately settle shared progress, offline expectations, export/backup, and assistant connectivity. No hosting service, account system, storage technology, or recurring budget is selected.
 
 ## Curriculum design documents
 
@@ -465,7 +491,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039; next settle audio sourcing and actual-audio validation. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; next settle device access and progress continuity. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
