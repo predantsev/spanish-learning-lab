@@ -151,6 +151,13 @@ Source for C-042: on 2026-10-19, the owner accepted the proposed single-profile 
 |---|---|
 | C-042 | Use one private local learner profile with automatic saving of answers, hint/reveal evidence, review state, personal phrases, preferences, and study location. Preserve progress across browser/application restarts in application-managed storage separate from browser cache. Provide automatic backups and export/import for moving computers or later hosting. Course updates must preserve learner history. Storage technology, backup frequency/retention/destination, and detailed restore behavior remain to be designed; no implementation is authorized. |
 
+Source for C-043/C-044: on 2026-10-19, the owner clarified that learning and personal testing should begin only after the complete first application/course version is ready, then accepted the explanation that this means the agreed full beginner-to-A2 stage, locally available without internet. Internal incremental development is allowed; it is not an early-learning obligation for the owner.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-043 | Deliver ordinary practice offline after installation of the prepared course and assets, including lessons never previously opened. This is persistent local availability, not only continued use of an already-loaded browser page. Prepared lessons, exercises/checking, hints, review, audio, and progress saving must work with the local service running and no internet. External AI help, new generation, and downloads may require connectivity; unresolved answers retain their uncertainty status. |
+| C-044 | Begin owner learning and personal testing only after the complete agreed first application and all beginner-to-A2 materials are prepared, reviewed, and available locally, with core scenarios tested. Include course study, selected-topic practice, adaptive review, hints, personal phrases, listening, persistence, and backups. B1/B2 remain subsequent expansions. An internal pilot may validate the implementation/content workflow but must not substitute for the complete first handoff or require the owner to learn while later A2 lessons are unfinished. This authorizes planning only. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -210,6 +217,17 @@ Illustrative loop: the learner requests help with hecho, sees a short explanatio
 Evidence basis: the abstract of [Karpicke and Roediger (2008), The critical importance of retrieval for learning](https://pubmed.ncbi.nlm.nih.gov/18276894/), read 2026-10-08, reports improved delayed recall from continued retrieval in a foreign-vocabulary experiment after initial successful recall. This motivates including later retrieval opportunities; it does not validate this application's grammar scheduler, UI labels, or any exact interval.
 
 Marking something known retains occasional checks; automatic review can be paused separately (C-033). Continue with written-answer checking below.
+
+### Next discussion: presenting progress
+
+C-033 already settles granular review evidence and learner controls. The next decision concerns how that evidence is shown, not reopening the scheduler direction. Recommended presentation, still a proposal:
+
+- Separate course coverage (lessons/topics visited or completed) from evidence of recall and use. Completing all lessons must not display a claim of mastering the language.
+- Offer a concise overview: current study location, a manageable practice recommendation, and specific recent difficulties with an evidence-based reason. Put detailed history behind a topic/skill view instead of requiring a statistics dashboard before practice.
+- In a topic view, distinguish form production, construction choice, and listening recognition where assessed; show neutral states and recent assistance. Use the existing manual repeat/known/pause controls. Do not infer a topic-wide weakness from one targeted error.
+- After a session, summarize what was practiced, where help was used, and a useful next step. Prefer actionable examples to an unexplained mastery percentage. Exact labels, thresholds, charts, and UI layouts remain open for the planned design stage.
+
+Next ask whether a short overview with optional skill details fits the owner, then walk through a complete lesson and return-to-practice flow before visual design and final acceptance planning.
 
 ## Accepted written-answer-checking direction
 
@@ -273,7 +291,7 @@ Accepted workflow direction, with the proposed review procedure below:
 - For personal phrases, save quickly as a private draft, clarify intended meaning, check the Spanish wording and permitted variations, then make the item eligible for practice. Approved lesson phrases can retain their source review; new paraphrases need review. Learner acknowledgement of intended meaning is distinct from linguistic validation.
 - Version published course items and reviewed personal additions. Provide a report-problem action; quarantine a suspect answer model from further practice while it is checked. Preserve original attempts and correct affected grading evidence when a content fault is confirmed. Public course publication remains separate from private learner additions.
 
-A proposed first content pilot combines one small grammar lesson, several everyday listening phrases, and a few personal phrases to test the workflow before authoring the complete A1-A2 corpus. It is an early milestone, not a substitute for the agreed first full course stage. Exact quantities remain open.
+A proposed first content pilot combines one small grammar lesson, several everyday listening phrases, and a few personal phrases to test the workflow before authoring the complete A1-A2 corpus. Under C-044 this is an internal development/verification milestone, not an early owner handoff. Owner learning/testing waits for the complete agreed A1-A2 stage. Exact quantities remain open.
 
 ### Cross-provider content-review plan
 
@@ -351,15 +369,15 @@ The owner accepted the general behavior under C-042. Detailed backup scheduling,
 - Keep authoritative progress in application-managed local storage, outside the public repository, rather than only in a browser tab or browser cache. Closing the browser or restarting the application should preserve it.
 - Provide automatic local backups plus an explicit export/import path for moving computers and later hosted migration. Restore should preview what will be replaced and preserve a rollback. A backup on the same disk does not cover disk loss; an external backup destination remains a later user choice.
 - Keep reviewed course content and reusable audio separate from private learner history. Content upgrades should preserve stable identifiers and existing evidence.
-- No multi-device synchronization or offline-phone promise initially. Ordinary local practice without internet is a useful next scope choice; external assistant help, new audio generation, and updates would still require their own connectivity.
+- No multi-device synchronization or offline-phone promise initially. Ordinary local practice without internet is accepted under C-043; external assistant help, new audio generation, and updates would still require their own connectivity.
 
-### Next discussion: local practice without internet
+### Accepted local practice without internet
 
-Recommended scope, not yet accepted: after installation and preparation of the selected course materials, ordinary local practice should work without internet while the local application service is running. Include saved lessons/rules, reviewed exercises and answer checking, prepared hints, scheduled review, personal phrases already marked ready, downloaded audio, and progress saving.
+Accepted scope under C-043/C-044: install the complete prepared first-stage A1-A2 course and its required assets before owner handoff. Ordinary local practice must work without internet while the local application service is running, including lessons never opened before and after a browser/application restart. Include saved lessons/rules, reviewed exercises and answer checking, prepared hints, scheduled review, personal phrases already marked ready, downloaded audio, and progress saving.
 
 New cloud-model help, external review of unresolved answers, speech generation, content downloads, and software updates can require internet. An unresolved free-text answer keeps the C-034 uncertainty status offline; do not invent a verdict or block unrelated practice. New personal-phrase drafts may be captured offline but cannot silently become ready without review. Explain unavailable online actions without losing the current attempt.
 
-This would require local availability of the application assets and required lesson/audio files, plus checks with internet disconnected before release. It does not promise offline phone use, synchronization, an installed mobile app, or running the computer-hosted application while the computer is off. The trade-off is initial download/disk space and explicitly unavailable online enrichment. Decide this behavior before choosing technical storage or offline mechanisms.
+This requires local availability of the application assets and required lesson/audio files, plus checks with internet disconnected before release, including a fresh start and a never-opened lesson. It does not promise offline phone use, synchronization, an installed mobile app, or running the computer-hosted application while the computer is off. The trade-off is initial download/disk space and explicitly unavailable online enrichment. Technical storage, packaging, and offline mechanisms remain implementation choices.
 
 ## Curriculum design documents
 
@@ -395,7 +413,9 @@ Use one application and stable content/skill identifiers across stages. Adding B
 
 Suggested first-stage product scope: the course path, selected-topic practice, hint-aware review, progress persistence, and personal-phrase workflows. Final feature allocation, including API/skill delivery timing, remains to be agreed before implementation.
 
-Before authoring all A2 material, propose a small complete pilot module to test the learning loop and UI with the owner. This is early feedback, not a substitute for the requested full A2 stage or a claim of A2 readiness.
+C-044 supersedes the proposed early owner pilot: an internal module can test the learning loop, review process, and UI before bulk authoring, but owner learning and personal testing start after the complete first-stage handoff. Do not ask the owner to study unfinished A2 material while the remaining lessons are authored.
+
+First-handoff gate: implement the agreed first-version features; prepare and review all mapped beginner-to-A2 explanations, exercises, answers, hints, and planned audio; reconcile curriculum coverage; resolve blocking content/runtime findings; and verify core flows, offline fresh-start access, progress persistence, backup restoration, and history-preserving updates. All required first-stage materials must already be present locally. The exact scenario checklist and content quantities still need design. Passing this gate is not a guarantee of zero bugs or a certification of the learner's CEFR level. Internal calibration and sample checks remain necessary but cannot stand in for reviewing the remaining course items.
 
 Proposed meaning of a strong A2 stage: cover the mapped in-scope A1/A2 objectives with reviewed lessons and sufficient varied practice; offer cumulative independent reading/writing tasks, listening checks aligned with the agreed delivery scope, and delayed mixed review; distinguish independent answers from hints. A single successful quiz or completed lesson does not prove durable mastery. Product completeness and an individual learner's assessed proficiency are separate.
 
@@ -519,7 +539,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; next settle local offline expectations. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; next discuss learner-facing progress presentation. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
@@ -536,14 +556,14 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033). Exact scheduling, thresholds, and manual-preference weighting remain to be designed.
 - Exercise feedback: valid alternatives, targeted corrections, meaningful orthography, and unresolved answers with optional external review are settled (C-034). Exact checking rules, hint levels, retry limits, and content-review mechanics remain open.
 - Content scope and quality: detailed listening coverage, native-speaker audio provenance, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
-- Product environment and continuity: initial local browser operation is settled under C-041, and progress/backup/export direction under C-042. Supported browsers, offline expectations, and backup implementation details remain open; hosting, remote phone access, and cross-device sync are deferred. Mobile-friendly layouts remain planned.
+- Product environment and continuity: initial local browser operation is settled under C-041, and progress/backup/export direction under C-042. Offline practice is settled under C-043; supported browsers and backup implementation details remain open; hosting, remote phone access, and cross-device sync are deferred. Mobile-friendly layouts remain planned.
 - Visual design: a comparison/prototyping stage is required; concepts and final UI direction are not selected.
 
 These are open decisions, not a questionnaire to answer all at once. After resolving them, walk through one complete lesson and one return-to-practice session, then finalize acceptance criteria and the deferred integration design.
 
 ## Open boundaries
 
-Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; detailed listening coverage and exercise design; source and rights of learning content; use alongside a teacher; progress storage and privacy; offline needs; AI/API usage and cost; accessibility; license; hosting; technology; exact review algorithm and mastery evidence thresholds. Listening inclusion with adaptive recognition practice, Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
+Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; detailed listening coverage and exercise design; source and rights of learning content; use alongside a teacher; progress storage implementation and privacy; offline packaging details; AI/API usage and cost; accessibility; license; hosting; technology; exact review algorithm and mastery evidence thresholds. Listening inclusion with adaptive recognition practice, Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
 
 ## Reference inspected
 
