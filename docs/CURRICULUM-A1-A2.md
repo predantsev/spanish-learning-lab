@@ -1,6 +1,6 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-16. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-19. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
@@ -69,7 +69,7 @@ Possible loop: concise rule reference -> targeted form practice -> contextual ga
 
 For every block, record: objective IDs; small prerequisite skills; proposed micro-lessons; practical text contexts; independent tasks; hint levels; acceptable-answer policy; likely confusions; return points; personal-phrase opportunities; phone interaction; and source/linguistic-review status. Content IDs must remain stable as the outline evolves.
 
-Next steps: the session direction is accepted under C-032; review controls are accepted under C-033; answer-checking direction is accepted under C-034. Short audio exercises are included in the first stage under C-037. The content model is accepted under C-038. Cross-provider review and the initial model/effort plan are recorded under C-039 in COURSE-DESIGN.md. C-040 accepts pre-generated synthetic Spain Spanish with a small initial generation budget. Next settle device access/progress continuity, then detail the blocks incrementally within the accepted outline; calibrate content review and actual-audio validation before bulk authoring. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
+Next steps: the session direction is accepted under C-032; review controls are accepted under C-033; answer-checking direction is accepted under C-034. Short audio exercises are included in the first stage under C-037. The content model is accepted under C-038. Cross-provider review and the initial model/effort plan are recorded under C-039 in COURSE-DESIGN.md. C-040 accepts pre-generated synthetic Spain Spanish with a small initial generation budget. C-041 settles initial local browser delivery. Next settle progress persistence/recovery and local offline expectations, then detail the blocks incrementally within the accepted outline; calibrate content review and actual-audio validation before bulk authoring. The first draft does not establish complete A1/A2 coverage. Before course release, reconcile the relevant inventories and objectives with explicit coverage or justified scope exclusions.
 
 ## Source record and limits
 
