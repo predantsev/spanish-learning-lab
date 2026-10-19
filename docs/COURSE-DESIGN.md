@@ -145,6 +145,12 @@ Source for C-041: on 2026-10-19, the owner explicitly chose initial use on their
 |---|---|
 | C-041 | Deliver the first version for local browser use on the owner's computer. Defer hosting/cloud deployment and remote access until needed. Preserve the planned mobile-friendly interface under C-026; phone reachability and cross-device synchronization are not initial prerequisites. Investigate a private tunnel only if remote use becomes a concrete need. No tunnel setup, network exposure, hosting purchase, or implementation is authorized by this planning decision. |
 
+Source for C-042: on 2026-10-19, the owner accepted the proposed single-profile local progress, automatic saving, backups, export/import, and history-preserving content updates, then requested moving to the next discussion.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-042 | Use one private local learner profile with automatic saving of answers, hint/reveal evidence, review state, personal phrases, preferences, and study location. Preserve progress across browser/application restarts in application-managed storage separate from browser cache. Provide automatic backups and export/import for moving computers or later hosting. Course updates must preserve learner history. Storage technology, backup frequency/retention/destination, and detailed restore behavior remain to be designed; no implementation is authorized. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -327,7 +333,7 @@ ElevenLabs is a candidate for the first comparison, not a selected provider. Off
 
 Illustrative capacity only: 100 phrases x 50 characters x 2 voices x 2 takes = 20,000 credits at one credit per character. Actual duration, quality, retries, taxes, and the chosen model affect the result. Save usable files and their provenance independently of the service. Synthetic audio must not be presented as a recording of a native speaker; later human recordings can broaden exposure without becoming a dependency for the pilot.
 
-## Accepted local delivery and proposed progress continuity
+## Accepted local delivery and progress continuity
 
 C-041 settles initial delivery: a locally running application opened in a browser on the owner's computer. Hosting is a possible later stage. Responsive phone layouts remain planned under C-026; mobile usability does not imply remote access, independent phone operation, or synchronization in the first version. Do not make local use depend on a cloud account or ongoing hosting subscription.
 
@@ -337,9 +343,9 @@ Proposed implementation direction, to refine after discovery: a local applicatio
 
 The owner mentioned VS Code port forwarding as an option to examine if away-from-home use becomes necessary. [VS Code port-forwarding documentation](https://code.visualstudio.com/docs/debugtest/port-forwarding), inspected 2026-10-19, describes forwarding a local service through Microsoft dev tunnels with Private visibility by default and authenticated access. This is a candidate, not a configured connection. As a consequence of forwarding the local service, the host computer, application, and tunnel must remain running and connected; it does not provide hosting while the computer is off. If pursued, start with private access and verify who can reach the application/API. No public port, tunnel, account connection, or network configuration is being created.
 
-### Next discussion: saved progress and recovery
+### Accepted saved progress and recovery
 
-Recommended initial behavior, still a proposal:
+The owner accepted the general behavior under C-042. Detailed backup scheduling, restore safeguards, and storage mechanisms below remain design proposals:
 
 - One private local learner profile. Persist completed attempts, targeted hint/reveal events, review state, personal phrases, preferences, and the current study location. Retain resumable drafts without counting them as completed attempts.
 - Keep authoritative progress in application-managed local storage, outside the public repository, rather than only in a browser tab or browser cache. Closing the browser or restarting the application should preserve it.
@@ -347,7 +353,13 @@ Recommended initial behavior, still a proposal:
 - Keep reviewed course content and reusable audio separate from private learner history. Content upgrades should preserve stable identifiers and existing evidence.
 - No multi-device synchronization or offline-phone promise initially. Ordinary local practice without internet is a useful next scope choice; external assistant help, new audio generation, and updates would still require their own connectivity.
 
-Next settle the progress/recovery direction above, then whether downloaded lessons and audio should support local practice without internet. These are product decisions, not a request to choose a database now.
+### Next discussion: local practice without internet
+
+Recommended scope, not yet accepted: after installation and preparation of the selected course materials, ordinary local practice should work without internet while the local application service is running. Include saved lessons/rules, reviewed exercises and answer checking, prepared hints, scheduled review, personal phrases already marked ready, downloaded audio, and progress saving.
+
+New cloud-model help, external review of unresolved answers, speech generation, content downloads, and software updates can require internet. An unresolved free-text answer keeps the C-034 uncertainty status offline; do not invent a verdict or block unrelated practice. New personal-phrase drafts may be captured offline but cannot silently become ready without review. Explain unavailable online actions without losing the current attempt.
+
+This would require local availability of the application assets and required lesson/audio files, plus checks with internet disconnected before release. It does not promise offline phone use, synchronization, an installed mobile app, or running the computer-hosted application while the computer is off. The trade-off is initial download/disk space and explicitly unavailable online enrichment. Decide this behavior before choosing technical storage or offline mechanisms.
 
 ## Curriculum design documents
 
@@ -507,7 +519,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; next settle progress persistence, recovery, and local offline expectations. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; next settle local offline expectations. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
@@ -524,7 +536,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033). Exact scheduling, thresholds, and manual-preference weighting remain to be designed.
 - Exercise feedback: valid alternatives, targeted corrections, meaningful orthography, and unresolved answers with optional external review are settled (C-034). Exact checking rules, hint levels, retry limits, and content-review mechanics remain open.
 - Content scope and quality: detailed listening coverage, native-speaker audio provenance, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
-- Product environment and continuity: computer and phone use are settled; local/hosted operation, supported browsers, offline expectations, progress backup/export, and cross-device sync remain open.
+- Product environment and continuity: initial local browser operation is settled under C-041, and progress/backup/export direction under C-042. Supported browsers, offline expectations, and backup implementation details remain open; hosting, remote phone access, and cross-device sync are deferred. Mobile-friendly layouts remain planned.
 - Visual design: a comparison/prototyping stage is required; concepts and final UI direction are not selected.
 
 These are open decisions, not a questionnaire to answer all at once. After resolving them, walk through one complete lesson and one return-to-practice session, then finalize acceptance criteria and the deferred integration design.
