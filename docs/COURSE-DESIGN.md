@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-16. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-19. This is a discovery document, not an approved implementation specification.
 
 ## Confirmed intent
 
@@ -139,6 +139,12 @@ Source for C-040: on 2026-10-16, the owner excluded a budget for hiring native s
 |---|---|
 | C-040 | Use pre-generated, reviewed synthetic speech with pronunciation appropriate to Spain as the initial audio route; save and reuse the files. No budget for commissioned human recordings. Plan approximately $5-10 for an initial generation batch, not a guaranteed whole-course budget or recurring subscription. Compare a few voices before selecting a service; add suitable existing human recordings when available with appropriate rights. Clearly label synthetic audio. This accepts planning, not a purchase, subscription activation, or generation run. |
 
+Source for C-041: on 2026-10-19, the owner explicitly chose initial use on their computer through a browser. A hosted site is a possible later stage; away-from-home use is uncertain, with VS Code port forwarding mentioned only as a future option to examine.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-041 | Deliver the first version for local browser use on the owner's computer. Defer hosting/cloud deployment and remote access until needed. Preserve the planned mobile-friendly interface under C-026; phone reachability and cross-device synchronization are not initial prerequisites. Investigate a private tunnel only if remote use becomes a concrete need. No tunnel setup, network exposure, hosting purchase, or implementation is authorized by this planning decision. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -243,7 +249,7 @@ Proposed progression: short useful phrases -> familiar phrases within short sent
 
 C-040 permits synthetic Spain Spanish and supersedes the earlier human-recording-only boundary. Record whether a clip is synthetic or human, its source/model/voice and revision, intended-use permissions, accurate transcript, and actual-audio review before release. Human clips additionally require supported speaker/region provenance. No selected voice, source, or license is claimed. Written-only sessions remain available; proposed audio controls must work on phones and should not require autoplay.
 
-First-stage inclusion is settled under C-037, content review under C-039, and the audio preparation direction under C-040. Next discuss device access and progress continuity.
+First-stage inclusion is settled under C-037, content review under C-039, audio preparation under C-040, and local browser delivery under C-041. Next discuss progress persistence and recovery.
 
 ## Accepted content preparation model
 
@@ -321,17 +327,27 @@ ElevenLabs is a candidate for the first comparison, not a selected provider. Off
 
 Illustrative capacity only: 100 phrases x 50 characters x 2 voices x 2 takes = 20,000 credits at one credit per character. Actual duration, quality, retries, taxes, and the chosen model affect the result. Save usable files and their provenance independently of the service. Synthetic audio must not be presented as a recording of a native speaker; later human recordings can broaden exposure without becoming a dependency for the pilot.
 
-## Device access and progress continuity: next discussion
+## Accepted local delivery and proposed progress continuity
 
-Computer and phone use is confirmed under C-026; the following delivery choices remain proposals:
+C-041 settles initial delivery: a locally running application opened in a browser on the owner's computer. Hosting is a possible later stage. Responsive phone layouts remain planned under C-026; mobile usability does not imply remote access, independent phone operation, or synchronization in the first version. Do not make local use depend on a cloud account or ongoing hosting subscription.
 
-| Approach | Intended benefit | Trade-off to resolve |
-|---|---|---|
-| Separate browser-local progress on each device | Small initial operational scope | No automatic shared progress; would need export/import or later sync, plus backup planning. |
-| A private server running on the owner's computer | One progress store and a local assistant API | Phone access requires network reachability and the computer/server to be running; away-from-home access is a separate design problem. |
-| A hosted web application with private progress | Plan access from phone/computer independently of the owner's laptop and shared progress | Requires hosting, authentication/access control, backups, and a cost/privacy decision; offline use remains separate. |
+Proposed implementation direction, to refine after discovery: a local application service with private persistent learner data and the planned domain API. Keep the data boundary portable so later migration to a hosted deployment can preserve content IDs, learner history, saved phrases, and settings. Storage engine, startup/lifecycle tooling, and authentication details are not selected. A stable browser address and a documented launch/stop workflow belong in later implementation; no running endpoint exists now.
 
-First resolve the use case: must phone practice work away from home when the computer is off? If yes, prefer exploring the hosted route with shared private progress. If no, a local server may be sufficient for the pilot. Then separately settle shared progress, offline expectations, export/backup, and assistant connectivity. No hosting service, account system, storage technology, or recurring budget is selected.
+### Deferred remote access
+
+The owner mentioned VS Code port forwarding as an option to examine if away-from-home use becomes necessary. [VS Code port-forwarding documentation](https://code.visualstudio.com/docs/debugtest/port-forwarding), inspected 2026-10-19, describes forwarding a local service through Microsoft dev tunnels with Private visibility by default and authenticated access. This is a candidate, not a configured connection. As a consequence of forwarding the local service, the host computer, application, and tunnel must remain running and connected; it does not provide hosting while the computer is off. If pursued, start with private access and verify who can reach the application/API. No public port, tunnel, account connection, or network configuration is being created.
+
+### Next discussion: saved progress and recovery
+
+Recommended initial behavior, still a proposal:
+
+- One private local learner profile. Persist completed attempts, targeted hint/reveal events, review state, personal phrases, preferences, and the current study location. Retain resumable drafts without counting them as completed attempts.
+- Keep authoritative progress in application-managed local storage, outside the public repository, rather than only in a browser tab or browser cache. Closing the browser or restarting the application should preserve it.
+- Provide automatic local backups plus an explicit export/import path for moving computers and later hosted migration. Restore should preview what will be replaced and preserve a rollback. A backup on the same disk does not cover disk loss; an external backup destination remains a later user choice.
+- Keep reviewed course content and reusable audio separate from private learner history. Content upgrades should preserve stable identifiers and existing evidence.
+- No multi-device synchronization or offline-phone promise initially. Ordinary local practice without internet is a useful next scope choice; external assistant help, new audio generation, and updates would still require their own connectivity.
+
+Next settle the progress/recovery direction above, then whether downloaded lessons and audio should support local practice without internet. These are product decisions, not a request to choose a database now.
 
 ## Curriculum design documents
 
@@ -491,9 +507,9 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; next settle device access and progress continuity. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; next settle progress persistence, recovery, and local offline expectations. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
-4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Computer and phone use are required; exact environments and sync are open. Speaking remains excluded.
+4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
 6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
 7. Revisit the deferred external-assistant plan with the settled domain model and concrete user workflows.

@@ -1,6 +1,6 @@
 # Current status
 
-Updated: 2026-10-16.
+Updated: 2026-10-19.
 
 ## Goal and phase
 
@@ -43,9 +43,11 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-040 (2026-10-16): synthetic Spain Spanish is accepted for initial listening material; no commissioned-recording budget. Plan an approximately $5-10 initial generation batch, save reusable files, compare voices before selecting a service, and supplement with suitable existing human recordings. This supersedes the original human-recording-only boundary. No purchase or generation was performed.
 
+- Recorded C-041 (2026-10-19): initial use is local on the owner's computer through a browser. Hosting and possible private-tunnel access are deferred; mobile-friendly layouts remain planned. Added proposals for private local progress, backup/export, and later migration. No tunnel, service, deployment, or network configuration was created.
+
 ## Next conversation
 
-Cross-provider review direction is settled under C-039 and the requested model/effort plan is recorded. Audio preparation direction is now accepted under C-040. Next ask whether phone practice must work away from home with the computer off; then settle shared progress, offline expectations, and backup/export. Voice/service selection and actual-audio checking remain later pilot work. Before future bulk content authoring, agree pilot quality thresholds and usage limits and calibrate the proposed pairs. First-stage listening inclusion is settled under C-037. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, detailed listening coverage, audio sources, and cross-device sync remain open; speaking is excluded.
+Cross-provider review direction is settled under C-039 and the requested model/effort plan is recorded. Audio preparation direction is now accepted under C-040. Initial local browser delivery is settled under C-041. Next settle private progress persistence, backup/export and recovery, then local offline expectations. Remote access, hosting, and synchronization are deferred. Voice/service selection and actual-audio checking remain later pilot work. Before future bulk content authoring, agree pilot quality thresholds and usage limits and calibrate the proposed pairs. First-stage listening inclusion is settled under C-037. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, detailed listening coverage, audio sources, and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -96,3 +98,5 @@ Content-model acceptance (2026-10-14): recorded the owner's approval and propose
 Cross-provider review planning (2026-10-15): checked the official model/effort sources linked in COURSE-DESIGN.md and the current local canonical routing policy. Reviewed documentation consistency and whitespace. Provider guidance informs proposed settings only; no Spanish-content benchmark, human review, audio inspection, model dispatch, or runtime implementation was performed.
 
 Audio-direction acceptance (2026-10-16): recorded the owner's approval; reconciled the former human-only constraint across course, curriculum, and README. Preserved dated ElevenLabs source observations from the preceding discussion and an explicitly illustrative credit calculation. Checked documentation consistency and `git diff --check`; no audio quality test, purchase, generation, hosting, or application implementation.
+
+Local-delivery acceptance (2026-10-19): recorded the explicit local-first browser choice, kept remote use conditional, and checked the linked official VS Code port-forwarding documentation. Reviewed document consistency and `git diff --check`; no tunnel connectivity test, storage implementation, application launch, or deployment.
