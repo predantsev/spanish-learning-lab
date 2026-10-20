@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-19. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-20. This is a discovery document, not an approved implementation specification.
 
 ## Confirmed intent
 
@@ -158,6 +158,12 @@ Source for C-043/C-044: on 2026-10-19, the owner clarified that learning and per
 | C-043 | Deliver ordinary practice offline after installation of the prepared course and assets, including lessons never previously opened. This is persistent local availability, not only continued use of an already-loaded browser page. Prepared lessons, exercises/checking, hints, review, audio, and progress saving must work with the local service running and no internet. External AI help, new generation, and downloads may require connectivity; unresolved answers retain their uncertainty status. |
 | C-044 | Begin owner learning and personal testing only after the complete agreed first application and all beginner-to-A2 materials are prepared, reviewed, and available locally, with core scenarios tested. Include course study, selected-topic practice, adaptive review, hints, personal phrases, listening, persistence, and backups. B1/B2 remain subsequent expansions. An internal pilot may validate the implementation/content workflow but must not substitute for the complete first handoff or require the owner to learn while later A2 lessons are unfinished. This authorizes planning only. |
 
+Source for C-045: on 2026-10-20, the owner accepted a concise home overview, optional topic/skill detail, and a short session summary, with course coverage kept separate from evidence of independent recall/use.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-045 | Show a concise overview of study location and actionable practice recommendations with evidence-based reasons; expose deeper skill history on demand and summarize completed sessions. Separate lessons covered from skill evidence, including differences between form production, construction choice, and listening where assessed. Do not make a statistics-heavy dashboard mandatory or equate lesson completion with mastery. Exact labels, charts, thresholds, and layouts remain design work. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -218,16 +224,30 @@ Evidence basis: the abstract of [Karpicke and Roediger (2008), The critical impo
 
 Marking something known retains occasional checks; automatic review can be paused separately (C-033). Continue with written-answer checking below.
 
-### Next discussion: presenting progress
+### Accepted progress presentation
 
-C-033 already settles granular review evidence and learner controls. The next decision concerns how that evidence is shown, not reopening the scheduler direction. Recommended presentation, still a proposal:
+C-033 settles granular review evidence and learner controls. C-045 accepts the following presentation direction; detailed labels, thresholds, and UI layouts remain to be designed:
 
 - Separate course coverage (lessons/topics visited or completed) from evidence of recall and use. Completing all lessons must not display a claim of mastering the language.
 - Offer a concise overview: current study location, a manageable practice recommendation, and specific recent difficulties with an evidence-based reason. Put detailed history behind a topic/skill view instead of requiring a statistics dashboard before practice.
 - In a topic view, distinguish form production, construction choice, and listening recognition where assessed; show neutral states and recent assistance. Use the existing manual repeat/known/pause controls. Do not infer a topic-wide weakness from one targeted error.
 - After a session, summarize what was practiced, where help was used, and a useful next step. Prefer actionable examples to an unexplained mastery percentage. Exact labels, thresholds, charts, and UI layouts remain open for the planned design stage.
 
-Next ask whether a short overview with optional skill details fits the owner, then walk through a complete lesson and return-to-practice flow before visual design and final acceptance planning.
+Next validate the complete return-to-practice flow below, followed by a new-lesson flow before visual design and final acceptance planning.
+
+### Proposed walkthrough: returning to a studied tense
+
+This is a product-flow proposal for discussion, not implemented behavior, authored lesson content, or evidence about the owner's actual performance. It combines the accepted controls without reopening them.
+
+1. Open the local course. Home offers resume, recommended practice with a specific reason, and manual topic selection. Choose a previously studied tense and practice only; no new lesson is required.
+2. Optionally narrow the focus to regular forms, specific exceptions, tense choice, or listening, using only reviewed tasks with appropriate prerequisites. Start with a recall attempt when desired, or open the concise rule first; reading the rule is never blocked.
+3. Work through a small varied set: a bounded form task, a sentence task, and a contextual choice as appropriate. Listening is optional for this session. Unstudied material must not silently become part of the selected review.
+4. If an irregular form is not recalled, request a targeted hint, a rule explanation, or the answer. Show local feedback and retain the help category for the relevant skill. Looking at an answer and then reproducing it is practice, not independent recall.
+5. Offer another familiar context later in the set, then schedule an independent follow-up in a future session. Do not loop one mistake indefinitely. The learner can use the existing repeat-more, known/occasional-check, and pause controls or stop at any point. Exact set size and repeat counts remain to be designed.
+6. Save a useful reviewed phrase into the personal collection if desired. New wording or a new intended meaning follows the existing draft/review path. An uncertain free-text result remains unresolved and does not block unrelated local practice.
+7. Stop or continue voluntarily. Save completed attempts and the current draft; show a short summary distinguishing independent success, assistance, and an appropriate next practice target. Returning later resumes the saved location without resetting the topic.
+
+Next validate whether this overall experience matches the owner, then detail entering a genuinely new lesson. Neither discussion is an early owner test of an incomplete implementation; C-044 still requires the complete first handoff.
 
 ## Accepted written-answer-checking direction
 
@@ -539,7 +559,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; next discuss learner-facing progress presentation. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; next validate complete return-to-practice and new-lesson flows. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
