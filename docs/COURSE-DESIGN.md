@@ -455,6 +455,16 @@ The comparison includes local answer entry, a bounded example check, hints, rule
 
 Validation: script syntax checked with `node --check`; the fragment was wrapped with the visualization renderer. Browser inspection was blocked by the browser tool's local-file navigation policy. Layout, mobile keyboard behavior, and browser interactions remain unverified. Next obtain the owner's direction preference, then refine the key screens and verify them in an authorized preview environment.
 
+### Focus with collapsible reference — proposed refinement, 2026-10-20
+
+Owner feedback: Focus looks promising, and Workshop's left-hand reference area is useful. The owner proposed combining them with a panel collapsed by default, and tentatively suggested preventing it from opening until an answer has been entered. This is a request to explore the design, not approval of a final access rule or application implementation.
+
+Proposed layout: a persistent, labeled Reference control on the left opens the current topic's rule, exceptions, and examples beside the focused exercise. Closing it preserves the answer draft. On narrow screens, reference content expands above the exercise rather than squeezing the input. The conversation mockup demonstrates open/close, Escape, draft preservation, expandable sections, a bounded example check, and a Do not remember action that opens exceptions.
+
+Recommendation pending owner agreement: keep help available before an answer. Encouraging an independent attempt is useful, but requiring arbitrary text can produce guesses solely to unlock help. If an attempt-first mode is later chosen, use an explicit submitted attempt or Do not remember action, rather than treating any nonempty input as recall evidence. Opening relevant reference content records assistance; closing the panel does not erase it. Consulting the reference after a checked independent answer does not retroactively rewrite that answer's result. Exact per-rule attribution remains implementation design work.
+
+No new layout or access policy is confirmed yet. The current mockup shows the always-available recommendation, uses synthetic content, and has no course backend. Validation is limited to JavaScript syntax and static markup/selector checks; browser layout and runtime interactions remain unverified. Next settle the reference-access behavior and the hybrid layout before expanding the design to other screens.
+
 ## Course horizon and staged delivery
 
 Accepted sequence: beginner foundations including A1 -> strong A2 -> B1 -> B2. The owner may have mentioned C1 in an unclear dictated fragment; a clarification was asked. Beyond-B2 scope is unconfirmed and does not block the confirmed A2/B1/B2 plan. Do not assign C1 to the required roadmap without clarification.
