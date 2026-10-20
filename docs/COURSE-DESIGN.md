@@ -182,6 +182,12 @@ Source for C-048: on 2026-10-20, after viewing the combined Focus/reference mock
 |---|---|
 | C-048 | Use Focus with a contextual reference panel collapsed by default as the exercise-screen direction. Keep rules, exceptions, and examples accessible without requiring an answer first; retain the answer draft when opening or closing the panel. Relevant help remains assistance evidence after closing, and does not retroactively change an already checked independent answer. The narrow-screen treatment, detailed attribution, and final visual polish still require verification. This approves design direction only. |
 
+Source for C-049: on 2026-10-20, the owner explicitly accepted the proposed home-screen priority and asked to record it and continue.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-049 | Give recommended review the primary emphasis when eligible material exists, with a concrete reason for the recommendation. Keep Resume and Choose topic immediately accessible. Resume returns to saved work; review does not block course study or manual selection. With no eligible review, offer an appropriate course starting point. This accepts the home-screen hierarchy, not a finished visual layout or implementation. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -471,16 +477,26 @@ Accepted under C-048: keep help available before an answer. Encouraging an indep
 
 C-048 confirms the overall layout and always-available help direction. The current mockup uses synthetic content, and has no course backend. Validation is limited to JavaScript syntax and static markup/selector checks; browser layout and runtime interactions remain unverified. Next plan the home screen and navigation before expanding the visual design.
 
-### Home screen — proposal for discussion
+### Home screen — accepted hierarchy
 
-Building on C-045, make the home screen a concise entry to learning and practice:
+C-049 accepts the hierarchy building on C-045. Detailed navigation labels and visual layout remain design work:
 
 - A manageable recommended review set, with one concrete evidence-based reason and an optional time estimate. Do not show an alarming overdue backlog or require review before new study. If no review is eligible yet, replace this with a suitable course starting point.
 - A separate resume action naming the saved lesson or practice context. With no saved session, show Start course. Resume restores the interrupted activity rather than silently starting new material.
 - A direct Choose topic route with study and practice options, including topics learned elsewhere. This remains available regardless of recommendations.
 - Persistent navigation to Course, Practice, My phrases, and Progress; listening is an available practice filter rather than an obligatory separate course. Settings remain accessible without competing with the learning actions.
 
-Recommendation pending owner agreement: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. Next agree this information hierarchy, then prepare the home-screen mockup.
+Accepted under C-049: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. Next discuss manual topic navigation; the home-screen mockup remains planned before final UI implementation.
+
+### Manual topic navigation — proposal for discussion
+
+C-007 and C-046 already require independent topic selection and narrower practice. The remaining question is how the learner finds a target, including when the formal Spanish name is forgotten.
+
+Proposed default: browse by learning topic with Ukrainian labels and Spanish terms together. Search can match curated aliases and representative constructions, such as a known verb form, without requiring runtime AI. Add an optional everyday-situation view or filter (shop, home, appointments) that links to the same relevant topics and reviewed tasks; it is not a second course or duplicate progress record. Exact groupings and alias coverage remain unapproved.
+
+After choosing a topic, offer Read rule, Learn topic, and Practice. Practice has a quick default set for that topic and optional narrower targets such as regular forms, exceptions, or contextual tense choice. Listening can be included or omitted. Familiar topics learned elsewhere remain accessible without completing all earlier course lessons; a self-report of prior study does not count as tested mastery. Any recommendation based on difficulties must use actual evidence. Unrelated topics do not silently enter a manually scoped set; mixed-topic review is an explicit choice or a clearly labeled recommendation.
+
+Recommendation for the next discussion: topic browsing as the primary route, with a secondary situation-based route and search. Agree whether both entry routes are useful before detailing the catalog screen. No catalog, search index, or task-selection implementation exists.
 
 ## Course horizon and staged delivery
 
