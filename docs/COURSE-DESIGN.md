@@ -194,6 +194,12 @@ Source for C-050: on 2026-10-21, the owner explicitly selected both proposed nav
 |---|---|
 | C-050 | Provide both learning-topic navigation and everyday-situation navigation to the same reviewed materials and shared progress. The topic-first hierarchy remains a design recommendation. Detailed groups, search aliases, filtering, and screen layout still require design; no duplicate course or separate progress record is implied. |
 
+Source for C-051: on 2026-10-21, in response to the optional-tags-versus-own-collections question, the owner requested collections as well.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-051 | Include named personal phrase collections in addition to the proposed list/search/tag organization. The owner wants useful collections rather than limiting organization to tags. Detailed collection controls and prepared thematic packs remain proposals; no implementation is authorized. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -552,7 +558,15 @@ Capture paths and exact-phrase/construction practice remain accepted under C-022
 - Allow practice of selected ready phrases or ready items matching a filter, with recommended review as a quick action. Preserve the existing combined phrase/variation model. Listening is available only when a suitable reviewed recording exists.
 - Expose repeat-more, known/occasional checks, and pause in phrase details using the accepted review controls. A draft edit requiring revalidation must not silently replace a reviewed practice answer.
 
-Recommendation pending agreement: use one list, quick filters, and optional tags initially; defer a nested-folder hierarchy. Next ask whether optional tags are sufficient or manually named collections are needed. These are screen-design proposals, not implemented storage or scheduling behavior.
+C-051 requires named personal collections. The one-list, quick-filter, and optional-tag design remains proposed alongside them; nested folders are not required. These are screen-design proposals, not implemented storage or scheduling behavior.
+
+### Phrase collections — accepted need and proposed behavior
+
+C-051 accepts personal collections. Proposed behavior: create a named collection such as Before a trip or Useful for me, add existing phrases, reorder items, and practice its ready material. Collections reference phrase records: one phrase may belong to several collections, sharing its learning history. Removing collection membership or deleting the collection should leave the phrase and its history intact; deleting the underlying phrase is a separate action. Draft membership does not make an entry eligible for practice, and collection membership does not silently change automatic-review pause settings.
+
+Additional proposal for discussion: include prepared, reviewed thematic packs such as At the shop, Booking an appointment, or Everyday expressions heard in Spain. Packs reuse suitable course material and existing situation mappings rather than creating duplicate lessons or progress. Keep them available locally with the prepared course; no live generation or embedded AI is implied. A learner could use a pack as the basis for a personal collection, preserving links to the reviewed source items; wording edits follow the established validation boundary. Exact pack coverage, size, and first-release inclusion remain unapproved.
+
+Recommended screen organization: My collections and Course collections, with search, optional favorites, and a short purpose/level description for each prepared pack. The recommendations concern written and listening practice only. Next confirm whether prepared thematic packs should accompany the required personal collections, then finalize collection behavior and proceed to listening-screen design.
 
 ## Design directions and unresolved details
 
