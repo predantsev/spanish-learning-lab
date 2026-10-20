@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-20. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-21. This is a discovery document, not an approved implementation specification.
 
 ## Confirmed intent
 
@@ -187,6 +187,12 @@ Source for C-049: on 2026-10-20, the owner explicitly accepted the proposed home
 | ID | Confirmed requirement |
 |---|---|
 | C-049 | Give recommended review the primary emphasis when eligible material exists, with a concrete reason for the recommendation. Keep Resume and Choose topic immediately accessible. Resume returns to saved work; review does not block course study or manual selection. With no eligible review, offer an appropriate course starting point. This accepts the home-screen hierarchy, not a finished visual layout or implementation. |
+
+Source for C-050: on 2026-10-21, the owner explicitly selected both proposed navigation routes and asked to continue.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-050 | Provide both learning-topic navigation and everyday-situation navigation to the same reviewed materials and shared progress. The topic-first hierarchy remains a design recommendation. Detailed groups, search aliases, filtering, and screen layout still require design; no duplicate course or separate progress record is implied. |
 
 ## Language and localization direction
 
@@ -488,15 +494,15 @@ C-049 accepts the hierarchy building on C-045. Detailed navigation labels and vi
 
 Accepted under C-049: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. Next discuss manual topic navigation; the home-screen mockup remains planned before final UI implementation.
 
-### Manual topic navigation — proposal for discussion
+### Manual topic navigation — accepted routes and proposed details
 
-C-007 and C-046 already require independent topic selection and narrower practice. The remaining question is how the learner finds a target, including when the formal Spanish name is forgotten.
+C-007 and C-046 already require independent topic selection and narrower practice. C-050 accepts both topic and everyday-situation routes. Detailed discovery behavior, including when the formal Spanish name is forgotten, remains to be designed.
 
-Proposed default: browse by learning topic with Ukrainian labels and Spanish terms together. Search can match curated aliases and representative constructions, such as a known verb form, without requiring runtime AI. Add an optional everyday-situation view or filter (shop, home, appointments) that links to the same relevant topics and reviewed tasks; it is not a second course or duplicate progress record. Exact groupings and alias coverage remain unapproved.
+Proposed default: browse by learning topic with Ukrainian labels and Spanish terms together. Search can match curated aliases and representative constructions, such as a known verb form, without requiring runtime AI. Provide the accepted everyday-situation route, with its view/filter layout still proposed (shop, home, appointments), linking to the same relevant topics and reviewed tasks; it is not a second course or duplicate progress record. Exact groupings and alias coverage remain unapproved.
 
 After choosing a topic, offer Read rule, Learn topic, and Practice. Practice has a quick default set for that topic and optional narrower targets such as regular forms, exceptions, or contextual tense choice. Listening can be included or omitted. Familiar topics learned elsewhere remain accessible without completing all earlier course lessons; a self-report of prior study does not count as tested mastery. Any recommendation based on difficulties must use actual evidence. Unrelated topics do not silently enter a manually scoped set; mixed-topic review is an explicit choice or a clearly labeled recommendation.
 
-Recommendation for the next discussion: topic browsing as the primary route, with a secondary situation-based route and search. Agree whether both entry routes are useful before detailing the catalog screen. No catalog, search index, or task-selection implementation exists.
+Both entry routes are accepted under C-050. The recommended topic-first hierarchy, search behavior, and detailed catalog screen remain design work. Next discuss organization of My phrases. No catalog, search index, or task-selection implementation exists.
 
 ## Course horizon and staged delivery
 
@@ -535,6 +541,18 @@ Accepted capture workflow under C-022:
 Use distinct draft/needs-review and ready-for-practice states. Exact validation responsibility and UI wording remain to be specified; a structurally valid record alone does not prove language correctness. These states do not measure learner mastery. Personal records remain outside public source control.
 
 Practice under C-023 combines the saved phrase with appropriate variations using familiar vocabulary and grammar. Exact variation frequency and any manual mode control remain implementation/design details, not a blocker to the next product discussion. Checking responsibility will be resolved with the wider content-quality workflow.
+
+### My phrases screen — proposed organization
+
+Capture paths and exact-phrase/construction practice remain accepted under C-022/C-023. This proposal concerns finding and selecting saved material:
+
+- One searchable list showing Spanish wording, Ukrainian meaning or intent, optional context, and review readiness. Drafts without validated Spanish remain visible but are excluded from practice targets.
+- Quick filters for All, Ready for practice, Needs checking, and Paused. Readiness and review scheduling are different dimensions: paused items can still be linguistically ready, and ready items are not necessarily due.
+- Reuse topic and situation tags where reviewed metadata exists. Let the learner correct or add optional personal tags, without requiring folder setup for every save. One phrase can belong to several situations without duplicate records. Automatic inference for external phrases is not assumed.
+- Allow practice of selected ready phrases or ready items matching a filter, with recommended review as a quick action. Preserve the existing combined phrase/variation model. Listening is available only when a suitable reviewed recording exists.
+- Expose repeat-more, known/occasional checks, and pause in phrase details using the accepted review controls. A draft edit requiring revalidation must not silently replace a reviewed practice answer.
+
+Recommendation pending agreement: use one list, quick filters, and optional tags initially; defer a nested-folder hierarchy. Next ask whether optional tags are sufficient or manually named collections are needed. These are screen-design proposals, not implemented storage or scheduling behavior.
 
 ## Design directions and unresolved details
 
@@ -660,9 +678,9 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Exercise feedback: valid alternatives, targeted corrections, meaningful orthography, and unresolved answers with optional external review are settled (C-034). Exact checking rules, hint levels, retry limits, and content-review mechanics remain open.
 - Content scope and quality: detailed listening coverage, native-speaker audio provenance, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
 - Product environment and continuity: initial local browser operation is settled under C-041, and progress/backup/export direction under C-042. Offline practice is settled under C-043; supported browsers and backup implementation details remain open; hosting, remote phone access, and cross-device sync are deferred. Mobile-friendly layouts remain planned.
-- Visual design: a comparison/prototyping stage is required; concepts and final UI direction are not selected.
+- Visual design: C-048 selects the Focus/reference exercise direction, C-049 sets the home priority, and C-050 accepts both navigation routes. Remaining screens, detailed layouts, and browser/mobile verification are still open.
 
-These are open decisions, not a questionnaire to answer all at once. After resolving them, walk through one complete lesson and one return-to-practice session, then finalize acceptance criteria and the deferred integration design.
+These are open decisions, not a questionnaire to answer all at once. Learning and return-to-practice walkthroughs are accepted under C-046/C-047. Refine their concrete acceptance criteria alongside remaining screen design, then finalize the implementation plan and deferred integration design.
 
 ## Open boundaries
 
