@@ -1,6 +1,6 @@
 # Current status
 
-Updated: 2026-10-19.
+Updated: 2026-10-20.
 
 ## Goal and phase
 
@@ -49,9 +49,11 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-043/C-044 (2026-10-19): ordinary practice works from locally installed materials without internet, including never-opened lessons. Owner learning/testing starts only after the complete application and agreed A1-A2 corpus are prepared/reviewed and core scenarios tested. Earlier pilot suggestions now mean internal development checks. Added proposed progress presentation as the next discussion; no implementation or course completion is claimed.
 
+- Recorded C-045 (2026-10-20): concise progress overview, optional skill detail, and a session summary are accepted; course coverage remains separate from recall/use evidence. Added a proposed return-to-practice walkthrough as the next discussion. No UI or practice flow is implemented.
+
 ## Next conversation
 
-Cross-provider review direction is settled under C-039 and the requested model/effort plan is recorded. Audio preparation direction is now accepted under C-040. Initial local browser delivery is settled under C-041. Progress persistence, automatic backups, export/import, and history-preserving updates are accepted under C-042. Offline practice and the complete first A1-A2 handoff are settled under C-043/C-044. Next discuss learner-facing progress presentation, keeping lesson coverage separate from skill evidence, then walk through full learning/practice flows. Backup scheduling/retention and restore details remain later design work. Remote access, hosting, and synchronization are deferred. Voice/service selection and actual-audio checking remain later pilot work. Before future bulk content authoring, agree pilot quality thresholds and usage limits and calibrate the proposed pairs. First-stage listening inclusion is settled under C-037. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, detailed listening coverage, audio sources, and cross-device sync remain open; speaking is excluded.
+Cross-provider review direction is settled under C-039 and the requested model/effort plan is recorded. Audio preparation direction is now accepted under C-040. Initial local browser delivery is settled under C-041. Progress persistence, automatic backups, export/import, and history-preserving updates are accepted under C-042. Offline practice and the complete first A1-A2 handoff are settled under C-043/C-044. Progress presentation is accepted under C-045. Next validate the proposed studied-tense return-to-practice walkthrough, then a new-lesson flow, before visual design and final acceptance planning. Backup scheduling/retention and restore details remain later design work. Remote access, hosting, and synchronization are deferred. Voice/service selection and actual-audio checking remain later pilot work. Before future bulk content authoring, agree pilot quality thresholds and usage limits and calibrate the proposed pairs. First-stage listening inclusion is settled under C-037. Written-answer-checking direction is accepted under C-034; exact mechanisms remain open. Session format and review-control direction are settled; exact intervals and thresholds remain open. Continue progressively detailing the accepted A1-A2 outline. Spanish of Spain and the brief familiar-foundations approach are settled. Visual design is planned for a later dedicated stage. Integration implementation remains deferred. The possible C1 mention, detailed listening coverage, audio sources, and cross-device sync remain open; speaking is excluded.
 
 ## Decisions and boundaries
 
@@ -108,3 +110,5 @@ Local-delivery acceptance (2026-10-19): recorded the explicit local-first browse
 Progress-direction acceptance (2026-10-19): recorded the owner's agreement, separated accepted persistence behavior from unresolved implementation details, and advanced discovery to offline scope. Checked documentation consistency and `git diff --check`; no persistence, restore, or offline-runtime test is claimed.
 
 Offline/full-handoff acceptance (2026-10-19): recorded the owner's clarified delivery expectation, replaced the early owner pilot with internal validation, and reconciled offline scope across planning docs. Documentation consistency and `git diff --check` only; no authored full corpus, offline runtime, or completed first-stage release exists.
+
+Progress-presentation acceptance (2026-10-20): recorded the owner's approval and checked the proposed walkthrough against accepted manual selection, hint attribution, uncertain-answer handling, persistence, and complete-handoff requirements. Documentation consistency and `git diff --check` only; no UI or learning-effectiveness verification.
