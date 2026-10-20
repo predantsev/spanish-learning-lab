@@ -176,6 +176,12 @@ Source for C-047: on 2026-10-20, the owner agreed to proceed after the proposed 
 |---|---|
 | C-047 | Adopt the new-lesson walkthrough below: a small practical objective, concise explanation, supported practice, varied independent opportunities with available help, a saved summary, and later review. Familiar-topic shortcuts and stopping/resuming remain available. Exact content, task counts, exit criteria, and UI design remain open; implementation is not authorized. |
 
+Source for C-048: on 2026-10-20, after viewing the combined Focus/reference mockup and the recommendation to keep help available, the owner approved the direction and asked to continue.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-048 | Use Focus with a contextual reference panel collapsed by default as the exercise-screen direction. Keep rules, exceptions, and examples accessible without requiring an answer first; retain the answer draft when opening or closing the panel. Relevant help remains assistance evidence after closing, and does not retroactively change an already checked independent answer. The narrow-screen treatment, detailed attribution, and final visual polish still require verification. This approves design direction only. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -441,7 +447,7 @@ Phone usability and progress sharing between devices are separate requirements: 
 
 ### Initial visual alternatives — proposed, 2026-10-20
 
-An in-conversation comparison uses synthetic examples of the same participle exercise. These are design mockups, not the application or a reviewed lesson corpus. No direction has been selected.
+An in-conversation comparison uses synthetic examples of the same participle exercise. These are design mockups, not the application or a reviewed lesson corpus. The subsequent hybrid direction is accepted under C-048.
 
 | Direction | Layout and intended use | Tradeoff |
 |---|---|---|
@@ -449,21 +455,32 @@ An in-conversation comparison uses synthetic examples of the same participle exe
 | Notebook (Зошит) | Rule beside the exercise, stacking above it on a phone. | Supports first exposure; a visible answer model means supported practice and uses more space. |
 | Workshop (Майстерня) | Skill selection beside the exercise, with quick switching between regular forms and exceptions. | Useful for targeted review; denser navigation needs care on a narrow screen. |
 
-Recommendation for discussion: Focus as the everyday practice layout, an optional Notebook-style guided step for new lessons, and skill selection in the topic view. This is not an approved combination.
+Recommendation for discussion: Focus as the everyday practice layout, an optional Notebook-style guided step for new lessons, and skill selection in the topic view. This initial recommendation was superseded by the owner-proposed hybrid accepted under C-048.
 
 The comparison includes local answer entry, a bounded example check, hints, rule visibility, phrase-save feedback, a session summary, and a phone-width preview. These controls do not create real learner records, schedule reviews, play audio, or exercise an application API. Closing a rule must not erase assistance evidence for the current attempt. Future selected-design work must cover home, course navigation, listening, personal phrases, and unresolved-answer handling as well.
 
-Validation: script syntax checked with `node --check`; the fragment was wrapped with the visualization renderer. Browser inspection was blocked by the browser tool's local-file navigation policy. Layout, mobile keyboard behavior, and browser interactions remain unverified. Next obtain the owner's direction preference, then refine the key screens and verify them in an authorized preview environment.
+Validation: script syntax checked with `node --check`; the fragment was wrapped with the visualization renderer. Browser inspection was blocked by the browser tool's local-file navigation policy. Layout, mobile keyboard behavior, and browser interactions remain unverified. The owner subsequently selected the hybrid under C-048; refine the remaining key screens and verify them in an authorized preview environment.
 
-### Focus with collapsible reference — proposed refinement, 2026-10-20
+### Focus with collapsible reference — accepted direction, 2026-10-20
 
-Owner feedback: Focus looks promising, and Workshop's left-hand reference area is useful. The owner proposed combining them with a panel collapsed by default, and tentatively suggested preventing it from opening until an answer has been entered. This is a request to explore the design, not approval of a final access rule or application implementation.
+Owner feedback: Focus looks promising, and Workshop's left-hand reference area is useful. The owner proposed combining them with a panel collapsed by default, and tentatively suggested preventing it from opening until an answer has been entered. The initial request was exploratory; the subsequent mockup and always-available-help direction were accepted under C-048. Application implementation remains unauthorized.
 
-Proposed layout: a persistent, labeled Reference control on the left opens the current topic's rule, exceptions, and examples beside the focused exercise. Closing it preserves the answer draft. On narrow screens, reference content expands above the exercise rather than squeezing the input. The conversation mockup demonstrates open/close, Escape, draft preservation, expandable sections, a bounded example check, and a Do not remember action that opens exceptions.
+Accepted layout direction: a persistent, labeled Reference control on the left opens the current topic's rule, exceptions, and examples beside the focused exercise. Closing it preserves the answer draft. On narrow screens, reference content expands above the exercise rather than squeezing the input. The conversation mockup demonstrates open/close, Escape, draft preservation, expandable sections, a bounded example check, and a Do not remember action that opens exceptions.
 
-Recommendation pending owner agreement: keep help available before an answer. Encouraging an independent attempt is useful, but requiring arbitrary text can produce guesses solely to unlock help. If an attempt-first mode is later chosen, use an explicit submitted attempt or Do not remember action, rather than treating any nonempty input as recall evidence. Opening relevant reference content records assistance; closing the panel does not erase it. Consulting the reference after a checked independent answer does not retroactively rewrite that answer's result. Exact per-rule attribution remains implementation design work.
+Accepted under C-048: keep help available before an answer. Encouraging an independent attempt is useful, but requiring arbitrary text can produce guesses solely to unlock help. If an attempt-first mode is later chosen, use an explicit submitted attempt or Do not remember action, rather than treating any nonempty input as recall evidence. Opening relevant reference content records assistance; closing the panel does not erase it. Consulting the reference after a checked independent answer does not retroactively rewrite that answer's result. Exact per-rule attribution remains implementation design work.
 
-No new layout or access policy is confirmed yet. The current mockup shows the always-available recommendation, uses synthetic content, and has no course backend. Validation is limited to JavaScript syntax and static markup/selector checks; browser layout and runtime interactions remain unverified. Next settle the reference-access behavior and the hybrid layout before expanding the design to other screens.
+C-048 confirms the overall layout and always-available help direction. The current mockup uses synthetic content, and has no course backend. Validation is limited to JavaScript syntax and static markup/selector checks; browser layout and runtime interactions remain unverified. Next plan the home screen and navigation before expanding the visual design.
+
+### Home screen — proposal for discussion
+
+Building on C-045, make the home screen a concise entry to learning and practice:
+
+- A manageable recommended review set, with one concrete evidence-based reason and an optional time estimate. Do not show an alarming overdue backlog or require review before new study. If no review is eligible yet, replace this with a suitable course starting point.
+- A separate resume action naming the saved lesson or practice context. With no saved session, show Start course. Resume restores the interrupted activity rather than silently starting new material.
+- A direct Choose topic route with study and practice options, including topics learned elsewhere. This remains available regardless of recommendations.
+- Persistent navigation to Course, Practice, My phrases, and Progress; listening is an available practice filter rather than an obligatory separate course. Settings remain accessible without competing with the learning actions.
+
+Recommendation pending owner agreement: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. Next agree this information hierarchy, then prepare the home-screen mockup.
 
 ## Course horizon and staged delivery
 
