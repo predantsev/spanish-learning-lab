@@ -200,6 +200,13 @@ Source for C-051: on 2026-10-21, in response to the optional-tags-versus-own-col
 |---|---|
 | C-051 | Include named personal phrase collections in addition to the proposed list/search/tag organization. The owner wants useful collections rather than limiting organization to tags. Detailed collection controls and prepared thematic packs remain proposals; no implementation is authorized. |
 
+Source for C-052/C-053: on 2026-10-21, the owner explicitly included prepared course collections, accepted the rest of the preceding collection proposal, and required reminders/explanations wherever the learner performs an action independently, suggesting a question-mark control.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-052 | Include both personal collections and prepared, reviewed thematic course collections. Allow a course collection to serve as the basis for a personal one, and practice the collection or selected ready items. Reuse phrase records and shared progress across collections. Exact pack coverage and size still require content planning. |
+| C-053 | Provide discoverable contextual help for learner-operated features: explain what the learner can do and how to do it near the relevant action. A question-mark control is a suggested presentation, not the only allowed form. Apply this across the application, including creating collections, adding phrases, choosing practice, and using review controls. Exact wording and layout remain design work. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -564,9 +571,27 @@ C-051 requires named personal collections. The one-list, quick-filter, and optio
 
 C-051 accepts personal collections. Proposed behavior: create a named collection such as Before a trip or Useful for me, add existing phrases, reorder items, and practice its ready material. Collections reference phrase records: one phrase may belong to several collections, sharing its learning history. Removing collection membership or deleting the collection should leave the phrase and its history intact; deleting the underlying phrase is a separate action. Draft membership does not make an entry eligible for practice, and collection membership does not silently change automatic-review pause settings.
 
-Additional proposal for discussion: include prepared, reviewed thematic packs such as At the shop, Booking an appointment, or Everyday expressions heard in Spain. Packs reuse suitable course material and existing situation mappings rather than creating duplicate lessons or progress. Keep them available locally with the prepared course; no live generation or embedded AI is implied. A learner could use a pack as the basis for a personal collection, preserving links to the reviewed source items; wording edits follow the established validation boundary. Exact pack coverage, size, and first-release inclusion remain unapproved.
+Accepted under C-052: include prepared, reviewed thematic packs such as At the shop, Booking an appointment, or Everyday expressions heard in Spain. Packs reuse suitable course material and existing situation mappings rather than creating duplicate lessons or progress. Keep them available locally with the prepared course; no live generation or embedded AI is implied. A learner could use a pack as the basis for a personal collection, preserving links to the reviewed source items; wording edits follow the established validation boundary. First-stage inclusion is accepted; exact pack coverage and size remain to be planned.
 
-Recommended screen organization: My collections and Course collections, with search, optional favorites, and a short purpose/level description for each prepared pack. The recommendations concern written and listening practice only. Next confirm whether prepared thematic packs should accompany the required personal collections, then finalize collection behavior and proceed to listening-screen design.
+Recommended screen organization: My collections and Course collections, with search, optional favorites, and a short purpose/level description for each prepared pack. The recommendations concern written and listening practice only. Both collection types are accepted under C-052. Continue with contextual-help details and listening-screen design; remaining collection controls and layout still require refinement.
+
+### Contextual interface help — accepted need, proposed presentation
+
+C-053 requires contextual help. Proposed presentation: a small, accessibly named question-mark button beside an unfamiliar action or section heading, opening a short explanation on click, touch, or keyboard activation. Include what the feature does, a few concrete steps, and a small example where useful. Make closing straightforward and preserve the draft and current location. Essential instructions must remain visible; help is supplementary and must not rely solely on hover or a first-run tutorial.
+
+For an empty collection, show a short visible invitation and Add phrases action with access to the explanation. For an existing collection, retain help near the relevant controls. Initial copy is Ukrainian and belongs to the planned localization resources. Examples cover Create collection, Add phrase, Practice selected, Repeat more, and Pause automatic review. The exact control style remains a design choice.
+
+Interface-only guidance (how to operate a control) is separate from instructional hints (Spanish rules, translations, or answer reveals). Opening interface-only help must not count as evidence of language difficulty or assisted recall. Content that actually reveals language support still follows the established assistance rules. Help text should make review-control consequences clear without changing learner settings merely because the explanation was opened.
+
+### Listening screen — proposed concrete flow
+
+Use the accepted Focus layout with a short situation label, a manually started player, the current task, and accessible contextual help. Initially hide the transcript and translation, including any sidebar material that would disclose the answer. The learner can request them at any time; such disclosure is recorded as relevant language support.
+
+Recommended default for early short clips: assess meaning or a concrete detail with Ukrainian choices, gradually adding short written answers. Offer dictation as a distinct task type, not a prerequisite for all listening. Choice recognition, written recall, and transcription provide different evidence and should not be merged into one undifferentiated success measure.
+
+Keep Replay, slower playback where supported, and Did not catch it available. Replaying is not automatically failure; show assistance neutrally. After a response, offer the transcript/meaning and optional learner reports such as Knew the words but did not recognize them or Meaning was unfamiliar. Preserve an unknown cause when evidence is insufficient. Save suitable reviewed expressions to a collection. Later reviews can use another reviewed recording or familiar context. A playback failure must offer retry or a written task without recording a listening failure.
+
+Next agree whether meaning comprehension should be the default and dictation a separate mode, then refine the computer/phone listening mockup. No audio player, recordings, or assessment implementation exists.
 
 ## Design directions and unresolved details
 
