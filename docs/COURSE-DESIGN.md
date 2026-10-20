@@ -170,6 +170,12 @@ Source for C-046: on 2026-10-20, the owner accepted the complete studied-topic p
 |---|---|
 | C-046 | Adopt the return-to-practice walkthrough below: choose a studied topic or narrower skill without new lessons, optionally refresh the rule, use varied tasks and targeted help, revisit difficulties without an endless forced loop, and finish with saved progress and an evidence-based summary. Listening is optional per session. Detailed task counts, scheduling, UI labels, and implementation remain open. |
 
+Source for C-047: on 2026-10-20, the owner agreed to proceed after the proposed new-lesson walkthrough. This acceptance concerns the learning flow; visual alternatives remain proposals.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-047 | Adopt the new-lesson walkthrough below: a small practical objective, concise explanation, supported practice, varied independent opportunities with available help, a saved summary, and later review. Familiar-topic shortcuts and stopping/resuming remain available. Exact content, task counts, exit criteria, and UI design remain open; implementation is not authorized. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -239,7 +245,7 @@ C-033 settles granular review evidence and learner controls. C-045 accepts the f
 - In a topic view, distinguish form production, construction choice, and listening recognition where assessed; show neutral states and recent assistance. Use the existing manual repeat/known/pause controls. Do not infer a topic-wide weakness from one targeted error.
 - After a session, summarize what was practiced, where help was used, and a useful next step. Prefer actionable examples to an unexplained mastery percentage. Exact labels, thresholds, charts, and UI layouts remain open for the planned design stage.
 
-The return-to-practice flow is accepted under C-046. Next validate the new-lesson flow below before visual design and final acceptance planning.
+The return-to-practice flow is accepted under C-046 and the new-lesson flow under C-047. Next compare visual directions before final acceptance planning.
 
 ### Accepted walkthrough: returning to a studied tense
 
@@ -253,9 +259,9 @@ The owner accepted this product flow under C-046. It is not implemented behavior
 6. Save a useful reviewed phrase into the personal collection if desired. New wording or a new intended meaning follows the existing draft/review path. An uncertain free-text result remains unresolved and does not block unrelated local practice.
 7. Stop or continue voluntarily. Save completed attempts and the current draft; show a short summary distinguishing independent success, assistance, and an appropriate next practice target. Returning later resumes the saved location without resetting the topic.
 
-### Proposed walkthrough: learning a new topic
+### Accepted walkthrough: learning a new topic
 
-This sequence is a proposal for discussion. It uses the accepted session, help, evidence, and persistence directions; no lesson or UI is implemented. The complete first handoff under C-044 remains required.
+The owner accepted this sequence under C-047. It uses the accepted session, help, evidence, and persistence directions; no lesson or application UI is implemented. The complete first handoff under C-044 remains required.
 
 1. Select a new lesson from the course or continue the course path. State one small practical objective and relevant prerequisites in Ukrainian. Offer links to a brief prerequisite refresh when useful; do not turn discovery planning into a new mandatory placement test or lock all topics behind unagreed thresholds.
 2. Present a short Ukrainian explanation with a few reviewed Spanish examples and their meanings. Split larger topics into small steps: introduce a basic pattern before adding exceptions or contrasts. Keep a fuller rule reference available without requiring a long lecture. Familiar material may use the already accepted optional self-check/direct-practice path.
@@ -265,7 +271,7 @@ This sequence is a proposal for discussion. It uses the accepted session, help, 
 6. End with a short independent opportunity on the introduced target and a concise summary, while allowing help or stopping. Separate content covered from independent/assisted results. No mandatory perfect score, automatic mastery claim, or new unlock threshold is implied. Offer save-to-personal-phrases for reviewed useful expressions.
 7. Make the new skills eligible for later review using C-033's evidence and learner preferences. A later task in a different familiar context supplies delayed evidence; finishing the lesson alone does not. Save attempts and the current draft so an interrupted lesson can resume.
 
-Next validate the new-lesson experience, then proceed to the planned visual-design comparison and refine concrete acceptance checks. Lesson counts, lengths, exact exit criteria, and curriculum coverage still require detailed design.
+Next compare the proposed visual directions and refine concrete acceptance checks. Lesson counts, lengths, exact exit criteria, and curriculum coverage still require detailed design.
 
 ## Accepted written-answer-checking direction
 
@@ -433,6 +439,22 @@ A responsive browser application is the proposed initial delivery approach; nati
 
 Phone usability and progress sharing between devices are separate requirements: cross-device sync, hosting/reachability, offline behavior, and accounts are still undecided. Do not promise that a laptop-only local server or browser-local progress will automatically be available on a phone.
 
+### Initial visual alternatives — proposed, 2026-10-20
+
+An in-conversation comparison uses synthetic examples of the same participle exercise. These are design mockups, not the application or a reviewed lesson corpus. No direction has been selected.
+
+| Direction | Layout and intended use | Tradeoff |
+|---|---|---|
+| Focus (Фокус) | One central exercise; rule and hint available on demand. | Keeps the current task prominent, but consulting reference material takes another action. |
+| Notebook (Зошит) | Rule beside the exercise, stacking above it on a phone. | Supports first exposure; a visible answer model means supported practice and uses more space. |
+| Workshop (Майстерня) | Skill selection beside the exercise, with quick switching between regular forms and exceptions. | Useful for targeted review; denser navigation needs care on a narrow screen. |
+
+Recommendation for discussion: Focus as the everyday practice layout, an optional Notebook-style guided step for new lessons, and skill selection in the topic view. This is not an approved combination.
+
+The comparison includes local answer entry, a bounded example check, hints, rule visibility, phrase-save feedback, a session summary, and a phone-width preview. These controls do not create real learner records, schedule reviews, play audio, or exercise an application API. Closing a rule must not erase assistance evidence for the current attempt. Future selected-design work must cover home, course navigation, listening, personal phrases, and unresolved-answer handling as well.
+
+Validation: script syntax checked with `node --check`; the fragment was wrapped with the visualization renderer. Browser inspection was blocked by the browser tool's local-file navigation policy. Layout, mobile keyboard behavior, and browser interactions remain unverified. Next obtain the owner's direction preference, then refine the key screens and verify them in an authorized preview environment.
+
 ## Course horizon and staged delivery
 
 Accepted sequence: beginner foundations including A1 -> strong A2 -> B1 -> B2. The owner may have mentioned C1 in an unclear dictated fragment; a clarification was asked. Beyond-B2 scope is unconfirmed and does not block the confirmed A2/B1/B2 plan. Do not assign C1 to the required roadmap without clarification.
@@ -577,7 +599,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; next validate the new-lesson flow. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; next compare visual directions. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
