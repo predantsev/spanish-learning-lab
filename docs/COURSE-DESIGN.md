@@ -250,6 +250,12 @@ Source for C-061: on 2026-10-21, the owner explicitly accepted the practice-vari
 |---|---|
 | C-061 | Start preparation with approximately 8-12 reviewed tasks per small teachable grammar objective, using familiar varied contexts and relevant task types, and reserve distinct prompts for later checks. Treat this as an initial calibration target rather than a fixed whole-tense size or validated learning optimum. Use only reviewed compatible template combinations. Recycle prepared material when variants run out without blocking practice, and expand it through the reviewed-content workflow. Fixed personal expressions retain appropriate exact/variation practice. |
 
+Source for C-062: on 2026-10-21, the owner explicitly confirmed that the proposed API-plus-skill capabilities belong in the first complete application.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-062 | Include the bounded external-assistant API and repository-contained skill in the first owner handoff: selected context/evidence reads, observed assistance recording, focused sets from reviewed items, private material drafts, and verified/reversible supported changes. Preserve the content-review and draft boundaries, current attempts, private data, and standalone ordinary practice. MCP remains optional later. Require an end-to-end request-to-persisted-UI-result check before release. Exact contract, authentication, supported host, and implementation remain to be specified; this is release-scope acceptance, not authorization to implement now. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -665,6 +671,7 @@ C-044 already requires a complete application and the entire agreed reviewed beg
 | Functional learning journeys | Demonstrate new lesson, studied-topic practice, both navigation routes, personal/course collections, hint and transcript disclosure, meaningful orthography feedback, unresolved answers, and resume after interruption. Check visible Ukrainian instructions and contextual help. Verify computer and responsive phone interactions against C-059's Chrome/macOS and iPhone targets; pin exact versions and the iPhone browser in the release test matrix. |
 | Review evidence and scheduling | Use controlled test data and time to verify C-057 interval progression, next-day follow-up, separate form/context/listening evidence, no assistance from interface-only help, pause, known/repeat-more behavior, and manageable review after a break. Pin still-open override and queue rules before implementation. |
 | Offline and recovery behavior | With internet disconnected, start the local application afresh and open an unseen installed lesson, use prepared listening and practice, then restart and verify saved attempts/drafts. Restore a known backup/export fixture and compare phrases, collections, history, settings, and study location; verify invalid imports leave the current profile intact and that rollback works. |
+| External-assistant integration | Verify C-062 end to end with a supported assistant host: explicit learner request, correct context selection (including ambiguous/stale-tab cases), authorized API operation, persisted visible result, actual assistance evidence, preserved draft, and correct draft/review state. Verify invalid/stale/duplicate requests and recovery using synthetic fixtures; ordinary prepared practice must remain usable without the assistant. |
 | Release blockers and delivery | Resolve known blockers to core learning, saving, restoring, grading safety, and required audio use. Record remaining nonblocking limitations honestly. Provide a documented local start/update path and learner-facing help. Preserve private data outside public source control and verify supported distribution rights for shipped materials. |
 
 These gates assess a usable prepared product, not the owner's personal attainment of A2 or proof that every linguistic error has been eliminated. Technical checks cannot substitute for language/audio review. Internal development/content pilots remain allowed, but no incomplete A2 handoff replaces C-044. Home, catalog, collection, and listening mockups remain planned before final UI implementation.
@@ -738,7 +745,7 @@ The owner accepted the study/practice direction under C-014. Rows below retain c
 | P-009 | Maintain a private personal phrase collection with all three entry paths under C-022. | Capture and combined exact-phrase/reusable-variation practice are agreed under C-022 and C-023; detailed scheduling and checking workflow remain open. Do not turn an unchecked attempt into a memorization target. |
 | P-010 | Explore a deterministic core with optional external assistant support. | See the deferred integration plan below. Embedded AI grading is a separate undecided feature; external help does not by itself solve arbitrary free-text grading during independent use. |
 
-## Deferred external-assistant integration plan
+## External-assistant integration plan — accepted scope, deferred implementation
 
 Status: user-requested planning direction, with the following technical design proposed by the assistant. Revisit after course discovery; do not implement an API, CLI, MCP server, or skill now.
 
@@ -748,11 +755,11 @@ The learner opens an assistant chat and requests help with the current exercise 
 
 The application owns progress, learning events, and content versions; chat history is not the learning database. Drafts and private learning records stay outside public source control.
 
-### First-release external-assistant slice — proposal for discussion
+### First-release external-assistant slice — accepted scope
 
-The general API-plus-skill direction was requested earlier under C-014 through C-021. Whether it belongs to the first complete application has not yet been settled explicitly. Recommend including a small, project-contained integration in the initial release, with these bounded capabilities:
+The general API-plus-skill direction was requested under C-014 through C-021. C-062 explicitly includes a small, project-contained integration in the first complete application, with these bounded capabilities:
 
-| Capability | Proposed first-release behavior |
+| Capability | Accepted first-release behavior |
 |---|---|
 | Read the requested learning context | List active/recent course contexts, select an explicit or unambiguous target, and read the relevant topic, task, draft, disclosed hints, and limited learning evidence. Follow the existing multiple-tab/stale-context rules; do not infer unrelated browser contents. |
 | Explain and record actual assistance | Use that context in an owner-invoked external assistant chat, provide an explanation, and record targeted help or an answer reveal only when it was actually delivered. Interface-only guidance remains separate. Delivery/recording failures must not become independent success evidence. |
@@ -764,9 +771,9 @@ Provide a documented domain API and a repository-contained skill covering these 
 
 Ordinary prepared study and practice continue without an assistant connection; an external cloud assistant can require internet. Layout/code changes, new exercise renderers, public publication, arbitrary HTML, and direct SQL are outside this learning API. Translation-pack automation and a later MCP adapter remain separate extensions.
 
-If accepted, add an end-to-end integration gate to C-058: owner request -> correct context -> authorized operation -> visible persisted result, including uncertainty/review state, assistance recording, and preserved draft. Use synthetic fixtures for public verification evidence. This is a release-scope proposal only; no API, skill, client connection, or content-generation job has been implemented.
+C-062 adds an end-to-end integration gate to C-058: owner request -> correct context -> authorized operation -> visible persisted result, including uncertainty/review state, assistance recording, and preserved draft. Use synthetic fixtures for public verification evidence. This is accepted release scope only; no API, skill, client connection, or content-generation job has been implemented.
 
-Next decide whether this bounded API-plus-skill slice is required for the first owner handoff, then define its contract and acceptance cases in the implementation plan.
+C-062 settles first-handoff inclusion. Define the exact API/skill contract, supported host, and acceptance cases in the implementation plan before implementation authorization.
 
 ### Proposed connection
 
@@ -847,7 +854,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation; C-057 settles initial review intervals. C-058 accepts readiness gates and C-059 identifies the primary device targets. C-060 accepts manual review overrides. C-061 accepts practice-bank variety. Next settle first-release external-assistant scope and detail remaining implementation prerequisites. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation; C-057 settles initial review intervals. C-058 accepts readiness gates and C-059 identifies the primary device targets. C-060 accepts manual review overrides. C-061 accepts practice-bank variety. C-062 includes the bounded API-plus-skill integration in the first handoff. Next complete curriculum detail, remaining visual prototypes, exact integration/technical contracts, calibration planning, and acceptance cases. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
