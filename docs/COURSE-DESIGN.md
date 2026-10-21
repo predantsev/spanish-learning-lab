@@ -207,6 +207,12 @@ Source for C-052/C-053: on 2026-10-21, the owner explicitly included prepared co
 | C-052 | Include both personal collections and prepared, reviewed thematic course collections. Allow a course collection to serve as the basis for a personal one, and practice the collection or selected ready items. Reuse phrase records and shared progress across collections. Exact pack coverage and size still require content planning. |
 | C-053 | Provide discoverable contextual help for learner-operated features: explain what the learner can do and how to do it near the relevant action. A question-mark control is a suggested presentation, not the only allowed form. Apply this across the application, including creating collections, adding phrases, choosing practice, and using review controls. Exact wording and layout remain design work. |
 
+Source for C-054: on 2026-10-21, the owner accepted the preceding listening-flow proposal and clarified that the meaning-comprehension/separate-dictation split suits them.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-054 | Make meaning comprehension the default listening task, starting with short situation-based recordings and Ukrainian choices, then adding short written responses. Treat dictation as a separate task type. Keep replay and requested language support available, distinguish supported from unaided listening, and allow saving reviewed phrases to collections. Replay alone is not failure, and spelling errors are not automatically listening-recognition errors. Detailed tasks, visual layout, and scheduling remain design work. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -446,6 +452,19 @@ The owner accepted the general behavior under C-042. Detailed backup scheduling,
 - Keep reviewed course content and reusable audio separate from private learner history. Content upgrades should preserve stable identifiers and existing evidence.
 - No multi-device synchronization or offline-phone promise initially. Ordinary local practice without internet is accepted under C-043; external assistant help, new audio generation, and updates would still require their own connectivity.
 
+### Backup schedule and recovery — proposal for discussion
+
+C-042 already accepts persistent progress, automatic backups, export/import, and history-preserving updates. Proposed concrete policy:
+
+- Save working progress during use independently of backups. Maintain a daily backup snapshot on days with saved changes while the local service is running; an inactive day does not require waking the computer or internet access. Refresh the day's snapshot safely as appropriate. Proposed retention: seven daily snapshots and four weekly snapshots, retaining the most recent valid backup even after a long absence.
+- Create a separate recovery snapshot before a data-changing course/application update or restore. Verify the new snapshot before pruning an older valid one. Exact storage limits and pre-change snapshot retention must be pinned in the implementation specification; the initial default should not require routine learner administration.
+- Offer Export my data as one portable archive containing progress, drafts, phrases, collections, preferences, and personal assets needed to restore them, plus format/content-version metadata. Reusable installed course/audio assets can be referenced by version rather than duplicated in every profile backup. Explain required course assets on import; do not promise that a profile archive alone installs the entire offline application. Exclude credentials and machine-specific connection secrets.
+- Before restoring, validate archive integrity and compatibility and preview its date and what it will replace. Preserve a rollback snapshot, then replace the local profile only after an explicit learner confirmation. First-stage restore is replacement, not an unplanned cross-device merge. A failed validation leaves the current profile unchanged; source imports are treated as data, not executable content.
+- Keep automatic backups local and private, outside public source control. Provide a manual export suitable for a user-chosen external destination. A copy on the same disk covers accidental edits or corruption but does not cover loss of that disk. Cloud storage or synchronization is not introduced by this proposal.
+- Show the last successful backup and a concise actionable notice if saving or backup fails. Do not silently claim that unsaved work is safe. Add C-053 contextual help explaining automatic save, backup, export, and restore in Ukrainian.
+
+Recommendation pending owner agreement: automatic daily snapshots with seven daily/four weekly retention, a pre-change recovery snapshot, and explicit export/restore controls. Storage technology, exact paths, encryption, and packaging remain unresolved. This is planning only; no backup has been created or restore tested.
+
 ### Accepted local practice without internet
 
 Accepted scope under C-043/C-044: install the complete prepared first-stage A1-A2 course and its required assets before owner handoff. Ordinary local practice must work without internet while the local application service is running, including lessons never opened before and after a browser/application restart. Include saved lessons/rules, reviewed exercises and answer checking, prepared hints, scheduled review, personal phrases already marked ready, downloaded audio, and progress saving.
@@ -583,15 +602,15 @@ For an empty collection, show a short visible invitation and Add phrases action 
 
 Interface-only guidance (how to operate a control) is separate from instructional hints (Spanish rules, translations, or answer reveals). Opening interface-only help must not count as evidence of language difficulty or assisted recall. Content that actually reveals language support still follows the established assistance rules. Help text should make review-control consequences clear without changing learner settings merely because the explanation was opened.
 
-### Listening screen — proposed concrete flow
+### Listening screen — accepted flow and remaining design details
 
 Use the accepted Focus layout with a short situation label, a manually started player, the current task, and accessible contextual help. Initially hide the transcript and translation, including any sidebar material that would disclose the answer. The learner can request them at any time; such disclosure is recorded as relevant language support.
 
-Recommended default for early short clips: assess meaning or a concrete detail with Ukrainian choices, gradually adding short written answers. Offer dictation as a distinct task type, not a prerequisite for all listening. Choice recognition, written recall, and transcription provide different evidence and should not be merged into one undifferentiated success measure.
+Accepted under C-054 for early short clips: assess meaning or a concrete detail with Ukrainian choices, gradually adding short written answers. Offer dictation as a distinct task type, not a prerequisite for all listening. Choice recognition, written recall, and transcription provide different evidence and should not be merged into one undifferentiated success measure.
 
 Keep Replay, slower playback where supported, and Did not catch it available. Replaying is not automatically failure; show assistance neutrally. After a response, offer the transcript/meaning and optional learner reports such as Knew the words but did not recognize them or Meaning was unfamiliar. Preserve an unknown cause when evidence is insufficient. Save suitable reviewed expressions to a collection. Later reviews can use another reviewed recording or familiar context. A playback failure must offer retry or a written task without recording a listening failure.
 
-Next agree whether meaning comprehension should be the default and dictation a separate mode, then refine the computer/phone listening mockup. No audio player, recordings, or assessment implementation exists.
+C-054 accepts meaning comprehension as the default and dictation separately. The computer/phone listening mockup and actual-audio validation remain pending. Next discuss backup and restore details under C-042. No audio player, recordings, or assessment implementation exists.
 
 ## Design directions and unresolved details
 
