@@ -213,6 +213,12 @@ Source for C-054: on 2026-10-21, the owner accepted the preceding listening-flow
 |---|---|
 | C-054 | Make meaning comprehension the default listening task, starting with short situation-based recordings and Ukrainian choices, then adding short written responses. Treat dictation as a separate task type. Keep replay and requested language support available, distinguish supported from unaided listening, and allow saving reviewed phrases to collections. Replay alone is not failure, and spelling errors are not automatically listening-recognition errors. Detailed tasks, visual layout, and scheduling remain design work. |
 
+Source for C-055: on 2026-10-21, the owner accepted the proposed seven-daily/four-weekly backup mode and the accompanying export/restore behavior, and asked to continue.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-055 | Automatically preserve working progress and maintain backups on days with changes, retaining seven daily and four weekly snapshots. Create a recovery snapshot before data-changing updates or restore. Provide portable personal-data export and a validated restore preview with explicit confirmation and rollback. Keep the latest valid backup after inactivity. Detailed storage, snapshot pruning, and implementation mechanisms remain to be specified and tested. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -452,18 +458,18 @@ The owner accepted the general behavior under C-042. Detailed backup scheduling,
 - Keep reviewed course content and reusable audio separate from private learner history. Content upgrades should preserve stable identifiers and existing evidence.
 - No multi-device synchronization or offline-phone promise initially. Ordinary local practice without internet is accepted under C-043; external assistant help, new audio generation, and updates would still require their own connectivity.
 
-### Backup schedule and recovery — proposal for discussion
+### Backup schedule and recovery — accepted policy and remaining details
 
-C-042 already accepts persistent progress, automatic backups, export/import, and history-preserving updates. Proposed concrete policy:
+C-042 accepts persistent progress, automatic backups, export/import, and history-preserving updates. C-055 accepts the following policy; implementation details remain open:
 
-- Save working progress during use independently of backups. Maintain a daily backup snapshot on days with saved changes while the local service is running; an inactive day does not require waking the computer or internet access. Refresh the day's snapshot safely as appropriate. Proposed retention: seven daily snapshots and four weekly snapshots, retaining the most recent valid backup even after a long absence.
+- Save working progress during use independently of backups. Maintain a daily backup snapshot on days with saved changes while the local service is running; an inactive day does not require waking the computer or internet access. Refresh the day's snapshot safely as appropriate. Accepted retention: seven daily snapshots and four weekly snapshots, retaining the most recent valid backup even after a long absence.
 - Create a separate recovery snapshot before a data-changing course/application update or restore. Verify the new snapshot before pruning an older valid one. Exact storage limits and pre-change snapshot retention must be pinned in the implementation specification; the initial default should not require routine learner administration.
 - Offer Export my data as one portable archive containing progress, drafts, phrases, collections, preferences, and personal assets needed to restore them, plus format/content-version metadata. Reusable installed course/audio assets can be referenced by version rather than duplicated in every profile backup. Explain required course assets on import; do not promise that a profile archive alone installs the entire offline application. Exclude credentials and machine-specific connection secrets.
 - Before restoring, validate archive integrity and compatibility and preview its date and what it will replace. Preserve a rollback snapshot, then replace the local profile only after an explicit learner confirmation. First-stage restore is replacement, not an unplanned cross-device merge. A failed validation leaves the current profile unchanged; source imports are treated as data, not executable content.
 - Keep automatic backups local and private, outside public source control. Provide a manual export suitable for a user-chosen external destination. A copy on the same disk covers accidental edits or corruption but does not cover loss of that disk. Cloud storage or synchronization is not introduced by this proposal.
 - Show the last successful backup and a concise actionable notice if saving or backup fails. Do not silently claim that unsaved work is safe. Add C-053 contextual help explaining automatic save, backup, export, and restore in Ukrainian.
 
-Recommendation pending owner agreement: automatic daily snapshots with seven daily/four weekly retention, a pre-change recovery snapshot, and explicit export/restore controls. Storage technology, exact paths, encryption, and packaging remain unresolved. This is planning only; no backup has been created or restore tested.
+Accepted under C-055: automatic daily snapshots with seven daily/four weekly retention, a pre-change recovery snapshot, and explicit export/restore controls. Storage technology, exact paths, encryption, and packaging remain unresolved. This is planning only; no backup has been created or restore tested.
 
 ### Accepted local practice without internet
 
@@ -535,6 +541,18 @@ Proposed default: browse by learning topic with Ukrainian labels and Spanish ter
 After choosing a topic, offer Read rule, Learn topic, and Practice. Practice has a quick default set for that topic and optional narrower targets such as regular forms, exceptions, or contextual tense choice. Listening can be included or omitted. Familiar topics learned elsewhere remain accessible without completing all earlier course lessons; a self-report of prior study does not count as tested mastery. Any recommendation based on difficulties must use actual evidence. Unrelated topics do not silently enter a manually scoped set; mixed-topic review is an explicit choice or a clearly labeled recommendation.
 
 Both entry routes are accepted under C-050. The recommended topic-first hierarchy, search behavior, and detailed catalog screen remain design work. Next discuss organization of My phrases. No catalog, search index, or task-selection implementation exists.
+
+### Exercise input and navigation — proposal for discussion
+
+Proposed interaction defaults for computer and phone, building on C-026/C-034/C-048/C-053:
+
+- Keep normal keyboard input and offer a compact Spanish-character strip (á, é, í, ó, ú, ü, ñ, ¿, ¡) near written-answer fields. Insert a selected character at the cursor or replace the selection, preserving the rest of the draft. The strip is a typing aid: show the same available characters rather than revealing which accent or spelling the answer requires. Its use is not language assistance. Explain it with contextual help; final placement and uppercase handling remain to be designed.
+- For single-line answers, Enter checks the answer. For multiline answers, Enter adds a newline and a documented Ctrl/Cmd+Enter shortcut can check. All actions remain available as visible buttons and through ordinary keyboard navigation. Prevent accidental repeated submissions from held keys or input composition.
+- After checking, keep the learner's answer, feedback, and explanation visible until an explicit Next action. Do not automatically advance, start a countdown, or autoplay the next recording. Preserve opportunities to reread the explanation, inspect the rule, or save a phrase. Keep retries and next-step behavior consistent with uncertainty handling and voluntary stopping.
+- Phone layouts must leave input, checking, and feedback usable with the software keyboard open. Use tap-accessible controls, readable editable text, and accessible focus behavior. Do not require hover or drag gestures. Preserve drafts when opening reference or help panels.
+- Do not silently correct Spanish spelling before grading. Retain the accepted distinction between form/meaning errors and meaningful orthography. Exact keyboard attributes, platform autocorrect behavior, and supported-browser verification belong in the implementation checks.
+
+Recommendation pending agreement: provide character assistance and keyboard shortcuts, and require an explicit Next action after feedback. Next settle this interaction default, then continue detailed review scheduling, content coverage, remaining mockups, and acceptance planning. No input controls or mobile behavior have been implemented or verified.
 
 ## Course horizon and staged delivery
 
@@ -610,7 +628,7 @@ Accepted under C-054 for early short clips: assess meaning or a concrete detail 
 
 Keep Replay, slower playback where supported, and Did not catch it available. Replaying is not automatically failure; show assistance neutrally. After a response, offer the transcript/meaning and optional learner reports such as Knew the words but did not recognize them or Meaning was unfamiliar. Preserve an unknown cause when evidence is insufficient. Save suitable reviewed expressions to a collection. Later reviews can use another reviewed recording or familiar context. A playback failure must offer retry or a written task without recording a listening failure.
 
-C-054 accepts meaning comprehension as the default and dictation separately. The computer/phone listening mockup and actual-audio validation remain pending. Next discuss backup and restore details under C-042. No audio player, recordings, or assessment implementation exists.
+C-054 accepts meaning comprehension as the default and dictation separately. The computer/phone listening mockup and actual-audio validation remain pending. Backup/restore policy is accepted under C-055; exact mechanisms and validation remain pending. No audio player, recordings, or assessment implementation exists.
 
 ## Design directions and unresolved details
 
