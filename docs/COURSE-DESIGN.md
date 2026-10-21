@@ -219,6 +219,12 @@ Source for C-055: on 2026-10-21, the owner accepted the proposed seven-daily/fou
 |---|---|
 | C-055 | Automatically preserve working progress and maintain backups on days with changes, retaining seven daily and four weekly snapshots. Create a recovery snapshot before data-changing updates or restore. Provide portable personal-data export and a validated restore preview with explicit confirmation and rollback. Keep the latest valid backup after inactivity. Detailed storage, snapshot pruning, and implementation mechanisms remain to be specified and tested. |
 
+Source for C-056: on 2026-10-21, the owner accepted keyboard checking, explicit Next navigation, and the remaining exercise interaction defaults, requested explanations of shortcuts, and clarified in a direct follow-up that the Spanish-character panel should be removed because they use the keyboard. The owner withdrew the temporary Mac-only shortcut restriction.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-056 | Use normal keyboard input without an on-screen Spanish-character panel. Enter checks a short answer; multiline input keeps Enter for a newline and uses a platform-appropriate checking shortcut (Command+Enter on macOS, Ctrl+Enter on Windows). Show a concise shortcut reminder and provide contextual help for first-time users. Keep visible checking controls, retain feedback until explicit Next, and require explicit playback of the next audio task. Preserve phone usability and drafts across help/reference panels. Detailed platform behavior remains to be verified. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -278,6 +284,18 @@ Illustrative loop: the learner requests help with hecho, sees a short explanatio
 Evidence basis: the abstract of [Karpicke and Roediger (2008), The critical importance of retrieval for learning](https://pubmed.ncbi.nlm.nih.gov/18276894/), read 2026-10-08, reports improved delayed recall from continued retrieval in a foreign-vocabulary experiment after initial successful recall. This motivates including later retrieval opportunities; it does not validate this application's grammar scheduler, UI labels, or any exact interval.
 
 Marking something known retains occasional checks; automatic review can be paused separately (C-033). Continue with written-answer checking below.
+
+### Initial review intervals and return after a break — proposal
+
+C-033 accepts adaptive review and manual controls. Proposed first implementation defaults, for discussion and later calibration rather than a claim of optimal retention:
+
+- After introducing a skill, offer a later independent check after approximately one day. After independent success at a scheduled check, increase the next interval through 3, 7, 14, and 30 days, measured from the actual completed check. At the initial 30-day cap, keep occasional checks; do not declare permanent mastery.
+- A clearly attributed mistake, targeted hint, or answer reveal brings the affected skill back sooner, initially the next day. Same-session practice in a different familiar context remains available, but does not itself advance the delayed-review stage. Keep the earlier evidence and leave unrelated skills unchanged. An unresolved answer is not a failed attempt; replay alone is not a listening failure.
+- Keep written form production, contextual choice, and listening evidence separate where assessed. Identical text or a memorized single recording should not be the only basis for later success. Exact task selection and the existing known/repeat-more controls need implementation-level rules before coding.
+- After missed days, do not create a failure event for absence or demand completion of every overdue item. Offer a manageable set within the chosen scope/time preference, prioritizing explicit repeat-more targets and recent need for support while still sampling older due material. A late successful check schedules from the actual attempt date rather than stacking missed calendar reminders. Pause continues to exclude an item from automatic review.
+- Show the reason for a recommendation and permit manual extra practice. A future implementation specification must pin how learner overrides interact with dates and queue fairness; these examples do not settle those mechanics. No notification or fixed daily quota is introduced.
+
+Next agree or revise the initial interval ladder and next-day follow-up after assistance. No scheduler, interval experiment, or learning-outcome validation has been performed.
 
 ### Accepted progress presentation
 
@@ -542,17 +560,17 @@ After choosing a topic, offer Read rule, Learn topic, and Practice. Practice has
 
 Both entry routes are accepted under C-050. The recommended topic-first hierarchy, search behavior, and detailed catalog screen remain design work. Next discuss organization of My phrases. No catalog, search index, or task-selection implementation exists.
 
-### Exercise input and navigation — proposal for discussion
+### Exercise input and navigation — accepted defaults
 
-Proposed interaction defaults for computer and phone, building on C-026/C-034/C-048/C-053:
+Accepted under C-056, building on C-026/C-034/C-048/C-053:
 
-- Keep normal keyboard input and offer a compact Spanish-character strip (á, é, í, ó, ú, ü, ñ, ¿, ¡) near written-answer fields. Insert a selected character at the cursor or replace the selection, preserving the rest of the draft. The strip is a typing aid: show the same available characters rather than revealing which accent or spelling the answer requires. Its use is not language assistance. Explain it with contextual help; final placement and uppercase handling remain to be designed.
-- For single-line answers, Enter checks the answer. For multiline answers, Enter adds a newline and a documented Ctrl/Cmd+Enter shortcut can check. All actions remain available as visible buttons and through ordinary keyboard navigation. Prevent accidental repeated submissions from held keys or input composition.
+- Use the normal keyboard to enter Spanish characters. Remove the proposed on-screen Spanish-character strip; the owner explicitly declined it.
+- For single-line answers, Enter checks the answer. For multiline answers, Enter adds a newline; Command+Enter on macOS or Ctrl+Enter on Windows checks it. Show a concise platform-appropriate reminder beside the field or Check button, with contextual help explaining the action. All actions remain available as visible buttons and through ordinary keyboard navigation. Prevent accidental repeated submissions from held keys or input composition.
 - After checking, keep the learner's answer, feedback, and explanation visible until an explicit Next action. Do not automatically advance, start a countdown, or autoplay the next recording. Preserve opportunities to reread the explanation, inspect the rule, or save a phrase. Keep retries and next-step behavior consistent with uncertainty handling and voluntary stopping.
 - Phone layouts must leave input, checking, and feedback usable with the software keyboard open. Use tap-accessible controls, readable editable text, and accessible focus behavior. Do not require hover or drag gestures. Preserve drafts when opening reference or help panels.
 - Do not silently correct Spanish spelling before grading. Retain the accepted distinction between form/meaning errors and meaningful orthography. Exact keyboard attributes, platform autocorrect behavior, and supported-browser verification belong in the implementation checks.
 
-Recommendation pending agreement: provide character assistance and keyboard shortcuts, and require an explicit Next action after feedback. Next settle this interaction default, then continue detailed review scheduling, content coverage, remaining mockups, and acceptance planning. No input controls or mobile behavior have been implemented or verified.
+C-056 settles these interaction defaults. Continue with concrete review scheduling, content coverage, remaining mockups, and acceptance planning. No input controls or mobile behavior have been implemented or verified.
 
 ## Course horizon and staged delivery
 
@@ -736,7 +754,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; next compare visual directions. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation. Next refine the proposed review intervals and remaining acceptance criteria. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
