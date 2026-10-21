@@ -83,9 +83,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-062 (2026-10-21): API plus a repository-contained skill are required in the first complete application. Added an end-to-end integration readiness gate covering context selection, supported actions, observed assistance, persisted UI results, and preserved drafts. Implementation remains unauthorized and connectivity unverified.
 
+- Discovery workflow (2026-10-21): the owner requested sequential curriculum/design/technical-plan discussion and native accept/continue versus changes choices. Saved that collaboration preference at the owner's explicit request. Expanded A1-01 into a proposed objective map, three short lessons, and an optional checkpoint; acceptance and lesson content remain pending.
+
 ## Next conversation
 
 The product direction through C-062 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
+
+Current discussion: A1-01's proposed three-lesson foundation plus optional checkpoint in CURRICULUM-A1-A2.md. Use agreement buttons where available; record acceptance only after an actual response.
 
 Remaining planning deliverables, in order:
 
@@ -185,3 +189,5 @@ Manual-review acceptance and practice variety (2026-10-21): recorded the owner's
 Practice-variety acceptance and integration scope (2026-10-21): recorded explicit owner acceptance; kept the preparation count calibratable and learning outcomes unverified. Compared the first-release integration proposal with the existing context, assistance, structured-content, review, offline, and privacy boundaries. Documentation consistency and whitespace only; no API, skill, client, content generation, or application implementation.
 
 First-release integration acceptance (2026-10-21): recorded the owner's explicit inclusion of API plus skill, updated the readiness-gate table and README, and consolidated the remaining planning sequence without treating accepted scope as implementation authorization. Documentation consistency and whitespace only; no API, skill, connection, or runtime was created.
+
+Button workflow and first curriculum block (2026-10-21): recorded the owner-requested discussion format and sequential phases. Checked the available native question tool and official OpenAI app-server requestUserInput documentation. Used the indexed Cervantes orthography inventory for provisional anchors; direct page retrieval failed. Reviewed consistency with C-029/C-034/C-053/C-056/C-061, stable objective IDs, and draft/review boundaries. Documentation consistency and whitespace only; no lesson corpus, audio, app, or teaching-effectiveness validation.

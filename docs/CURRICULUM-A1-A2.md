@@ -41,21 +41,40 @@ Prerequisites express dependencies, not mandatory completion of every earlier ex
 - Listening: build from everyday phrases to sentences and brief connected texts, targeting Spain pronunciation with reviewed synthetic speech initially and suitable existing human recordings as later additions (C-040). Map listening targets and recording variants alongside the written curriculum; keep recognition, meaning, transcript-assisted work, and written production distinct. Initial short-phrase listening inclusion is settled under C-037; detailed module allocation remains open.
 - Review: revisit old skills in new but familiar contexts, including later sessions; initial intervals are accepted under C-057, while the detailed queue/override algorithm remains open. Do not introduce unknown grammar into a supposed recall check without explaining it.
 
-## First block to detail together: A1-01
+## Detailed block proposal: A1-01 — written foundations
 
-Proposed outcome: the learner can read and type the written forms needed by later lessons and understand basic exercise instructions. This is a brief foundation whose pacing can adapt for a returning learner.
+Status: proposed for owner discussion on 2026-10-21. This expands the accepted block outline, not a published lesson corpus. The sequence is an original design; S4 supplies partial orthography inventory anchors, not a prescribed three-lesson sequence or complete A1/A2 mapping.
 
-Candidate micro-lessons (grouping remains open):
+Practical outcome: recognize and enter the written forms needed by later short words, labels, and questions, preserving relevant accents and punctuation. Introduce supporting vocabulary with a model/meaning so an unknown word or conjugation does not invalidate a writing task. No prior Spanish course completion is required.
 
-1. Spanish characters and practical entry of accented vowels, ñ, ü, ¿, and ¡, including a phone keyboard.
-2. Word stress and written accent marks, introduced through a small set of checked words rather than a large rule dump.
-3. Sentence boundaries, question/exclamation punctuation, and capitalization.
-4. Minimal learning vocabulary: noun, verb, person, singular/plural, infinitive; explain each only when needed in a real task.
-5. A short independent reading/typing check, followed by a later return using different words.
+| Objective ID | Observable target | Inventory anchor / limit |
+|---|---|---|
+| A1-01-O1 | Recognize selected Spanish letters/marks and enter a reviewed short written form with the normal keyboard. | S4 sections 1.1-1.3; device operation is a product prerequisite, not a CEFR claim. |
+| A1-01-O2 | Notice and preserve written accents in familiar reviewed words, with initial stress awareness. | S4 sections 2.1-2.2; fuller distinctions return with relevant vocabulary/grammar. |
+| A1-01-O3 | Use opening/closing question/exclamation marks, sentence punctuation, and basic capitalization in a supported short phrase. | S4 sections 1.4-1.5 and 3.1/3.6; not all orthography is taught in this block. |
+| A1-01-O4 | Follow an exercise instruction and consult an inline explanation of a needed grammar term. | Original support objective; introduce terms in context, without a separate terminology exam. |
 
-Exercise candidates: identify a written form, enter a short item from a meaning cue, repair punctuation, and transfer the same skill into a small sentence. Do not assess a new verb ending when the declared target is keyboard entry. Letter-sound material, if included for reading support, does not authorize spoken practice; listening is included under C-035/C-036, while this block's audio allocation remains to be designed.
+### Proposed lesson sequence
 
-Accepted handling of familiar foundations (C-029): offer a short optional self-check and direct access to practice without forcing a long introduction. Detailed thresholds and evidence rules remain to be designed; skipping an introduction does not certify mastery.
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A1-01-L1 | Letters and written marks: accented vowels, ñ, ü, ¿ and ¡; ordinary computer/phone entry. | Recognize a written form, enter a familiar short word, and correct a supplied form. C-056 excludes an on-screen character strip. Revisit the same writing target in later vocabulary. |
+| A1-01-L2 | Initial stress awareness and written accents through a small reviewed word set. | Identify/preserve a mark, repair a supported word, and later recall it with its meaning/context. Contrast examples must not silently test unintroduced grammar. Any listening supplement requires reviewed Spain audio and remains separate listening evidence. |
+| A1-01-L3 | A short written phrase: punctuation, opening/closing signs, capitalization, and exercise-instruction help. | Restore punctuation and write a brief familiar phrase. Explain noun/verb/person or other terms only when the task needs them. Return to the target in later questions and messages. |
+| A1-01-C1 | Short optional checkpoint and a later independent return. | Sample the introduced writing targets without a visible answer model; keep help available, attribute it to the actual target, and retain uncertain results. No mandatory perfect score or new topic lock. |
+
+Accepted familiar-foundations handling under C-029: offer the explanation, optional self-check, or direct practice. A returning learner can move on without a long alphabet introduction. Skipping or self-report does not create tested mastery evidence. Completed attempts and the current draft remain resumable.
+
+### Preparation and evidence requirements
+
+- Apply C-061's approximate 8-12-task starter target where suitable to a small writing objective, calibrated internally; do not demand that count for every character or every saved word. Include recognition, entry/correction, and distinct later prompts as appropriate.
+- Separate supported copying, independent written recall, punctuation correction, and any listening attempt. Show the target clearly so a spelling task is not mislabeled as a vocabulary or tense failure.
+- Start with a concise Ukrainian reminder; offer a more targeted clue, a reviewed model, or answer reveal on request. Interface-only shortcut help is not language assistance. Preserve actual assistance in the relevant evidence.
+- Use short familiar contexts such as a label, name, or greeting. Only reviewed source items can be saved as ready personal phrases; a learner-created expression follows the draft/review path.
+- Check actual text entry and help with Chrome on macOS and the planned iPhone test browser. These are pending checks, not validated keyboard instructions.
+- Full word lists, exact answer variants, audio allocation, linguistic review, and graded checkpoint items are still to be authored/reviewed. Additional orthography coverage must be mapped elsewhere; this block is not a claim of complete inventory coverage.
+
+Next decision: accept or revise the three short lessons plus optional checkpoint. Then detail A1-02, keeping this discussion within curriculum planning.
 
 ## Example of later detailed design: A2-03
 
@@ -76,5 +95,7 @@ Next steps: the session direction is accepted under C-032; review controls are a
 - S1: [Instituto Cervantes, A1-A2 grammar inventory](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/niveles/02_gramatica_inventario_a1-a2.htm), read 2026-10-08. Sections 1-8 and 13-15 identify language families beyond tenses; sections 9.1 and 9.3-9.4 distinguish the past forms, imperative, and non-finite forms. This informs topic inclusion, not a claim that every row is fully mapped. The A1-A2 indicative inventory leaves simple future and conditional entries empty; do not import a complete productive treatment into the required A2 core without justification.
 - S2: [Instituto Cervantes, A1-A2 general objectives](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/niveles/01_objetivos_relacion_a1-a2.htm), read 2026-10-08, sections 1.1-1.3. It describes everyday needs and work with short accessible texts. The proposed outcomes adapt the written portion; oral outcomes are not silently adopted.
 - S3: [Instituto Cervantes curriculum index](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/indice.htm), read 2026-10-08. The index identifies further inventories, including orthography, functions, genres, and notions. Their full objective-by-objective mapping remains pending.
+
+- S4: [Instituto Cervantes, A1-A2 orthography inventory](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/04_ortografia_inventario_a1-a2.htm), indexed extract inspected on 2026-10-21: sections 1.1-1.5 cover letters/capitalization, 2.1-2.2 accent marks, and 3.1/3.6 sentence/question/exclamation punctuation. Direct page retrieval returned an error, so use these as provisional anchors to recheck during full coverage mapping. The inventory extends well beyond this first block; the local lesson sequence and objectives are original proposals.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
