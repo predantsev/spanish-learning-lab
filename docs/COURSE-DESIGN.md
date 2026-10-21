@@ -225,6 +225,12 @@ Source for C-056: on 2026-10-21, the owner accepted keyboard checking, explicit 
 |---|---|
 | C-056 | Use normal keyboard input without an on-screen Spanish-character panel. Enter checks a short answer; multiline input keeps Enter for a newline and uses a platform-appropriate checking shortcut (Command+Enter on macOS, Ctrl+Enter on Windows). Show a concise shortcut reminder and provide contextual help for first-time users. Keep visible checking controls, retain feedback until explicit Next, and require explicit playback of the next audio task. Preserve phone usability and drafts across help/reference panels. Detailed platform behavior remains to be verified. |
 
+Source for C-057: on 2026-10-21, the owner explicitly accepted the proposed initial review ladder and its assistance/missed-day behavior and asked to continue.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-057 | Use initial delayed-review intervals of approximately 1, 3, 7, 14, and 30 days, advancing after independent scheduled success and measuring the next interval from the actual check. Keep occasional checks at the initial 30-day cap. A clearly attributed mistake or relevant language help brings the affected skill back sooner, initially the next day, with optional same-session practice. Preserve granular evidence and prior history, treat absence neutrally, and offer a manageable return set. These are accepted initial product defaults to calibrate, not validated retention guarantees; detailed override/queue mechanics remain open. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -266,7 +272,7 @@ The session direction is settled; continue with review and mastery controls belo
 
 The owner accepted the general review direction and manual controls on 2026-10-13 under C-033, building on C-002/C-003/C-009/C-014/C-020. Exact scheduling, thresholds, UI labels, and diagnostic mechanisms remain design details.
 
-Compare three approaches: manual-only selection gives control but requires the learner to remember what needs revisiting; a fixed timetable is predictable but handles different difficulties poorly; adaptive recommendations plus manual controls balance assistance and choice but must explain why an item returns. The third is the accepted direction for this course. No scheduling library, algorithm, or interval constants are selected.
+Compare three approaches: manual-only selection gives control but requires the learner to remember what needs revisiting; a fixed timetable is predictable but handles different difficulties poorly; adaptive recommendations plus manual controls balance assistance and choice but must explain why an item returns. The third is the accepted direction for this course. No scheduling library or implemented algorithm is selected; C-057 subsequently accepts initial interval defaults.
 
 Accepted behavior direction, with detailed mechanics still to be designed:
 
@@ -285,9 +291,9 @@ Evidence basis: the abstract of [Karpicke and Roediger (2008), The critical impo
 
 Marking something known retains occasional checks; automatic review can be paused separately (C-033). Continue with written-answer checking below.
 
-### Initial review intervals and return after a break — proposal
+### Initial review intervals and return after a break — accepted defaults
 
-C-033 accepts adaptive review and manual controls. Proposed first implementation defaults, for discussion and later calibration rather than a claim of optimal retention:
+C-033 accepts adaptive review and manual controls. C-057 accepts these initial defaults for later calibration rather than as a claim of optimal retention:
 
 - After introducing a skill, offer a later independent check after approximately one day. After independent success at a scheduled check, increase the next interval through 3, 7, 14, and 30 days, measured from the actual completed check. At the initial 30-day cap, keep occasional checks; do not declare permanent mastery.
 - A clearly attributed mistake, targeted hint, or answer reveal brings the affected skill back sooner, initially the next day. Same-session practice in a different familiar context remains available, but does not itself advance the delayed-review stage. Keep the earlier evidence and leave unrelated skills unchanged. An unresolved answer is not a failed attempt; replay alone is not a listening failure.
@@ -295,7 +301,7 @@ C-033 accepts adaptive review and manual controls. Proposed first implementation
 - After missed days, do not create a failure event for absence or demand completion of every overdue item. Offer a manageable set within the chosen scope/time preference, prioritizing explicit repeat-more targets and recent need for support while still sampling older due material. A late successful check schedules from the actual attempt date rather than stacking missed calendar reminders. Pause continues to exclude an item from automatic review.
 - Show the reason for a recommendation and permit manual extra practice. A future implementation specification must pin how learner overrides interact with dates and queue fairness; these examples do not settle those mechanics. No notification or fixed daily quota is introduced.
 
-Next agree or revise the initial interval ladder and next-day follow-up after assistance. No scheduler, interval experiment, or learning-outcome validation has been performed.
+C-057 settles the initial interval ladder and next-day follow-up after assistance. Queue fairness and exact override interactions still need a complete specification before coding. No scheduler, interval experiment, or learning-outcome validation has been performed.
 
 ### Accepted progress presentation
 
@@ -598,6 +604,23 @@ Proposed meaning of a strong A2 stage: cover the mapped in-scope A1/A2 objective
 
 Use the [Instituto Cervantes Plan curricular index](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/indice.htm), read on 2026-10-07, as a source for Spanish-specific objectives/content inventories. It organizes objectives and language content by A1-A2, B1-B2, and C1-C2. Detailed mapping to this course is not yet done; do not infer that browsing the index establishes coverage. Author original course material and track source/content rights separately.
 
+### First-release readiness gates — proposal for discussion
+
+C-044 already requires a complete application and the entire agreed reviewed beginner-to-A2 course before owner learning/testing. The following gates make that boundary reviewable; they do not authorize implementation or claim current readiness.
+
+| Gate | Proposed evidence required before owner handoff |
+|---|---|
+| Curriculum coverage | Expand all 14 accepted outline blocks into reviewed objectives and lessons. Maintain a coverage matrix from each agreed in-scope objective to its teaching material, practice, and later review; map listening targets and everyday collections explicitly. Reconcile the relevant curriculum inventories with documented scope exclusions. The current outline alone is insufficient evidence of full A1/A2 coverage. |
+| Prepared course material | All release-required explanations, examples, accepted answer variants, hints, tasks, personal-collection templates, and audio are present locally in the reviewed version. Apply C-039 cross-provider review with resolved substantive disagreements and actual-audio checks under C-040. Release-required items cannot remain draft or needs-review; personal learner drafts may still exist but cannot become practice keys. Agree calibration thresholds before bulk authoring. |
+| Functional learning journeys | Demonstrate new lesson, studied-topic practice, both navigation routes, personal/course collections, hint and transcript disclosure, meaningful orthography feedback, unresolved answers, and resume after interruption. Check visible Ukrainian instructions and contextual help. Verify computer and responsive phone interactions against the chosen browser/device matrix, which remains to be selected. |
+| Review evidence and scheduling | Use controlled test data and time to verify C-057 interval progression, next-day follow-up, separate form/context/listening evidence, no assistance from interface-only help, pause, known/repeat-more behavior, and manageable review after a break. Pin still-open override and queue rules before implementation. |
+| Offline and recovery behavior | With internet disconnected, start the local application afresh and open an unseen installed lesson, use prepared listening and practice, then restart and verify saved attempts/drafts. Restore a known backup/export fixture and compare phrases, collections, history, settings, and study location; verify invalid imports leave the current profile intact and that rollback works. |
+| Release blockers and delivery | Resolve known blockers to core learning, saving, restoring, grading safety, and required audio use. Record remaining nonblocking limitations honestly. Provide a documented local start/update path and learner-facing help. Preserve private data outside public source control and verify supported distribution rights for shipped materials. |
+
+These gates assess a usable prepared product, not the owner's personal attainment of A2 or proof that every linguistic error has been eliminated. Technical checks cannot substitute for language/audio review. Internal development/content pilots remain allowed, but no incomplete A2 handoff replaces C-044. Home, catalog, collection, and listening mockups remain planned before final UI implementation.
+
+Next agree the gate set, then finish the detailed coverage matrix, remaining visual prototypes, browser/device scope, quality calibration, and unresolved scheduler mechanics before producing an executor-ready implementation plan.
+
 ## Personal phrase collection
 
 Accepted capture workflow under C-022:
@@ -754,7 +777,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation. Next refine the proposed review intervals and remaining acceptance criteria. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation; C-057 settles initial review intervals. Next agree first-release readiness gates and detail remaining implementation prerequisites. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
@@ -768,7 +791,7 @@ Discuss a small number of questions per turn. Answers may change the sequence. D
 - Personal phrase details: resolve checking responsibility with content quality and exact scheduling with review design. All three entry paths and the combined practice direction are settled under C-022/C-023.
 - Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish of Spain and the brief familiar-foundations approach are settled; Ukrainian instruction with future localization is settled; detailed assessments remain open.
 - Session flow: recommended sessions with manual selection, optional new material, flexible time guidance, and resumable work are settled (C-032). Exact presets/composition and missed-day review prioritization remain to be refined.
-- Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033). Exact scheduling, thresholds, and manual-preference weighting remain to be designed.
+- Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033); initial intervals are accepted under C-057. Queue fairness, exact manual-preference interactions, and evidence thresholds remain to be specified.
 - Exercise feedback: valid alternatives, targeted corrections, meaningful orthography, and unresolved answers with optional external review are settled (C-034). Exact checking rules, hint levels, retry limits, and content-review mechanics remain open.
 - Content scope and quality: detailed listening coverage, native-speaker audio provenance, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
 - Product environment and continuity: initial local browser operation is settled under C-041, and progress/backup/export direction under C-042. Offline practice is settled under C-043; supported browsers and backup implementation details remain open; hosting, remote phone access, and cross-device sync are deferred. Mobile-friendly layouts remain planned.
