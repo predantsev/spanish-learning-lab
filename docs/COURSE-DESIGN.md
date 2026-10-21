@@ -2,6 +2,10 @@
 
 Updated: 2026-10-21. This is a discovery document, not an approved implementation specification.
 
+## Discussion workflow
+
+On 2026-10-21, the owner requested sequential discussion of three remaining planning parts: detailed curriculum, remaining visual designs, then the technical implementation/verification plan. Present a concrete proposal in text and use native agreement choices when available: Agree/accept and continue, or Want changes/write in chat. A choice accepts the displayed proposal only; silence or a preselected option is not acceptance. This is a collaboration preference, separate from application UI requirements, and does not authorize implementation.
+
 ## Confirmed intent
 
 Source for C-001 through C-005: the owner's initiating request on 2026-10-07 in the planning conversation. The request described forgetting material after reading and exercises, asked for repeated practice until the learner feels it is learned, and explicitly deferred implementation until discussion and a documented plan.
