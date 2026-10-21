@@ -231,6 +231,13 @@ Source for C-057: on 2026-10-21, the owner explicitly accepted the proposed init
 |---|---|
 | C-057 | Use initial delayed-review intervals of approximately 1, 3, 7, 14, and 30 days, advancing after independent scheduled success and measuring the next interval from the actual check. Keep occasional checks at the initial 30-day cap. A clearly attributed mistake or relevant language help brings the affected skill back sooner, initially the next day, with optional same-session practice. Preserve granular evidence and prior history, treat absence neutrally, and offer a manageable return set. These are accepted initial product defaults to calibrate, not validated retention guarantees; detailed override/queue mechanics remain open. |
 
+Source for C-058/C-059: on 2026-10-21, the owner accepted the proposed first-release readiness criteria and asked to proceed. In response to the browser/device clarification, the owner specified Chrome on macOS and an iPhone running iOS.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-058 | Require the complete agreed reviewed A1-A2 course, validated core learning journeys and review evidence, offline operation, persistent/recoverable personal data, and understandable Ukrainian computer/phone interaction before owner handoff. Use the readiness gates below to collect evidence. Internal incremental checks remain allowed; accepting the gates is not a readiness claim or implementation authorization. |
+| C-059 | Use Chrome on macOS as the owner's primary desktop target and an iPhone running iOS as the phone target for usability verification. The owner did not specify an iPhone browser. Safari is the proposed initial iPhone test browser; exact versions, hardware, and any additional supported browsers remain to be pinned before release. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -302,6 +309,17 @@ C-033 accepts adaptive review and manual controls. C-057 accepts these initial d
 - Show the reason for a recommendation and permit manual extra practice. A future implementation specification must pin how learner overrides interact with dates and queue fairness; these examples do not settle those mechanics. No notification or fixed daily quota is introduced.
 
 C-057 settles the initial interval ladder and next-day follow-up after assistance. Queue fairness and exact override interactions still need a complete specification before coding. No scheduler, interval experiment, or learning-outcome validation has been performed.
+
+### Manual review overrides — proposed concrete behavior
+
+C-033 already accepts Repeat more, Known with occasional checks, and Pause. C-057 fixes the initial interval ladder. Proposed override rules for discussion:
+
+- Repeat more: request the next automatic check by the following day without delaying an earlier due item; while active, cap later successful-review intervals at seven days. Keep voluntary immediate practice available. Turning it off resumes the ordinary ladder based on preserved evidence.
+- Known: record a learner preference separately from tested mastery. For material without stable delayed evidence, propose an independent check in seven days, then longer checks on success; do not shorten an already appropriate longer interval for stable material. Subsequent clear mistakes or relevant help bring the target back sooner under C-057. Final interaction with the ordinary ladder must be specified without fabricating successful attempts.
+- Pause: exclude the target from automatic recommendations until explicitly resumed. It remains discoverable and can be practiced manually. A manual attempt alone does not remove the pause; the learner chooses to resume. Pause takes precedence over the repeat-more preference for the automatic queue.
+- Explain the actual scheduling effect beside each action using C-053 help. Keep previous evidence and make the controls reversible. Manual due-date changes must not be mistaken for successful recall events.
+
+Next agree or revise these override rules, then complete the scheduler specification alongside coverage and visual-design work. These are proposals, not implemented or verified scheduling behavior.
 
 ### Accepted progress presentation
 
@@ -578,6 +596,14 @@ Accepted under C-056, building on C-026/C-034/C-048/C-053:
 
 C-056 settles these interaction defaults. Continue with concrete review scheduling, content coverage, remaining mockups, and acceptance planning. No input controls or mobile behavior have been implemented or verified.
 
+### Browser and device verification — confirmed targets and proposed scope
+
+C-059 identifies Chrome on macOS and an iPhone running iOS. Recommended initial matrix: the current stable Chrome release on the owner's Mac and Safari on an iPhone, with actual version numbers recorded when the release is tested. Safari is a test-scope recommendation, not a claim about the owner's current phone browser. Do not equate changing viewport width with a completed real-phone check.
+
+Desktop checks cover keyboard entry and shortcut reminders, rule/help panels, audio started by the learner, saved drafts, and the local offline/restart/backup scenarios. Phone checks cover readable layouts, touch controls, the software keyboard, text entry, help/reference opening without draft loss, and actual audio playback. Keep the accepted offline guarantee on the local computer; initial phone usability does not establish remote access, phone-offline installation, or synchronization. Internal phone test access must be scoped separately without opening a public service by default.
+
+Exact supported browser/OS versions, real-phone test access, and additional-browser regression scope remain implementation-plan work. No browser, mobile connectivity, or audio verification has been performed.
+
 ## Course horizon and staged delivery
 
 Accepted sequence: beginner foundations including A1 -> strong A2 -> B1 -> B2. The owner may have mentioned C1 in an unclear dictated fragment; a clarification was asked. Beyond-B2 scope is unconfirmed and does not block the confirmed A2/B1/B2 plan. Do not assign C1 to the required roadmap without clarification.
@@ -604,22 +630,22 @@ Proposed meaning of a strong A2 stage: cover the mapped in-scope A1/A2 objective
 
 Use the [Instituto Cervantes Plan curricular index](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/indice.htm), read on 2026-10-07, as a source for Spanish-specific objectives/content inventories. It organizes objectives and language content by A1-A2, B1-B2, and C1-C2. Detailed mapping to this course is not yet done; do not infer that browsing the index establishes coverage. Author original course material and track source/content rights separately.
 
-### First-release readiness gates — proposal for discussion
+### First-release readiness gates — accepted criteria
 
-C-044 already requires a complete application and the entire agreed reviewed beginner-to-A2 course before owner learning/testing. The following gates make that boundary reviewable; they do not authorize implementation or claim current readiness.
+C-044 already requires a complete application and the entire agreed reviewed beginner-to-A2 course before owner learning/testing. C-058 accepts the following gates to make that boundary reviewable; they do not authorize implementation or claim current readiness.
 
-| Gate | Proposed evidence required before owner handoff |
+| Gate | Required evidence before owner handoff |
 |---|---|
 | Curriculum coverage | Expand all 14 accepted outline blocks into reviewed objectives and lessons. Maintain a coverage matrix from each agreed in-scope objective to its teaching material, practice, and later review; map listening targets and everyday collections explicitly. Reconcile the relevant curriculum inventories with documented scope exclusions. The current outline alone is insufficient evidence of full A1/A2 coverage. |
 | Prepared course material | All release-required explanations, examples, accepted answer variants, hints, tasks, personal-collection templates, and audio are present locally in the reviewed version. Apply C-039 cross-provider review with resolved substantive disagreements and actual-audio checks under C-040. Release-required items cannot remain draft or needs-review; personal learner drafts may still exist but cannot become practice keys. Agree calibration thresholds before bulk authoring. |
-| Functional learning journeys | Demonstrate new lesson, studied-topic practice, both navigation routes, personal/course collections, hint and transcript disclosure, meaningful orthography feedback, unresolved answers, and resume after interruption. Check visible Ukrainian instructions and contextual help. Verify computer and responsive phone interactions against the chosen browser/device matrix, which remains to be selected. |
+| Functional learning journeys | Demonstrate new lesson, studied-topic practice, both navigation routes, personal/course collections, hint and transcript disclosure, meaningful orthography feedback, unresolved answers, and resume after interruption. Check visible Ukrainian instructions and contextual help. Verify computer and responsive phone interactions against C-059's Chrome/macOS and iPhone targets; pin exact versions and the iPhone browser in the release test matrix. |
 | Review evidence and scheduling | Use controlled test data and time to verify C-057 interval progression, next-day follow-up, separate form/context/listening evidence, no assistance from interface-only help, pause, known/repeat-more behavior, and manageable review after a break. Pin still-open override and queue rules before implementation. |
 | Offline and recovery behavior | With internet disconnected, start the local application afresh and open an unseen installed lesson, use prepared listening and practice, then restart and verify saved attempts/drafts. Restore a known backup/export fixture and compare phrases, collections, history, settings, and study location; verify invalid imports leave the current profile intact and that rollback works. |
 | Release blockers and delivery | Resolve known blockers to core learning, saving, restoring, grading safety, and required audio use. Record remaining nonblocking limitations honestly. Provide a documented local start/update path and learner-facing help. Preserve private data outside public source control and verify supported distribution rights for shipped materials. |
 
 These gates assess a usable prepared product, not the owner's personal attainment of A2 or proof that every linguistic error has been eliminated. Technical checks cannot substitute for language/audio review. Internal development/content pilots remain allowed, but no incomplete A2 handoff replaces C-044. Home, catalog, collection, and listening mockups remain planned before final UI implementation.
 
-Next agree the gate set, then finish the detailed coverage matrix, remaining visual prototypes, browser/device scope, quality calibration, and unresolved scheduler mechanics before producing an executor-ready implementation plan.
+The gate set is accepted under C-058 and the owner's primary device targets under C-059. Finish the detailed coverage matrix, remaining visual prototypes, exact browser/version test scope, quality calibration, and unresolved scheduler mechanics before producing an executor-ready implementation plan.
 
 ## Personal phrase collection
 
@@ -777,7 +803,7 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 ## Discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
-2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation; C-057 settles initial review intervals. Next agree first-release readiness gates and detail remaining implementation prerequisites. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
+2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation; C-057 settles initial review intervals. C-058 accepts readiness gates and C-059 identifies the primary device targets. Next settle review overrides and detail remaining implementation prerequisites. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
 3. Written-answer-checking direction is settled under C-034. Refine exact grading rules, hints, and retries when detailing exercises; do not reopen the accepted unresolved-answer path.
 4. Refine optional time presets if needed and settle content sourcing and calibrate the C-039 review plan. Local computer/browser delivery is settled under C-041; mobile layouts remain planned, while phone access and sync are deferred. Speaking remains excluded.
 5. Resolve feedback, valid answer variants, hint attribution, uncertainty, missed days, storage, and any AI cost/privacy constraints.
