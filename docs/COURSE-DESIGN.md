@@ -1,10 +1,10 @@
 # Course design
 
-Updated: 2026-10-21. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-22. This is a discovery document, not an approved implementation specification.
 
 ## Discussion workflow
 
-On 2026-10-21, the owner requested sequential discussion of three remaining planning parts: detailed curriculum, remaining visual designs, then the technical implementation/verification plan. Present a concrete proposal in text and use native agreement choices when available: Agree/accept and continue, or Want changes/write in chat. A choice accepts the displayed proposal only; silence or a preselected option is not acceptance. This is a collaboration preference, separate from application UI requirements, and does not authorize implementation.
+On 2026-10-21, the owner requested sequential discussion of three remaining planning parts: detailed curriculum, remaining visual designs, then the technical implementation/verification plan. Present a concrete proposal in text and use native agreement choices when available. On 2026-10-22 the owner reiterated the preference for short choices: Далі (accept this proposal and continue) or Хочу змінити (explain changes in chat); no typed agreement is required. A choice accepts the displayed proposal only; silence or a preselected option is not acceptance. This is a collaboration preference, separate from application UI requirements, and does not authorize implementation.
 
 ## Confirmed intent
 
@@ -259,6 +259,12 @@ Source for C-062: on 2026-10-21, the owner explicitly confirmed that the propose
 | ID | Confirmed requirement |
 |---|---|
 | C-062 | Include the bounded external-assistant API and repository-contained skill in the first owner handoff: selected context/evidence reads, observed assistance recording, focused sets from reviewed items, private material drafts, and verified/reversible supported changes. Preserve the content-review and draft boundaries, current attempts, private data, and standalone ordinary practice. MCP remains optional later. Require an end-to-end request-to-persisted-UI-result check before release. Exact contract, authentication, supported host, and implementation remain to be specified; this is release-scope acceptance, not authorization to implement now. |
+
+Source for C-063: on 2026-10-22, after the three-lesson A1-01 proposal, the owner accepted it and asked to continue, while reiterating the requested decision-button workflow.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-063 | Adopt A1-01 as three short written-foundation lessons (letters/entry, initial stress and accents, punctuation/short phrases) plus an optional checkpoint and later review. Retain the familiar-material shortcuts under C-029. This approves the block grouping and direction, not a complete authored lesson/word list, audio bank, linguistic validation, or application implementation. Detailed IDs and open content requirements are in CURRICULUM-A1-A2.md. |
 
 ## Language and localization direction
 

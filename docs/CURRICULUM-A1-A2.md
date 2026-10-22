@@ -1,6 +1,6 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-21. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-22. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
@@ -41,9 +41,9 @@ Prerequisites express dependencies, not mandatory completion of every earlier ex
 - Listening: build from everyday phrases to sentences and brief connected texts, targeting Spain pronunciation with reviewed synthetic speech initially and suitable existing human recordings as later additions (C-040). Map listening targets and recording variants alongside the written curriculum; keep recognition, meaning, transcript-assisted work, and written production distinct. Initial short-phrase listening inclusion is settled under C-037; detailed module allocation remains open.
 - Review: revisit old skills in new but familiar contexts, including later sessions; initial intervals are accepted under C-057, while the detailed queue/override algorithm remains open. Do not introduce unknown grammar into a supposed recall check without explaining it.
 
-## Detailed block proposal: A1-01 — written foundations
+## Accepted block design: A1-01 — written foundations
 
-Status: proposed for owner discussion on 2026-10-21. This expands the accepted block outline, not a published lesson corpus. The sequence is an original design; S4 supplies partial orthography inventory anchors, not a prescribed three-lesson sequence or complete A1/A2 mapping.
+Status: grouping/direction accepted on 2026-10-22 under C-063. The detailed draft was presented on 2026-10-21. Lesson text, word lists, tasks, and audio remain unprepared/unreviewed; this is not a published lesson corpus. The sequence is an original design; S4 supplies partial orthography inventory anchors, not a prescribed three-lesson sequence or complete A1/A2 mapping.
 
 Practical outcome: recognize and enter the written forms needed by later short words, labels, and questions, preserving relevant accents and punctuation. Introduce supporting vocabulary with a model/meaning so an unknown word or conjugation does not invalidate a writing task. No prior Spanish course completion is required.
 
@@ -54,7 +54,7 @@ Practical outcome: recognize and enter the written forms needed by later short w
 | A1-01-O3 | Use opening/closing question/exclamation marks, sentence punctuation, and basic capitalization in a supported short phrase. | S4 sections 1.4-1.5 and 3.1/3.6; not all orthography is taught in this block. |
 | A1-01-O4 | Follow an exercise instruction and consult an inline explanation of a needed grammar term. | Original support objective; introduce terms in context, without a separate terminology exam. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -74,7 +74,44 @@ Accepted familiar-foundations handling under C-029: offer the explanation, optio
 - Check actual text entry and help with Chrome on macOS and the planned iPhone test browser. These are pending checks, not validated keyboard instructions.
 - Full word lists, exact answer variants, audio allocation, linguistic review, and graded checkpoint items are still to be authored/reviewed. Additional orthography coverage must be mapped elsewhere; this block is not a claim of complete inventory coverage.
 
-Next decision: accept or revise the three short lessons plus optional checkpoint. Then detail A1-02, keeping this discussion within curriculum planning.
+C-063 accepts the three short lessons plus optional checkpoint. Next discuss the A1-02 proposal below, remaining within curriculum planning.
+
+## Detailed block proposal: A1-02 — naming and describing
+
+Status: proposed on 2026-10-22. This expands the accepted outline and uses provisional S1 inventory anchors; the owner has not accepted this lesson grouping. Practical outcome: build a short noun phrase describing a familiar person or object and indicating possession. Complete sentence production is developed in A1-03; these tasks must not silently require unintroduced copulas or conjugations.
+
+Foundation: reuse A1-01 written forms and familiar-material shortcuts; refresh only needed prerequisites. Introduce a small reviewed set of people/object vocabulary with meanings and contextual models. Use home, belongings, and shopping as example contexts, without assuming that a particular word list or a full situation pack is already reviewed.
+
+| Objective ID | Observable target | Provisional inventory anchor |
+|---|---|---|
+| A1-02-O1 | Recall a familiar noun with an appropriate article/gender pairing, including selected common exceptions rather than inferring every gender from an ending. | S1 section 1, noun gender; exact subitems to reconcile. |
+| A1-02-O2 | Select definite/indefinite articles in a short context that makes the intended reference sufficiently clear. | S1 section 3, articles. |
+| A1-02-O3 | Produce singular/plural noun phrases with matching article and number. | S1 section 1, noun number, and section 3. |
+| A1-02-O4 | Add a familiar qualifying adjective with appropriate gender/number agreement in an introduced pattern. | S1 sections 2.1-2.3. |
+| A1-02-O5 | Express simple possession using reviewed possessives and context that resolves the intended possessor. | S1 section 5; form/meaning distinctions need full mapping. |
+
+### Proposed lesson sequence
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A1-02-L1 | A noun with its article: learn a reviewed noun/article pair and selected common gender patterns/exceptions. | Recognize, complete, then recall a short familiar expression. Separate unknown-word help from a demonstrated agreement error. |
+| A1-02-L2 | Definite and indefinite articles in introduced contexts. | Choose an article, explain the context in Ukrainian when needed, and write the short phrase. Accept alternatives if the context supports them; avoid an arbitrary single-key verdict. |
+| A1-02-L3 | Singular and plural, changing the noun phrase together. | Transform, correct agreement, and write a familiar singular/plural phrase. Later combine number with adjectives and possession. |
+| A1-02-L4 | Describing people/objects with familiar adjectives. | Choose/produce agreement and build a short noun phrase. Broader placement differences and unintroduced vocabulary remain for later mapped lessons. |
+| A1-02-L5 | Possession: my, your, and other introduced possessors. | Begin with a small set of forms, then expand to other A1 inventory forms including Spain-relevant plural-possessor forms with supporting context. Do not demand pronoun/conjugation knowledge not yet introduced. |
+| A1-02-C1 | Optional mixed check and delayed independent return. | Combine article, noun, number, adjective, and possession only where introduced. Keep help available; record separate target evidence rather than a single whole-block pass/fail. |
+
+### Preparation, evidence, and later links
+
+- Use the accepted C-061 starter target per small objective, with reviewed variants and later prompts. Do not interpret it as a fixed item count for the entire noun/adjective system or every noun.
+- Include recognition, contextual choice, noun-phrase production, and meaning-to-phrase tasks using familiar support material. Teach any supporting word before relying on it to assess grammar.
+- Hints can identify noun gender, number agreement, article meaning, or the intended possessor. Attribute help/errors locally. Ambiguous article/possessor context stays unresolved or is clarified instead of marking one reference answer uniquely correct.
+- Add short prepared listening where appropriate: identify which familiar phrase/description was heard, with transcript help available. Track listening separately from written agreement. Exact clip coverage, naturalness, keys, and audio review remain pending.
+- Allow saving a useful reviewed expression into personal collections and appropriate later variations. Free wording/edits retain the draft/review path. Familiar material remains accessible directly without a mandatory new placement gate.
+- Review noun/article and agreement targets in A1-03 sentences and A1-04 routines, then revisit them in A2-02 descriptions/comparisons. Keep dependency checks specific to the actual target.
+- Full maps of adjective forms, article uses, possession forms, exceptions, lexical lists, and valid task answers are still to be authored/reconciled and cross-reviewed. This grouping does not establish complete A1 inventory coverage or release readiness.
+
+Next decision: accept/revise these five short lessons plus optional mixed check, then detail A1-03.
 
 ## Example of later detailed design: A2-03
 
@@ -97,5 +134,7 @@ Next steps: the session direction is accepted under C-032; review controls are a
 - S3: [Instituto Cervantes curriculum index](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/indice.htm), read 2026-10-08. The index identifies further inventories, including orthography, functions, genres, and notions. Their full objective-by-objective mapping remains pending.
 
 - S4: [Instituto Cervantes, A1-A2 orthography inventory](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/04_ortografia_inventario_a1-a2.htm), indexed extract inspected on 2026-10-21: sections 1.1-1.5 cover letters/capitalization, 2.1-2.2 accent marks, and 3.1/3.6 sentence/question/exclamation punctuation. Direct page retrieval returned an error, so use these as provisional anchors to recheck during full coverage mapping. The inventory extends well beyond this first block; the local lesson sequence and objectives are original proposals.
+
+S1 follow-up (2026-10-22): the indexed A1-A2 grammar extract identifies adjective material under section 2 and possessives under section 5, including simple and plural-possessor forms. Direct retrieval redirected to the Instituto Cervantes maintenance page. A1-02's inventory links are provisional and must be checked against the full source during coverage reconciliation; the five-lesson sequence is our design proposal.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
