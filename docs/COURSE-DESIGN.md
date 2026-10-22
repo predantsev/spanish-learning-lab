@@ -266,6 +266,12 @@ Source for C-063: on 2026-10-22, after the three-lesson A1-01 proposal, the owne
 |---|---|
 | C-063 | Adopt A1-01 as three short written-foundation lessons (letters/entry, initial stress and accents, punctuation/short phrases) plus an optional checkpoint and later review. Retain the familiar-material shortcuts under C-029. This approves the block grouping and direction, not a complete authored lesson/word list, audio bank, linguistic validation, or application implementation. Detailed IDs and open content requirements are in CURRICULUM-A1-A2.md. |
 
+Source for C-064: on 2026-10-22, the owner selected Далі in the native decision for the five-lesson A1-02 proposal, explicitly accepting it and continuing to A1-03.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-064 | Adopt A1-02 as five short lessons covering noun gender, articles, plural noun phrases, adjective agreement, and possession, plus an optional mixed check and later review. Use familiar words and short phrases, with complete sentence building developed next in A1-03. This accepts grouping/direction only; exact content, inventory coverage, accepted answers, and audio still require preparation and review. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:

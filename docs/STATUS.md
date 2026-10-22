@@ -87,11 +87,13 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-063 (2026-10-22): A1-01's three-lesson foundation plus optional checkpoint is accepted. The owner reiterated short native decisions (Далі / Хочу змінити) without typed agreement. Prepared A1-02 objectives, five proposed lessons, and an optional mixed check; owner acceptance and lesson content remain pending.
 
+- Recorded C-064 (2026-10-22): the owner selected Далі to accept A1-02's five-lesson grouping plus optional mixed check. Prepared A1-03 short-sentence objectives, six proposed lessons, and review/listening links. A1-03 acceptance and authored content remain pending.
+
 ## Next conversation
 
-The product direction through C-063 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
+The product direction through C-064 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
 
-Current discussion: A1-02 naming/describing, with five proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01 grouping is accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
+Current discussion: A1-03 short sentences, with six proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01 and A1-02 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
 Remaining planning deliverables, in order:
 
@@ -195,3 +197,5 @@ First-release integration acceptance (2026-10-21): recorded the owner's explicit
 Button workflow and first curriculum block (2026-10-21): recorded the owner-requested discussion format and sequential phases. Checked the available native question tool and official OpenAI app-server requestUserInput documentation. Used the indexed Cervantes orthography inventory for provisional anchors; direct page retrieval failed. Reviewed consistency with C-029/C-034/C-053/C-056/C-061, stable objective IDs, and draft/review boundaries. Documentation consistency and whitespace only; no lesson corpus, audio, app, or teaching-effectiveness validation.
 
 A1-01 acceptance and A1-02 proposal (2026-10-22): recorded the owner's explicit acceptance and repeated decision-UI preference. Checked provisional A1-02 anchors against the indexed Cervantes grammar extract; direct retrieval reached a maintenance page. Kept proposed lesson grouping, pending language/audio review, local error attribution, and prerequisite boundaries explicit. Documentation consistency and whitespace only; no corpus or application implementation.
+
+A1-02 acceptance and A1-03 proposal (2026-10-22): recorded the explicit native Далі response. Expanded the accepted outline into proposed objectives and lessons without claiming new full-source or language validation. Checked prerequisites, form/context distinctions, ambiguity handling, written/listening boundaries, and later review links. Documentation consistency and whitespace only; no lesson corpus or runtime implementation.
