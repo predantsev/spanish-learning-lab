@@ -91,13 +91,15 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-065 (2026-10-22): the owner selected Далі to accept the six-lesson A1-03 grouping plus short listening, optional mixed check, and later review, with separate form/context evidence. The owner separately authorized merging PR #84 and deleting its feature branch; GitHub confirmed MERGED at 2026-10-22T12:19:59Z (merge commit 1ce9702). Prepared six proposed A1-04 lessons with seven small objectives, listening/review links, and an optional mixed check. A1-04 acceptance and authored content remain pending; implementation remains unauthorized.
 
+- Recorded C-066 (2026-10-22): the owner replied Далі to accept the six-lesson A1-04 grouping plus listening, optional check, and specific later review. Prepared six proposed A1-05 lessons and seven objectives for quantities, prices, hours, dates, places, and information questions. A1-05 acceptance and authored content remain pending.
+
 ## Next conversation
 
-The product direction through C-065 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
+The product direction through C-066 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
 
-Current discussion: A1-04 present-tense actions and routine, with six proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01, A1-02, and A1-03 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
+Current discussion: A1-05 concrete everyday information, with six proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01 through A1-04 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
-Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. The A1-04 proposal is tracked by issue #85 and remains unaccepted; no permission for application implementation is implied.
+Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. Open PR #86 / issue #85 now record accepted A1-04 and the next unaccepted A1-05 proposal. This documentation remains on the PR branch pending review; no additional merge or application-implementation permission is inferred.
 
 Remaining planning deliverables, in order:
 
@@ -205,3 +207,5 @@ A1-01 acceptance and A1-02 proposal (2026-10-22): recorded the owner's explicit 
 A1-02 acceptance and A1-03 proposal (2026-10-22): recorded the explicit native Далі response. Expanded the accepted outline into proposed objectives and lessons without claiming new full-source or language validation. Checked prerequisites, form/context distinctions, ambiguity handling, written/listening boundaries, and later review links. Documentation consistency and whitespace only; no lesson corpus or runtime implementation.
 
 A1-03 acceptance / A1-04 planning update (2026-10-22): recorded the two actual native answers accepting A1-03 and authorizing PR #84 merge, verified its MERGED state, and expanded the accepted A1-04 outline into a proposed objective/lesson/evidence map. Inspected the official S1 indexed section 9.1.1 extract only; full inventory reconciliation and linguistic/audio review remain pending. Documentation consistency and whitespace checks apply; no application tests, authored course, or learning-outcome validation are claimed.
+
+A1-04 acceptance / A1-05 planning update (2026-10-22): recorded the actual Далі reply as C-066 and kept the stable A1-04 IDs. Expanded A1-05 into six proposed lessons with separate value comprehension, information extraction, written form, and listening targets. Inspected official indexed S1 quantity/interrogative and S5 temporal-reference extracts; full source mapping and language/audio review remain pending. Documentation consistency and whitespace checks only; no corpus or application implementation.

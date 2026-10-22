@@ -278,6 +278,12 @@ Source for C-065: on 2026-10-22, the owner selected Далі in the native A1-03
 |---|---|
 | C-065 | Adopt A1-03 as six short lessons covering sentence foundations, ser, estar, hay versus estar in context, tener, and questions/negation, plus familiar-word practice, short listening, an optional mixed check, and later review. Keep verb-form production and contextual selection evidence separate. This accepts the grouping/direction, not authored content, complete inventory coverage, linguistic validation, or application implementation. |
 
+Source for C-066: on 2026-10-22, the owner replied Далі after the displayed six-lesson A1-04 proposal and its native acceptance question. This accepts that curriculum block and continues to A1-05; it does not extend the separate merge permission for PR #84.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-066 | Adopt A1-04 as six short lessons covering regular -ar forms, regular -er/-ir forms, a limited useful irregular set, daily-routine pronominal patterns, frequency, and a brief written routine. Include short listening, an optional mixed check, and later review of specific forms/constructions. Preserve distinct regular-family, exception, pronoun, contextual, and listening evidence. The exact corpus, language/audio review, complete inventory mapping, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:

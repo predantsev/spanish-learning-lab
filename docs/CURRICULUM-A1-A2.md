@@ -154,9 +154,9 @@ Foundation: A1-01 writing and A1-02 familiar noun phrases. Reuse reviewed words 
 
 C-065 accepts these six short lessons plus the optional mixed check. Next detail A1-04, remaining within curriculum planning.
 
-## Detailed block proposal: A1-04 — present-tense actions and routine
+## Accepted block design: A1-04 — present-tense actions and routine
 
-Status: proposed on 2026-10-22, elaborating the accepted A1-04 outline. The six-lesson grouping is unaccepted; no lesson corpus exists. This is an original teaching sequence. S1 section 9.1.1 supplies partial present-tense anchors; exact inventory reconciliation and language review remain pending. Local block labels do not imply that every item belongs to the A1 column of that inventory.
+Status: grouping/direction accepted on 2026-10-22 under C-066 via the owner's Далі reply. The proposal elaborated the accepted A1-04 outline; no lesson corpus exists. This is an original teaching sequence. S1 section 9.1.1 supplies partial present-tense anchors; exact inventory reconciliation and language review remain pending. Local block labels do not imply that every item belongs to the A1 column of that inventory.
 
 Practical outcome: understand a short familiar description of a day and write a brief routine using introduced present forms, basic frequency expressions, and supported questions/negation. A short integrated task may suggest three to five sentences, without a mandatory length gate.
 
@@ -172,7 +172,7 @@ Foundation: A1-01 writing, A1-02 familiar noun phrases, and A1-03 subject/person
 | A1-04-O6 | Express basic frequency in a reviewed routine frame. | Introduce the meaning/placement of each expression first. Detailed clock time, dates, and number work remain A1-05; a broad adverb inventory is not assumed. |
 | A1-04-O7 | Read a short routine and write a brief description or written answer using introduced material. | Reuse questions/negation from A1-03. Provide any needed connector/time expression before assessing it; broader linking and messages continue in A1-06. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -194,8 +194,50 @@ Foundation: A1-01 writing, A1-02 familiar noun phrases, and A1-03 subject/person
 - Return to A1-02 agreement and A1-03 sentence/question/negative patterns without silently adding unintroduced grammar. Revisit these present targets in A1-05 practical information, A1-06 messages, and A2-01 expanded present control. Link them to A2-05 past routines/A2-06 contrasts only after the relevant past forms are introduced.
 - Full verb/person allocation, exact irregular and pronominal sets, frequency expressions, accepted variants, objective-to-source coverage, listening allocation, and cross-provider linguistic review remain preparation work. This proposal does not claim complete A1 coverage, permanent retention, or release readiness.
 
-Next decision: accept/revise six short lessons plus the optional mixed check, then detail A1-05.
+C-066 accepts these six short lessons plus the optional mixed check. Next discuss A1-05 below, remaining within curriculum planning.
 
+## Detailed block proposal: A1-05 — concrete everyday information
+
+Status: proposed on 2026-10-22, elaborating the accepted A1-05 outline. The six-lesson grouping is unaccepted; no lesson corpus exists. This is an original teaching sequence with partial anchors in S1 (quantity/interrogatives) and S5 (time references). Exact inventory reconciliation, lexical ranges, accepted answers, and language/audio review remain pending.
+
+Practical outcome: extract useful information from a short price label, opening-hours notice, calendar, or location description and write a suitable question or brief answer. Use self-contained synthetic situations with explicit date/time/currency context rather than relying on an unstated current day or an ambiguous location.
+
+Foundation: A1-01 written forms, A1-02 agreement, A1-03 sentence/question patterns and hay/estar, and A1-04 introduced present actions. Teach each needed word and practical question model before assessing it. L6 consolidates question selection; it must not withhold essential question models from earlier lessons.
+
+| Objective ID | Observable target | Provisional anchor / boundary |
+|---|---|---|
+| A1-05-O1 | Recognize and produce introduced number/quantity expressions in a familiar context. | S1 section 6.1 supplies numeral/quantifier families. Specify manageable cardinal ranges, a useful ordinal subset, and agreement patterns during authoring; do not silently test an untaught larger number. |
+| A1-05-O2 | Understand a familiar price and ask/answer about the amount. | Teach currency and amount wording with reviewed variants. Arithmetic is not a language target; broader shopping requests continue elsewhere. |
+| A1-05-O3 | Understand a clock time or short opening-hours entry and distinguish asking the current time from asking when an event starts. | S5 section 4.1 supplies partial time/hour references. Teach the necessary time/preposition frames; specify accepted numeric/written representations for each task. |
+| A1-05-O4 | Understand and express introduced days, dates, and a simple appointment reference. | S5 provides partial temporal anchors only. Review exact day/month/date forms and context; resolve ambiguous numeric dates explicitly. |
+| A1-05-O5 | Locate a known place/object or ask where it is using introduced spatial expressions. | Revisit hay/estar with familiar nouns and a small taught spatial set. Exact preposition coverage is pending; full route instructions/imperatives remain A2-07. |
+| A1-05-O6 | Select an introduced question pattern for the information actually missing and write a short question. | S1 sections 7.3 and 8.8 supply partial interrogative anchors. Meaning, agreement, accents, and person/form remain distinguishable targets; exact question-word coverage needs reconciliation. |
+| A1-05-O7 | Extract relevant details from a short practical text and give a written answer or clarification question. | Use introduced grammar and familiar words. Finding information in text is distinct from producing a Spanish number/question form; broader messages continue in A1-06. |
+
+### Proposed lesson sequence
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A1-05-L1 | Numbers and quantities in small practical steps (O1). | Match an amount, write an introduced number form, and build a reviewed quantity phrase. Add a small practical ordinal set only after explaining it; keep individual patterns available for focused review. |
+| A1-05-L2 | Prices and amounts (O2). | Read a synthetic price label, understand the amount, and ask/answer a familiar price question. Separate numeric comprehension from required Spanish wording. |
+| A1-05-L3 | Clock time and opening hours (O3). | Read a short schedule, distinguish current/event time, and give a suitable question or answer. Teach introduced expressions/prepositions before independent checks. |
+| A1-05-L4 | Days, dates, and a simple appointment (O4). | Find a day/date, complete a reviewed calendar expression, and write a short appointment question/answer with explicit context. |
+| A1-05-L5 | Where something is: places and basic spatial expressions (O5). | Use a short written scene or accessible simple plan with text support. Ask/answer about location and revisit hay/estar only when context supports the distinction. |
+| A1-05-L6 | Ask for the missing information (O6/O7). | Read a short notice, identify what is known/missing, choose a question pattern, and write a brief question or answer. Accept reviewed equivalent questions when they request the same needed information. |
+| A1-05-C1 | Optional mixed check and delayed independent return. | Combine familiar prices, hours, dates, locations, and questions in a short practical situation. Sample specific targets rather than awarding one whole-block mastery label. |
+
+### Preparation, evidence, and later links
+
+- Use concise Ukrainian explanations, supported examples, then independent tasks with the accepted hint/reference/reveal access. Keep direct practice and resumable drafts; first-time action help is separate from language assistance.
+- Apply C-061's approximate 8-12 reviewed starter-task target to suitable small subskills, not every numeral or the whole information block. Prepare varied familiar situations and distinct delayed prompts; use only reviewed compatible templates.
+- State whether a task assesses meaning, information extraction, or written Spanish production. Reviewed equivalent numeric/written formats may satisfy a meaning task; typing digits alone does not prove recall of Spanish number spelling. Preserve correct meaning alongside a separate form/orthography correction where appropriate.
+- Attribute difficulty to the actual number/quantity pattern, time/date expression, spatial relation, question choice, agreement, or orthography. A missing word or an ambiguous notice does not prove every target wrong; unresolved answers remain unresolved.
+- Offer short prepared Spain listening for familiar amounts, times, dates, or location information. Ask a meaning question before optional separate dictation, and provide replay/transcript help under the accepted evidence rules. Keep auditory recognition distinct from reading and number spelling; actual audio, distractors, keys, and naturalness require review.
+- Save useful reviewed price/time/location questions and suitable variations into personal collections. New learner wording follows the private draft/review path. No unreviewed personal entry becomes an automatic answer model.
+- Revisit A1-02 agreement, A1-03 hay/estar/questions, and A1-04 present forms in the selected contexts. Return to these information targets in A1-06 messages, A2-01 plans, A2-07 practical requests/instructions, and A2-08 cumulative texts after their prerequisites are taught.
+- Exact number/ordinal ranges, quantity expressions, question words, spatial patterns, calendar forms, answer-format policy, lexical lists, and clip allocation remain authoring/review work. Source anchors are partial, and no complete A1 inventory coverage or release readiness is claimed.
+
+Next decision: accept/revise six short lessons plus the optional mixed check, then detail A1-06.
 
 ## Example of later detailed design: A2-03
 
@@ -219,8 +261,12 @@ Next steps: the session direction is accepted under C-032; review controls are a
 
 - S4: [Instituto Cervantes, A1-A2 orthography inventory](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/04_ortografia_inventario_a1-a2.htm), indexed extract inspected on 2026-10-21: sections 1.1-1.5 cover letters/capitalization, 2.1-2.2 accent marks, and 3.1/3.6 sentence/question/exclamation punctuation. Direct page retrieval returned an error, so use these as provisional anchors to recheck during full coverage mapping. The inventory extends well beyond this first block; the local lesson sequence and objectives are original proposals.
 
+- S5: [Instituto Cervantes, A1-A2 general notions inventory](https://cvc.cervantes.es/ENSENANZA/biblioteca_ele/plan_curricular/niveles/08_nociones_generales_inventario_a1-a2.htm), indexed extract inspected on 2026-10-22, section 4.1. It identifies clock-time references, day/week/month/year vocabulary, days/months in time expressions, and basic time frames. These are partial anchors for A1-05, not a complete calendar/appointment inventory check or a prescribed lesson sequence. Full-page retrieval was not performed in this pass.
+
 S1 follow-up (2026-10-22): the indexed A1-A2 grammar extract identifies adjective material under section 2 and possessives under section 5, including simple and plural-possessor forms. Direct retrieval redirected to the Instituto Cervantes maintenance page. A1-02's inventory links are provisional and must be checked against the full source during coverage reconciliation; the five-lesson sequence is our design proposal.
 
 S1 present follow-up (2026-10-22): the official indexed extract for section 9.1.1 lists the regular present paradigm and ser/estar/haber/ir in its A1 column, and frequent vowel/consonant irregularities in A2. The A1-04 proposal uses a limited functional introduction and reserves broader irregularity work for A2-01. The full source page was not freshly retrieved in this pass; exact item mapping, including pronominal/frequency coverage, remains pending. This anchor does not prescribe our lesson grouping.
+
+S1 quantity/question follow-up (2026-10-22): the official indexed extract identifies numerals/quantifiers in section 6.1 and interrogatives in section 7.3, including a cross-reference to interrogative adverbs in 8.8. Use these as partial A1-05 anchors; exact ranges, spatial coverage, full source mapping, and linguistic validation remain pending. The local six-lesson grouping is an original proposal.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
