@@ -95,6 +95,8 @@ The product direction through C-064 is recorded. First handoff requires the comp
 
 Current discussion: A1-03 short sentences, with six proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01 and A1-02 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
+Documentation delivery: PR #84 remains open. On 2026-10-22, automatic approval review rejected the attempted merge because it would update protected main and delete the feature branch while A1-03 was still unaccepted; the owner had accepted only A1-02. Request explicit permission before merging this PR. This does not block discussion of the proposal.
+
 Remaining planning deliverables, in order:
 
 1. Complete the A1-A2 objective/lesson/practice/listening/review coverage matrix for the 14 outline blocks, and retain the B1/B2 expansion map. The existing outline and task-count target are not a finished corpus.
