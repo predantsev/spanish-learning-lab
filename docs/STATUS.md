@@ -93,13 +93,15 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-066 (2026-10-22): the owner replied Далі to accept the six-lesson A1-04 grouping plus listening, optional check, and specific later review. Prepared six proposed A1-05 lessons and seven objectives for quantities, prices, hours, dates, places, and information questions. A1-05 acceptance and authored content remain pending.
 
+- Recorded C-067 (2026-10-22): the owner selected Далі to accept the six-lesson A1-05 grouping with practical text/listening, optional mixed check, later review, and separate information/form evidence. Prepared six proposed A1-06 lessons with eight objectives and an optional cumulative A1 check. A1-06 acceptance and authored content remain pending.
+
 ## Next conversation
 
-The product direction through C-066 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
+The product direction through C-067 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
 
-Current discussion: A1-05 concrete everyday information, with six proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01 through A1-04 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
+Current discussion: A1-06 preferences, needs, and short messages, with six proposed lessons plus an optional cumulative A1 check in CURRICULUM-A1-A2.md. A1-01 through A1-05 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
-Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. Open PR #86 / issue #85 now record accepted A1-04 and the next unaccepted A1-05 proposal. This documentation remains on the PR branch pending review; no additional merge or application-implementation permission is inferred.
+Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. Open PR #86 / issue #85 now record accepted A1-04/A1-05 and the next unaccepted A1-06 proposal. This documentation remains on the PR branch pending review; no additional merge or application-implementation permission is inferred.
 
 Remaining planning deliverables, in order:
 
@@ -209,3 +211,5 @@ A1-02 acceptance and A1-03 proposal (2026-10-22): recorded the explicit native �
 A1-03 acceptance / A1-04 planning update (2026-10-22): recorded the two actual native answers accepting A1-03 and authorizing PR #84 merge, verified its MERGED state, and expanded the accepted A1-04 outline into a proposed objective/lesson/evidence map. Inspected the official S1 indexed section 9.1.1 extract only; full inventory reconciliation and linguistic/audio review remain pending. Documentation consistency and whitespace checks apply; no application tests, authored course, or learning-outcome validation are claimed.
 
 A1-04 acceptance / A1-05 planning update (2026-10-22): recorded the actual Далі reply as C-066 and kept the stable A1-04 IDs. Expanded A1-05 into six proposed lessons with separate value comprehension, information extraction, written form, and listening targets. Inspected official indexed S1 quantity/interrogative and S5 temporal-reference extracts; full source mapping and language/audio review remain pending. Documentation consistency and whitespace checks only; no corpus or application implementation.
+
+A1-05 acceptance / A1-06 planning update (2026-10-22): recorded the actual native Далі reply as C-067 and preserved A1-05 IDs. Proposed six A1-06 lessons, separating gustar pronoun/agreement, preference/need/wish/plan meaning, connectors, and message comprehension/production, with listening and an optional cumulative A1 sample. Inspected official indexed S6 functions and S1 coordination/infinitive extracts; full mapping, need/reason realizations, language review, and actual audio validation remain pending. Documentation checks only; no A1 proficiency certification, course corpus, or implementation is claimed.

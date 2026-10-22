@@ -284,6 +284,12 @@ Source for C-066: on 2026-10-22, the owner replied Далі after the displayed 
 |---|---|
 | C-066 | Adopt A1-04 as six short lessons covering regular -ar forms, regular -er/-ir forms, a limited useful irregular set, daily-routine pronominal patterns, frequency, and a brief written routine. Include short listening, an optional mixed check, and later review of specific forms/constructions. Preserve distinct regular-family, exception, pronoun, contextual, and listening evidence. The exact corpus, language/audio review, complete inventory mapping, and implementation remain pending. |
 
+Source for C-067: on 2026-10-22, the owner selected Далі in the native decision accepting the six-lesson A1-05 concrete-information proposal and continuing to A1-06. This is curriculum acceptance only.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-067 | Adopt A1-05 as six short lessons covering numbers/quantities, prices, clock time/opening hours, days/dates, locations, and questions for missing information. Include short practical texts and listening, an optional mixed check, and later review. Keep understanding information distinct from writing Spanish forms. Exact content, accepted variants, full inventory mapping, linguistic/audio review, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
