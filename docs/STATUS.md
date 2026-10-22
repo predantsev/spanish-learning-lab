@@ -89,13 +89,15 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-064 (2026-10-22): the owner selected Далі to accept A1-02's five-lesson grouping plus optional mixed check. Prepared A1-03 short-sentence objectives, six proposed lessons, and review/listening links. A1-03 acceptance and authored content remain pending.
 
+- Recorded C-065 (2026-10-22): the owner selected Далі to accept the six-lesson A1-03 grouping plus short listening, optional mixed check, and later review, with separate form/context evidence. The owner separately authorized merging PR #84 and deleting its feature branch. Next prepare the A1-04 proposal; implementation remains unauthorized.
+
 ## Next conversation
 
-The product direction through C-064 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
+The product direction through C-065 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
 
-Current discussion: A1-03 short sentences, with six proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01 and A1-02 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
+Current discussion: prepare A1-04 present-tense actions and routine. A1-01, A1-02, and A1-03 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
-Documentation delivery: PR #84 remains open. On 2026-10-22, automatic approval review rejected the attempted merge because it would update protected main and delete the feature branch while A1-03 was still unaccepted; the owner had accepted only A1-02. Request explicit permission before merging this PR. This does not block discussion of the proposal.
+Documentation delivery: on 2026-10-22, the owner accepted A1-03 and separately authorized merging PR #84 and deleting its feature branch. This resolves the earlier automatic approval review rejection, which occurred before A1-03 acceptance/merge permission. Verify actual merge completion in GitHub; no permission for application implementation is implied.
 
 Remaining planning deliverables, in order:
 

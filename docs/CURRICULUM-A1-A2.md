@@ -113,9 +113,9 @@ Foundation: reuse A1-01 written forms and familiar-material shortcuts; refresh o
 
 C-064 accepts these five lessons plus optional mixed check. Next discuss A1-03 below.
 
-## Detailed block proposal: A1-03 — short sentences
+## Accepted block design: A1-03 — short sentences
 
-Status: proposed on 2026-10-22, elaborating the accepted A1-03 outline. The lesson grouping is unaccepted and no lesson corpus exists. Primary inventory families to reconcile under S1: subject pronouns, indicative present, simple sentence structure, and introduced question/negative patterns. Full source mapping and language review remain pending; no fresh full-inventory verification is claimed here.
+Status: grouping/direction accepted on 2026-10-22 under C-065 via the native Далі choice. The proposal elaborated the accepted A1-03 outline. No lesson corpus exists. Primary inventory families to reconcile under S1: subject pronouns, indicative present, simple sentence structure, and introduced question/negative patterns. Full source mapping and language review remain pending; no fresh full-inventory verification is claimed here.
 
 Practical outcome: write and understand a few short present-tense statements, questions, and negative sentences about a familiar person, possession, or place, selecting an introduced ser/estar/hay/tener pattern in sufficient context.
 
@@ -130,7 +130,7 @@ Foundation: A1-01 writing and A1-02 familiar noun phrases. Reuse reviewed words 
 | A1-03-O5 | Express possession or a small set of introduced tener meanings. | Age expressions may be included only with already introduced numbers; broader number work remains A1-05. |
 | A1-03-O6 | Ask a short introduced question and produce a negative sentence. | Begin with accessible written patterns; detailed question-word coverage continues in A1-05. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -152,7 +152,7 @@ Foundation: A1-01 writing and A1-02 familiar noun phrases. Reuse reviewed words 
 - Save useful reviewed statements or questions into personal collections. Learner-created variants retain draft/review boundaries. Practice remains written/listening only.
 - Revisit A1-02 noun/article/adjective/possession evidence in later sentences. Bring ser/estar/hay/tener targets back in A1-04 routines, A1-05 practical questions, and A2-01/A2-02 descriptions; later tense contrast must not silently replace these present-focused targets.
 
-Next decision: accept/revise six short lessons plus the optional mixed check, then detail A1-04.
+C-065 accepts these six short lessons plus the optional mixed check. Next detail A1-04, remaining within curriculum planning.
 
 ## Example of later detailed design: A2-03
 
