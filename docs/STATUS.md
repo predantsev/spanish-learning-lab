@@ -89,15 +89,15 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-064 (2026-10-22): the owner selected Далі to accept A1-02's five-lesson grouping plus optional mixed check. Prepared A1-03 short-sentence objectives, six proposed lessons, and review/listening links. A1-03 acceptance and authored content remain pending.
 
-- Recorded C-065 (2026-10-22): the owner selected Далі to accept the six-lesson A1-03 grouping plus short listening, optional mixed check, and later review, with separate form/context evidence. The owner separately authorized merging PR #84 and deleting its feature branch. Next prepare the A1-04 proposal; implementation remains unauthorized.
+- Recorded C-065 (2026-10-22): the owner selected Далі to accept the six-lesson A1-03 grouping plus short listening, optional mixed check, and later review, with separate form/context evidence. The owner separately authorized merging PR #84 and deleting its feature branch; GitHub confirmed MERGED at 2026-10-22T12:19:59Z (merge commit 1ce9702). Prepared six proposed A1-04 lessons with seven small objectives, listening/review links, and an optional mixed check. A1-04 acceptance and authored content remain pending; implementation remains unauthorized.
 
 ## Next conversation
 
 The product direction through C-065 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
 
-Current discussion: prepare A1-04 present-tense actions and routine. A1-01, A1-02, and A1-03 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
+Current discussion: A1-04 present-tense actions and routine, with six proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. A1-01, A1-02, and A1-03 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
-Documentation delivery: on 2026-10-22, the owner accepted A1-03 and separately authorized merging PR #84 and deleting its feature branch. This resolves the earlier automatic approval review rejection, which occurred before A1-03 acceptance/merge permission. Verify actual merge completion in GitHub; no permission for application implementation is implied.
+Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. The A1-04 proposal is tracked by issue #85 and remains unaccepted; no permission for application implementation is implied.
 
 Remaining planning deliverables, in order:
 
@@ -203,3 +203,5 @@ Button workflow and first curriculum block (2026-10-21): recorded the owner-requ
 A1-01 acceptance and A1-02 proposal (2026-10-22): recorded the owner's explicit acceptance and repeated decision-UI preference. Checked provisional A1-02 anchors against the indexed Cervantes grammar extract; direct retrieval reached a maintenance page. Kept proposed lesson grouping, pending language/audio review, local error attribution, and prerequisite boundaries explicit. Documentation consistency and whitespace only; no corpus or application implementation.
 
 A1-02 acceptance and A1-03 proposal (2026-10-22): recorded the explicit native Далі response. Expanded the accepted outline into proposed objectives and lessons without claiming new full-source or language validation. Checked prerequisites, form/context distinctions, ambiguity handling, written/listening boundaries, and later review links. Documentation consistency and whitespace only; no lesson corpus or runtime implementation.
+
+A1-03 acceptance / A1-04 planning update (2026-10-22): recorded the two actual native answers accepting A1-03 and authorizing PR #84 merge, verified its MERGED state, and expanded the accepted A1-04 outline into a proposed objective/lesson/evidence map. Inspected the official S1 indexed section 9.1.1 extract only; full inventory reconciliation and linguistic/audio review remain pending. Documentation consistency and whitespace checks apply; no application tests, authored course, or learning-outcome validation are claimed.

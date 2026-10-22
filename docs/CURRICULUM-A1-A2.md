@@ -154,6 +154,49 @@ Foundation: A1-01 writing and A1-02 familiar noun phrases. Reuse reviewed words 
 
 C-065 accepts these six short lessons plus the optional mixed check. Next detail A1-04, remaining within curriculum planning.
 
+## Detailed block proposal: A1-04 — present-tense actions and routine
+
+Status: proposed on 2026-10-22, elaborating the accepted A1-04 outline. The six-lesson grouping is unaccepted; no lesson corpus exists. This is an original teaching sequence. S1 section 9.1.1 supplies partial present-tense anchors; exact inventory reconciliation and language review remain pending. Local block labels do not imply that every item belongs to the A1 column of that inventory.
+
+Practical outcome: understand a short familiar description of a day and write a brief routine using introduced present forms, basic frequency expressions, and supported questions/negation. A short integrated task may suggest three to five sentences, without a mandatory length gate.
+
+Foundation: A1-01 writing, A1-02 familiar noun phrases, and A1-03 subject/person, short sentences, and introduced ser/estar/hay/tener patterns. Teach needed action words and supporting expressions before assessment. Introduce persons in manageable steps, including Spain-relevant plural forms; do not assume that earlier lesson completion proves recall of every form.
+
+| Objective ID | Observable target | Boundaries |
+|---|---|---|
+| A1-04-O1 | Produce introduced regular -ar present forms in a familiar action sentence. | Connect infinitive, person, and ending; exact paradigms and lexical set require review. |
+| A1-04-O2 | Produce introduced regular -er present forms. | Distinguish a form task from independently choosing a meaningful action. |
+| A1-04-O3 | Produce introduced regular -ir present forms and distinguish the taught -er/-ir endings. | Teach the two patterns in small steps; use familiar verbs and reviewed person contrasts. |
+| A1-04-O4 | Recall a limited set of useful irregular present forms, initially proposed for ir and hacer, while revisiting previously introduced forms. | Each assessed exception remains identifiable for review. The exact set is pending; broader vowel/consonant changes and their systematization return in A2-01. |
+| A1-04-O5 | Use an introduced daily-routine pronominal pattern with person-appropriate pronoun and verb form. | Start with a small reviewed set, such as a levantarse pattern. Separate pronoun/person selection from conjugation; this does not teach the complete object-pronoun system. |
+| A1-04-O6 | Express basic frequency in a reviewed routine frame. | Introduce the meaning/placement of each expression first. Detailed clock time, dates, and number work remain A1-05; a broad adverb inventory is not assumed. |
+| A1-04-O7 | Read a short routine and write a brief description or written answer using introduced material. | Reuse questions/negation from A1-03. Provide any needed connector/time expression before assessing it; broader linking and messages continue in A1-06. |
+
+### Proposed lesson sequence
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A1-04-L1 | Regular -ar action verbs, connecting the person to the present form (O1). | Complete a form, change an introduced person, then write a familiar action sentence. Keep the infinitive/person reference available as recorded help. |
+| A1-04-L2 | Regular -er and -ir in two short steps, then a focused comparison (O2/O3). | Practice each family separately before mixing them. Attribute an ending error to the relevant family/person rather than the whole present tense. |
+| A1-04-L3 | A small useful irregular-form set, initially proposed for ir and hacer (O4). | Recall a specific form, use it in a familiar context, and revisit earlier ser/estar/tener forms selectively. Do not introduce a full irregular-verb catalog at once. |
+| A1-04-L4 | Daily-routine expressions with an introduced pronominal pattern (O5). | Select the person/pronoun, produce the form, and write a short routine action. Assess pronoun selection and verb formation separately where the prompt supports that distinction. |
+| A1-04-L5 | How often: everyday frequency expressions in familiar sentences (O6). | Match meaning, place a reviewed expression, and write a true-to-prompt routine sentence. Exact expression choices and placement variants require review. |
+| A1-04-L6 | Put the day together: a short text and brief written routine (O7). | Read for meaning, answer a familiar question, and write a few connected statements using only introduced patterns. No live conversation or spoken response. |
+| A1-04-C1 | Optional mixed check and delayed independent return. | Sample the introduced regular families, selected exceptions, pronominal pattern, and frequency. Preserve specific target evidence; no single whole-tense pass/fail or mandatory perfect score. |
+
+### Preparation, evidence, and later links
+
+- Use concise Ukrainian explanations and supported models before independent attempts. Keep explanations, targeted hints, and full answers accessible under the accepted assistance rules; familiar-topic direct practice remains available.
+- Apply C-061's approximate 8-12 reviewed starter tasks to suitable small objectives, not every verb/person combination or the entire present tense as one unit. Include distinct later prompts, familiar varied contexts, and only reviewed template combinations.
+- Track regular-family/person form production, individual exceptions, pronoun selection, frequency meaning/placement, text comprehension, and any listening evidence separately where actually assessed. A named-infinitive gap does not prove independent contextual choice; an unknown word or a broad request for help does not fail every target.
+- Offer short prepared Spain listening about familiar daily actions, then a brief routine where appropriate. Begin with meaning questions; optional dictation remains a separate task type. Replay alone is not failure, transcript use is assistance, and a spelling slip is not evidence of failed listening recognition. Actual clips, keys, naturalness, and audio review remain pending.
+- Save useful reviewed routine expressions into personal collections and use appropriate reviewed variations. Learner-authored descriptions or new intended meanings follow the private draft/review path and do not become correct-answer models automatically.
+- Return to A1-02 agreement and A1-03 sentence/question/negative patterns without silently adding unintroduced grammar. Revisit these present targets in A1-05 practical information, A1-06 messages, and A2-01 expanded present control. Link them to A2-05 past routines/A2-06 contrasts only after the relevant past forms are introduced.
+- Full verb/person allocation, exact irregular and pronominal sets, frequency expressions, accepted variants, objective-to-source coverage, listening allocation, and cross-provider linguistic review remain preparation work. This proposal does not claim complete A1 coverage, permanent retention, or release readiness.
+
+Next decision: accept/revise six short lessons plus the optional mixed check, then detail A1-05.
+
+
 ## Example of later detailed design: A2-03
 
 This example is a design sketch chosen because tense forms and exceptions motivated the product; it is not the next module to implement.
@@ -177,5 +220,7 @@ Next steps: the session direction is accepted under C-032; review controls are a
 - S4: [Instituto Cervantes, A1-A2 orthography inventory](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/04_ortografia_inventario_a1-a2.htm), indexed extract inspected on 2026-10-21: sections 1.1-1.5 cover letters/capitalization, 2.1-2.2 accent marks, and 3.1/3.6 sentence/question/exclamation punctuation. Direct page retrieval returned an error, so use these as provisional anchors to recheck during full coverage mapping. The inventory extends well beyond this first block; the local lesson sequence and objectives are original proposals.
 
 S1 follow-up (2026-10-22): the indexed A1-A2 grammar extract identifies adjective material under section 2 and possessives under section 5, including simple and plural-possessor forms. Direct retrieval redirected to the Instituto Cervantes maintenance page. A1-02's inventory links are provisional and must be checked against the full source during coverage reconciliation; the five-lesson sequence is our design proposal.
+
+S1 present follow-up (2026-10-22): the official indexed extract for section 9.1.1 lists the regular present paradigm and ser/estar/haber/ir in its A1 column, and frequent vowel/consonant irregularities in A2. The A1-04 proposal uses a limited functional introduction and reserves broader irregularity work for A2-01. The full source page was not freshly retrieved in this pass; exact item mapping, including pronominal/frequency coverage, remains pending. This anchor does not prescribe our lesson grouping.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
