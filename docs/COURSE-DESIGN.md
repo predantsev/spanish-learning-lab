@@ -266,6 +266,18 @@ Source for C-063: on 2026-10-22, after the three-lesson A1-01 proposal, the owne
 |---|---|
 | C-063 | Adopt A1-01 as three short written-foundation lessons (letters/entry, initial stress and accents, punctuation/short phrases) plus an optional checkpoint and later review. Retain the familiar-material shortcuts under C-029. This approves the block grouping and direction, not a complete authored lesson/word list, audio bank, linguistic validation, or application implementation. Detailed IDs and open content requirements are in CURRICULUM-A1-A2.md. |
 
+Source for C-064: on 2026-10-22, the owner selected Далі in the native decision for the five-lesson A1-02 proposal, explicitly accepting it and continuing to A1-03.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-064 | Adopt A1-02 as five short lessons covering noun gender, articles, plural noun phrases, adjective agreement, and possession, plus an optional mixed check and later review. Use familiar words and short phrases, with complete sentence building developed next in A1-03. This accepts grouping/direction only; exact content, inventory coverage, accepted answers, and audio still require preparation and review. |
+
+Source for C-065: on 2026-10-22, the owner selected Далі in the native A1-03 decision, accepting the six-lesson short-sentence proposal and continuing to A1-04. In a separate native answer, the owner explicitly authorized merging documentation PR #84 after that acceptance and deleting its feature branch. That permission concerns PR #84 only.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-065 | Adopt A1-03 as six short lessons covering sentence foundations, ser, estar, hay versus estar in context, tener, and questions/negation, plus familiar-word practice, short listening, an optional mixed check, and later review. Keep verb-form production and contextual selection evidence separate. This accepts the grouping/direction, not authored content, complete inventory coverage, linguistic validation, or application implementation. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:

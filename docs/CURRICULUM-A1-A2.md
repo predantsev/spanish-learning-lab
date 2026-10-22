@@ -76,9 +76,9 @@ Accepted familiar-foundations handling under C-029: offer the explanation, optio
 
 C-063 accepts the three short lessons plus optional checkpoint. Next discuss the A1-02 proposal below, remaining within curriculum planning.
 
-## Detailed block proposal: A1-02 — naming and describing
+## Accepted block design: A1-02 — naming and describing
 
-Status: proposed on 2026-10-22. This expands the accepted outline and uses provisional S1 inventory anchors; the owner has not accepted this lesson grouping. Practical outcome: build a short noun phrase describing a familiar person or object and indicating possession. Complete sentence production is developed in A1-03; these tasks must not silently require unintroduced copulas or conjugations.
+Status: grouping/direction accepted on 2026-10-22 under C-064 via the native Далі choice. Exact lesson content and coverage remain pending; S1 inventory anchors are provisional. Practical outcome: build a short noun phrase describing a familiar person or object and indicating possession. Complete sentence production is developed in A1-03; these tasks must not silently require unintroduced copulas or conjugations.
 
 Foundation: reuse A1-01 written forms and familiar-material shortcuts; refresh only needed prerequisites. Introduce a small reviewed set of people/object vocabulary with meanings and contextual models. Use home, belongings, and shopping as example contexts, without assuming that a particular word list or a full situation pack is already reviewed.
 
@@ -90,7 +90,7 @@ Foundation: reuse A1-01 written forms and familiar-material shortcuts; refresh o
 | A1-02-O4 | Add a familiar qualifying adjective with appropriate gender/number agreement in an introduced pattern. | S1 sections 2.1-2.3. |
 | A1-02-O5 | Express simple possession using reviewed possessives and context that resolves the intended possessor. | S1 section 5; form/meaning distinctions need full mapping. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -111,7 +111,48 @@ Foundation: reuse A1-01 written forms and familiar-material shortcuts; refresh o
 - Review noun/article and agreement targets in A1-03 sentences and A1-04 routines, then revisit them in A2-02 descriptions/comparisons. Keep dependency checks specific to the actual target.
 - Full maps of adjective forms, article uses, possession forms, exceptions, lexical lists, and valid task answers are still to be authored/reconciled and cross-reviewed. This grouping does not establish complete A1 inventory coverage or release readiness.
 
-Next decision: accept/revise these five short lessons plus optional mixed check, then detail A1-03.
+C-064 accepts these five lessons plus optional mixed check. Next discuss A1-03 below.
+
+## Accepted block design: A1-03 — short sentences
+
+Status: grouping/direction accepted on 2026-10-22 under C-065 via the native Далі choice. The proposal elaborated the accepted A1-03 outline. No lesson corpus exists. Primary inventory families to reconcile under S1: subject pronouns, indicative present, simple sentence structure, and introduced question/negative patterns. Full source mapping and language review remain pending; no fresh full-inventory verification is claimed here.
+
+Practical outcome: write and understand a few short present-tense statements, questions, and negative sentences about a familiar person, possession, or place, selecting an introduced ser/estar/hay/tener pattern in sufficient context.
+
+Foundation: A1-01 writing and A1-02 familiar noun phrases. Reuse reviewed words and introduce the meaning of any necessary verb/preposition or time/number expression before assessing the sentence. Do not make unfamiliar vocabulary into a diagnosis of a grammar error.
+
+| Objective ID | Observable target | Boundaries |
+|---|---|---|
+| A1-03-O1 | Build an introduced short sentence and connect its subject/person to the verb form. | Introduce common patterns and pronouns gradually; accept reviewed natural subject omission where appropriate. |
+| A1-03-O2 | Express basic identity, origin, or an introduced description with ser. | Contextual meaning and permitted wording need review; do not replace use distinctions with an unqualified permanent/temporary slogan. |
+| A1-03-O3 | Express a known referent's location or an introduced state with estar. | Limit the first adjective/state set to reviewed uses; broader contrasts return later. |
+| A1-03-O4 | Say that something is present using an introduced hay frame and distinguish it from locating a specified referent. | Supply sufficient context and avoid silent tests of untaught determiner/preposition patterns. |
+| A1-03-O5 | Express possession or a small set of introduced tener meanings. | Age expressions may be included only with already introduced numbers; broader number work remains A1-05. |
+| A1-03-O6 | Ask a short introduced question and produce a negative sentence. | Begin with accessible written patterns; detailed question-word coverage continues in A1-05. |
+
+### Accepted lesson sequence — content pending
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A1-03-L1 | The short sentence: subject/person, an introduced verb pattern, and useful word order. | Build a sentence from familiar elements, complete a form, and write a short statement. Provide person/pronoun reference on demand. |
+| A1-03-L2 | Ser for introduced identity/origin/description contexts. | Form practice and short meaning-to-sentence tasks. Reuse article/adjective targets selectively; record the actual target of any help. |
+| A1-03-L3 | Estar for location and a small reviewed state set. | Match context and sentence, complete the form, and describe a familiar location/state. Contrast with already introduced ser only when meaning is clear. |
+| A1-03-L4 | Hay and estar: what is there versus where a known thing/person is. | Use a short authored situation, contextual choice, and short production; do not force a unique verdict when both readings are supported. |
+| A1-03-L5 | Tener: possession and useful introduced expressions. | Write about a familiar possession; add other meanings only with supporting vocabulary already taught. Revisit A1-02 possession from a sentence perspective. |
+| A1-03-L6 | Questions and negative sentences with these patterns. | Turn an introduced statement into a question/negative, understand the written question, and give a short written answer. No spoken response is required. |
+| A1-03-C1 | Optional mixed check and delayed independent return. | Mix introduced patterns with adequate context. Keep verb form, contextual selection, agreement, and any listening evidence distinct. |
+
+### Preparation, evidence, and later links
+
+- Start each new pattern with a short Ukrainian explanation and supported example, then independent opportunities with help available. Familiar-material shortcuts remain under C-029; no new mandatory placement/unlock threshold is introduced.
+- Introduce present forms in manageable steps across persons, including Spain-relevant plural usage. Complete tables, exact first-lesson form allocation, natural subject omission, and accepted variants must be specified and reviewed; A1-04 revisits these foundations while adding broader present-tense control.
+- Prepare approximately 8-12 reviewed tasks per suitable small objective under C-061, with contextual choice, short writing, and distinct later prompts where appropriate. A form task that names the verb does not by itself prove independent contextual choice.
+- Hints may target person/form, verb meaning/selection, agreement, or vocabulary. Preserve partial success and uncertain answers. Broad explanations do not automatically fail the entire sentence/topic.
+- Use short prepared Spain listening items to recognize the meaning of introduced statements/questions, with optional replay/transcript help and separate listening evidence. Exact clip allocation, actual-audio checks, and reviewed keys remain pending.
+- Save useful reviewed statements or questions into personal collections. Learner-created variants retain draft/review boundaries. Practice remains written/listening only.
+- Revisit A1-02 noun/article/adjective/possession evidence in later sentences. Bring ser/estar/hay/tener targets back in A1-04 routines, A1-05 practical questions, and A2-01/A2-02 descriptions; later tense contrast must not silently replace these present-focused targets.
+
+C-065 accepts these six short lessons plus the optional mixed check. Next detail A1-04, remaining within curriculum planning.
 
 ## Example of later detailed design: A2-03
 
