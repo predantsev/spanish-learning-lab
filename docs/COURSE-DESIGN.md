@@ -308,6 +308,12 @@ Source for C-070: on 2026-10-23, the owner selected Далі in the native A2-02
 |---|---|
 | C-070 | Adopt A2-02 as eight short lessons covering demonstrative/possessive reference, direct and indirect object pronouns, pronoun placement, selected two-pronoun combinations, comparison, fuller description with que, and an integrated choice text. Include listening, optional checking, and specific later review. Preserve distinct referent/role/form/placement/comparison evidence. Exact content, variants, full coverage, linguistic/audio review, merge permission, and implementation remain pending. |
 
+Source for C-071: on 2026-10-23, the owner selected Далі in the native A2-03 decision, accepting the seven-lesson perfecto compuesto grouping, listening, optional mixed checking, and individual difficult-exception review, then continuing to A2-04.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-071 | Adopt A2-03 as seven short lessons covering present haber, regular participles, selected irregular participles, relevant accents, sentence structure/participle invariance, contextual use, and a short account or message. Include listening, optional mixed checking, and specific later review of difficult forms. Keep auxiliary, participle, orthography, structure, and contextual meaning evidence distinct. Exact content, full coverage, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
