@@ -377,13 +377,51 @@ Foundation: reuse A1 agreement/possession, sentence roles, location, prices, pre
 
 C-070 accepts these eight short lessons plus the optional mixed check. Next detail A2-03, remaining within curriculum planning.
 
-## Example of later detailed design: A2-03
+## Detailed block proposal: A2-03 — pretérito perfecto compuesto
 
-This example is a design sketch chosen because tense forms and exceptions motivated the product; it is not the next module to implement.
+Status: proposed on 2026-10-23, elaborating the accepted outline and replacing the earlier A2-03 sketch. The seven-lesson grouping is unaccepted. S1 section 9.1.6 and S7/S8 provide partial anchors; the sequence is our proposal, not an authored or linguistically reviewed corpus. Use the full name pretérito perfecto compuesto to distinguish the target from a simple past form.
 
-Separate skill records for auxiliary selection, regular participle formation, individual irregular forms, word order, and tense choice. A prompt naming the tense checks formation; a later prompt with sufficient context and no tense label checks selection. A missing vocabulary item must not automatically become a tense error.
+Practical outcome: understand a short familiar account and write a few relevant statements, questions, or negative sentences using present haber plus a participle in an introduced context. Teach formation and contextual meaning separately; a prompt naming the tense does not demonstrate independent tense selection.
 
-Possible loop: concise rule reference -> targeted form practice -> contextual gap -> short written production -> later mixed review. Use progressive hints that identify the assistance category. Independent follow-up must use a new prompt, not merely repeat a just-revealed answer. Review and validate permissible alternative wording before release.
+Foundation: A1 sentence/question/negative patterns, time expressions, familiar actions, and A2-01/A2-02 constructions and pronouns. Introduce needed participle terminology, verbs, adverbs, and contexts before assessing them. Keep gerund and participle targets distinguishable; do not assume earlier gerund practice proves knowledge of participles.
+
+| Objective ID | Observable target | Anchor / boundary |
+|---|---|---|
+| A2-03-O1 | Produce the appropriate present haber auxiliary for the intended person. | S1 9.1.6 and S7 model 36; teach the compound-tense role explicitly rather than reusing impersonal hay as the answer model. Include Spain-relevant plural forms. |
+| A2-03-O2 | Form a regular participle from an introduced infinitive. | S1 9.1.6 and S7 regular models; teach -ar/-ado and -er/-ir/-ido formation with a reviewed lexical set. |
+| A2-03-O3 | Recall individual introduced irregular participles. | Initial proposed examples: hecho, dicho, escrito, visto, supported by S1/S7. Specify/review the final set; keep each difficult form identifiable for later practice. |
+| A2-03-O4 | Preserve relevant written accents in introduced participles. | S7 model 40 records leído. Teach the needed writing/stress pattern before assessment; exact additional forms and orthographic mapping remain pending. |
+| A2-03-O5 | Build introduced statements, questions, and negatives with the appropriate word/pronoun placement. | Reuse prior sentence and pronoun work. Teach an initial canonical frame, then review valid variants; do not invent an absolute ban on every item between auxiliary and participle. |
+| A2-03-O6 | Keep the participle in the reviewed invariant form with auxiliary haber. | S8 28.5a supplies the compound-tense agreement boundary. Explain any contrast with an already introduced adjective/state use only as needed; do not silently test new passive grammar. |
+| A2-03-O7 | Select an appropriate introduced perfecto meaning in sufficient context. | S1 9.1.6 anchors past relevance to the present with explicit/implicit temporal framing. Review Spain usage and permissible alternatives; a marker alone is not a universal answer rule. |
+| A2-03-O8 | Extract the meaning of a short familiar account using the introduced tense. | Distinguish reading/listening comprehension from recalling the auxiliary/participle in writing. Teach needed time/adverb vocabulary first. |
+| A2-03-O9 | Write a brief relevant account or answer using introduced forms and context. | Review accepted variants rather than requiring one reference wording. Broader past contrasts follow the relevant introductions in A2-04 through A2-06. |
+
+### Proposed lesson sequence
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-03-L1 | The compound pattern and present haber auxiliary (O1). | Understand a supported model, connect person to the auxiliary, and complete a short familiar sentence. Record auxiliary help separately from participle help. |
+| A2-03-L2 | Regular participles with -ado/-ido (O2). | Form the participle, add it to a familiar sentence, and later recall it in a different reviewed context. |
+| A2-03-L3 | A manageable set of irregular participles (O3). | Introduce and practice selected forms such as hecho/dicho/escrito/visto individually before mixing them. A difficulty with one form does not reset every exception or the whole tense. |
+| A2-03-L4 | Written accents in familiar participles (O4). | Start with a reviewed form such as leído, explain the needed mark, and revisit spelling separately from auxiliary or contextual meaning. |
+| A2-03-L5 | Put the sentence together: questions, negatives, pronouns, and invariant participle (O5/O6). | Reuse already introduced patterns, teach the compound-specific placement/agreement boundary, and accept reviewed natural alternatives. |
+| A2-03-L6 | When the introduced perfecto use fits (O7). | Use sufficient familiar time/situation context, including taught adverbs where useful. Separate a named-tense formation task from an unlabelled meaning choice; do not require untaught past forms. |
+| A2-03-L7 | A short account or message: understand and write (O8/O9). | Read a brief prepared text and give a relevant written account/answer with familiar words and introduced meanings. |
+| A2-03-C1 | Optional mixed check and delayed independent return. | Sample auxiliary, regular/irregular participles, accents, sentence structure, and meaning in short resumable tasks. Preserve specific evidence; comparison with other past tenses follows their introduction. |
+
+### Preparation, evidence, and later links
+
+- Reuse C-034/C-061 checking/bank rules, concise Ukrainian explanations, available reference/hints/reveals, familiar prerequisites, direct practice, and private phrase-draft boundaries. The initial task target applies to suitable small teachable skills; it is not a requirement for a separate fixed-size bank for every participle.
+- Track auxiliary/person, regular formation, each assessed exception, relevant orthography, pronoun/order, participle invariance, and contextual meaning separately where supported. A hint for hecho is evidence about that form, not automatic failure of haber selection or tense choice. Keep prior valid evidence and unresolved results.
+- Prepare reviewed varied contexts and distinct delayed prompts, including both targeted form retrieval and later appropriate meaning choices. Same-session copying of a revealed participle is not independent delayed recall.
+- Do not teach the tense as merely recent past or implement a keyword-only selector. Review meaningful Spain usage, time framing, and acceptable variants. Introduce any new construction before assessing it; full perfecto/indefinido/imperfecto contrasts belong after the later blocks.
+- Include short prepared Spain listening where the auxiliary and participle are recognized in useful familiar sentences, then a brief account. Default to meaning comprehension; dictation is separate. Replay/transcript help follows accepted rules, and spelling does not itself diagnose listening failure. Actual recordings, keys, and naturalness require review.
+- Save useful reviewed completed-action/experience expressions and appropriate variations into personal collections. New learner wording remains a private draft until reviewed; use synthetic accounts in public materials.
+- Revisit the participles and auxiliary in A2-04/A2-05 only within introduced material, then contrast the known tense meanings in A2-06. Reuse the same skill history and difficult-exception targets in A2-07 messages and A2-08 cumulative text work.
+- Full verb/exception lists, orthographic patterns, temporal uses, variants, placement details, lexical/audio allocation, and cross-provider review remain preparation work. This is a planning proposal, not complete tense coverage, a ready corpus, proficiency validation, or implementation permission.
+
+Next decision: accept/revise seven short lessons plus the optional mixed check, then detail A2-04.
 
 ## Method for detailing each block
 
@@ -403,6 +441,10 @@ Next steps: the session direction is accepted under C-032; review controls are a
 
 - S6: [Instituto Cervantes, A1-A2 functions inventory](https://cvc.cervantes.es/Ensenanza/biblioteca_ele/plan_curricular/niveles/05_funciones_inventario_a1-a2.htm), indexed extracts inspected on 2026-10-22, sections 3.2, 3.4-3.5, and 3.8-3.10. These provide partial anchors for likes, preferences, wishes, and present-plus-time plans; fuller A2 forms appear alongside them. They inform A1-06 without prescribing our six lessons or validating every proposed need/message/connector realization. Full-page retrieval and full coverage reconciliation were not performed in this pass.
 
+- S7: [RAE/ASALE, El buen uso del español: Conjugación española](https://www.rae.es/buen-uso-espa%C3%B1ol/conjugaci%C3%B3n-espa%C3%B1ola), targeted indexed/table excerpts inspected on 2026-10-23. The compound-tense table and models 36/37 identify present haber and hecho; targeted page finds locate dicho in model 27 and leído in model 40. These verify selected forms/nomenclature, not a complete A2-03 lexical set or lesson bank.
+
+- S8: [RAE/ASALE, Nueva gramática, section 28.5](https://www.rae.es/gram%C3%A1tica/sintaxis/cohesi%C3%B3n-e-independencia-de-los-componentes-de-las-per%C3%ADfrasis-per%C3%ADfrasis-verbales-y-tiempos-compuestos), indexed passages inspected on 2026-10-23. Paragraph 28.5a identifies the compound-tense restriction on participle agreement; later passages discuss limited interpolation. Use these as targeted structure-review anchors, not a complete word-order or beginner lesson specification.
+
 S1 follow-up (2026-10-22): the indexed A1-A2 grammar extract identifies adjective material under section 2 and possessives under section 5, including simple and plural-possessor forms. Direct retrieval redirected to the Instituto Cervantes maintenance page. A1-02's inventory links are provisional and must be checked against the full source during coverage reconciliation; the five-lesson sequence is our design proposal.
 
 S1 present follow-up (2026-10-22): the official indexed extract for section 9.1.1 lists the regular present paradigm and ser/estar/haber/ir in its A1 column, and frequent vowel/consonant irregularities in A2. The A1-04 proposal uses a limited functional introduction and reserves broader irregularity work for A2-01. The full source page was not freshly retrieved in this pass; exact item mapping, including pronominal/frequency coverage, remains pending. This anchor does not prescribe our lesson grouping.
@@ -414,5 +456,7 @@ S1 connector/infinitive follow-up (2026-10-22): the official indexed extract inc
 S1 non-finite/periphrasis follow-up (2026-10-23): the official indexed extract identifies gerund formation/estar use in section 9.4.2 and periphrastic/modal patterns in section 12.1, including ir a, poder, and tener que. These are partial anchors for A2-01, alongside the existing 9.1.1 present-family and S6 plan anchors. The seven-lesson sequence is our proposal; full-page retrieval, exact meaning/variant mapping, and language review were not performed in this pass.
 
 S1 reference/comparison follow-up (2026-10-23): the official indexed extract identifies demonstratives/possessives (4-5), object and prepositional pronouns with placement/combination patterns (7.1.2-7.1.3, 7.1.6), comparison (2.5, 15.3.8), and relative que (7.2, with a reference to 15.2). These are partial A2-02 anchors; local grouping does not imply that every item is assigned to the same source level. Full-page retrieval, exact variants, and linguistic validation remain pending.
+
+S1 perfecto follow-up (2026-10-23): the official indexed section 9.1.6 identifies haber, regular/strong participles, and continued relevance to the present with explicit/implicit temporal framing. This is a partial A2-03 coverage anchor; exact Spain contexts, permitted alternatives, and full source reconciliation remain pending. S7/S8 add targeted form/structure checks; no cross-provider content review or actual audio validation was performed.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
