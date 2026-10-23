@@ -284,9 +284,9 @@ Foundation: reuse A1-01 writing, A1-02 agreement, A1-03 sentence/question/negati
 
 C-068 accepts these six short lessons plus the optional cumulative A1 check. All six A1 block groupings are accepted; next detail A2-01. Corpus preparation and complete source coverage remain separate work.
 
-## Detailed block proposal: A2-01 — present control, current actions, and plans
+## Accepted block design: A2-01 — present control, current actions, and plans
 
-Status: proposed on 2026-10-23, elaborating the accepted A2-01 outline. The seven-lesson grouping is unaccepted; no lesson corpus exists. This original sequence uses partial S1 present/non-finite/periphrasis anchors and S6 plan/intention anchors. Exact inventory mapping, verb sets, accepted variants, and linguistic/audio review remain pending.
+Status: grouping/direction accepted on 2026-10-23 under C-069 via the owner's Далі reply. The proposal elaborated the accepted A2-01 outline; no lesson corpus exists. This original sequence uses partial S1 present/non-finite/periphrasis anchors and S6 plan/intention anchors. Exact inventory mapping, verb sets, accepted variants, and linguistic/audio review remain pending.
 
 Practical outcome: understand and write a short familiar situation distinguishing a routine, an action in progress, and a plan, with introduced ability/obligation patterns where useful. Teach both the forms and their meanings; a task naming a construction provides different evidence from an unlabelled contextual choice.
 
@@ -304,7 +304,7 @@ Foundation: reuse A1-03 sentence/person and estar patterns, A1-04 present famili
 | A2-01-O8 | Express a personal obligation with an introduced tener que plus infinitive pattern. | S1 section 12.1; distinguish the intended obligation from a wish/plan. Broader impersonal obligation and practical instructions continue in A2-07. |
 | A2-01-O9 | Read a short familiar situation and write an appropriate account or response using introduced constructions. | Keep reading comprehension, form production, and contextual construction choice distinguishable. Use reviewed variants rather than a single required message wording. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -328,7 +328,54 @@ Foundation: reuse A1-03 sentence/person and estar patterns, A1-04 present famili
 - Revisit relevant A1 writing, agreement, questions, present forms, time expressions, and connectors inside familiar contexts. In A2-02, extend reference/pronoun use and placement with these constructions; in A2-03 through A2-06, introduce later tense contrasts only after their prerequisites. A2-07 returns to permission/requests, impersonal obligation, and instructions; A2-08 reuses the constructions in cumulative texts.
 - Complete exact verb/person/exception allocation, meaning boundaries, valid overlaps, pronoun-placement handoff, inventory coverage, audio allocation, and cross-provider review before authoring/release. This proposal does not claim complete present-system coverage, a reviewed corpus, proficiency certification, or implementation permission.
 
-Next decision: accept/revise seven short lessons plus the optional mixed check, then detail A2-02.
+C-069 accepts these seven short lessons plus the optional mixed check. Next discuss A2-02 below, remaining within curriculum planning.
+
+## Detailed block proposal: A2-02 — reference, comparison, and fuller descriptions
+
+Status: proposed on 2026-10-23, elaborating the accepted A2-02 outline. The eight-lesson grouping is unaccepted. S1 provides partial demonstrative/possessive, pronoun, comparison, and relative-clause anchors; this is our teaching sequence, not an authored or linguistically validated corpus.
+
+Practical outcome: understand a short description, refer clearly to a familiar person/object without repeating the noun, compare two familiar options, and write a useful connected description. Every reference task must make the intended referent and information sufficiently clear.
+
+Foundation: reuse A1 agreement/possession, sentence roles, location, prices, preferences, and message writing, plus the introduced A2-01 present/infinitive/gerund constructions. Explain direct/indirect object terminology in Ukrainian when needed, without a terminology exam. Teach each new reference/placement pattern before assessing it.
+
+| Objective ID | Observable target | Provisional S1 anchor / boundary |
+|---|---|---|
+| A2-02-O1 | Identify and use an introduced demonstrative reference with a clear antecedent/context. | Section 4; introduce or refresh the necessary forms explicitly rather than assuming an earlier block taught every demonstrative. |
+| A2-02-O2 | Express introduced possession without repeating the possessed noun. | Section 5, tonic possessive forms; review agreement and permitted article/standalone patterns. |
+| A2-02-O3 | Refer to a familiar direct object using an introduced unstressed pronoun. | Section 7.1.2; distinguish object role, intended referent, and gender/number/person selection. |
+| A2-02-O4 | Refer to a familiar recipient/indirect object using an introduced pronoun pattern. | Sections 7.1.3 and 7.1.6; introduce needed tonic/prepositional support in small steps. Keep gustar-type experiencer and recipient tasks distinguishable. |
+| A2-02-O5 | Place an introduced pronoun in reviewed finite, infinitive, and gerund frames. | Sections 7.1.2-7.1.3 with prior A2-01 frames. Review valid placement alternatives; imperative placement follows its introduction in A2-07. |
+| A2-02-O6 | Use a small reviewed set of two-pronoun combinations. | Section 7.1.3 includes the le/les-to-se pattern before a direct-object pronoun. Track role/form, order, and replacement separately; this does not cover every use of se. |
+| A2-02-O7 | Compare introduced qualities/quantities using a reviewed regular comparison frame. | Sections 2.5, 6.1, and 15.3.8; stage inequality/equality and agreement patterns rather than testing all at once. |
+| A2-02-O8 | Recall selected frequent irregular comparison forms in an appropriate meaning context. | Section 2.5; exact forms/uses and permissible alternatives require review. A form task does not prove independent comparison choice. |
+| A2-02-O9 | Add a useful detail to a familiar description with introduced adjective/sentence patterns and a simple relative que frame. | Sections 7.2 and 15.2; teach the new frame, reuse reviewed agreement/ser/estar, and retain introduced present-time contexts. |
+| A2-02-O10 | Read a short description/comparison and write a relevant description, choice, or response. | Original integrated objective using the introduced reference/comparison targets. Reading, contextual selection, and written production remain distinguishable evidence. |
+
+### Proposed lesson sequence
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-02-L1 | Refer without repeating a noun: demonstratives and possessive references in two short steps (O1/O2). | Identify the referent, choose a reviewed form, and write a short reference. Keep the two pattern families separate in evidence. |
+| A2-02-L2 | Replace a direct object with an introduced pronoun (O3). | Link a familiar noun to the pronoun, choose its form, and produce a short sentence with explicit context. |
+| A2-02-L3 | Refer to the recipient/indirect object (O4). | Identify who receives/is affected in the introduced frame, select the pronoun, and write the short statement. Explain any needed prepositional/tonic form first. |
+| A2-02-L4 | Where the pronoun goes (O5). | Use the already introduced present, infinitive, and gerund constructions. Practice reviewed placement variants without marking one valid alternative wrong. |
+| A2-02-L5 | Combine two pronouns in a small familiar pattern set (O6). | Begin with explicit referents, then practice form/order and the introduced se replacement separately. Revisit the actual difficult component later. |
+| A2-02-L6 | Compare familiar options: regular frames, then selected frequent exceptions (O7/O8). | Compare a quality or quantity, complete the introduced frame, and write a suitable comparison. Teach each pattern/exception before mixing them. |
+| A2-02-L7 | Add a detail to a description (O9). | Reuse familiar adjectives/agreement and introduced ser/estar meanings; teach a simple relative que construction before short independent descriptions. |
+| A2-02-L8 | Read, compare, and describe a familiar choice (O10). | Use synthetic product/home/person descriptions with familiar words; give a short written choice or description using introduced patterns. |
+| A2-02-C1 | Optional mixed check and delayed independent return. | Sample introduced reference, placement, comparison, and description targets in short resumable parts. Retain specific evidence instead of a single whole-block mastery label. |
+
+### Preparation, evidence, and later links
+
+- Reuse C-034/C-061 checking and prepared-bank rules, Ukrainian reference/hint access, familiar prerequisites, and private phrase-draft boundaries. Apply the initial task target to suitable small subskills, not every pronoun form or the whole block as one unit.
+- Distinguish antecedent comprehension, object role, pronoun form, order/placement, se replacement, agreement, comparison form/meaning, and text production where assessed. An error in placement does not erase correct referent/form evidence. Preserve uncertainty when the prompt or answer does not resolve the referent.
+- Review target-variety answer alternatives before enforcing a unique pronoun/placement/comparison key. Use enough authored context; unlisted meaningful wording follows the unresolved-review path. Hints about vocabulary, agreement, or a single pronoun target affect only the evidence they support.
+- Include short prepared Spain listening with clear referents and familiar descriptions/comparisons, then a brief connected description. Default to meaning comprehension with replay/transcript help; dictation is separate. Listening recognition and pronoun/spelling production remain distinct; actual audio, keys, and naturalness require review.
+- Save useful reviewed reference/comparison expressions into personal collections with appropriate variations. New learner descriptions remain private drafts until reviewed; synthetic examples are used in public materials.
+- Revisit A1 possession/agreement/ser/estar and A2-01 constructions inside the selected contexts. Extend pronoun placement to past constructions in A2-03 through A2-06 only after those forms are introduced; revisit imperatives/requests in A2-07 and connected texts in A2-08.
+- Exact pronoun/tonic/possessive sets, comparison ranges/exceptions, relative frames, variant policy, lexical/audio allocation, and full inventory mapping remain preparation/review work. This proposal does not claim a complete pronoun system, reviewed corpus, proficiency certification, or implementation permission.
+
+Next decision: accept/revise eight short lessons plus the optional mixed check, then detail A2-03.
 
 ## Example of later detailed design: A2-03
 
@@ -365,5 +412,7 @@ S1 quantity/question follow-up (2026-10-22): the official indexed extract identi
 S1 connector/infinitive follow-up (2026-10-22): the official indexed extract includes coordination patterns in section 14 and gustar/querer infinitive constructions in section 15.1.1. These are partial A1-06 anchors only; exact because/need patterns, pronoun coverage, full mapping, and language review remain pending.
 
 S1 non-finite/periphrasis follow-up (2026-10-23): the official indexed extract identifies gerund formation/estar use in section 9.4.2 and periphrastic/modal patterns in section 12.1, including ir a, poder, and tener que. These are partial anchors for A2-01, alongside the existing 9.1.1 present-family and S6 plan anchors. The seven-lesson sequence is our proposal; full-page retrieval, exact meaning/variant mapping, and language review were not performed in this pass.
+
+S1 reference/comparison follow-up (2026-10-23): the official indexed extract identifies demonstratives/possessives (4-5), object and prepositional pronouns with placement/combination patterns (7.1.2-7.1.3, 7.1.6), comparison (2.5, 15.3.8), and relative que (7.2, with a reference to 15.2). These are partial A2-02 anchors; local grouping does not imply that every item is assigned to the same source level. Full-page retrieval, exact variants, and linguistic validation remain pending.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.

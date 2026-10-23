@@ -296,6 +296,12 @@ Source for C-068: on 2026-10-23, the owner selected Далі in the native A1-06
 |---|---|
 | C-068 | Adopt A1-06 as six short lessons covering gustar, preferences with preferir, needs with necesitar, wishes/simple plans, y/pero/porque links, and a short personal message. Include listening, specific construction review, and an optional cumulative A1 check in small parts. This accepts the planning grouping/direction only; no complete reviewed corpus, proficiency certification, merge permission, or application implementation is implied. |
 
+Source for C-069: on 2026-10-23, the owner replied Далі after the displayed seven-lesson A2-01 proposal and its acceptance question, accepting that grouping and continuing to A2-02.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-069 | Adopt A2-01 as seven short lessons covering frequent present stem changes, other selected irregular/spelling forms, gerund formation, estar plus gerund, plans with ir a plus infinitive, poder/tener que frames, and contextual integration. Include listening, an optional mixed check, and focused later review. Keep form production and contextual meaning distinct, with reviewed natural alternatives. Exact content, full mapping, linguistic/audio review, merge permission, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
