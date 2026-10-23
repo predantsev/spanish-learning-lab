@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-22. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-23. This is a discovery document, not an approved implementation specification.
 
 ## Discussion workflow
 
@@ -277,6 +277,24 @@ Source for C-065: on 2026-10-22, the owner selected Далі in the native A1-03
 | ID | Confirmed requirement |
 |---|---|
 | C-065 | Adopt A1-03 as six short lessons covering sentence foundations, ser, estar, hay versus estar in context, tener, and questions/negation, plus familiar-word practice, short listening, an optional mixed check, and later review. Keep verb-form production and contextual selection evidence separate. This accepts the grouping/direction, not authored content, complete inventory coverage, linguistic validation, or application implementation. |
+
+Source for C-066: on 2026-10-22, the owner replied Далі after the displayed six-lesson A1-04 proposal and its native acceptance question. This accepts that curriculum block and continues to A1-05; it does not extend the separate merge permission for PR #84.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-066 | Adopt A1-04 as six short lessons covering regular -ar forms, regular -er/-ir forms, a limited useful irregular set, daily-routine pronominal patterns, frequency, and a brief written routine. Include short listening, an optional mixed check, and later review of specific forms/constructions. Preserve distinct regular-family, exception, pronoun, contextual, and listening evidence. The exact corpus, language/audio review, complete inventory mapping, and implementation remain pending. |
+
+Source for C-067: on 2026-10-22, the owner selected Далі in the native decision accepting the six-lesson A1-05 concrete-information proposal and continuing to A1-06. This is curriculum acceptance only.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-067 | Adopt A1-05 as six short lessons covering numbers/quantities, prices, clock time/opening hours, days/dates, locations, and questions for missing information. Include short practical texts and listening, an optional mixed check, and later review. Keep understanding information distinct from writing Spanish forms. Exact content, accepted variants, full inventory mapping, linguistic/audio review, and implementation remain pending. |
+
+Source for C-068: on 2026-10-23, the owner selected Далі in the native A1-06 decision, accepting the six-lesson grouping and optional cumulative A1 check, and continuing to A2-01. All six A1 block groupings are now accepted; lesson authoring and full coverage reconciliation remain pending.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-068 | Adopt A1-06 as six short lessons covering gustar, preferences with preferir, needs with necesitar, wishes/simple plans, y/pero/porque links, and a short personal message. Include listening, specific construction review, and an optional cumulative A1 check in small parts. This accepts the planning grouping/direction only; no complete reviewed corpus, proficiency certification, merge permission, or application implementation is implied. |
 
 ## Language and localization direction
 
