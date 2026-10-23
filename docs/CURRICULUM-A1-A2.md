@@ -1,6 +1,6 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-22. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-23. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
@@ -239,9 +239,9 @@ Foundation: A1-01 written forms, A1-02 agreement, A1-03 sentence/question patter
 
 C-067 accepts these six short lessons plus the optional mixed check. Next discuss A1-06 below, remaining within curriculum planning.
 
-## Detailed block proposal: A1-06 — preferences, needs, and short messages
+## Accepted block design: A1-06 — preferences, needs, and short messages
 
-Status: proposed on 2026-10-22, elaborating the accepted A1-06 outline. The six-lesson grouping is unaccepted; no lesson corpus exists. This is an original teaching sequence with partial S6 functional and S1 grammar anchors. Exact source mapping, lexical sets, accepted answers, and linguistic/audio review remain pending.
+Status: grouping/direction accepted on 2026-10-23 under C-068 via the native Далі choice. The proposal of 2026-10-22 elaborated the accepted A1-06 outline; no lesson corpus exists. This is an original teaching sequence with partial S6 functional and S1 grammar anchors. Exact source mapping, lexical sets, accepted answers, and linguistic/audio review remain pending.
 
 Practical outcome: understand a short familiar personal message and write a few useful sentences about a preference, a need, a wish, or a simple plan, linking introduced ideas appropriately. A small reviewed opening/closing may support the message; broader requests and practical correspondence continue in A2-07.
 
@@ -258,7 +258,7 @@ Foundation: reuse A1-01 writing, A1-02 agreement, A1-03 sentence/question/negati
 | A1-06-O7 | Extract the relevant meaning from a short personal message and identify a suitable response. | Use introduced language and sufficient context. Text comprehension is separate from independently producing the same construction. |
 | A1-06-O8 | Write a short message that fulfills a familiar practical intent. | Use introduced patterns and reviewed valid variants. A suggested few-sentence length is guidance, not a hard word-count or CEFR certification threshold. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -282,7 +282,7 @@ Foundation: reuse A1-01 writing, A1-02 agreement, A1-03 sentence/question/negati
 - Revisit A1-05 information questions/dates, A1-04 present forms, A1-03 sentences, and A1-02 agreement inside suitable familiar messages. Return to plan/time meaning in A2-01, pronoun/comparison work in A2-02, practical requests/messages in A2-07, and cumulative text work in A2-08.
 - Full A1 inventory reconciliation remains a separate editorial gate. Define exact verbs/pronouns, useful connector range, message genres, audio allocation, accepted variants, and the check's sampling before authoring/review. The six block groupings do not constitute a complete reviewed A1 corpus, overall proficiency validation, or implementation permission.
 
-Next decision: accept/revise six short lessons plus the optional cumulative A1 check, then detail A2-01.
+C-068 accepts these six short lessons plus the optional cumulative A1 check. All six A1 block groupings are accepted; next detail A2-01. Corpus preparation and complete source coverage remain separate work.
 
 ## Example of later detailed design: A2-03
 

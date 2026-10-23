@@ -1,6 +1,6 @@
 # Current status
 
-Updated: 2026-10-22.
+Updated: 2026-10-23.
 
 ## Goal and phase
 
@@ -95,13 +95,15 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-067 (2026-10-22): the owner selected Далі to accept the six-lesson A1-05 grouping with practical text/listening, optional mixed check, later review, and separate information/form evidence. Prepared six proposed A1-06 lessons with eight objectives and an optional cumulative A1 check. A1-06 acceptance and authored content remain pending.
 
+- Recorded C-068 (2026-10-23): the owner selected Далі to accept the six-lesson A1-06 grouping, listening, specific review, and optional cumulative A1 check in short parts. All A1-01 through A1-06 groupings are accepted. Next prepare A2-01; authored content, full inventory mapping, and implementation remain pending.
+
 ## Next conversation
 
-The product direction through C-067 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
+The product direction through C-068 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
 
-Current discussion: A1-06 preferences, needs, and short messages, with six proposed lessons plus an optional cumulative A1 check in CURRICULUM-A1-A2.md. A1-01 through A1-05 groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
+Current discussion: prepare A2-01 expanded present control, current actions, and plans. All six A1 block groupings are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
-Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. Open PR #86 / issue #85 now record accepted A1-04/A1-05 and the next unaccepted A1-06 proposal. This documentation remains on the PR branch pending review; no additional merge or application-implementation permission is inferred.
+Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. Open PR #86 / issue #85 now record accepted A1-04/A1-05/A1-06 groupings. On 2026-10-23 the PR API head and remote branch both returned cd92840 before this acceptance update, resolving the previously observed remote-view discrepancy; its cause remains unconfirmed. This documentation remains on the PR branch pending review; no additional merge or application-implementation permission is inferred.
 
 Remaining planning deliverables, in order:
 
@@ -215,3 +217,5 @@ A1-04 acceptance / A1-05 planning update (2026-10-22): recorded the actual Да�
 A1-05 acceptance / A1-06 planning update (2026-10-22): recorded the actual native Далі reply as C-067 and preserved A1-05 IDs. Proposed six A1-06 lessons, separating gustar pronoun/agreement, preference/need/wish/plan meaning, connectors, and message comprehension/production, with listening and an optional cumulative A1 sample. Inspected official indexed S6 functions and S1 coordination/infinitive extracts; full mapping, need/reason realizations, language review, and actual audio validation remain pending. Documentation checks only; no A1 proficiency certification, course corpus, or implementation is claimed.
 
 Delivery observation (2026-10-22): git push and git ls-remote confirmed curriculum commit a1bf081 on origin/feat/85-a1-present-routine, while gh pr view and a no-cache gh api read of PR #86 still returned head 1c7c2e3 (with its updated title). The cause is unconfirmed; these two remote views disagree. Recheck the PR head against the branch before reviewing or merging the latest documentation. No merge was attempted.
+
+A1-06 acceptance update (2026-10-23): recorded the actual native Далі response as C-068 and retained the stable A1-06 IDs. The A1 grouping milestone is accepted, while course content, full inventory reconciliation, linguistic/audio validation, and release readiness remain pending. Verified PR #86/remote-branch head agreement before editing. Documentation consistency and whitespace checks only; no implementation or merge performed.
