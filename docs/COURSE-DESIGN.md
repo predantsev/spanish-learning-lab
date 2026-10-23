@@ -302,6 +302,12 @@ Source for C-069: on 2026-10-23, the owner replied Далі after the displayed 
 |---|---|
 | C-069 | Adopt A2-01 as seven short lessons covering frequent present stem changes, other selected irregular/spelling forms, gerund formation, estar plus gerund, plans with ir a plus infinitive, poder/tener que frames, and contextual integration. Include listening, an optional mixed check, and focused later review. Keep form production and contextual meaning distinct, with reviewed natural alternatives. Exact content, full mapping, linguistic/audio review, merge permission, and implementation remain pending. |
 
+Source for C-070: on 2026-10-23, the owner selected Далі in the native A2-02 decision, accepting the eight-lesson grouping with listening, an optional mixed check, and focused review, then continuing to A2-03.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-070 | Adopt A2-02 as eight short lessons covering demonstrative/possessive reference, direct and indirect object pronouns, pronoun placement, selected two-pronoun combinations, comparison, fuller description with que, and an integrated choice text. Include listening, optional checking, and specific later review. Preserve distinct referent/role/form/placement/comparison evidence. Exact content, variants, full coverage, linguistic/audio review, merge permission, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:

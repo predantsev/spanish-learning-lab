@@ -330,9 +330,9 @@ Foundation: reuse A1-03 sentence/person and estar patterns, A1-04 present famili
 
 C-069 accepts these seven short lessons plus the optional mixed check. Next discuss A2-02 below, remaining within curriculum planning.
 
-## Detailed block proposal: A2-02 — reference, comparison, and fuller descriptions
+## Accepted block design: A2-02 — reference, comparison, and fuller descriptions
 
-Status: proposed on 2026-10-23, elaborating the accepted A2-02 outline. The eight-lesson grouping is unaccepted. S1 provides partial demonstrative/possessive, pronoun, comparison, and relative-clause anchors; this is our teaching sequence, not an authored or linguistically validated corpus.
+Status: grouping/direction accepted on 2026-10-23 under C-070 via the native Далі choice. The proposal elaborated the accepted A2-02 outline. S1 provides partial demonstrative/possessive, pronoun, comparison, and relative-clause anchors; this is our teaching sequence, not an authored or linguistically validated corpus.
 
 Practical outcome: understand a short description, refer clearly to a familiar person/object without repeating the noun, compare two familiar options, and write a useful connected description. Every reference task must make the intended referent and information sufficiently clear.
 
@@ -351,7 +351,7 @@ Foundation: reuse A1 agreement/possession, sentence roles, location, prices, pre
 | A2-02-O9 | Add a useful detail to a familiar description with introduced adjective/sentence patterns and a simple relative que frame. | Sections 7.2 and 15.2; teach the new frame, reuse reviewed agreement/ser/estar, and retain introduced present-time contexts. |
 | A2-02-O10 | Read a short description/comparison and write a relevant description, choice, or response. | Original integrated objective using the introduced reference/comparison targets. Reading, contextual selection, and written production remain distinguishable evidence. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -375,7 +375,7 @@ Foundation: reuse A1 agreement/possession, sentence roles, location, prices, pre
 - Revisit A1 possession/agreement/ser/estar and A2-01 constructions inside the selected contexts. Extend pronoun placement to past constructions in A2-03 through A2-06 only after those forms are introduced; revisit imperatives/requests in A2-07 and connected texts in A2-08.
 - Exact pronoun/tonic/possessive sets, comparison ranges/exceptions, relative frames, variant policy, lexical/audio allocation, and full inventory mapping remain preparation/review work. This proposal does not claim a complete pronoun system, reviewed corpus, proficiency certification, or implementation permission.
 
-Next decision: accept/revise eight short lessons plus the optional mixed check, then detail A2-03.
+C-070 accepts these eight short lessons plus the optional mixed check. Next detail A2-03, remaining within curriculum planning.
 
 ## Example of later detailed design: A2-03
 
