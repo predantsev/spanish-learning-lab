@@ -561,9 +561,9 @@ Foundation: prior exposure to the constructions included in a task, especially A
 
 C-074 accepts the six short lessons plus optional mixed check. Next detail A2-07 practical requests, instructions, and messages, remaining within curriculum planning.
 
-## Detailed block proposal: A2-07 — requests, instructions, and practical messages
+## Accepted block design: A2-07 — requests, instructions, and practical messages
 
-Status: proposed on 2026-10-24, elaborating the accepted A2-07 outline. The eight-lesson grouping is unaccepted. S1 section 9.3 and S6 sections 4.1-4.10 supply partial grammar/function anchors from indexed extracts inspected on this date. The sequence and task allocation are original proposals; exact language, full mapping, and audio review remain pending.
+Status: grouping/direction accepted on 2026-10-24 under C-075 via the native Далі choice. S1 section 9.3 and S6 sections 4.1-4.10 supply partial grammar/function anchors from indexed extracts inspected on this date. The accepted sequence is an original design; exact content, full mapping, and linguistic/audio review remain pending.
 
 Practical outcome: understand a short request/instruction and write a suitable request, response, or practical message with a brief reason. Work through reading, writing, and prepared Spain listening; no learner speech or role-play recording is required.
 
@@ -580,7 +580,7 @@ Foundation: familiar questions, negation, present forms, infinitives, poder/tene
 | A2-07-O7 | Extract the action, addressee, and order of steps in a short practical instruction or recording. | S6 4.1 and the written/listening course outcomes. Reuse introduced affirmative/obligation patterns and teach sequence links before assessment. |
 | A2-07-O8 | Write a brief practical message containing a clear request/instruction or reply, with relevant details and a reason. | Original synthesis of introduced functions and prior text skills. Judge communicative fit separately from form, reference, and orthography; a model is not the sole valid wording. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -606,7 +606,52 @@ Foundation: familiar questions, negation, present forms, infinitives, poder/tene
 - Save useful reviewed requests/responses to personal collections with appropriate variations. Learner-specific new messages remain private drafts until reviewed; public samples are synthetic. Return to focused forms and practical texts in A2-08 without replacing their original histories.
 - Exact verb/person sets, register variants, negative-phrase allocation, pronoun/orthography mappings, full inventory coverage, cross-provider language review, actual audio validation, and bank calibration remain pending. This design is not a ready corpus, complete A2 coverage, or implementation authorization.
 
-Next decision: accept/revise eight short lessons plus the optional mixed check, then detail A2-08 cumulative reading, listening, and writing.
+C-075 accepts the eight short lessons plus optional mixed check. Next discuss the A2-08 proposal below, remaining within curriculum planning.
+
+## Detailed block proposal: A2-08 — cumulative reading, listening, and writing
+
+Status: proposed on 2026-10-24, elaborating the accepted A2-08 outline. The six-lesson grouping is unaccepted. This original consolidation design reuses the preceding blocks and the recorded S2 short-practical-text direction. No fresh source retrieval, complete genre/inventory mapping, authored assessment, or linguistic/audio validation is claimed.
+
+Practical outcome: understand a short familiar notice, message, account, or recording and produce a relevant written response using introduced language. Combine skills in manageable tasks while preserving the ability to return to one specific difficulty. Completing the block does not establish overall A2 proficiency or permanent retention.
+
+Foundation: only constructions and vocabulary introduced for the chosen task. Completion of every earlier exercise is not a prerequisite for every activity. Introduce any unfamiliar frame before independent assessment; an apparent cumulative task must not silently test new grammar. Use synthetic public scenarios; learner-specific material remains private.
+
+| Objective ID | Observable target | Anchor / boundary |
+|---|---|---|
+| A2-08-O1 | Extract relevant facts or required actions from a short practical text. | Reuse A1-05/A2-07 and the recorded S2 text direction. Distinguish understanding dates, quantities, places, and instructions from spelling a Spanish response. |
+| A2-08-O2 | Identify the purpose, participants, and relevant details of a short message. | Reuse A1-06/A2-02/A2-07. Review reference and communicative context; do not require unrelated verb production to demonstrate comprehension. |
+| A2-08-O3 | Understand an introduced past account and write a brief relevant continuation or reply. | Reuse A2-03 through A2-06; retain separate time/viewpoint meaning, specific form, and writing evidence. No new past construction is presumed. |
+| A2-08-O4 | Compare familiar options and explain a suitable choice in a short written response. | Reuse A2-02, preferences, reasons, and practical details. Review multiple sensible responses; there is no arbitrary single correct personal preference. |
+| A2-08-O5 | Understand the main point and selected details of a short prepared Spain recording. | Reuse C-054 listening boundaries. Separate audio-only meaning, transcript/replay-supported work, dictation, and any subsequent written response. |
+| A2-08-O6 | Write a short connected message suited to the stated recipient and purpose. | Reuse introduced sentence links, reference, requests, descriptions, and time forms as needed; assess relevance and clarity separately from individual language errors. |
+| A2-08-O7 | Reuse a reviewed personal construction in a suitable familiar situation. | C-022/C-023: exact recall and suitable variation use distinct evidence. Only reviewed entries become answer models; missing personal material can use a prepared course alternative. |
+| A2-08-O8 | Review and revise a short draft using appropriate feedback or reference help. | Original support objective. Keep first-attempt and supported revision evidence distinct; a corrected draft does not itself prove later independent recall. |
+
+### Proposed lesson sequence
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-08-L1 | A notice or practical information (O1). | Read a short opening-hours notice, appointment note, or instruction; find needed details and answer a relevant short question. |
+| A2-08-L2 | Read a message and respond (O2/O6). | Identify the request, participants, and missing information; write a suitable brief response using familiar language. |
+| A2-08-L3 | A short account of the past (O3). | Read a familiar event/routine description and write a few relevant statements or a reply. Retain the original form/exception and contrast targets. |
+| A2-08-L4 | Compare options and explain a choice (O4/O6). | Compare two familiar plans, products, places, or schedules, then give a brief reason. Provide enough information and permit reviewed alternatives. |
+| A2-08-L5 | Understand a short recording (O5). | Begin with an audio-only meaning question, offer help on request, and optionally follow with a written reply as a separate task. |
+| A2-08-L6 | A useful text with personal constructions (O6/O7/O8). | Write a short message using suitable reviewed phrases or a prepared alternative; reread and revise with available feedback. Personal content stays private. |
+| A2-08-C1 | Optional cumulative check in short parts and a delayed return. | Sample reading, listening, and writing across familiar situations with pause/resume. Keep parts and evidence separate; no mandatory long exam, perfect score, or topic lock. |
+
+### Preparation, evidence, and later links
+
+- Reuse C-034/C-061 reviewed banks/variants and the existing help, manual topic selection, pause, and review controls. A cumulative set may cover varied skills, while direct practice can target just a chosen topic, phrase, or difficulty. No new material is compulsory.
+- Map every assessed target to its original skill ID; use this block's objective IDs for integrated outcomes without duplicating or resetting the underlying history. One text does not demonstrate every grammar skill it happens to contain. Do not demand every tense or a fixed collection of forms in every response.
+- Keep comprehension, communicative relevance/reference, vocabulary, contextual construction choice, individual form/exception, structure, and orthography evidence distinct where the task supports them. Preserve assisted/revealed/revised attempts separately from delayed independent recall.
+- Include familiar everyday settings already used across the course. Exact text lengths, complexity, vocabulary coverage, genre allocation, accepted variants, and audio pace remain authoring/review decisions; the six lessons do not prove complete A1-A2 coverage.
+- For writing, prepare sufficiently constrained tasks with reviewed variants and a bounded list of assessed targets. Freer responses retain the unresolved/external-review path rather than an invented exact-string key. Ordinary prepared practice remains usable offline; an unavailable external reviewer does not convert an unresolved response into a failure.
+- Listening uses prepared reviewed Spain audio with meaning as the default task and separate optional dictation. Record replay/transcript help at its actual scope. The subsequent writing task is separately checked; no learner speaking or recording is introduced.
+- Personal constructions can be recalled exactly and transferred through reviewed suitable variations. A new learner-created text or imported phrase remains a private draft until reviewed; do not make fresh private material part of the public course or an unchecked answer model.
+- Finish with a concise evidence-based summary and specific return suggestions under C-057/C-060. A short supported repair may be offered immediately; later independent prompts use distinct reviewed material. No whole-course mastery claim follows from one check, and paused/known/missed-day behavior remains unchanged.
+- Exact sources/genre coverage, language variants, cross-provider review, actual recordings, task-bank calibration, and integrated-check quality remain pending. Accepting this block would complete the proposed lesson-grouping discussion, not corpus production, full curriculum reconciliation, visual/technical planning, release readiness, or implementation authorization.
+
+Next decision: accept/revise six short lessons plus the optional cumulative check, then reconcile the full A1-A2 map for coverage, prerequisites, and the B1/B2 continuation before proceeding to the visual-design phase.
 
 ## Method for detailing each block
 
@@ -651,5 +696,7 @@ A2-05 source follow-up (2026-10-24): reused the recorded S1 section 9.1.2 regula
 A2-06 design follow-up (2026-10-24): reused the recorded present/past anchors and accepted prior-block designs to propose controlled contrasts and mixed practice. No fresh source retrieval or linguistic validation was performed for this consolidation sequence. Exact Spain contexts, permitted readings, and contrast-key adequacy require review during authoring; the local six-lesson grouping is not prescribed by the sources.
 
 A2-07 source follow-up (2026-10-24): official indexed S1 9.3 identifies regular singular/plural affirmative imperatives, frequent exceptions, usted/ustedes forms, and enclitic object pronouns with orthography cross-references. Official indexed S6 4.1-4.10 supplies instruction, request/help, response, and permission anchors. Full-page retrieval was not performed. These are partial inclusion anchors, not a prescribed eight-lesson sequence or validation of exact person/verb/register sets and accepted answers.
+
+A2-08 design follow-up (2026-10-24): reused recorded S2 practical-text direction and prior block designs to propose integrated short reading/listening/writing tasks. No fresh source retrieval or full genre-inventory reconciliation was performed. Exact text complexity, vocabulary, source coverage, and assessment/variant adequacy require authoring and review; the local six-lesson grouping is an original proposal.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.

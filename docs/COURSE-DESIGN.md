@@ -332,6 +332,12 @@ Source for C-074: on 2026-10-24, the owner replied Далі after the displayed 
 |---|---|
 | C-074 | Adopt A2-06 as six short lessons covering present/past framing, perfecto/indefinido and indefinido/imperfecto contrasts, focused form recall, mixed familiar situations without tense labels, and a short text/audio with a written response. Include optional mixed checking, manual tense-pair or difficult-form selection, and specific later review. Keep contextual construction choice distinct from form/exception recall and comprehension/production evidence; preserve earlier skill histories. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
 
+Source for C-075: on 2026-10-24, the owner selected Далі in the native A2-07 decision, accepting the eight-lesson requests/instructions/messages grouping and continuing to A2-08.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-075 | Adopt A2-07 as eight short lessons covering requests for objects/help, permission and responses, regular affirmative tú/vosotros imperatives, frequent exceptions, usted/ustedes forms, pronoun attachment/accents, short instruction comprehension, and a practical message with a reason. Include listening, optional mixed checking, and specific later review. Keep comprehension, communicative fit, and specific form/placement/orthography evidence distinct. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
