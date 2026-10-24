@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-23. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-24. This is a discovery document, not an approved implementation specification.
 
 ## Discussion workflow
 
@@ -313,6 +313,12 @@ Source for C-071: on 2026-10-23, the owner selected Далі in the native A2-03
 | ID | Confirmed requirement |
 |---|---|
 | C-071 | Adopt A2-03 as seven short lessons covering present haber, regular participles, selected irregular participles, relevant accents, sentence structure/participle invariance, contextual use, and a short account or message. Include listening, optional mixed checking, and specific later review of difficult forms. Keep auxiliary, participle, orthography, structure, and contextual meaning evidence distinct. Exact content, full coverage, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
+Source for C-072: on 2026-10-24, the owner selected Далі in the native A2-04 decision, accepting the eight-lesson indefinido grouping with listening, an optional mixed check, and focused review, then continuing to A2-05.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-072 | Adopt A2-04 as eight short lessons covering regular -ar/-er/-ir forms, spelling/accents, selected vowel/y patterns, common irregular forms, ser/ir interpretation, contextual use with an initial perfecto contrast, and a short event sequence. Include listening, optional mixed checking, and specific later review. Preserve separate form, spelling, lexical/contextual meaning, comprehension, and production evidence. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
 
 ## Language and localization direction
 

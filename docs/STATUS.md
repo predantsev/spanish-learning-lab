@@ -1,6 +1,6 @@
 # Current status
 
-Updated: 2026-10-23.
+Updated: 2026-10-24.
 
 ## Goal and phase
 
@@ -103,13 +103,15 @@ Collaboratively design a Spanish-learning course with persistent opportunities t
 
 - Recorded C-071 (2026-10-23): the owner selected Далі to accept the seven-lesson A2-03 grouping with listening, optional mixed checking, and individual difficult-exception review. Prepared eight proposed A2-04 lessons with ten objectives for regular/irregular forms, spelling, contextual meaning, and an event sequence. A2-04 acceptance and authored content remain pending.
 
+- Recorded C-072 (2026-10-24): the owner selected Далі to accept the eight-lesson A2-04 grouping with listening, optional checking, and focused review. Prepared seven proposed A2-05 lessons with nine objectives for regular forms, accents, ser/ir/ver exceptions, habits, descriptions/background, and a short memory/routine. A2-05 acceptance and authored content remain pending.
+
 ## Next conversation
 
-The product direction through C-071 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
+The product direction through C-072 is recorded. First handoff requires the complete reviewed A1-A2 application/course plus the bounded API-and-skill integration. Discovery continues; no implementation is authorized.
 
-Current discussion: A2-04 pretérito indefinido, with eight proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. All six A1 groupings and A2-01 through A2-03 are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
+Current discussion: A2-05 pretérito imperfecto, with seven proposed lessons plus an optional mixed check in CURRICULUM-A1-A2.md. All six A1 groupings and A2-01 through A2-04 are accepted. Use short native decisions Далі / Хочу змінити where available; no typed agreement is required and no acceptance is inferred from silence.
 
-Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. Open PR #86 / issue #85 now record accepted A1-04/A1-05/A1-06 groupings. On 2026-10-23 the PR API head and remote branch both returned cd92840 before this acceptance update, resolving the previously observed remote-view discrepancy; its cause remains unconfirmed. The A1 documentation remains in PR #86 pending review. Early A2 planning is tracked separately by PR #88 / issue #87 on feat/87-a2-present-plans, based on feat/85-a1-present-routine at accepted-A1 commit 8753c6a. A2-01 and A2-02 are accepted. Past-tense planning is tracked separately by PR #90 / issue #89 on feat/89-a2-perfecto, based on feat/87-a2-present-plans at accepted-foundations commit 26e44fd. A2-03 is accepted; A2-04 remains proposed. Review the A1 parent before the A2 child, and recheck/retarget the child base when a future parent merge is authorized. No additional merge or application-implementation permission is inferred.
+Documentation delivery: PR #84 is merged, verified through gh pr view on 2026-10-22 after the owner accepted A1-03 and separately authorized the merge/branch deletion. The earlier approval blocker is resolved. Open PR #86 / issue #85 now record accepted A1-04/A1-05/A1-06 groupings. On 2026-10-23 the PR API head and remote branch both returned cd92840 before this acceptance update, resolving the previously observed remote-view discrepancy; its cause remains unconfirmed. The A1 documentation remains in PR #86 pending review. Early A2 planning is tracked separately by PR #88 / issue #87 on feat/87-a2-present-plans, based on feat/85-a1-present-routine at accepted-A1 commit 8753c6a. A2-01 and A2-02 are accepted. Past-tense planning is tracked separately by PR #90 / issue #89 on feat/89-a2-perfecto, based on feat/87-a2-present-plans at accepted-foundations commit 26e44fd. A2-03 and A2-04 are accepted; A2-05 remains proposed. Review the A1 parent before the A2 child, and recheck/retarget the child base when a future parent merge is authorized. No additional merge or application-implementation permission is inferred.
 
 Remaining planning deliverables, in order:
 
@@ -235,3 +237,5 @@ A2-02 acceptance (2026-10-23): recorded the actual native Далі response as C
 A2-03 proposal (2026-10-23): replaced the earlier sketch with seven proposed lessons and nine objectives separating haber, regular participles, individual exceptions, accents, sentence/pronoun order, participle invariance, contextual use, and short account comprehension/production. Inspected official indexed S1 9.1.6 and targeted current RAE conjugation/structure extracts, including page finds for dicho/leído. Exact lexical/contextual variants, full coverage, cross-provider review, and actual audio validation remain pending. The proposal is issue #89 above accepted A2 foundations in PR #88; no merge or implementation performed.
 
 A2-03 acceptance / A2-04 proposal (2026-10-23): recorded the actual native Далі reply as C-071 and preserved the A2-03 IDs. Proposed eight A2-04 lessons and ten objectives with distinct regular/person, spelling, vowel/y, irregular-form, lexical interpretation, tense choice, and account comprehension/production evidence. Reused recorded S1 9.1.3 and freshly inspected targeted S7 pedir/leer tables. Full source mapping, exact lexical/contextual variants, cross-provider review, and actual audio validation remain pending. Documentation consistency and whitespace checks only; no authored corpus, merge, or implementation.
+
+A2-04 acceptance / A2-05 proposal (2026-10-24): recorded the actual native Далі reply as C-072 and retained A2-04 IDs. Proposed seven A2-05 lessons and nine objectives with separate regular/person, exception, orthography, habit/description/background meaning, comprehension, and production evidence. Reused recorded S1 9.1.2 and freshly inspected S7 ser/ver tables; exact background/impersonal frames, variants, full mapping, cross-provider review, and actual audio validation remain pending. Documentation consistency and whitespace checks only; no authored corpus, merge, or implementation.
