@@ -320,6 +320,12 @@ Source for C-072: on 2026-10-24, the owner selected Далі in the native A2-04
 |---|---|
 | C-072 | Adopt A2-04 as eight short lessons covering regular -ar/-er/-ir forms, spelling/accents, selected vowel/y patterns, common irregular forms, ser/ir interpretation, contextual use with an initial perfecto contrast, and a short event sequence. Include listening, optional mixed checking, and specific later review. Preserve separate form, spelling, lexical/contextual meaning, comprehension, and production evidence. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
 
+Source for C-073: on 2026-10-24, the owner replied Далі after the displayed A2-05 proposal, accepting the seven-lesson imperfecto grouping with listening, an optional mixed check, and focused review, then continuing to A2-06.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-073 | Adopt A2-05 as seven short lessons covering regular -ar and -er/-ir forms, relevant accents, ser/ir/ver exceptions, past habits, past descriptions, introduced background meaning with an initial indefinido contrast, and a short memory/routine. Include listening, optional mixed checking, and specific later review. Preserve separate form/person, exception, orthography, contextual meaning, comprehension, and production evidence. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
