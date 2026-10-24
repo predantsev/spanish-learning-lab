@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-23. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-24. This is a discovery document, not an approved implementation specification.
 
 ## Discussion workflow
 
@@ -307,6 +307,30 @@ Source for C-070: on 2026-10-23, the owner selected Далі in the native A2-02
 | ID | Confirmed requirement |
 |---|---|
 | C-070 | Adopt A2-02 as eight short lessons covering demonstrative/possessive reference, direct and indirect object pronouns, pronoun placement, selected two-pronoun combinations, comparison, fuller description with que, and an integrated choice text. Include listening, optional checking, and specific later review. Preserve distinct referent/role/form/placement/comparison evidence. Exact content, variants, full coverage, linguistic/audio review, merge permission, and implementation remain pending. |
+
+Source for C-071: on 2026-10-23, the owner selected Далі in the native A2-03 decision, accepting the seven-lesson perfecto compuesto grouping, listening, optional mixed checking, and individual difficult-exception review, then continuing to A2-04.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-071 | Adopt A2-03 as seven short lessons covering present haber, regular participles, selected irregular participles, relevant accents, sentence structure/participle invariance, contextual use, and a short account or message. Include listening, optional mixed checking, and specific later review of difficult forms. Keep auxiliary, participle, orthography, structure, and contextual meaning evidence distinct. Exact content, full coverage, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
+Source for C-072: on 2026-10-24, the owner selected Далі in the native A2-04 decision, accepting the eight-lesson indefinido grouping with listening, an optional mixed check, and focused review, then continuing to A2-05.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-072 | Adopt A2-04 as eight short lessons covering regular -ar/-er/-ir forms, spelling/accents, selected vowel/y patterns, common irregular forms, ser/ir interpretation, contextual use with an initial perfecto contrast, and a short event sequence. Include listening, optional mixed checking, and specific later review. Preserve separate form, spelling, lexical/contextual meaning, comprehension, and production evidence. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
+Source for C-073: on 2026-10-24, the owner replied Далі after the displayed A2-05 proposal, accepting the seven-lesson imperfecto grouping with listening, an optional mixed check, and focused review, then continuing to A2-06.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-073 | Adopt A2-05 as seven short lessons covering regular -ar and -er/-ir forms, relevant accents, ser/ir/ver exceptions, past habits, past descriptions, introduced background meaning with an initial indefinido contrast, and a short memory/routine. Include listening, optional mixed checking, and specific later review. Preserve separate form/person, exception, orthography, contextual meaning, comprehension, and production evidence. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
+Source for C-074: on 2026-10-24, the owner replied Далі after the displayed A2-06 proposal, accepting the six-lesson mixed present/past grouping, then continuing to A2-07.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-074 | Adopt A2-06 as six short lessons covering present/past framing, perfecto/indefinido and indefinido/imperfecto contrasts, focused form recall, mixed familiar situations without tense labels, and a short text/audio with a written response. Include optional mixed checking, manual tense-pair or difficult-form selection, and specific later review. Keep contextual construction choice distinct from form/exception recall and comprehension/production evidence; preserve earlier skill histories. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
 
 ## Language and localization direction
 

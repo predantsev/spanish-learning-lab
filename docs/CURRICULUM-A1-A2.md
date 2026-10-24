@@ -1,6 +1,6 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-23. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-24. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
@@ -377,13 +377,189 @@ Foundation: reuse A1 agreement/possession, sentence roles, location, prices, pre
 
 C-070 accepts these eight short lessons plus the optional mixed check. Next detail A2-03, remaining within curriculum planning.
 
-## Example of later detailed design: A2-03
+## Accepted block design: A2-03 — pretérito perfecto compuesto
 
-This example is a design sketch chosen because tense forms and exceptions motivated the product; it is not the next module to implement.
+Status: grouping/direction accepted on 2026-10-23 under C-071 via the native Далі choice. The proposal elaborated the accepted outline and replaced the earlier A2-03 sketch. S1 section 9.1.6 and S7/S8 provide partial anchors; the sequence is our proposal, not an authored or linguistically reviewed corpus. Use the full name pretérito perfecto compuesto to distinguish the target from a simple past form.
 
-Separate skill records for auxiliary selection, regular participle formation, individual irregular forms, word order, and tense choice. A prompt naming the tense checks formation; a later prompt with sufficient context and no tense label checks selection. A missing vocabulary item must not automatically become a tense error.
+Practical outcome: understand a short familiar account and write a few relevant statements, questions, or negative sentences using present haber plus a participle in an introduced context. Teach formation and contextual meaning separately; a prompt naming the tense does not demonstrate independent tense selection.
 
-Possible loop: concise rule reference -> targeted form practice -> contextual gap -> short written production -> later mixed review. Use progressive hints that identify the assistance category. Independent follow-up must use a new prompt, not merely repeat a just-revealed answer. Review and validate permissible alternative wording before release.
+Foundation: A1 sentence/question/negative patterns, time expressions, familiar actions, and A2-01/A2-02 constructions and pronouns. Introduce needed participle terminology, verbs, adverbs, and contexts before assessing them. Keep gerund and participle targets distinguishable; do not assume earlier gerund practice proves knowledge of participles.
+
+| Objective ID | Observable target | Anchor / boundary |
+|---|---|---|
+| A2-03-O1 | Produce the appropriate present haber auxiliary for the intended person. | S1 9.1.6 and S7 model 36; teach the compound-tense role explicitly rather than reusing impersonal hay as the answer model. Include Spain-relevant plural forms. |
+| A2-03-O2 | Form a regular participle from an introduced infinitive. | S1 9.1.6 and S7 regular models; teach -ar/-ado and -er/-ir/-ido formation with a reviewed lexical set. |
+| A2-03-O3 | Recall individual introduced irregular participles. | Initial proposed examples: hecho, dicho, escrito, visto, supported by S1/S7. Specify/review the final set; keep each difficult form identifiable for later practice. |
+| A2-03-O4 | Preserve relevant written accents in introduced participles. | S7 model 40 records leído. Teach the needed writing/stress pattern before assessment; exact additional forms and orthographic mapping remain pending. |
+| A2-03-O5 | Build introduced statements, questions, and negatives with the appropriate word/pronoun placement. | Reuse prior sentence and pronoun work. Teach an initial canonical frame, then review valid variants; do not invent an absolute ban on every item between auxiliary and participle. |
+| A2-03-O6 | Keep the participle in the reviewed invariant form with auxiliary haber. | S8 28.5a supplies the compound-tense agreement boundary. Explain any contrast with an already introduced adjective/state use only as needed; do not silently test new passive grammar. |
+| A2-03-O7 | Select an appropriate introduced perfecto meaning in sufficient context. | S1 9.1.6 anchors past relevance to the present with explicit/implicit temporal framing. Review Spain usage and permissible alternatives; a marker alone is not a universal answer rule. |
+| A2-03-O8 | Extract the meaning of a short familiar account using the introduced tense. | Distinguish reading/listening comprehension from recalling the auxiliary/participle in writing. Teach needed time/adverb vocabulary first. |
+| A2-03-O9 | Write a brief relevant account or answer using introduced forms and context. | Review accepted variants rather than requiring one reference wording. Broader past contrasts follow the relevant introductions in A2-04 through A2-06. |
+
+### Accepted lesson sequence — content pending
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-03-L1 | The compound pattern and present haber auxiliary (O1). | Understand a supported model, connect person to the auxiliary, and complete a short familiar sentence. Record auxiliary help separately from participle help. |
+| A2-03-L2 | Regular participles with -ado/-ido (O2). | Form the participle, add it to a familiar sentence, and later recall it in a different reviewed context. |
+| A2-03-L3 | A manageable set of irregular participles (O3). | Introduce and practice selected forms such as hecho/dicho/escrito/visto individually before mixing them. A difficulty with one form does not reset every exception or the whole tense. |
+| A2-03-L4 | Written accents in familiar participles (O4). | Start with a reviewed form such as leído, explain the needed mark, and revisit spelling separately from auxiliary or contextual meaning. |
+| A2-03-L5 | Put the sentence together: questions, negatives, pronouns, and invariant participle (O5/O6). | Reuse already introduced patterns, teach the compound-specific placement/agreement boundary, and accept reviewed natural alternatives. |
+| A2-03-L6 | When the introduced perfecto use fits (O7). | Use sufficient familiar time/situation context, including taught adverbs where useful. Separate a named-tense formation task from an unlabelled meaning choice; do not require untaught past forms. |
+| A2-03-L7 | A short account or message: understand and write (O8/O9). | Read a brief prepared text and give a relevant written account/answer with familiar words and introduced meanings. |
+| A2-03-C1 | Optional mixed check and delayed independent return. | Sample auxiliary, regular/irregular participles, accents, sentence structure, and meaning in short resumable tasks. Preserve specific evidence; comparison with other past tenses follows their introduction. |
+
+### Preparation, evidence, and later links
+
+- Reuse C-034/C-061 checking/bank rules, concise Ukrainian explanations, available reference/hints/reveals, familiar prerequisites, direct practice, and private phrase-draft boundaries. The initial task target applies to suitable small teachable skills; it is not a requirement for a separate fixed-size bank for every participle.
+- Track auxiliary/person, regular formation, each assessed exception, relevant orthography, pronoun/order, participle invariance, and contextual meaning separately where supported. A hint for hecho is evidence about that form, not automatic failure of haber selection or tense choice. Keep prior valid evidence and unresolved results.
+- Prepare reviewed varied contexts and distinct delayed prompts, including both targeted form retrieval and later appropriate meaning choices. Same-session copying of a revealed participle is not independent delayed recall.
+- Do not teach the tense as merely recent past or implement a keyword-only selector. Review meaningful Spain usage, time framing, and acceptable variants. Introduce any new construction before assessing it; full perfecto/indefinido/imperfecto contrasts belong after the later blocks.
+- Include short prepared Spain listening where the auxiliary and participle are recognized in useful familiar sentences, then a brief account. Default to meaning comprehension; dictation is separate. Replay/transcript help follows accepted rules, and spelling does not itself diagnose listening failure. Actual recordings, keys, and naturalness require review.
+- Save useful reviewed completed-action/experience expressions and appropriate variations into personal collections. New learner wording remains a private draft until reviewed; use synthetic accounts in public materials.
+- Revisit the participles and auxiliary in A2-04/A2-05 only within introduced material, then contrast the known tense meanings in A2-06. Reuse the same skill history and difficult-exception targets in A2-07 messages and A2-08 cumulative text work.
+- Full verb/exception lists, orthographic patterns, temporal uses, variants, placement details, lexical/audio allocation, and cross-provider review remain preparation work. This is a planning proposal, not complete tense coverage, a ready corpus, proficiency validation, or implementation permission.
+
+C-071 accepts these seven short lessons plus the optional mixed check. Next discuss A2-04 below, remaining within curriculum planning.
+
+## Accepted block design: A2-04 — pretérito indefinido
+
+Status: grouping/direction accepted on 2026-10-24 under C-072 via the native Далі choice. The proposal of 2026-10-23 elaborated the accepted A2-04 outline. The tense is also called pretérito perfecto simple in S7. S1 section 9.1.3 and S7 supply partial anchors; this is our sequence, not an authored or linguistically validated corpus.
+
+Practical outcome: understand and write a short sequence of completed past events in a clearly framed situation, using introduced regular/irregular forms and suitable time links. Distinguish form retrieval from choosing a tense in context; not every past sentence must be forced into indefinido.
+
+Foundation: familiar actions, sentence/person/question/negative patterns, writing/time expressions, A2-02 pronouns, and A2-03 perfecto. Teach each new verb, event frame, and sequencing expression before assessing it. Initial contrasts can use introduced perfecto; imperfecto follows in A2-05 and fuller mixed work in A2-06.
+
+| Objective ID | Observable target | Anchor / boundary |
+|---|---|---|
+| A2-04-O1 | Produce introduced regular -ar indefinido forms for the intended person. | S1 9.1.3 regular-paradigm anchor; exact lexical/person allocation and written accents require review. |
+| A2-04-O2 | Produce introduced regular -er/-ir indefinido forms. | S1 9.1.3 and S7 tables. Reuse person awareness without assuming present endings transfer unchanged. |
+| A2-04-O3 | Preserve introduced spelling/diacritic patterns in an appropriate past form. | S1's orthography cross-references and S7 models are provisional anchors. Review selected spelling-preserving patterns and their person restrictions; do not label every spelling issue a tense-choice failure. |
+| A2-04-O4 | Produce selected person-specific vowel changes in introduced -ir verbs. | S7 model 46 shows pedir forms including pidió/pidieron. Teach the relevant persons and exact selected verb family; do not apply a present-stem rule to every past form. |
+| A2-04-O5 | Produce selected forms with the introduced y alternation. | S7 model 40 shows leer forms including leyó/leyeron. Keep this pattern distinguishable from O4 and review the final lexical set. |
+| A2-04-O6 | Recall selected common irregular stems/forms, including needed small exceptional paradigms. | S1 9.1.3 identifies tener/hacer/estar and ver/dar; S7 provides form tables. Exact additional verbs, endings, and exceptional persons remain review work. |
+| A2-04-O7 | Form and interpret introduced ser/ir past uses with enough context to identify the meaning. | S1 9.1.3 and S7 models. Shared surface forms do not identify the lexical meaning alone; ambiguous prompts need clarification or reviewed alternatives. |
+| A2-04-O8 | Choose an introduced indefinido meaning in a sufficiently bounded past-event context. | S1 9.1.3 supplies the basic event/time anchor. Introduce a limited reviewed contrast with known perfecto; avoid a keyword-only rule or an untaught imperfecto choice. |
+| A2-04-O9 | Extract the sequence/meaning of a short familiar past account. | Reading and listening evidence remain distinguishable from recalling forms in writing. Teach time links and supporting vocabulary first. |
+| A2-04-O10 | Write a short relevant sequence of completed events or a practical reply. | Use introduced patterns, suitable time context, and reviewed valid variants rather than requiring a reference text verbatim. |
+
+### Accepted lesson sequence — content pending
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-04-L1 | Regular -ar past forms (O1). | Link person and ending, complete a familiar form, then write a short event sentence with meaningful time context. |
+| A2-04-L2 | Regular -er/-ir past forms (O2). | Practice the taught pattern, change person, and produce familiar action statements. Keep relevant accents visible in explanation and independently assessed later. |
+| A2-04-L3 | Selected spelling changes and written accents (O3). | Explain each introduced pattern/person restriction, correct a supported form, and later recall it in a different familiar context. |
+| A2-04-L4 | Selected vowel changes and y forms in small separate steps (O4/O5). | Use a small reviewed set such as pedir/leer, compare the relevant persons, and retain separate pattern evidence before mixing tasks. |
+| A2-04-L5 | Frequent irregular stems and other selected forms (O6). | Introduce a manageable set, group useful patterns, and practice individual difficult forms. The exact list is pending; do not demand every irregular verb at once. |
+| A2-04-L6 | Ser and ir: form plus contextual meaning (O7). | Form the introduced paradigm and understand which meaning fits the authored situation. A named-verb gap is different evidence from independent interpretation. |
+| A2-04-L7 | When the event is framed as completed (O8). | Choose an appropriate introduced tense with sufficient context, then begin reviewed contrasts with known perfecto. Later past contrasts follow A2-05/A2-06. |
+| A2-04-L8 | Put past events in sequence (O9/O10). | Read a short prepared account and write a few relevant linked events or a reply using familiar words and introduced time links. |
+| A2-04-C1 | Optional mixed check and delayed independent return. | Sample regular patterns, spelling, selected exceptions, lexical meaning, and contextual use in short resumable tasks. Preserve granular evidence rather than a whole-tense mastery label. |
+
+### Preparation, evidence, and later links
+
+- Reuse C-034/C-061 checking/bank rules, concise Ukrainian explanations, available reference/hints/reveals, direct practice, familiar prerequisites, and private phrase-draft boundaries. Apply the initial task target to suitable small skills, not a fixed bank for every verb/person.
+- Track regular family/person, spelling/accents, selected vowel/y pattern, individual irregular form, ser/ir interpretation, sentence/pronoun order, and contextual meaning separately where supported. A hint for a single form does not erase correct earlier evidence or fail all past tenses.
+- Use varied reviewed contexts and distinct delayed prompts. Preserve A2-03 auxiliary/participle/exception history when introducing the simple past; confusing one form with a participle requires targeted explanation rather than resetting both topics.
+- Provide sufficient event/time framing and review Spain usage and acceptable alternatives. A temporal marker alone is not a universal selector, and an unlisted meaningful answer follows the unresolved-review path. Do not introduce unknown imperfecto forms inside an alleged recall check.
+- Include short prepared Spain listening about completed familiar events, progressing to a brief event sequence. Default to meaning/sequence comprehension; dictation is separate and replay/transcript help stays available. Listening, form spelling, and tense selection remain distinct; actual audio, keys, and naturalness require review.
+- Save useful reviewed event expressions and appropriate variations into personal collections. New learner accounts remain private drafts until reviewed; public examples are synthetic.
+- Revisit relevant pronouns, agreement, time links, and messages from earlier blocks. Add habitual/background contrasts only after A2-05, then mix introduced present/perfecto/indefinido/imperfecto in A2-06. Reuse the same specific form/history targets in A2-07 practical messages and A2-08 cumulative texts.
+- Exact lexical/person sets, irregular families, spelling rules, sequence markers, tense-use boundaries, accepted variants, source reconciliation, and language/audio review remain pending. This proposal does not claim complete indefinido coverage, a reviewed corpus, proficiency validation, or implementation permission.
+
+C-072 accepts these eight short lessons plus the optional mixed check. Next discuss A2-05 below, remaining within curriculum planning.
+
+## Accepted block design: A2-05 — pretérito imperfecto
+
+Status: grouping/direction accepted on 2026-10-24 under C-073 via the owner's Далі reply. Exact lesson content and linguistic/audio review remain pending. S1 section 9.1.2 and S7 provide partial use/form anchors; the accepted sequence is an original design, not an authored or linguistically validated corpus.
+
+Practical outcome: understand and write a short past routine or description, with an introduced background/ongoing-situation use and a limited reviewed contrast with known indefinido. Separate form recall, orthography, and contextual meaning. Full mixed present/perfecto/indefinido/imperfecto work follows in A2-06.
+
+Foundation: familiar present routines/descriptions, person/agreement, time expressions, pronouns, and the introduced A2-03/A2-04 past forms. Teach needed vocabulary, past-description frames, and time links before assessment; earlier completion or self-report does not establish recall of every prerequisite.
+
+| Objective ID | Observable target | Anchor / boundary |
+|---|---|---|
+| A2-05-O1 | Produce introduced regular -ar imperfecto forms for the intended person. | S1 9.1.2 regular-paradigm anchor and S7 models; teach the -aba pattern in manageable person steps. Make reference/person clear where surface forms coincide. |
+| A2-05-O2 | Produce introduced regular -er/-ir imperfecto forms. | S1 9.1.2 and S7; teach the -ía pattern explicitly rather than carrying over present/indefinido endings. Exact lexical/person allocation requires review. |
+| A2-05-O3 | Recall the introduced ser, ir, and ver imperfecto forms. | S1 9.1.2 identifies these exceptions; S7 models 61/38/68 provide forms. Preserve individual form/person targets for later review. |
+| A2-05-O4 | Preserve relevant written accents in introduced imperfecto forms. | S7 tables, including éramos and veíamos; review the exact regular/exception patterns. A spelling correction is not automatically a contextual-tense error. |
+| A2-05-O5 | Express an introduced past habit/routine in sufficient context. | S1 9.1.2 habitual/cyclical-use anchor. Teach any frequency/time expression first; a marker alone is not a universal tense selector. |
+| A2-05-O6 | Describe a familiar past person, object, place, or setting using introduced frames. | S1 9.1.2 descriptive-use anchor, including time/setting. Teach any needed age, weather, or impersonal frame before assessing it; no untaught compound past is assumed. |
+| A2-05-O7 | Describe an introduced past situation/activity as background and begin a reviewed viewpoint contrast with known indefinido. | This is a local teaching proposal needing full source/context review. Supply enough meaning context and permitted readings; do not reduce the distinction to long/short or unfinished/finished action labels. |
+| A2-05-O8 | Extract the relevant meaning of a short past routine/description. | Keep reading/listening comprehension distinguishable from writing a verb form. Any needed linking expression is introduced first. |
+| A2-05-O9 | Write a brief relevant past routine, memory, or description. | Use familiar introduced material and reviewed valid variants. A reference text is a model, not the sole accepted wording. |
+
+### Accepted lesson sequence — content pending
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-05-L1 | Regular -ar forms with the -aba pattern (O1/O4). | Connect person and ending, complete/correct a familiar form, then write a short supported past statement. Attribute accent support separately. |
+| A2-05-L2 | Regular -er/-ir forms with the -ía pattern (O2/O4). | Practice the introduced person forms and relevant accents before mixing them with prior present/past endings. |
+| A2-05-L3 | Ser, ir, and ver exceptions (O3/O4). | Introduce the reviewed forms in small steps and revisit individual difficult person/form pairs in varied familiar contexts. |
+| A2-05-L4 | Past habits and routines (O5). | Understand a familiar routine, choose a suitable introduced meaning, and write a short statement with taught time/frequency expressions. |
+| A2-05-L5 | Describe a past person, place, or situation (O6). | Reuse familiar description/agreement; explicitly introduce needed past age/time/weather/state frames before independent work. |
+| A2-05-L6 | A past situation as background: initial meaning contrast (O7). | Use a short authored situation to compare introduced imperfecto/indefinido readings. Review natural alternatives and teach any needed link; full mixed practice follows in A2-06. |
+| A2-05-L7 | A short memory or past routine (O8/O9). | Read a brief prepared account and write a few relevant descriptive/routine statements or an appropriate reply. |
+| A2-05-C1 | Optional mixed check and delayed independent return. | Sample regular patterns, individual exceptions, accents, and introduced meanings in short resumable tasks. Preserve specific evidence instead of a whole-tense mastery label. |
+
+### Preparation, evidence, and later links
+
+- Reuse C-034/C-061 checking/bank rules, concise Ukrainian explanations, accessible reference/hints/reveals, direct topic practice, familiar prerequisites, and private phrase-draft boundaries. Apply the initial bank target to suitable small skills rather than every verb/person combination.
+- Distinguish regular family/person, each assessed exception, orthography, routine/description/background meaning, sentence/pronoun structure, and written production where supported. A hint for era or an accent does not invalidate unrelated forms or prior evidence from other tenses.
+- Use reviewed varied contexts and distinct delayed prompts. Shared surface forms require clear person/reference context, not an arbitrary pronoun expectation. Preserve prior perfecto participle and indefinido exception histories when adding imperfecto.
+- Review actual meaning and viewpoint before assigning a unique tense key. Do not implement a time-word-only selector or equate imperfecto with every long or unfinished action. Ambiguous/meaningful unlisted answers retain the unresolved-review path. New past-progressive or subordinate frames require explicit teaching before assessment; their full allocation remains pending.
+- Include short prepared Spain listening about familiar past routines/settings, then a brief memory where appropriate. Default to meaning comprehension, with separate optional dictation and available replay/transcript help. Listening recognition, written accents, and tense choice remain distinct; actual clips, keys, and naturalness require review.
+- Save useful reviewed past-description/routine expressions and appropriate variations into personal collections. New learner memories remain private drafts until reviewed; public examples are synthetic.
+- Revisit relevant agreement, ser/estar, pronouns, and time expressions from earlier blocks. Mix the introduced tense meanings in A2-06, then reuse focused forms and descriptions in A2-07 practical messages and A2-08 cumulative texts without replacing their evidence history.
+- Exact lexical/person sets, accent patterns, age/weather/impersonal frames, background/overlap uses, accepted alternatives, full source reconciliation, and cross-provider/audio review remain pending. This is a planning proposal, not complete imperfecto coverage, a ready corpus, proficiency certification, or implementation permission.
+
+C-073 accepts the seven short lessons plus optional mixed check. Next discuss the A2-06 proposal below, remaining within curriculum planning.
+
+## Accepted block design: A2-06 — choosing introduced present and past forms
+
+Status: grouping/direction accepted on 2026-10-24 under C-074 via the owner's Далі reply. Exact content and linguistic/audio review remain pending. This is an original consolidation design using recorded S1 present/past anchors and prior blocks; acceptance does not establish source validation or a ready corpus.
+
+Practical outcome: understand a familiar situation and choose/use an appropriate introduced present, perfecto compuesto, indefinido, or imperfecto form without being told the tense in an independent mixed task. Distinguish the intended meaning from recall of the form; a correct ending alone does not establish independent contextual choice.
+
+Foundation: prior exposure to the constructions included in a task, especially A2-03/04/05 and familiar present descriptions/routines. Offer a concise comparison/reminder and focused practice without requiring every earlier exercise to be completed. Introduce needed vocabulary or connecting frames before using them in a recall check. This block adds contrast skills while preserving the original form/exception histories.
+
+| Objective ID | Observable target | Anchor / boundary |
+|---|---|---|
+| A2-06-O1 | Distinguish an introduced present situation/routine from a past one in a sufficiently framed familiar context. | Reuse A1-03/04 and A2-01/03/04/05. Start with controlled contrasts rather than all four forms at once. |
+| A2-06-O2 | Choose between introduced perfecto compuesto and indefinido readings. | Reuse A2-03/A2-04 and recorded S1 9.1.6/9.1.3 anchors. Exact Spain contexts and permitted alternatives still require review; a time word alone must not determine a unique key. |
+| A2-06-O3 | Choose between introduced indefinido and imperfecto readings. | Reuse A2-04/A2-05 and recorded S1 9.1.3/9.1.2 anchors. Review event/background/habit viewpoint and natural alternatives rather than using action duration as a universal rule. |
+| A2-06-O4 | Produce the needed introduced form after its intended meaning/construction is clear. | Link evidence back to existing family/person, auxiliary, participle, individual exception, and orthography targets. An explicitly supplied tense supports form evidence, not independent tense-choice evidence. |
+| A2-06-O5 | Select suitable introduced constructions in a short mixed situation without tense labels. | Combine only taught meanings and frames; give sufficient temporal/reference context. Multiple valid readings need reviewed alternatives or the unresolved path. |
+| A2-06-O6 | Extract the relevant time relationship or situation meaning from a short text or recording. | Reuse written/listening boundaries. Answering a meaning question does not by itself demonstrate independent conjugation or written production. |
+| A2-06-O7 | Write a brief connected account or reply using suitable familiar present/past constructions. | Use reviewed variants, short resumable tasks, and clear communicative intent. Do not require a particular tense count or exact reference-text wording. |
+
+### Accepted lesson sequence — content pending
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-06-L1 | Now and before: introduced present versus past meanings (O1). | Compare short familiar situations, choose an appropriate statement, then write a relevant sentence. Begin with one contrast at a time. |
+| A2-06-L2 | Perfecto compuesto or indefinido in context (O2). | Read the intended situation, compare reviewed alternatives, and complete/write a short statement. Keep contextual choice separate from haber/participle or indefinido recall. |
+| A2-06-L3 | Indefinido or imperfecto in context (O3). | Work with introduced events, habits, descriptions, and background in short authored situations. Supply enough information to support the intended reading and review valid alternatives. |
+| A2-06-L4 | Untangle similar or forgotten forms (O4). | With meaning/construction supplied, compare and recall familiar person/form pairs. Use relevant recorded difficulties, or a neutral sample when evidence is absent; preserve individual exceptions such as hecho and the introduced ser/ir/ver targets. |
+| A2-06-L5 | Mixed everyday situations without tense labels (O5). | Move from paired contrasts to a small mixed set using familiar topics. Select/write a fitting sentence; optional Ukrainian reasoning can support reflection but is not a required terminology exam. |
+| A2-06-L6 | A short account or practical reply (O6/O7). | Read or listen for meaning, then write a few relevant statements or a reply. Separate comprehension and production steps so one answer is not treated as proof of every skill. |
+| A2-06-C1 | Optional mixed check and delayed independent return. | Sample introduced contrasts and specific forms in short resumable tasks without a visible tense/model cue. Keep help available and retain its actual scope. No compulsory perfect score or whole-tense mastery label. |
+
+### Preparation, evidence, and later links
+
+- Apply C-034/C-061 checking/bank rules and C-057/C-060 review controls. Use concise Ukrainian reminders, accessible help, and manual topic/contrast selection. The learner may choose only a particular tense pair or difficult form; a visit does not require new material or the full mixed check.
+- Attribute evidence only where a task supports it: contextual construction choice, specific form/person, auxiliary/participle, spelling, comprehension, and written production. A supplied tense label or targeted hint changes what was independently recalled. Do not infer a form failure from a meaning-only question or invalidate unrelated history after one error.
+- Keep original skill IDs when a known form reappears here. Record the relevant contrast separately; do not reset exception histories or infer independent mastery merely from completing this block. Explain recommendations with observed evidence, such as assistance on a particular participle, rather than an unsupported claim that the learner knows a whole tense poorly.
+- Begin with controlled pairs before broader mixing. Do not include new tenses or untaught past-progressive/subordinate constructions merely to make a mixed task harder. Previously introduced present constructions may recur within their taught scope; this block is not a new future, conditional, subjunctive, or pluscuamperfecto unit.
+- Review the intended meaning, Spain usage, available alternatives, and prompt adequacy before assigning keys. A different valid viewpoint or insufficient context must not become an automatic learner error. Use the unresolved-review path for meaningful unlisted answers; no live external AI is required for ordinary prepared practice.
+- Include short prepared Spain recordings about familiar routines, recent experiences, past events, and settings. Default to meaning comprehension, with optional separate dictation and replay/transcript support. Actual clips, timing/context cues, answer variants, and naturalness remain unprepared/unreviewed.
+- Return to the actual difficult form or contrast through C-057's delayed schedule in varied familiar situations. Optional same-session correction remains supported rehearsal, not a substitute for delayed independent evidence. Absence, pausing, and manual selection retain their accepted neutral behavior.
+- Save useful reviewed statements and suitable variations to personal collections. New personal accounts remain private drafts until reviewed. Reuse these contrasts in A2-07 practical messages and A2-08 cumulative texts while retaining their original histories.
+- Exact context/lexical sets, Spain variants, meaningful ambiguity handling, whole-inventory coverage, cross-provider content review, and actual audio validation remain pending. This proposal does not establish full A2 coverage, a ready assessment bank, learning effectiveness, or implementation permission.
+
+C-074 accepts the six short lessons plus optional mixed check. Next detail A2-07 practical requests, instructions, and messages, remaining within curriculum planning.
 
 ## Method for detailing each block
 
@@ -403,6 +579,10 @@ Next steps: the session direction is accepted under C-032; review controls are a
 
 - S6: [Instituto Cervantes, A1-A2 functions inventory](https://cvc.cervantes.es/Ensenanza/biblioteca_ele/plan_curricular/niveles/05_funciones_inventario_a1-a2.htm), indexed extracts inspected on 2026-10-22, sections 3.2, 3.4-3.5, and 3.8-3.10. These provide partial anchors for likes, preferences, wishes, and present-plus-time plans; fuller A2 forms appear alongside them. They inform A1-06 without prescribing our six lessons or validating every proposed need/message/connector realization. Full-page retrieval and full coverage reconciliation were not performed in this pass.
 
+- S7: [RAE/ASALE, El buen uso del español: Conjugación española](https://www.rae.es/buen-uso-espa%C3%B1ol/conjugaci%C3%B3n-espa%C3%B1ola), targeted indexed/table excerpts inspected on 2026-10-23. The compound-tense table and models 36/37 identify present haber and hecho; targeted page finds locate dicho in model 27 and leído in model 40. These verify selected forms/nomenclature, not a complete A2-03 lexical set or lesson bank.
+
+- S8: [RAE/ASALE, Nueva gramática, section 28.5](https://www.rae.es/gram%C3%A1tica/sintaxis/cohesi%C3%B3n-e-independencia-de-los-componentes-de-las-per%C3%ADfrasis-per%C3%ADfrasis-verbales-y-tiempos-compuestos), indexed passages inspected on 2026-10-23. Paragraph 28.5a identifies the compound-tense restriction on participle agreement; later passages discuss limited interpolation. Use these as targeted structure-review anchors, not a complete word-order or beginner lesson specification.
+
 S1 follow-up (2026-10-22): the indexed A1-A2 grammar extract identifies adjective material under section 2 and possessives under section 5, including simple and plural-possessor forms. Direct retrieval redirected to the Instituto Cervantes maintenance page. A1-02's inventory links are provisional and must be checked against the full source during coverage reconciliation; the five-lesson sequence is our design proposal.
 
 S1 present follow-up (2026-10-22): the official indexed extract for section 9.1.1 lists the regular present paradigm and ser/estar/haber/ir in its A1 column, and frequent vowel/consonant irregularities in A2. The A1-04 proposal uses a limited functional introduction and reserves broader irregularity work for A2-01. The full source page was not freshly retrieved in this pass; exact item mapping, including pronominal/frequency coverage, remains pending. This anchor does not prescribe our lesson grouping.
@@ -414,5 +594,13 @@ S1 connector/infinitive follow-up (2026-10-22): the official indexed extract inc
 S1 non-finite/periphrasis follow-up (2026-10-23): the official indexed extract identifies gerund formation/estar use in section 9.4.2 and periphrastic/modal patterns in section 12.1, including ir a, poder, and tener que. These are partial anchors for A2-01, alongside the existing 9.1.1 present-family and S6 plan anchors. The seven-lesson sequence is our proposal; full-page retrieval, exact meaning/variant mapping, and language review were not performed in this pass.
 
 S1 reference/comparison follow-up (2026-10-23): the official indexed extract identifies demonstratives/possessives (4-5), object and prepositional pronouns with placement/combination patterns (7.1.2-7.1.3, 7.1.6), comparison (2.5, 15.3.8), and relative que (7.2, with a reference to 15.2). These are partial A2-02 anchors; local grouping does not imply that every item is assigned to the same source level. Full-page retrieval, exact variants, and linguistic validation remain pending.
+
+S1 perfecto follow-up (2026-10-23): the official indexed section 9.1.6 identifies haber, regular/strong participles, and continued relevance to the present with explicit/implicit temporal framing. This is a partial A2-03 coverage anchor; exact Spain contexts, permitted alternatives, and full source reconciliation remain pending. S7/S8 add targeted form/structure checks; no cross-provider content review or actual audio validation was performed.
+
+A2-04 source follow-up (2026-10-23): reused the recorded S1 section 9.1.3 regular/irregular/bounded-event anchor. Fresh targeted S7 page finds inspected the pedir model 46 and leer model 40 past tables, including pidió/pidieron and leyó/leyeron, and the perfecto simple nomenclature. These verify selected patterns only, not the final verb list, spelling rules, complete inventory mapping, or contextual answer variants.
+
+A2-05 source follow-up (2026-10-24): reused the recorded S1 section 9.1.2 regular/exception, descriptive, and habitual-use anchor. Fresh targeted S7 page finds inspected model 61 ser and model 68 ver imperfecto forms and accents, including éramos and veíamos; the existing S7 ir model remains an anchor. These checks do not complete the background/viewpoint, impersonal-frame, lexical, variant, or whole-inventory review.
+
+A2-06 design follow-up (2026-10-24): reused the recorded present/past anchors and accepted prior-block designs to propose controlled contrasts and mixed practice. No fresh source retrieval or linguistic validation was performed for this consolidation sequence. Exact Spain contexts, permitted readings, and contrast-key adequacy require review during authoring; the local six-lesson grouping is not prescribed by the sources.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
