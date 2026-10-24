@@ -561,6 +561,53 @@ Foundation: prior exposure to the constructions included in a task, especially A
 
 C-074 accepts the six short lessons plus optional mixed check. Next detail A2-07 practical requests, instructions, and messages, remaining within curriculum planning.
 
+## Detailed block proposal: A2-07 — requests, instructions, and practical messages
+
+Status: proposed on 2026-10-24, elaborating the accepted A2-07 outline. The eight-lesson grouping is unaccepted. S1 section 9.3 and S6 sections 4.1-4.10 supply partial grammar/function anchors from indexed extracts inspected on this date. The sequence and task allocation are original proposals; exact language, full mapping, and audio review remain pending.
+
+Practical outcome: understand a short request/instruction and write a suitable request, response, or practical message with a brief reason. Work through reading, writing, and prepared Spain listening; no learner speech or role-play recording is required.
+
+Foundation: familiar questions, negation, present forms, infinitives, poder/tener que, taught pronouns, reasons, time/place expressions, and sentence links. Reuse earlier constructions and explain any new vocabulary or frame before assessment. A2-06 can support a message about past events but is not a blanket prerequisite for a simple request.
+
+| Objective ID | Observable target | Anchor / boundary |
+|---|---|---|
+| A2-07-O1 | Write a short request for an object, action, or help appropriate to a stated situation. | S6 4.1-4.4 provides partial request anchors. Introduce the chosen present/infinitive patterns and politeness expressions; context must identify who is asking whom. |
+| A2-07-O2 | Ask permission and give a suitable brief acceptance or refusal with a reason where needed. | S6 4.7-4.10. Distinguish the requested action, speaker/addressee, response meaning, and verb form. Exact registers and variants require review. |
+| A2-07-O3 | Produce introduced regular affirmative instructions to one or several familiar addressees. | S1 9.3 regular singular/plural second-person anchor; teach tú/vosotros forms in manageable steps for the Spain target. |
+| A2-07-O4 | Recall selected frequent irregular affirmative instruction forms. | S1 9.3 lists examples di/haz/pon/sal. Exact vocabulary/person sets need review; each difficult form retains its own evidence. |
+| A2-07-O5 | Use introduced affirmative usted/ustedes forms when the stated situation calls for them. | S1 9.3 treatment-form anchor. Teach the selected forms explicitly; do not assume prior productive subjunctive knowledge or infer politeness from one ending alone. |
+| A2-07-O6 | Attach a taught object pronoun to an introduced affirmative imperative with appropriate written accents. | S1 9.3, with its pronoun/orthography cross-references. Begin with supported simple attachments; exact accent patterns and any multi-pronoun expansion require separate mapping/review. |
+| A2-07-O7 | Extract the action, addressee, and order of steps in a short practical instruction or recording. | S6 4.1 and the written/listening course outcomes. Reuse introduced affirmative/obligation patterns and teach sequence links before assessment. |
+| A2-07-O8 | Write a brief practical message containing a clear request/instruction or reply, with relevant details and a reason. | Original synthesis of introduced functions and prior text skills. Judge communicative fit separately from form, reference, and orthography; a model is not the sole valid wording. |
+
+### Proposed lesson sequence
+
+| Lesson ID | Focus | Practice and later return |
+|---|---|---|
+| A2-07-L1 | Request an object, action, or help (O1). | Compare short situated requests, complete a familiar pattern, and write a request. Teach the selected polite expressions and pronoun roles first. |
+| A2-07-L2 | Permission and a short response (O2). | Distinguish asking to act from asking someone else to act; write an acceptance or a refusal with a familiar reason. |
+| A2-07-L3 | Regular affirmative instructions: tú/vosotros (O3). | Introduce person/number contrasts in small steps, then complete or write a familiar instruction. Keep addressee recognition separate from form recall. |
+| A2-07-L4 | Frequent irregular instruction forms (O4). | Practice selected exceptions in familiar contexts and return to specific difficult forms rather than labeling the entire imperative weak. |
+| A2-07-L5 | Affirmative instructions with usted/ustedes (O5). | Introduce the needed forms and address context explicitly; compare reviewed alternatives without treating every public situation as requiring one register. |
+| A2-07-L6 | A pronoun joined to an instruction (O6). | Identify the intended object, attach a taught pronoun, and check the resulting written form. Separate role, placement, and accent evidence. |
+| A2-07-L7 | Understand short instructions and their order (O7). | Read a brief note or listen to prepared directions; identify needed actions/steps using familiar vocabulary and introduced links. Meaning questions do not require an unrelated conjugation. |
+| A2-07-L8 | A useful short message with a reason (O8). | Write a request, instruction, or response about home, a purchase, an appointment, or a simple problem. Give enough recipient/purpose context and permit reviewed variants. |
+| A2-07-C1 | Optional mixed check and delayed independent return. | Sample request/response meaning, specific forms, pronoun attachment, and practical text comprehension/production in short resumable tasks. Help remains available; no mandatory perfect score. |
+
+### Preparation, evidence, and later links
+
+- Apply the existing reviewed-bank, checking, help, manual-practice, and delayed-review rules. Allow a direct return to requests, a particular imperative form, or pronoun attachment without requiring the whole block or new material.
+- Distinguish communicative intent/register, speaker/addressee/reference, regular person/family, each assessed exception, pronoun role/placement, orthography, comprehension, and written production. Record only what a task actually assesses; a hint for an unfamiliar noun is not evidence that the learner forgot an imperative ending.
+- Start with concise Ukrainian explanations and familiar words. Introduce useful frames before testing them independently. A selected request formula can be rehearsed as a reviewed phrase without claiming mastery of every related paradigm.
+- The initial imperative scope here is affirmative. Broader negative-imperative and productive subjunctive paradigms are deferred for later B1 mapping, not silently assessed here. Do not derive a negative instruction by simply adding no to a taught affirmative form. Full treatment of any fixed negative phrase or posted prohibition needs its own explicit teaching/review allocation.
+- Reuse earlier pronoun histories while adding the specific attachment target. Start with a simple taught object pronoun; do not assume that prior two-pronoun work automatically validates new imperative combinations. Exact combinations and accent rules remain part of the coverage/review pass.
+- Include prepared Spain listening for everyday requests and short directions, with meaning comprehension as the default and optional separate dictation. Replay/transcript help affects the supported target only. No real call, message sending, learner recording, or conversation is part of an exercise.
+- Review realistic recipient/register context and natural alternatives before keys are assigned. There need not be a single polite sentence for every situation; meaningful unlisted answers keep the unresolved-review path. The ordinary prepared course remains usable offline.
+- Save useful reviewed requests/responses to personal collections with appropriate variations. Learner-specific new messages remain private drafts until reviewed; public samples are synthetic. Return to focused forms and practical texts in A2-08 without replacing their original histories.
+- Exact verb/person sets, register variants, negative-phrase allocation, pronoun/orthography mappings, full inventory coverage, cross-provider language review, actual audio validation, and bank calibration remain pending. This design is not a ready corpus, complete A2 coverage, or implementation authorization.
+
+Next decision: accept/revise eight short lessons plus the optional mixed check, then detail A2-08 cumulative reading, listening, and writing.
+
 ## Method for detailing each block
 
 For every block, record: objective IDs; small prerequisite skills; proposed micro-lessons; practical text contexts; independent tasks; hint levels; acceptable-answer policy; likely confusions; return points; personal-phrase opportunities; phone interaction; and source/linguistic-review status. Content IDs must remain stable as the outline evolves.
@@ -602,5 +649,7 @@ A2-04 source follow-up (2026-10-23): reused the recorded S1 section 9.1.3 regula
 A2-05 source follow-up (2026-10-24): reused the recorded S1 section 9.1.2 regular/exception, descriptive, and habitual-use anchor. Fresh targeted S7 page finds inspected model 61 ser and model 68 ver imperfecto forms and accents, including éramos and veíamos; the existing S7 ir model remains an anchor. These checks do not complete the background/viewpoint, impersonal-frame, lexical, variant, or whole-inventory review.
 
 A2-06 design follow-up (2026-10-24): reused the recorded present/past anchors and accepted prior-block designs to propose controlled contrasts and mixed practice. No fresh source retrieval or linguistic validation was performed for this consolidation sequence. Exact Spain contexts, permitted readings, and contrast-key adequacy require review during authoring; the local six-lesson grouping is not prescribed by the sources.
+
+A2-07 source follow-up (2026-10-24): official indexed S1 9.3 identifies regular singular/plural affirmative imperatives, frequent exceptions, usted/ustedes forms, and enclitic object pronouns with orthography cross-references. Official indexed S6 4.1-4.10 supplies instruction, request/help, response, and permission anchors. Full-page retrieval was not performed. These are partial inclusion anchors, not a prescribed eight-lesson sequence or validation of exact person/verb/register sets and accepted answers.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
