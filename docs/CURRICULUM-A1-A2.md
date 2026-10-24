@@ -517,9 +517,9 @@ Foundation: familiar present routines/descriptions, person/agreement, time expre
 
 C-073 accepts the seven short lessons plus optional mixed check. Next discuss the A2-06 proposal below, remaining within curriculum planning.
 
-## Detailed block proposal: A2-06 — choosing introduced present and past forms
+## Accepted block design: A2-06 — choosing introduced present and past forms
 
-Status: proposed on 2026-10-24, elaborating the accepted A2-06 outline. The six-lesson grouping is unaccepted. This is an original consolidation design using the recorded S1 present/past anchors and prior blocks; no new source validation, authored corpus, or linguistic review is claimed.
+Status: grouping/direction accepted on 2026-10-24 under C-074 via the owner's Далі reply. Exact content and linguistic/audio review remain pending. This is an original consolidation design using recorded S1 present/past anchors and prior blocks; acceptance does not establish source validation or a ready corpus.
 
 Practical outcome: understand a familiar situation and choose/use an appropriate introduced present, perfecto compuesto, indefinido, or imperfecto form without being told the tense in an independent mixed task. Distinguish the intended meaning from recall of the form; a correct ending alone does not establish independent contextual choice.
 
@@ -535,7 +535,7 @@ Foundation: prior exposure to the constructions included in a task, especially A
 | A2-06-O6 | Extract the relevant time relationship or situation meaning from a short text or recording. | Reuse written/listening boundaries. Answering a meaning question does not by itself demonstrate independent conjugation or written production. |
 | A2-06-O7 | Write a brief connected account or reply using suitable familiar present/past constructions. | Use reviewed variants, short resumable tasks, and clear communicative intent. Do not require a particular tense count or exact reference-text wording. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -559,8 +559,7 @@ Foundation: prior exposure to the constructions included in a task, especially A
 - Save useful reviewed statements and suitable variations to personal collections. New personal accounts remain private drafts until reviewed. Reuse these contrasts in A2-07 practical messages and A2-08 cumulative texts while retaining their original histories.
 - Exact context/lexical sets, Spain variants, meaningful ambiguity handling, whole-inventory coverage, cross-provider content review, and actual audio validation remain pending. This proposal does not establish full A2 coverage, a ready assessment bank, learning effectiveness, or implementation permission.
 
-Next decision: accept/revise six short lessons plus the optional mixed check, then detail A2-07 practical requests, instructions, and messages.
-
+C-074 accepts the six short lessons plus optional mixed check. Next detail A2-07 practical requests, instructions, and messages, remaining within curriculum planning.
 
 ## Method for detailing each block
 

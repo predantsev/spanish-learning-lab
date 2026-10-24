@@ -326,6 +326,12 @@ Source for C-073: on 2026-10-24, the owner replied Далі after the displayed 
 |---|---|
 | C-073 | Adopt A2-05 as seven short lessons covering regular -ar and -er/-ir forms, relevant accents, ser/ir/ver exceptions, past habits, past descriptions, introduced background meaning with an initial indefinido contrast, and a short memory/routine. Include listening, optional mixed checking, and specific later review. Preserve separate form/person, exception, orthography, contextual meaning, comprehension, and production evidence. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
 
+Source for C-074: on 2026-10-24, the owner replied Далі after the displayed A2-06 proposal, accepting the six-lesson mixed present/past grouping, then continuing to A2-07.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-074 | Adopt A2-06 as six short lessons covering present/past framing, perfecto/indefinido and indefinido/imperfecto contrasts, focused form recall, mixed familiar situations without tense labels, and a short text/audio with a written response. Include optional mixed checking, manual tense-pair or difficult-form selection, and specific later review. Keep contextual construction choice distinct from form/exception recall and comprehension/production evidence; preserve earlier skill histories. Exact content, full mapping, variants, linguistic/audio review, merge permission, and implementation remain pending. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
