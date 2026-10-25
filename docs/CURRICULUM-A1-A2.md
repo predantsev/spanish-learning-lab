@@ -1,6 +1,6 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-24. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-25. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
@@ -608,9 +608,9 @@ Foundation: familiar questions, negation, present forms, infinitives, poder/tene
 
 C-075 accepts the eight short lessons plus optional mixed check. Next discuss the A2-08 proposal below, remaining within curriculum planning.
 
-## Detailed block proposal: A2-08 — cumulative reading, listening, and writing
+## Accepted block design: A2-08 — cumulative reading, listening, and writing
 
-Status: proposed on 2026-10-24, elaborating the accepted A2-08 outline. The six-lesson grouping is unaccepted. This original consolidation design reuses the preceding blocks and the recorded S2 short-practical-text direction. No fresh source retrieval, complete genre/inventory mapping, authored assessment, or linguistic/audio validation is claimed.
+Status: grouping/direction accepted on 2026-10-25 under C-076 via the native Далі choice. This original consolidation design reuses preceding blocks and the recorded S2 short-practical-text direction. Exact content, complete genre/inventory mapping, and linguistic/audio review remain pending; grouping acceptance is not assessment validation.
 
 Practical outcome: understand a short familiar notice, message, account, or recording and produce a relevant written response using introduced language. Combine skills in manageable tasks while preserving the ability to return to one specific difficulty. Completing the block does not establish overall A2 proficiency or permanent retention.
 
@@ -627,7 +627,7 @@ Foundation: only constructions and vocabulary introduced for the chosen task. Co
 | A2-08-O7 | Reuse a reviewed personal construction in a suitable familiar situation. | C-022/C-023: exact recall and suitable variation use distinct evidence. Only reviewed entries become answer models; missing personal material can use a prepared course alternative. |
 | A2-08-O8 | Review and revise a short draft using appropriate feedback or reference help. | Original support objective. Keep first-attempt and supported revision evidence distinct; a corrected draft does not itself prove later independent recall. |
 
-### Proposed lesson sequence
+### Accepted lesson sequence — content pending
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
@@ -651,7 +651,7 @@ Foundation: only constructions and vocabulary introduced for the chosen task. Co
 - Finish with a concise evidence-based summary and specific return suggestions under C-057/C-060. A short supported repair may be offered immediately; later independent prompts use distinct reviewed material. No whole-course mastery claim follows from one check, and paused/known/missed-day behavior remains unchanged.
 - Exact sources/genre coverage, language variants, cross-provider review, actual recordings, task-bank calibration, and integrated-check quality remain pending. Accepting this block would complete the proposed lesson-grouping discussion, not corpus production, full curriculum reconciliation, visual/technical planning, release readiness, or implementation authorization.
 
-Next decision: accept/revise six short lessons plus the optional cumulative check, then reconcile the full A1-A2 map for coverage, prerequisites, and the B1/B2 continuation before proceeding to the visual-design phase.
+C-076 accepts the six short lessons plus optional cumulative check. All fourteen block groupings are accepted. Next reconcile the full A1-A2 map for coverage, prerequisites, and B1/B2 continuation before the visual-design phase.
 
 ## Method for detailing each block
 
