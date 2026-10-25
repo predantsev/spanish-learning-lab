@@ -8,7 +8,7 @@ Build from beginner foundations to a strong A2-aligned reading/writing/listening
 
 Spanish of Spain is the main variety (C-028). The initial interface, instructions, explanations, hints, and feedback are Ukrainian only, with future localization planned under C-030/C-031. Spanish remains the language being studied.
 
-The map below is an original teaching sequence accepted as the planning outline under C-029, informed by sources S1-S3. It is not the sequence prescribed by Instituto Cervantes, and the grouping is not a fixed lesson count. Each row will need smaller lessons, reviewed examples, explicit accepted answers, and delayed checks. Topic familiarity may change pacing; it must not fabricate mastery evidence.
+The map below is an original teaching sequence accepted as the planning outline under C-029, informed by sources S1-S3. It is not the sequence prescribed by Instituto Cervantes. Each outline row is a block rather than a single lesson; counts in the accepted detailed sections are the current planning baseline and any later revision must remain explicit. Each row will need smaller lessons, reviewed examples, explicit accepted answers, and delayed checks. Topic familiarity may change pacing; it must not fabricate mastery evidence.
 
 ## Accepted block outline
 
@@ -19,7 +19,7 @@ The map below is an original teaching sequence accepted as the planning outline 
 | A1-03 | Building a short sentence: subject, verb, statement/question/negation; core ser, estar, hay, tener uses | Write who someone is, what they have, and where something is | A1-01/02 |
 | A1-04 | Present-tense actions and routine; regular patterns and selected common forms | Write a short everyday routine | A1-02/03 |
 | A1-05 | Getting concrete information: time, quantities, prices, locations, question words | Read a timetable or notice and write a precise question | A1-01 through A1-04 |
-| A1-06 | Preferences, needs, simple intentions, and linking ideas | Write a short personal message; complete a mixed A1 checkpoint | All earlier A1 blocks |
+| A1-06 | Preferences, needs, simple intentions, and linking ideas | Write a short personal message; optionally take a mixed A1 checkpoint | All earlier A1 blocks |
 | A2-01 | Extend present-tense control and distinguish routine, current action, and plans | Describe a situation and a plan with clear timing | A1 sentence formation and routine |
 | A2-02 | Referring without repetition, comparing, and describing in more detail | Compare options and write a connected description | Agreement, possession, core sentence roles |
 | A2-03 | Pretérito perfecto: auxiliary, participles, exceptions, basic contextual uses | Describe a relevant experience or completed action in an appropriate context | Present auxiliary forms and sentence construction |
@@ -27,7 +27,7 @@ The map below is an original teaching sequence accepted as the planning outline 
 | A2-05 | Pretérito imperfecto: forms, past descriptions and habits | Describe a previous routine or setting | A1 present descriptions and habits |
 | A2-06 | Contrast present and past forms in familiar situations | Choose an appropriate form in an unlabelled mixed exercise | A2-03/04/05; repeat specific exceptions |
 | A2-07 | Requests, instructions, practical messages, and useful verb constructions | Read brief instructions and write a request with a reason | Pronoun placement and prior sentence patterns |
-| A2-08 | Cumulative reading and writing, including personal constructions | Read a short practical text and produce a suitable written response | Weak skills across A1/A2; later independent rechecks |
+| A2-08 | Cumulative reading, listening, and writing, including personal constructions | Read a short practical text and produce a suitable written response | Weak skills across A1/A2; later independent rechecks |
 
 Prerequisites express dependencies, not mandatory completion of every earlier exercise. In particular A2-06 needs prior exposure to each tense being contrasted. Detailed sequencing can be refined during complete objective mapping; Spanish of Spain is now selected.
 
@@ -653,6 +653,85 @@ Foundation: only constructions and vocabulary introduced for the chosen task. Co
 
 C-076 accepts the six short lessons plus optional cumulative check. All fourteen block groupings are accepted. Next reconcile the full A1-A2 map for coverage, prerequisites, and B1/B2 continuation before the visual-design phase.
 
+## Coverage and sequence reconciliation — 2026-10-25
+
+Status: first structural reconciliation completed after C-076 accepted all fourteen groupings. The supporting allocations below are proposals awaiting the next owner decision; they do not silently amend accepted objectives or lesson counts. All lesson banks and recordings remain unprepared/unreviewed. This is a plan audit, not a complete item-level Cervantes reconciliation or proficiency certification.
+
+### Verified planning baseline
+
+Counting the objective/lesson/check definition rows in the fourteen accepted block sections gives 107 broad objectives, 89 short lessons, and 14 optional checks. These are planning units, not atomic skills, cards, recordings, or a required number of learner attempts. Existing IDs remain stable. Finer supporting steps and actual bank sizes require authoring calibration; splitting an overloaded lesson needs an explicit planning revision rather than silently expanding it.
+
+The table summarizes existing sections. Listening is generally a preparation requirement rather than an allocated clip list; the first block still calls it optional. Reading initially means familiar labels/phrases, then short sentences and connected texts. These differences are appropriate to the proposed progression, but the first everyday-phrase listening allocation needs closing below.
+
+| Block | Objectives / lessons / optional checks | Existing practical reading and writing | Existing listening plan | Explicit later return |
+|---|---|---|---|---|
+| A1-01 | 4 / 3 / 1 | Read/enter labels, words, punctuation and short phrases. | Optional supplement; specific initial everyday clips not assigned. | C1 and later spelling/correction tasks. |
+| A1-02 | 5 / 5 / 1 | Recognize/build noun phrases and simple descriptions. | Familiar phrase/description recognition where appropriate. | A1-03/04, then A2-02. |
+| A1-03 | 6 / 6 / 1 | Understand/write short statements, questions and answers. | Meaning of introduced statements/questions. | A1-04/05 and later descriptions. |
+| A1-04 | 7 / 6 / 1 | Read/write a short everyday routine. | Familiar routines and specific details. | A1-06, A2-01, then past contrasts. |
+| A1-05 | 7 / 6 / 1 | Prices, schedules, dates, places and information questions. | Amount/time/date/location meaning. | A1-06, A2-01/07/08. |
+| A1-06 | 8 / 6 / 1 | Personal message, preferences/needs/plans and reply. | Short preferences/plans and brief messages. | A2-01/02/07/08 plus specific A1 checks. |
+| A2-01 | 9 / 7 / 1 | Describe routine/current action/plan and respond. | Familiar situation, ability and obligation. | A2-02, later time contrasts and messages. |
+| A2-02 | 10 / 8 / 1 | Read/produce reference, comparison and fuller description. | Clear reference and familiar descriptions/comparisons. | Past blocks, A2-07/08. |
+| A2-03 | 9 / 7 / 1 | Short perfecto account or message. | Familiar experience/action meaning. | A2-04/06/08 and individual participles. |
+| A2-04 | 10 / 8 / 1 | Understand/write a past event sequence. | Completed events and their sequence. | A2-05/06/08 and specific exceptions. |
+| A2-05 | 9 / 7 / 1 | Past routine, setting, description or memory. | Habits, settings and brief memories. | A2-06/07/08 and specific forms. |
+| A2-06 | 7 / 6 / 1 | Choose known time forms and write an account/reply. | Separate meaning task and written response. | A2-07/08 and selected contrast/form practice. |
+| A2-07 | 8 / 8 / 1 | Requests/responses, instructions and practical messages. | Requests/directions; action and step order. | A2-08 plus selected forms/constructions. |
+| A2-08 | 8 / 6 / 1 | Notices, messages, accounts, comparison and a useful text. | Short recording meaning, then separate writing if chosen. | Specific skill/phrase checks under C-057/C-060. |
+
+Every block explicitly plans writing and a delayed return. This does not mean each task assesses every skill or that every block already has a reviewed audio bank. Direct practice and optional checks remain available throughout.
+
+### Findings and proposed supporting allocations
+
+Evidence refers to the named existing objective/lesson or requirement, not to the independent reviewer's authority. A missing explicit allocation does not mean a topic is absent from every sentence of the plan. Source anchors establish inclusion candidates; they do not prescribe our sequence or validate answer keys.
+
+| ID | Verified gap or risk in the existing plan | Proposed first teaching and later return |
+|---|---|---|
+| CV-01 | COURSE-DESIGN's listening direction names the owner's everyday examples, while A1-01-L3 uses greetings only as a writing context and its audio remains optional. A1-05-L2 owns prices rather than the surrounding service formulas. | Assign a small reviewed fixed-phrase starter to A1-01-L3, then introductions in A1-03-L2 and shop/listening formulas in A1-05-L2. Reuse them in A1-06/A2-07 messages and course collections. Do not test the grammar inside an unexplained fixed phrase. S6 social-function anchors support this allocation. |
+| CV-02 | A1-05-O1 covers quantity generally; explicit muy/mucho, también/tampoco, nada/nadie targets are not named in the existing lesson/objective rows (literal-term search of the pre-audit curriculum). | Stage degree/quantity in A1-02-L4 and A1-05-L1; add relevant short responses in A1-06-L1/L5; introduce the selected negative/reference patterns before using them in A2-02-L8. Keep meaning, agreement, and negative placement distinct. S1 6.1-6.2/8.2 supplies partial anchors. |
+| CV-03 | The thread list requires prepositions, but A1-05-O5 explicitly leaves their scope pending. Meaningful accent pairs are a checking requirement in COURSE-DESIGN, without a first-teaching allocation. | Teach needed de/en/a/con frames at first use in A1-02/03/04; al/del with the relevant destination/location patterns; time/spatial frames in A1-05; bounded reason/purpose frames later. Add tú/tu and él/el at A1-03-L1, mi/mí with A2-02 pronouns, and qué/que with questions/relative clauses. S4 1.2/2.2 and S5 space/time anchors support selected items; exact variants/ranges remain review work. |
+| CV-04 | A1-03-O5 conditions age on numbers but A1-05 has no explicit age handoff. A2-05-O6 relies on age/weather frames. A2-04-L8 requests introduced time links without naming their first teaching. | After numbers, add age to A1-05-L1; stage familiar present weather/state expressions before their past use. Teach sequence links in A1-04-L6/A1-06-L5 and reuse them in A2-04-L8. Give A2-05-L6 sufficient taught background/event context. Do not assume mientras, past-progressive or new subordinate constructions are required to teach this contrast; their exact allocation needs separate source review. S5 2.6/4 and S1 8.2 provide partial anchors. |
+| CV-05 | A2-01-O8 and its return bullet delegate impersonal obligation to A2-07, but no A2-07 objective/lesson explicitly receives it. Other S1 12.1 construction families are not assigned. | Add a bounded hay que handoff in A2-07-L7/L8. Propose small supporting steps for acabar de/empezar a/volver a after the A2-01 infinitive foundation, and selected gustar-family extensions after A1-06-L1. Introduce useful fixed notice wording before A2-08-L1; do not smuggle in a productive negative-imperative/subjunctive unit. Review exact frames and lesson size before authoring. |
+| CV-06 | The global thread list names situation families and forms, while the detailed blocks do not collectively assign them to a usable navigation/collection map. | Use the proposed situation/genre matrix below to allocate everyday vocabulary and text purposes, with first teaching before transfer tasks. S9 supports selected genre families. A vocabulary list, exact clip set and reviewed phrase bank remain to be prepared. |
+
+These allocations preserve fourteen blocks and existing IDs as the accepted baseline. They are not six new compulsory modules or new mastery categories. For each adopted supporting target, add a small explanation, supported and independent practice, a listening link where relevant, and a delayed return; a side note without practice does not close a gap. If the practical scope exceeds a short lesson, propose a separate small step/count revision before bulk authoring.
+
+### Proposed situation and genre allocation
+
+The first-use column is a teaching home, not a claim that all vocabulary in a situation is already known. Listening uses prepared reception only; the source's spoken-production examples do not add speaking to our scope. Each row still needs actual reviewed vocabulary, tasks, variants and recordings.
+
+| Situation/text family | First teaching or supported use | Later integration and listening |
+|---|---|---|
+| Greetings, introductions, thanks, apology and leave-taking | A1-01-L3 fixed phrases; A1-03-L2 identity; small synthetic personal-data form after labels are taught. | A1-06 message openings/closings; A2-07 recipient context; short phrase recognition. |
+| People, family, belongings and home | A1-02 description/possession; A1-03 location and possession. | A2-02 fuller descriptions/comparisons; A2-05 memories; familiar home recordings. |
+| Daily routine, study/work and leisure | A1-04 routines; A1-06 likes and simple plans. | A2-01 situation/plan; A2-04/05 past accounts; A2-08 short biography/diary-style task. |
+| Food, shopping, menus, prices and product labels | A1-05-L1/L2 quantities/amounts; A1-06 preferences. | A2-02 option descriptions; A2-07 requests; A2-08 information tasks and recorded service formulas. |
+| Time, appointments, transport, tickets and timetables | A1-05-L3/L4 time/date/info questions. | A2-01 plans; A2-07 directions; A2-08 schedule/notice and short travel/appointment messages. |
+| Places, accommodation, simple leaflets and adverts | A1-05-L5 location; A2-02 descriptions/options. | A2-07 directions; A2-08 practical reading and short prepared directions. |
+| Everyday conditions, weather and simple problems | Introduce the selected present frames with A1-05/A2-01 supporting material before using past settings. | A2-05 description; A2-07 useful request/problem message; A2-08 short information/response. Exact health/service vocabulary remains a scoped review decision. |
+| Personal notes, invitations, excuses and replies | A1-06 short-message work, with taught formula/link support. | A2-07 practical messages; A2-08-L2/L6 recipient/purpose transfer and recorded message meaning. |
+| Short instructions and notices, including a simple recipe or posted rule | A2-07-L7 with every assessed frame introduced first; fixed rule wording requires review. | A2-08-L1/L5 reading/listening. This does not authorize untaught negative commands. |
+
+Other genre choices in the broader source inventory are not automatically promised as separate course units. The authoring ledger must record a teaching allocation or a justified scoped decision for each selected in-scope source item. Pure spoken production is excluded; current-news knowledge and arithmetic are not language prerequisites.
+
+### Prerequisite and evidence gates
+
+- No hard block-order contradiction was found in this document review; this is an inference from the stated prerequisites, not a tested learning result. A1-02's noun-phrase work does not require untaught copulas, and the A2-02/A2-03 handoff keeps past constructions out of earlier pronoun checks.
+- Receive every forward handoff explicitly: number -> age; present state/weather -> past description; infinitive frame -> impersonal obligation; sequence links -> past account; initial question forms -> accent/relative contrast. A future item must name its needed skill rather than assume completion of an earlier whole block supplies it.
+- Teach the person/reference meaning behind plural possession before assessing it; A2-01 basic progressive tasks can avoid object-pronoun placement until A2-02 introduces it. These are fine-sequence guards, not new mandatory course locks.
+- Short phrases and simple sentences suffice for early reading; connected texts grow later. Phrase recognition starts early, while transcript-hidden, replay/transcript-supported, written and delayed-independent evidence stay distinct.
+- A1-06 and A2-08 checks remain optional. C-044's first-handoff requirement still concerns the complete reviewed product/corpus, not an obligation for the learner to pass every optional check.
+- Preserve C-057/C-060 intervals and controls, C-061 bank calibration, private draft boundaries and valid-answer review. No source lookup, schema check, completed lesson or corrected draft proves retention.
+
+### Audit limits and next decision
+
+Verified here: accepted block definitions/counts, explicit practical-mode/return links, the missing handoffs/allocations above, and selected official source passages. Full grammar/general-notion page retrieval returned 404; official indexed extracts were used. S9's genre page was retrieved and sections 1.2-1.3 inspected. Complete item-level source/level coverage, every genre/lexical family, pedagogical adequacy, task variants and actual audio remain unverified.
+
+An independent Opus 5.5 / medium read-only document review supplied candidate findings. The reviewer disclosed one internal advisor call outside its Read/Glob/Grep-only brief. Codex verified the actionable findings against the named canonical sections and source passages; the reviewer is not treated as linguistic authority. Its stronger suggestion to require new past-progressive/while clauses was not adopted, and its claim that all prior sources were only indexed extracts was not accepted because the source record distinguishes earlier direct reads. The temporary worker was closed after its report was collected.
+
+Next owner decision: adopt CV-01 through CV-06 and the situation/genre allocation as supporting design direction, preserving the fourteen-block baseline and requiring small explicit steps before assessment. Then discuss a concrete B1/B2 continuation map before the remaining visual-design work. No content authoring, application implementation or merge is authorized by this decision.
+
 ## Method for detailing each block
 
 For every block, record: objective IDs; small prerequisite skills; proposed micro-lessons; practical text contexts; independent tasks; hint levels; acceptable-answer policy; likely confusions; return points; personal-phrase opportunities; phone interaction; and source/linguistic-review status. Content IDs must remain stable as the outline evolves.
@@ -674,6 +753,8 @@ Next steps: the session direction is accepted under C-032; review controls are a
 - S7: [RAE/ASALE, El buen uso del español: Conjugación española](https://www.rae.es/buen-uso-espa%C3%B1ol/conjugaci%C3%B3n-espa%C3%B1ola), targeted indexed/table excerpts inspected on 2026-10-23. The compound-tense table and models 36/37 identify present haber and hecho; targeted page finds locate dicho in model 27 and leído in model 40. These verify selected forms/nomenclature, not a complete A2-03 lexical set or lesson bank.
 
 - S8: [RAE/ASALE, Nueva gramática, section 28.5](https://www.rae.es/gram%C3%A1tica/sintaxis/cohesi%C3%B3n-e-independencia-de-los-componentes-de-las-per%C3%ADfrasis-per%C3%ADfrasis-verbales-y-tiempos-compuestos), indexed passages inspected on 2026-10-23. Paragraph 28.5a identifies the compound-tense restriction on participle agreement; later passages discuss limited interpolation. Use these as targeted structure-review anchors, not a complete word-order or beginner lesson specification.
+
+- S9: [Instituto Cervantes, A1-A2 genres and text products](https://cvc.cervantes.es/Ensenanza/biblioteca_ele/plan_curricular/niveles/07_generos_discursivos_inventario_a1-a2.htm), retrieved on 2026-10-25; sections 1.2-1.3 inspected. They distinguish reception/production and include practical written genres and short oral reception. Our situation/genre teaching allocation is an original proposal; spoken production remains outside course scope. This inspection does not complete every genre or source-item mapping.
 
 S1 follow-up (2026-10-22): the indexed A1-A2 grammar extract identifies adjective material under section 2 and possessives under section 5, including simple and plural-possessor forms. Direct retrieval redirected to the Instituto Cervantes maintenance page. A1-02's inventory links are provisional and must be checked against the full source during coverage reconciliation; the five-lesson sequence is our design proposal.
 
@@ -698,5 +779,7 @@ A2-06 design follow-up (2026-10-24): reused the recorded present/past anchors an
 A2-07 source follow-up (2026-10-24): official indexed S1 9.3 identifies regular singular/plural affirmative imperatives, frequent exceptions, usted/ustedes forms, and enclitic object pronouns with orthography cross-references. Official indexed S6 4.1-4.10 supplies instruction, request/help, response, and permission anchors. Full-page retrieval was not performed. These are partial inclusion anchors, not a prescribed eight-lesson sequence or validation of exact person/verb/register sets and accepted answers.
 
 A2-08 design follow-up (2026-10-24): reused recorded S2 practical-text direction and prior block designs to propose integrated short reading/listening/writing tasks. No fresh source retrieval or full genre-inventory reconciliation was performed. Exact text complexity, vocabulary, source coverage, and assessment/variant adequacy require authoring and review; the local six-lesson grouping is an original proposal.
+
+Coverage-source follow-up (2026-10-25): official indexed S1 6.1-6.2/8.2/12.1 and selected temporal/reason/purpose passages support the quantity, response, sequencing and construction candidates; indexed S4 1.2/2.2 supports contractions/diacritics; indexed S5 2-4 supplies quantity/state/space/time anchors; indexed S6 5 supplies social-function anchors. Full grammar and general-notion retrieval attempts returned 404. S9 was retrieved separately. Exact selection/level/variant reconciliation remains necessary; these anchors do not prescribe CV-01 through CV-06 or our lesson counts.
 
 Examples and sequencing above are original proposals, not copied lessons. No corpus, exercise bank, validated language assessment, mobile UI, or lesson runtime has been produced.
