@@ -744,7 +744,7 @@ Proposed design and delivery details, not yet a complete curriculum or authorize
 
 Use one application and stable content/skill identifiers across stages. Adding B1/B2 should preserve progress, personal phrases, and review history, and should not require restarting the course. Later stages should be visibly planned/unavailable until implemented, not presented as completed content. No fixed lesson count or delivery date is selected.
 
-Suggested first-stage product scope: the course path, selected-topic practice, hint-aware review, progress persistence, and personal-phrase workflows. Final feature allocation, including API/skill delivery timing, remains to be agreed before implementation.
+Accepted first-stage product scope includes the course path, selected-topic practice, hint-aware review, progress persistence, personal-phrase workflows, and the bounded API/skill integration required under C-062. Exact technical allocation and verification remain planning work; implementation is not authorized.
 
 C-044 supersedes the proposed early owner pilot: an internal module can test the learning loop, review process, and UI before bulk authoring, but owner learning and personal testing start after the complete first-stage handoff. Do not ask the owner to study unfinished A2 material while the remaining lessons are authored.
 
@@ -753,6 +753,55 @@ First-handoff gate: implement the agreed first-version features; prepare and rev
 Proposed meaning of a strong A2 stage: cover the mapped in-scope A1/A2 objectives with reviewed lessons and sufficient varied practice; offer cumulative independent reading/writing tasks, listening checks aligned with the agreed delivery scope, and delayed mixed review; distinguish independent answers from hints. A single successful quiz or completed lesson does not prove durable mastery. Product completeness and an individual learner's assessed proficiency are separate.
 
 Use the [Instituto Cervantes Plan curricular index](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/indice.htm), read on 2026-10-07, as a source for Spanish-specific objectives/content inventories. It organizes objectives and language content by A1-A2, B1-B2, and C1-C2. Detailed mapping to this course is not yet done; do not infer that browsing the index establishes coverage. Author original course material and track source/content rights separately.
+
+### Proposed B1/B2 continuation map — 2026-10-26
+
+Status: unaccepted roadmap proposal following C-077. The owner requested a detailed first A1-A2 stage and a map of later B1/B2 stages under C-024/C-026. The six areas per level below are original planning groupings, not fixed module/lesson counts, an authored syllabus, or source-certified level coverage. Exact teaching order, vocabulary, grammatical scope, variants, listening sets, and assessments require later detailed design/review.
+
+Proposed progression: B1 develops connected practical accounts, explanations and messages; B2 develops more precise viewpoint, argument, reformulation and work with richer input. Both retain Ukrainian instruction, Spain Spanish, reading/writing/listening, personal constructions, and targeted review. Speaking/conversation stays outside the course. Later levels extend the same application after the complete agreed A1-A2 handoff and subsequent B1 work; this map does not expand the first-release corpus to B2.
+
+#### B1 — connected everyday use
+
+| Map ID | Practical outcome to design | Supporting language candidates and earlier return |
+|---|---|---|
+| B1-R1 | Understand and write a connected familiar account, explaining events, background and what happened earlier. | Extend the A2-03/04/05/06 contrasts, sequence links and individual exceptions; introduce pluscuamperfecto in suitable small steps. |
+| B1-R2 | Explain plans and expectations, make a polite suggestion, and describe a realistic condition and consequence. | Introduce reviewed simple future/conditional uses and real-condition frames; revisit A1-06/A2-01 plans, ability and obligation. Do not import the entire later hypothetical system at once. |
+| B1-R3 | Express an introduced wish or request concerning someone else's action, give advice and understand/write a negative instruction. | Introduce selected present subjuntivo and negative-imperative frames after their prerequisites. Reuse A2-02 pronouns and A2-07 instructions; teach form and contextual choice separately. |
+| B1-R4 | Describe in more detail, explain a view and connect reasons, alternatives and consequences in a short text. | Extend A1-06 links, A2-02 descriptions/reference and the CV supporting strands. Review selected clause and mode patterns rather than a universal keyword-to-answer rule. |
+| B1-R5 | Read a routine practical message/document and write a useful request, clarification, response or simple complaint. | Extend CV-06 situations and A2-07/A2-08 text purposes. Introduce recipient/register wording and useful personal constructions before independent use. |
+| B1-R6 | Understand the main point and relevant details of connected familiar written/audio material and give a brief written response or summary. | Integrate the preceding areas through reviewed everyday texts and clearly articulated Spain recordings, with gradually reduced support and separate comprehension/writing evidence. |
+
+#### B2 — precision, argument and richer input
+
+| Map ID | Practical outcome to design | Supporting language candidates and earlier return |
+|---|---|---|
+| B2-R1 | Follow and write accounts with more complex temporal relationships and a deliberately chosen viewpoint. | Extend B1-R1/R2 through reviewed compound-time and contextual-use contrasts, retaining earlier auxiliary/participle/exception histories. Exact form allocation remains to reconcile. |
+| B2-R2 | Express a hypothetical alternative, uncertainty or a nuanced stance with an appropriate introduced construction. | Extend B1-R2/R3 through broader subjuntivo and unreal-condition work. Stage new forms and meanings separately, with explicit context and valid alternatives. |
+| B2-R3 | Compare arguments, support a position, acknowledge a counterpoint and qualify a conclusion in writing. | Extend B1-R4 connectors, concession, reason/effect and reformulation. Language fit and reasoning structure remain distinct from factual knowledge about a topic. |
+| B2-R4 | Report or reformulate information while preserving who said/did what, its timing and relevant emphasis. | Extend B1-R4/R6 reference and connected-text work with selected reported-speech, relative and impersonal/passive frames. Review exact meaning/variant boundaries. |
+| B2-R5 | Adapt a practical text to its recipient and purpose, producing a structured request, complaint, explanation, short report or review. | Extend B1-R5 through appropriate register, cohesion and revision. Familiar personal/work/interests contexts can vary; no specialist subject knowledge is a general prerequisite. |
+| B2-R6 | Understand longer, more varied reviewed texts/recordings and combine relevant information into a written response. | Integrate B1-R6 and B2 areas through selected richer Spain input, varied voices and less predictable wording. Do not promise effortless comprehension of every accent, speed or genre. |
+
+These map IDs label roadmap areas; detailed objectives/lessons and actual item IDs will be designed later. Forms are supporting candidates, not the sole organizing principle. The progression includes useful vocabulary, fixed expressions, text conventions and listening recognition throughout.
+
+#### Continuity, preparation and later delivery
+
+- Keep one application, the private profile, personal collections and the original skill/phrase/recording histories. A previously learned participle remains the same recall target inside a harder text; a new mode/viewpoint choice receives its own evidence rather than resetting the old target.
+- Use small introduced steps before integrated tasks. Review old material in new familiar contexts and retain independent versus assisted/revealed/revised evidence. A text-level result does not demonstrate mastery of every form it contains.
+- Preserve direct topic/phrase practice, optional mixed checks, pause/resume and the C-057/C-060 review controls. Detailed B1/B2 assessment design must not invent a mandatory perfect-score entry lock.
+- Retain C-038/C-039 reviewed-core and cross-provider content gates, valid-answer handling, private-draft boundaries and actual-audio checks. Source references or generated recordings alone do not make content ready. Authentic material requires suitable rights and review; the roadmap authorizes no acquisition, generation or spending.
+- Deliver the complete agreed beginner-through-A2 stage first. Prepare B1 in a later detailed phase, then B2, preserving previous manual practice. Future areas remain visibly planned/unavailable until implemented/reviewed. No lesson count, schedule or total audio budget is fixed by this map.
+- The next planning phase after acceptance is visual design, starting with the home screen's accepted Review / Resume / Choose topic hierarchy and computer/iPhone layouts. Technical design, calibration and implementation authorization retain their later boundaries.
+
+#### Source basis and limits
+
+The following official indexed extracts were inspected on 2026-10-26; direct full-page retrieval attempts returned 404. The excerpts support selected directions, not this six-area grouping or complete B1/B2 alignment:
+
+- R1: [Instituto Cervantes, B1-B2 general objectives](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/01_objetivos_relacion_b1-b2.htm), sections 1.1 and 1.3: practical information/transactions and understanding/using main ideas and details in oral/written texts. We adapt in-scope reception/writing; oral-production outcomes are not adopted.
+- R2: [Instituto Cervantes, B1-B2 grammar inventory](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm), selected sections 9.1.4/9.1.5/9.1.8, 9.2/9.3 and 15.3.6: future/conditional, prior-past, subjuntivo, imperative and condition families. Exact row-to-level/meaning mapping remains to reconcile; later compound/mode breadth is not a claim of exhaustive coverage.
+- R3: [Instituto Cervantes, B1-B2 genres and text products](https://cvc.cervantes.es/Ensenanza/biblioteca_ele/plan_curricular/niveles/07_generos_discursivos_inventario_b1-b2.htm), section 1.3: personal/formal messages, practical information and more developed written genres. These inform candidate tasks; the course does not promise every listed genre as a separate unit.
+
+Next owner decision: accept/revise this B1/B2 continuation direction, then begin home-screen visual exploration. Acceptance fixes the roadmap direction, not a complete later-level syllabus, first-release expansion, content authoring, application implementation or merge permission.
 
 ### First-release readiness gates — accepted criteria
 
