@@ -350,6 +350,12 @@ Source for C-077: on 2026-10-26, the owner selected Далі in the native cover
 |---|---|
 | C-077 | Adopt the six supporting A1-A2 allocations: early everyday fixed phrases/listening; quantity and short-response/negative words; first-use prepositions and meaningful accents; age/weather/time-link prerequisites; useful infinitive/impersonal-obligation constructions; and explicit situation/genre teaching homes. Teach, practice, and later revisit each adopted target. Preserve the fourteen-block baseline and accepted IDs/counts; separately agree any needed split of an overloaded lesson. Exact supporting microsteps, source-item/variant reconciliation, content authoring, linguistic/audio review, merge permission, and implementation remain pending. |
 
+Source for C-078: on 2026-10-26, the owner selected Далі in the native B1/B2 decision, accepting the six-area-per-level continuation map and proceeding to home-screen visual design.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-078 | Adopt the proposed B1/B2 continuation direction: connected everyday accounts/plans/requests/explanations/messages/input at B1; more complex time relationships, hypotheses/nuance, argument, reformulation, register and richer input at B2. Retain personal constructions, prior skill histories and specific review across stages. Deliver the complete agreed A1-A2 stage first, then B1, then B2. The six roadmap areas per level are not fixed lesson counts; later detail/source/variant reconciliation and linguistic/audio review remain pending. Next explore the home-screen design. Content authoring, implementation, spending and merge permission are not inferred. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -754,9 +760,9 @@ Proposed meaning of a strong A2 stage: cover the mapped in-scope A1/A2 objective
 
 Use the [Instituto Cervantes Plan curricular index](https://cvc.cervantes.es/ensenanza/biblioteca_ELE/plan_curricular/indice.htm), read on 2026-10-07, as a source for Spanish-specific objectives/content inventories. It organizes objectives and language content by A1-A2, B1-B2, and C1-C2. Detailed mapping to this course is not yet done; do not infer that browsing the index establishes coverage. Author original course material and track source/content rights separately.
 
-### Proposed B1/B2 continuation map — 2026-10-26
+### Accepted B1/B2 continuation map — 2026-10-26
 
-Status: unaccepted roadmap proposal following C-077. The owner requested a detailed first A1-A2 stage and a map of later B1/B2 stages under C-024/C-026. The six areas per level below are original planning groupings, not fixed module/lesson counts, an authored syllabus, or source-certified level coverage. Exact teaching order, vocabulary, grammatical scope, variants, listening sets, and assessments require later detailed design/review.
+Status: roadmap direction accepted on 2026-10-26 under C-078 via the native Далі choice. The owner requested a detailed first A1-A2 stage and a map of later B1/B2 stages under C-024/C-026. The six areas per level below are original planning groupings, not fixed module/lesson counts, an authored syllabus, or source-certified level coverage. Exact teaching order, vocabulary, grammatical scope, variants, listening sets, and assessments require later detailed design/review.
 
 Proposed progression: B1 develops connected practical accounts, explanations and messages; B2 develops more precise viewpoint, argument, reformulation and work with richer input. Both retain Ukrainian instruction, Spain Spanish, reading/writing/listening, personal constructions, and targeted review. Speaking/conversation stays outside the course. Later levels extend the same application after the complete agreed A1-A2 handoff and subsequent B1 work; this map does not expand the first-release corpus to B2.
 
@@ -801,7 +807,7 @@ The following official indexed extracts were inspected on 2026-10-26; direct ful
 - R2: [Instituto Cervantes, B1-B2 grammar inventory](https://cvc.cervantes.es/ensenanza/biblioteca_ele/plan_curricular/niveles/02_gramatica_inventario_b1-b2.htm), selected sections 9.1.4/9.1.5/9.1.8, 9.2/9.3 and 15.3.6: future/conditional, prior-past, subjuntivo, imperative and condition families. Exact row-to-level/meaning mapping remains to reconcile; later compound/mode breadth is not a claim of exhaustive coverage.
 - R3: [Instituto Cervantes, B1-B2 genres and text products](https://cvc.cervantes.es/Ensenanza/biblioteca_ele/plan_curricular/niveles/07_generos_discursivos_inventario_b1-b2.htm), section 1.3: personal/formal messages, practical information and more developed written genres. These inform candidate tasks; the course does not promise every listed genre as a separate unit.
 
-Next owner decision: accept/revise this B1/B2 continuation direction, then begin home-screen visual exploration. Acceptance fixes the roadmap direction, not a complete later-level syllabus, first-release expansion, content authoring, application implementation or merge permission.
+C-078 accepts this B1/B2 continuation direction. Next explore the home screen visually. A complete later-level syllabus, exact source/item mapping, first-release expansion, content authoring, application implementation and merging are not authorized by this roadmap acceptance.
 
 ### First-release readiness gates — accepted criteria
 
