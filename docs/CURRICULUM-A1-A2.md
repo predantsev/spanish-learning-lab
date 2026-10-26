@@ -1,6 +1,6 @@
 # A1-A2 curriculum working draft
 
-Updated: 2026-10-25. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
+Updated: 2026-10-26. Status: outline and brief familiar-foundations approach accepted by the owner on 2026-10-08; detailed lessons remain a working draft, not an approved final syllabus, authored course, or implementation. Confirmed scope and product decisions remain in [COURSE-DESIGN.md](COURSE-DESIGN.md), especially C-024 through C-029. This document owns the detailed A1-A2 curriculum work.
 
 ## Purpose and boundaries
 
@@ -59,8 +59,8 @@ Practical outcome: recognize and enter the written forms needed by later short w
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
 | A1-01-L1 | Letters and written marks: accented vowels, ñ, ü, ¿ and ¡; ordinary computer/phone entry. | Recognize a written form, enter a familiar short word, and correct a supplied form. C-056 excludes an on-screen character strip. Revisit the same writing target in later vocabulary. |
-| A1-01-L2 | Initial stress awareness and written accents through a small reviewed word set. | Identify/preserve a mark, repair a supported word, and later recall it with its meaning/context. Contrast examples must not silently test unintroduced grammar. Any listening supplement requires reviewed Spain audio and remains separate listening evidence. |
-| A1-01-L3 | A short written phrase: punctuation, opening/closing signs, capitalization, and exercise-instruction help. | Restore punctuation and write a brief familiar phrase. Explain noun/verb/person or other terms only when the task needs them. Return to the target in later questions and messages. |
+| A1-01-L2 | Initial stress awareness and written accents through a small reviewed word set. | Identify/preserve a mark, repair a supported word, and later recall it with its meaning/context. Contrast examples must not silently test unintroduced grammar. C-077 assigns an initial reviewed fixed-phrase listening component; recognition and writing evidence remain separate. |
+| A1-01-L3 | A short written phrase: punctuation, opening/closing signs, capitalization, and exercise-instruction help. | Restore punctuation and write a brief familiar phrase. Explain noun/verb/person or other terms only when the task needs them. Return to the target in later questions and messages. Include the reviewed everyday fixed-phrase/listening starter (CV-01). |
 | A1-01-C1 | Short optional checkpoint and a later independent return. | Sample the introduced writing targets without a visible answer model; keep help available, attribute it to the actual target, and retain uncertain results. No mandatory perfect score or new topic lock. |
 
 Accepted familiar-foundations handling under C-029: offer the explanation, optional self-check, or direct practice. A returning learner can move on without a long alphabet introduction. Skipping or self-report does not create tested mastery evidence. Completed attempts and the current draft remain resumable.
@@ -97,8 +97,8 @@ Foundation: reuse A1-01 written forms and familiar-material shortcuts; refresh o
 | A1-02-L1 | A noun with its article: learn a reviewed noun/article pair and selected common gender patterns/exceptions. | Recognize, complete, then recall a short familiar expression. Separate unknown-word help from a demonstrated agreement error. |
 | A1-02-L2 | Definite and indefinite articles in introduced contexts. | Choose an article, explain the context in Ukrainian when needed, and write the short phrase. Accept alternatives if the context supports them; avoid an arbitrary single-key verdict. |
 | A1-02-L3 | Singular and plural, changing the noun phrase together. | Transform, correct agreement, and write a familiar singular/plural phrase. Later combine number with adjectives and possession. |
-| A1-02-L4 | Describing people/objects with familiar adjectives. | Choose/produce agreement and build a short noun phrase. Broader placement differences and unintroduced vocabulary remain for later mapped lessons. |
-| A1-02-L5 | Possession: my, your, and other introduced possessors. | Begin with a small set of forms, then expand to other A1 inventory forms including Spain-relevant plural-possessor forms with supporting context. Do not demand pronoun/conjugation knowledge not yet introduced. |
+| A1-02-L4 | Describing people/objects with familiar adjectives. | Choose/produce agreement and build a short noun phrase. Broader placement differences and unintroduced vocabulary remain for later mapped lessons. Stage basic degree wording in small supporting steps (CV-02). |
+| A1-02-L5 | Possession: my, your, and other introduced possessors. | Begin with a small set of forms, then expand to other A1 inventory forms including Spain-relevant plural-possessor forms with supporting context. Do not demand pronoun/conjugation knowledge not yet introduced. Teach needed possession/preposition frames at first use (CV-03). |
 | A1-02-C1 | Optional mixed check and delayed independent return. | Combine article, noun, number, adjective, and possession only where introduced. Keep help available; record separate target evidence rather than a single whole-block pass/fail. |
 
 ### Preparation, evidence, and later links
@@ -134,9 +134,9 @@ Foundation: A1-01 writing and A1-02 familiar noun phrases. Reuse reviewed words 
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
-| A1-03-L1 | The short sentence: subject/person, an introduced verb pattern, and useful word order. | Build a sentence from familiar elements, complete a form, and write a short statement. Provide person/pronoun reference on demand. |
-| A1-03-L2 | Ser for introduced identity/origin/description contexts. | Form practice and short meaning-to-sentence tasks. Reuse article/adjective targets selectively; record the actual target of any help. |
-| A1-03-L3 | Estar for location and a small reviewed state set. | Match context and sentence, complete the form, and describe a familiar location/state. Contrast with already introduced ser only when meaning is clear. |
+| A1-03-L1 | The short sentence: subject/person, an introduced verb pattern, and useful word order. | Build a sentence from familiar elements, complete a form, and write a short statement. Provide person/pronoun reference on demand. Teach introduced pronoun/article/possessive accent contrasts (CV-03). |
+| A1-03-L2 | Ser for introduced identity/origin/description contexts. | Form practice and short meaning-to-sentence tasks. Reuse article/adjective targets selectively; record the actual target of any help. Add supported introductions and a synthetic identity/form context with taught labels (CV-01/CV-06). |
+| A1-03-L3 | Estar for location and a small reviewed state set. | Match context and sentence, complete the form, and describe a familiar location/state. Contrast with already introduced ser only when meaning is clear. Introduce the needed location/preposition frames before assessment (CV-03). |
 | A1-03-L4 | Hay and estar: what is there versus where a known thing/person is. | Use a short authored situation, contextual choice, and short production; do not force a unique verdict when both readings are supported. |
 | A1-03-L5 | Tener: possession and useful introduced expressions. | Write about a familiar possession; add other meanings only with supporting vocabulary already taught. Revisit A1-02 possession from a sentence perspective. |
 | A1-03-L6 | Questions and negative sentences with these patterns. | Turn an introduced statement into a question/negative, understand the written question, and give a short written answer. No spoken response is required. |
@@ -178,10 +178,10 @@ Foundation: A1-01 writing, A1-02 familiar noun phrases, and A1-03 subject/person
 |---|---|---|
 | A1-04-L1 | Regular -ar action verbs, connecting the person to the present form (O1). | Complete a form, change an introduced person, then write a familiar action sentence. Keep the infinitive/person reference available as recorded help. |
 | A1-04-L2 | Regular -er and -ir in two short steps, then a focused comparison (O2/O3). | Practice each family separately before mixing them. Attribute an ending error to the relevant family/person rather than the whole present tense. |
-| A1-04-L3 | A small useful irregular-form set, initially proposed for ir and hacer (O4). | Recall a specific form, use it in a familiar context, and revisit earlier ser/estar/tener forms selectively. Do not introduce a full irregular-verb catalog at once. |
+| A1-04-L3 | A small useful irregular-form set, initially proposed for ir and hacer (O4). | Recall a specific form, use it in a familiar context, and revisit earlier ser/estar/tener forms selectively. Do not introduce a full irregular-verb catalog at once. Teach needed destination/contraction frames with introduced ir (CV-03). |
 | A1-04-L4 | Daily-routine expressions with an introduced pronominal pattern (O5). | Select the person/pronoun, produce the form, and write a short routine action. Assess pronoun selection and verb formation separately where the prompt supports that distinction. |
 | A1-04-L5 | How often: everyday frequency expressions in familiar sentences (O6). | Match meaning, place a reviewed expression, and write a true-to-prompt routine sentence. Exact expression choices and placement variants require review. |
-| A1-04-L6 | Put the day together: a short text and brief written routine (O7). | Read for meaning, answer a familiar question, and write a few connected statements using only introduced patterns. No live conversation or spoken response. |
+| A1-04-L6 | Put the day together: a short text and brief written routine (O7). | Read for meaning, answer a familiar question, and write a few connected statements using only introduced patterns. No live conversation or spoken response. Stage the adopted sequence-link support before integrated writing (CV-04). |
 | A1-04-C1 | Optional mixed check and delayed independent return. | Sample the introduced regular families, selected exceptions, pronominal pattern, and frequency. Preserve specific target evidence; no single whole-tense pass/fail or mandatory perfect score. |
 
 ### Preparation, evidence, and later links
@@ -218,11 +218,11 @@ Foundation: A1-01 written forms, A1-02 agreement, A1-03 sentence/question patter
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
-| A1-05-L1 | Numbers and quantities in small practical steps (O1). | Match an amount, write an introduced number form, and build a reviewed quantity phrase. Add a small practical ordinal set only after explaining it; keep individual patterns available for focused review. |
-| A1-05-L2 | Prices and amounts (O2). | Read a synthetic price label, understand the amount, and ask/answer a familiar price question. Separate numeric comprehension from required Spanish wording. |
+| A1-05-L1 | Numbers and quantities in small practical steps (O1). | Match an amount, write an introduced number form, and build a reviewed quantity phrase. Add a small practical ordinal set only after explaining it; keep individual patterns available for focused review. Receive age-after-numbers and targeted quantity contrasts (CV-02/CV-04). |
+| A1-05-L2 | Prices and amounts (O2). | Read a synthetic price label, understand the amount, and ask/answer a familiar price question. Separate numeric comprehension from required Spanish wording. Add reviewed shop/service formulas and their listening targets (CV-01/CV-06). |
 | A1-05-L3 | Clock time and opening hours (O3). | Read a short schedule, distinguish current/event time, and give a suitable question or answer. Teach introduced expressions/prepositions before independent checks. |
 | A1-05-L4 | Days, dates, and a simple appointment (O4). | Find a day/date, complete a reviewed calendar expression, and write a short appointment question/answer with explicit context. |
-| A1-05-L5 | Where something is: places and basic spatial expressions (O5). | Use a short written scene or accessible simple plan with text support. Ask/answer about location and revisit hay/estar only when context supports the distinction. |
+| A1-05-L5 | Where something is: places and basic spatial expressions (O5). | Use a short written scene or accessible simple plan with text support. Ask/answer about location and revisit hay/estar only when context supports the distinction. Stage the selected spatial frames and contractions (CV-03). |
 | A1-05-L6 | Ask for the missing information (O6/O7). | Read a short notice, identify what is known/missing, choose a question pattern, and write a brief question or answer. Accept reviewed equivalent questions when they request the same needed information. |
 | A1-05-C1 | Optional mixed check and delayed independent return. | Combine familiar prices, hours, dates, locations, and questions in a short practical situation. Sample specific targets rather than awarding one whole-block mastery label. |
 
@@ -262,11 +262,11 @@ Foundation: reuse A1-01 writing, A1-02 agreement, A1-03 sentence/question/negati
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
-| A1-06-L1 | Likes and dislikes with a small gustar pattern set (O1). | Match intended meaning, complete the relevant pronoun/form, then write a short familiar statement. Separate help with the experiencer, agreement, and vocabulary. |
+| A1-06-L1 | Likes and dislikes with a small gustar pattern set (O1). | Match intended meaning, complete the relevant pronoun/form, then write a short familiar statement. Separate help with the experiencer, agreement, and vocabulary. Include selected short responses and reviewed gustar-family extensions in small supporting steps (CV-02/CV-05). |
 | A1-06-L2 | Express a preference between familiar options (O2). | Introduce selected preferir wording/forms, choose a suitable response, and produce a short preference sentence. Do not silently require a new comparison structure. |
 | A1-06-L3 | What is needed: necesitar with a familiar thing or action (O3). | Distinguish the meaning of a need, build the introduced noun/infinitive frame, and write a useful short statement or answer. |
 | A1-06-L4 | Wishes and simple plans in two small steps (O4/O5). | Introduce querer plus noun/infinitive, then a reviewed present-plus-time plan. Practice their meanings separately before mixing them; broader future constructions return in A2-01. |
-| A1-06-L5 | Connect ideas with y, pero, and porque (O6). | Recognize the intended relationship, choose a reviewed connector, and join familiar clauses. Preserve valid alternatives when context supports them; exact punctuation/variant rules need review. |
+| A1-06-L5 | Connect ideas with y, pero, and porque (O6). | Recognize the intended relationship, choose a reviewed connector, and join familiar clauses. Preserve valid alternatives when context supports them; exact punctuation/variant rules need review. Receive the adopted response/sequence-link support (CV-02/CV-04). |
 | A1-06-L6 | A short personal message: understand and write a useful response (O7/O8). | Read a small prepared message, identify its practical intent, and write a few relevant sentences using introduced preferences, needs, wishes/plans, and links. Provide a small reviewed opening/closing where needed. |
 | A1-06-C1 | Optional cumulative A1 check and delayed independent return. | Sample introduced targets from A1-01 through A1-06 using familiar contexts, short text/audio comprehension, and written production. Offer small resumable parts and specific follow-up practice. It is not an overall proficiency certificate or a mandatory perfect-score lock for A2. |
 
@@ -313,8 +313,8 @@ Foundation: reuse A1-03 sentence/person and estar patterns, A1-04 present famili
 | A2-01-L3 | Gerund formation: regular patterns and a small exception set (O3). | Form the introduced non-finite form, recognize a relevant exception, and revisit it independently later. This checks form production before assuming contextual selection. |
 | A2-01-L4 | An action in progress: estar plus gerund, then contextual use (O4/O5). | Build the sentence, select an appropriate formulation, and describe a familiar ongoing situation. Review acceptable overlaps with simple present before grading choices. |
 | A2-01-L5 | Plans/intention with ir a plus infinitive (O6). | Form the pattern, understand a short plan, and write one with explicit time context. Revisit A1-06 wishes/present-plus-time plans with enough meaning context. |
-| A2-01-L6 | Ability and obligation in two small steps: poder / tener que plus infinitive (O7/O8). | Teach each frame and its selected meaning before mixing them. Track verb forms, infinitive framing, and ability/obligation meaning separately. |
-| A2-01-L7 | Put the situation together: routine, current action, and plan (O9). | Read a short situation and write a relevant description or response, adding ability/obligation only where introduced and needed. Explain why a construction fits while preserving valid alternatives. |
+| A2-01-L6 | Ability and obligation in two small steps: poder / tener que plus infinitive (O7/O8). | Teach each frame and its selected meaning before mixing them. Track verb forms, infinitive framing, and ability/obligation meaning separately. Place the adopted supporting infinitive-construction steps after this foundation; review size before authoring (CV-05). |
+| A2-01-L7 | Put the situation together: routine, current action, and plan (O9). | Read a short situation and write a relevant description or response, adding ability/obligation only where introduced and needed. Explain why a construction fits while preserving valid alternatives. Receive familiar present weather/state frames before later past descriptions (CV-04). |
 | A2-01-C1 | Optional mixed check and delayed independent return. | Sample introduced present forms, gerund/auxiliary production, and contextual meanings using familiar material. Keep it resumable and retain specific review targets instead of a whole-block mastery label. |
 
 ### Preparation, evidence, and later links
@@ -357,12 +357,12 @@ Foundation: reuse A1 agreement/possession, sentence roles, location, prices, pre
 |---|---|---|
 | A2-02-L1 | Refer without repeating a noun: demonstratives and possessive references in two short steps (O1/O2). | Identify the referent, choose a reviewed form, and write a short reference. Keep the two pattern families separate in evidence. |
 | A2-02-L2 | Replace a direct object with an introduced pronoun (O3). | Link a familiar noun to the pronoun, choose its form, and produce a short sentence with explicit context. |
-| A2-02-L3 | Refer to the recipient/indirect object (O4). | Identify who receives/is affected in the introduced frame, select the pronoun, and write the short statement. Explain any needed prepositional/tonic form first. |
+| A2-02-L3 | Refer to the recipient/indirect object (O4). | Identify who receives/is affected in the introduced frame, select the pronoun, and write the short statement. Explain any needed prepositional/tonic form first. Teach needed tonic/prepositional and meaningful accent distinctions before assessment (CV-03). |
 | A2-02-L4 | Where the pronoun goes (O5). | Use the already introduced present, infinitive, and gerund constructions. Practice reviewed placement variants without marking one valid alternative wrong. |
 | A2-02-L5 | Combine two pronouns in a small familiar pattern set (O6). | Begin with explicit referents, then practice form/order and the introduced se replacement separately. Revisit the actual difficult component later. |
 | A2-02-L6 | Compare familiar options: regular frames, then selected frequent exceptions (O7/O8). | Compare a quality or quantity, complete the introduced frame, and write a suitable comparison. Teach each pattern/exception before mixing them. |
-| A2-02-L7 | Add a detail to a description (O9). | Reuse familiar adjectives/agreement and introduced ser/estar meanings; teach a simple relative que construction before short independent descriptions. |
-| A2-02-L8 | Read, compare, and describe a familiar choice (O10). | Use synthetic product/home/person descriptions with familiar words; give a short written choice or description using introduced patterns. |
+| A2-02-L7 | Add a detail to a description (O9). | Reuse familiar adjectives/agreement and introduced ser/estar meanings; teach a simple relative que construction before short independent descriptions. Connect the introduced relative/question accent contrast (CV-03). |
+| A2-02-L8 | Read, compare, and describe a familiar choice (O10). | Use synthetic product/home/person descriptions with familiar words; give a short written choice or description using introduced patterns. Introduce the adopted negative/reference patterns before using them independently here (CV-02). |
 | A2-02-C1 | Optional mixed check and delayed independent return. | Sample introduced reference, placement, comparison, and description targets in short resumable parts. Retain specific evidence instead of a single whole-block mastery label. |
 
 ### Preparation, evidence, and later links
@@ -455,7 +455,7 @@ Foundation: familiar actions, sentence/person/question/negative patterns, writin
 | A2-04-L5 | Frequent irregular stems and other selected forms (O6). | Introduce a manageable set, group useful patterns, and practice individual difficult forms. The exact list is pending; do not demand every irregular verb at once. |
 | A2-04-L6 | Ser and ir: form plus contextual meaning (O7). | Form the introduced paradigm and understand which meaning fits the authored situation. A named-verb gap is different evidence from independent interpretation. |
 | A2-04-L7 | When the event is framed as completed (O8). | Choose an appropriate introduced tense with sufficient context, then begin reviewed contrasts with known perfecto. Later past contrasts follow A2-05/A2-06. |
-| A2-04-L8 | Put past events in sequence (O9/O10). | Read a short prepared account and write a few relevant linked events or a reply using familiar words and introduced time links. |
+| A2-04-L8 | Put past events in sequence (O9/O10). | Read a short prepared account and write a few relevant linked events or a reply using familiar words and introduced time links. Receive already taught sequence links (CV-04). |
 | A2-04-C1 | Optional mixed check and delayed independent return. | Sample regular patterns, spelling, selected exceptions, lexical meaning, and contextual use in short resumable tasks. Preserve granular evidence rather than a whole-tense mastery label. |
 
 ### Preparation, evidence, and later links
@@ -499,7 +499,7 @@ Foundation: familiar present routines/descriptions, person/agreement, time expre
 | A2-05-L2 | Regular -er/-ir forms with the -ía pattern (O2/O4). | Practice the introduced person forms and relevant accents before mixing them with prior present/past endings. |
 | A2-05-L3 | Ser, ir, and ver exceptions (O3/O4). | Introduce the reviewed forms in small steps and revisit individual difficult person/form pairs in varied familiar contexts. |
 | A2-05-L4 | Past habits and routines (O5). | Understand a familiar routine, choose a suitable introduced meaning, and write a short statement with taught time/frequency expressions. |
-| A2-05-L5 | Describe a past person, place, or situation (O6). | Reuse familiar description/agreement; explicitly introduce needed past age/time/weather/state frames before independent work. |
+| A2-05-L5 | Describe a past person, place, or situation (O6). | Reuse familiar description/agreement; explicitly introduce needed past age/time/weather/state frames before independent work. Receive the present-to-past age/weather handoff (CV-04). |
 | A2-05-L6 | A past situation as background: initial meaning contrast (O7). | Use a short authored situation to compare introduced imperfecto/indefinido readings. Review natural alternatives and teach any needed link; full mixed practice follows in A2-06. |
 | A2-05-L7 | A short memory or past routine (O8/O9). | Read a brief prepared account and write a few relevant descriptive/routine statements or an appropriate reply. |
 | A2-05-C1 | Optional mixed check and delayed independent return. | Sample regular patterns, individual exceptions, accents, and introduced meanings in short resumable tasks. Preserve specific evidence instead of a whole-tense mastery label. |
@@ -590,8 +590,8 @@ Foundation: familiar questions, negation, present forms, infinitives, poder/tene
 | A2-07-L4 | Frequent irregular instruction forms (O4). | Practice selected exceptions in familiar contexts and return to specific difficult forms rather than labeling the entire imperative weak. |
 | A2-07-L5 | Affirmative instructions with usted/ustedes (O5). | Introduce the needed forms and address context explicitly; compare reviewed alternatives without treating every public situation as requiring one register. |
 | A2-07-L6 | A pronoun joined to an instruction (O6). | Identify the intended object, attach a taught pronoun, and check the resulting written form. Separate role, placement, and accent evidence. |
-| A2-07-L7 | Understand short instructions and their order (O7). | Read a brief note or listen to prepared directions; identify needed actions/steps using familiar vocabulary and introduced links. Meaning questions do not require an unrelated conjugation. |
-| A2-07-L8 | A useful short message with a reason (O8). | Write a request, instruction, or response about home, a purchase, an appointment, or a simple problem. Give enough recipient/purpose context and permit reviewed variants. |
+| A2-07-L7 | Understand short instructions and their order (O7). | Read a brief note or listen to prepared directions; identify needed actions/steps using familiar vocabulary and introduced links. Meaning questions do not require an unrelated conjugation. Teach selected impersonal obligation and fixed-notice meaning before later reading (CV-05/CV-06). |
+| A2-07-L8 | A useful short message with a reason (O8). | Write a request, instruction, or response about home, a purchase, an appointment, or a simple problem. Give enough recipient/purpose context and permit reviewed variants. Reuse introduced impersonal obligation where appropriate (CV-05). |
 | A2-07-C1 | Optional mixed check and delayed independent return. | Sample request/response meaning, specific forms, pronoun attachment, and practical text comprehension/production in short resumable tasks. Help remains available; no mandatory perfect score. |
 
 ### Preparation, evidence, and later links
@@ -631,7 +631,7 @@ Foundation: only constructions and vocabulary introduced for the chosen task. Co
 
 | Lesson ID | Focus | Practice and later return |
 |---|---|---|
-| A2-08-L1 | A notice or practical information (O1). | Read a short opening-hours notice, appointment note, or instruction; find needed details and answer a relevant short question. |
+| A2-08-L1 | A notice or practical information (O1). | Read a short opening-hours notice, appointment note, or instruction; find needed details and answer a relevant short question. Use adopted notice/form/menu/schedule contexts only after their needed frames are taught (CV-05/CV-06). |
 | A2-08-L2 | Read a message and respond (O2/O6). | Identify the request, participants, and missing information; write a suitable brief response using familiar language. |
 | A2-08-L3 | A short account of the past (O3). | Read a familiar event/routine description and write a few relevant statements or a reply. Retain the original form/exception and contrast targets. |
 | A2-08-L4 | Compare options and explain a choice (O4/O6). | Compare two familiar plans, products, places, or schedules, then give a brief reason. Provide enough information and permit reviewed alternatives. |
@@ -655,15 +655,15 @@ C-076 accepts the six short lessons plus optional cumulative check. All fourteen
 
 ## Coverage and sequence reconciliation — 2026-10-25
 
-Status: first structural reconciliation completed after C-076 accepted all fourteen groupings. The supporting allocations below are proposals awaiting the next owner decision; they do not silently amend accepted objectives or lesson counts. All lesson banks and recordings remain unprepared/unreviewed. This is a plan audit, not a complete item-level Cervantes reconciliation or proficiency certification.
+Status: first structural reconciliation completed on 2026-10-25 after C-076; supporting allocations CV-01 through CV-06 and the situation/genre map accepted on 2026-10-26 under C-077. They supplement the block definitions above while preserving accepted IDs/counts. All lesson banks and recordings remain unprepared/unreviewed. This is a plan audit, not a complete item-level Cervantes reconciliation or proficiency certification.
 
 ### Verified planning baseline
 
 Counting the objective/lesson/check definition rows in the fourteen accepted block sections gives 107 broad objectives, 89 short lessons, and 14 optional checks. These are planning units, not atomic skills, cards, recordings, or a required number of learner attempts. Existing IDs remain stable. Finer supporting steps and actual bank sizes require authoring calibration; splitting an overloaded lesson needs an explicit planning revision rather than silently expanding it.
 
-The table summarizes existing sections. Listening is generally a preparation requirement rather than an allocated clip list; the first block still calls it optional. Reading initially means familiar labels/phrases, then short sentences and connected texts. These differences are appropriate to the proposed progression, but the first everyday-phrase listening allocation needs closing below.
+The table summarizes the pre-CV audit baseline. Listening was generally a preparation requirement rather than an allocated clip list, and the first block called it optional. C-077 now assigns the early reviewed fixed-phrase component through CV-01. Reading initially means familiar labels/phrases, then short sentences and connected texts; exact clips and language content still need preparation/review.
 
-| Block | Objectives / lessons / optional checks | Existing practical reading and writing | Existing listening plan | Explicit later return |
+| Block | Objectives / lessons / optional checks | Existing practical reading and writing | Listening plan at the pre-CV audit baseline | Explicit later return |
 |---|---|---|---|---|
 | A1-01 | 4 / 3 / 1 | Read/enter labels, words, punctuation and short phrases. | Optional supplement; specific initial everyday clips not assigned. | C1 and later spelling/correction tasks. |
 | A1-02 | 5 / 5 / 1 | Recognize/build noun phrases and simple descriptions. | Familiar phrase/description recognition where appropriate. | A1-03/04, then A2-02. |
@@ -682,22 +682,22 @@ The table summarizes existing sections. Listening is generally a preparation req
 
 Every block explicitly plans writing and a delayed return. This does not mean each task assesses every skill or that every block already has a reviewed audio bank. Direct practice and optional checks remain available throughout.
 
-### Findings and proposed supporting allocations
+### Findings and accepted supporting allocations
 
-Evidence refers to the named existing objective/lesson or requirement, not to the independent reviewer's authority. A missing explicit allocation does not mean a topic is absent from every sentence of the plan. Source anchors establish inclusion candidates; they do not prescribe our sequence or validate answer keys.
+Gap evidence refers to the pre-CV baseline (commit 0bfa4ba), with the named objective/lesson or requirement; the accepted allocations now supplement it. Findings do not rely on the independent reviewer's authority. A missing explicit allocation does not mean a topic is absent from every sentence of the plan. Source anchors establish inclusion candidates; they do not prescribe our sequence or validate answer keys.
 
-| ID | Verified gap or risk in the existing plan | Proposed first teaching and later return |
+| ID | Verified gap or risk at the pre-CV audit baseline | Accepted first teaching and later return |
 |---|---|---|
 | CV-01 | COURSE-DESIGN's listening direction names the owner's everyday examples, while A1-01-L3 uses greetings only as a writing context and its audio remains optional. A1-05-L2 owns prices rather than the surrounding service formulas. | Assign a small reviewed fixed-phrase starter to A1-01-L3, then introductions in A1-03-L2 and shop/listening formulas in A1-05-L2. Reuse them in A1-06/A2-07 messages and course collections. Do not test the grammar inside an unexplained fixed phrase. S6 social-function anchors support this allocation. |
 | CV-02 | A1-05-O1 covers quantity generally; explicit muy/mucho, también/tampoco, nada/nadie targets are not named in the existing lesson/objective rows (literal-term search of the pre-audit curriculum). | Stage degree/quantity in A1-02-L4 and A1-05-L1; add relevant short responses in A1-06-L1/L5; introduce the selected negative/reference patterns before using them in A2-02-L8. Keep meaning, agreement, and negative placement distinct. S1 6.1-6.2/8.2 supplies partial anchors. |
 | CV-03 | The thread list requires prepositions, but A1-05-O5 explicitly leaves their scope pending. Meaningful accent pairs are a checking requirement in COURSE-DESIGN, without a first-teaching allocation. | Teach needed de/en/a/con frames at first use in A1-02/03/04; al/del with the relevant destination/location patterns; time/spatial frames in A1-05; bounded reason/purpose frames later. Add tú/tu and él/el at A1-03-L1, mi/mí with A2-02 pronouns, and qué/que with questions/relative clauses. S4 1.2/2.2 and S5 space/time anchors support selected items; exact variants/ranges remain review work. |
 | CV-04 | A1-03-O5 conditions age on numbers but A1-05 has no explicit age handoff. A2-05-O6 relies on age/weather frames. A2-04-L8 requests introduced time links without naming their first teaching. | After numbers, add age to A1-05-L1; stage familiar present weather/state expressions before their past use. Teach sequence links in A1-04-L6/A1-06-L5 and reuse them in A2-04-L8. Give A2-05-L6 sufficient taught background/event context. Do not assume mientras, past-progressive or new subordinate constructions are required to teach this contrast; their exact allocation needs separate source review. S5 2.6/4 and S1 8.2 provide partial anchors. |
-| CV-05 | A2-01-O8 and its return bullet delegate impersonal obligation to A2-07, but no A2-07 objective/lesson explicitly receives it. Other S1 12.1 construction families are not assigned. | Add a bounded hay que handoff in A2-07-L7/L8. Propose small supporting steps for acabar de/empezar a/volver a after the A2-01 infinitive foundation, and selected gustar-family extensions after A1-06-L1. Introduce useful fixed notice wording before A2-08-L1; do not smuggle in a productive negative-imperative/subjunctive unit. Review exact frames and lesson size before authoring. |
-| CV-06 | The global thread list names situation families and forms, while the detailed blocks do not collectively assign them to a usable navigation/collection map. | Use the proposed situation/genre matrix below to allocate everyday vocabulary and text purposes, with first teaching before transfer tasks. S9 supports selected genre families. A vocabulary list, exact clip set and reviewed phrase bank remain to be prepared. |
+| CV-05 | A2-01-O8 and its return bullet delegate impersonal obligation to A2-07, but no A2-07 objective/lesson explicitly receives it. Other S1 12.1 construction families are not assigned. | Add a bounded hay que handoff in A2-07-L7/L8. Include small supporting steps for acabar de/empezar a/volver a after the A2-01 infinitive foundation, and selected gustar-family extensions after A1-06-L1. Introduce useful fixed notice wording before A2-08-L1; do not smuggle in a productive negative-imperative/subjunctive unit. Review exact frames and lesson size before authoring. |
+| CV-06 | The global thread list names situation families and forms, while the detailed blocks do not collectively assign them to a usable navigation/collection map. | Use the accepted situation/genre matrix below to allocate everyday vocabulary and text purposes, with first teaching before transfer tasks. S9 supports selected genre families. A vocabulary list, exact clip set and reviewed phrase bank remain to be prepared. |
 
 These allocations preserve fourteen blocks and existing IDs as the accepted baseline. They are not six new compulsory modules or new mastery categories. For each adopted supporting target, add a small explanation, supported and independent practice, a listening link where relevant, and a delayed return; a side note without practice does not close a gap. If the practical scope exceeds a short lesson, propose a separate small step/count revision before bulk authoring.
 
-### Proposed situation and genre allocation
+### Accepted situation and genre allocation — content pending
 
 The first-use column is a teaching home, not a claim that all vocabulary in a situation is already known. Listening uses prepared reception only; the source's spoken-production examples do not add speaking to our scope. Each row still needs actual reviewed vocabulary, tasks, variants and recordings.
 
@@ -724,13 +724,13 @@ Other genre choices in the broader source inventory are not automatically promis
 - A1-06 and A2-08 checks remain optional. C-044's first-handoff requirement still concerns the complete reviewed product/corpus, not an obligation for the learner to pass every optional check.
 - Preserve C-057/C-060 intervals and controls, C-061 bank calibration, private draft boundaries and valid-answer review. No source lookup, schema check, completed lesson or corrected draft proves retention.
 
-### Audit limits and next decision
+### Audit limits and accepted follow-up
 
 Verified here: accepted block definitions/counts, explicit practical-mode/return links, the missing handoffs/allocations above, and selected official source passages. Full grammar/general-notion page retrieval returned 404; official indexed extracts were used. S9's genre page was retrieved and sections 1.2-1.3 inspected. Complete item-level source/level coverage, every genre/lexical family, pedagogical adequacy, task variants and actual audio remain unverified.
 
 An independent Opus 5.5 / medium read-only document review supplied candidate findings. The reviewer disclosed one internal advisor call outside its Read/Glob/Grep-only brief. Codex verified the actionable findings against the named canonical sections and source passages; the reviewer is not treated as linguistic authority. Its stronger suggestion to require new past-progressive/while clauses was not adopted, and its claim that all prior sources were only indexed extracts was not accepted because the source record distinguishes earlier direct reads. The temporary worker was closed after its report was collected.
 
-Next owner decision: adopt CV-01 through CV-06 and the situation/genre allocation as supporting design direction, preserving the fourteen-block baseline and requiring small explicit steps before assessment. Then discuss a concrete B1/B2 continuation map before the remaining visual-design work. No content authoring, application implementation or merge is authorized by this decision.
+C-077 accepts CV-01 through CV-06 and the situation/genre allocation as supporting design direction. Accepted lesson rows carry first-use/handoff references in their practice column; exact microsteps and any proposed size/count revision still require preparation. Next discuss the B1/B2 continuation map in COURSE-DESIGN.md before the remaining visual-design work. This acceptance does not authorize content authoring, application implementation or merge.
 
 ## Method for detailing each block
 

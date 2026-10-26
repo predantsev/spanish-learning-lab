@@ -1,6 +1,6 @@
 # Course design
 
-Updated: 2026-10-25. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-26. This is a discovery document, not an approved implementation specification.
 
 ## Discussion workflow
 
@@ -343,6 +343,12 @@ Source for C-076: on 2026-10-25, the owner selected Далі in the native A2-08
 | ID | Confirmed requirement |
 |---|---|
 | C-076 | Adopt A2-08 as six short lessons covering practical information, message/reply, a past account, comparing options with a reason, short listening, and a useful text with reviewed personal constructions and supported revision. Include optional cumulative checking in short resumable parts and focused later review. Preserve separate comprehension, supported writing, and independent recall evidence. All fourteen A1-A2 block groupings are now accepted; complete source/coverage reconciliation, exact content, linguistic/audio review, visual/technical planning, merge permission, and implementation remain pending. |
+
+Source for C-077: on 2026-10-26, the owner selected Далі in the native coverage decision, accepting CV-01 through CV-06 and the situation/genre allocation, then proceeding to the B1/B2 continuation map.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-077 | Adopt the six supporting A1-A2 allocations: early everyday fixed phrases/listening; quantity and short-response/negative words; first-use prepositions and meaningful accents; age/weather/time-link prerequisites; useful infinitive/impersonal-obligation constructions; and explicit situation/genre teaching homes. Teach, practice, and later revisit each adopted target. Preserve the fourteen-block baseline and accepted IDs/counts; separately agree any needed split of an overloaded lesson. Exact supporting microsteps, source-item/variant reconciliation, content authoring, linguistic/audio review, merge permission, and implementation remain pending. |
 
 ## Language and localization direction
 
