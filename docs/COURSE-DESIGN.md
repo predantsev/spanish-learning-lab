@@ -374,6 +374,12 @@ Source for C-081: on 2026-10-27, the owner selected Далі in the native My ph
 |---|---|
 | C-081 | Adopt Library and collections for My phrases: searchable/filterable shared records, personal and course collections, a course pack as a personal starting point, three capture paths, draft review before practice, explicit ready-item selection, reviewed-recording availability for listening, contextual help and separate phone details. Keep shared history across memberships. Exact content/validation contracts and actual browser/device/runtime behavior remain pending. Next design listening; no implementation or merge permission is inferred. |
 
+Source for C-082: on 2026-10-28, the owner replied Далі immediately after the listening-design proposal/native decision. This accepts Listening focus and the displayed requested-support/task/evidence/error/mobile direction, then continues to supplemental materials. No audio was supplied in the mockup, so no voice or playback quality is accepted.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-082 | Adopt Listening focus: centered player/task, requested transcript/meaning with retained disclosure evidence, meaning comprehension by default and separate dictation, neutral replay, retained answers/feedback until explicit Next, optional difficulty reports, repeat-more/save directions, and retry or an explicit non-listening written alternative after audio failure. Real recordings, audio/content quality, device/runtime behavior and exact implementation remain pending. Next design supplemental materials; no implementation or merge permission is inferred. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -964,7 +970,31 @@ Accepted under C-054 for early short clips: assess meaning or a concrete detail 
 
 Keep Replay, slower playback where supported, and Did not catch it available. Replaying is not automatically failure; show assistance neutrally. After a response, offer the transcript/meaning and optional learner reports such as Knew the words but did not recognize them or Meaning was unfamiliar. Preserve an unknown cause when evidence is insufficient. Save suitable reviewed expressions to a collection. Later reviews can use another reviewed recording or familiar context. A playback failure must offer retry or a written task without recording a listening failure.
 
-C-054 accepts meaning comprehension as the default and dictation separately. The computer/phone listening mockup and actual-audio validation remain pending. Backup/restore policy is accepted under C-055; exact mechanisms and validation remain pending. No audio player, recordings, or assessment implementation exists.
+C-054 accepts meaning comprehension as the default and dictation separately. Listening focus below is accepted under C-082; actual-audio and computer/phone runtime validation remain pending. Backup/restore policy is accepted under C-055; exact mechanisms and validation remain pending. No audio player, recordings, or assessment implementation exists.
+
+### Listening visual exploration — selected direction, 2026-10-28
+
+Status: Listening focus selected under C-082 through the owner's Далі response on 2026-10-28; Support alongside remains the comparison. The conversation-only spanish-listening.html mockup uses two synthetic short retail/food-service examples, not a reviewed lesson bank. It explicitly has no audio recordings: playback buttons only explain their future role in a preview-only notice. No audio is generated, purchased, loaded or played, and no listening performance is measured.
+
+| Alternative | Layout | Discussion trade-off |
+|---|---|---|
+| Listening focus (Фокус на слуханні) — selected | Player/task centered; requested support expands on the left on a computer and above the task on a narrow screen. | Preserves the accepted Focus direction and a short path to the task; help remains available before answering. |
+| Support alongside (Підтримка поруч) | Task left, persistent support area right; support precedes the task on a narrow screen. Transcript/meaning remain concealed until requested. | Makes support more discoverable but adds visible structure and phone scrolling. |
+
+Proposed shared behavior:
+
+- Default to Ukrainian meaning choices. Dictation is a separate task with its own preserved draft, feedback and evidence; later short written meaning tasks remain part of the accepted progression rather than this small example. Use no speaking/recording. Show situation context and identify the intended Spain Spanish variety without claiming verified voice provenance.
+- The future player starts only on request, offers replay and a slower option where supported, and does not autoplay on Next. Replay or speed choice alone is not a failure or a weakness diagnosis. The mockup changes only speed-control appearance and preview notices; it cannot verify actual playback, timing, rate quality, regional pronunciation or listening recognition.
+- Initially hide transcript/meaning in both alternatives. Reveal each explicitly at any time, keeping the answer. Closing support retains disclosure flags for that phrase, including when switching between meaning/dictation. Capture the pre-submit support snapshot separately: opening support after a response does not retroactively change that original snapshot. Retries and another task on the same phrase retain previous-feedback exposure. Final evidence attribution/weighting remains technical design, not a score established here.
+- Interface help is separate from language disclosure. Did not catch it opens optional learner reports: familiar words not recognized, unfamiliar meaning, or unknown cause. These are self-reports, not verified diagnoses. Do not infer a topic-wide weakness, hearing-recognition error or spelling skill from an unsupported cause.
+- Keep the selected/written answer, feedback and explanation until explicit Next. Dictation shows the platform-appropriate multiline shortcut reminder; Enter remains a newline. The example's bounded local checks distinguish meaning choice, exact transcript match and an accent mismatch without interpreting spelling as listening failure. These toy keys are not a production grader, language review or validated task bank.
+- Offer retry, Repeat more and saving a suitable reviewed phrase to an existing collection. The mockup retains local flags/illustrative confirmations only; it neither schedules nor stores real learner history or collection membership. End the two-example series with a short local summary, preserving the original attempts on revisit rather than claiming independent first exposure.
+- A preview-only scenario selector exposes audio failure. Preserve the unfinished answer, disable submission as listening while the failure remains, and offer Retry or an explicit written alternative. The written alternative has a separate draft/result, shows the phrase and is labeled as not assessing listening. Returning to listening retains the disclosed-text evidence. An audio failure creates no negative listening result.
+- Computer/phone-width controls and optional situation-context visibility are presentation options. Preview host persistence stores only device/display/navigation/mode metadata; answer text, help evidence and attempt/collection/review flags remain transient in memory. Durable saving/resume, real media, grading, scheduler and API remain unimplemented.
+
+Checks performed: parsed the literal fragment, checked unique static IDs/two named variants/semantic button types/required selectors, size below 1 MB and absence of network, media, browser-learner-storage and HTML-injection calls. Extracted the script for node --check. Executed pure preview functions to check per-mode drafts, disclosure retention and non-retroactive snapshots, prior-feedback exposure, bounded meaning/transcript/accent outcomes, audio-error submission gating, preserved answers and separate written fallback. Generated the preview wrapper without a server. No DOM/browser/layout, focus/screen-reader/keyboard execution, real Chrome/iPhone, audio quality/availability/provenance, content correctness, actual learning assessment, durable storage, scheduler or API verification is claimed. The earlier local-file browser restriction was not bypassed.
+
+C-082 selects Listening focus with the displayed support/task/evidence/error/mobile direction. The no-audio prototype and all verification limits above remain. Next explore supplemental materials. Visual acceptance does not authorize implementation, audio/content generation, purchases, external messages, deployment or merging.
 
 ## Design directions and unresolved details
 
