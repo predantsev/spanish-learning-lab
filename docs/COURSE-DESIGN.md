@@ -368,6 +368,12 @@ Source for C-080: on 2026-10-27, the owner selected Далі in the native catal
 |---|---|
 | C-080 | Adopt List and details for the catalog: Ukrainian/Spanish labels and search by familiar names/forms; topic and situation routes to the same material/history; rule, study and specific-skill practice with written/listening/mixed choice; contextual help and separate phone details retaining selection on return. Exact search coverage, reviewed target/mode availability and browser/device behavior remain implementation/content checks. Next design My phrases and collections. No implementation or merge permission is inferred. |
 
+Source for C-081: on 2026-10-27, the owner selected Далі in the native My phrases decision, accepting Library and collections with the displayed shared library/history, capture/readiness/selection/audio-availability/help/phone direction. Carousel browsing was not treated as a different selection.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-081 | Adopt Library and collections for My phrases: searchable/filterable shared records, personal and course collections, a course pack as a personal starting point, three capture paths, draft review before practice, explicit ready-item selection, reviewed-recording availability for listening, contextual help and separate phone details. Keep shared history across memberships. Exact content/validation contracts and actual browser/device/runtime behavior remain pending. Next design listening; no implementation or merge permission is inferred. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -918,13 +924,13 @@ Accepted under C-052: include prepared, reviewed thematic packs such as At the s
 
 Recommended screen organization: My collections and Course collections, with search, optional favorites, and a short purpose/level description for each prepared pack. The recommendations concern written and listening practice only. Both collection types are accepted under C-052. Continue with contextual-help details and listening-screen design; remaining collection controls and layout still require refinement.
 
-### My phrases and collections visual exploration — proposed, 2026-10-27
+### My phrases and collections visual exploration — selected direction, 2026-10-27
 
-Status: layout pending owner selection. The conversation-only spanish-phrases.html mockup builds on C-022/C-023/C-051/C-052/C-053 and the accepted home/catalog palette/navigation. All phrase text, readiness/audio flags, collection links and counts are synthetic examples; they are not reviewed course assets or records of the owner's learning. No application feature or content-quality result is claimed.
+Status: Library and collections selected under C-081 via the native Далі response on 2026-10-27; Collections first remains the comparison. The conversation-only spanish-phrases.html mockup builds on C-022/C-023/C-051/C-052/C-053 and the accepted home/catalog palette/navigation. All phrase text, readiness/audio flags, collection links and counts are synthetic examples; they are not reviewed course assets or records of the owner's learning. No application feature or content-quality result is claimed.
 
 | Alternative | Layout | Discussion trade-off |
 |---|---|---|
-| Library and collections (Бібліотека й добірки) — recommended | Opens one searchable library with a phrase-detail pane on a computer; personal and course collections are adjacent routes. | Keeps drafts and ready phrases findable without requiring collection setup. A narrow screen opens details separately with Back. |
+| Library and collections (Бібліотека й добірки) — selected | Opens one searchable library with a phrase-detail pane on a computer; personal and course collections are adjacent routes. | Keeps drafts and ready phrases findable without requiring collection setup. A narrow screen opens details separately with Back. |
 | Collections first (Спочатку добірки) | Opens named personal collections; collection phrases use cards and a separate detail view on computer and phone widths. | Gives personal grouping more prominence, with an extra navigation step to individual details. All phrases remains available. |
 
 Proposed shared behavior:
@@ -940,7 +946,7 @@ Proposed shared behavior:
 
 Checks performed: read/parsed the literal fragment; checked static IDs, two named alternatives, semantic button types, required control selectors, fragment size below 1 MB and no network/browser-learner-storage/HTML-injection calls. Extracted the script for node --check. Executed pure preview-data functions to check draft exclusion, visible selected scope, paused manual access, Spanish/Ukrainian search/no-results, all-selected audio eligibility, shared-reference collection copy and membership removal preserving the underlying phrase/source pack. Generated the preview wrapper without a server. No DOM/browser interaction, visual layout, real Chrome/iPhone, focus/screen-reader/software-keyboard behavior, actual audio/task-bank availability, review quality, history persistence or API behavior is verified. The earlier local-file browser restriction was not bypassed.
 
-Next owner decision: select Library and collections with the displayed capture/readiness/selection/shared-record/help/mobile direction, or request changes. Then explore the listening screen. Selection concerns visual planning; it does not authorize application implementation, content generation, purchases, external messages, deployment or merging.
+C-081 selects Library and collections with the displayed capture/readiness/selection/shared-record/help/mobile direction. The synthetic examples and exact technical behavior retain the limits above. Next explore listening. Visual acceptance does not authorize application implementation, content generation, purchases, external messages, deployment or merging.
 
 ### Contextual interface help — accepted need, proposed presentation
 
