@@ -356,6 +356,12 @@ Source for C-078: on 2026-10-26, the owner selected Далі in the native B1/B2
 |---|---|
 | C-078 | Adopt the proposed B1/B2 continuation direction: connected everyday accounts/plans/requests/explanations/messages/input at B1; more complex time relationships, hypotheses/nuance, argument, reformulation, register and richer input at B2. Retain personal constructions, prior skill histories and specific review across stages. Deliver the complete agreed A1-A2 stage first, then B1, then B2. The six roadmap areas per level are not fixed lesson counts; later detail/source/variant reconciliation and linguistic/audio review remain pending. Next explore the home-screen design. Content authoring, implementation, spending and merge permission are not inferred. |
 
+Source for C-079: on 2026-10-27, the owner selected Далі in the native home-design decision, accepting One focus and the displayed fallback/help/mobile direction, then continuing to the topic/situation catalog.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-079 | Adopt One focus as the home-layout direction: prominent recommended review, separate Resume and Choose topic, nearby contextual help and secondary brief activity. Stack actions with bottom navigation on a phone. With no eligible review, offer the saved activity; on first use, offer a course start while retaining manual topic access. This accepts visual direction, not verified browser/iPhone behavior, a connected course, implementation or merging. Next design the topic/situation catalog. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -663,7 +669,7 @@ Accepted direction: C-025/C-026. Proposed execution sequence, to revisit after t
 2. Compare course navigation, explanation, exercise entry, progressive hints, feedback, review selection, and the personal-phrase collection on both computer and phone.
 3. Prototype the chosen direction and test its primary flows before final UI implementation. Keep findings and the chosen design alongside the canonical product docs when this stage begins.
 
-A responsive browser application is the proposed initial delivery approach; native apps are not required by this request. Phone use must support actual practice, not just reading. Proposed checks: readable text, touch controls, on-screen keyboard and accented input, feedback visible while typing, resumable drafts, no hover-only controls, and alternatives to drag-only tasks. Verify on real mobile browsers in addition to viewport previews. Exact devices/browsers remain open.
+A responsive browser application is the proposed initial delivery approach; native apps are not required by this request. Phone use must support actual practice, not just reading. Proposed checks: readable text, touch controls, on-screen keyboard and accented input, feedback visible while typing, resumable drafts, no hover-only controls, and alternatives to drag-only tasks. Verify on real mobile browsers in addition to viewport previews. C-059 confirms Chrome on macOS and an iPhone/iOS; Safari remains the proposed phone test browser. Record actual versions and real-device checks later.
 
 Phone usability and progress sharing between devices are separate requirements: cross-device sync, hosting/reachability, offline behavior, and accounts are still undecided. Do not promise that a laptop-only local server or browser-local progress will automatically be available on a phone.
 
@@ -702,7 +708,30 @@ C-049 accepts the hierarchy building on C-045. Detailed navigation labels and vi
 - A direct Choose topic route with study and practice options, including topics learned elsewhere. This remains available regardless of recommendations.
 - Persistent navigation to Course, Practice, My phrases, and Progress; listening is an available practice filter rather than an obligatory separate course. Settings remain accessible without competing with the learning actions.
 
-Accepted under C-049: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. Next discuss manual topic navigation; the home-screen mockup remains planned before final UI implementation.
+Accepted under C-049: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. The One focus home direction below is accepted under C-079; manual navigation routes are already accepted under C-050. Final UI implementation remains unauthorized.
+
+### Home-screen visual exploration — selected direction, 2026-10-27
+
+Status: One focus selected on 2026-10-27 under C-079 via the native Далі choice; Compact overview remains the comparison alternative. Both use synthetic data. Both follow the accepted C-049 hierarchy and the C-048 Focus palette/direction. The preview source is spanish-home.html in this conversation's task-owned visualization directory, separate from the application repository/runtime. It is a design discussion surface, not a connected course or authored lesson bank.
+
+| Alternative | Layout | Discussion trade-off |
+|---|---|---|
+| One focus (Один фокус) — selected | A prominent next-step panel; Resume and Choose topic are separate secondary cards. Brief activity comes last. | Gives one clear entry while keeping manual choice available; the phone stack needs owner review for spacing/scroll length. |
+| Compact overview (Компактний огляд) | A denser recommended-set list followed by compact continuation/topic rows. | Shows the proposed review targets directly; adds more visible detail before starting. |
+
+Displayed behavior accepted as design direction under C-079:
+
+- Returning learner: a small recommended set with an example reason tied to an actual target in a future real application. In the synthetic preview it uses the participle hecho, pronoun order and auditory phrase meaning. Counts/time guidance are invented demonstration values, not measured learner records or a calibrated duration estimate.
+- Resume names the saved context and position. It remains distinct from a recommended new review set. Direct topic choice remains available and can lead to a rule, focused practice or listening, including familiar material studied elsewhere.
+- With no eligible review, the next-step panel offers the saved activity if present, otherwise a suitable course start. With no saved activity, the secondary route shows the course map. The first-visit state hides invented prior activity and keeps manual topic access.
+- Computer: persistent left navigation to Home, Course, Practice, My phrases and Progress, plus accessible settings. Phone-width view: a single-column action stack and labeled bottom navigation. Desktop phrase/listening shortcuts are omitted on narrow layouts to avoid duplicating navigation; listening remains a Practice/Choose topic route.
+- A tap/click question-mark control explains review, resume or manual topic selection. Controls are semantic buttons with accessible labels and native focus behavior. Back/Escape returns from the local detail preview; the source attempts to restore focus to its trigger. Actual assistive-technology behavior remains unverified.
+- The brief activity overview is secondary and can be hidden in the design controls. It reports synthetic activity only, not mastery, streaks, points, quotas or an overdue penalty. Detailed real progress still requires implementation against C-045.
+- Local presentation controls switch computer/iPhone width, returning/first-visit/no-review examples, and the optional activity overview. Variant browsing is local. Clicking product actions shows a bounded illustrative detail view, not real course navigation, grading, review scheduling, audio playback or a data/API write.
+
+Checks performed: read back/parsed the literal fragment, checked unique IDs and two named variants, semantic button types, selected control/section presence, no network/learner-storage calls, and JavaScript syntax with node --check. Generated a standalone preview wrapper with the visualization renderer. No browser layout/runtime execution, real Chrome or iPhone test, software-keyboard behavior, actual audio, reachability or synchronization is verified; a width switch does not establish those properties. No browser-policy workaround or server was started.
+
+C-079 selects One focus with the displayed fallback states, manual choice and contextual help. Next detail the topic/situation catalog. The visual selection does not establish runtime or real-phone verification and does not authorize application implementation or merging.
 
 ### Manual topic navigation — accepted routes and proposed details
 
