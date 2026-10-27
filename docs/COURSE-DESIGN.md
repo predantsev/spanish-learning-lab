@@ -362,6 +362,12 @@ Source for C-079: on 2026-10-27, the owner selected Далі in the native home-
 |---|---|
 | C-079 | Adopt One focus as the home-layout direction: prominent recommended review, separate Resume and Choose topic, nearby contextual help and secondary brief activity. Stack actions with bottom navigation on a phone. With no eligible review, offer the saved activity; on first use, offer a course start while retaining manual topic access. This accepts visual direction, not verified browser/iPhone behavior, a connected course, implementation or merging. Next design the topic/situation catalog. |
 
+Source for C-080: on 2026-10-27, the owner selected Далі in the native catalog decision, accepting List and details with name/form search, shared topic/situation routes, specific targets, written/listening formats, help and the displayed phone/back direction. Merely browsing the comparison carousel was not treated as selection.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-080 | Adopt List and details for the catalog: Ukrainian/Spanish labels and search by familiar names/forms; topic and situation routes to the same material/history; rule, study and specific-skill practice with written/listening/mixed choice; contextual help and separate phone details retaining selection on return. Exact search coverage, reviewed target/mode availability and browser/device behavior remain implementation/content checks. Next design My phrases and collections. No implementation or merge permission is inferred. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -741,15 +747,15 @@ Proposed default: browse by learning topic with Ukrainian labels and Spanish ter
 
 After choosing a topic, offer Read rule, Learn topic, and Practice. Practice has a quick default set for that topic and optional narrower targets such as regular forms, exceptions, or contextual tense choice. Listening can be included or omitted. Familiar topics learned elsewhere remain accessible without completing all earlier course lessons; a self-report of prior study does not count as tested mastery. Any recommendation based on difficulties must use actual evidence. Unrelated topics do not silently enter a manually scoped set; mixed-topic review is an explicit choice or a clearly labeled recommendation.
 
-Both entry routes are accepted under C-050. The concrete layout/search proposal below remains unaccepted. After that selection, explore My phrases and collections. No application catalog, search index, or task-selection implementation exists.
+Both entry routes are accepted under C-050; C-080 selects the List and details direction below. Next explore My phrases and collections. No application catalog, search index, or task-selection implementation exists.
 
-### Catalog visual exploration — proposed, 2026-10-27
+### Catalog visual exploration — selected direction, 2026-10-27
 
-Status: layout direction pending owner selection. Based on C-007/C-046/C-050/C-053 and the accepted One focus home direction C-079. The conversation-only spanish-catalog.html preview uses synthetic topic/situation records and local presentation interactions; it is not application implementation or a complete curriculum index.
+Status: List and details selected under C-080 through the native Далі response on 2026-10-27; Cards and separate topic remains the comparison. Based on C-007/C-046/C-050/C-053 and the accepted One focus home direction C-079. The conversation-only spanish-catalog.html preview uses synthetic topic/situation records and local presentation interactions; it is not application implementation or a complete curriculum index.
 
 | Alternative | Layout | Discussion trade-off |
 |---|---|---|
-| List and details (Список і деталі) — recommended | Topic results remain beside a selected topic and its actions on a computer. A narrow layout opens the topic separately with a Back action. | Makes scoped manual practice visible while browsing; needs actual browser/device layout and focus checks. |
+| List and details (Список і деталі) — selected | Topic results remain beside a selected topic and its actions on a computer. A narrow layout opens the topic separately with a Back action. | Makes scoped manual practice visible while browsing; needs actual browser/device layout and focus checks. |
 | Cards and separate topic (Картки й окрема тема) | Topic cards open a separate detail view on both computer and phone widths. | Gives each topic more space in the catalog, with an extra navigation step before seeing actions. |
 
 Proposed shared behavior:
@@ -765,7 +771,7 @@ Proposed shared behavior:
 
 Checks performed: parsed the literal fragment and checked unique static IDs, two named alternatives, semantic button types, absence of document wrappers/tabindex/manual icon SVG, size below 1 MB, and no network/browser-learner-storage calls. Extracted the script and ran node --check. Executed only the pure data/search functions with assertions for hecho, iba, a Ukrainian name, no results, situation filtering, unique topic IDs and valid situation references. Generated the renderer's preview wrapper without starting a server. No DOM/browser/runtime interaction, layout, keyboard/focus/screen-reader behavior, actual Chrome/iPhone, real audio, task-bank availability, API or learner-state persistence is verified. The earlier local-file browser restriction was not bypassed.
 
-Next owner decision: accept List and details with the displayed shared navigation/search/manual-scope/help/mobile direction, or request changes. Then explore My phrases and collections. This decision concerns visual planning only; it does not authorize implementation, purchases, deployment or merging.
+C-080 accepts List and details with the displayed navigation/search/manual-scope/help/mobile direction. The sample data and exact implementation details retain the limits above. Next explore My phrases and collections. Visual acceptance does not authorize implementation, purchases, deployment or merging.
 
 ### Exercise input and navigation — accepted defaults
 
