@@ -356,6 +356,12 @@ Source for C-078: on 2026-10-26, the owner selected Далі in the native B1/B2
 |---|---|
 | C-078 | Adopt the proposed B1/B2 continuation direction: connected everyday accounts/plans/requests/explanations/messages/input at B1; more complex time relationships, hypotheses/nuance, argument, reformulation, register and richer input at B2. Retain personal constructions, prior skill histories and specific review across stages. Deliver the complete agreed A1-A2 stage first, then B1, then B2. The six roadmap areas per level are not fixed lesson counts; later detail/source/variant reconciliation and linguistic/audio review remain pending. Next explore the home-screen design. Content authoring, implementation, spending and merge permission are not inferred. |
 
+Source for C-079: on 2026-10-27, the owner selected Далі in the native home-design decision, accepting One focus and the displayed fallback/help/mobile direction, then continuing to the topic/situation catalog.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-079 | Adopt One focus as the home-layout direction: prominent recommended review, separate Resume and Choose topic, nearby contextual help and secondary brief activity. Stack actions with bottom navigation on a phone. With no eligible review, offer the saved activity; on first use, offer a course start while retaining manual topic access. This accepts visual direction, not verified browser/iPhone behavior, a connected course, implementation or merging. Next design the topic/situation catalog. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -702,18 +708,18 @@ C-049 accepts the hierarchy building on C-045. Detailed navigation labels and vi
 - A direct Choose topic route with study and practice options, including topics learned elsewhere. This remains available regardless of recommendations.
 - Persistent navigation to Course, Practice, My phrases, and Progress; listening is an available practice filter rather than an obligatory separate course. Settings remain accessible without competing with the learning actions.
 
-Accepted under C-049: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. The home visual exploration below remains proposed pending selection; manual navigation routes are already accepted under C-050. Final UI implementation remains unauthorized.
+Accepted under C-049: emphasize recommended review when it exists, while keeping Resume and Choose topic immediately visible. With an unfinished session, make its saved context clear; do not force the learner into either route. On a phone, stack actions without removing manual choice. Use synthetic examples in subsequent mockups. No streaks, penalties, inferred mastery percentages, or new activity quotas are introduced. The One focus home direction below is accepted under C-079; manual navigation routes are already accepted under C-050. Final UI implementation remains unauthorized.
 
-### Home-screen visual exploration — proposed, 2026-10-26
+### Home-screen visual exploration — selected direction, 2026-10-27
 
-Status: two in-conversation layout alternatives using synthetic data; no layout is selected yet. Both follow the accepted C-049 hierarchy and the C-048 Focus palette/direction. The preview source is spanish-home.html in this conversation's task-owned visualization directory, separate from the application repository/runtime. It is a design discussion surface, not a connected course or authored lesson bank.
+Status: One focus selected on 2026-10-27 under C-079 via the native Далі choice; Compact overview remains the comparison alternative. Both use synthetic data. Both follow the accepted C-049 hierarchy and the C-048 Focus palette/direction. The preview source is spanish-home.html in this conversation's task-owned visualization directory, separate from the application repository/runtime. It is a design discussion surface, not a connected course or authored lesson bank.
 
 | Alternative | Layout | Discussion trade-off |
 |---|---|---|
-| One focus (Один фокус) — recommended | A prominent next-step panel; Resume and Choose topic are separate secondary cards. Brief activity comes last. | Gives one clear entry while keeping manual choice available; the phone stack needs owner review for spacing/scroll length. |
+| One focus (Один фокус) — selected | A prominent next-step panel; Resume and Choose topic are separate secondary cards. Brief activity comes last. | Gives one clear entry while keeping manual choice available; the phone stack needs owner review for spacing/scroll length. |
 | Compact overview (Компактний огляд) | A denser recommended-set list followed by compact continuation/topic rows. | Shows the proposed review targets directly; adds more visible detail before starting. |
 
-Shared proposed behavior:
+Displayed behavior accepted as design direction under C-079:
 
 - Returning learner: a small recommended set with an example reason tied to an actual target in a future real application. In the synthetic preview it uses the participle hecho, pronoun order and auditory phrase meaning. Counts/time guidance are invented demonstration values, not measured learner records or a calibrated duration estimate.
 - Resume names the saved context and position. It remains distinct from a recommended new review set. Direct topic choice remains available and can lead to a rule, focused practice or listening, including familiar material studied elsewhere.
@@ -725,7 +731,7 @@ Shared proposed behavior:
 
 Checks performed: read back/parsed the literal fragment, checked unique IDs and two named variants, semantic button types, selected control/section presence, no network/learner-storage calls, and JavaScript syntax with node --check. Generated a standalone preview wrapper with the visualization renderer. No browser layout/runtime execution, real Chrome or iPhone test, software-keyboard behavior, actual audio, reachability or synchronization is verified; a width switch does not establish those properties. No browser-policy workaround or server was started.
 
-Next owner decision: adopt One focus as the home-layout direction, retaining the fallback states, visible manual choice and contextual help; request changes or choose the compact alternative otherwise. Then detail the topic/situation catalog. This decision concerns visual design only and does not authorize application implementation or merging.
+C-079 selects One focus with the displayed fallback states, manual choice and contextual help. Next detail the topic/situation catalog. The visual selection does not establish runtime or real-phone verification and does not authorize application implementation or merging.
 
 ### Manual topic navigation — accepted routes and proposed details
 
