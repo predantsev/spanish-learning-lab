@@ -1,6 +1,6 @@
 # Project instructions
 
-Read README.md, docs/STATUS.md, and docs/COURSE-DESIGN.md before working.
+Read README.md, docs/STATUS.md, docs/IMPLEMENTATION-PLAN.md, and docs/COURSE-DESIGN.md before working. Follow the domain/API/content/acceptance contracts linked from the handoff for implementation planning.
 
 ## Scope
 
