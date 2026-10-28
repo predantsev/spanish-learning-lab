@@ -386,6 +386,12 @@ Source for C-083: on 2026-10-28, the owner selected Далі in the native suppl
 |---|---|
 | C-083 | Adopt Materials in topic: related explanations/tables/examples/practice links, search and readiness/help, explicit opening of new assistant drafts, no draft or unchecked revision as a practice key, retained ready variants and unfinished responses, and a separate phone reader with Back. Exact schemas, review, API persistence/security and actual device/runtime behavior remain pending. Next design the unresolved-answer flow; no implementation or merge permission is inferred. |
 
+Source for C-084: on 2026-10-28, the owner explicitly replaced routine recommendation questions with automatic recommended choices, asked for a record of the choice and alternatives, and requested autonomous completion of a developer/team/agent-ready plan. Only genuinely critical computer/file or comparable red-level blockers justify a question. The owner prefers feedback after trying the eventual application; this request completes planning, not application implementation.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-084 | Autonomously choose recommended planning defaults, log alternatives and conditions for revisiting decisions, and finish the implementation/authoring handoff without routine owner questions. Ask only for a critical irreversible, computer/file, access or spending blocker that cannot be handled safely within scope. Keep explicit planning-versus-implementation boundaries. Reversible product/technical choices are delegated; purchases, machine configuration, deployment and unrelated destructive actions are not performed by this planning request. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -532,13 +538,13 @@ Orthography basis: [FundéuRAE, tilde diacrítica, uso](https://www.fundeu.es/re
 
 The owner accepted supported automatic checking plus an unresolved/external-review path (C-034). Continue with listening scope and content quality; exact retry counts and hint mechanics can be refined when detailing exercises.
 
-### Unresolved-answer visual exploration — proposed, 2026-10-28
+### Unresolved-answer visual exploration — delegated selection, 2026-10-28
 
-Status: layout pending owner selection. The conversation-only spanish-unresolved.html mockup illustrates C-034/C-048/C-053/C-062 with synthetic answers and review fixtures. It does not assess real Spanish, contact a reviewer or assistant, transmit an answer, or implement a grader/API. The prepared positive-review example is an explicitly selected preview scenario, not an actual model verdict or a claimed validated key.
+Status: In the exercise selected by the planning agent under C-084 on 2026-10-28, as the displayed recommended option; this is delegated selection, not an invented native owner reply. Review alongside remains the comparison. The conversation-only spanish-unresolved.html mockup illustrates C-034/C-048/C-053/C-062 with synthetic answers and review fixtures. It does not assess real Spanish, contact a reviewer or assistant, transmit an answer, or implement a grader/API. The prepared positive-review example is an explicitly selected preview scenario, not an actual model verdict or a claimed validated key.
 
 | Alternative | Layout | Discussion trade-off |
 |---|---|---|
-| In the exercise (У самій вправі) — recommended | Calm inline uncertainty message with preserved answer and prominent Continue without grade; review context opens on request. | Keeps continuation simple while retaining reference/retry/review access. |
+| In the exercise (У самій вправі) — selected under C-084 | Calm inline uncertainty message with preserved answer and prominent Continue without grade; review context opens on request. | Keeps continuation simple while retaining reference/retry/review access. |
 | Review alongside (Розбір поруч) | Preserved answer left and persistent review-context panel right, stacked on a phone. | Makes the review context immediately visible, with more information before continuing. |
 
 Proposed shared behavior:
@@ -553,7 +559,7 @@ Proposed shared behavior:
 
 Checks performed: parsed the fragment, checked static IDs/two variants/semantic button types/required selectors, size below 1 MB and no network/browser-learner-storage/raw-HTML-insertion/evaluation/clipboard calls. Extracted the script for node --check. Executed pure preview functions to check unresolved/offline outcomes, self-report separation, fixture scope across attempt IDs/revisions, retained original wording, assisted retries after reference/review and preserved continuation drafts. Generated a preview wrapper without a server. No DOM/browser/layout, keyboard/focus/screen-reader, real Chrome/iPhone, actual Spanish checking, external review, provenance authentication, API, durable history/storage or scheduler behavior is verified. The earlier local-file browser restriction was not bypassed.
 
-Next owner decision: select In the exercise with the displayed uncertainty/preservation/continuation/retry/review/mobile direction, or request changes. Then begin technical planning with local launch and storage. The core visual directions will be selected, not implemented, browser-validated or release-ready. No implementation, model dispatch, generation, spending, deployment or merge permission is inferred.
+Delegated decision under C-084: select In the exercise with the displayed uncertainty/preservation/continuation/retry/review/mobile direction. Record it as D-001 in the implementation-plan decision log. Continue technical planning autonomously; the core visual directions remain unimplemented and unverified in real browsers. No implementation, generation, spending, deployment or merge permission is inferred.
 
 ## Accepted listening direction and proposed first exercises
 
