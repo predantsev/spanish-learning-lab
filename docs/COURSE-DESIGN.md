@@ -1,10 +1,12 @@
 # Course design
 
-Updated: 2026-10-26. This is a discovery document, not an approved implementation specification.
+Updated: 2026-10-28. This records discovery evidence and owner requirements. The developer-ready technical/content specification is [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md), prepared under C-084; implementation is not authorized by these documents.
+
+Current-source rule: confirmed requirements below remain authoritative. Earlier technical “open”, “proposed”, or “not selected” wording describes the historical discussion state; where resolved, use the handoff decision log D-001–D-031 and linked contracts. Actual corpus, language/audio validation and runtime/device behavior remain unverified.
 
 ## Discussion workflow
 
-On 2026-10-21, the owner requested sequential discussion of three remaining planning parts: detailed curriculum, remaining visual designs, then the technical implementation/verification plan. Present a concrete proposal in text and use native agreement choices when available. On 2026-10-22 the owner reiterated the preference for short choices: Далі (accept this proposal and continue) or Хочу змінити (explain changes in chat); no typed agreement is required. A choice accepts the displayed proposal only; silence or a preselected option is not acceptance. This is a collaboration preference, separate from application UI requirements, and does not authorize implementation.
+On 2026-10-21, the owner requested sequential discussion of three remaining planning parts: detailed curriculum, remaining visual designs, then the technical implementation/verification plan. Present a concrete proposal in text and use native agreement choices when available. On 2026-10-22 the owner reiterated the preference for short choices: Далі (accept this proposal and continue) or Хочу змінити (explain changes in chat); no typed agreement is required. A choice accepts the displayed proposal only; silence or a preselected option is not acceptance. This is a collaboration preference, separate from application UI requirements, and does not authorize implementation. C-084 supersedes routine decision questions for the autonomous planning run: choose recommendations, log alternatives and ask only critical blockers.
 
 ## Confirmed intent
 
@@ -391,6 +393,10 @@ Source for C-084: on 2026-10-28, the owner explicitly replaced routine recommend
 | ID | Confirmed requirement |
 |---|---|
 | C-084 | Autonomously choose recommended planning defaults, log alternatives and conditions for revisiting decisions, and finish the implementation/authoring handoff without routine owner questions. Ask only for a critical irreversible, computer/file, access or spending blocker that cannot be handled safely within scope. Keep explicit planning-versus-implementation boundaries. Reversible product/technical choices are delegated; purchases, machine configuration, deployment and unrelated destructive actions are not performed by this planning request. |
+
+## Delegated handoff outcome — 2026-10-28
+
+Under C-084, the planning agent selected D-001–D-031 in IMPLEMENTATION-PLAN.md, specified persistence/evidence/scheduler/recovery in DOMAIN-SPEC.md, bounded API/schema/skill behavior in contracts/, full curriculum/audio/review production in CONTENT-PLAN.md and executable release cases in ACCEPTANCE.md. These are delegated planning choices, not fabricated owner replies or verified software. The source-index ledger mechanically preserves 107 objectives, 89 lessons, 14 optional checks and CV-01–CV-06; atomic inventories and reviewed teaching artifacts are execution deliverables. Ordinary practice uses no runtime model; prepared external assistance and content production remain distinct.
 
 ## Language and localization direction
 
@@ -1178,7 +1184,7 @@ Illustrative grammar reference: pretérito perfecto compuesto uses present-tense
 
 Illustrative skill: choosing between ser and estar. A possible sequence is a short explanation, a guided exercise, independent production, and later use in a different situation. This does not establish the learner's level or actual difficulties.
 
-## Discussion sequence
+## Historical discussion sequence
 
 1. Personal phrase entry paths and combined practice are settled under C-022 and C-023. Revisit validation responsibility with content quality, rather than blocking the next topic.
 2. Spanish of Spain and the A1-A2 outline/familiar-foundations direction are settled under C-028/C-029. Ukrainian-only initial localization and future expansion are settled under C-030/C-031. The recommended session with manual selection is accepted under C-032. Review and manual controls are accepted under C-033. Written-answer-checking direction is accepted under C-034. Listening is included under C-035/C-036. Short audio exercises are included in the first stage under C-037. The prepared core plus reviewed additions is accepted under C-038. Cross-provider review is planned under C-039 and audio preparation is accepted under C-040; local browser delivery is settled under C-041; progress persistence and recovery are accepted under C-042; offline practice and the complete A1-A2 handoff are settled under C-043/C-044; progress presentation is accepted under C-045; return-to-practice is accepted under C-046; the new-lesson flow is accepted under C-047; C-048/C-049 settle the Focus/reference direction and home priority; C-050 accepts both navigation routes; C-051/C-052 include personal and course collections; C-053 requires contextual help; C-054 settles the listening split; C-055 settles the backup policy; C-056 settles input/navigation; C-057 settles initial review intervals. C-058 accepts readiness gates and C-059 identifies the primary device targets. C-060 accepts manual review overrides. C-061 accepts practice-bank variety. C-062 includes the bounded API-plus-skill integration in the first handoff. Next complete curriculum detail, remaining visual prototypes, exact integration/technical contracts, calibration planning, and acceptance cases. Concrete voices and actual-audio validation still need a later pilot. Continue detailed curriculum work in CURRICULUM-A1-A2.md; beyond-B2 clarification remains non-blocking.
@@ -1188,24 +1194,15 @@ Illustrative skill: choosing between ser and estar. A possible sequence is a sho
 6. Agree on curriculum and sample learning flows; run the planned visual-design comparison on computer and phone, then finalize acceptance criteria and implementation scope.
 7. Revisit the deferred external-assistant plan with the settled domain model and concrete user workflows.
 
-Discuss a small number of questions per turn. Answers may change the sequence. Do not treat suggested options as decisions.
+Historical collaboration rule, now superseded for routine planning by C-084. Unaccepted past suggestions are not direct owner decisions; current delegated defaults are explicitly identified in the handoff.
 
-### Remaining product decisions
+### Current resolved defaults and remaining execution gates
 
-- Personal phrase details: resolve checking responsibility with content quality and exact scheduling with review design. All three entry paths and the combined practice direction are settled under C-022/C-023.
-- Curriculum detail: map practical abilities to the agreed A2 -> B1 -> B2 stages; clarify any beyond-B2 goal. Spanish of Spain and the brief familiar-foundations approach are settled; Ukrainian instruction with future localization is settled; detailed assessments remain open.
-- Session flow: recommended sessions with manual selection, optional new material, flexible time guidance, and resumable work are settled (C-032). Exact presets/composition and missed-day review prioritization remain to be refined.
-- Mastery and review control: adaptive per-skill review, occasional checks after marking known, and a separate pause are settled (C-033); initial intervals are accepted under C-057. Queue fairness, exact manual-preference interactions, and evidence thresholds remain to be specified.
-- Exercise feedback: valid alternatives, targeted corrections, meaningful orthography, and unresolved answers with optional external review are settled (C-034). Exact checking rules, hint levels, retry limits, and content-review mechanics remain open.
-- Content scope and quality: detailed listening coverage, native-speaker audio provenance, curriculum sources and rights, linguistic review, and the distinction between a validated data structure and a correct teaching example.
-- Product environment and continuity: initial local browser operation is settled under C-041, and progress/backup/export direction under C-042. Offline practice is settled under C-043; supported browsers and backup implementation details remain open; hosting, remote phone access, and cross-device sync are deferred. Mobile-friendly layouts remain planned.
-- Visual design: C-048 selects the Focus/reference exercise direction, C-049 sets the home priority, and C-050 accepts both navigation routes. Remaining screens, detailed layouts, and browser/mobile verification are still open.
+The handoff resolves session presets, evidence/checking, queue fairness/preferences, storage/recovery, browser/phone targets, offline packaging, API/security/skill, visual-state implementation and initial stack. It records alternatives/revisit triggers rather than asking further routine questions. The adopted layouts remain reference prototypes with their original validation limits.
 
-These are open decisions, not a questionnaire to answer all at once. Learning and return-to-practice walkthroughs are accepted under C-046/C-047. Refine their concrete acceptance criteria alongside remaining screen design, then finalize the implementation plan and deferred integration design.
+Remaining work is execution after separate authorization: author/reconcile the item-level source/lexical/variant inventory; calibrate opposite-provider text review; select and evaluate actual Spain-audio files within authorized cost/rights; build and test the full app; verify Chrome and a real iPhone; prove recovery/security/API/skill behavior. A model/capability or licensing gate is not already passed merely because this plan selects a candidate.
 
-## Open boundaries
-
-Beyond-B2 scope, detailed level mapping, and assessment thresholds; detailed localization pack validation/publication; supported computer/mobile browsers and cross-device continuity; exact optional session time presets/composition; detailed listening coverage and exercise design; source and rights of learning content; use alongside a teacher; progress storage implementation and privacy; offline packaging details; AI/API usage and cost; accessibility; license; hosting; technology; exact review algorithm and mastery evidence thresholds. Listening inclusion with adaptive recognition practice, Ukrainian-only initial instruction with future localization, Spanish of Spain, the accepted A1-A2 outline and brief familiar-foundations approach, staged delivery through at least B2 with A2 first, computer/phone use, a later visual-design stage, and exclusion of conversation/speaking are settled.
+Hosting/remote phone access/sync, more locales, MCP, beyond-B2, optional human review, public package distribution/license and additional spending remain deferred. None blocks completion of the local-use implementation plan; required language/audio/device gates can block a later release. Speaking/conversation remains excluded. No build, purchase, deployment or merge permission is inferred.
 
 ## Reference inspected
 
