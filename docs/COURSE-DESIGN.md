@@ -380,6 +380,12 @@ Source for C-082: on 2026-10-28, the owner replied Далі immediately after th
 |---|---|
 | C-082 | Adopt Listening focus: centered player/task, requested transcript/meaning with retained disclosure evidence, meaning comprehension by default and separate dictation, neutral replay, retained answers/feedback until explicit Next, optional difficulty reports, repeat-more/save directions, and retry or an explicit non-listening written alternative after audio failure. Real recordings, audio/content quality, device/runtime behavior and exact implementation remain pending. Next design supplemental materials; no implementation or merge permission is inferred. |
 
+Source for C-083: on 2026-10-28, the owner selected Далі in the native supplemental-material decision, accepting Materials in topic with the displayed discovery/readiness/revision/return/help/mobile direction and continuing to unresolved-answer design.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-083 | Adopt Materials in topic: related explanations/tables/examples/practice links, search and readiness/help, explicit opening of new assistant drafts, no draft or unchecked revision as a practice key, retained ready variants and unfinished responses, and a separate phone reader with Back. Exact schemas, review, API persistence/security and actual device/runtime behavior remain pending. Next design the unresolved-answer flow; no implementation or merge permission is inferred. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -1085,13 +1091,13 @@ Arbitrary interactive HTML would require separate-origin isolation, a tightly re
 
 Security basis checked on 2026-10-07: [OWASP XSS Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) describes risks from executable untrusted content and contextual encoding/sanitization; [MDN iframe documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe) documents sandbox capabilities and cautions. The recommendation for this application is a design inference from those sources. A public source repository does not itself publish learner data or authorize API access; those boundaries still require a correct implementation.
 
-### Supplemental-material visual exploration — proposed, 2026-10-28
+### Supplemental-material visual exploration — selected direction, 2026-10-28
 
-Status: layout pending owner selection. The conversation-only spanish-materials.html mockup builds on C-020/C-038/C-048/C-062 and the accepted home/catalog/phrase/listening directions. All materials, readiness/source labels, revisions, practice references and the unfinished response are synthetic examples. A Ready label in the mockup is not evidence of actual linguistic or cross-provider review.
+Status: Materials in topic selected under C-083 via the native Далі response on 2026-10-28; Separate library remains the comparison. The conversation-only spanish-materials.html mockup builds on C-020/C-038/C-048/C-062 and the accepted home/catalog/phrase/listening directions. All materials, readiness/source labels, revisions, practice references and the unfinished response are synthetic examples. A Ready label in the mockup is not evidence of actual linguistic or cross-provider review.
 
 | Alternative | Layout | Discussion trade-off |
 |---|---|---|
-| Materials in topic (Матеріали в темі) — recommended | Opens the current topic's additional explanations/sets, with a list and reader on a computer. Related-topic filtering remains available. | Keeps the route near the current need and uses the accepted list/detail pattern. A phone opens the reader separately with Back. |
+| Materials in topic (Матеріали в темі) — selected | Opens the current topic's additional explanations/sets, with a list and reader on a computer. Related-topic filtering remains available. | Keeps the route near the current need and uses the accepted list/detail pattern. A phone opens the reader separately with Back. |
 | Separate library (Окрема бібліотека) | Opens all topics as material cards and a separate reader on computer and phone widths. | Helps browsing across topics, with an extra step/context choice before reading. Both routes remain within Course, not a new primary navigation category. |
 
 Proposed shared behavior:
@@ -1107,7 +1113,7 @@ Proposed shared behavior:
 
 Checks performed: parsed the literal fragment, checked unique static IDs/two named alternatives/semantic button types/required selectors, size below 1 MB and no network/browser-learner-storage/raw-HTML-insertion/evaluation calls. Extracted the script for node --check. Executed pure preview functions for topic/name/form/status search, no results, ready-versus-draft revision gating, new-draft visibility without automatic context replacement, material opening with answer retention and allowed sample block types. Generated the preview wrapper without a server. No DOM/browser/layout, keyboard/focus/screen-reader, real Chrome/iPhone, actual content/source validation, bank/API connectivity, security, persistence, history correction or refresh behavior is verified. The earlier local-file browser restriction was not bypassed.
 
-Next owner decision: select Materials in topic with the displayed discovery/readiness/revision/return/help/mobile direction, or request changes. Then complete the already-required unresolved-answer visual flow before the technical plan. This decision authorizes visual planning only; no implementation, content generation, model dispatch, publication, deployment or merge is inferred.
+C-083 selects Materials in topic with the displayed discovery/readiness/revision/return/help/mobile direction. All synthetic-data and verification limits above remain. Next complete the already-required unresolved-answer visual flow before the technical plan. Visual acceptance does not authorize implementation, content generation, model dispatch, publication, deployment or merging.
 
 ### Accepted external-assistance direction
 
