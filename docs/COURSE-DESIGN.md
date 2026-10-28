@@ -532,6 +532,29 @@ Orthography basis: [FundéuRAE, tilde diacrítica, uso](https://www.fundeu.es/re
 
 The owner accepted supported automatic checking plus an unresolved/external-review path (C-034). Continue with listening scope and content quality; exact retry counts and hint mechanics can be refined when detailing exercises.
 
+### Unresolved-answer visual exploration — proposed, 2026-10-28
+
+Status: layout pending owner selection. The conversation-only spanish-unresolved.html mockup illustrates C-034/C-048/C-053/C-062 with synthetic answers and review fixtures. It does not assess real Spanish, contact a reviewer or assistant, transmit an answer, or implement a grader/API. The prepared positive-review example is an explicitly selected preview scenario, not an actual model verdict or a claimed validated key.
+
+| Alternative | Layout | Discussion trade-off |
+|---|---|---|
+| In the exercise (У самій вправі) — recommended | Calm inline uncertainty message with preserved answer and prominent Continue without grade; review context opens on request. | Keeps continuation simple while retaining reference/retry/review access. |
+| Review alongside (Розбір поруч) | Preserved answer left and persistent review-context panel right, stacked on a phone. | Makes the review context immediately visible, with more information before continuing. |
+
+Proposed shared behavior:
+
+- Preserve the submitted wording and initial unresolved result. Use a neutral message that reliable assessment is not yet available, without a failure/success marker or automatic mastery/review-stage change for that unresolved target. Existing independently established subskill evidence remains separate; the mockup invents none.
+- Offer explicit Continue without grade, Retry, requested reference and optional external review. Continuing shows a separate next-task draft and a return route to the unresolved answer; it does not force review, connectivity or a retry loop. A shown reference is one example, not the only possible valid sentence.
+- Keep each retry as a separate local record; a later edit does not overwrite the original. The retry flow intentionally remains unresolved in this uncertainty demo rather than claiming general grading coverage. Reference disclosure persists after hiding it and enters later retry support. Showing a scoped review explanation also counts as prior support for subsequent attempts; opening interface help does not.
+- Prepare only the selected attempt's prompt/target/answer and pre-submit support context. Show what is included before any future external action. Mark for later review without blocking unrelated installed practice. Preparation and an optional learner self-report do not resolve correctness; the personal marker stays distinct from a verified result.
+- Preview-only states show pending review, unavailable internet and a returned result for the original sample. Offline keeps uncertainty and continuation available. The result example is bound to the original attempt ID and task revision; it cannot resolve another retry or changed revision. Show it separately from the initial unresolved result, retaining the original wording/provenance and without creating a new independent attempt. The ID/revision fixture check does not implement actual review authenticity, content validation, corrected-evidence rules or API verification.
+- Keep tap/click question-mark help, visible multiline Command+Enter/Ctrl+Enter reminders and ordinary buttons. Phone layouts reflow the answer/review panels without hover-only actions. Exact focus, assistive-technology, software-keyboard and shortcut execution remain unverified.
+- Host preview persistence contains only device/scenario/display and review-panel-open preferences. Answer text, retry history, reference exposure, personal markers, prepared/later flags and next-task drafts are transient preview memory. There is no durable learner storage, scheduler, review dispatch, model invocation, export or public publication.
+
+Checks performed: parsed the fragment, checked static IDs/two variants/semantic button types/required selectors, size below 1 MB and no network/browser-learner-storage/raw-HTML-insertion/evaluation/clipboard calls. Extracted the script for node --check. Executed pure preview functions to check unresolved/offline outcomes, self-report separation, fixture scope across attempt IDs/revisions, retained original wording, assisted retries after reference/review and preserved continuation drafts. Generated a preview wrapper without a server. No DOM/browser/layout, keyboard/focus/screen-reader, real Chrome/iPhone, actual Spanish checking, external review, provenance authentication, API, durable history/storage or scheduler behavior is verified. The earlier local-file browser restriction was not bypassed.
+
+Next owner decision: select In the exercise with the displayed uncertainty/preservation/continuation/retry/review/mobile direction, or request changes. Then begin technical planning with local launch and storage. The core visual directions will be selected, not implemented, browser-validated or release-ready. No implementation, model dispatch, generation, spending, deployment or merge permission is inferred.
+
 ## Accepted listening direction and proposed first exercises
 
 Accepted scope: C-035/C-036. The prior suggestion to defer all audio is superseded as a recommendation. Listening is required in the planned course; the owner accepted a small listening component in the first usable A1-A2 stage under C-037. No audio corpus, recordings, or playback implementation exists.
