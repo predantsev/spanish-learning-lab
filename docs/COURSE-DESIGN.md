@@ -386,6 +386,12 @@ Source for C-083: on 2026-10-28, the owner selected Далі in the native suppl
 |---|---|
 | C-083 | Adopt Materials in topic: related explanations/tables/examples/practice links, search and readiness/help, explicit opening of new assistant drafts, no draft or unchecked revision as a practice key, retained ready variants and unfinished responses, and a separate phone reader with Back. Exact schemas, review, API persistence/security and actual device/runtime behavior remain pending. Next design the unresolved-answer flow; no implementation or merge permission is inferred. |
 
+Source for C-084: on 2026-10-28, the owner explicitly replaced routine recommendation questions with automatic recommended choices, asked for a record of the choice and alternatives, and requested autonomous completion of a developer/team/agent-ready plan. Only genuinely critical computer/file or comparable red-level blockers justify a question. The owner prefers feedback after trying the eventual application; this request completes planning, not application implementation.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-084 | Autonomously choose recommended planning defaults, log alternatives and conditions for revisiting decisions, and finish the implementation/authoring handoff without routine owner questions. Ask only for a critical irreversible, computer/file, access or spending blocker that cannot be handled safely within scope. Keep explicit planning-versus-implementation boundaries. Reversible product/technical choices are delegated; purchases, machine configuration, deployment and unrelated destructive actions are not performed by this planning request. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -531,6 +537,29 @@ Accepted feedback direction; detailed mechanisms remain open:
 Orthography basis: [FundéuRAE, tilde diacrítica, uso](https://www.fundeu.es/recomendacion/tilde-diacritica/), checked 2026-10-13, distinguishes pairs including tú/tu and él/el by meaning or grammatical function. This supports preserving distinctions in evaluation; the accepted product feedback policy above is not a grading scheme prescribed by that source.
 
 The owner accepted supported automatic checking plus an unresolved/external-review path (C-034). Continue with listening scope and content quality; exact retry counts and hint mechanics can be refined when detailing exercises.
+
+### Unresolved-answer visual exploration — delegated selection, 2026-10-28
+
+Status: In the exercise selected by the planning agent under C-084 on 2026-10-28, as the displayed recommended option; this is delegated selection, not an invented native owner reply. Review alongside remains the comparison. The conversation-only spanish-unresolved.html mockup illustrates C-034/C-048/C-053/C-062 with synthetic answers and review fixtures. It does not assess real Spanish, contact a reviewer or assistant, transmit an answer, or implement a grader/API. The prepared positive-review example is an explicitly selected preview scenario, not an actual model verdict or a claimed validated key.
+
+| Alternative | Layout | Discussion trade-off |
+|---|---|---|
+| In the exercise (У самій вправі) — selected under C-084 | Calm inline uncertainty message with preserved answer and prominent Continue without grade; review context opens on request. | Keeps continuation simple while retaining reference/retry/review access. |
+| Review alongside (Розбір поруч) | Preserved answer left and persistent review-context panel right, stacked on a phone. | Makes the review context immediately visible, with more information before continuing. |
+
+Proposed shared behavior:
+
+- Preserve the submitted wording and initial unresolved result. Use a neutral message that reliable assessment is not yet available, without a failure/success marker or automatic mastery/review-stage change for that unresolved target. Existing independently established subskill evidence remains separate; the mockup invents none.
+- Offer explicit Continue without grade, Retry, requested reference and optional external review. Continuing shows a separate next-task draft and a return route to the unresolved answer; it does not force review, connectivity or a retry loop. A shown reference is one example, not the only possible valid sentence.
+- Keep each retry as a separate local record; a later edit does not overwrite the original. The retry flow intentionally remains unresolved in this uncertainty demo rather than claiming general grading coverage. Reference disclosure persists after hiding it and enters later retry support. Showing a scoped review explanation also counts as prior support for subsequent attempts; opening interface help does not.
+- Prepare only the selected attempt's prompt/target/answer and pre-submit support context. Show what is included before any future external action. Mark for later review without blocking unrelated installed practice. Preparation and an optional learner self-report do not resolve correctness; the personal marker stays distinct from a verified result.
+- Preview-only states show pending review, unavailable internet and a returned result for the original sample. Offline keeps uncertainty and continuation available. The result example is bound to the original attempt ID and task revision; it cannot resolve another retry or changed revision. Show it separately from the initial unresolved result, retaining the original wording/provenance and without creating a new independent attempt. The ID/revision fixture check does not implement actual review authenticity, content validation, corrected-evidence rules or API verification.
+- Keep tap/click question-mark help, visible multiline Command+Enter/Ctrl+Enter reminders and ordinary buttons. Phone layouts reflow the answer/review panels without hover-only actions. Exact focus, assistive-technology, software-keyboard and shortcut execution remain unverified.
+- Host preview persistence contains only device/scenario/display and review-panel-open preferences. Answer text, retry history, reference exposure, personal markers, prepared/later flags and next-task drafts are transient preview memory. There is no durable learner storage, scheduler, review dispatch, model invocation, export or public publication.
+
+Checks performed: parsed the fragment, checked static IDs/two variants/semantic button types/required selectors, size below 1 MB and no network/browser-learner-storage/raw-HTML-insertion/evaluation/clipboard calls. Extracted the script for node --check. Executed pure preview functions to check unresolved/offline outcomes, self-report separation, fixture scope across attempt IDs/revisions, retained original wording, assisted retries after reference/review and preserved continuation drafts. Generated a preview wrapper without a server. No DOM/browser/layout, keyboard/focus/screen-reader, real Chrome/iPhone, actual Spanish checking, external review, provenance authentication, API, durable history/storage or scheduler behavior is verified. The earlier local-file browser restriction was not bypassed.
+
+Delegated decision under C-084: select In the exercise with the displayed uncertainty/preservation/continuation/retry/review/mobile direction. Record it as D-001 in the implementation-plan decision log. Continue technical planning autonomously; the core visual directions remain unimplemented and unverified in real browsers. No implementation, generation, spending, deployment or merge permission is inferred.
 
 ## Accepted listening direction and proposed first exercises
 

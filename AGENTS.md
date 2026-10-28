@@ -18,6 +18,10 @@ Standalone digest: English tracked documentation and code; GitHub Issues; issue 
 
 On the original maintainer workstation, select the personal predantsev account before gh commands. Other contributors use their own authorized account. Canonical public repository: predantsev/spanish-learning-lab.
 
+## Autonomous planning
+
+Under C-084 (2026-10-28), choose recommended reversible planning defaults without routine owner questions. Record each material decision, alternatives, rationale and revisit conditions in the implementation plan. Escalate only critical blockers; application implementation, purchases, machine configuration and deployment remain outside this planning phase.
+
 ## Continuity and evidence
 
 The primary Codex agent keeps docs/STATUS.md current at material milestones and records discussion outcomes in docs/COURSE-DESIGN.md. Do not create parallel status documents. Tie confirmed requirements to the owner's dated statements. Mark research claims with sources and uncertain conclusions as unconfirmed or inferred.
