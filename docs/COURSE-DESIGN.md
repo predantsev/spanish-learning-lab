@@ -380,6 +380,12 @@ Source for C-082: on 2026-10-28, the owner replied Далі immediately after th
 |---|---|
 | C-082 | Adopt Listening focus: centered player/task, requested transcript/meaning with retained disclosure evidence, meaning comprehension by default and separate dictation, neutral replay, retained answers/feedback until explicit Next, optional difficulty reports, repeat-more/save directions, and retry or an explicit non-listening written alternative after audio failure. Real recordings, audio/content quality, device/runtime behavior and exact implementation remain pending. Next design supplemental materials; no implementation or merge permission is inferred. |
 
+Source for C-083: on 2026-10-28, the owner selected Далі in the native supplemental-material decision, accepting Materials in topic with the displayed discovery/readiness/revision/return/help/mobile direction and continuing to unresolved-answer design.
+
+| ID | Confirmed requirement |
+|---|---|
+| C-083 | Adopt Materials in topic: related explanations/tables/examples/practice links, search and readiness/help, explicit opening of new assistant drafts, no draft or unchecked revision as a practice key, retained ready variants and unfinished responses, and a separate phone reader with Back. Exact schemas, review, API persistence/security and actual device/runtime behavior remain pending. Next design the unresolved-answer flow; no implementation or merge permission is inferred. |
+
 ## Language and localization direction
 
 Accepted scope: C-030/C-031. Proposed design details, with no library or storage format selected:
@@ -1084,6 +1090,30 @@ External reference links, if supported, should open by explicit learner action i
 Arbitrary interactive HTML would require separate-origin isolation, a tightly restricted sandbox, controls on network requests/navigation/downloads, and narrowly validated messages rather than access to course storage or API credentials. An iframe sandbox alone does not block every outbound request. Any such implementation needs its own threat review and tests; do not claim risk-free embedding.
 
 Security basis checked on 2026-10-07: [OWASP XSS Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) describes risks from executable untrusted content and contextual encoding/sanitization; [MDN iframe documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe) documents sandbox capabilities and cautions. The recommendation for this application is a design inference from those sources. A public source repository does not itself publish learner data or authorize API access; those boundaries still require a correct implementation.
+
+### Supplemental-material visual exploration — selected direction, 2026-10-28
+
+Status: Materials in topic selected under C-083 via the native Далі response on 2026-10-28; Separate library remains the comparison. The conversation-only spanish-materials.html mockup builds on C-020/C-038/C-048/C-062 and the accepted home/catalog/phrase/listening directions. All materials, readiness/source labels, revisions, practice references and the unfinished response are synthetic examples. A Ready label in the mockup is not evidence of actual linguistic or cross-provider review.
+
+| Alternative | Layout | Discussion trade-off |
+|---|---|---|
+| Materials in topic (Матеріали в темі) — selected | Opens the current topic's additional explanations/sets, with a list and reader on a computer. Related-topic filtering remains available. | Keeps the route near the current need and uses the accepted list/detail pattern. A phone opens the reader separately with Back. |
+| Separate library (Окрема бібліотека) | Opens all topics as material cards and a separate reader on computer and phone widths. | Helps browsing across topics, with an extra step/context choice before reading. Both routes remain within Course, not a new primary navigation category. |
+
+Proposed shared behavior:
+
+- Search title/topic/familiar forms and choose topic/readiness filters. Default to ready material; All and Needs checking remain explicit routes to drafts/review-pending content. A ready item with a pending revision remains discoverable in either relevant status view. Readiness is material validation, not learner mastery. Show source as optional supporting detail; personal assistant additions remain private by default in the eventual application.
+- Render supported structured blocks. The preview demonstrates plain explanation text, a semantic table, examples and a link to related practice, using DOM text creation; it does not load arbitrary HTML, URLs or remote embeds. The accepted broader block set remains in the content/API plan. This preview is not a production schema validator or a completed security review.
+- Ready material can lead to explicitly named reviewed bank targets with shared skill/history IDs. Pending material/revisions cannot serve as practice keys and show the reason beside a disabled action. The prototype only outlines the related practice route; no real bank, eligibility query, exercise generator or grading exists.
+- A synthetic arrival control shows a new assistant draft notice. It does not auto-open the material, replace the current selection or clear the unfinished response. View is an explicit learner action. Drafts are visibly unreviewed with an explanation of the review path; no user action here marks them linguistically Ready or sends them to a model.
+- A version control compares a ready explanation with a draft change. Viewing the change neither supersedes the reviewed version nor migrates its answer keys/history. An explicit return opens the ready variant. The sample does not implement publication, approval, editing, revision persistence, rollback or stale-write handling; those remain the C-062 technical/content checks.
+- Return to the unfinished exercise preserves the sample answer and prior material navigation. Phone Back retains the search/filter/selection. A local set records which material revisions were opened; this is a visit/disclosure illustration, not a weakness diagnosis, mastery signal or a complete assistance-attribution algorithm. Only relevant language support actually delivered should become scoped assistance evidence in implementation; interface-only help remains separate.
+- Click/tap help explains status, finding material, the external-assistant draft route and return to the answer. No-results gives search reset and how-to-add guidance. An empty Ready view does not generate unreviewed exercises or block unrelated prepared practice. Requests for more explanation/review show local help only, with no external messages or API calls.
+- Host preview persistence stores only device/arrival/source-display and private navigation/search/version metadata. Sample response text, visit flags and real course/learner data are not stored there. All response preservation is transient preview memory. A future API-created item must still pass validation, persist privately and be re-read/visible after refresh under C-062; none of that connectivity/persistence is demonstrated here.
+
+Checks performed: parsed the literal fragment, checked unique static IDs/two named alternatives/semantic button types/required selectors, size below 1 MB and no network/browser-learner-storage/raw-HTML-insertion/evaluation calls. Extracted the script for node --check. Executed pure preview functions for topic/name/form/status search, no results, ready-versus-draft revision gating, new-draft visibility without automatic context replacement, material opening with answer retention and allowed sample block types. Generated the preview wrapper without a server. No DOM/browser/layout, keyboard/focus/screen-reader, real Chrome/iPhone, actual content/source validation, bank/API connectivity, security, persistence, history correction or refresh behavior is verified. The earlier local-file browser restriction was not bypassed.
+
+C-083 selects Materials in topic with the displayed discovery/readiness/revision/return/help/mobile direction. All synthetic-data and verification limits above remain. Next complete the already-required unresolved-answer visual flow before the technical plan. Visual acceptance does not authorize implementation, content generation, model dispatch, publication, deployment or merging.
 
 ### Accepted external-assistance direction
 
