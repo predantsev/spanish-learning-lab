@@ -320,7 +320,8 @@
         "plural": { "type": "string", "maxLength": 80 },
         "meaningUk": { "type": "string", "minLength": 1, "maxLength": 300 },
         "firstLesson": { "$ref": "#/$defs/LessonId" },
-        "noteUk": { "type": "string", "maxLength": 300 }
+        "noteUk": { "type": "string", "maxLength": 300 },
+        "reviewStatus": { "description": "Optional (added 2026-11-06, #111). Absent means not yet reviewed and is treated as draft; lexical lists are reviewed before task generation (CONTENT-PLAN).", "$ref": "#/$defs/ReviewStatus" }
       }
     },
     "LexiconFile": {
@@ -421,7 +422,8 @@
         "id": { "$ref": "#/$defs/LocalId" },
         "titleUk": { "type": "string", "minLength": 1, "maxLength": 120 },
         "firstLessons": { "type": "array", "minItems": 1, "maxItems": 10, "items": { "$ref": "#/$defs/LessonId" } },
-        "laterLessons": { "type": "array", "maxItems": 20, "items": { "$ref": "#/$defs/LessonId" } }
+        "laterLessons": { "type": "array", "maxItems": 20, "items": { "$ref": "#/$defs/LessonId" } },
+        "reviewStatus": { "description": "Optional (added 2026-11-06, #111). Absent means not yet reviewed and is treated as draft (titleUk is learner-facing copy).", "$ref": "#/$defs/ReviewStatus" }
       }
     },
     "SituationFile": {
