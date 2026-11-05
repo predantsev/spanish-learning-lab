@@ -163,7 +163,7 @@ State at 2026-11-06 00:45 CET (facts, not release claims):
 
 Blockers and owner decisions (registered 2026-11-06):
 
-1. **GitHub rejects every push of new commits to this repository** (`remote: fatal error in commit_refs`, also over HTTPS and via the git blob API; creating a ref pointing at an existing commit works; githubstatus.com reported all systems operational). The branch exists remotely only at d9af3bb. A background retry runs; the PR cannot be opened until a push succeeds.
+1. Resolved: between 00:20 and 00:34 CET GitHub rejected pushes of new commits (`remote: fatal error in commit_refs`, also over HTTPS and the blob API) while githubstatus.com reported no incident; a retry at 00:34 succeeded. Recorded as a transient remote failure (cause unconfirmed).
 2. Audio generation: ElevenLabs Starter purchase not authorized; interim benchmark uses free local voices whose output rights are unconfirmed (owner-local only, never in Git). Owner decision D1 pending.
 3. Actual-file audio QA via the existing `GEMINI_API_KEY`: spend cap not authorized; prepared but not run. Owner decision D2 pending.
 4. Real iPhone Safari gate requires the owner with the device. Owner decision D3 pending.
