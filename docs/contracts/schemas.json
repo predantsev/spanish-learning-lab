@@ -2032,6 +2032,35 @@
         "deliveryRoute"
       ]
     },
+    "Payload_support_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "taskRevisionId": {
+          "$ref": "#/$defs/Id"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "rule",
+            "targeted-clue",
+            "translation",
+            "transcript",
+            "reveal"
+          ]
+        },
+        "hintIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        }
+      },
+      "required": [
+        "taskRevisionId",
+        "kind",
+        "hintIndex"
+      ]
+    },
     "Payload_support_confirm": {
       "type": "object",
       "additionalProperties": false,
@@ -2901,6 +2930,56 @@
             },
             "payload": {
               "$ref": "#/$defs/Payload_support_prepare"
+            },
+            "contextId": {
+              "$ref": "#/$defs/Id"
+            },
+            "contextRevision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "contextSnapshot": {
+              "$ref": "#/$defs/Snapshot"
+            }
+          },
+          "required": [
+            "operationId",
+            "profileEpoch",
+            "kind",
+            "subjectId",
+            "expectedRevision",
+            "payload",
+            "contextId",
+            "contextRevision",
+            "contextSnapshot"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "operationId": {
+              "$ref": "#/$defs/Id"
+            },
+            "profileEpoch": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "kind": {
+              "const": "support.request"
+            },
+            "subjectId": {
+              "$ref": "#/$defs/Id"
+            },
+            "expectedRevision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "payload": {
+              "$ref": "#/$defs/Payload_support_request"
             },
             "contextId": {
               "$ref": "#/$defs/Id"
@@ -3901,6 +3980,1076 @@
         "archiveHash",
         "trustImportedProvenance",
         "confirmation"
+      ]
+    },
+    "ExerciseTask": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "taskRevisionId": {
+          "$ref": "#/$defs/Id"
+        },
+        "logicalId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 150
+        },
+        "lessonId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "independent",
+            "delayed",
+            "transfer"
+          ]
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "choice",
+            "exact-variants",
+            "finite-slots",
+            "rubric-review"
+          ]
+        },
+        "input": {
+          "type": "string",
+          "enum": [
+            "options",
+            "short",
+            "multiline"
+          ]
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Target"
+          },
+          "minItems": 1,
+          "maxItems": 6
+        },
+        "prompt": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Block"
+          },
+          "minItems": 1,
+          "maxItems": 8
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              }
+            },
+            "required": [
+              "id",
+              "label"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "audioHashes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Hash"
+          },
+          "minItems": 0,
+          "maxItems": 2
+        },
+        "hints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 5
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "rule",
+                  "targeted-clue",
+                  "translation",
+                  "transcript",
+                  "reveal"
+                ]
+              }
+            },
+            "required": [
+              "index",
+              "kind"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 6
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "needs-review",
+            "reviewed",
+            "ready",
+            "retired",
+            "quarantined"
+          ]
+        }
+      },
+      "required": [
+        "taskRevisionId",
+        "logicalId",
+        "lessonId",
+        "role",
+        "mode",
+        "input",
+        "targets",
+        "prompt",
+        "options",
+        "audioHashes",
+        "hints",
+        "state"
+      ]
+    },
+    "ExerciseView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "task": {
+          "$ref": "#/$defs/ExerciseTask"
+        },
+        "lessonTitleUk": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "materialId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 150
+              },
+              "revisionId": {
+                "$ref": "#/$defs/Id"
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "needs-review",
+                  "reviewed",
+                  "ready",
+                  "retired",
+                  "quarantined"
+                ]
+              }
+            },
+            "required": [
+              "materialId",
+              "revisionId",
+              "titleUk",
+              "state"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 20
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "task",
+        "lessonTitleUk",
+        "materials"
+      ]
+    },
+    "HomeView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "firstUse": {
+          "type": "boolean"
+        },
+        "resume": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "contextId": {
+              "$ref": "#/$defs/Id"
+            },
+            "titleUk": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "lessonId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 20
+            },
+            "taskRevisionId": {
+              "$ref": "#/$defs/Id"
+            },
+            "lastActivityAt": {
+              "$ref": "#/$defs/Time"
+            }
+          },
+          "required": [
+            "contextId",
+            "titleUk",
+            "lessonId",
+            "taskRevisionId",
+            "lastActivityAt"
+          ]
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dueTargets": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "supportPending": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "estimatedMinutes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "dueTargets",
+            "supportPending",
+            "estimatedMinutes"
+          ]
+        },
+        "nextLesson": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lessonId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 20
+            },
+            "titleUk": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "blockId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 10
+            }
+          },
+          "required": [
+            "lessonId",
+            "titleUk",
+            "blockId"
+          ]
+        },
+        "evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "introduced": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "independent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "supported": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "uncertain": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "listening": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "stable": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "introduced",
+            "independent",
+            "supported",
+            "uncertain",
+            "listening",
+            "stable"
+          ]
+        },
+        "pack": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "state": {
+              "type": "string",
+              "enum": [
+                "ready",
+                "preview",
+                "missing"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 80
+            },
+            "hash": {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 64
+            }
+          },
+          "required": [
+            "state",
+            "version",
+            "hash"
+          ]
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "firstUse",
+        "review",
+        "evidence",
+        "pack"
+      ]
+    },
+    "LessonView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "lessonId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        },
+        "revisionId": {
+          "$ref": "#/$defs/Id"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "lesson",
+            "optional-check"
+          ]
+        },
+        "blockId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10
+        },
+        "titleUk": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "termEs": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 160
+        },
+        "summaryUk": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "estimatedMinutes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "skippableFoundation": {
+          "type": "boolean"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "needs-review",
+            "reviewed",
+            "ready",
+            "retired",
+            "quarantined"
+          ]
+        },
+        "objectives": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20
+          },
+          "minItems": 0,
+          "maxItems": 12
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 10
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "explanation",
+                  "examples",
+                  "supported-practice",
+                  "independent-practice",
+                  "reading",
+                  "listening",
+                  "writing",
+                  "summary",
+                  "self-check"
+                ]
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Block"
+                },
+                "minItems": 0,
+                "maxItems": 40
+              },
+              "tasks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ExerciseTask"
+                },
+                "minItems": 0,
+                "maxItems": 40
+              },
+              "audio": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "hash": {
+                      "$ref": "#/$defs/Hash"
+                    },
+                    "clipId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 120
+                    }
+                  },
+                  "required": [
+                    "hash",
+                    "clipId"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 6
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "titleUk",
+              "required",
+              "blocks",
+              "tasks",
+              "audio"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 14
+        },
+        "progress": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "not-started",
+                "visited",
+                "completed"
+              ]
+            },
+            "visitedStepIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 10
+              },
+              "minItems": 0,
+              "maxItems": 14
+            }
+          },
+          "required": [
+            "status",
+            "visitedStepIds"
+          ]
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "materialId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 150
+              },
+              "revisionId": {
+                "$ref": "#/$defs/Id"
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "needs-review",
+                  "reviewed",
+                  "ready",
+                  "retired",
+                  "quarantined"
+                ]
+              }
+            },
+            "required": [
+              "materialId",
+              "revisionId",
+              "titleUk",
+              "state"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "previousLessonId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 20
+        },
+        "nextLessonId": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 20
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "lessonId",
+        "revisionId",
+        "kind",
+        "blockId",
+        "titleUk",
+        "termEs",
+        "summaryUk",
+        "estimatedMinutes",
+        "skippableFoundation",
+        "state",
+        "objectives",
+        "steps",
+        "progress",
+        "materials",
+        "previousLessonId",
+        "nextLessonId"
+      ]
+    },
+    "ProgressView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "blockId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 10
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "lessons": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "lessonId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 20
+                    },
+                    "titleUk": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "lesson",
+                        "optional-check"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "not-started",
+                        "visited",
+                        "completed"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "lessonId",
+                    "titleUk",
+                    "kind",
+                    "status"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 20
+              }
+            },
+            "required": [
+              "blockId",
+              "titleUk",
+              "lessons"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "target": {
+                "$ref": "#/$defs/Target"
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "label": {
+                "type": "string",
+                "enum": [
+                  "stable",
+                  "independent",
+                  "supported",
+                  "uncertain",
+                  "introduced"
+                ]
+              },
+              "reasonKey": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 150
+              },
+              "lastEvidenceDate": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 10
+              },
+              "dueDate": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 10
+              },
+              "frequency": {
+                "type": "string",
+                "enum": [
+                  "usual",
+                  "repeat-more",
+                  "known"
+                ]
+              },
+              "paused": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "target",
+              "titleUk",
+              "label",
+              "reasonKey",
+              "lastEvidenceDate",
+              "dueDate",
+              "frequency",
+              "paused"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 3000
+        },
+        "summary": {
+          "$ref": "#/$defs/Summary"
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "blocks",
+        "targets",
+        "summary"
+      ]
+    },
+    "PhraseLibraryView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "phrases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/Id"
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "logicalId": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 150
+              },
+              "spanish": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 2000
+              },
+              "ukrainian": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 2000
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "needs-review",
+                  "reviewed",
+                  "ready",
+                  "retired",
+                  "quarantined"
+                ]
+              },
+              "origin": {
+                "type": "string",
+                "enum": [
+                  "course",
+                  "spanish",
+                  "uk-intent"
+                ]
+              },
+              "collectionIds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "minItems": 0,
+                "maxItems": 200
+              },
+              "practiceReady": {
+                "type": "boolean"
+              },
+              "archived": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "revision",
+              "logicalId",
+              "spanish",
+              "ukrainian",
+              "state",
+              "origin",
+              "collectionIds",
+              "practiceReady",
+              "archived"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 3000
+        },
+        "collections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Collection"
+          },
+          "minItems": 0,
+          "maxItems": 300
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "phrases",
+        "collections"
+      ]
+    },
+    "MaterialsView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "topicId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20
+        },
+        "titleUk": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "materialId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 150
+              },
+              "revisionId": {
+                "$ref": "#/$defs/Id"
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "draft",
+                  "needs-review",
+                  "reviewed",
+                  "ready",
+                  "retired",
+                  "quarantined"
+                ]
+              },
+              "origin": {
+                "type": "string",
+                "enum": [
+                  "course",
+                  "personal"
+                ]
+              },
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Block"
+                },
+                "minItems": 0,
+                "maxItems": 40
+              },
+              "linkedTargets": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Target"
+                },
+                "minItems": 0,
+                "maxItems": 30
+              }
+            },
+            "required": [
+              "materialId",
+              "revisionId",
+              "revision",
+              "titleUk",
+              "state",
+              "origin",
+              "blocks",
+              "linkedTargets"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 60
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "topicId",
+        "titleUk",
+        "materials"
+      ]
+    },
+    "ListeningView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "lessonId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 20
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "blockId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 10
+              },
+              "level": {
+                "type": "string",
+                "enum": [
+                  "phrase",
+                  "sentence",
+                  "text"
+                ]
+              },
+              "taskRevisionIds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Id"
+                },
+                "minItems": 0,
+                "maxItems": 40
+              },
+              "clipCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "dueTargets": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "lessonId",
+              "titleUk",
+              "blockId",
+              "level",
+              "taskRevisionIds",
+              "clipCount",
+              "dueTargets"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 200
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "items"
       ]
     },
     "ContextList": {

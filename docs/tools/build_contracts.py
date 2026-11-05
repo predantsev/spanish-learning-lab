@@ -64,6 +64,7 @@ P={
 'attempt.submit':obj({'draftId':ref('Id'),'draftRevision':I,'taskRevisionId':ref('Id'),'response':{'oneOf':[obj({'text':st(8000,0)}),obj({'optionId':st(100)})]}}),
 'support.observe':obj({'kind':enum('interface-help','replay','speed-change','learner-reported-help'),'targets':arr(ref('Target'),0,30),'detailKey':st(150)}),
 'support.prepare':obj({'targets':arr(ref('Target'),1,30),'kind':enum('rule','targeted-clue','translation','transcript','reveal','external-help'),'blocks':arr(ref('Block'),1,12),'taskRevisionId':ref('Id'),'deliveryRoute':enum('external','app')}),
+'support.request':obj({'taskRevisionId':ref('Id'),'kind':enum('rule','targeted-clue','translation','transcript','reveal'),'hintIndex':{'type':'integer','minimum':0,'maximum':5}}),
 'support.confirm':obj({'contentHash':ref('Hash'),'deliveryId':ref('Id'),'reportedDeliveredAt':ref('Time'),'phase':enum('before-submit','after-submit','unknown'),'targets':arr(ref('Target'),1,30)}),
 'support.cancel':obj({'delivery':enum('confirmed-undelivered','delivery-unknown'),'reason':st(500)}),
 'practice.create':obj({'targets':arr(ref('Target'),1,30),'mode':enum('written','listening','mixed'),'maxItems':{'type':'integer','minimum':1,'maximum':30},'phraseIds':arr(ref('Id'),0,100)}),
@@ -84,7 +85,7 @@ for k,p in P.items():
     props={'operationId':ref('Id'),'profileEpoch':I,'kind':{'const':k},'subjectId':ref('Id'),'expectedRevision':I,'payload':ref(name),'contextId':ref('Id'),'contextRevision':I,'contextSnapshot':ref('Snapshot')}
     req=['operationId','profileEpoch','kind','subjectId','expectedRevision','payload']
     if k.startswith('support.') or k in ['draft.save','attempt.submit','context.activity','context.close']:req+=['contextId','contextRevision']
-    if k in ['support.prepare','support.observe','draft.save','attempt.submit','context.activity']:req+=['contextSnapshot']
+    if k in ['support.prepare','support.request','support.observe','draft.save','attempt.submit','context.activity']:req+=['contextSnapshot']
     c=obj(props,req);cmds.append(c)
 D['Command']={'oneOf':cmds}
 D['Exchange']=obj({'nonce':{'type':'string','pattern':'^[A-Za-z0-9_-]{43}$'}})
@@ -97,6 +98,18 @@ D['Artifact']=obj({'id':ref('Id'),'sha256':ref('Hash'),'sizeBytes':I,'downloadRo
 D['RestorePreviewRequest']=obj({'operationId':ref('Id'),'profileEpoch':I,'expectedRevision':I,'uploadId':ref('Id')})
 D['RestorePreview']=obj({'id':ref('Id'),'archiveHash':ref('Hash'),'liveEventSeq':I,'profileEpoch':I,'profileId':ref('Id'),'attemptCount':I,'draftCount':I,'schemaVersion':I,'missingAssets':arr(ref('Hash'),0,10000),'unverifiedHistoricalReceiptCount':I,'requiresSourceTrust':B,'confirmation':st(100),'expiresAt':ref('Time')})
 D['RestoreConfirm']=obj({'operationId':ref('Id'),'profileEpoch':I,'expectedRevision':I,'previewId':ref('Id'),'archiveHash':ref('Hash'),'trustImportedProvenance':B,'confirmation':st(100)})
+
+# Browser view read models (owner session only; viewsVersion 1). Added 2026-11-06 for the WP-06 UI, issue #111.
+TaskHint=obj({'index':{'type':'integer','minimum':0,'maximum':5},'kind':enum('rule','targeted-clue','translation','transcript','reveal')})
+D['ExerciseTask']=obj({'taskRevisionId':ref('Id'),'logicalId':st(150),'lessonId':st(20),'role':enum('supported','independent','delayed','transfer'),'mode':enum('choice','exact-variants','finite-slots','rubric-review'),'input':enum('options','short','multiline'),'targets':arr(ref('Target'),1,6),'prompt':arr(ref('Block'),1,8),'options':arr(obj({'id':st(100),'label':st(1000)}),0,8),'audioHashes':arr(ref('Hash'),0,2),'hints':arr(TaskHint,0,6),'state':enum('draft','needs-review','reviewed','ready','retired','quarantined')})
+D['ExerciseView']=obj({'viewsVersion':{'const':1},'task':ref('ExerciseTask'),'lessonTitleUk':st(160),'materials':arr(obj({'materialId':st(150),'revisionId':ref('Id'),'titleUk':st(160),'state':enum('draft','needs-review','reviewed','ready','retired','quarantined')}),0,20)})
+D['HomeView']=obj({'viewsVersion':{'const':1},'firstUse':B,'resume':obj({'contextId':ref('Id'),'titleUk':st(160),'lessonId':st(20),'taskRevisionId':ref('Id'),'lastActivityAt':ref('Time')}),'review':obj({'dueTargets':I,'supportPending':I,'estimatedMinutes':I}),'nextLesson':obj({'lessonId':st(20),'titleUk':st(160),'blockId':st(10)}),'evidence':obj({'introduced':I,'independent':I,'supported':I,'uncertain':I,'listening':I,'stable':I}),'pack':obj({'state':enum('ready','preview','missing'),'version':st(80,0),'hash':st(64,0)})},['viewsVersion','firstUse','review','evidence','pack'])
+LessonStep=obj({'id':st(10),'kind':enum('explanation','examples','supported-practice','independent-practice','reading','listening','writing','summary','self-check'),'titleUk':st(120),'required':B,'blocks':arr(ref('Block'),0,40),'tasks':arr(ref('ExerciseTask'),0,40),'audio':arr(obj({'hash':ref('Hash'),'clipId':st(120)}),0,6)})
+D['LessonView']=obj({'viewsVersion':{'const':1},'lessonId':st(20),'revisionId':ref('Id'),'kind':enum('lesson','optional-check'),'blockId':st(10),'titleUk':st(160),'termEs':st(160,0),'summaryUk':st(2000),'estimatedMinutes':I,'skippableFoundation':B,'state':enum('draft','needs-review','reviewed','ready','retired','quarantined'),'objectives':arr(st(20),0,12),'steps':arr(LessonStep,0,14),'progress':obj({'status':enum('not-started','visited','completed'),'visitedStepIds':arr(st(10),0,14)}),'materials':arr(obj({'materialId':st(150),'revisionId':ref('Id'),'titleUk':st(160),'state':enum('draft','needs-review','reviewed','ready','retired','quarantined')}),0,20),'previousLessonId':st(20,0),'nextLessonId':st(20,0)})
+D['ProgressView']=obj({'viewsVersion':{'const':1},'blocks':arr(obj({'blockId':st(10),'titleUk':st(160),'lessons':arr(obj({'lessonId':st(20),'titleUk':st(160),'kind':enum('lesson','optional-check'),'status':enum('not-started','visited','completed')}),0,20)}),0,20),'targets':arr(obj({'target':ref('Target'),'titleUk':st(160),'label':enum('stable','independent','supported','uncertain','introduced'),'reasonKey':st(150),'lastEvidenceDate':st(10,0),'dueDate':st(10,0),'frequency':enum('usual','repeat-more','known'),'paused':B}),0,3000),'summary':ref('Summary')})
+D['PhraseLibraryView']=obj({'viewsVersion':{'const':1},'phrases':arr(obj({'id':ref('Id'),'revision':I,'logicalId':st(150,0),'spanish':st(2000,0),'ukrainian':st(2000,0),'state':enum('draft','needs-review','reviewed','ready','retired','quarantined'),'origin':enum('course','spanish','uk-intent'),'collectionIds':arr(ref('Id'),0,200),'practiceReady':B,'archived':B}),0,3000),'collections':arr(ref('Collection'),0,300)})
+D['MaterialsView']=obj({'viewsVersion':{'const':1},'topicId':st(20),'titleUk':st(160),'materials':arr(obj({'materialId':st(150),'revisionId':ref('Id'),'revision':I,'titleUk':st(160),'state':enum('draft','needs-review','reviewed','ready','retired','quarantined'),'origin':enum('course','personal'),'blocks':arr(ref('Block'),0,40),'linkedTargets':arr(ref('Target'),0,30)}),0,60)})
+D['ListeningView']=obj({'viewsVersion':{'const':1},'items':arr(obj({'lessonId':st(20),'titleUk':st(160),'blockId':st(10),'level':enum('phrase','sentence','text'),'taskRevisionIds':arr(ref('Id'),0,40),'clipCount':I,'dueTargets':I}),0,200)})
 S={'$schema':'https://json-schema.org/draft/2020-12/schema','$id':'https://spanish-learning-lab.invalid/contracts/v1/schemas.json','title':'Spanish Learning Lab planned API v1','$defs':D}
 (out/'schemas.json').write_text(json.dumps(S,indent=2,ensure_ascii=False)+'\n')
 def ext(n):return {'$ref':'./schemas.json#/$defs/'+n}
@@ -131,13 +144,20 @@ add('/recovery/export','post','Artifact',request='ExportRequest')
 add('/recovery/uploads','post','Artifact',binary=True)
 add('/recovery/restore-preview','post','RestorePreview',request='RestorePreviewRequest')
 add('/recovery/restore-confirm','post','Receipt',request='RestoreConfirm',enveloped=False)
+add('/views/home','get','HomeView')
+add('/views/lessons/{lessonId}','get','LessonView',params=[param('lessonId','path',{'type':'string','pattern':'^A[12]-0[1-8]-(L[0-9]{1,2}|C1)$'})])
+add('/views/exercises/{taskRevisionId}','get','ExerciseView',params=[param('taskRevisionId','path',ext('Id'))])
+add('/views/progress','get','ProgressView')
+add('/views/phrases','get','PhraseLibraryView')
+add('/views/materials/{topicId}','get','MaterialsView',params=[param('topicId','path',{'type':'string','pattern':'^A[12]-0[1-8](-(L[0-9]{1,2}|C1))?$'})])
+add('/views/listening','get','ListeningView')
 for path,mime in [('/media/{sha256}','audio/mpeg'),('/recovery/downloads/{id}','application/zip')]:
     pn='sha256' if 'sha256' in path else 'id'
     paths[path]={'get':{'operationId':'getMedia' if pn=='sha256' else 'downloadRecovery','security':[{'ownerCookie':[]}],'parameters':[param(pn,'path',ext('Hash' if pn=='sha256' else 'Id'))],'responses':{'200':{'description':'Authenticated local bytes','content':{mime:{'schema':{'type':'string','format':'binary'}}}},'206':{'description':'Validated bounded byte range'},'401':response('Error'),'403':response('Error'),'404':response('Error'),'416':response('Error')}}}
 for path,methods in paths.items():
     for method,x in methods.items():
         x['operationId']=method+'_'+re.sub(r'[^A-Za-z0-9]+','_',path).strip('_')
-        if path=='/profile' or path.startswith('/auth/') or path.startswith('/recovery/'):x['security']=[] if path=='/auth/exchange' else [{'ownerCookie':[]}]
+        if path=='/profile' or path.startswith('/auth/') or path.startswith('/recovery/') or path.startswith('/views/'):x['security']=[] if path=='/auth/exchange' else [{'ownerCookie':[]}]
         if method in ['post','delete'] and path!='/auth/exchange':
             x.setdefault('parameters',[]).extend([{'name':'Idempotency-Key','in':'header','required':True,'schema':ext('Id')},{'name':'X-Profile-Epoch','in':'header','required':True,'schema':I},{'name':'If-Match','in':'header','required':True,'schema':{'type':'string','pattern':'^"[0-9]+"$'}},{'name':'X-CSRF-Token','in':'header','required':False,'description':'Required for owner cookie authentication; forbidden as a substitute for bearer authorization.','schema':st(100)}])
 O={'openapi':'3.1.0','info':{'title':'Spanish Learning Lab local API — planned','version':'1.0.0','description':'No service implemented. Server URL discovered privately; placeholder port is not reserved. API.md supplies authorization/domain semantics.'},'servers':[{'url':'http://spanish-learning-lab.localhost:{port}/api/v1','variables':{'port':{'default':'0'}}}],'paths':paths,'components':{'securitySchemes':{'agentBearer':{'type':'http','scheme':'bearer'},'ownerCookie':{'type':'apiKey','in':'cookie','name':'sll_session'}}}}
@@ -156,6 +176,7 @@ extra={
 'draft.save':{'text':'synthetic','cursor':9,'taskRevisionId':u(4)},
 'attempt.submit':{'draftId':u(8),'draftRevision':1,'taskRevisionId':u(4),'response':{'text':'synthetic'}},
 'support.observe':{'kind':'replay','targets':[],'detailKey':'audio.replay'},
+'support.request':{'taskRevisionId':u(4),'kind':'rule','hintIndex':0},
 'support.confirm':{'contentHash':'a'*64,'deliveryId':u(9),'reportedDeliveredAt':'2026-10-01T08:00:00Z','phase':'before-submit','targets':[{'skillId':'participle.hecho','modality':'written-form'}]},
 'support.cancel':{'delivery':'confirmed-undelivered','reason':'Synthetic no-delivery fixture'},
 'practice.create':{'targets':[{'skillId':'participle.hecho','modality':'written-form'}],'mode':'written','maxItems':10,'phraseIds':[]},
@@ -171,7 +192,7 @@ extra['review.submit']={'attemptId':u(15),'taskRevisionId':u(4),'answerHash':'a'
 for n,(kind,payload) in enumerate(extra.items(),20):
     value={**base,'operationId':u(n),'kind':kind,'payload':payload}
     if kind.startswith('support.') or kind in ['draft.save','attempt.submit','context.activity','context.close']:value.update(contextId=u(3),contextRevision=4)
-    if kind in ['support.prepare','support.observe','draft.save','attempt.submit','context.activity']:value['contextSnapshot']='s'*43
+    if kind in ['support.prepare','support.request','support.observe','draft.save','attempt.submit','context.activity']:value['contextSnapshot']='s'*43
     valid.append({'schema':'Command','value':value})
 valid.append({'schema':'TokenList','value':{'items':[{'id':u(50),'label':'Synthetic agent','scopes':['context:read'],'createdAt':'2026-10-01T08:00:00Z','expiresAt':'2026-10-08T08:00:00Z','revoked':False}],'profileRevision':2}})
 invalid.append({'schema':'TokenList','value':{'items':[{**valid[-1]['value']['items'][0],'token':'should-not-be-listed'}],'profileRevision':2}})

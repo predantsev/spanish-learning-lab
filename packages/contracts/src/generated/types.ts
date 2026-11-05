@@ -387,6 +387,12 @@ export type Payload_support_prepare = {
   readonly deliveryRoute: "external" | "app";
 };
 
+export type Payload_support_request = {
+  readonly taskRevisionId: Id;
+  readonly kind: "rule" | "targeted-clue" | "translation" | "transcript" | "reveal";
+  readonly hintIndex: number;
+};
+
 export type Payload_support_confirm = {
   readonly contentHash: Hash;
   readonly deliveryId: Id;
@@ -571,6 +577,16 @@ export type Command = ({
   readonly subjectId: Id;
   readonly expectedRevision: number;
   readonly payload: Payload_support_prepare;
+  readonly contextId: Id;
+  readonly contextRevision: number;
+  readonly contextSnapshot: Snapshot;
+}) | ({
+  readonly operationId: Id;
+  readonly profileEpoch: number;
+  readonly kind: "support.request";
+  readonly subjectId: Id;
+  readonly expectedRevision: number;
+  readonly payload: Payload_support_request;
   readonly contextId: Id;
   readonly contextRevision: number;
   readonly contextSnapshot: Snapshot;
@@ -789,6 +805,184 @@ export type RestoreConfirm = {
   readonly confirmation: string;
 };
 
+export type ExerciseTask = {
+  readonly taskRevisionId: Id;
+  readonly logicalId: string;
+  readonly lessonId: string;
+  readonly role: "supported" | "independent" | "delayed" | "transfer";
+  readonly mode: "choice" | "exact-variants" | "finite-slots" | "rubric-review";
+  readonly input: "options" | "short" | "multiline";
+  readonly targets: Array<Target>;
+  readonly prompt: Array<Block>;
+  readonly options: Array<{
+    readonly id: string;
+    readonly label: string;
+  }>;
+  readonly audioHashes: Array<Hash>;
+  readonly hints: Array<{
+    readonly index: number;
+    readonly kind: "rule" | "targeted-clue" | "translation" | "transcript" | "reveal";
+  }>;
+  readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
+};
+
+export type ExerciseView = {
+  readonly viewsVersion: 1;
+  readonly task: ExerciseTask;
+  readonly lessonTitleUk: string;
+  readonly materials: Array<{
+    readonly materialId: string;
+    readonly revisionId: Id;
+    readonly titleUk: string;
+    readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
+  }>;
+};
+
+export type HomeView = {
+  readonly viewsVersion: 1;
+  readonly firstUse: boolean;
+  readonly resume?: {
+    readonly contextId: Id;
+    readonly titleUk: string;
+    readonly lessonId: string;
+    readonly taskRevisionId: Id;
+    readonly lastActivityAt: Time;
+  };
+  readonly review: {
+    readonly dueTargets: number;
+    readonly supportPending: number;
+    readonly estimatedMinutes: number;
+  };
+  readonly nextLesson?: {
+    readonly lessonId: string;
+    readonly titleUk: string;
+    readonly blockId: string;
+  };
+  readonly evidence: {
+    readonly introduced: number;
+    readonly independent: number;
+    readonly supported: number;
+    readonly uncertain: number;
+    readonly listening: number;
+    readonly stable: number;
+  };
+  readonly pack: {
+    readonly state: "ready" | "preview" | "missing";
+    readonly version: string;
+    readonly hash: string;
+  };
+};
+
+export type LessonView = {
+  readonly viewsVersion: 1;
+  readonly lessonId: string;
+  readonly revisionId: Id;
+  readonly kind: "lesson" | "optional-check";
+  readonly blockId: string;
+  readonly titleUk: string;
+  readonly termEs: string;
+  readonly summaryUk: string;
+  readonly estimatedMinutes: number;
+  readonly skippableFoundation: boolean;
+  readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
+  readonly objectives: Array<string>;
+  readonly steps: Array<{
+    readonly id: string;
+    readonly kind: "explanation" | "examples" | "supported-practice" | "independent-practice" | "reading" | "listening" | "writing" | "summary" | "self-check";
+    readonly titleUk: string;
+    readonly required: boolean;
+    readonly blocks: Array<Block>;
+    readonly tasks: Array<ExerciseTask>;
+    readonly audio: Array<{
+      readonly hash: Hash;
+      readonly clipId: string;
+    }>;
+  }>;
+  readonly progress: {
+    readonly status: "not-started" | "visited" | "completed";
+    readonly visitedStepIds: Array<string>;
+  };
+  readonly materials: Array<{
+    readonly materialId: string;
+    readonly revisionId: Id;
+    readonly titleUk: string;
+    readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
+  }>;
+  readonly previousLessonId: string;
+  readonly nextLessonId: string;
+};
+
+export type ProgressView = {
+  readonly viewsVersion: 1;
+  readonly blocks: Array<{
+    readonly blockId: string;
+    readonly titleUk: string;
+    readonly lessons: Array<{
+      readonly lessonId: string;
+      readonly titleUk: string;
+      readonly kind: "lesson" | "optional-check";
+      readonly status: "not-started" | "visited" | "completed";
+    }>;
+  }>;
+  readonly targets: Array<{
+    readonly target: Target;
+    readonly titleUk: string;
+    readonly label: "stable" | "independent" | "supported" | "uncertain" | "introduced";
+    readonly reasonKey: string;
+    readonly lastEvidenceDate: string;
+    readonly dueDate: string;
+    readonly frequency: "usual" | "repeat-more" | "known";
+    readonly paused: boolean;
+  }>;
+  readonly summary: Summary;
+};
+
+export type PhraseLibraryView = {
+  readonly viewsVersion: 1;
+  readonly phrases: Array<{
+    readonly id: Id;
+    readonly revision: number;
+    readonly logicalId: string;
+    readonly spanish: string;
+    readonly ukrainian: string;
+    readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
+    readonly origin: "course" | "spanish" | "uk-intent";
+    readonly collectionIds: Array<Id>;
+    readonly practiceReady: boolean;
+    readonly archived: boolean;
+  }>;
+  readonly collections: Array<Collection>;
+};
+
+export type MaterialsView = {
+  readonly viewsVersion: 1;
+  readonly topicId: string;
+  readonly titleUk: string;
+  readonly materials: Array<{
+    readonly materialId: string;
+    readonly revisionId: Id;
+    readonly revision: number;
+    readonly titleUk: string;
+    readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
+    readonly origin: "course" | "personal";
+    readonly blocks: Array<Block>;
+    readonly linkedTargets: Array<Target>;
+  }>;
+};
+
+export type ListeningView = {
+  readonly viewsVersion: 1;
+  readonly items: Array<{
+    readonly lessonId: string;
+    readonly titleUk: string;
+    readonly blockId: string;
+    readonly level: "phrase" | "sentence" | "text";
+    readonly taskRevisionIds: Array<Id>;
+    readonly clipCount: number;
+    readonly dueTargets: number;
+  }>;
+};
+
 export type ContextList = {
   readonly items: Array<ContextMeta>;
 };
@@ -842,6 +1036,7 @@ export const schemaDefinitionNames = [
   "Payload_attempt_submit",
   "Payload_support_observe",
   "Payload_support_prepare",
+  "Payload_support_request",
   "Payload_support_confirm",
   "Payload_support_cancel",
   "Payload_practice_create",
@@ -866,5 +1061,13 @@ export const schemaDefinitionNames = [
   "RestorePreviewRequest",
   "RestorePreview",
   "RestoreConfirm",
+  "ExerciseTask",
+  "ExerciseView",
+  "HomeView",
+  "LessonView",
+  "ProgressView",
+  "PhraseLibraryView",
+  "MaterialsView",
+  "ListeningView",
   "ContextList"
 ] as const;
