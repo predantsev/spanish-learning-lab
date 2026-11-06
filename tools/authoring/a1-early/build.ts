@@ -10,7 +10,8 @@ import { unit as a101l3 } from './units/A1-01-L3.ts';
 import { unit as a101c1 } from './units/A1-01-C1.ts';
 import { unit as a102l1 } from './units/A1-02-L1.ts';
 import { unit as a102l2 } from './units/A1-02-L2.ts';
+import { unit as a102l3 } from './units/A1-02-L3.ts';
 
-export const UNITS: Unit[] = [a101l1, a101l2, a101l3, a101c1, a102l1, a102l2];
+export const UNITS: Unit[] = [a101l1, a101l2, a101l3, a101c1, a102l1, a102l2, a102l3];
 
 for (const s of writeUnits(UNITS)) console.log(`${s.changed ? 'wrote' : 'same '} ${s.file} (${s.entities})`);
