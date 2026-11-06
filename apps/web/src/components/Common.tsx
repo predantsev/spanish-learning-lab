@@ -186,12 +186,27 @@ export function UndoBar({ message, onUndo, onDismiss }: { readonly message: stri
 }
 
 /** Readiness badge for content (draft vs reviewed/ready). Text + icon, never colour alone. */
+export type StateTone = 'ready' | 'pending' | 'draft' | 'blocked';
+
+/**
+ * Only `ready` content is usable for practice and answer keys. `reviewed` means an opposite-provider
+ * review receipt exists while local validation is pending (API.md v1 clarification): not ready yet.
+ */
+export function stateTone(state: string): StateTone {
+  if (state === 'ready') return 'ready';
+  if (state === 'reviewed') return 'pending';
+  if (state === 'quarantined' || state === 'retired') return 'blocked';
+  return 'draft';
+}
+
+const STATE_ICON: Record<StateTone, string> = { ready: '✓', pending: '◔', draft: '✎', blocked: '⊘' };
+
 export function StateBadge({ state }: { readonly state: string }) {
   const { t } = useTranslation();
-  const tone = state === 'ready' || state === 'reviewed' ? 'ready' : state === 'quarantined' || state === 'retired' ? 'blocked' : 'draft';
+  const tone = stateTone(state);
   return (
-    <span className={`badge badge-${tone}`}>
-      <span aria-hidden="true">{tone === 'ready' ? '✓' : tone === 'blocked' ? '⊘' : '✎'}</span> {t(`contentStates.${state}`)}
+    <span className={`badge badge-${tone === 'pending' ? 'draft' : tone}`} data-tone={tone}>
+      <span aria-hidden="true">{STATE_ICON[tone]}</span> {t(`contentStates.${state}`)}
     </span>
   );
 }
