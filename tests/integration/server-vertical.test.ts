@@ -132,7 +132,12 @@ describe('vertical path', () => {
     expect(bad.headers['content-range']).toBe('bytes */4096');
     const multi = await h.req('GET', `/api/v1/media/${hash}`, { cookie: true, headers: { range: 'bytes=0-1,5-6' } });
     expect(multi.status).toBe(416);
-    expect((await h.req('GET', `/api/v1/media/${hash}`)).status).toBe(401);
-    expect((await h.req('GET', `/api/v1/media/${'0'.repeat(64)}`, { cookie: true })).status).toBe(404);
+    expect(contractErrors('get_media_sha256', 416, multi.body)).toBeUndefined();
+    const anon = await h.req('GET', `/api/v1/media/${hash}`);
+    expect(anon.status).toBe(401);
+    expect(contractErrors('get_media_sha256', 401, anon.body)).toBeUndefined();
+    const missing = await h.req('GET', `/api/v1/media/${'0'.repeat(64)}`, { cookie: true });
+    expect(missing.status).toBe(404);
+    expect(contractErrors('get_media_sha256', 404, missing.body)).toBeUndefined();
   });
 });
