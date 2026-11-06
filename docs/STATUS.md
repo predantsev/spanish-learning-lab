@@ -161,6 +161,14 @@ State at 2026-11-06 00:45 CET (facts, not release claims):
 - Server DB foundation: private root (`SLL_HOME` override), 0700/0600 permissions, WAL/FULL/FK/busy-timeout, checksummed migrations, initial schema with all DOMAIN-SPEC tables plus auth/session tables.
 - Parallel workers (local worktrees, integrated by the primary): domain (WP-03), server core/API (WP-02/07), recovery+launcher+release (WP-02/01/08), web UI (WP-06), content tooling (validator/coverage/pack/review receipts), atomic inventory A1 / A2-early / A2-late (WP-04), text review calibration (A-32), audio benchmark (no purchase).
 
+Progress 01:40 CET (merged into `feat/111-a1-a2-application`, re-verified on the merged tree):
+
+- WP-03 `@sll/domain`: deterministic checker, evidence, scheduler, fair queue; `vitest --project domain` 52 tests incl. A-09…A-16 green.
+- Content tooling: `npm run content:validate`, `content:coverage`, pack builder with deterministic revision UUIDs, privileged review tool (`tools/review`, runs `codex exec -m gpt-6.1-sol -c model_reasoning_effort=xhigh` itself, signs HMAC ExecutionReceipts); one real wiring run on a 2-task synthetic packet caught the seeded wrong key. 34 contract tests green.
+- Audio: synthesis + technical QA pipeline and Gemini actual-file QA script (refuses to run without explicit owner approval and cap; tested with a fake transport only). Benchmark: 18 MP3 (macOS Mónica, macOS Eddy, Piper es_ES-davefx-medium × 6 draft scripts), loudness −19.2…−19.6 LUFS. No audio is tracked in Git. Rights: macOS voice output and Piper output both unconfirmed; the davefx model card notes a fine-tuning checkpoint whose data is research-only, so Piper is not a release candidate.
+- WP-04 atomic inventory: 413 skills (405 assessed, 699 assessed skill×modality targets) and 571 lexicon items across all 14 blocks, plus 9 situation families; cross-range IDs reconciled; `content:validate` 0 errors (warnings only for not-yet-authored lessons/tasks/clips). All rows `draft` — no language review yet.
+- WP-05 authoring started 01:40 with six block-range workers. Deviation recorded: drafting began while the A-32 calibration was still running because of the overnight time limit; no opposite-provider review may run until the calibration gate file names a PASS (or a recorded failure) and its reviewer settings.
+
 Blockers and owner decisions (registered 2026-11-06):
 
 1. Resolved: between 00:20 and 00:34 CET GitHub rejected pushes of new commits (`remote: fatal error in commit_refs`, also over HTTPS and the blob API) while githubstatus.com reported no incident; a retry at 00:34 succeeded. Recorded as a transient remote failure (cause unconfirmed).
