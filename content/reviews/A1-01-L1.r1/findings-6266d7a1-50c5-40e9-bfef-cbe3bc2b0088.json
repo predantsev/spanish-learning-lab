@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-01-L1.r1",
+  "jobId": "6266d7a1-50c5-40e9-bfef-cbe3bc2b0088",
+  "receiptId": "07119ce3-3fa9-424f-aba7-5e71942d3db2",
+  "recordedAt": "2026-11-06T08:09:15.854Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "ortho.keyboard-entry",
+      "contentHash": "35c31a84b0621ac0291bf11c37d2f7d2783ace33007109528d1388be4b4fb15a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"Використовуй звичайну клавіатуру з латинською розкладкою (наприклад, ABC або іспанською).\" together with \"¡ — Option+1, ¿ — Option+Shift+/.\"",
+          "description": "The punctuation shortcuts are presented as applying to both ABC and Spanish layouts. They are layout-dependent: on Spanish ISO, Option+1 produces |. The instruction therefore fails for an explicitly supported layout.",
+          "suggestion": "Specify that these shortcuts apply to Mac ABC, and provide separately verified punctuation instructions for the supported Spanish layout."
+        }
+      ],
+      "caseId": "skill:ortho.keyboard-entry",
+      "verdict": "flawed",
+      "reviewerAnswer": "Character-entry instructions must distinguish the active keyboard layout; the stated punctuation shortcuts work with Mac ABC.",
+      "notes": "content.body.scope.noteUk explicitly records that the combinations have not been verified on the supported devices.",
+      "sources": [
+        "Apple, Mac User Guide, “Use the Keyboard Viewer on Mac”: characters depend on the selected input source (from memory).",
+        "macOS Spanish ISO input-source mapping, Option+1 → | (from memory)."
+      ]
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-01-L1",
+      "contentHash": "241497a6fa1b1deaaba13184fdefc573481d47f34b947945812bbd5eb8e39f4f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[2].items[0]: \"Mac (розкладка ABC або іспанська): затисни a, e, i, o, u чи n і вибери потрібний варіант у меню; ¡ — Option+1, ¿ — Option+Shift+/.\"",
+          "description": "The bullet applies ABC punctuation shortcuts to the Spanish layout as well. Keyboard mappings differ; on Spanish ISO, Option+1 produces |.",
+          "suggestion": "Limit these shortcuts to ABC and provide separately verified instructions for the supported Spanish layout."
+        }
+      ],
+      "caseId": "lesson:A1-01-L1",
+      "verdict": "flawed",
+      "reviewerAnswer": "No single learner answer: this is an instructional lesson on accented vowels, ñ, ü and keyboard entry.",
+      "notes": "",
+      "sources": [
+        "Apple, Mac User Guide, “Use the Keyboard Viewer on Mac”: characters depend on the selected input source (from memory).",
+        "macOS Spanish ISO input-source mapping, Option+1 → | (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T03",
+      "contentHash": "2fed4e7d705f99a71da5ae8fd3d918cc1bab379806c0a21044e6eca8eaee4164",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Пам’ятай: над голосною в іспанській пишуть лише знак ´.\"; task.feedback.incorrectUk: \"Ні. В іспанській над голосною буває лише знак ´: adiós.\"",
+          "description": "These statements incorrectly exclude every mark above a vowel except ´. Spanish also uses the diaeresis in ü, including the lesson's words pingüino and bilingüe. The answer key itself is correct.",
+          "suggestion": "Specify that ´ is the Spanish written stress mark, rather than the only mark that can appear above a vowel. Amend both the prompt and incorrect feedback."
+        }
+      ],
+      "caseId": "task:A1-01-L1-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The hint correctly limits its statement to «знак наголосу» and needs no corresponding change.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «diéresis», orthographic use over u in güe and güi (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T17",
+      "contentHash": "ef119b15be501e0fd06c879e15ed1947b9e2fc96ca4659d0a2040f65470570a8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Напиши іспанською напис на пакунку: «Кава з Іспанії».\"; task.prompt[1]: \"de\" — \"з (звідки)\".",
+          "description": "Producing the label requires the noun + de + country construction. context.taughtBefore identifies orthographic skills and vocabulary, but no origin construction. The prompt glosses de without supplying the construction, so this first-lesson task requires an untaught grammatical prerequisite.",
+          "suggestion": "Supply the frame «___ de ___» and ask learners to enter the Spanish words for coffee and Spain, or teach the origin construction before this task."
+        }
+      ],
+      "caseId": "task:A1-01-L1-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "Café de España",
+      "notes": "Café de España is correct Spanish; the defect concerns the prerequisite.",
+      "sources": [
+        "Course contract, rule 1: required constructions must be taught beforehand or supplied in the prompt or a hint.",
+        "Packet: this case's context.taughtBefore and task.prompt; no origin construction is listed or modeled."
+      ]
+    }
+  ]
+}

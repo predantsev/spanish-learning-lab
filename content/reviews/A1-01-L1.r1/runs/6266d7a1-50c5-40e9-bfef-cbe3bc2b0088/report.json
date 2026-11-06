@@ -1,0 +1,973 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-01-L1.r1",
+  "packetHash": "84965384199d227a716286973ed21148d7f2eb1d23d22517fc6b2bb1f0fc7361",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "afdd93c35ffb51fd834386199fb0f5c76298e17ce7a7d97f34181a31da0a6d75",
+    "reviewerPacketSha256": "60f97c0c6e954bd32aded334fc13e4b05afec121c527dfb92b399c1e944413cf",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pj5MO0/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pj5MO0/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pj5MO0/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pj5MO0/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pj5MO0/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1afe0-8a6d-7010-89a7-cd74a4e935e2",
+        "version": "v0.166.0",
+        "tokens used": "12,987"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:ortho.accented-vowels",
+        "reviewerAnswer": "á, é, í, ó, ú; uppercase vowels retain the written accent.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:ortho.keyboard-entry",
+        "reviewerAnswer": "Character-entry instructions must distinguish the active keyboard layout; the stated punctuation shortcuts work with Mac ABC.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: \"Використовуй звичайну клавіатуру з латинською розкладкою (наприклад, ABC або іспанською).\" together with \"¡ — Option+1, ¿ — Option+Shift+/.\"",
+        "defect": "The punctuation shortcuts are presented as applying to both ABC and Spanish layouts. They are layout-dependent: on Spanish ISO, Option+1 produces |. The instruction therefore fails for an explicitly supported layout.",
+        "correction": "Specify that these shortcuts apply to Mac ABC, and provide separately verified punctuation instructions for the supported Spanish layout.",
+        "sources": [
+          "Apple, Mac User Guide, “Use the Keyboard Viewer on Mac”: characters depend on the selected input source (from memory).",
+          "macOS Spanish ISO input-source mapping, Option+1 → | (from memory)."
+        ],
+        "notes": "content.body.scope.noteUk explicitly records that the combinations have not been verified on the supported devices."
+      },
+      {
+        "caseId": "skill:ortho.n-tilde",
+        "reviewerAnswer": "ñ is a separate Spanish letter; España, niño, señor, señora, año and mañana require ñ.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:ortho.u-dieresis",
+        "reviewerAnswer": "In ordinary Spanish spelling, güe and güi indicate that u is pronounced: bilingüe, pingüino.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:text.exercise-instructions",
+        "reviewerAnswer": "Read the instruction to identify the required action; linguistic help is attributed to the target it explains.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.adios",
+        "reviewerAnswer": "adiós — «до побачення»; interjection.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.ano",
+        "reviewerAnswer": "año — «рік»; masculine noun, plural años.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.bilingue",
+        "reviewerAnswer": "bilingüe — «двомовний»; the same adjective form for both genders, plural bilingües.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.cafe",
+        "reviewerAnswer": "café — «кава; кав’ярня»; masculine noun, plural cafés.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.espana",
+        "reviewerAnswer": "España — «Іспанія»; feminine country name, written with an initial capital.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.guitarra",
+        "reviewerAnswer": "guitarra — «гітара»; feminine noun, plural guitarras; u is silent.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.manana.adv",
+        "reviewerAnswer": "mañana — «завтра»; adverb. The noun la mañana means «ранок».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.nino",
+        "reviewerAnswer": "niño — «хлопчик; дитина»; masculine noun, plural niños; feminine niña.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.pinguino",
+        "reviewerAnswer": "pingüino — «пінгвін»; masculine noun, plural pingüinos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.senor",
+        "reviewerAnswer": "señor — «пан; чоловік (ввічливо)»; masculine noun, plural señores; el señor García.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.senora",
+        "reviewerAnswer": "señora — «пані; жінка (ввічливо)»; feminine noun, plural señoras.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.si",
+        "reviewerAnswer": "sí — «так»; affirmative adverb. Conditional si means «якщо».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-01-L1",
+        "reviewerAnswer": "No single learner answer: this is an instructional lesson on accented vowels, ñ, ü and keyboard entry.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[0].blocks[2].items[0]: \"Mac (розкладка ABC або іспанська): затисни a, e, i, o, u чи n і вибери потрібний варіант у меню; ¡ — Option+1, ¿ — Option+Shift+/.\"",
+        "defect": "The bullet applies ABC punctuation shortcuts to the Spanish layout as well. Keyboard mappings differ; on Spanish ISO, Option+1 produces |.",
+        "correction": "Limit these shortcuts to ABC and provide separately verified instructions for the supported Spanish layout.",
+        "sources": [
+          "Apple, Mac User Guide, “Use the Keyboard Viewer on Mac”: characters depend on the selected input source (from memory).",
+          "macOS Spanish ISO input-source mapping, Option+1 → | (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T01",
+        "reviewerAnswer": "café",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T02",
+        "reviewerAnswer": "España",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T03",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Пам’ятай: над голосною в іспанській пишуть лише знак ´.\"; task.feedback.incorrectUk: \"Ні. В іспанській над голосною буває лише знак ´: adiós.\"",
+        "defect": "These statements incorrectly exclude every mark above a vowel except ´. Spanish also uses the diaeresis in ü, including the lesson's words pingüino and bilingüe. The answer key itself is correct.",
+        "correction": "Specify that ´ is the Spanish written stress mark, rather than the only mark that can appear above a vowel. Amend both the prompt and incorrect feedback.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «diéresis», orthographic use over u in güe and güi (from memory)."
+        ],
+        "notes": "The hint correctly limits its statement to «знак наголосу» and needs no corresponding change."
+      },
+      {
+        "caseId": "task:A1-01-L1-T04",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T05",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T06",
+        "reviewerAnswer": "bilingüe",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T07",
+        "reviewerAnswer": "mañana",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T08",
+        "reviewerAnswer": "sí",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T09",
+        "reviewerAnswer": "pingüino",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T10",
+        "reviewerAnswer": "señora",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T11",
+        "reviewerAnswer": "CAFÉ",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The lowercase café is the input for the capitalization transformation; the requested uppercase answer is not displayed as a model."
+      },
+      {
+        "caseId": "task:A1-01-L1-T12",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T13",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T14",
+        "reviewerAnswer": "año",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T15",
+        "reviewerAnswer": "Adiós; ¡Adiós! also fits.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T16",
+        "reviewerAnswer": "bilingüe; the complete label is Diccionario bilingüe.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T17",
+        "reviewerAnswer": "Café de España",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Напиши іспанською напис на пакунку: «Кава з Іспанії».\"; task.prompt[1]: \"de\" — \"з (звідки)\".",
+        "defect": "Producing the label requires the noun + de + country construction. context.taughtBefore identifies orthographic skills and vocabulary, but no origin construction. The prompt glosses de without supplying the construction, so this first-lesson task requires an untaught grammatical prerequisite.",
+        "correction": "Supply the frame «___ de ___» and ask learners to enter the Spanish words for coffee and Spain, or teach the origin construction before this task.",
+        "sources": [
+          "Course contract, rule 1: required constructions must be taught beforehand or supplied in the prompt or a hint.",
+          "Packet: this case's context.taughtBefore and task.prompt; no origin construction is listed or modeled."
+        ],
+        "notes": "Café de España is correct Spanish; the defect concerns the prerequisite."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "ortho.accented-vowels",
+      "contentHash": "177e1edd6db2cfd26d31584bb1ae0cfa7098de497fbb34210c702eaf1ef99a73",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.accented-vowels",
+      "verdict": "valid",
+      "reviewerAnswer": "á, é, í, ó, ú; uppercase vowels retain the written accent.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ortho.keyboard-entry",
+      "contentHash": "35c31a84b0621ac0291bf11c37d2f7d2783ace33007109528d1388be4b4fb15a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"Використовуй звичайну клавіатуру з латинською розкладкою (наприклад, ABC або іспанською).\" together with \"¡ — Option+1, ¿ — Option+Shift+/.\"",
+          "description": "The punctuation shortcuts are presented as applying to both ABC and Spanish layouts. They are layout-dependent: on Spanish ISO, Option+1 produces |. The instruction therefore fails for an explicitly supported layout.",
+          "suggestion": "Specify that these shortcuts apply to Mac ABC, and provide separately verified punctuation instructions for the supported Spanish layout."
+        }
+      ],
+      "caseId": "skill:ortho.keyboard-entry",
+      "verdict": "flawed",
+      "reviewerAnswer": "Character-entry instructions must distinguish the active keyboard layout; the stated punctuation shortcuts work with Mac ABC.",
+      "notes": "content.body.scope.noteUk explicitly records that the combinations have not been verified on the supported devices.",
+      "sources": [
+        "Apple, Mac User Guide, “Use the Keyboard Viewer on Mac”: characters depend on the selected input source (from memory).",
+        "macOS Spanish ISO input-source mapping, Option+1 → | (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ortho.n-tilde",
+      "contentHash": "a40337cd246d17118a2ebaff113dba05529c8e7b8104ea48ad6c55dad0eb0cb4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.n-tilde",
+      "verdict": "valid",
+      "reviewerAnswer": "ñ is a separate Spanish letter; España, niño, señor, señora, año and mañana require ñ.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ortho.u-dieresis",
+      "contentHash": "31eba324afbde08c8ecc8974a2f24b652e715a010f25bb83ffc99b10884baeb3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.u-dieresis",
+      "verdict": "valid",
+      "reviewerAnswer": "In ordinary Spanish spelling, güe and güi indicate that u is pronounced: bilingüe, pingüino.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "text.exercise-instructions",
+      "contentHash": "f5f2278916fb3a12556e2769c489d08f2e3be4f6a5f452b8fc83418b5ace30ca",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:text.exercise-instructions",
+      "verdict": "valid",
+      "reviewerAnswer": "Read the instruction to identify the required action; linguistic help is attributed to the target it explains.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.adios",
+      "contentHash": "41520b8b26ec7857fc02a01a01647db188d6e2df429c07ccbd5a8cf3479e3049",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.adios",
+      "verdict": "valid",
+      "reviewerAnswer": "adiós — «до побачення»; interjection.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ano",
+      "contentHash": "a2d678b7a8fac8aaaba5194abe2288696841752e1aa3579cf89b264704948510",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ano",
+      "verdict": "valid",
+      "reviewerAnswer": "año — «рік»; masculine noun, plural años.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.bilingue",
+      "contentHash": "7c627043d8bb4f7edf14eae03628f3ccbd000bbbbbc4f7272201085c09550d7d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.bilingue",
+      "verdict": "valid",
+      "reviewerAnswer": "bilingüe — «двомовний»; the same adjective form for both genders, plural bilingües.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.cafe",
+      "contentHash": "498e808ee039f2d633d10eba9bf4ad6944d5a048ff00b06832a0d08b9e7d3f69",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.cafe",
+      "verdict": "valid",
+      "reviewerAnswer": "café — «кава; кав’ярня»; masculine noun, plural cafés.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.espana",
+      "contentHash": "4273beff10b26bdb8709fbebe5abe4dd145e20c885dc01abf88e134676f181cd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.espana",
+      "verdict": "valid",
+      "reviewerAnswer": "España — «Іспанія»; feminine country name, written with an initial capital.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.guitarra",
+      "contentHash": "f3f394f73f452344185d2f447efe2eea56533987838f25056d5590286f6d1eb4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.guitarra",
+      "verdict": "valid",
+      "reviewerAnswer": "guitarra — «гітара»; feminine noun, plural guitarras; u is silent.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.manana.adv",
+      "contentHash": "6b9cc6857f5e1744322d0a2cb07bc8053b201c82004100db39b5a5198df65ea7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.manana.adv",
+      "verdict": "valid",
+      "reviewerAnswer": "mañana — «завтра»; adverb. The noun la mañana means «ранок».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.nino",
+      "contentHash": "6be2595f40a6f5cddbcb1304496250110c183921fe4e7d62562f95a80b9d80b5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.nino",
+      "verdict": "valid",
+      "reviewerAnswer": "niño — «хлопчик; дитина»; masculine noun, plural niños; feminine niña.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.pinguino",
+      "contentHash": "03cafe51ac01260afe75948fb4dddce8c4d7d5fc9101137b527406b667576a5d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.pinguino",
+      "verdict": "valid",
+      "reviewerAnswer": "pingüino — «пінгвін»; masculine noun, plural pingüinos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.senor",
+      "contentHash": "bed57942dcc29ae93a75e8c302f9b2a35311a15727dee60ddf52e1acc3fa63d2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.senor",
+      "verdict": "valid",
+      "reviewerAnswer": "señor — «пан; чоловік (ввічливо)»; masculine noun, plural señores; el señor García.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.senora",
+      "contentHash": "c0b98dd45f2a4a34dfbadabb36f8bd4850c8da78914cb36fd37c4e2f783c7631",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.senora",
+      "verdict": "valid",
+      "reviewerAnswer": "señora — «пані; жінка (ввічливо)»; feminine noun, plural señoras.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.si",
+      "contentHash": "ac1f314779393165d673cdd1bdbbc232c41c41490f29a773f3216f8eaf700c4a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.si",
+      "verdict": "valid",
+      "reviewerAnswer": "sí — «так»; affirmative adverb. Conditional si means «якщо».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-01-L1",
+      "contentHash": "241497a6fa1b1deaaba13184fdefc573481d47f34b947945812bbd5eb8e39f4f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[2].items[0]: \"Mac (розкладка ABC або іспанська): затисни a, e, i, o, u чи n і вибери потрібний варіант у меню; ¡ — Option+1, ¿ — Option+Shift+/.\"",
+          "description": "The bullet applies ABC punctuation shortcuts to the Spanish layout as well. Keyboard mappings differ; on Spanish ISO, Option+1 produces |.",
+          "suggestion": "Limit these shortcuts to ABC and provide separately verified instructions for the supported Spanish layout."
+        }
+      ],
+      "caseId": "lesson:A1-01-L1",
+      "verdict": "flawed",
+      "reviewerAnswer": "No single learner answer: this is an instructional lesson on accented vowels, ñ, ü and keyboard entry.",
+      "notes": "",
+      "sources": [
+        "Apple, Mac User Guide, “Use the Keyboard Viewer on Mac”: characters depend on the selected input source (from memory).",
+        "macOS Spanish ISO input-source mapping, Option+1 → | (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T01",
+      "contentHash": "577fdaf3795f6b61786d8fc4e7904e86ec2684757a44a6d4ff9da2a8f156c3af",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "café",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T02",
+      "contentHash": "dc6ef654408638668c1dc744a502a940a9822ee4db72dcc114f170abb2da686a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "España",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T03",
+      "contentHash": "2fed4e7d705f99a71da5ae8fd3d918cc1bab379806c0a21044e6eca8eaee4164",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Пам’ятай: над голосною в іспанській пишуть лише знак ´.\"; task.feedback.incorrectUk: \"Ні. В іспанській над голосною буває лише знак ´: adiós.\"",
+          "description": "These statements incorrectly exclude every mark above a vowel except ´. Spanish also uses the diaeresis in ü, including the lesson's words pingüino and bilingüe. The answer key itself is correct.",
+          "suggestion": "Specify that ´ is the Spanish written stress mark, rather than the only mark that can appear above a vowel. Amend both the prompt and incorrect feedback."
+        }
+      ],
+      "caseId": "task:A1-01-L1-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The hint correctly limits its statement to «знак наголосу» and needs no corresponding change.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «diéresis», orthographic use over u in güe and güi (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T04",
+      "contentHash": "93fcb09b98802bd92976c083256ecbe784c70ea08f5ef77409d953c1bce07f93",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T05",
+      "contentHash": "66f25476c7f20b988a80610e899695d5e84c0523bcd9f4b43279eeef2edfc4f3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T06",
+      "contentHash": "f92bc14225f56f477866116550203aefcc00584be1bba9ade734633ad104a5c0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "bilingüe",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T07",
+      "contentHash": "ba425523be800a6279189dc214da714926fdde0023b1a194b94b62b48421093b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "mañana",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T08",
+      "contentHash": "84ca09253594dbc10d39b8dcecd35d2b3bb9a9ba08933ff85cf57ab4767929ac",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "sí",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T09",
+      "contentHash": "ea1a24c177fb8176c759faad98a0d065baa4fe350af1d140c912fa4d28c69574",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "pingüino",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T10",
+      "contentHash": "93c3ed508eb03707a015dbe47158c3001790dadf97b09594bc74a903566963c0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "señora",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T11",
+      "contentHash": "9ce9a771b514ec4879e0802665035d0d6915f0c530eaf8651b6cf3dd283c665e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "CAFÉ",
+      "notes": "The lowercase café is the input for the capitalization transformation; the requested uppercase answer is not displayed as a model.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T12",
+      "contentHash": "7745af513836514bae158eb4faf6af65bb8c3bb98f11a9940507cb2b34cda7b5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T13",
+      "contentHash": "4a4978e9e22b5371ab37789a12226088fa4f9314dd5aa321778edd6d9fe59054",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T14",
+      "contentHash": "0475c77920a8477b6911ea4d0784cbfdd321151d0204f50d9c14e37e69fc54e8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "año",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T15",
+      "contentHash": "070a3fbfce21f5ee3b2de11f585abaaf643ee75053813ba078af74700d2c32e5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "Adiós; ¡Adiós! also fits.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T16",
+      "contentHash": "2602f1798ee6cf1d435133f8dcbe25eb1d884a420e6b2c8b80a438bbec740375",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "bilingüe; the complete label is Diccionario bilingüe.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T17",
+      "contentHash": "ef119b15be501e0fd06c879e15ed1947b9e2fc96ca4659d0a2040f65470570a8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Напиши іспанською напис на пакунку: «Кава з Іспанії».\"; task.prompt[1]: \"de\" — \"з (звідки)\".",
+          "description": "Producing the label requires the noun + de + country construction. context.taughtBefore identifies orthographic skills and vocabulary, but no origin construction. The prompt glosses de without supplying the construction, so this first-lesson task requires an untaught grammatical prerequisite.",
+          "suggestion": "Supply the frame «___ de ___» and ask learners to enter the Spanish words for coffee and Spain, or teach the origin construction before this task."
+        }
+      ],
+      "caseId": "task:A1-01-L1-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "Café de España",
+      "notes": "Café de España is correct Spanish; the defect concerns the prerequisite.",
+      "sources": [
+        "Course contract, rule 1: required constructions must be taught beforehand or supplied in the prompt or a hint.",
+        "Packet: this case's context.taughtBefore and task.prompt; no origin construction is listed or modeled."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
