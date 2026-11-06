@@ -66,9 +66,12 @@ export function buildSyntheticPack(dir: string, options: BuildOptions = {}): Bui
   const lines: string[] = [];
   for (const [kind, key, idOf] of KIND_OF) {
     for (const raw of entities[key] as any[]) {
-      const body = { ...raw };
-      if (options.state && 'reviewStatus' in body) body.reviewStatus = options.state(kind, body);
-      const state = 'reviewStatus' in body ? body.reviewStatus : 'ready';
+      const full = { ...raw };
+      if (options.state && 'reviewStatus' in full) full.reviewStatus = options.state(kind, full);
+      const state = 'reviewStatus' in full ? full.reviewStatus : 'ready';
+      // Same as tools/content/pack.ts: reviewStatus is stripped from the packed body; the hash and
+      // revision id bind to the content, the review state travels in `state`.
+      const { reviewStatus: _status, ...body } = full;
       const logicalId = idOf(body);
       lines.push(canonicalJson({ kind, logicalId, revisionId: deriveRevisionId(kind, logicalId, body), sha256: entitySha256(body), state, body }));
     }

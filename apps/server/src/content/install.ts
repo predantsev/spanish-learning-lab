@@ -76,6 +76,8 @@ const MAX_MANIFEST_BYTES = 8 * 1024 * 1024;
 const MAX_ENTITIES_BYTES = 512 * 1024 * 1024;
 const MAX_FILES = 20000;
 const ALLOWED_STATES_READY = new Set(['ready', 'quarantined']);
+/** Entity kinds whose content schema carries a reviewStatus (lexemes, situations and sources do not). */
+const STATUS_KINDS: ReadonlySet<string> = new Set(['lesson', 'task', 'skill', 'clip', 'phrase', 'collection', 'material']);
 
 function fail(code: string, message: string): never {
   throw new PackInstallError(code, message);
@@ -182,7 +184,9 @@ function parseEntities(path: string): PackEntityLine[] {
     if (!(PACK_STATES as readonly string[]).includes(e.state as string)) fail('ENTITY_INVALID', `line ${lineNo}: state`);
     if (!e.body || typeof e.body !== 'object' || Array.isArray(e.body)) fail('ENTITY_INVALID', `line ${lineNo}: body`);
     const body = e.body as Record<string, unknown>;
-    const v = validateContentBody(kind, body);
+    // tools/content/pack.ts strips reviewStatus from packed bodies (hash/revisionId bind to the
+    // content, the review state travels in `state`); re-attach it only for schema validation.
+    const v = validateContentBody(kind, STATUS_KINDS.has(kind) && !('reviewStatus' in body) ? { ...body, reviewStatus: e.state } : body);
     if (!v.ok) fail('ENTITY_SCHEMA', `${kind} ${e.logicalId}: ${v.message}`);
     if (bodyLogicalId(kind, body) !== e.logicalId) fail('ENTITY_INVALID', `${kind} ${e.logicalId}: body id differs from logicalId`);
     if ('reviewStatus' in body && body.reviewStatus !== e.state) fail('ENTITY_INVALID', `${kind} ${e.logicalId}: state differs from reviewStatus`);
@@ -400,10 +404,14 @@ function activate(db: Db, store: ProfileStore, a: ActivationInput, faults?: Inst
      VALUES (?, ?, ?, ?, ?, ?, 'course', NULL, ?, ?, ?) ON CONFLICT(revision_id) DO NOTHING`,
   );
   const existingBySha = db.prepare('SELECT revision_id FROM content_revisions WHERE kind = ? AND logical_id = ? AND sha256 = ?');
+  const updateState = db.prepare('UPDATE content_revisions SET state = ? WHERE revision_id = ? AND state != ?');
   for (const e of a.entities) {
     const prev = existingBySha.get(e.kind, e.logicalId, e.sha256) as { revision_id: string } | undefined;
     if (prev && prev.revision_id !== e.revisionId) fail('REVISION_CONFLICT', `${e.kind} ${e.logicalId} has a different revision id for identical content`);
     insertRev.run(e.revisionId, e.kind, e.logicalId, e.state, e.sha256, JSON.stringify(e.body), manifest.packId, JSON.stringify({ packVersion: manifest.version, manifestSha256: a.manifestSha256 }), t);
+    // A review-state change (e.g. ready → quarantined) keeps the content hash and revision id:
+    // the revision row is the same, only its state moves.
+    updateState.run(e.state, e.revisionId, e.state);
   }
 
   // Switch the active course pointer: course logical ids not in the new pack become inactive (revisions kept).
