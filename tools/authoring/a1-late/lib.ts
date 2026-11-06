@@ -434,6 +434,11 @@ export function form(verb: string, p: Person): string {
 }
 
 export function ending(verb: string, p: Person): string | undefined {
+  if (verb === 'hacer') return p === 0 ? undefined : `-${ENDINGS.er[p] ?? ''}`;
+  if (verb === 'preferir' || verb === 'querer') {
+    const end = `-${ENDINGS[verb === 'preferir' ? 'ir' : 'er'][p] ?? ''}`;
+    return p === 3 || p === 4 ? end : `${end}, а в основі e → ie (${verb === 'preferir' ? 'prefier-' : 'quier-'})`;
+  }
   if (isIrregular(verb)) return undefined;
   return `-${ENDINGS[family(verb)][p] ?? ''}`;
 }
