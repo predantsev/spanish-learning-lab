@@ -4,7 +4,8 @@ import type { PcmAnalysis } from './analysis.ts';
 import type { Ebur128Summary, ProbeResult } from './ffmpeg.ts';
 import { DELIVERY } from './ffmpeg.ts';
 
-export type Severity = 'fail' | 'warn';
+/** `info` is reported but does not change the status (a property worth knowing, not a defect). */
+export type Severity = 'fail' | 'warn' | 'info';
 export type TechnicalStatus = 'pass' | 'warn' | 'fail';
 
 export interface Issue {
@@ -90,7 +91,7 @@ export function evaluateTechnical(input: TechnicalInput): TechnicalVerdict {
     const delta = Math.abs(l.integratedLufs - THRESHOLDS.loudness.targetLufs);
     if (delta > THRESHOLDS.loudness.warnLu) add('loudness.window', 'fail', `${l.integratedLufs} LUFS is ${delta.toFixed(1)} LU from target`);
     else if (delta > THRESHOLDS.loudness.okLu) add('loudness.window', 'warn', `${l.integratedLufs} LUFS is ${delta.toFixed(1)} LU from target`);
-    if (shortClip) add('loudness.short-clip', 'warn', `clip under ${THRESHOLDS.shortClipSec} s: integrated loudness is approximate`);
+    if (shortClip) add('loudness.short-clip', 'info', `clip under ${THRESHOLDS.shortClipSec} s: integrated loudness is approximate`);
   }
   if (l && l.truePeakDbtp !== null && l.truePeakDbtp > THRESHOLDS.truePeakCeilingDbtp) {
     add('peak.true-peak', 'fail', `true peak ${l.truePeakDbtp} dBTP above ${THRESHOLDS.truePeakCeilingDbtp} dBTP`);
@@ -117,13 +118,17 @@ export function evaluateTechnical(input: TechnicalInput): TechnicalVerdict {
     if (pcm.leadingSilenceMs <= e.maxLeadingSilenceMs && pcm.headRmsDbfs !== null && pcm.headRmsDbfs > e.startDbfs) {
       add(
         'edge.no-lead-in',
-        'warn',
+        'info',
         `speech starts within ${e.maxLeadingSilenceMs} ms (${pcm.headRmsDbfs} dBFS RMS in the first 20 ms): ` +
           'a player start latency may clip the onset, or the start was cut',
       );
     }
   }
 
-  const status: TechnicalStatus = issues.some((i) => i.severity === 'fail') ? 'fail' : issues.length > 0 ? 'warn' : 'pass';
+  const status: TechnicalStatus = issues.some((i) => i.severity === 'fail')
+    ? 'fail'
+    : issues.some((i) => i.severity === 'warn')
+      ? 'warn'
+      : 'pass';
   return { status, shortClip, issues };
 }
