@@ -74,7 +74,7 @@ const tasks = [
   gap('T09', 'transfer', 'messages', AR, AR_RULE, 'Hola, mamá: hoy he ___ (comprar) pan y leche.', 'comprado',
     [['comprando', GERUND('Comprando', 'comprado')], ['comprido', WRONG_END('Comprar — дієслово на -ar, тому -ado', 'comprado')]],
     'Hola, mamá: hoy he comprado pan y leche.', 'Привіт, мамо! Сьогодні я купив(-ла) хліб і молоко.',
-    { instr: `Повідомлення мамі. ${INSTR}` }),
+    { instr: `Повідомлення мамі. ${INSTR}`, glosses: ['mamá — мама (розмовне слово і звертання).'] }),
   pick('T10', 'transfer', 'messages', AR, AR_RULE, 'Hola, Ana: ¿has ___ (hablar) hoy con Luis?',
     [['hablado', true], ['hablando', false, GERUND('Hablando', 'hablado')], ['hablada', false, AGREE('hablado')], ['hablido', false, 'Hablar — дієслово на -ar, тому -ado: hablado.']],
     'Hola, Ana: ¿has hablado hoy con Luis?', 'Привіт, Ано! Ти сьогодні говорила з Луїсом?',
