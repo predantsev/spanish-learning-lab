@@ -469,11 +469,14 @@ async function cmdRestorePreview(ctx, a) {
       }),
   );
   const pv = r.value;
+  // The frozen RestorePreviewInfo has no archive date; the preview record next to it does.
+  const archiveCreatedAt = PREVIEW_ID.test(pv.id) ? readJson(join(ctx.lp.previews, `${pv.id}.json`))?.archiveCreatedAt ?? null : null;
   ctx.log.info('restore previewed', { cmd: 'restore-preview', mode: r.mode, requiresSourceTrust: pv.requiresSourceTrust });
   const trust = pv.requiresSourceTrust ? ' --trust-imported-provenance' : '';
   const human = [
     uk.previewTitle,
     uk.previewLine('Профіль', pv.profileId),
+    uk.previewLine('Архів створено', archiveCreatedAt ?? '—'),
     uk.previewLine('Спроб', pv.attemptCount),
     uk.previewLine('Чернеток', pv.draftCount),
     uk.previewLine('Версія схеми', pv.schemaVersion),
@@ -483,7 +486,7 @@ async function cmdRestorePreview(ctx, a) {
     ...(pv.requiresSourceTrust ? [uk.previewTrust] : []),
     uk.previewConfirm(`sll restore --confirm ${pv.id} --token ${pv.confirmation}${trust}`),
   ].join('\n');
-  emit(a.json, human, { state: 'previewed', mode: r.mode, preview: pv });
+  emit(a.json, human, { state: 'previewed', mode: r.mode, archiveCreatedAt, preview: pv });
   return EXIT_OK;
 }
 

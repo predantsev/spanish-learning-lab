@@ -32,6 +32,7 @@ describe('launcher recovery commands', () => {
     expect(p.code, p.stderr).toBe(0);
     const pv = p.json.preview as { id: string; confirmation: string; requiresSourceTrust: boolean; profileEpoch: number };
     expect(p.json.mode).toBe('online');
+    expect(Number.isNaN(Date.parse(p.json.archiveCreatedAt))).toBe(false);
     expect(pv.requiresSourceTrust).toBe(false);
     const human = await sll(h, ['restore', '--preview', out]);
     expect(human.stdout).toContain('sll restore --confirm');
