@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "appliesTo": { "labels": "labels.json", "sha256": "7f31d94096a310623c20c29dad5866e882bd4e6c1ae58d3eb29ac9c5b89fa271" },
+  "decidedAt": "2026-11-06T00:45:00Z",
+  "decision": "Three valid controls carry an unintended Ukrainian-terminology defect: learner-facing feedback calls the Spanish written accent (´) «тильда», which in Ukrainian names the ~ sign. Raised by reviewer runs B-main and B-clean as a packet-wide note (both explicitly did not count it as a defect); adjudicated as a genuine blocking defect on dictionary evidence; adopted by the integrator as content/README.md rule 6a on 2026-11-06, with the instruction to score it as a blocking terminology defect. labels.json is not edited (its pre-registered hash stays valid); scoring applies these corrections on top and reports both.",
+  "evidence": {
+    "source": "СУМ via slovnyk.ua, https://slovnyk.ua/index.php?swrd=%D1%82%D0%B8%D0%BB%D1%8C%D0%B4%D0%B0",
+    "retrievedAt": "2026-11-06T00:40:04.218Z",
+    "httpStatus": 200,
+    "passage": "ТИЛЬДА, и, ж. Друкарський знак, що має форму вигнутої риски (~).",
+    "policy": "content/README.md rule 6a (main checkout): «The Spanish written accent ´ is «знак наголосу» / «графічний наголос», never «тильда» (in Ukrainian «тильда» is only the ~ sign, e.g. of ñ).»"
+  },
+  "corrections": [
+    { "caseId": "cal-02", "field": "class", "from": "valid", "to": "flawed", "evidence": "options b/c feedbackUk: «(окремо, з тильдою)», «(разом, без тильди)», «пишеться з тильдою» used for the acute accent of «por qué»" },
+    { "caseId": "cal-02", "field": "releaseBlocking", "from": false, "to": true, "evidence": "genuine learner-facing terminology error; blocking per reviewer-prompt definition and rule 6a" },
+    { "caseId": "cal-02", "field": "defectType", "from": null, "to": "poor-incorrect-ukrainian", "evidence": "unintended (not seeded)" },
+    { "caseId": "cal-21", "field": "class", "from": "valid", "to": "flawed", "evidence": "errors e1 feedbackUk: «Питальне слово «dónde» пишеться з тильдою.» for the acute accent" },
+    { "caseId": "cal-21", "field": "releaseBlocking", "from": false, "to": true, "evidence": "genuine learner-facing terminology error; blocking per reviewer-prompt definition and rule 6a" },
+    { "caseId": "cal-21", "field": "defectType", "from": null, "to": "poor-incorrect-ukrainian", "evidence": "unintended (not seeded)" },
+    { "caseId": "cal-34", "field": "class", "from": "valid", "to": "flawed", "evidence": "options b/c feedbackUk: «пишемо без тильди, а «té» (чай) — з тильдою», «пишеться з тильдою» for the acute accent" },
+    { "caseId": "cal-34", "field": "releaseBlocking", "from": false, "to": true, "evidence": "genuine learner-facing terminology error; blocking per reviewer-prompt definition and rule 6a" },
+    { "caseId": "cal-34", "field": "defectType", "from": null, "to": "poor-incorrect-ukrainian", "evidence": "unintended (not seeded)" }
+  ],
+  "alsoAffectedNoClassChange": {
+    "cases": ["cal-06", "cal-14", "cal-15", "cal-25", "cal-35"],
+    "note": "Already labelled flawed for their seeded defect; they carry the same unintended «тильда» term in feedback or hints. Detection of the seeded defect is unaffected."
+  },
+  "otherUnintendedFindings": [
+    { "caseId": "cal-04", "note": "Already flawed. context.taughtBefore lists quedar (A1-06-L4), a lesson after the case's A1-05-L3; found by B-main and B-clean. No class change." }
+  ],
+  "disputesKept": [
+    { "caseId": "cal-28", "note": "Label kept as ambiguous. B-main and B-clean judged it flawed ('La' must be 'Las' after «Marta y Lucía»); A-main judged it uncertain. A singular pronoun can take one conjunct as antecedent, so the claimed correction holds only under the 'both' reading; no retrievable source settles whether the reply is ungrammatical or merely undetermined. Design confound recorded: a coordinated antecedent with «y» invites the agreement-error reading; H1 uses «una de ellas» instead." },
+    { "caseId": "cal-24", "note": "Label kept as ambiguous. B-main judged it valid (a bare «Haber.» is not a plausible utterance); A-main and B-clean judged it uncertain. The instruction asks to write what was heard and gives no context, and the source states the two are homophones." }
+  ]
+}

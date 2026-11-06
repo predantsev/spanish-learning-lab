@@ -1,0 +1,160 @@
+{
+  "cases": [
+    {
+      "caseId": "cal-h1-01",
+      "reviewerAnswer": "¿Cómo te llamas? (informal) or ¿Cómo se llama? / ¿Cómo se llama usted? (formal). The prompt does not say which register applies, so either fits.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "prompt[0].text \"Запитайте в людини іспанською, як її звати.\" with closed: true and accepted only \"¿Cómo te llamas?\"",
+      "defect": "The prompt does not say whether the person is a friend (tú) or someone the learner should address formally (usted). The lesson taught both formulas, ¿Cómo te llamas? and ¿Cómo se llama (usted)?. The key is closed and accepts only the tú form, so a correct formal answer would be marked wrong. Whether that is a mistake depends on the register, which the packet does not fix.",
+      "correction": "Either fix the register in the prompt (e.g. \"Запитайте в друга…\" for tú, or \"Запитайте в незнайомої людини ввічливо…\" for usted), or keep the neutral prompt and add \"¿Cómo se llama?\" and \"¿Cómo se llama usted?\" to accepted.",
+      "sources": [
+        "Course contract rule 3 (closed key must accept every correct answer for the stated context)",
+        "Course contract rule 1 / taughtBefore: both formulas taught in this lesson"
+      ],
+      "notes": "Spanish and Ukrainian are otherwise correct."
+    },
+    {
+      "caseId": "cal-h1-02",
+      "reviewerAnswer": "a (Me duele la cabeza.)",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "options[a].outcomes \"incorrect\" / options[a].feedbackUk \"Потрібен присвійний займенник: «mi cabeza».\"; options[b] \"Me duele mi cabeza.\" marked correct; hints[0] text \"З частинами тіла іспанською вживаємо присвійний займенник, як і в українській: mi cabeza, mi mano.\"; feedback.incorrectUk",
+      "defect": "The key is reversed and the hint states a false rule. In Spanish, when a body part belongs to the person already marked by the pronoun (me), it takes the definite article, not a possessive: \"Me duele la cabeza\" is the correct, natural form. \"Me duele mi cabeza\" is unidiomatic. The target's own name (doler-body-article) points to the article. The hint and the option a feedback teach the opposite.",
+      "correction": "Mark a as correct with feedback such as \"Правильно! З частинами тіла вживаємо артикль: la cabeza.\" Mark b as incorrect with feedback such as \"З частинами тіла іспанською вживаємо означений артикль, а не присвійний займенник: «Me duele la cabeza».\" Change option c to \"Me duelen la cabeza.\" so it tests duele/duelen agreement. Rewrite the hint: \"З частинами тіла іспанською зазвичай вживаємо означений артикль (la cabeza), а не присвійний займенник, бо «me» вже показує, чия це голова.\" Set feedback.incorrectUk to \"Правильно: «Me duele la cabeza.»\".",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), §14.4 / §18.8 on the definite article with inalienable possession (from memory)",
+        "Instituto Cervantes, Plan curricular, Gramática A1–A2: artículo determinado con partes del cuerpo (from memory)"
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-03",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The transcript is not shown in the prompt. The translation and the option feedback are accurate. The feminine «їй/її» refers back to «людина», which is grammatically correct Ukrainian. The neutral «ця людина» or «мені» could optionally replace it to avoid suggesting the speaker's sex."
+    },
+    {
+      "caseId": "cal-h1-04",
+      "reviewerAnswer": "¿Adónde vas? or ¿A dónde vas?",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "errors[e1] \"¿A dónde vas?\" marked incorrect with feedbackUk \"Це питальне слово пишеться разом: «adónde».\"",
+      "defect": "Both adónde and a dónde are correct spellings of this question word, and the lesson itself taught \"¿adónde? / ¿a dónde?\". Rejecting \"¿A dónde vas?\" refuses a valid answer, and the feedback states a false rule.",
+      "correction": "Move \"¿A dónde vas?\" into accepted (e.g. as v2, with noteUk \"Можна писати і разом, і окремо: adónde / a dónde.\"). Remove error e1.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas (2005), s.v. \"adonde\" (both adónde and a dónde valid with verbs of motion) (from memory)",
+        "Course contract rule 1 (taughtBefore lists ¿adónde? / ¿a dónde?)"
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-05",
+      "reviewerAnswer": "a (Ніхто)",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "options[a] \"Ніхто\" outcome \"incorrect\"; options[b] \"Усі\" outcome \"correct\"",
+      "defect": "The clip says \"no viene nadie a la oficina\" (nobody comes to the office). The key marks \"Усі\" (everyone) as correct and the right answer, \"Ніхто\", as incorrect. Learners who understand the negation would be penalised.",
+      "correction": "Mark a \"Ніхто\" as correct with feedbackUk \"Правильно! «No viene nadie» — ніхто не приходить.\" Mark b as incorrect with feedbackUk such as \"Ні: «no … nadie» означає «ніхто».\" Keep c incorrect. Optionally make feedback.incorrectUk more specific.",
+      "sources": [
+        "Course contract rule 2 (correct option must mark its targets correct)",
+        "RAE/ASALE, Nueva gramática §48 (negation, no … nadie) (from memory)"
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-06",
+      "reviewerAnswer": "conmigo",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The key, the error and the feedback are correct. taughtBefore does not list venir or the contraction al. Both are basic A1 items and the case's vocabulary list is clearly not exhaustive, so this is not treated as a defect. Listing venir would make it explicit."
+    },
+    {
+      "caseId": "cal-h1-07",
+      "reviewerAnswer": "veintiuna (feminine noun personas); veintiún before a feminine noun is at most a tolerated variant",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "accepted[v1] \"veintiún\"; errors[e1] \"veintiuna\" marked incorrect with feedbackUk \"Перед іменником число 21 скорочується: «veintiún».\"; referenceAnswer; feedback.incorrectUk",
+      "defect": "\"personas\" is feminine, so the agreeing form is \"veintiuna personas\". This is exactly what the lesson taught (\"veintiuna mesas\"). The key rejects the correct answer and states a false rule: the shortening to veintiún applies before masculine nouns. Before feminine nouns, veintiún is at most an accepted variant, not the required form.",
+      "correction": "Accept \"veintiuna\" as the referenceAnswer. Either remove error e1 or replace it with something like \"veintiuno\" (feedback: \"Перед іменником жіночого роду: «veintiuna personas».\"). Decide whether to also accept \"veintiún\" with a note, given DPD tolerance. Update feedback.incorrectUk to \"Правильно: «veintiuna».\"",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, s.v. \"veintiuno\" (veintiuna recommended before feminine nouns) (from memory)",
+        "Course contract rule 1 (taughtBefore: \"veintiuna mesas\")"
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-08",
+      "reviewerAnswer": "café",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "errors[e1].feedbackUk \"Над останньою «e» потрібен апостроф: «café».\"",
+      "defect": "The feedback calls the written accent \"апостроф\". In Ukrainian, an apostrophe (') is a different sign. Using it for the Spanish acute accent is a wrong orthographic term, and the course terminology requires «знак наголосу» / «графічний наголос».",
+      "correction": "Change it to \"Над останньою «e» потрібен знак наголосу: «café».\"",
+      "sources": [
+        "Course contract rule 8 and content rule 6a (term must be «знак наголосу» / «графічний наголос»)",
+        "Український правопис (2019), § 6 (апостроф) (from memory)"
+      ],
+      "notes": "The key itself (café; cafe as an error) is correct."
+    },
+    {
+      "caseId": "cal-h1-09",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "«Акут» is the standard Ukrainian name for the acute diacritic, and it is used here alongside «знак наголосу». All the feedback is consistent with the outcomes."
+    },
+    {
+      "caseId": "cal-h1-10",
+      "reviewerAnswer": "ha habido",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The normative rule that existential haber is singular (ha habido, not han habido) is correct. Optionally, the Ukrainian gloss «У значенні «є, були»» could read «Коли haber означає «є / були» (як hay), воно не має множини». Calling the perfecto «минулий час» in the prompt is an acceptable simplification at this level."
+    },
+    {
+      "caseId": "cal-h1-11",
+      "reviewerAnswer": "a or b. \"a las siete\" without a part of the day can mean 7:00 or 19:00.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "clip transcript \"La clase de inglés es a las siete.\" vs options[a] \"О 7:00\" (incorrect) and options[b] \"О 19:00\" (correct); options[a].feedbackUk \"Ні, заняття о 19:00.\"",
+      "defect": "The clip gives no part of the day (no \"de la mañana\" or \"de la tarde\"), and the lesson explicitly taught clock time with and without these markers. Both 7:00 and 19:00 are possible readings. The key accepts only 19:00 and calls 7:00 wrong, which the audio text cannot support. The audio itself cannot be checked.",
+      "correction": "Add a marker to the clip (\"a las siete de la tarde\" for 19:00, or \"de la mañana\" for 7:00) and key the matching option. Alternatively, mark both 7:00 and 19:00 as correct. Rewrite options[c].feedbackUk more naturally as \"Ви почули «a las siete» — о сьомій.\"",
+      "sources": [
+        "Course contract rules 2 and 3 (key must match the stated context)",
+        "Instituto Cervantes, Plan curricular, Nociones generales: la hora (de la mañana/tarde/noche) (from memory)"
+      ],
+      "notes": "«Почуто» is understandable but awkward Ukrainian."
+    },
+    {
+      "caseId": "cal-h1-12",
+      "reviewerAnswer": "Cannot be determined. \"La\" refers to \"una de ellas\" (the one who works at the hospital), and the text never says whether that is Laura or Carmen.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "options[a] \"Лауру\" (correct), options[b] \"Кармен\" (incorrect, feedbackUk \"Ні, в автобусі людина бачить Лауру.\"), feedback.incorrectUk \"Людина бачить Лауру.\"",
+      "defect": "The pronoun's referent is underdetermined. \"La\" picks up \"una de ellas\", but the text does not identify which neighbour that is. Both the Laura reading and the Carmen reading are possible, so the key's choice of Laura has no support in the text.",
+      "correction": "Name the neighbour in the text, e.g. \"Laura trabaja en el hospital. La veo todos los días en el autobús.\" Or ask \"Кого людина бачить в автобусі?\" with the option \"Сусідку, яка працює в лікарні\" as correct.",
+      "sources": [
+        "Course contract rule 2 (key must be supported by the task)",
+        "RAE/ASALE, Nueva gramática §16 (anaphoric reference of clitic pronouns) (from memory)"
+      ],
+      "notes": "Option c's feedback (la is singular, las would be plural) is correct."
+    }
+  ]
+}

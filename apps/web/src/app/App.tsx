@@ -1,0 +1,178 @@
+// Bootstrap: /health → launcher nonce exchange (if present) → session read → authenticated app.
+// An invalid or expired nonce never discards an existing valid session (API.md).
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { ApiClient } from '../api/client.ts';
+import { ApiRequestError } from '../api/errors.ts';
+import type { OwnerProfile, Session } from '../api/types.ts';
+import { detectPlatform } from '../lib/keyboard.ts';
+import { applyTheme } from '../lib/theme.ts';
+import { reconcileOutbox } from '../outbox/reconcile.ts';
+import type { OutboxStore } from '../outbox/store.ts';
+import { useLocation } from '../router/history.tsx';
+import { parseRoute } from '../router/routes.ts';
+import { AuthRequiredScreen, CheckingScreen, ServiceDownScreen } from './BootScreens.tsx';
+import { AppContext, type AppServices, type ConnectionState } from './context.tsx';
+import { RouteView } from './RouteView.tsx';
+import { Shell } from './Shell.tsx';
+
+type Boot =
+  | { readonly phase: 'checking' }
+  | { readonly phase: 'service-down' }
+  | { readonly phase: 'auth-required' }
+  | { readonly phase: 'ready'; readonly session: Session };
+
+export interface AppProps {
+  readonly api: ApiClient;
+  readonly outbox: OutboxStore;
+  readonly nonce: string | null;
+  readonly demo: boolean;
+  readonly locale: string;
+}
+
+export function App({ api, outbox, nonce, demo, locale }: AppProps) {
+  const [boot, setBoot] = useState<Boot>({ phase: 'checking' });
+  const nonceRef = useRef<string | null>(nonce);
+  const inFlight = useRef<Promise<void> | null>(null);
+
+  const start = useCallback(() => {
+    if (inFlight.current) return inFlight.current;
+    const run = (async () => {
+      setBoot({ phase: 'checking' });
+      try {
+        await api.health();
+      } catch {
+        setBoot({ phase: 'service-down' });
+        return;
+      }
+      const oneUseNonce = nonceRef.current;
+      nonceRef.current = null;
+      if (oneUseNonce) {
+        try {
+          setBoot({ phase: 'ready', session: await api.exchange(oneUseNonce) });
+          return;
+        } catch {
+          // Fall through: an existing cookie session may still be valid.
+        }
+      }
+      try {
+        setBoot({ phase: 'ready', session: await api.readSession() });
+      } catch (error) {
+        setBoot({ phase: error instanceof ApiRequestError && error.kind === 'network' ? 'service-down' : 'auth-required' });
+      }
+    })().finally(() => {
+      inFlight.current = null;
+    });
+    inFlight.current = run;
+    return run;
+  }, [api]);
+
+  useEffect(() => {
+    void start();
+  }, [start]);
+
+  if (boot.phase === 'checking') return <CheckingScreen />;
+  if (boot.phase === 'service-down') return <ServiceDownScreen outbox={outbox} onRetry={() => void start()} />;
+  if (boot.phase === 'auth-required') return <AuthRequiredScreen outbox={outbox} onRetry={() => void start()} />;
+  return <ReadyApp api={api} outbox={outbox} initialSession={boot.session} demo={demo} locale={locale} />;
+}
+
+function ReadyApp({
+  api,
+  outbox,
+  initialSession,
+  demo,
+  locale,
+}: {
+  readonly api: ApiClient;
+  readonly outbox: OutboxStore;
+  readonly initialSession: Session;
+  readonly demo: boolean;
+  readonly locale: string;
+}) {
+  const [session, setSession] = useState(initialSession);
+  const [profile, setProfileState] = useState<OwnerProfile | null>(null);
+  const [connection, setConnection] = useState<ConnectionState>('ok');
+  const [epochChanged, setEpochChanged] = useState(false);
+  const [authLost, setAuthLost] = useState(false);
+  const location = useLocation();
+  const route = parseRoute(location.pathname);
+
+  useEffect(() => {
+    api.events = {
+      onSession: (next) => {
+        setSession(next);
+        setAuthLost(false);
+      },
+      onAuthLost: () => setAuthLost(true),
+      onEpochChanged: () => setEpochChanged(true),
+      onNetworkFailure: () => setConnection('unreachable'),
+    };
+    return () => {
+      api.events = {};
+    };
+  }, [api]);
+
+  const setProfile = useCallback((next: OwnerProfile) => {
+    setProfileState(next);
+    applyTheme(next.theme);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    api
+      .get<OwnerProfile>('/profile')
+      .then((envelope) => {
+        if (!cancelled) setProfile(envelope.data);
+      })
+      .catch(() => undefined);
+    void reconcileOutbox(api, outbox, initialSession.profileEpoch).catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
+  }, [api, outbox, initialSession.profileEpoch, setProfile]);
+
+  const checkConnection = useCallback(async () => {
+    try {
+      await api.health();
+      setConnection('ok');
+      void reconcileOutbox(api, outbox, api.profileEpoch).catch(() => undefined);
+      return true;
+    } catch {
+      setConnection('unreachable');
+      return false;
+    }
+  }, [api, outbox]);
+
+  // While unreachable, re-check periodically (no learner activity is generated by health reads).
+  useEffect(() => {
+    if (connection !== 'unreachable') return;
+    const timer = window.setInterval(() => void checkConnection(), 15000);
+    return () => window.clearInterval(timer);
+  }, [connection, checkConnection]);
+
+  const services = useMemo<AppServices>(
+    () => ({
+      api,
+      outbox,
+      session,
+      platform: detectPlatform(typeof navigator === 'undefined' ? undefined : navigator),
+      demo,
+      profile,
+      setProfile,
+      connection,
+      checkConnection,
+      epochChanged,
+      authLost,
+      locale,
+    }),
+    [api, outbox, session, demo, profile, setProfile, connection, checkConnection, epochChanged, authLost, locale],
+  );
+
+  return (
+    <AppContext.Provider value={services}>
+      <Shell route={route}>
+        <RouteView route={route} search={location.search} />
+      </Shell>
+    </AppContext.Provider>
+  );
+}
