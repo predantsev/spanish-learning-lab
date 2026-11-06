@@ -8,7 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { useApp } from '../app/context.tsx';
 import { useCommandRunner, useResource, useWideLayout } from '../app/hooks.ts';
 import { ApiRequestError } from '../api/errors.ts';
-import type { CatalogEntry, CatalogPage, ProgressView, Target } from '../api/types.ts';
+import type { CatalogEntry, CatalogPage, Target } from '../api/types.ts';
+import { useTitles, type Titles } from '../app/titles.ts';
 import { Es, PageHeader, StateBadge, TargetLabel, targetKey } from '../components/Common.tsx';
 import { HelpButton } from '../components/HelpButton.tsx';
 import { ActionError, EmptyState, ErrorState, LoadingState } from '../components/States.tsx';
@@ -58,25 +59,6 @@ async function loadCatalog(api: ReturnType<typeof useApp>['api'], mode: string, 
     cursor = envelope.data.nextCursor;
   }
   return items;
-}
-
-interface Titles {
-  readonly blocks: ReadonlyMap<string, string>;
-  readonly targets: ReadonlyMap<string, string>;
-}
-
-function useTitles(): Titles {
-  const { api } = useApp();
-  const progress = useResource('catalog-titles', (signal) => api.get<ProgressView>('/views/progress', signal).then((envelope) => envelope.data));
-  return useMemo(() => {
-    const blocks = new Map<string, string>();
-    const targets = new Map<string, string>();
-    if (progress.state.status === 'ready') {
-      for (const block of progress.state.data.blocks) blocks.set(block.blockId, block.titleUk);
-      for (const row of progress.state.data.targets) targets.set(targetKey(row.target), row.titleUk);
-    }
-    return { blocks, targets };
-  }, [progress.state]);
 }
 
 export function CatalogScreen({ lessonId }: { readonly lessonId?: string }) {
