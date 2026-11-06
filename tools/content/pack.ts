@@ -203,6 +203,11 @@ export function buildPack(options: BuildOptions): BuildResult {
   }
   const ledger = loadLedger(options.ledgerPath ?? DEFAULT_LEDGER_PATH);
   const validation = validateCorpus(corpus, ledger, options.receipts ? { receipts: options.receipts } : {});
+  const duplicates = validation.errors.filter((e) => e.code === 'id.duplicate');
+  if (duplicates.length > 0) {
+    // Even a preview pack must have exactly one revision per logical ID.
+    return { ok: false, errors: duplicates.map((e) => `${e.file ?? ''}: ${e.message}`), warnings };
+  }
   if (validation.errors.length > 0) {
     const msg = `validation reports ${validation.errors.length} error(s) (run npm run content:validate)`;
     if (preview) warnings.push(msg);

@@ -3,7 +3,7 @@
 // Every test works in its own temp directory; SLL_REVIEW_KEYS_DIR/SLL_HOME point to temp dirs.
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createHash } from 'node:crypto';
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { canonicalJson, canonicalSha256, revisionId } from '../../tools/content/canonical.ts';
@@ -235,6 +235,18 @@ describe('content pack', () => {
     // Same source + createdAt → byte-identical manifest in a second directory.
     const again = buildPack({ out: join(w.root, 'pack2'), sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, allowUnreviewed: true, createdAt, version: '0.1.0-test' });
     expect(again.packHash).toBe(r.packHash);
+  });
+
+  it('refuses duplicate logical IDs even in a preview pack, and symlinked source files', () => {
+    const fixture = makeFixture();
+    fixture.files['skills/A1-02.json'] = { ...fixture.files['skills/A1-01.json'], blockId: 'A1-02' };
+    const w = writeFixture(fixture, tempDir('sll-pack-'));
+    const r = buildPack({ out: join(w.root, 'pack'), sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, allowUnreviewed: true, createdAt });
+    expect(r.ok).toBe(false);
+    expect(r.errors.join('\n')).toMatch(/duplicate skill id participle\.hecho/);
+    symlinkSync(join(w.sourceDir, 'skills', 'A1-01.json'), join(w.sourceDir, 'lexicon', 'A1-02.json'));
+    const v = runValidation({ sourceDir: w.sourceDir, ledgerPath: w.ledgerPath });
+    expect(v.errors).toContainEqual(expect.objectContaining({ code: 'file.symlink', file: 'lexicon/A1-02.json' }));
   });
 
   it('detects tampering with any packed file', () => {

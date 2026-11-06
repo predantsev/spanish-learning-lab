@@ -2,7 +2,7 @@
 // (Ajv draft 2020-12, strict schema mode, no coercion/defaults/removal) and returns a typed corpus.
 // CLI: node tools/content/load.ts [--source <dir>]   (prints a per-kind summary; exit 1 on errors)
 import { createRequire } from 'node:module';
-import { readFileSync, readdirSync, realpathSync, statSync } from 'node:fs';
+import { lstatSync, readFileSync, readdirSync, realpathSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { ErrorObject, ValidateFunction } from 'ajv';
@@ -167,7 +167,8 @@ export function createContentValidator(schemaPath: string = DEFAULT_SCHEMA_PATH)
   return validator;
 }
 
-function walk(dir: string, root: string, out: string[]): void {
+/** Lists files under `dir`; symbolic links are reported, never followed. */
+function walk(dir: string, root: string, out: string[], links: string[]): void {
   let names: string[];
   try {
     names = readdirSync(dir).sort();
@@ -176,9 +177,11 @@ function walk(dir: string, root: string, out: string[]): void {
   }
   for (const name of names) {
     const full = join(dir, name);
-    const st = statSync(full);
-    if (st.isDirectory()) walk(full, root, out);
-    else out.push(relative(root, full).split(sep).join('/'));
+    const st = lstatSync(full);
+    const rel = relative(root, full).split(sep).join('/');
+    if (st.isSymbolicLink()) links.push(rel);
+    else if (st.isDirectory()) walk(full, root, out, links);
+    else out.push(rel);
   }
 }
 
@@ -224,7 +227,9 @@ export function loadCorpus(options: LoadOptions = {}): LoadResult {
   const corpus = emptyCorpus(sourceDir);
   const issues: Issue[] = [];
   const rels: string[] = [];
-  walk(sourceDir, sourceDir, rels);
+  const links: string[] = [];
+  walk(sourceDir, sourceDir, rels, links);
+  for (const rel of links) issues.push({ level: 'error', code: 'file.symlink', file: rel, message: 'symbolic links are not allowed in content/source' });
 
   for (const rel of rels) {
     if (isIgnoredFile(rel)) continue;

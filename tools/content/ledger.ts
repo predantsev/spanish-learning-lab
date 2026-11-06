@@ -62,8 +62,13 @@ function blockKey(blockId: string): number {
   return Number(m[1]) * 100 + Number(m[2]);
 }
 
+/** Locale-independent code-unit order (digests must not depend on the machine's locale). */
+export function compareCodeUnits(a: string, b: string): number {
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+
 export function compareBlocks(a: string, b: string): number {
-  return blockKey(a) - blockKey(b) || a.localeCompare(b);
+  return blockKey(a) - blockKey(b) || compareCodeUnits(a, b);
 }
 
 /** Total order position of a lesson/check ID; undefined for malformed IDs. */
@@ -79,7 +84,7 @@ export function courseIndex(lessonId: string): number | undefined {
 export function compareLessons(a: string, b: string): number {
   const ia = courseIndex(a) ?? Number.MAX_SAFE_INTEGER;
   const ib = courseIndex(b) ?? Number.MAX_SAFE_INTEGER;
-  return ia - ib || a.localeCompare(b);
+  return ia - ib || compareCodeUnits(a, b);
 }
 
 export function blockOfLesson(lessonId: string): string | undefined {
