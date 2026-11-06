@@ -40,4 +40,12 @@ export const RULES: Record<string, string> = {
     'Nunca — «ніколи». Якщо nunca стоїть перед дієсловом, no не потрібне: Nunca como carne. Якщо nunca стоїть після дієслова, перед дієсловом ставимо no: No como carne nunca.',
   'time.frequency.expressions':
     'Todos los días або cada día — «щодня», los fines de semana — «на вихідних», una vez a la semana — «раз на тиждень», los sábados — «щосуботи» (los + день тижня означає повтор). Ці вирази зазвичай стоять на початку або в кінці речення.',
+  // A1-04-L6
+  'link.sequence':
+    'Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.',
+  'reading.routine-text':
+    'Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій.',
+  'writing.routine':
+    'Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después).',
+  'listening.routine': 'Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії.',
 };

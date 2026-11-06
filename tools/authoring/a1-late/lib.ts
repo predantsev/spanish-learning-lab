@@ -511,6 +511,11 @@ export function vslot(id: string, t: string, verb: string, p: Person, extra: Arr
   return { id, t, acc: [form(verb, p)], err: verbErrors(verb, p, { extra }) };
 }
 
+/** Every concatenation of one option per part (reviewed variant sets such as comma/connector choices). */
+export function combos(...parts: string[][]): string[] {
+  return parts.reduce<string[]>((acc, options) => acc.flatMap((prefix) => options.map((o) => prefix + o)), ['']);
+}
+
 export const VERB_UK: Record<string, string> = {
   hablar: 'говорити',
   trabajar: 'працювати',
