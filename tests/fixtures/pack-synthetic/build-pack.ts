@@ -1,6 +1,6 @@
 // Builds the SYNTHETIC test pack in the content-pack format (pack.json + entities.ndjson + media/).
 // Usage: node tests/fixtures/pack-synthetic/build-pack.ts --out <dir> [--version 1.0.0] [--preview]
-// The media files are synthetic byte blobs with an ID3/MPEG header — not real audio.
+// The media files are synthetic, decodable MP3 silence (no recorded speech, no third-party audio).
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
@@ -36,14 +36,28 @@ export interface BuiltPack {
   readonly clipHashes: Record<string, string>;
 }
 
-/** Deterministic fake MP3 bytes: ID3v2 header + MPEG frame sync + a label-specific filler. */
+/**
+ * Deterministic synthetic MP3 that a browser can decode: an ID3v2.4 tag whose TXXX frame carries a
+ * label-specific value (so every clip/salt has its own hash), then silent MPEG-1 Layer III frames
+ * (32 kbps, 44.1 kHz, mono, 104 bytes each, all-zero side info = silence, ~26 ms per frame).
+ * The total size stays exactly `size` bytes (Range tests rely on 4096); the tail after the last whole
+ * frame is zero padding, which decoders skip.
+ */
 export function fakeMp3(label: string, size = 4096): Buffer {
+  const value = Buffer.from(createHash('sha256').update(label).digest('hex'), 'latin1');
+  const txxxBody = Buffer.concat([Buffer.from([0x03]), Buffer.from('sll', 'latin1'), Buffer.from([0x00]), value]);
+  const txxx = Buffer.concat([Buffer.from('TXXX', 'latin1'), syncsafe(txxxBody.length), Buffer.from([0x00, 0x00]), txxxBody]);
+  const tag = Buffer.concat([Buffer.from([0x49, 0x44, 0x33, 0x04, 0x00, 0x00]), syncsafe(txxx.length), txxx]);
   const b = Buffer.alloc(size);
-  Buffer.from([0x49, 0x44, 0x33, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]).copy(b, 0);
-  Buffer.from([0xff, 0xfb, 0x90, 0x64]).copy(b, 10);
-  const seed = createHash('sha256').update(label).digest();
-  for (let i = 14; i < size; i++) b[i] = seed[i % seed.length]! ^ (i & 0xff);
+  tag.copy(b, 0);
+  const FRAME = 104;
+  const header = Buffer.from([0xff, 0xfb, 0x10, 0xc4]);
+  for (let off = tag.length; off + FRAME <= size; off += FRAME) header.copy(b, off);
   return b;
+}
+
+function syncsafe(n: number): Buffer {
+  return Buffer.from([(n >> 21) & 0x7f, (n >> 14) & 0x7f, (n >> 7) & 0x7f, n & 0x7f]);
 }
 
 const KIND_OF: Array<[EntityKind, keyof SyntheticEntities, (b: any) => string]> = [
