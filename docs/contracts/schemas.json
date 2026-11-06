@@ -717,7 +717,7 @@
           "items": {
             "$ref": "#/$defs/Target"
           },
-          "minItems": 1,
+          "minItems": 0,
           "maxItems": 30
         },
         "kind": {
@@ -935,6 +935,7 @@
           "enum": [
             "draft",
             "needs-review",
+            "reviewed",
             "ready",
             "retired",
             "quarantined"
@@ -1585,6 +1586,7 @@
           "enum": [
             "draft",
             "needs-review",
+            "reviewed",
             "ready",
             "retired",
             "quarantined"
@@ -2208,6 +2210,18 @@
             "meaning"
           ]
         }
+      ]
+    },
+    "Payload_phrase_archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "archived"
       ]
     },
     "Payload_material_draft": {
@@ -3175,6 +3189,53 @@
             },
             "payload": {
               "$ref": "#/$defs/Payload_phrase_capture"
+            },
+            "contextId": {
+              "$ref": "#/$defs/Id"
+            },
+            "contextRevision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "contextSnapshot": {
+              "$ref": "#/$defs/Snapshot"
+            }
+          },
+          "required": [
+            "operationId",
+            "profileEpoch",
+            "kind",
+            "subjectId",
+            "expectedRevision",
+            "payload"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "operationId": {
+              "$ref": "#/$defs/Id"
+            },
+            "profileEpoch": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "kind": {
+              "const": "phrase.archive"
+            },
+            "subjectId": {
+              "$ref": "#/$defs/Id"
+            },
+            "expectedRevision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "payload": {
+              "$ref": "#/$defs/Payload_phrase_archive"
             },
             "contextId": {
               "$ref": "#/$defs/Id"
@@ -4532,6 +4593,14 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
             "status": {
               "type": "string",
               "enum": [
@@ -4842,6 +4911,14 @@
                 "minItems": 0,
                 "maxItems": 200
               },
+              "targets": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Target"
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
               "practiceReady": {
                 "type": "boolean"
               },
@@ -4858,6 +4935,7 @@
               "state",
               "origin",
               "collectionIds",
+              "targets",
               "practiceReady",
               "archived"
             ]
@@ -4976,6 +5054,230 @@
         "topicId",
         "titleUk",
         "materials"
+      ]
+    },
+    "CatalogMetaView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "blockId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 10
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "termEs": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 160
+              }
+            },
+            "required": [
+              "blockId",
+              "titleUk",
+              "termEs"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "situations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              }
+            },
+            "required": [
+              "id",
+              "titleUk"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 40
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "skillId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "termEs": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 160
+              }
+            },
+            "required": [
+              "skillId",
+              "titleUk",
+              "termEs"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 3000
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "blocks",
+        "situations",
+        "skills"
+      ]
+    },
+    "AttemptResultView": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "viewsVersion": {
+          "const": 1
+        },
+        "attemptId": {
+          "$ref": "#/$defs/Id"
+        },
+        "taskRevisionId": {
+          "$ref": "#/$defs/Id"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "checked",
+            "unresolved"
+          ]
+        },
+        "originalAnswer": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 8000
+        },
+        "verdicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "target": {
+                "$ref": "#/$defs/Target"
+              },
+              "titleUk": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "correctness": {
+                "type": "string",
+                "enum": [
+                  "correct",
+                  "incorrect",
+                  "unresolved",
+                  "invalid-item"
+                ]
+              },
+              "independence": {
+                "type": "string",
+                "enum": [
+                  "independent",
+                  "supported",
+                  "unknown",
+                  "not-assessed"
+                ]
+              },
+              "feedbackUk": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 2000
+              }
+            },
+            "required": [
+              "target",
+              "titleUk",
+              "correctness",
+              "independence",
+              "feedbackUk"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 30
+        },
+        "feedbackUk": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        "referenceAnswer": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 2000
+        },
+        "referenceIsExample": {
+          "type": "boolean"
+        },
+        "supportUsed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "rule",
+              "targeted-clue",
+              "translation",
+              "transcript",
+              "reveal",
+              "external-help",
+              "delivery-unknown"
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 12
+        },
+        "savedForReview": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "viewsVersion",
+        "attemptId",
+        "taskRevisionId",
+        "status",
+        "originalAnswer",
+        "verdicts",
+        "feedbackUk",
+        "referenceAnswer",
+        "referenceIsExample",
+        "supportUsed",
+        "savedForReview"
       ]
     },
     "ListeningView": {
