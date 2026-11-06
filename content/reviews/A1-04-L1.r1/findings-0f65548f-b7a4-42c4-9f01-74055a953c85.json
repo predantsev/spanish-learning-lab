@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-04-L1.r1",
+  "jobId": "0f65548f-b7a4-42c4-9f01-74055a953c85",
+  "receiptId": "2ffb7c14-56e1-45e0-b4c6-220f6ce2fc7b",
+  "recordedAt": "2026-11-06T08:11:54.944Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T12",
+      "contentHash": "151999819748a7531e2c91e5a192869162417f48ad597482c1891ddf7dcbdc61",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.role: «delayed»; task.prompt[1].text: «¿Ustedes ___ en casa? (cenar)»",
+          "description": "The completed sentence has already appeared verbatim in the required lesson explanation. This prompt therefore does not meet the held-out requirement for a delayed task.",
+          "suggestion": "Use a previously unseen sentence, for example «¿Ustedes ___ en casa? (cocinar)», keyed «cocinan», and update the dependent fields."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "cenan",
+      "notes": "The conjugation, accent handling and answer key are otherwise correct.",
+      "sources": [
+        "Course contract, rule 7: delayed and transfer tasks are held-out prompts.",
+        "Packet, lesson:A1-04-L1, content.body.steps[id=s2].blocks[3].text contains «¿Ustedes cenan en casa?»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T18",
+      "contentHash": "42d274fb68b0a3851ce20832bd7f83756028f05315385828c5f490b96bcf4f91",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.role: «delayed»; task.prompt[1].text: «¿Usted ___ inglés?»",
+          "description": "The completed sentence is an explicit model in the required lesson explanation, so this delayed prompt is not held out.",
+          "suggestion": "Replace it with a previously unseen sentence, such as «¿Usted ___ ucraniano?», and update the translation hint."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T18",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Option a and its grammatical analysis are correct.",
+      "sources": [
+        "Course contract, rule 7: delayed and transfer tasks are held-out prompts.",
+        "Packet, lesson:A1-04-L1, content.body.steps[id=s1].blocks[2].text contains «¿Usted habla inglés?»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T24",
+      "contentHash": "052cb6e96ea9bac382cab4dd742a142f3220a7ec111576cf9342f143474fbe98",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «Впиши слово, якого бракує.»; task.prompt[1].text: «Estudio español ___ mis amigos.»",
+          "description": "The unassisted prompt does not specify whether the speaker studies with or without the friends. The optional translation hint establishes the intended company reading, but that meaning is absent from the base prompt.",
+          "suggestion": "Move the intended Ukrainian meaning into the prompt, or explicitly ask for the word meaning «разом із»."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T24",
+      "verdict": "uncertain",
+      "reviewerAnswer": "«con» gives the company reading; «sin» also completes a natural sentence with a different meaning.",
+      "notes": "No closed key is declared, so automatic rejection of other completions is not established.",
+      "sources": [
+        "Provided verdict criteria: use uncertain when the intended reading is underdetermined.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «con» and «sin», company versus absence (from memory).",
+        "Packet, task.hints[kind=translation]: «Я вивчаю іспанську зі своїми друзями.»"
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T25",
+      "contentHash": "411d4e45d12518fd1dbd846bd1079b23adb2b7e08a76da59b704699eb150bf49",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: «Paseamos nuestro perro.»; feedbackUk: «Бракує con: «з кимось» — con + людина чи тварина.»",
+          "description": "«Pasear» also permits a transitive construction meaning to take an animal for a walk. Personal «a» with an animal common noun is not universally obligatory. The listed sentence therefore cannot simply be rejected as necessarily missing «con» under this unrestricted translation prompt.",
+          "suggestion": "Remove this reviewed error or explicitly require the learner to use «con». Explain that «pasear con nuestro perro» and transitive «pasear a nuestro perro» are different available constructions."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "Paseamos con nuestro perro. A transitive formulation meaning that we walk our dog is also possible.",
+      "notes": "Prior teaching of «nuestro» is also unconfirmed: it is absent from this case's taughtBefore and explanatory hint; only the reveal supplies it. Confirm prior teaching or add a vocabulary gloss with targets [].",
+      "sources": [
+        "Course contract, rule 3: reviewed errors must be wrong answers for the stated task.",
+        "RAE/ASALE, Diccionario de la lengua española, «pasear», transitive use meaning to take someone for a walk (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «a», direct objects denoting animals and variation in personal-a marking (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T27",
+      "contentHash": "dbade0a5cd13e1b2a55cf9561c8ab2f94e9d6fe9e00bfde083fa3f4b9c8e8da8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «Перепиши речення повністю, вставивши слово, якого бракує.»; task.prompt[1].text: «Pablo trabaja ___ su hermano.»",
+          "description": "The sentence does not establish whether Pablo works with, for or without his brother. Only the optional translation hint supplies the intended company meaning.",
+          "suggestion": "Include «Пабло працює зі своїм братом» in the base prompt, or explicitly specify the company meaning."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T27",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Pablo trabaja con su hermano. «Para» and «sin» also fit, expressing different relationships.",
+      "notes": "The slot is open, so rejection of the alternative meanings is not demonstrated.",
+      "sources": [
+        "Provided verdict criteria: use uncertain when the intended reading is underdetermined.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «con», «para» and «sin» (from memory).",
+        "Packet, task.hints[kind=translation]: «Пабло працює зі своїм братом.»"
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T29",
+      "contentHash": "a7fecf9ca442cec3a0427776216042bd05c29024b5a837933b18efe4c29b9dbf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «Переклади іспанською: «Ми п’ємо каву з нашими друзями».»; required possessive «nuestros» in task.accepted",
+          "description": "Producing the meaning «нашими» requires a possessive form whose prior teaching is not established here. Neither taughtBefore nor the explanatory hint introduces «nuestro/nuestros»; the reveal supplies only the complete answer. Whether this prerequisite was taught earlier remains unconfirmed.",
+          "suggestion": "Confirm and map prior teaching of «nuestros», or add a vocabulary hint such as «nuestros amigos — наші друзі» with targets []."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T29",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Tomamos café con nuestros amigos. «Tomamos un café con nuestros amigos» is also natural.",
+      "notes": "The Spanish answers are correct. Plural -ar conjugation is taught in lesson step s2, although it is missing from this case's prerequisite map.",
+      "sources": [
+        "Course contract, rule 1: necessary forms must be taught or glossed; unresolved prior teaching matters when the answer depends on it.",
+        "Packet, context.taughtBefore and task.hints[kind=rule]: no teaching or gloss of «nuestro/nuestros» is supplied.",
+        "Packet, lesson:A1-04-L1, content.body.revisits identifies «poss.mi-tu-su», which does not establish prior teaching of «nuestro»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T30",
+      "contentHash": "86a39881f685d003624b7cd13b61e9bfae27c17ebab170724506571e55f1dceb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[kind=rule].blocks[0].text and task.feedback.incorrectUk: «-an / -en — «вони»»",
+          "description": "These endings also occur with «ustedes», meaning plural you. Presenting them simply as identifying «вони» gives a misleading rule and conflicts with the lesson's explicit teaching of ustedes agreement.",
+          "suggestion": "Explain that -an/-en mark third-person-plural verb forms used with ellos/ellas or ustedes; context identifies whether the meaning is they or plural you."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T30",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "Option b, the transcript and its Ukrainian translation are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «usted», third-person verbal agreement of usted and ustedes (from memory).",
+        "Packet, lesson:A1-04-L1, content.body.steps[id=s2], explicitly groups «ellos / ellas / ustedes» with «hablan, trabajan, cenan»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T31",
+      "contentHash": "2009fd0e29b980a764cf280daabf872255f95cf031f3e2cfb003c8329e29d75a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[kind=rule].blocks[0].text and task.feedback.incorrectUk: «-an / -en — «вони»»",
+          "description": "The ending does not uniquely identify they: «ustedes» takes the same third-person-plural verb forms. The general explanation omits this already taught meaning.",
+          "suggestion": "State that -an/-en are used with ellos/ellas and ustedes, and that the subject or context determines the intended people."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "c",
+      "notes": "Option c and the clip's transcript and translation are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «usted», third-person verbal agreement of usted and ustedes (from memory).",
+        "Packet, lesson:A1-04-L1, content.body.steps[id=s2], explicitly teaches the shared ellos/ellas/ustedes forms."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T32",
+      "contentHash": "6ca1e74b4f51a55816ab0c38796e7b3a0fd5d10a5ec4fdfc2da5f63b1e341289",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.feedback.incorrectUk: «-an / -en — «вони»»",
+          "description": "The feedback presents third-person-plural endings as meaning only they, omitting their use with ustedes.",
+          "suggestion": "Include ustedes in the agreement explanation. For this dictation, feedback about comparing the written sentence with the transcript would also be more directly useful."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "Trabajo en una oficina y estudio español.",
+      "notes": "The accepted transcription, normalization policy and separation of dictation from listening comprehension are consistent.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «usted», third-person verbal agreement of usted and ustedes (from memory).",
+        "Packet, lesson:A1-04-L1, content.body.steps[id=s2], explicitly teaches the shared ellos/ellas/ustedes forms."
+      ]
+    }
+  ]
+}
