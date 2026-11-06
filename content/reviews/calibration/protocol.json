@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "purpose": "A-32 text-review calibration (issue #111, brief 05). Calibrates the review WORKFLOW (prompt, model, effort, output schema) before bulk authoring. It is not evidence that the course corpus is correct and not a learning-effectiveness result.",
+  "registeredAt": "2026-11-06T00:20:00Z",
+  "registeredBefore": "any reviewer run of the main packet",
+  "inputs": {
+    "packet": { "path": "content/reviews/calibration/cases.json", "sha256": "d12c26f6d9d27d5ff7f58ef488f14b786d9f84e5bac7f831fa282a07a44a3dba" },
+    "promptTemplate": { "path": "content/reviews/calibration/prompts/reviewer-prompt.v1.md", "sha256": "accdca4639f3a3b09f729d5aef1d28b561565de85c407ded6e48dc98953e31f8" },
+    "outputSchema": { "path": "content/reviews/calibration/prompts/review-output.schema.json", "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe" },
+    "hiddenLabelsCommitment": {
+      "locationDuringRuns": "$TMPDIR/sll-calibration-labels/labels.json (outside the repository and outside every reviewer working directory)",
+      "sha256": "7f31d94096a310623c20c29dad5866e882bd4e6c1ae58d3eb29ac9c5b89fa271",
+      "note": "Labels are copied into the repository only after all runs. Any later label change must be listed in results.json with its evidence; the committed copy is compared against this hash."
+    },
+    "sourceVerificationCommitment": { "sha256": "77f5b9d8e54ecc9d937e89dd6caf80898590914915bdbf707f45145554a3b3a4" }
+  },
+  "truthSet": {
+    "cases": 40,
+    "classes": { "flawed": 16, "valid": 16, "ambiguous": 8 },
+    "primaryCategories": { "tenses-participles": 12, "reference-agreement": 8, "orthography-prerequisites-ukrainian": 8, "listening-meaning": 12 },
+    "seededDefectTypes": ["wrong-form", "wrong-rule", "wrong-stress-accent", "wrong-meaning", "unknown-prerequisite", "wrong-key", "valid-alternative-rejected", "answer-leakage", "poor-incorrect-ukrainian", "conflicting-feedback-support-attribution"]
+  },
+  "directions": {
+    "A": { "description": "Claude-authored packet -> OpenAI reviewer", "tool": "codex exec", "model": "gpt-6.1-sol", "effort": "xhigh", "runner": "tools/calibration/run-direction-a.sh" },
+    "B": { "description": "packet -> fresh Claude reviewer (no tools, never saw labels)", "tool": "claude -p", "model": "opus", "effort": "medium", "runner": "tools/calibration/run-direction-b.sh", "limitation": "The packet is Claude-authored, so direction B is same-provider by CONTENT-PLAN's definition: it calibrates Opus-as-reviewer settings, not the Sol-authored -> Opus production route." }
+  },
+  "thresholds": {
+    "releaseBlockingMisses": { "max": 0 },
+    "validControlsRejectedWithoutSourceSupport": { "max": 0 },
+    "seededDefectDetection": { "min": 16, "of": 16, "rule": "ceil(0.95 * 16)" },
+    "ambiguousRecognizedAsUncertain": { "min": 8, "of": 8, "rule": "ceil(0.90 * 8)" }
+  },
+  "definitions": {
+    "detected": "label.class == flawed AND verdict == flawed AND the reviewer's element/defect identifies the labelled wrong element; each match decision is adjudicated and recorded with the reviewer's text.",
+    "releaseBlockingMiss": "label.releaseBlocking == true AND (for class flawed: NOT (verdict == flawed AND blocking == yes); for class ambiguous: verdict == valid OR (verdict == flawed AND blocking == no)). A non-blocking finding lets an item become 'reviewed', so it counts as a miss.",
+    "validControlRejected": "label.class == valid AND verdict == flawed. Each rejection is adjudicated against the reviewer's cited source and retrievable authoritative passages; 'without source support' means the adjudication does not confirm the claimed error. A confirmed real error leads to an evidence-backed label correction (reported), never to hiding the case.",
+    "ambiguousRecognized": "label.class == ambiguous AND verdict == uncertain (exactly).",
+    "informationalOnly": [
+      "lenient detection: verdict in {flawed, uncertain} with the labelled element identified",
+      "ambiguity identified in the reviewer's text regardless of verdict",
+      "valid controls flagged uncertain (escalation cost, not a rejection)",
+      "precision / recall / F1 with positive = verdict flawed and truth = label class flawed; ambiguous cases tabulated separately"
+    ]
+  },
+  "repairPolicy": "A direction that misses any threshold gets at most 2 repair cycles (prompt, effort, context or schema changes), each evaluated on FRESH held-out cases never shown to any reviewer. The 40-case truth set is never shrunk and thresholds are never lowered; after 2 failed cycles the blocker is recorded.",
+  "noFallback": "No same-provider substitute is counted as the opposite-provider direction."
+}
