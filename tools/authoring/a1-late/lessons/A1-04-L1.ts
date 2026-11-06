@@ -200,7 +200,17 @@ k.exact({
   acc: ['¿Cenas con tu hermana?', '¿Tú cenas con tu hermana?', '¿Cenas tú con tu hermana?'],
   err: [['¿Cenas tu hermana?', 'Бракує con: «з кимось» — con + людина.']],
 });
-k.exact({ n: 27, role: 'delayed', fam: 'a104.work', t: [CONW], ins: 'Впиши слово, якого бракує.', p: ['Pablo trabaja ___ su hermano.'], acc: ['con'], err: conErr, tr: 'Пабло працює зі своїм братом.' });
+k.slots({
+  n: 27,
+  role: 'delayed',
+  fam: 'a104.work',
+  t: [CONW],
+  ins: 'Перепиши речення повністю, вставивши слово, якого бракує.',
+  p: ['Pablo trabaja ___ su hermano.'],
+  tpl: ['Pablo trabaja ', S('s1'), ' su hermano.'],
+  slots: [{ id: 's1', t: CONW, acc: ['con'], err: conErr }],
+  tr: 'Пабло працює зі своїм братом.',
+});
 k.exact({
   n: 28,
   role: 'transfer',

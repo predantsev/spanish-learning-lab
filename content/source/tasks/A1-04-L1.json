@@ -3186,7 +3186,7 @@
       "lessonId": "A1-04-L1",
       "role": "delayed",
       "family": "a104.work",
-      "mode": "exact-variants",
+      "mode": "finite-slots",
       "targets": [
         {
           "skillId": "prep.con.company",
@@ -3197,7 +3197,7 @@
         {
           "type": "paragraph",
           "language": "uk",
-          "text": "Впиши слово, якого бракує."
+          "text": "Перепиши речення повністю, вставивши слово, якого бракує."
         },
         {
           "type": "paragraph",
@@ -3206,34 +3206,37 @@
         }
       ],
       "input": "short",
-      "accepted": [
-        {
-          "id": "v1",
-          "text": "con"
-        }
-      ],
-      "errors": [
-        {
-          "id": "e1",
-          "text": "en",
-          "outcomes": {
-            "prep.con.company/written-form": "incorrect"
-          },
-          "feedbackUk": "«En» означає місце («у, в, на»). «Разом із кимось» — con."
-        },
-        {
-          "id": "e2",
-          "text": "de",
-          "outcomes": {
-            "prep.con.company/written-form": "incorrect"
-          },
-          "feedbackUk": "«De» означає належність чи походження. «Разом із кимось» — con."
-        }
-      ],
       "policy": {
         "case": "insensitive",
         "terminalPunctuation": "optional"
       },
+      "template": [
+        "Pablo trabaja ",
+        {
+          "slot": "s1"
+        },
+        " su hermano."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "prep.con.company/written-form",
+          "accepted": [
+            "con"
+          ],
+          "errors": [
+            {
+              "text": "en",
+              "feedbackUk": "«En» означає місце («у, в, на»). «Разом із кимось» — con."
+            },
+            {
+              "text": "de",
+              "feedbackUk": "«De» означає належність чи походження. «Разом із кимось» — con."
+            }
+          ],
+          "closed": false
+        }
+      ],
       "hints": [
         {
           "kind": "rule",
@@ -3268,12 +3271,12 @@
             {
               "type": "paragraph",
               "language": "es-ES",
-              "text": "con"
+              "text": "Pablo trabaja con su hermano."
             }
           ]
         }
       ],
-      "referenceAnswer": "con",
+      "referenceAnswer": "Pablo trabaja con su hermano.",
       "feedback": {
         "correctUk": "Правильно!",
         "incorrectUk": "Поки що ні. «Разом із кимось» — con + людина: Ceno con mi familia. Hablo con Ana. Після con іменник чи ім’я не змінюється.",
