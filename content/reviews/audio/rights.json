@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "kind": "sll-audio-rights-records",
+  "updatedAt": "2026-11-06",
+  "note": "Evidence and interpretations recorded by an automated worker. Every interpretation below is UNCONFIRMED: not a legal opinion, not owner-approved, and no asset is rights-cleared by this record. Generated audio stays in the private media store (work/media, gitignored) and never enters Git or any public artifact.",
+  "records": [
+    {
+      "id": "rights.macos-system-voices.tahoe-26",
+      "status": "unconfirmed",
+      "appliesTo": ["macos.monica", "macos.eddy", "macos.paulina"],
+      "provider": "Apple macOS system voices via /usr/bin/say",
+      "environment": "macOS 26.6.2 (25G83), Apple silicon (arm64)",
+      "evidence": [
+        {
+          "path": "/System/Library/CoreServices/Setup Assistant.app/Contents/Resources/en.lproj/OSXSoftwareLicense.html",
+          "sha256": "968f97210d609dbd8087f8da9e33a80f6f1b99e888a1cea2edc0b33a043bddcb",
+          "title": "APPLE INC. SOFTWARE LICENSE AGREEMENT FOR macOS Tahoe 26",
+          "section": "2. Permitted License Uses and Restrictions — F. Voices; Live Captions",
+          "quote": "Subject to the terms and conditions of this License, you may: (i) use the system voices included in the Apple Software (“System Voices”) (1) while running the Apple Software and (2) to create your own original content and projects for your personal, non-commercial use; (ii) use the Live Captions automatically generated on-device in real time by the Apple Software (“Live Captions”), whether generated during a FaceTime call or otherwise, only for your personal, non-commercial use; and (iii) use the Personal Voice feature to create a voice on device that sounds like you (“Personal Voice”) using your own personal voice for your personal, non-commercial use. No other creation or use of the System Voices, Live Captions or Personal Voice is permitted by this License, including but not limited to the use, reproduction, display, performance, recording, publishing or redistribution of any of the System Voices, Live Captions or Personal Voice in a profit, non-profit, public sharing or commercial context.",
+          "alsoPresent": {
+            "path": "/System/Library/CoreServices/Setup Assistant.app/Contents/Resources/en.lproj/OSXSoftwareLicense.rtf",
+            "sha256": "1849e0234acea23fa8886078978b6489efac988a8c22b7ed5df1d966590be975"
+          },
+          "howObtained": "textutil -convert txt -stdout <html> | grep -n -i voice (2026-11-06)"
+        }
+      ],
+      "interpretation": "UNCONFIRMED: personal, non-commercial use by the owner only. Files generated with these voices stay in the owner's private local media store; no redistribution, never in Git, a public repository, a published artifact, a shared release package or any public-sharing context.",
+      "allowedUsesUnderInterpretation": ["private local study by the owner on his own Mac"],
+      "notAllowedUnderInterpretation": ["committing audio to Git", "public repository or artifact", "distributing a release package to others", "commercial, non-profit or public-sharing contexts"],
+      "openQuestions": [
+        "Whether a locally generated course audio pack used only by the owner counts as 'your own original content and projects for your personal, non-commercial use' (owner/legal decision).",
+        "Only the compact Mónica voice is installed (com.apple.voice.compact.es-ES.Monica). Enhanced/premium Spanish voices need a System Settings download, which is a system-setting change outside this worker's authority; not attempted."
+      ]
+    },
+    {
+      "id": "rights.piper-davefx-medium",
+      "status": "unconfirmed",
+      "appliesTo": ["piper.davefx-medium"],
+      "provider": "Piper (piper-tts 1.8.0, OHF-Voice/piper1-gpl) with model rhasspy/piper-voices es_ES-davefx-medium",
+      "evidence": [
+        {
+          "item": "tool license",
+          "source": "piper_tts-1.8.0 wheel METADATA (License: GPL-3.0-or-later; License-File: COPYING, licenses/LICENSE.g2pW-Apache-2.0) and PyPI JSON info.license",
+          "files": [
+            { "file": "piper_tts-1.8.0.dist-info/licenses/COPYING", "sha256": "0ae0485a5bd37a63e63603596417e4eb0e653334fa6c7f932ca3a0e85d4af227", "firstLine": "GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007" },
+            { "file": "piper_tts-1.8.0.dist-info/licenses/licenses/LICENSE.g2pW-Apache-2.0", "sha256": "b5608a38e122734e65c075ff697203bf492b6f2ef51faa5dcf3b169387bde33f" }
+          ],
+          "note": "The wheel bundles espeak-ng and its data (piper/espeak-ng-data); a separate espeak-ng license file was not found in the wheel's dist-info, so its terms are not recorded here (unconfirmed)."
+        },
+        {
+          "item": "model repository card",
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/README.md",
+          "sha256": "33e93643fce5180886300f9f0070eeeab8af148efb8e84361f8904def80fd9fb",
+          "quote": "license: mit"
+        },
+        {
+          "item": "model card (dataset notice)",
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/es/es_ES/davefx/medium/MODEL_CARD",
+          "sha256": "420703b5d8ea239b729f13d83f31eea9bae5fcb89447de23ebc94aa8a4768f95",
+          "quote": "* URL: https://github.com/OHF-Voice/voice-datasets\n* License: CC0\n\n## Training\n\nFinetuned from U.S. English lessac voice (medium quality)."
+        },
+        {
+          "item": "base checkpoint model card",
+          "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/lessac/medium/MODEL_CARD",
+          "sha256": "ce49eb457742208166d399a40cdec2c7fa9db77960930031564ab56f12882645",
+          "quote": "* URL: https://www.cstr.ed.ac.uk/projects/blizzard/2013/lessac_blizzard2013/\n* License: https://www.cstr.ed.ac.uk/projects/blizzard/2013/lessac_blizzard2013/license.html"
+        },
+        {
+          "item": "base checkpoint dataset license (Blizzard 2013 Lessac)",
+          "url": "https://www.cstr.ed.ac.uk/projects/blizzard/2013/lessac_blizzard2013/license.html",
+          "sha256": "f7264a7ec681f630cc46758ae925db13703fa2a57c94d45f0ffdf85153848232",
+          "retrieved": "2026-11-06",
+          "quote": "Licensors hereby grant to the User a non-exclusive and non-transferable licence, without the right to sub-licence, to use the Materials exclusively for Research Purposes only throughout the world."
+        }
+      ],
+      "interpretation": "UNCONFIRMED: the GPL tool license governs the software, and whether it reaches generated audio is not established here. The MIT repository card and the CC0 dataset notice do not settle rights for this model, which its card says was fine-tuned from the lessac voice whose training data is licensed exclusively for research purposes. Treat Piper davefx output as private, local, non-distributed evaluation material at most; not rights-cleared; owner/legal decision required before any other use.",
+      "allowedUsesUnderInterpretation": ["private local evaluation by the owner"],
+      "notAllowedUnderInterpretation": ["committing audio to Git", "public repository or artifact", "distribution", "release audio without an explicit owner/legal decision"],
+      "openQuestions": [
+        "Whether model weights fine-tuned from a checkpoint trained on research-only data carry that restriction into generated speech (legal question; unconfirmed).",
+        "The OHF-Voice/voice-datasets page cited by the model card was not fetched; the dataset contents and its CC0 scope are unverified."
+      ]
+    }
+  ]
+}
