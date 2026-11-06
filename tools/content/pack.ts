@@ -33,6 +33,7 @@ import {
   stripStatus,
 } from './load.ts';
 import type { AnyRecord, Corpus } from './load.ts';
+import type { CourseBlock } from './types.ts';
 import { loadLedger } from './ledger.ts';
 import { validateCorpus } from './validate.ts';
 import type { ReceiptIndex } from './validate.ts';
@@ -77,6 +78,8 @@ export interface PackManifest {
     clipsWithoutMedia: number;
   };
   media: MediaEntry[];
+  /** content/source/blocks.json, when present. */
+  blocks?: CourseBlock[];
   validation: { errors: number; warnings: number };
   tool: string;
   preview?: true;
@@ -231,6 +234,10 @@ export function buildPack(options: BuildOptions): BuildResult {
     for (const k of required) if (!present.has(k)) errors.push(`required ${k.replace('|', ' ')} does not exist`);
   }
 
+  // Blocks: a ready pack needs every listed block ready; a preview pack carries them as they are.
+  const blocks = [...corpus.blocks].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  if (!preview) for (const b of blocks) if (b.reviewStatus !== 'ready') errors.push(`block ${b.id} is ${b.reviewStatus}, not ready`);
+
   // Media: only files that carry review receipts and a rights record.
   const media: MediaEntry[] = [];
   const mediaFiles = new Map<string, Buffer>();
@@ -325,6 +332,8 @@ export function buildPack(options: BuildOptions): BuildResult {
       files,
       counts: { entities: entityCounts, states: stateCounts, excluded, media: media.length, clipsWithoutMedia: clipsWithoutMedia.length },
       media: media.sort((a, b) => (a.clipId < b.clipId ? -1 : 1)),
+      // Block titles/terms for catalog and progress (content/source/blocks.json); review state travels with each block.
+      ...(blocks.length > 0 ? { blocks } : {}),
       validation: { errors: validation.errors.length, warnings: validation.warnings.length },
       tool: TOOL_VERSION,
       ...(preview ? { preview: true as const } : {}),

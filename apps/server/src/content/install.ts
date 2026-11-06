@@ -70,6 +70,8 @@ export interface InstallResult {
   readonly eventSeq: number;
   readonly packDir: string;
   readonly outcome: 'activated' | 'unchanged';
+  /** Preview packs only: dangling references that were tolerated. */
+  readonly warnings: readonly string[];
 }
 
 const MAX_MANIFEST_BYTES = 8 * 1024 * 1024;
@@ -211,60 +213,69 @@ function indexEntities(entities: readonly PackEntityLine[]): Index {
   return { byKind };
 }
 
-function checkReferences(ix: Index, manifest: PackManifest, mediaByClip: Map<string, PackMediaEntry>): void {
+/**
+ * Reference and readiness checks. A ready pack fails on the first problem. An explicit preview pack
+ * (unreviewed/incomplete corpus, development only, flagged on Home) reports dangling references as
+ * warnings instead; the views skip what does not resolve. Hashes, schema and revision ids stay strict.
+ */
+function checkReferences(ix: Index, manifest: PackManifest, mediaByClip: Map<string, PackMediaEntry>, warnings: string[]): void {
+  const reference = (message: string): void => {
+    if (manifest.preview === true) warnings.push(`REFERENCE: ${message}`);
+    else fail('REFERENCE', message);
+  };
   const has = (k: EntityKind, id: string): boolean => ix.byKind.get(k)!.has(id);
   const lessonIds = new Set(ix.byKind.get('lesson')!.keys());
   const blockIds = new Set([...ix.byKind.get('lesson')!.values()].map((l) => (l.body as unknown as LessonBody).blockId));
   const preview = manifest.preview === true;
   for (const e of ix.byKind.get('skill')!.values()) {
     const s = e.body as unknown as SkillBody;
-    if (!lessonIds.has(s.firstLesson)) fail('REFERENCE', `skill ${s.skillId} firstLesson ${s.firstLesson}`);
-    for (const p of s.prerequisites) if (!has('skill', p)) fail('REFERENCE', `skill ${s.skillId} prerequisite ${p}`);
+    if (!lessonIds.has(s.firstLesson)) reference(`skill ${s.skillId} firstLesson ${s.firstLesson}`);
+    for (const p of s.prerequisites) if (!has('skill', p)) reference(`skill ${s.skillId} prerequisite ${p}`);
   }
   for (const e of ix.byKind.get('task')!.values()) {
     const t = e.body as unknown as TaskBody;
-    if (!lessonIds.has(t.lessonId)) fail('REFERENCE', `task ${t.id} lesson ${t.lessonId}`);
+    if (!lessonIds.has(t.lessonId)) reference(`task ${t.id} lesson ${t.lessonId}`);
     const keys = new Set(t.targets.map(targetKey));
-    for (const tg of t.targets) if (!has('skill', tg.skillId)) fail('REFERENCE', `task ${t.id} skill ${tg.skillId}`);
-    for (const c of t.clipIds ?? []) if (!has('clip', c)) fail('REFERENCE', `task ${t.id} clip ${c}`);
+    for (const tg of t.targets) if (!has('skill', tg.skillId)) reference(`task ${t.id} skill ${tg.skillId}`);
+    for (const c of t.clipIds ?? []) if (!has('clip', c)) reference(`task ${t.id} clip ${c}`);
     const outcomeKeys = [...(t.options ?? []).flatMap((o) => Object.keys(o.outcomes)), ...(t.errors ?? []).flatMap((x) => Object.keys(x.outcomes)), ...(t.slots ?? []).map((s) => s.target), ...(t.hints ?? []).flatMap((h) => h.targets)];
-    for (const k of outcomeKeys) if (!keys.has(k)) fail('REFERENCE', `task ${t.id} outcome/hint target ${k} is not a task target`);
-    if (t.mode === 'choice' && (!t.options || t.options.length < 2)) fail('REFERENCE', `task ${t.id} choice without options`);
-    if (t.mode === 'exact-variants' && (!t.accepted || t.accepted.length === 0)) fail('REFERENCE', `task ${t.id} without accepted variants`);
+    for (const k of outcomeKeys) if (!keys.has(k)) reference(`task ${t.id} outcome/hint target ${k} is not a task target`);
+    if (t.mode === 'choice' && (!t.options || t.options.length < 2)) reference(`task ${t.id} choice without options`);
+    if (t.mode === 'exact-variants' && (!t.accepted || t.accepted.length === 0)) reference(`task ${t.id} without accepted variants`);
     if (t.mode === 'finite-slots') {
       const tpl = t.template ?? [];
-      for (let i = 1; i < tpl.length; i++) if (typeof tpl[i] !== 'string' && typeof tpl[i - 1] !== 'string') fail('REFERENCE', `task ${t.id} adjacent slots`);
+      for (let i = 1; i < tpl.length; i++) if (typeof tpl[i] !== 'string' && typeof tpl[i - 1] !== 'string') reference(`task ${t.id} adjacent slots`);
     }
   }
   for (const e of ix.byKind.get('lesson')!.values()) {
     const l = e.body as unknown as LessonBody;
-    for (const s of [...l.introduces, ...l.revisits]) if (!has('skill', s)) fail('REFERENCE', `lesson ${l.id} skill ${s}`);
+    for (const s of [...l.introduces, ...l.revisits]) if (!has('skill', s)) reference(`lesson ${l.id} skill ${s}`);
     for (const st of l.steps) {
-      for (const t of st.taskIds ?? []) if (!has('task', t)) fail('REFERENCE', `lesson ${l.id} task ${t}`);
-      for (const c of st.clipIds ?? []) if (!has('clip', c)) fail('REFERENCE', `lesson ${l.id} clip ${c}`);
+      for (const t of st.taskIds ?? []) if (!has('task', t)) reference(`lesson ${l.id} task ${t}`);
+      for (const c of st.clipIds ?? []) if (!has('clip', c)) reference(`lesson ${l.id} clip ${c}`);
     }
   }
   for (const e of ix.byKind.get('clip')!.values()) {
     const c = e.body as unknown as ClipBody;
-    if (!lessonIds.has(c.lessonId)) fail('REFERENCE', `clip ${c.id} lesson ${c.lessonId}`);
+    if (!lessonIds.has(c.lessonId)) reference(`clip ${c.id} lesson ${c.lessonId}`);
     if (!mediaByClip.has(c.id) && !preview && e.state !== 'quarantined') fail('MISSING_MEDIA', `clip ${c.id} has no installed media`);
   }
   for (const e of ix.byKind.get('phrase')!.values()) {
     const p = e.body as unknown as PhraseBody;
-    for (const s of p.skills) if (!has('skill', s)) fail('REFERENCE', `phrase ${p.id} skill ${s}`);
-    for (const t of p.variationTaskIds ?? []) if (!has('task', t)) fail('REFERENCE', `phrase ${p.id} task ${t}`);
-    for (const c of p.clipIds ?? []) if (!has('clip', c)) fail('REFERENCE', `phrase ${p.id} clip ${c}`);
+    for (const s of p.skills) if (!has('skill', s)) reference(`phrase ${p.id} skill ${s}`);
+    for (const t of p.variationTaskIds ?? []) if (!has('task', t)) reference(`phrase ${p.id} task ${t}`);
+    for (const c of p.clipIds ?? []) if (!has('clip', c)) reference(`phrase ${p.id} clip ${c}`);
   }
   for (const e of ix.byKind.get('collection')!.values()) {
     const c = e.body as unknown as CollectionBody;
-    for (const p of c.phraseIds) if (!has('phrase', p)) fail('REFERENCE', `collection ${c.id} phrase ${p}`);
+    for (const p of c.phraseIds) if (!has('phrase', p)) reference(`collection ${c.id} phrase ${p}`);
   }
   for (const e of ix.byKind.get('material')!.values()) {
     const m = e.body as unknown as MaterialBody;
-    if (!lessonIds.has(m.topicId) && !blockIds.has(m.topicId)) fail('REFERENCE', `material ${m.id} topic ${m.topicId}`);
-    for (const k of m.linkedTargets) if (!has('skill', k.slice(0, k.lastIndexOf('/')))) fail('REFERENCE', `material ${m.id} target ${k}`);
+    if (!lessonIds.has(m.topicId) && !blockIds.has(m.topicId)) reference(`material ${m.id} topic ${m.topicId}`);
+    for (const k of m.linkedTargets) if (!has('skill', k.slice(0, k.lastIndexOf('/')))) reference(`material ${m.id} target ${k}`);
   }
-  for (const media of mediaByClip.values()) if (!has('clip', media.clipId)) fail('REFERENCE', `media for unknown clip ${media.clipId}`);
+  for (const media of mediaByClip.values()) if (!has('clip', media.clipId)) reference(`media for unknown clip ${media.clipId}`);
   if (!preview) {
     for (const e of [...ix.byKind.values()].flatMap((m) => [...m.values()])) {
       if (!ALLOWED_STATES_READY.has(e.state)) fail('NOT_READY', `${e.kind} ${e.logicalId} is ${e.state}; use --allow-preview for a preview pack`);
@@ -297,6 +308,7 @@ export async function installPack(store: ProfileStore, sourceDir: string, option
   const manifest = validateManifest(manifestRaw);
   const preview = manifest.preview === true;
   if (preview && options.allowPreview !== true) fail('PREVIEW_NOT_ALLOWED', 'preview pack requires --allow-preview');
+  const warnings: string[] = [];
 
   // Already the active pack with this exact manifest: nothing to do.
   const active = store
@@ -304,7 +316,7 @@ export async function installPack(store: ProfileStore, sourceDir: string, option
     .prepare("SELECT manifest_sha256 FROM packs WHERE pack_id = ? AND version = ? AND state = 'active'")
     .get(manifest.packId, manifest.version) as { manifest_sha256: string } | undefined;
   if (active && active.manifest_sha256 === manifestSha256) {
-    return { packId: manifest.packId, version: manifest.version, manifestSha256, preview, entities: 0, media: 0, eventSeq: store.lastEventSeq(), packDir: '', outcome: 'unchanged' };
+    return { packId: manifest.packId, version: manifest.version, manifestSha256, preview, entities: 0, media: 0, eventSeq: store.lastEventSeq(), packDir: '', outcome: 'unchanged', warnings: [] };
   }
   const known = store.db().prepare('SELECT manifest_sha256 FROM packs WHERE pack_id = ? AND version = ?').get(manifest.packId, manifest.version) as { manifest_sha256: string } | undefined;
   if (known && known.manifest_sha256 !== manifestSha256) fail('VERSION_CONFLICT', 'a different pack with this id/version was installed before');
@@ -358,7 +370,7 @@ export async function installPack(store: ProfileStore, sourceDir: string, option
     }
     const entities = parseEntities(join(workDir, PACK_ENTITIES));
     const ix = indexEntities(entities);
-    checkReferences(ix, manifest, mediaByClip);
+    checkReferences(ix, manifest, mediaByClip, warnings);
 
     // Pre-change snapshot before the switch; a failed backup blocks activation.
     if (options.recovery) {
@@ -382,7 +394,7 @@ export async function installPack(store: ProfileStore, sourceDir: string, option
     options.onCommitted?.(eventSeq, 'content.activated');
     const notify = (store as unknown as { notifyCommitted?: (s: number, k: string) => void }).notifyCommitted;
     if (typeof notify === 'function') notify.call(store, eventSeq, 'content.activated');
-    return { packId: manifest.packId, version: manifest.version, manifestSha256, preview, entities: entities.length, media: mediaByClip.size, eventSeq, packDir, outcome: 'activated' };
+    return { packId: manifest.packId, version: manifest.version, manifestSha256, preview, entities: entities.length, media: mediaByClip.size, eventSeq, packDir, outcome: 'activated', warnings };
   } finally {
     if (existsSync(staging)) rmSync(staging, { recursive: true, force: true });
   }
@@ -480,7 +492,7 @@ function activate(db: Db, store: ProfileStore, a: ActivationInput, faults?: Inst
     upsertCollection.run(cid, c.titleUk, c.id, t);
     db.prepare('DELETE FROM collection_members WHERE collection_id = ?').run(cid);
     const ins = db.prepare('INSERT INTO collection_members (collection_id, phrase_id, position) VALUES (?, ?, ?)');
-    c.phraseIds.forEach((pid, i) => ins.run(cid, deriveStableId('phrase-record', pid), i));
+    c.phraseIds.filter((pid) => a.ix.byKind.get('phrase')!.has(pid)).forEach((pid, i) => ins.run(cid, deriveStableId('phrase-record', pid), i));
   }
 
   const day = localDate(a.at.toISOString(), profile.reviewTimezone);
