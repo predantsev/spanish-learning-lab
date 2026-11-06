@@ -23,6 +23,8 @@ import type {
   ReviewStatus,
   Situation,
   SituationFile,
+  BlockFile,
+  CourseBlock,
   Skill,
   SkillFile,
   SourceEntry,
@@ -64,6 +66,7 @@ export interface EntityRecord<T> {
 export type SchemaDef =
   | 'SourceRegistry'
   | 'SituationFile'
+  | 'BlockFile'
   | 'PhraseFile'
   | 'CollectionFile'
   | 'SkillFile'
@@ -89,6 +92,8 @@ export interface Corpus {
   files: SourceFile[];
   sources: EntityRecord<SourceEntry>[];
   situations: EntityRecord<Situation>[];
+  /** content/source/blocks.json (not pack entities: emitted into pack.json `blocks`). */
+  blocks: CourseBlock[];
   skills: EntityRecord<Skill>[];
   lexemes: EntityRecord<LexicalItem>[];
   lessons: EntityRecord<Lesson>[];
@@ -109,6 +114,7 @@ const LESSON_ID = `${BLOCK_ID}-(?:L[0-9]{1,2}|C1)`;
 const LAYOUT: Array<{ re: RegExp; def: SchemaDef }> = [
   { re: /^sources\.json$/, def: 'SourceRegistry' },
   { re: /^situations\.json$/, def: 'SituationFile' },
+  { re: /^blocks\.json$/, def: 'BlockFile' },
   { re: /^phrases\.json$/, def: 'PhraseFile' },
   { re: /^collections\.json$/, def: 'CollectionFile' },
   { re: new RegExp(`^skills/(${BLOCK_ID})\\.json$`), def: 'SkillFile' },
@@ -205,6 +211,7 @@ export function emptyCorpus(sourceDir: string): Corpus {
     files: [],
     sources: [],
     situations: [],
+    blocks: [],
     skills: [],
     lexemes: [],
     lessons: [],
@@ -292,6 +299,9 @@ function collect(corpus: Corpus, f: SourceFile, issues: Issue[]): void {
       break;
     case 'SituationFile':
       (f.json as SituationFile).situations.forEach((s, i) => push(corpus.situations, 'situation', s.id, i, s));
+      break;
+    case 'BlockFile':
+      corpus.blocks.push(...(f.json as BlockFile).blocks);
       break;
     case 'PhraseFile':
       (f.json as PhraseFile).phrases.forEach((p, i) => push(corpus.phrases, 'phrase', p.id, i, p));

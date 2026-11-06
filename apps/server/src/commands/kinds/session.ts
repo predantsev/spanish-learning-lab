@@ -2,7 +2,7 @@
 import { randomBytes, randomUUID } from 'node:crypto';
 import type { Payload_lesson_progress, Payload_session_start, Summary, Target } from '@sll/contracts';
 import type { TargetKey } from '@sll/domain';
-import { conflict, notFound, unprocessable } from '../../http/errors.ts';
+import { HttpError, conflict, notFound, unprocessable } from '../../http/errors.ts';
 import { targetKey, type LessonBody, type SkillBody, type TaskBody } from '../../content/types.ts';
 import type { RevisionRow } from '../../content/repository.ts';
 import { targetState } from '../../learning/scheduler-store.ts';
@@ -206,12 +206,10 @@ export function lessonProgress(env: CommandEnv): CommandResult {
   if (!lesson.body.steps.some((s) => s.id === p.stepId)) throw unprocessable('UNKNOWN_STEP');
   const row = env.db.prepare('SELECT * FROM lesson_progress WHERE lesson_id = ?').get(lesson.logicalId) as ProgressRow | undefined;
   if (row) {
-    // ASSUMPTION: LessonView.progress carries no id/revision, so expectedRevision 0 merges into the lesson's row
-    // (visits are a commutative set union); a non-zero expectedRevision must match the row exactly.
-    if (env.cmd.expectedRevision !== 0) {
-      if (env.cmd.subjectId.toLowerCase() !== row.id.toLowerCase()) throw conflict('STALE_REVISION', row.revision);
-      requireRevision(row.revision, env.cmd.expectedRevision);
-    }
+    // LessonView.progress carries the record's id/revision: a write must name both. A concurrent first
+    // visit from another tab (new subjectId, expectedRevision 0) gets 409 with the existing id and re-reads.
+    if (env.cmd.subjectId.toLowerCase() !== row.id.toLowerCase()) throw new HttpError(409, 'STALE_REVISION', { currentRevision: row.revision, createdEntityId: row.id });
+    requireRevision(row.revision, env.cmd.expectedRevision);
   } else {
     requireRevision(existingRevision(env, 'lesson_progress', env.cmd.subjectId), env.cmd.expectedRevision);
   }

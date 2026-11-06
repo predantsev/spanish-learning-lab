@@ -2,13 +2,14 @@
 // atomic activation (crash before the switch keeps the old pack), old revisions/assets retained.
 // A-14 (server side): correctness vs independence, unresolved free text, invalid item, quarantine.
 import { spawnSync } from 'node:child_process';
-import { appendFileSync, mkdtempSync, rmSync, symlinkSync, unlinkSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdtempSync, rmSync, symlinkSync, unlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { installPack, PackInstallError } from '../../apps/server/src/content/install.ts';
-import { startIpcServer } from '../../apps/server/src/ipc/server.ts';
+import { claimServiceLock } from '../../apps/server/src/runtime/profile-lock.ts';
+import { ensurePrivateDirs } from '../../apps/server/src/db/paths.ts';
 import { openProfileStore } from '../../apps/server/src/store/profile-store.ts';
 import { buildSyntheticPack, type BuildOptions } from '../fixtures/pack-synthetic/build-pack.ts';
 import { command, contractErrors, send, startHarness, uuid, type Harness } from './helpers/server-harness.ts';
@@ -145,24 +146,35 @@ describe('A-08 pack installation', () => {
     expect(calls).toEqual([['pre-change', 'content-activation']]);
   });
 
-  it('CLI installs into SLL_HOME and refuses while a service owns the profile', async () => {
+  it('CLI installs into SLL_HOME with a pre-change backup and refuses while another process holds the profile lock', async () => {
     const home = join(scratch, 'home');
     const pack = build('cli');
     const cli = fileURLToPath(new URL('../../apps/server/src/cli/pack.ts', import.meta.url));
     const run = () => spawnSync(process.execPath, [cli, 'install', pack.dir], { env: { ...process.env, SLL_HOME: home }, encoding: 'utf8' });
     const first = run();
     expect(first.status, first.stderr).toBe(0);
-    expect(JSON.parse(first.stdout)).toMatchObject({ ok: true, outcome: 'activated', version: '0.0.2', preBackup: false });
+    expect(JSON.parse(first.stdout)).toMatchObject({ ok: true, outcome: 'activated', version: '0.0.2', preBackup: true });
     const store = openProfileStore({ root: home });
-    const ipc = await startIpcServer(store.paths, { registerNonce: () => 'x', status: () => ({}), stop: async () => undefined });
+    expect(store.db().prepare("SELECT kind, reason, state FROM backup_records WHERE kind = 'pre-change'").all()).toEqual([{ kind: 'pre-change', reason: 'content-activation', state: 'verified' }]);
+    store.close();
+    // The CLI released its offline lock.
+    expect(existsSync(join(home, 'runtime', 'profile.lock'))).toBe(false);
+    // A live process (this test process, as a service would) holds runtime/profile.lock: the CLI refuses.
+    const paths = ensurePrivateDirs(home);
+    const held = claimServiceLock(paths, uuid(), fileURLToPath(import.meta.url));
     try {
       const refused = run();
       expect(refused.status).toBe(3);
-      expect(JSON.parse(refused.stderr)).toMatchObject({ ok: false, code: 'SERVICE_RUNNING' });
+      expect(JSON.parse(refused.stderr)).toMatchObject({ ok: false, code: 'SERVICE_RUNNING', holderPid: process.pid, holderRole: 'service' });
     } finally {
-      await ipc.close();
-      store.close();
+      held.release();
     }
+    expect(existsSync(join(home, 'runtime', 'profile.lock'))).toBe(false);
+    // A stale lock (dead holder) is cleared, never signalled: the install proceeds.
+    writeFileSync(join(home, 'runtime', 'profile.lock'), JSON.stringify({ schemaVersion: 1, pid: 999999, processStart: 'Thu Jan  1 00:00:00 1970', instanceId: uuid(), role: 'service', createdAt: '1970-01-01T00:00:00.000Z' }), { mode: 0o600 });
+    const third = run();
+    expect(third.status, third.stderr).toBe(0);
+    expect(JSON.parse(third.stdout)).toMatchObject({ ok: true, outcome: 'unchanged' });
   }, 30000);
 });
 

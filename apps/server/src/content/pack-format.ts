@@ -33,9 +33,13 @@ export interface PackMediaEntry {
   readonly receiptIds?: readonly string[];
 }
 
+/** One block of content/source/blocks.json (`BlockFile`), emitted into pack.json `blocks`. */
 export interface PackBlockTitle {
   readonly id: string;
   readonly titleUk: string;
+  readonly termEs?: string;
+  readonly summaryUk?: string;
+  readonly reviewStatus?: string;
 }
 
 export interface PackManifest {

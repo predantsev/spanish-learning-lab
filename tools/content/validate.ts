@@ -145,6 +145,7 @@ export function validateCorpus(corpus: Corpus, ledger: Ledger, options: Validate
   checkPhrasesAndCollections(ctx);
   checkMaterials(ctx);
   checkSituations(ctx);
+  checkCourseBlocks(ctx);
   checkTargetsTested(ctx);
   checkBanks(ctx);
   checkTexts(ctx);
@@ -696,6 +697,24 @@ function checkSituations(ctx: Ctx): void {
     for (const id of [...record.body.firstLessons, ...(record.body.laterLessons ?? [])]) lessonRef(ctx, record, id, 'lesson');
     if (!used.has(record.id) && ctx.corpus.lessons.length > 0) add(ctx, 'warning', 'situation.unused', record, 'not used by any lesson, skill or phrase');
   }
+}
+
+/**
+ * content/source/blocks.json: when present, exactly the ledger's blocks (A1-01 … A2-08), each once.
+ * An absent file (partial corpus/test fixture) is not an issue: packs then carry no `blocks` and the app
+ * falls back to block ids. The real corpus is covered by tests/integration/server-blocks.test.ts.
+ */
+function checkCourseBlocks(ctx: Ctx): void {
+  const blocks = ctx.corpus.blocks;
+  const fileRef = (id: string) => ({ kind: 'situation' as EntityKind, id, file: 'blocks.json' });
+  if (!ctx.corpus.files.some((f) => f.file === 'blocks.json')) return;
+  const seen = new Set<string>();
+  for (const b of blocks) {
+    if (seen.has(b.id)) add(ctx, 'error', 'blocks.duplicate', fileRef(b.id), `block ${b.id} is listed twice`);
+    seen.add(b.id);
+    if (!ctx.ledgerBlocks.has(b.id)) add(ctx, 'error', 'blocks.unknown', fileRef(b.id), `block ${b.id} is not a ledger block`);
+  }
+  for (const id of ctx.ledgerBlocks) if (!seen.has(id)) add(ctx, 'error', 'blocks.missing-block', undefined, `ledger block ${id} has no entry in blocks.json`);
 }
 
 // ---------------- target coverage and banks ----------------

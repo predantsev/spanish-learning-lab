@@ -47,7 +47,7 @@ const envMs = (name, fallback) => {
 // Arguments
 // ---------------------------------------------------------------------------------------------------------
 
-const BOOLEAN_FLAGS = new Set(['--open', '--foreground', '--loopback', '--json', '--self-contained', '--trust-imported-provenance', '--help']);
+const BOOLEAN_FLAGS = new Set(['--open', '--foreground', '--loopback', '--json', '--self-contained', '--trust-imported-provenance', '--help', '--print-url']);
 const VALUE_FLAGS = new Set(['--out', '--preview', '--confirm', '--token']);
 
 function parseArgs(argv) {
@@ -182,10 +182,16 @@ function releaseServiceRecords(ctx, id) {
 // Browser
 // ---------------------------------------------------------------------------------------------------------
 
-async function openBrowser(ctx, port, { loopback, json }) {
+async function openBrowser(ctx, port, { loopback, json, printUrl = false }) {
   const nonce = randomBytes(32).toString('base64url');
   await ipcRequest(ctx.lp, 'register-nonce', { nonce }, { timeoutMs: 5000 });
   const url = `${appUrl(port, { loopback })}/#n=${nonce}`;
+  if (printUrl) {
+    // --print-url: the one-use 60 s link is printed (for dev tooling/tests); no browser is launched.
+    ctx.log.info('open url printed', { cmd: 'open', port, loopback });
+    if (!json) process.stdout.write(`${url}\n`);
+    return url;
+  }
   const opener = process.env.SLL_OPEN_COMMAND || '/usr/bin/open';
   const child = spawn(opener, [url], { stdio: 'ignore', detached: true });
   child.on('error', () => ctx.log.error('browser opener failed', { cmd: 'open' }));
@@ -354,8 +360,9 @@ async function cmdOpen(ctx, a) {
     emit(a.json, uk.notRunning, { opened: false, state: inst.state });
     return EXIT_NOT_RUNNING;
   }
-  await openBrowser(ctx, inst.status.port, { loopback: a.flags.has('--loopback'), json: a.json });
-  emit(a.json, null, { opened: true, port: inst.status.port, loopback: a.flags.has('--loopback') });
+  const printUrl = a.flags.has('--print-url');
+  const url = await openBrowser(ctx, inst.status.port, { loopback: a.flags.has('--loopback'), json: a.json, printUrl });
+  emit(a.json, null, { opened: !printUrl, port: inst.status.port, loopback: a.flags.has('--loopback'), ...(printUrl ? { url } : {}) });
   return EXIT_OK;
 }
 

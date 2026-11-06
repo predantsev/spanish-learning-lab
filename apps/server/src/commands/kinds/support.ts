@@ -83,8 +83,7 @@ export function supportRequest(env: CommandEnv): CommandResult {
   const task = taskOf(env, ctx.task_revision_id);
   const hint = task.hints?.[p.hintIndex];
   if (!hint || hint.kind !== p.kind) throw unprocessable('HINT_NOT_FOUND');
-  // ASSUMPTION: Support.targets has minItems 1, so an untargeted vocabulary hint cannot be read back (see report Questions).
-  if (hint.targets.length === 0) throw unprocessable('HINT_NOT_TARGETED');
+  // An untargeted hint (vocabulary gloss) is recorded with targets [] and has no evidence effect.
   const hash = insertReservation(env, {
     id, contextId: ctx.id, contextRevision: ctx.revision, taskRevisionId: ctx.task_revision_id, kind: hint.kind, source: 'ui', route: 'app',
     targets: hint.targets.map(parseTargetKey), blocks: hint.blocks, detailKey: `hint:${p.hintIndex}`,

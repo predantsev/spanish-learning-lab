@@ -6,6 +6,7 @@ import { localDate } from '@sll/domain';
 import { notFound } from '../http/errors.ts';
 import { ok, UUID_RE } from '../http/reply.ts';
 import { exerciseView, homeView, lessonView, listeningView, materialsView, phraseLibraryView, progressView } from './builders.ts';
+import { attemptResultView, catalogMetaView } from './results.ts';
 
 const API = '/api/v1';
 const LESSON_ID = /^A[12]-0[1-8]-(L[0-9]{1,2}|C1)$/;
@@ -43,7 +44,7 @@ export function registerViewRoutes(app: FastifyInstance, state: ServerState): vo
 
   app.get(`${API}/views/phrases`, cfg('views.phrases'), async (request) => {
     const c = ctx();
-    return ok(request, c.epoch, phraseLibraryView(c.db));
+    return ok(request, c.epoch, phraseLibraryView(c.db, c.repo));
   });
 
   app.get<{ Params: { topicId: string } }>(`${API}/views/materials/:topicId`, cfg('views.materials'), async (request) => {
@@ -55,5 +56,16 @@ export function registerViewRoutes(app: FastifyInstance, state: ServerState): vo
   app.get(`${API}/views/listening`, cfg('views.listening'), async (request) => {
     const c = ctx();
     return ok(request, c.epoch, listeningView(c.db, c.repo, c.today));
+  });
+
+  app.get(`${API}/views/catalog-meta`, cfg('views.catalogMeta'), async (request) => {
+    const c = ctx();
+    return ok(request, c.epoch, catalogMetaView(c.repo));
+  });
+
+  app.get<{ Params: { attemptId: string } }>(`${API}/views/attempts/:attemptId`, cfg('views.attempt'), async (request) => {
+    if (!UUID_RE.test(request.params.attemptId)) throw notFound('ATTEMPT_NOT_FOUND');
+    const c = ctx();
+    return ok(request, c.epoch, attemptResultView(c.db, c.repo, request.params.attemptId));
   });
 }

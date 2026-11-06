@@ -4,7 +4,7 @@ import type { CommandHandler, CommandKind } from '../env.ts';
 import { lessonProgress, sessionFinish, sessionStart } from './session.ts';
 import { attemptSubmit, contextActivity, contextClose, contextOpen, draftSave } from './context.ts';
 import { supportCancel, supportConfirm, supportObserve, supportPrepare, supportRequest } from './support.ts';
-import { collectionCreate, collectionPatch, materialDraft, phraseCapture, practiceCreate, reviewSubmit } from './library.ts';
+import { collectionCreate, collectionPatch, materialDraft, phraseArchive, phraseCapture, practiceCreate, reviewSubmit } from './library.ts';
 import { preferenceSet, profileSettings, profileTimezonePreview } from './profile.ts';
 
 export const HANDLERS: Partial<Record<CommandKind, CommandHandler>> = {
@@ -23,6 +23,7 @@ export const HANDLERS: Partial<Record<CommandKind, CommandHandler>> = {
   'support.cancel': supportCancel,
   'practice.create': practiceCreate,
   'phrase.capture': phraseCapture,
+  'phrase.archive': phraseArchive,
   'material.draft': materialDraft,
   'collection.create': collectionCreate,
   'collection.patch': collectionPatch,

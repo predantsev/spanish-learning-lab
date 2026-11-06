@@ -47,6 +47,12 @@ export function syntheticEntities(): SyntheticEntities {
       returns: { practice: [], check: ['A2-03-C1'], later: [] }, sources: src, reviewStatus: 'ready',
     },
     {
+      skillId: 'phrase.shop-more', parentObjectives: ['A1-05-O1'], kind: 'phrase', modalities: ['phrase-recall'],
+      titleUk: `Фрази «Хочу ще …» ${SYN}`, termEs: 'Quiero más …', scope: { noteUk: SYN },
+      firstLesson: 'A1-05-L1', prerequisites: [], ruleUk: `Готова фраза для магазину ${SYN}`, assessed: true,
+      returns: { practice: [], check: [], later: [] }, sources: src, reviewStatus: 'ready',
+    },
+    {
       skillId: 'shop.more', parentObjectives: ['A1-05-O1'], kind: 'listening', modalities: ['listening-meaning'],
       titleUk: `Почути «ще/більше» в магазині ${SYN}`, termEs: 'más', scope: { forms: ['más'], noteUk: SYN },
       firstLesson: 'A1-05-L1', prerequisites: [], ruleUk: `más — ще, більше ${SYN}`, assessed: true,
@@ -72,7 +78,11 @@ export function syntheticEntities(): SyntheticEntities {
       id: 'A2-03-L1-T02', lessonId: 'A2-03-L1', role: 'independent', family: 'f.travel', mode: 'exact-variants',
       targets: [t('perfecto.haber', 'written-form')], prompt: [para('es-ES', 'Este año (nosotros) ___ viajado a Sevilla.')],
       input: 'short', accepted: [{ id: 'v1', text: 'hemos' }], closed: true, policy: POLICY,
-      hints: [{ kind: 'targeted-clue', targets: ['perfecto.haber/written-form'], blocks: [para('uk', `nosotros ${SYN}`)] }],
+      hints: [
+        { kind: 'targeted-clue', targets: ['perfecto.haber/written-form'], blocks: [para('uk', `nosotros ${SYN}`)] },
+        // Untargeted vocabulary gloss: supports no assessed target, so it never affects evidence.
+        { kind: 'translation', targets: [], blocks: [para('uk', `Sevilla — Севілья ${SYN}`)] },
+      ],
       feedback: { correctUk: `Правильно ${SYN}`, incorrectUk: `Ще раз ${SYN}` }, reviewStatus: 'ready',
     },
     {
@@ -162,6 +172,13 @@ export function syntheticEntities(): SyntheticEntities {
       ],
       feedback: { correctUk: `Правильно ${SYN}`, incorrectUk: `Ще раз ${SYN}` }, reviewStatus: 'ready',
     },
+    // phrase-recall/written: exact recall of a course phrase from its Ukrainian meaning
+    {
+      id: 'A1-05-L1-T03', lessonId: 'A1-05-L1', role: 'independent', family: 'f.phrase-recall', mode: 'exact-variants',
+      targets: [t('phrase.shop-more', 'phrase-recall')], prompt: [para('uk', `Як сказати іспанською: «Я хочу ще хліба» ${SYN}`)],
+      input: 'short', accepted: [{ id: 'v1', text: 'Quiero más pan.' }], closed: true, policy: POLICY,
+      feedback: { correctUk: `Правильно ${SYN}`, incorrectUk: `Ще раз ${SYN}` }, reviewStatus: 'ready',
+    },
     {
       id: 'A2-03-C1-T01', lessonId: 'A2-03-C1', role: 'delayed', family: 'f.check', mode: 'choice',
       targets: [t('perfecto.choice', 'context-choice')], prompt: [para('es-ES', 'Hoy ___ mucho.')], input: 'options',
@@ -231,7 +248,7 @@ export function syntheticEntities(): SyntheticEntities {
     spanish: `Quiero más ${w}.`,
     ukrainian: `Я хочу ще (${w}) ${SYN}`,
     firstLesson: 'A1-05-L1',
-    skills: ['shop.more'],
+    skills: i < 2 ? ['shop.more', 'phrase.shop-more'] : ['shop.more'],
     situations: ['shop'],
     recall: { accepted: [{ id: 'v1', text: `Quiero más ${w}.` }], policy: POLICY },
     variationTaskIds: i === 0 ? ['A1-05-L1-T01'] : [],
@@ -266,6 +283,6 @@ export function syntheticEntities(): SyntheticEntities {
 }
 
 export const BLOCK_TITLES = [
-  { id: 'A1-05', titleUk: `Конкретна інформація ${SYN}` },
-  { id: 'A2-03', titleUk: `Pretérito perfecto compuesto ${SYN}` },
+  { id: 'A1-05', titleUk: `Конкретна інформація ${SYN}`, termEs: 'información concreta', summaryUk: `Синтетичний блок ${SYN}`, reviewStatus: 'ready' },
+  { id: 'A2-03', titleUk: `Pretérito perfecto compuesto ${SYN}`, termEs: 'pretérito perfecto compuesto', summaryUk: `Синтетичний блок ${SYN}`, reviewStatus: 'ready' },
 ];

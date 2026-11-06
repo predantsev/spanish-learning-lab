@@ -77,6 +77,8 @@ export interface HarnessOptions {
   readonly packOptions?: BuildOptions;
   readonly rateLimits?: RateLimits;
   readonly recovery?: Recovery;
+  /** Builds a real recovery module for the harness store (started before listen, stopped on close). */
+  readonly recoveryFactory?: (store: SqliteProfileStore) => Recovery;
   readonly clock?: TestClock;
   readonly logSink?: LogSink;
   readonly login?: boolean;
@@ -116,9 +118,11 @@ export async function startHarness(options: HarnessOptions = {}): Promise<Harnes
     pack = buildSyntheticPack(join(root, 'pack'), options.packOptions ?? {});
     await installPack(store, pack.dir, { allowPreview: options.packOptions?.preview === true });
   }
+  const recovery = options.recovery ?? options.recoveryFactory?.(store);
+  if (options.recoveryFactory && recovery) await recovery.start();
   const app = await buildServer({
     store,
-    ...(options.recovery ? { recovery: options.recovery } : {}),
+    ...(recovery ? { recovery } : {}),
     now: clock.now,
     rateLimits: options.rateLimits ?? UNLIMITED,
     logger: options.logSink ? { sink: options.logSink } : false,
@@ -172,6 +176,7 @@ export async function startHarness(options: HarnessOptions = {}): Promise<Harnes
     },
     async close() {
       await app.close();
+      if (options.recoveryFactory && recovery) await recovery.stop();
       store.close();
       rmSync(root, { recursive: true, force: true });
     },

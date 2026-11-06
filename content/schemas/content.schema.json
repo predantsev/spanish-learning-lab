@@ -430,6 +430,21 @@
       "type": "object", "additionalProperties": false, "required": ["schemaVersion", "situations"],
       "properties": { "schemaVersion": { "const": 1 }, "situations": { "type": "array", "minItems": 1, "maxItems": 30, "items": { "$ref": "#/$defs/Situation" } } }
     },
+    "CourseBlock": {
+      "description": "One curriculum block (A1-01 … A2-08) as shown in the catalog/progress (added 2026-11-06, #111).",
+      "type": "object", "additionalProperties": false, "required": ["id", "titleUk", "summaryUk", "reviewStatus"],
+      "properties": {
+        "id": { "$ref": "#/$defs/BlockId" },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "termEs": { "type": "string", "maxLength": 160 },
+        "summaryUk": { "$ref": "#/$defs/TextUk" },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "BlockFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "blocks"],
+      "properties": { "schemaVersion": { "const": 1 }, "blocks": { "type": "array", "minItems": 1, "maxItems": 20, "items": { "$ref": "#/$defs/CourseBlock" } } }
+    },
     "SourceRegistry": {
       "type": "object", "additionalProperties": false, "required": ["schemaVersion", "sources"],
       "properties": {

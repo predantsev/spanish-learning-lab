@@ -302,6 +302,20 @@ export interface SituationFile {
   situations: Situation[];
 }
 
+/** One curriculum block of content/source/blocks.json (emitted into pack.json `blocks`). */
+export interface CourseBlock {
+  id: string;
+  titleUk: string;
+  termEs?: string;
+  summaryUk: string;
+  reviewStatus: ReviewStatus;
+}
+
+export interface BlockFile {
+  schemaVersion: 1;
+  blocks: CourseBlock[];
+}
+
 export interface SourceEntry {
   id: string;
   title: string;
