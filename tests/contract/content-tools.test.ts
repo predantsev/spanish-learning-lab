@@ -3,10 +3,11 @@
 // Every test works in its own temp directory; SLL_REVIEW_KEYS_DIR/SLL_HOME point to temp dirs.
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createHash } from 'node:crypto';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { canonicalJson, canonicalSha256, revisionId } from '../../tools/content/canonical.ts';
+import { buildPack, verifyPack } from '../../tools/content/pack.ts';
 import { runValidation } from '../../tools/content/validate.ts';
 import type { RunValidationResult } from '../../tools/content/validate.ts';
 import { loadOrCreateKey } from '../../tools/review/keys.ts';
@@ -192,6 +193,95 @@ describe('content validator', () => {
     });
     expect(r.errors).toEqual([]);
     expect(r.warnings.map((w) => w.code)).toEqual(expect.arrayContaining(['bank.size', 'bank.roles', 'lang.block-uk-latin']));
+  });
+});
+
+describe('content pack', () => {
+  const createdAt = '2026-11-06T00:00:00.000Z';
+
+  function allReady(f: Fixture): void {
+    const visit = (value: Json): void => {
+      if (Array.isArray(value)) value.forEach(visit);
+      else if (value && typeof value === 'object') {
+        if ('reviewStatus' in value) value.reviewStatus = 'ready';
+        Object.values(value).forEach(visit);
+      }
+    };
+    visit(f.files);
+    for (const item of f.files['lexicon/A1-01.json'].items) item.reviewStatus = 'ready';
+    for (const s of f.files['situations.json'].situations) s.reviewStatus = 'ready';
+  }
+
+  it('builds a preview pack whose manifest, hashes and revision IDs verify', () => {
+    const w = writeFixture(makeFixture(), tempDir('sll-pack-'));
+    const out = join(w.root, 'pack');
+    const r = buildPack({ out, sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, allowUnreviewed: true, createdAt, version: '0.1.0-test' });
+    expect(r.errors).toEqual([]);
+    expect(r.ok).toBe(true);
+    expect(r.manifest?.preview).toBe(true);
+    expect(r.manifest?.counts.entities).toMatchObject({ lesson: 3, task: 15, skill: 3, clip: 2, phrase: 12, collection: 8 });
+    expect(verifyPack(out)).toMatchObject({ ok: true, errors: [], packHash: r.packHash });
+    const lines = readFileSync(join(out, 'entities.ndjson'), 'utf8').trim().split('\n').map((l) => JSON.parse(l));
+    const task = lines.find((l) => l.logicalId === 'A1-01-L1-T01');
+    expect(task.revisionId).toBe(revisionId('task', 'A1-01-L1-T01', task.body));
+    expect(task.body.reviewStatus).toBeUndefined();
+    expect(task.state).toBe('draft');
+    // Same source + createdAt → byte-identical manifest in a second directory.
+    const again = buildPack({ out: join(w.root, 'pack2'), sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, allowUnreviewed: true, createdAt, version: '0.1.0-test' });
+    expect(again.packHash).toBe(r.packHash);
+  });
+
+  it('detects tampering with any packed file', () => {
+    const w = writeFixture(makeFixture(), tempDir('sll-pack-'));
+    const out = join(w.root, 'pack');
+    expect(buildPack({ out, sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, allowUnreviewed: true, createdAt }).ok).toBe(true);
+    const path = join(out, 'entities.ndjson');
+    chmodSync(path, 0o644);
+    writeFileSync(path, readFileSync(path, 'utf8').replace('hecho', 'hacido'));
+    const v = verifyPack(out);
+    expect(v.ok).toBe(false);
+    expect(v.errors.join('\n')).toMatch(/entities\.ndjson: sha256 mismatch/);
+    writeFileSync(join(out, 'extra.txt'), 'x');
+    expect(verifyPack(out).errors).toContain('unlisted file extra.txt');
+  });
+
+  it('refuses a release pack with unready required entities and never overwrites a pack', () => {
+    const w = writeFixture(makeFixture(), tempDir('sll-pack-'));
+    const strict = buildPack({ out: join(w.root, 'strict'), sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, createdAt });
+    expect(strict.ok).toBe(false);
+    expect(strict.errors).toContain('required lesson A1-01-L1 is draft, not ready');
+    expect(existsSync(join(w.root, 'strict'))).toBe(false);
+    const out = join(w.root, 'pack');
+    expect(buildPack({ out, sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, allowUnreviewed: true, createdAt }).ok).toBe(true);
+    const second = buildPack({ out, sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, allowUnreviewed: true, createdAt });
+    expect(second.ok).toBe(false);
+    expect(second.errors[0]).toMatch(/not empty; packs are immutable/);
+  });
+
+  it('builds a release pack when everything is ready, receipted and every clip has reviewed media', () => {
+    const fixture = makeFixture();
+    allReady(fixture);
+    const w = writeFixture(fixture, tempDir('sll-pack-'));
+    const yes = { hasReviewReceipt: () => true, hasValidationReceipt: () => true };
+    const mediaDir = join(w.root, 'media');
+    mkdirSync(mediaDir);
+    const entries = ['clip.shop-more-a', 'clip.shop-more-b'].map((clipId, i) => {
+      const bytes = Buffer.concat([Buffer.from('ID3'), Buffer.from(`synthetic-${i}`)]);
+      const sha256 = createHash('sha256').update(bytes).digest('hex');
+      writeFileSync(join(mediaDir, `${sha256}.mp3`), bytes);
+      return { clipId, sha256, durationMs: 1500 + i, rightsRecordId: 'rights.synthetic', receiptIds: ['00000000-0000-4000-8000-0000000000c1'] };
+    });
+    writeFileSync(join(mediaDir, 'index.json'), JSON.stringify({ entries }));
+    const withoutMedia = buildPack({ out: join(w.root, 'nomedia'), sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, receipts: yes, createdAt });
+    expect(withoutMedia.ok).toBe(false);
+    expect(withoutMedia.errors.join('\n')).toMatch(/2 packed clip\(s\) without reviewed media/);
+    const out = join(w.root, 'release');
+    const r = buildPack({ out, sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, receipts: yes, mediaDir, createdAt });
+    expect(r.errors).toEqual([]);
+    expect(r.manifest?.preview).toBeUndefined();
+    expect(r.manifest?.media.map((m) => m.clipId)).toEqual(['clip.shop-more-a', 'clip.shop-more-b']);
+    expect(r.manifest?.media[0]).toMatchObject({ mime: 'audio/mpeg', rights: { rightsRecordId: 'rights.synthetic' } });
+    expect(verifyPack(out).ok).toBe(true);
   });
 });
 
