@@ -14,6 +14,7 @@ const CHECK = process.argv.includes('--check');
 /** Lesson modules in course order. Each default-exports { lesson, tasks, clips?, materials? }. */
 const MODULES = [
   'a2-03-l1.mjs',
+  'a2-03-l2.mjs',
 ];
 
 function canonical(value) {
