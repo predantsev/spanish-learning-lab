@@ -72,4 +72,15 @@ export const RULES: Record<string, string> = {
   'tener.age': 'Вік в іспанській «мають»: Tengo veinte años — «мені двадцять років». Питання: ¿Cuántos años tienes? Не кажи «soy veinte años».',
   'question.word.cuanto':
     'Cuánto питає про кількість і перед іменником узгоджується з ним: ¿Cuánto dinero? ¿Cuánta agua? ¿Cuántos años? ¿Cuántas personas? Усі форми пишуться зі знаком наголосу.',
+  // A1-05-L2
+  'price.amount-comprehension':
+    'На іспанських цінниках десяткову частину відокремлює кома: 3,50 € — три євро п’ятдесят центів. Знак € зазвичай стоїть після суми. Тисячі пишуть із крапкою, пробілом або разом: 1.200 €, 1 200 €, 1200 €.',
+  'price.amount-wording':
+    'Ціну словами називаємо так: число + euros + con + центи: tres euros con cincuenta (céntimos). У розмові коротше: tres euros cincuenta або tres cincuenta. Менше за євро — céntimos: ochenta céntimos. Один євро — un euro, 21 — veintiún euros.',
+  'price.ask-answer':
+    'Ціну однієї речі питаємо ¿Cuánto cuesta…?, кількох — ¿Cuánto cuestan…?: ¿Cuánto cuestan los tomates? Відповідь: Cuesta dos euros. Cuestan tres euros el kilo. Загальну суму питаємо ¿Cuánto es? — Son cinco euros.',
+  'formula.shop':
+    'Продавець: ¿Qué desea? або ¿Qué le pongo? — «Що бажаєте?»; ¿Algo más? — «Щось іще?». Ти: ¿Me pone un café, por favor? / Un kilo de tomates, por favor; Nada más, gracias. Aquí tiene — «ось, будь ласка». ¿En efectivo o con tarjeta? — «готівкою чи карткою?». У кафе: La cuenta, por favor.',
+  'reading.price-label':
+    'На цінниках вказують товар, ціну й одиницю: Tomates 2,30 €/kg — кілограм помідорів коштує 2,30 €. Oferta — акція, 2 x 1 — «два за ціною одного». Menú del día — комплексний обід за фіксовану ціну.',
 };
