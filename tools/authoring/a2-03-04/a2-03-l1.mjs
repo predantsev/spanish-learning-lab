@@ -148,7 +148,7 @@ const tasks = [
   }),
   exact({
     id: 'T09', lesson: L, role: 'transfer', family: 'messages', target: HF,
-    prompt: [uk(`Повідомлення від подруги. ${GAP}`), es('Hola, Pedro: ¿___ (tú) recibido mi mensaje?')],
+    prompt: [uk(`Повідомлення від подруги. ${GAP}`), es('¡Hola, Pedro! ¿___ (tú) recibido mi mensaje?')],
     answers: ['has'], closed: true,
     errors: [
       ['as', H_SPELL('has')],
@@ -157,12 +157,12 @@ const tasks = [
     ],
     rule: HABER_RULE, clue: 'Підмет — tú (ти).',
     glosses: [gloss('recibido', 'recibir', 'отримувати')],
-    full: 'Hola, Pedro: ¿has recibido mi mensaje?', fullUk: 'Привіт, Педро! Ти отримав моє повідомлення?',
+    full: '¡Hola, Pedro! ¿Has recibido mi mensaje?', fullUk: 'Привіт, Педро! Ти отримав моє повідомлення?',
     ok: 'Правильно: ¿has recibido…?', bad: 'Для tú потрібна форма has: ¿Has recibido mi mensaje?',
   }),
   exact({
     id: 'T10', lesson: L, role: 'transfer', family: 'messages', target: HF,
-    prompt: [uk(`Повідомлення другові. ${GAP}`), es('Hola, Luis: hoy Marta y yo ___ comido con tus padres.')],
+    prompt: [uk(`Повідомлення другові. ${GAP}`), es('¡Hola, Luis! Hoy Marta y yo ___ comido con tus padres.')],
     answers: ['hemos'], closed: true,
     errors: [
       ['han', 'Marta y yo — це «ми» (nosotros), тож hemos.'],
@@ -173,7 +173,7 @@ const tasks = [
     ],
     rule: HABER_RULE, clue: 'Marta y yo — це «ми» (nosotros).',
     glosses: [gloss('comido', 'comer', 'їсти; обідати')],
-    full: 'Hola, Luis: hoy Marta y yo hemos comido con tus padres.', fullUk: 'Привіт, Луїсе! Сьогодні ми з Мартою обідали з твоїми батьками.',
+    full: '¡Hola, Luis! Hoy Marta y yo hemos comido con tus padres.', fullUk: 'Привіт, Луїсе! Сьогодні ми з Мартою обідали з твоїми батьками.',
     ok: 'Правильно: Marta y yo (ми) hemos comido.', bad: 'Marta y yo — це «ми», тому потрібна форма hemos: Marta y yo hemos comido.',
   }),
 

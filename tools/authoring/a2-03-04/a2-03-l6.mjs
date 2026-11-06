@@ -62,7 +62,7 @@ const tasks = [
     [['Цього року батьки багато подорожували, і рік ще не закінчився.', true], ['Батьки планують багато подорожувати.', false], ['Батьки завжди багато подорожують.', false]],
     'Цього року мої батьки багато подорожували.'),
   read('T04', 'transfer', 'messages', CP_R, CP_RULE, 'Прочитайте повідомлення і дайте відповідь.',
-    'Hola, Ana: últimamente he dormido muy poco y estoy cansado.', 'Що пише автор повідомлення?',
+    '¡Hola, Ana! Últimamente he dormido muy poco y estoy cansado.', 'Що пише автор повідомлення?',
     [['Останнім часом він мало спав.', true], ['Він завжди мало спить.', false], ['Цієї ночі він спатиме мало.', false]],
     'Привіт, Ано! Останнім часом я дуже мало спав і втомився.'),
   // ---------- perfecto.use-current-period: construction ----------
@@ -83,10 +83,10 @@ const tasks = [
     [['me levanto', 'Me levanto — теперішній час (звичка). Ідеться про сьогоднішній ранок, який уже минув: me he levantado.']],
     'Hoy estoy cansado: esta mañana me he levantado a las seis.', 'Сьогодні я втомлений: зранку я встав о шостій.'),
   write('T08', 'transfer', 'messages', CP_C, CP_RULE, 'Повідомлення. Впишіть дієслово в дужках у формі, яка підходить до контексту.',
-    'Hola, Luis: hoy (yo, recibir) ___ tu regalo. ¡Muchas gracias!',
+    '¡Hola, Luis! Hoy (yo, recibir) ___ tu regalo. ¡Muchas gracias!',
     ['he recibido', 'yo he recibido'],
     [['recibo', 'Recibo — теперішній час. Подарунок уже отримано сьогодні: he recibido.'], ['voy a recibir', 'Voy a recibir — план. За подарунок дякують, отже, його вже отримали: he recibido.']],
-    'Hola, Luis: hoy he recibido tu regalo. ¡Muchas gracias!', 'Привіт, Луїсе! Сьогодні я отримав(-ла) твій подарунок. Щиро дякую!'),
+    '¡Hola, Luis! Hoy he recibido tu regalo. ¡Muchas gracias!', 'Привіт, Луїсе! Сьогодні я отримав(-ла) твій подарунок. Щиро дякую!'),
 
   // ---------- perfecto.use-experience: reading ----------
   read('T09', 'supported', 'travel', EX_R, EX_RULE, 'Прочитайте діалог і дайте відповідь. Підказка: nunca — «ніколи», alguna vez — «колись, хоч раз».',
@@ -123,10 +123,10 @@ const tasks = [
     [['he ya terminado.', 'Між haber і дієприкметником нічого не ставимо: ya he terminado.']],
     '—¿Has terminado el trabajo? —Sí, ya lo he terminado.', '—Ти закінчив(-ла) роботу? —Так, я вже її закінчив(-ла).'),
   write('T16', 'transfer', 'messages', EX_C, EX_RULE, 'Повідомлення. Впишіть дієслово в дужках у потрібній формі.',
-    'Hola, Ana: ¿(tú, ver) ___ alguna vez una película española?',
+    '¡Hola, Ana! ¿(tú, ver) ___ alguna vez una película española?',
     ['has visto', 'tú has visto'],
     [['vas a ver', 'Vas a ver — план. Питають про досвід у житті: has visto.']],
-    'Hola, Ana: ¿has visto alguna vez una película española?', 'Привіт, Ано! Ти колись дивилася іспанський фільм?'),
+    '¡Hola, Ana! ¿Has visto alguna vez una película española?', 'Привіт, Ано! Ти колись дивилася іспанський фільм?'),
 
   // ---------- perfecto.choice-context ----------
   pick('T17', 'supported', 'home', '—¿Qué tal la comida con Luis? —Muy bien. Hoy ___ en un restaurante muy bonito.',
@@ -152,9 +152,9 @@ const tasks = [
   pick('T23', 'delayed', 'work-study', '—¿Por qué estás tan cansado? —Porque hoy ___ diez horas.',
     [['he trabajado', true], ['voy a trabajar', false, 'Утома пояснюється тим, що вже відбулося сьогодні: he trabajado.']],
     '—¿Por qué estás tan cansado? —Porque hoy he trabajado diez horas.', '—Чому ти такий утомлений? —Бо сьогодні я працював десять годин.'),
-  pick('T24', 'transfer', 'messages', 'Hola, Ana: son las ocho de la tarde y estoy en casa. Esta mañana ___ a tu hermano en el autobús.',
+  pick('T24', 'transfer', 'messages', '¡Hola, Ana! Son las ocho de la tarde y estoy en casa. Esta mañana ___ a tu hermano en el autobús.',
     [['he visto', true], ['voy a ver', false, 'Зараз вечір, тож ранок уже минув: he visto.']],
-    'Hola, Ana: son las ocho de la tarde y estoy en casa. Esta mañana he visto a tu hermano en el autobús.', 'Привіт, Ано! Зараз восьма вечора, я вдома. Сьогодні вранці я бачив(-ла) твого брата в автобусі.'),
+    '¡Hola, Ana! Son las ocho de la tarde y estoy en casa. Esta mañana he visto a tu hermano en el autobús.', 'Привіт, Ано! Зараз восьма вечора, я вдома. Сьогодні вранці я бачив(-ла) твого брата в автобусі.'),
 ];
 
 const ids = (...n) => n.map((x) => `${L}-T${String(x).padStart(2, '0')}`);

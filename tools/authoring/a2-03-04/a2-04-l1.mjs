@@ -77,9 +77,9 @@ const tasks = [
   gap('T08', 'delayed', 'shopping', 'La semana pasada mis padres (comprar) ___ un coche nuevo.', 'compraron',
     [['compró', 'Compró — для однієї особи. Mis padres — «вони»: compraron.'], ['compran', PRESENT('Compran', 'compraron')]],
     'La semana pasada mis padres compraron un coche nuevo.', 'Минулого тижня мої батьки купили нову машину.'),
-  gap('T09', 'transfer', 'messages', 'Hola, Marta: ¿(tú, hablar) ___ ayer con Pedro?', 'hablaste',
+  gap('T09', 'transfer', 'messages', '¡Hola, Marta! ¿(tú, hablar) ___ ayer con Pedro?', 'hablaste',
     [['hablastes', 'Для tú — hablaste, без -s у кінці.'], ['habló', 'Habló — форма él / ella / usted. До Марти звертаються на tú: hablaste.'], ['hablas', PRESENT('Hablas', 'hablaste')]],
-    'Hola, Marta: ¿hablaste ayer con Pedro?', 'Привіт, Марто! Ти вчора говорила з Педро?', { instr: `Повідомлення. ${INSTR}` }),
+    '¡Hola, Marta! ¿Hablaste ayer con Pedro?', 'Привіт, Марто! Ти вчора говорила з Педро?', { instr: `Повідомлення. ${INSTR}` }),
   choice({
     id: 'T10', lesson: L, role: 'transfer', family: 'travel', target: AR,
     prompt: [uk('Оберіть правильну форму простого минулого часу.'), es('Anoche el tren ___ (llegar) muy tarde.')],
@@ -109,7 +109,7 @@ const tasks = [
   marker('T15', 'delayed', 'days', 'El lunes pasado mi hermana compró un móvil.', 'Коли сестра купила мобільний?',
     [['Минулого понеділка.', true], ['Наступного понеділка.', false], ['Щопонеділка.', false]],
     'Минулого понеділка моя сестра купила мобільний.'),
-  marker('T16', 'transfer', 'messages', 'Hola, Pedro: el mes pasado mis padres viajaron a Sevilla.', 'Коли батьки їздили до Севільї?',
+  marker('T16', 'transfer', 'messages', '¡Hola, Pedro! El mes pasado mis padres viajaron a Sevilla.', 'Коли батьки їздили до Севільї?',
     [['Минулого місяця.', true], ['Цього місяця.', false], ['Наступного місяця.', false]],
     'Привіт, Педро! Минулого місяця мої батьки їздили до Севільї.', { instr: 'Прочитайте повідомлення і дайте відповідь.' }),
 ];

@@ -94,9 +94,9 @@ const tasks = [
   gap('T08', 'delayed', 'home', 'Ayer los niños (abrir) ___ los regalos.', 'abrieron',
     [['abrió', 'Abrió — для однієї особи. Los niños — «вони»: abrieron.'], ['abren', PRESENT('Abren', 'abrieron')]],
     'Ayer los niños abrieron los regalos.', 'Учора діти відкрили подарунки.'),
-  gap('T09', 'transfer', 'messages', 'Hola, Ana: ¿(tú, recibir) ___ mi mensaje anoche?', 'recibiste',
+  gap('T09', 'transfer', 'messages', '¡Hola, Ana! ¿(tú, recibir) ___ mi mensaje anoche?', 'recibiste',
     [['recibistes', 'Для tú — recibiste, без -s у кінці.'], ['recibió', 'Recibió — форма él / ella / usted. До Ани звертаються на tú: recibiste.'], ['recibes', PRESENT('Recibes', 'recibiste')]],
-    'Hola, Ana: ¿recibiste mi mensaje anoche?', 'Привіт, Ано! Ти отримала моє повідомлення вчора ввечері?', { instr: `Повідомлення. ${INSTR}` }),
+    '¡Hola, Ana! ¿Recibiste mi mensaje anoche?', 'Привіт, Ано! Ти отримала моє повідомлення вчора ввечері?', { instr: `Повідомлення. ${INSTR}` }),
   choice({
     id: 'T10', lesson: L, role: 'transfer', family: 'travel', target: ERIR,
     prompt: [uk('Оберіть правильну форму простого минулого часу.'), es('El sábado pasado el autobús ___ (salir) a las ocho.')],

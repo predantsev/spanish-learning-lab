@@ -13,7 +13,7 @@ const own = (n) => `${L}-T${String(n).padStart(2, '0')}`;
 const tasks = [
   exact({
     id: 'T01', lesson: L, role: 'transfer', family: 'c1-mixed', target: ['perfecto.haber-forms', 'written-form'],
-    prompt: [uk('Повідомлення в груповому чаті. Впишіть пропущену форму дієслова haber.'), es('Hola, chicos: ¿___ (vosotros) visto mi mensaje?')],
+    prompt: [uk('Повідомлення в груповому чаті. Впишіть пропущену форму дієслова haber.'), es('¡Hola, chicos! ¿___ (vosotros) visto mi mensaje?')],
     answers: ['habéis'], closed: true,
     errors: [
       ['habeis', 'Майже: habéis пишемо зі знаком наголосу на é.'],
@@ -21,7 +21,7 @@ const tasks = [
       ['has', 'Has — для однієї особи (tú). Звертаються до кількох друзів: habéis.'],
     ],
     rule: 'Haber у теперішньому часі: he, has, ha, hemos, habéis, han. Vosotros — habéis.',
-    full: 'Hola, chicos: ¿habéis visto mi mensaje?', fullUk: 'Привіт усім! Ви бачили моє повідомлення?',
+    full: '¡Hola, chicos! ¿Habéis visto mi mensaje?', fullUk: 'Привіт усім! Ви бачили моє повідомлення?',
     ok: 'Правильно: vosotros habéis visto.', bad: 'Для vosotros потрібна форма habéis: ¿Habéis visto mi mensaje?',
   }),
   choice({
@@ -40,7 +40,7 @@ const tasks = [
     id: 'T03', lesson: L, role: 'transfer', family: 'c1-mixed', target: ['reading.perfecto-account', 'reading-meaning'],
     prompt: [
       uk('Прочитайте повідомлення і дайте відповідь.'),
-      es('Hola, Ana: esta semana ha sido muy interesante. He terminado el trabajo, he ido dos veces al cine y he cenado con mis amigos. Pero todavía no he escrito a mi madre. Un beso, Pablo.'),
+      es('¡Hola, Ana! Esta semana ha sido muy interesante. He terminado el trabajo, he ido dos veces al cine y he cenado con mis amigos. Pero todavía no he escrito a mi madre. Un beso, Pablo.'),
       uk('Чого Пабло ще не зробив?'),
     ],
     options: [

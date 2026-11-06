@@ -154,9 +154,9 @@ const tasks = [
   slot('T25', 'delayed', 'home', INV_W, INV_RULE, 'Впишіть дієприкметник дієслова в дужках.', 'Ana y Marta han ___ (volver) muy tarde.',
     ['vuelto'], [['vueltas', 'Після haber дієприкметник не узгоджується з підметом: han vuelto.']],
     'Ana y Marta han vuelto muy tarde.', 'Ана й Марта повернулися дуже пізно.', { closed: true }),
-  slot('T26', 'transfer', 'messages', INV_W, INV_RULE, 'Повідомлення. Впишіть дієприкметник дієслова в дужках.', 'Hola, Luis: tus hermanas han ___ (llegar) a Madrid.',
+  slot('T26', 'transfer', 'messages', INV_W, INV_RULE, 'Повідомлення. Впишіть дієприкметник дієслова в дужках.', '¡Hola, Luis! Tus hermanas han ___ (llegar) a Madrid.',
     ['llegado'], [['llegadas', 'Після haber дієприкметник не узгоджується з підметом: han llegado.']],
-    'Hola, Luis: tus hermanas han llegado a Madrid.', 'Привіт, Луїсе! Твої сестри приїхали до Мадрида.', { closed: true }),
+    '¡Hola, Luis! Tus hermanas han llegado a Madrid.', 'Привіт, Луїсе! Твої сестри приїхали до Мадрида.', { closed: true }),
   // ---------- perfecto.participle-invariance: haber vs estar in context ----------
   pick('T27', 'independent', 'home', INV_C, INV_RULE, 'Оберіть форму, яка підходить.', 'La puerta está ___.',
     [['abierta', true], ['abierto', false, 'Після estar дієприкметник поводиться як прикметник і узгоджується з іменником: la puerta está abierta.']],
@@ -167,9 +167,9 @@ const tasks = [
   pick('T29', 'delayed', 'shopping', INV_C, INV_RULE, 'Оберіть форму, яка підходить.', 'La farmacia está ___.',
     [['abierta', true], ['abierto', false, 'Після estar дієприкметник узгоджується з іменником: la farmacia está abierta.']],
     'La farmacia está abierta.', 'Аптека відчинена.'),
-  pick('T30', 'transfer', 'messages', INV_C, INV_RULE, 'Повідомлення. Оберіть форму, яка підходить.', 'Hola, Ana: hemos ___ las ventanas de tu casa.',
+  pick('T30', 'transfer', 'messages', INV_C, INV_RULE, 'Повідомлення. Оберіть форму, яка підходить.', '¡Hola, Ana! Hemos ___ las ventanas de tu casa.',
     [['abierto', true], ['abiertas', false, 'Після haber дієприкметник не змінюється: hemos abierto las ventanas.']],
-    'Hola, Ana: hemos abierto las ventanas de tu casa.', 'Привіт, Ано! Ми відчинили вікна у твоєму домі.'),
+    '¡Hola, Ana! Hemos abierto las ventanas de tu casa.', 'Привіт, Ано! Ми відчинили вікна у твоєму домі.'),
 
   // ---------- listening.perfecto-sentences ----------
   listen('T31', 'independent', CLIP_HOME, T_HOME, U_HOME, 'Що Марта зробила сьогодні?',

@@ -30,7 +30,7 @@ const BANKS = [
       [7, 'delayed', 'home', 'Hoy (yo) he ___ (hacer) la compra en el supermercado.', 'Сьогодні я купив(-ла) продукти в супермаркеті.'],
       [8, 'delayed', 'leisure', 'Hoy mi hermana ha ___ (hacer) fotos en la playa.', 'Сьогодні моя сестра фотографувала на пляжі.'],
       [9, 'transfer', 'work-study', 'Hoy los estudiantes han ___ (hacer) un examen.', 'Сьогодні студенти писали іспит.'],
-      [10, 'transfer', 'messages', 'Hola, Luis: ¿has ___ (hacer) la compra?', 'Привіт, Луїсе! Ти купив продукти?'],
+      [10, 'transfer', 'messages', '¡Hola, Luis! ¿Has ___ (hacer) la compra?', 'Привіт, Луїсе! Ти купив продукти?'],
     ],
   },
   {
@@ -47,7 +47,7 @@ const BANKS = [
       [16, 'independent', 'work-study', 'Luis ha ___ que no puede venir hoy.', 'Луїс сказав, що сьогодні не може прийти.', ['decido', 'diciendo', 'dicha']],
       [17, 'delayed', 'home', 'Hoy Ana me ha ___ (decir) que está cansada.', 'Сьогодні Ана сказала мені, що вона втомилася.'],
       [18, 'delayed', 'work-study', 'En la oficina me han ___ (decir) que mañana no hay reunión.', 'В офісі мені сказали, що завтра наради не буде.'],
-      [19, 'transfer', 'messages', 'Hola, Pedro: Marta me ha ___ (decir) que estás enfermo.', 'Привіт, Педро! Марта сказала мені, що ти хворієш.'],
+      [19, 'transfer', 'messages', '¡Hola, Pedro! Marta me ha ___ (decir) que estás enfermo.', 'Привіт, Педро! Марта сказала мені, що ти хворієш.'],
       [20, 'transfer', 'shopping', 'En la tienda me han ___ (decir) el precio.', 'У магазині мені сказали ціну.'],
     ],
   },
@@ -65,7 +65,7 @@ const BANKS = [
       [26, 'independent', 'home', 'Mi hermano ha ___ un libro.', 'Мій брат написав книжку.', ['escribido', 'escribiendo', 'escrita']],
       [27, 'delayed', 'home', 'Hoy mis padres me han ___ (escribir) un mensaje.', 'Сьогодні батьки написали мені повідомлення.'],
       [28, 'delayed', 'work-study', 'Hoy he ___ (escribir) mi nombre y mi apellido en el examen.', 'Сьогодні я написав(-ла) на іспиті своє ім’я та прізвище.'],
-      [29, 'transfer', 'messages', 'Hola, Ana: te he ___ (escribir) un correo electrónico.', 'Привіт, Ано! Я написав(-ла) тобі електронного листа.'],
+      [29, 'transfer', 'messages', '¡Hola, Ana! Te he ___ (escribir) un correo electrónico.', 'Привіт, Ано! Я написав(-ла) тобі електронного листа.'],
       [30, 'transfer', 'travel', 'En el hotel he ___ (escribir) mi nombre y mi número de teléfono.', 'У готелі я написав(-ла) своє ім’я і номер телефону.'],
     ],
   },
@@ -83,7 +83,7 @@ const BANKS = [
       [36, 'independent', 'home', 'Esta mañana mi madre ha ___ a Luis en el autobús.', 'Сьогодні вранці мама бачила Луїса в автобусі.', ['veído', 'viendo', 'vista']],
       [37, 'delayed', 'home', 'Hoy mis hermanos no han ___ (ver) a nadie.', 'Сьогодні мої брати нікого не бачили.'],
       [38, 'delayed', 'leisure', 'Hoy (yo) he ___ (ver) una película muy interesante.', 'Сьогодні я подивився(-лася) дуже цікавий фільм.'],
-      [39, 'transfer', 'messages', 'Hola, Marta: ¿has ___ (ver) mi mensaje?', 'Привіт, Марто! Ти бачила моє повідомлення?'],
+      [39, 'transfer', 'messages', '¡Hola, Marta! ¿Has ___ (ver) mi mensaje?', 'Привіт, Марто! Ти бачила моє повідомлення?'],
       [40, 'transfer', 'housing', '¿Has ___ (ver) el anuncio del piso?', 'Ти бачив(-ла) оголошення про квартиру?'],
     ],
   },
@@ -101,7 +101,7 @@ const BANKS = [
       [46, 'independent', 'home', '¿Dónde habéis ___ las llaves?', 'Куди ви поклали ключі?', ['ponido', 'poniendo', 'puestas']],
       [47, 'delayed', 'home', 'Ana ha ___ (poner) el pan en la mesa.', 'Ана поклала хліб на стіл.'],
       [48, 'delayed', 'work-study', 'El profesor ha ___ (poner) un examen muy fácil.', 'Викладач дав дуже легкий іспит.'],
-      [49, 'transfer', 'messages', 'Hola, Luis: he ___ (poner) tus llaves encima de la nevera.', 'Привіт, Луїсе! Я поклав(-ла) твої ключі на холодильник.'],
+      [49, 'transfer', 'messages', '¡Hola, Luis! He ___ (poner) tus llaves encima de la nevera.', 'Привіт, Луїсе! Я поклав(-ла) твої ключі на холодильник.'],
       [50, 'transfer', 'leisure', 'En el bar han ___ (poner) música.', 'У барі ввімкнули музику.'],
     ],
   },
@@ -119,7 +119,7 @@ const BANKS = [
       [56, 'independent', 'work-study', 'Hoy (nosotros) hemos ___ de la oficina en autobús.', 'Сьогодні ми повернулися з офісу автобусом.', ['volvido', 'volviendo', 'vueltos']],
       [57, 'delayed', 'home', 'Hoy mi madre ha ___ (volver) a casa en bicicleta.', 'Сьогодні мама повернулася додому на велосипеді.'],
       [58, 'delayed', 'work-study', 'Hoy los estudiantes han ___ (volver) a clase después de comer.', 'Сьогодні студенти повернулися на заняття після обіду.'],
-      [59, 'transfer', 'messages', 'Hola, Luis: Marta y yo hemos ___ (volver) de Valencia.', 'Привіт, Луїсе! Ми з Мартою повернулися з Валенсії.'],
+      [59, 'transfer', 'messages', '¡Hola, Luis! Marta y yo hemos ___ (volver) de Valencia.', 'Привіт, Луїсе! Ми з Мартою повернулися з Валенсії.'],
       [60, 'transfer', 'travel', '¿Habéis ___ (volver) de vacaciones?', 'Ви повернулися з відпустки?'],
     ],
   },
@@ -137,7 +137,7 @@ const BANKS = [
       [66, 'independent', 'shopping', '¿Han ___ la farmacia?', 'Аптеку відчинили?', ['abrido', 'abriendo', 'abierta']],
       [67, 'delayed', 'home', 'He ___ (abrir) la ventana de mi habitación.', 'Я відчинив(-ла) вікно у своїй кімнаті.'],
       [68, 'delayed', 'shopping', 'Hoy no han ___ (abrir) el supermercado.', 'Сьогодні супермаркет не відчинили.'],
-      [69, 'transfer', 'messages', 'Hola, Pedro: ¿has ___ (abrir) mi correo electrónico?', 'Привіт, Педро! Ти відкрив мій електронний лист?'],
+      [69, 'transfer', 'messages', '¡Hola, Pedro! ¿Has ___ (abrir) mi correo electrónico?', 'Привіт, Педро! Ти відкрив мій електронний лист?'],
       [70, 'transfer', 'work-study', 'Hoy el profesor ha ___ (abrir) la puerta de la clase.', 'Сьогодні викладач відчинив двері класу.'],
     ],
   },
@@ -155,7 +155,7 @@ const BANKS = [
       [76, 'independent', 'home', 'Mi hermano ha ___ mi móvil.', 'Мій брат зламав мій мобільний.', ['rompido', 'rompiendo', 'rota']],
       [77, 'delayed', 'home', 'Los niños han ___ (romper) dos vasos.', 'Діти розбили дві склянки.'],
       [78, 'delayed', 'work-study', 'Hoy (yo) he ___ (romper) mi móvil en la oficina.', 'Сьогодні я зламав(-ла) свій мобільний в офісі.'],
-      [79, 'transfer', 'messages', 'Hola, Ana: lo siento, he ___ (romper) tu bolígrafo.', 'Привіт, Ано! Вибач, я зламав(-ла) твою ручку.'],
+      [79, 'transfer', 'messages', '¡Hola, Ana! Lo siento, he ___ (romper) tu bolígrafo.', 'Привіт, Ано! Вибач, я зламав(-ла) твою ручку.'],
       [80, 'transfer', 'shopping', 'En el supermercado un niño ha ___ (romper) una botella.', 'У супермаркеті хлопчик розбив пляшку.'],
     ],
   },
@@ -173,13 +173,14 @@ const BANKS = [
       [86, 'independent', 'garden', 'Las flores del parque han ___.', 'Квіти в парку загинули.', ['morido', 'muriendo', 'muertas']],
       [87, 'delayed', 'home', 'Dos plantas de la cocina han ___ (morir).', 'Дві рослини на кухні загинули.'],
       [88, 'delayed', 'garden', 'Este verano han ___ (morir) muchas flores del jardín.', 'Цього літа в саду загинуло багато квітів.'],
-      [89, 'transfer', 'messages', 'Hola, mamá: lo siento, tu planta ha ___ (morir).', 'Привіт, мамо! Вибач, твоя рослина загинула.'],
+      [89, 'transfer', 'messages', '¡Hola, mamá! Lo siento, tu planta ha ___ (morir).', 'Привіт, мамо! Вибач, твоя рослина загинула.'],
       [90, 'transfer', 'weather', 'Con el frío han ___ (morir) muchas plantas.', 'Через холод загинуло багато рослин.'],
     ],
   },
 ];
 
-const fill = (sentence, part) => sentence.replace(/___ \([^)]*\)/, part).replace('___', part);
+const capFirst = (s) => s.replace(/^([¿¡]?)(\p{Ll})/u, (_m, a, b) => a + b.toUpperCase());
+const fillRaw = (sentence, part) => sentence.replace(/___ \([^)]*\)/, part).replace('___', part);
 const num = (n) => `T${String(n).padStart(2, '0')}`;
 
 function bankTasks(b) {
@@ -210,6 +211,7 @@ function bankTasks(b) {
     });
   });
 }
+const fill = (sentence, form) => capFirst(fillRaw(sentence, form));
 
 const tasks = BANKS.flatMap(bankTasks);
 const byRole = (skills, roles) => tasks.filter((t) => skills.includes(t.targets[0].skillId) && roles.includes(t.role)).map((t) => t.id);

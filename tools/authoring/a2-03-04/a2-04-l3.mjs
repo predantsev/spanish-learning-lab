@@ -7,7 +7,8 @@ const L = 'A2-04-L3';
 const INSTR = 'Впишіть дієслово в дужках у простому минулому часі (форма yo).';
 const num = (n) => `T${String(n).padStart(2, '0')}`;
 /** Full sentence: the gap and its "(cue)" (before or after the gap) replaced by the form. */
-const fill = (sentence, form) => {
+const capFirst = (s) => s.replace(/^([¿¡]?)(\p{Ll})/u, (_m, a, b) => a + b.toUpperCase());
+const fillRaw = (sentence, form) => {
   if (/___ \([^)]*\)/.test(sentence)) return sentence.replace(/___ \([^)]*\)/, form);
   if (/\([^)]*\) ___/.test(sentence)) return sentence.replace(/\([^)]*\) ___/, form);
   return sentence.replace('___', form);
@@ -27,7 +28,7 @@ const BANKS = [
       [6, 'independent', 'leisure', 'Ayer ___ (sacar, yo) muchas fotos en la playa.', 'saqué', 'Учора я зробив(-ла) багато фото на пляжі.', null, ['sacé', 'saque', 'sacó']],
       [7, 'delayed', 'home', 'Anteayer (yo, buscar) ___ un piso nuevo.', 'busqué', 'Позавчора я шукав(-ла) нову квартиру.', [['buscé', 'Перед e пишемо qu, щоб зберегти звук [к]: busqué.'], ['busque', 'Майже: у формі yo потрібен знак наголосу — busqué.']]],
       [8, 'delayed', 'work-study', 'La semana pasada (yo, explicar) ___ el plan a mis padres.', 'expliqué', 'Минулого тижня я пояснив(-ла) батькам свій план.', [['explicé', 'Перед e пишемо qu, щоб зберегти звук [к]: expliqué.'], ['explique', 'Майже: у формі yo потрібен знак наголосу — expliqué.']]],
-      [9, 'transfer', 'messages', 'Hola, Ana: ayer (yo, buscar) ___ tu libro, pero no está en mi casa.', 'busqué', 'Привіт, Ано! Учора я шукав(-ла) твою книжку, але в мене вдома її немає.', [['buscé', 'Перед e пишемо qu, щоб зберегти звук [к]: busqué.'], ['busque', 'Майже: у формі yo потрібен знак наголосу — busqué.']]],
+      [9, 'transfer', 'messages', '¡Hola, Ana! Ayer (yo, buscar) ___ tu libro, pero no está en mi casa.', 'busqué', 'Привіт, Ано! Учора я шукав(-ла) твою книжку, але в мене вдома її немає.', [['buscé', 'Перед e пишемо qu, щоб зберегти звук [к]: busqué.'], ['busque', 'Майже: у формі yo потрібен знак наголосу — busqué.']]],
       [10, 'transfer', 'travel', 'En la estación (yo, sacar) ___ dos billetes de tren.', 'saqué', 'На вокзалі я купив(-ла) два квитки на потяг.', [['sacé', 'Перед e пишемо qu, щоб зберегти звук [к]: saqué.'], ['saque', 'Майже: у формі yo потрібен знак наголосу — saqué.']]],
     ],
     choiceFb: { 'sacé': 'Перед e пишемо qu, щоб зберегти звук [к]: saqué.', 'saque': 'Майже: у формі yo потрібен знак наголосу — saqué.', 'sacó': 'Sacó — форма él / ella / usted. Для yo — saqué.' },
@@ -45,7 +46,7 @@ const BANKS = [
       [16, 'independent', 'leisure', 'El sábado pasado ___ (jugar, yo) al fútbol en el parque.', 'jugué', 'Минулої суботи я грав(-ла) у футбол у парку.', null, ['jugé', 'juegué', 'jugó']],
       [17, 'delayed', 'travel', 'Anteayer (yo, llegar) ___ a Madrid en tren.', 'llegué', 'Позавчора я приїхав(-ла) до Мадрида потягом.', [['llegé', 'Перед e пишемо gu, щоб зберегти звук [ґ]: llegué.'], ['llegue', 'Майже: у формі yo потрібен знак наголосу — llegué.']]],
       [18, 'delayed', 'shopping', 'Ayer (yo, pagar) ___ cinco euros en el bar.', 'pagué', 'Учора я заплатив(-ла) в барі п’ять євро.', [['pagé', 'Перед e пишемо gu, щоб зберегти звук [ґ]: pagué.'], ['pague', 'Майже: у формі yo потрібен знак наголосу — pagué.']]],
-      [19, 'transfer', 'messages', 'Hola, mamá: ayer (yo, llegar) ___ muy tarde a casa.', 'llegué', 'Привіт, мамо! Учора я прийшов(-ла) додому дуже пізно.', [['llegé', 'Перед e пишемо gu, щоб зберегти звук [ґ]: llegué.'], ['llegue', 'Майже: у формі yo потрібен знак наголосу — llegué.']]],
+      [19, 'transfer', 'messages', '¡Hola, mamá! Ayer (yo, llegar) ___ muy tarde a casa.', 'llegué', 'Привіт, мамо! Учора я прийшов(-ла) додому дуже пізно.', [['llegé', 'Перед e пишемо gu, щоб зберегти звук [ґ]: llegué.'], ['llegue', 'Майже: у формі yo потрібен знак наголосу — llegué.']]],
       [20, 'transfer', 'home', 'El año pasado (yo, jugar) ___ mucho con mi perro.', 'jugué', 'Минулого року я багато грався(-лася) зі своїм собакою.', [['jugé', 'Перед e пишемо gu, щоб зберегти звук [ґ]: jugué.'], ['juegué', 'У простому минулому чергування ue немає: jugué.']]],
     ],
     choiceFb: { 'jugé': 'Перед e пишемо gu, щоб зберегти звук [ґ]: jugué.', 'juegué': 'У простому минулому чергування ue немає: jugué.', 'jugó': 'Jugó — форма él / ella / usted. Для yo — jugué.' },
@@ -63,7 +64,7 @@ const BANKS = [
       [26, 'independent', 'work-study', 'El lunes pasado ___ (comenzar, yo) un trabajo nuevo.', 'comencé', 'Минулого понеділка я почав(-ла) нову роботу.', null, ['comenzé', 'comiencé', 'comenzó']],
       [27, 'delayed', 'work-study', 'Ayer (yo, empezar) ___ el examen a las diez.', 'empecé', 'Учора я почав(-ла) писати іспит о десятій.', [['empezé', 'Перед e пишемо c замість z: empecé.'], ['empiecé', 'У простому минулому чергування ie немає: empecé.']]],
       [28, 'delayed', 'travel', 'El sábado (yo, cruzar) ___ la ciudad en autobús.', 'crucé', 'У суботу я проїхав(-ла) автобусом через усе місто.', [['cruzé', 'Перед e пишемо c замість z: crucé.'], ['cruce', 'Майже: у формі yo потрібен знак наголосу — crucé.']]],
-      [29, 'transfer', 'messages', 'Hola, Luis: el lunes (yo, empezar) ___ las clases en la universidad.', 'empecé', 'Привіт, Луїсе! У понеділок я почав(-ла) заняття в університеті.', [['empezé', 'Перед e пишемо c замість z: empecé.'], ['empiecé', 'У простому минулому чергування ie немає: empecé.']]],
+      [29, 'transfer', 'messages', '¡Hola, Luis! El lunes (yo, empezar) ___ las clases en la universidad.', 'empecé', 'Привіт, Луїсе! У понеділок я почав(-ла) заняття в університеті.', [['empezé', 'Перед e пишемо c замість z: empecé.'], ['empiecé', 'У простому минулому чергування ie немає: empecé.']]],
       [30, 'transfer', 'leisure', 'El año pasado (yo, comenzar) ___ a bailar.', 'comencé', 'Минулого року я почав(-ла) танцювати.', [['comenzé', 'Перед e пишемо c замість z: comencé.'], ['comiencé', 'У простому минулому чергування ie немає: comencé.']]],
     ],
     choiceFb: { 'comenzé': 'Перед e пишемо c замість z: comencé.', 'comiencé': 'У простому минулому чергування ie немає: comencé.', 'comenzó': 'Comenzó — форма él / ella / usted. Для yo — comencé.' },
@@ -90,6 +91,7 @@ function spellingTasks(b) {
     });
   });
 }
+const fill = (sentence, form) => capFirst(fillRaw(sentence, form));
 
 // ---------- ortho.indefinido-accent ----------
 const ACC_W = ['ortho.indefinido-accent', 'written-form'];
@@ -124,7 +126,7 @@ const tasks = [
   accGap(33, 'independent', 'routine', 'Ayer mi madre (llegar) ___ a las diez.', 'llegó', 'llego', 'Llego — «я приходжу» (теперішній час). Для mi madre в минулому — llegó.', 'Учора мама прийшла о десятій.'),
   accGap(34, 'independent', 'work-study', 'Todos los días (yo, trabajar) ___ en una oficina.', 'trabajo', 'trabajó', 'Trabajó — «він (вона) працював(-ла)». Todos los días — звичка, тому теперішній час: trabajo.', 'Я щодня працюю в офісі.'),
   accGap(35, 'delayed', 'home', 'Anoche Pedro (cenar) ___ con nosotros.', 'cenó', 'ceno', 'Ceno — «я вечеряю» (теперішній час). Для Pedro в минулому — cenó.', 'Учора ввечері Педро вечеряв з нами.'),
-  accGap(36, 'transfer', 'messages', 'Hola, Ana: ayer tu hermano me (ayudar) ___ mucho.', 'ayudó', 'ayudo', 'Ayudo — «я допомагаю» (теперішній час). Для tu hermano в минулому — ayudó.', 'Привіт, Ано! Учора твій брат мені дуже допоміг.'),
+  accGap(36, 'transfer', 'messages', '¡Hola, Ana! Ayer tu hermano me (ayudar) ___ mucho.', 'ayudó', 'ayudo', 'Ayudo — «я допомагаю» (теперішній час). Для tu hermano в минулому — ayudó.', 'Привіт, Ано! Учора твій брат мені дуже допоміг.'),
   accPick(37, 'independent', 'routine', 'Ayer Marta ___ con el profesor.', 'habló', 'hablo', 'Hablo — «я говорю». Ayer і Marta вимагають минулого часу для él / ella: habló.', 'Учора Марта говорила з викладачем.'),
   accPick(38, 'independent', 'work-study', 'Normalmente ___ con mis padres los domingos.', 'hablo', 'habló', 'Habló — «він (вона) говорив(-ла)». Normalmente — звичка, і йдеться про «я»: hablo.', 'Зазвичай я розмовляю з батьками в неділю.'),
   accPick(39, 'delayed', 'home', 'Anoche mi hermano ___ muy tarde a casa.', 'llegó', 'llego', 'Llego — «я приходжу». Anoche і mi hermano вимагають минулого часу для él: llegó.', 'Учора ввечері мій брат прийшов додому дуже пізно.'),

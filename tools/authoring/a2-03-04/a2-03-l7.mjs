@@ -10,7 +10,7 @@ const LM = ['listening.perfecto-account', 'listening-meaning'];
 const LD = ['listening.perfecto-account', 'dictation'];
 const WR = ['writing.perfecto-account', 'construction-use'];
 
-const TEXT_A = 'Hola, Marta: ¿qué tal? Hoy ha sido un día muy largo. Esta mañana he ido a la universidad y he tenido un examen. Después he comido con Pablo en un restaurante del centro. Por la tarde he vuelto a casa, pero todavía no he hecho la compra y no hay nada en la nevera. ¿Y tú? ¿Has terminado el trabajo? Un abrazo, Lucía.';
+const TEXT_A = '¡Hola, Marta! ¿Qué tal? Hoy ha sido un día muy largo. Esta mañana he ido a la universidad y he tenido un examen. Después he comido con Pablo en un restaurante del centro. Por la tarde he vuelto a casa, pero todavía no he hecho la compra y no hay nada en la nevera. ¿Y tú? ¿Has terminado el trabajo? Un abrazo, Lucía.';
 const UK_A = 'Привіт, Марто! Як справи? Сьогодні був дуже довгий день. Зранку я ходила до університету й писала іспит. Потім обідала з Пабло в ресторані в центрі. Пообіді повернулася додому, але ще не купила продуктів, і в холодильнику нічого немає. А ти? Ти закінчила роботу? Обіймаю, Лусія.';
 const TEXT_B = 'Me llamo Andrés y vivo en Valencia. Me gusta mucho viajar. He estado en Madrid, en Barcelona y en Sevilla, pero nunca he estado en Toledo. Este año he aprendido un poco de inglés y este mes he leído tres libros. Todavía no he ido a Ucrania, pero quiero ir el año que viene.';
 const UK_B = 'Мене звати Андрес, я живу у Валенсії. Я дуже люблю подорожувати. Я бував у Мадриді, Барселоні та Севільї, але ніколи не був у Толедо. Цього року я трохи вивчив англійську, а цього місяця прочитав три книжки. В Україні я ще не був, але хочу поїхати туди наступного року.';
@@ -128,9 +128,9 @@ const tasks = [
     id: 'T12', lesson: L, role: 'independent', family: 'reply-day', target: WR,
     prompt: [uk('Відповідайте на повідомлення Лусії: напишіть 3–4 речення про свій день — що ви вже зробили сьогодні і чого ще не зробили.'), es(TEXT_A), PHRASES],
     criteria: CRITERIA,
-    exemplars: ['Hola, Lucía: hoy he trabajado en casa. Esta mañana he escrito tres correos electrónicos y después he comido con mi hermana. Todavía no he hecho la compra. Un abrazo.'],
+    exemplars: ['¡Hola, Lucía! Hoy he trabajado en casa. Esta mañana he escrito tres correos electrónicos y después he comido con mi hermana. Todavía no he hecho la compra. Un abrazo.'],
     rule: 'Пишемо, що вже зробили сьогодні (Hoy he…, Esta mañana he…) і чого ще не зробили (Todavía no he…).',
-    full: 'Hola, Lucía: hoy he trabajado en casa. Esta mañana he escrito tres correos electrónicos y después he comido con mi hermana. Todavía no he hecho la compra. Un abrazo.',
+    full: '¡Hola, Lucía! Hoy he trabajado en casa. Esta mañana he escrito tres correos electrónicos y después he comido con mi hermana. Todavía no he hecho la compra. Un abrazo.',
     fullUk: 'Привіт, Лусіє! Сьогодні я працював(-ла) вдома. Зранку написав(-ла) три електронні листи, а потім обідав(-ла) із сестрою. Продуктів я ще не купив(-ла). Обіймаю.',
     ok: 'Ваш текст збігається зі зразком.', bad: 'Порівняйте свій текст із критеріями і зразком.', unresolved: W_UNRES,
   }),
@@ -148,9 +148,9 @@ const tasks = [
     id: 'T14', lesson: L, role: 'transfer', family: 'week-message', target: WR,
     prompt: [uk('Друг пише вам: «¿Qué tal la semana?» Напишіть відповідь — 3–4 речення про цей тиждень.'), PHRASES],
     criteria: CRITERIA,
-    exemplars: ['Hola, Pablo: esta semana he trabajado mucho y he dormido poco. He ido al gimnasio dos veces y he visto una película muy interesante. Todavía no he hecho la compra. ¿Y tú?'],
+    exemplars: ['¡Hola, Pablo! Esta semana he trabajado mucho y he dormido poco. He ido al gimnasio dos veces y he visto una película muy interesante. Todavía no he hecho la compra. ¿Y tú?'],
     rule: 'Про цей тиждень, який ще триває, пишемо в perfecto: Esta semana he…',
-    full: 'Hola, Pablo: esta semana he trabajado mucho y he dormido poco. He ido al gimnasio dos veces y he visto una película muy interesante. Todavía no he hecho la compra. ¿Y tú?',
+    full: '¡Hola, Pablo! Esta semana he trabajado mucho y he dormido poco. He ido al gimnasio dos veces y he visto una película muy interesante. Todavía no he hecho la compra. ¿Y tú?',
     fullUk: 'Привіт, Пабло! Цього тижня я багато працював(-ла) і мало спав(-ла). Двічі ходив(-ла) у спортзал і подивився(-лася) дуже цікавий фільм. Продуктів ще не купив(-ла). А ти?',
     ok: 'Ваш текст збігається зі зразком.', bad: 'Порівняйте свій текст із критеріями і зразком.', unresolved: W_UNRES,
   }),
