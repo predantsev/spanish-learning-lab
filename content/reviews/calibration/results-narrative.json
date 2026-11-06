@@ -1,0 +1,84 @@
+{
+  "scope": "Calibrates the opposite-provider TEXT review workflow (prompt, model, effort, output schema, CLI flags) on synthetic Task-shaped cases with hidden, source-verified labels. It is not evidence that the course corpus is correct, not a human review, and not a learning-effectiveness or CEFR result. Audio calibration (20 files) is out of scope for this brief.",
+  "truthSets": {
+    "main": { "packet": "cases.json", "sha256": "d12c26f6d9d27d5ff7f58ef488f14b786d9f84e5bac7f831fa282a07a44a3dba", "cases": 40,
+      "classesAsAuthored": { "flawed": 16, "valid": 16, "ambiguous": 8 },
+      "classesAfterCorrections": { "flawedSeeded": 16, "flawedUnintended": 3, "valid": 13, "ambiguous": 8 },
+      "primaryCategories": { "tenses-participles": 12, "reference-agreement": 8, "orthography-prerequisites-ukrainian": 8, "listening-meaning": 12 },
+      "seededDefectTypes": { "wrong-form": 2, "wrong-rule": 2, "wrong-stress-accent": 2, "wrong-meaning": 1, "unknown-prerequisite": 2, "wrong-key": 2, "valid-alternative-rejected": 2, "answer-leakage": 1, "poor-incorrect-ukrainian": 1, "conflicting-feedback-support-attribution": 1 },
+      "labels": "labels.json (sha256 7f31d94096a310623c20c29dad5866e882bd4e6c1ae58d3eb29ac9c5b89fa271, byte-identical to the pre-registered hash)" },
+    "heldOutH1": { "packet": "cases-h1.json", "sha256": "049d0b7ce8a880e9f02392790812a75389e406d5a49e67282f780a43f474f62e", "cases": 12, "classes": { "flawed": 5, "valid": 4, "ambiguous": 3 }, "labels": "labels-h1.json (sha256 79b645da15547a8c1336f25d7ec1030fe05d0a519b96e3791300c2abb11f7913)" },
+    "heldOutH2": { "packet": "cases-h2.json", "sha256": "ce5ac54b9f143ad4972f86f2bc53a26a90f9e7080801431515127a5f5f908dd5", "cases": 12, "classes": { "flawed": 5, "valid": 4, "ambiguous": 3 }, "labels": "labels-h2.json (sha256 f85fdb8880446a8fe03aa8aef49eea74396734c41d67cd74278d5f9b7819757e)" },
+    "reservedIds": "Calibration tasks use the reserved task-number band T9xx (main T901-T940, H1 T950-T961, H2 T970-T981) and calibration-only families/clip ids (cal-*, clip.cal*). They must never be reused in content/source."
+  },
+  "runs": [
+    { "runId": "A-main", "direction": "A", "packet": "main", "prompt": "v1", "purpose": "main calibration, direction A" },
+    { "runId": "B-main", "direction": "B", "packet": "main", "prompt": "v1", "purpose": "main calibration, direction B as first run", "contaminated": "CONTAMINATED: the user-configured advisor model claude-fable-5-1 was consulted once (advisor_message iteration) although tools were disabled; reported only as 'Opus medium + auto advisor'. Superseded by B-clean." },
+    { "runId": "B-clean", "direction": "B", "packet": "main", "prompt": "v1", "purpose": "main calibration, direction B (primary; --setting-sources project,local, Opus only)" },
+    { "runId": "A-h1-v2", "direction": "A", "packet": "H1", "prompt": "v2", "purpose": "repair cycle 1 gate, direction A" },
+    { "runId": "B-h1-v2", "direction": "B", "packet": "H1", "prompt": "v2", "purpose": "repair cycle 1 gate, direction B" },
+    { "runId": "A-main-v2", "direction": "A", "packet": "main", "prompt": "v2", "purpose": "informational only (main set no longer held out)" },
+    { "runId": "B-main-v2", "direction": "B", "packet": "main", "prompt": "v2", "purpose": "informational only (main set no longer held out)" },
+    { "runId": "A-h2-v3", "direction": "A", "packet": "H2", "prompt": "v3", "purpose": "repair cycle 2 gate, direction A" },
+    { "runId": "B-h2-v3", "direction": "B", "packet": "H2", "prompt": "v3", "purpose": "validation of prompt v3 for direction B (B had already passed cycle 1)" }
+  ],
+  "labelCorrections": {
+    "file": "label-corrections.json (sha256 e6d3021ab107b1a768b177c97e768b4f04cc8aa7eade4d4f4f64219295bec4c7)",
+    "cases": ["cal-02", "cal-21", "cal-34"],
+    "change": "valid -> flawed, release-blocking, poor-incorrect-ukrainian (unintended, not seeded)",
+    "evidence": "СУМ via slovnyk.ua (retrieved 2026-11-06T00:40:04Z, HTTP 200): «ТИЛЬДА … Друкарський знак, що має форму вигнутої риски (~).» The feedback of these cases calls the acute accent «тильда». Integrator adopted content/README.md rule 6a and asked to score it as a blocking terminology defect.",
+    "noClassChangeButAffected": ["cal-06", "cal-14", "cal-15", "cal-25", "cal-35"],
+    "disputesKept": ["cal-28 (ambiguous; both Opus runs called it flawed: 'La' must be 'Las')", "cal-24 (ambiguous; B-main called it valid)"]
+  },
+  "repairCycles": [
+    { "cycle": 0, "what": "main 40-case packet, prompt v1", "result": "On corrected labels every direction FAILS: none of A-main, B-clean, B-main flagged the three unintended «тильда» defects as defects (Opus runs noted the calque as style). B-clean also judged ambiguous cal-28 flawed (7/8). Seeded detection 16/16 and valid rejections 0 in every run. On the original labels A-main passed every threshold." },
+    { "cycle": 1, "change": "prompt v2: rule-1 digest allows a gloss in a hint; Ukrainian terminology errors (and content rule 6a) are blocking defects; never assert a correction that holds only under one of several readings", "heldOut": "H1", "result": "B-h1-v2 PASS (5/5, 0/4 rejected, 3/3, 0 misses). A-h1-v2 FAIL: 5/5, 3/3, 0 misses, but 3/4 valid controls rejected without substantive support (ordinary earlier-taught words absent from taughtBefore, read as exhaustive because the prompt called it 'everything the learner has been taught')." },
+    { "cycle": 2, "change": "prompt v3: taughtBefore = mapped prerequisites (not an exhaustive word list); rule 1 flags unlisted items only when new/advanced for this point or when the answer depends on them", "heldOut": "H2", "result": "A-h2-v3 PASS (5/5 incl. a genuine untaught-prerequisite defect, 0/4 rejected, 3/3, 0 misses). B-h2-v3 (validation) 5/5, 0/4 rejected, 0 misses, ambiguous 2/3 (cal-h2-05 returned flawed+blocking: 'viví' is grammatical, so the closed choice was called a rejected valid answer)." }
+  ],
+  "finalPerDirection": {
+    "A": { "description": "Claude-authored -> OpenAI reviewer (codex exec, gpt-6.1-sol, xhigh)", "result": "PASS after 2 repair cycles, with prompt v3 (gate: held-out H2, every threshold met). Main set failed on the unintended тильда defect (v1); cycle 1 failed on 3 unsupported valid-control rejections (v2).", "validatedPrompt": "v3" },
+    "B": { "description": "packet -> fresh Claude reviewer (claude -p, claude-opus-5-5, medium, no tools, no advisor)", "result": "PASS after 1 repair cycle, with prompt v2 (gate: held-out H1, every threshold met). With prompt v3 on held-out H2 it recognised 2/3 ambiguous cases (the miss was blocked, not released); its ambiguity recognition is therefore not shown to be reliably >= 90% at medium effort. Direction B here is same-provider (Claude-authored packet), so it calibrates Opus as a reviewer, not the Sol-authored -> Opus production route.", "validatedPrompt": "v2" }
+  },
+  "recommendedSettings": {
+    "bulkReviewRoute": "Authoring workers are Claude (work/briefs/09-authoring.md) -> opposite-provider review is direction A.",
+    "directionA": {
+      "status": "validated (repair cycle 2, held-out H2)",
+      "prompt": "content/reviews/calibration/prompts/reviewer-prompt.v3.md (sha256 c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634) followed by a blank line and the packet JSON, sent on stdin",
+      "outputSchema": "content/reviews/calibration/prompts/review-output.schema.json (sha256 232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe)",
+      "command": "CODEX_NO_LANG_DIRECTIVE=1 codex exec --cd <run>/packet --skip-git-repo-check --sandbox read-only --ignore-user-config --disable memories -m gpt-6.1-sol -c model_reasoning_effort=xhigh --ephemeral --output-schema <run>/output-schema.json -o <run>/last-message.json - < <run>/prompt.txt",
+      "workingDirectory": "a fresh directory containing only packet.json (never the repository)",
+      "observedCost": "40 cases: 375-497 s, 65-67k tokens; 12 cases: 265-336 s, 40-41k tokens (codex reports tokens, not money)",
+      "cliVersion": "codex-cli 0.166.0"
+    },
+    "directionB": {
+      "status": "validated with prompt v2 (repair cycle 1, held-out H1); v3 not fully validated for B (H2 ambiguity 2/3, no release-blocking miss)",
+      "prompt": "content/reviews/calibration/prompts/reviewer-prompt.v2.md (sha256 4b7be042e9aa7c75bc786fefa722fdb0c6b812b9f322c4b7a7e926a9a1eeaaa8)",
+      "command": "claude -p --model opus --effort medium --tools \"\" --safe-mode --setting-sources project,local --no-session-persistence --output-format json --json-schema \"$(cat review-output.schema.json)\" < prompt.txt   (run inside a directory containing only packet.json)",
+      "mustHave": "--setting-sources project,local: without it the user-level advisorModel (Fable) is consulted even with --tools \"\" --safe-mode (run B-main)",
+      "observedCost": "40 cases: 124-135 s, $0.59-0.63 list basis; 12 cases: 53-69 s, $0.22-0.25",
+      "cliVersion": "Claude Code 2.1.318; resolved model claude-opus-5-5"
+    },
+    "packetRequirements": [
+      "One case per task: context {lessonId, lessonTopic, taughtBefore = the prerequisites mapped for the task (assessed targets' earlier steps and every form, construction and new word the task depends on), targets}, clips (transcript + translationUk) for listening tasks, and the complete Task JSON.",
+      "No author reasoning, confidence or 'already correct' claims; no labels.",
+      "Learner-facing Ukrainian follows content/README.md rule 6a (знак наголосу / графічний наголос; тильда only for ~)."
+    ],
+    "verdictHandling": [
+      "flawed + blocking yes -> author repair, new hash, fresh review of the changed items.",
+      "uncertain -> escalation per CONTENT-PLAN (fresh opposite-provider review at xhigh with exact source passages) or quarantine; never a unique key.",
+      "A flawed verdict whose defect text says the context does not settle the reading should be routed like uncertain (escalation), not as an author error: Opus did this on cal-28 and cal-h2-05.",
+      "Reviewer citations are mostly '(from memory)'; treat them as leads to verify, not as evidence."
+    ],
+    "recalibrateWhen": "the model id, the CLI major version, the reviewer prompt or the output schema changes."
+  },
+  "limitations": [
+    "Calibrates a workflow on synthetic cases; it does not establish corpus correctness, linguistic certification, learning effectiveness or CEFR level. No human reviewer took part.",
+    "The cases, labels and adjudications were written by one Claude agent (Opus 5.5); adjudication is not independent. Every decision is recorded with its reason in adjudication*.json.",
+    "Direction B is same-provider (Claude reviews Claude-authored cases): it calibrates Opus as a reviewer, not the Sol-authored -> Opus route of the production matrix.",
+    "RAE/ASALE and Instituto Cervantes pages could not be retrieved (rae.es and dle.rae.es: HTTP 403 Cloudflare challenge; cvc.cervantes.es: HTTP 404 for every path including the root; Internet Archive refused rae.es and then rate-limited). Labels were verified against FundéuRAE (advised by the RAE), the Словник української мови via slovnyk.ua, and repository contracts. Four main-set flawed labels rest only on project contracts (cal-14, cal-19, cal-29, cal-30). Registry sources S1-S6 and S9 (CVC) were not retrievable at verification time.",
+    "Held-out sets are small (12 cases): the thresholds 5/5 and 3/3 are coarse, each configuration ran once, and run-to-run variance is not measured (B passed H1 but missed 1/3 ambiguous cases on H2).",
+    "Efforts were not varied (Opus xhigh and Sol high untested); the least costly passing configuration (CONTENT-PLAN) is not established.",
+    "Codex loads the user's global ~/.codex/AGENTS.md even with --ignore-user-config (a probe without an English instruction answered in Ukrainian); the prompt enforces English output.",
+    "Unintended authoring defects in the calibration packets are documented rather than hidden: «тильда» (8 main cases), quedar listed from a later lesson (cal-04), condujo context without strong endings (cal-18), the coordinated-antecedent confound (cal-28), «Todavía» also fitting cal-h2-01, «llegamos» present/preterite (cal-h2-06), sparse taughtBefore lists in H1."
+  ]
+}

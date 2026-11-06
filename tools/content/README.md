@@ -78,21 +78,32 @@ runs must point one of the variables at a temporary directory.
    (or `--skills a,b` ≤25, or `--items kind:id,…` ≤25 for collections/block materials). Writes
    `content/reviews/<batchId>/packet.json` (exact content, hashes, targets ≤30, prerequisite skills,
    source anchors, CONTENT-PLAN reviewer duties; `packetHash` over canonical JSON).
-2. `run-codex --batch <id>` runs `codex exec --cd <repo> --sandbox read-only -m gpt-6.1-sol
-   -c model_reasoning_effort=xhigh --ephemeral --json -o … --output-schema … -` with the prompt on
-   stdin. The local `codex` wrapper only prefixes positional prompts, so the tool includes the
-   English directive itself and stores `prompt.txt` exactly as sent, plus `events.jsonl`,
-   `stderr.txt`, `last-message.txt`, `report.json`, `run.json` (command, versions, usage, file
-   hashes) and a signed `receipt.json` (ExecutionReceipt) under `runs/<jobId>/`. Refused when the
-   packet's author provider is `openai`. Reports cannot be imported; only an executed run yields a
-   receipt.
-3. `apply --batch <id>` verifies the receipt (HMAC, packet/report hashes, opposite provider) and
-   sets `reviewed` (no blocking finding) or `needs-review` (findings kept in
-   `findings-<jobId>.json`) for items whose hash is unchanged. Never sets `ready`, never edits text;
-   touched files are rewritten as 2-space JSON.
+2. Review with the **calibrated A-32 route** (content/reviews/calibration/report.md § Recommended
+   reviewer settings). The packet carries a `reviewerPacket` in the calibrated case format
+   (`caseId = kind:id`; task cases `{context{lessonId, lessonTopic, taughtBefore, targets}, clips?, task}`;
+   other items under `content`). The tool creates a fresh temp run directory outside the repo whose
+   `packet/` holds only `packet.json`, writes `prompt.txt` = pinned prompt + blank line + packet JSON
+   and `output-schema.json`, verifies their SHA-256 and runs exactly:
+   - `run-codex` (direction A, Claude-authored → OpenAI, prompt v3 `c911aafe…`):
+     `CODEX_NO_LANG_DIRECTIVE=1 codex exec --cd <run>/packet --skip-git-repo-check --sandbox read-only
+     --ignore-user-config --disable memories -m gpt-6.1-sol -c model_reasoning_effort=xhigh --ephemeral
+     --output-schema <run>/output-schema.json -o <run>/last-message.json - < <run>/prompt.txt`
+   - `run-claude` (direction B, OpenAI-authored → Claude, prompt v2 `4b7be042…`), cwd `<run>/packet`:
+     `claude -p --model opus --effort medium --tools "" --safe-mode --setting-sources project,local
+     --no-session-persistence --output-format json --json-schema "$(cat output-schema.json)" < prompt.txt`
+   Inputs/outputs are copied to `runs/<jobId>/` (reviewer-packet.json, prompt.txt, output-schema.json,
+   last-message.json or stdout.json, stderr.txt, report.json, run.json, receipt.json). `report.json`
+   holds the verdicts, their mapping and the route metadata (prompt version, hashes, exact argv, env,
+   CLI version, resolved model) and is bound to the signed ExecutionReceipt by `reportHash`. A run
+   whose output misses, duplicates or invents a case gets no receipt. Same-provider runs are refused.
+3. `apply --batch <id>` verifies the receipt (HMAC, packet/report hashes, opposite provider) and, for
+   items whose hash is unchanged, sets `reviewed` (verdict `valid`, blocking `no`) or `needs-review`
+   (`flawed` or `uncertain`, or blocking `yes`; findings kept in `findings-<jobId>.json`). Route
+   `uncertain` (and `flawed` whose defect says the context does not settle the reading) to the
+   CONTENT-PLAN escalation or `quarantined`. Never sets `ready`, never edits text; touched files are
+   rewritten as 2-space JSON.
 4. `promote --batch <id>` sets `ready` only for `reviewed` items with a verified opposite-provider
    receipt for the current hash, no blocking finding and no validation error, and writes a signed
    validation receipt to `content/reviews/validation/<id>.json`.
 
-All commands take `--dry-run`. `run-codex` accepts `--model`, `--effort`, `--repo`,
-`--no-output-schema` and `--timeout-min`.
+All commands take `--dry-run`. `run-codex`/`run-claude` accept `--model`, `--effort` and `--timeout-min`.
