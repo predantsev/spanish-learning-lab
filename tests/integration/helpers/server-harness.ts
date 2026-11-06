@@ -189,7 +189,7 @@ export function secret(): string {
 }
 
 /** Builds a Command body + matching headers for POST /commands. */
-export function command(h: Harness, kind: string, subjectId: string, expectedRevision: number, payload: unknown, extra: Record<string, unknown> = {}, operationId = randomUUID()): { body: Record<string, unknown>; headers: Record<string, string> } {
+export function command(h: Harness, kind: string, subjectId: string, expectedRevision: number, payload: unknown, extra: Record<string, unknown> = {}, operationId: string = randomUUID()): { body: Record<string, unknown>; headers: Record<string, string> } {
   const body = { operationId, profileEpoch: h.epoch(), kind, subjectId, expectedRevision, payload, ...extra };
   return { body, headers: writeHeaders(body as { operationId: string; profileEpoch: number; expectedRevision: number }) };
 }
