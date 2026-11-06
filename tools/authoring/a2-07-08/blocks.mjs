@@ -5,6 +5,7 @@ import a207l2 from './a2-07-l2.mjs';
 import a207l3 from './a2-07-l3.mjs';
 import a207l4 from './a2-07-l4.mjs';
 import a207l5 from './a2-07-l5.mjs';
+import a207l6 from './a2-07-l6.mjs';
 
 const block = (blockId, lessons, extraMaterials = []) => ({
   blockId,
@@ -13,4 +14,4 @@ const block = (blockId, lessons, extraMaterials = []) => ({
   materials: [...lessons.flatMap((l) => l.materials ?? []), ...extraMaterials],
 });
 
-export const BLOCKS = [block('A2-07', [a207l1, a207l2, a207l3, a207l4, a207l5])];
+export const BLOCKS = [block('A2-07', [a207l1, a207l2, a207l3, a207l4, a207l5, a207l6])];
