@@ -21,6 +21,7 @@ const MODULES = [
   'a2-03-l6.mjs',
   'a2-03-l7.mjs',
   'a2-03-c1.mjs',
+  'a2-04-l1.mjs',
 ];
 
 function canonical(value) {
