@@ -398,6 +398,8 @@ def main() -> None:
     changed: list[str] = []
     for mod in blocks:
         built = mod.build()
+        if only and not any(lb['id'] in only for lb, _ in built['lessons']):
+            continue
         for lesson_body, tasks in built['lessons']:
             if only and lesson_body['id'] not in only:
                 continue
