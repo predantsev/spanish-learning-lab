@@ -352,10 +352,13 @@ export class RestoreManager {
           }
           await o.faults('restore:verify-reopen', { path: store.paths.profileDb });
           step('committed');
+          await o.faults('restore:after-commit', { path: store.paths.journal });
           return { operationId: input.operationId, newEpoch, archiveHash: rec.archiveHash, profileId: rec.importedProfileId };
         } catch (err) {
           if (err instanceof SimulatedCrash) throw err;
           const j = journal as RestoreJournal | null;
+          // A committed switch is final: the new profile is live and verified; never roll it back.
+          if (j?.step === 'committed') throw err;
           if (j) {
             try {
               if (!liveClosed) {

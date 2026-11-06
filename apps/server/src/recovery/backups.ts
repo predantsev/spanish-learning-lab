@@ -3,7 +3,7 @@
 // startup reconciliation that trusts files on disk rather than rows (rows travel inside the profile DB).
 import Database from 'better-sqlite3';
 import { randomUUID } from 'node:crypto';
-import { chmodSync, existsSync, readdirSync, renameSync } from 'node:fs';
+import { chmodSync, existsSync, readdirSync, renameSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { schemaVersion as readSchemaVersion } from '../db/connection.ts';
 import type { ProfileStore } from '../store/types.ts';
@@ -454,11 +454,12 @@ export class BackupManager {
         const identity = verifySnapshotFile(abs);
         const kind = (snap ? snap[1] : 'rollback') as BackupKind;
         const date = (snap ? snap[2] : roll![1])!;
-        const now = this.now().toISOString();
+        // Files are renamed into place when written, so mtime is their creation time; retention orders by it.
+        const createdAt = new Date(Math.min(statSync(abs).mtimeMs, this.now().getTime())).toISOString();
         db.prepare(
           `INSERT INTO backup_records (id, kind, reason, local_date, iso_week, rel_path, sha256, bytes, event_seq, profile_epoch, schema_version, state, created_at, verified_at)
            VALUES (?, ?, 'reconciled', ?, ?, ?, ?, ?, ?, ?, ?, 'verified', ?, ?)`,
-        ).run(randomUUID(), kind, date, isoWeek(date), rel, digest.sha256, digest.bytes, identity.eventSeq, identity.epoch, identity.schemaVersion, now, now);
+        ).run(randomUUID(), kind, date, isoWeek(date), rel, digest.sha256, digest.bytes, identity.eventSeq, identity.epoch, identity.schemaVersion, createdAt, this.now().toISOString());
       } catch (err) {
         this.o.logger.warn('unregistered snapshot file is not valid; left untouched', { file: f, code: (err as RecoveryError).code });
       }

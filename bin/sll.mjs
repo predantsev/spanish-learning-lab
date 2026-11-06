@@ -238,21 +238,20 @@ async function cmdStart(ctx, a) {
   const instanceId = randomUUID();
   const self = processIdentity(process.pid);
   const launcherLock = { schemaVersion: LOCK_SCHEMA_VERSION, pid: process.pid, processStart: self?.start ?? '', instanceId, role: 'launcher', createdAt: new Date().toISOString() };
-  const got = acquireLock(ctx.lp.lock, launcherLock);
-  if (!got.ok) {
-    // Another launcher may be starting the service right now: wait for it and reuse it.
-    const deadline = Date.now() + envMs('SLL_START_TIMEOUT_MS', 30_000);
-    while (Date.now() < deadline) {
-      const other = await findInstance(ctx);
-      if (other.state === 'running') {
-        emit(json, uk.alreadyRunning(appUrl(other.status.port)), { state: 'already-running', url: appUrl(other.status.port), pid: other.pid, instanceId: other.status.instanceId, port: other.status.port });
-        if (a.flags.has('--open')) await openBrowser(ctx, other.status.port, { loopback: a.flags.has('--loopback'), json });
-        return EXIT_OK;
-      }
-      if (!readLock(ctx.lp.lock)) break;
-      await sleep(200);
+  let got = acquireLock(ctx.lp.lock, launcherLock);
+  const lockDeadline = Date.now() + envMs('SLL_START_TIMEOUT_MS', 30_000);
+  while (!got.ok) {
+    // Another launcher may be starting the service, or an offline command holds the profile: wait, then reuse
+    // the instance it started or take the lock once it is released.
+    const other = await findInstance(ctx);
+    if (other.state === 'running') {
+      emit(json, uk.alreadyRunning(appUrl(other.status.port)), { state: 'already-running', url: appUrl(other.status.port), pid: other.pid, instanceId: other.status.instanceId, port: other.status.port });
+      if (a.flags.has('--open')) await openBrowser(ctx, other.status.port, { loopback: a.flags.has('--loopback'), json });
+      return EXIT_OK;
     }
-    throw new CliError('PROFILE_LOCKED', uk.locked(got.holder?.pid ?? '?'));
+    if (Date.now() >= lockDeadline) throw new CliError('PROFILE_LOCKED', uk.locked(got.holder?.pid ?? '?'));
+    await sleep(200);
+    got = acquireLock(ctx.lp.lock, launcherLock);
   }
 
   // This launcher now owns the profile: anything left in runtime/ belongs to a previous, dead instance.
@@ -262,6 +261,7 @@ async function cmdStart(ctx, a) {
   const port = readLastPort(ctx.lp) ?? 0;
   let child;
   let childId;
+  let readyPort;
   const exitState = { exited: false, code: null };
   try {
     rotateIfNeeded(ctx.lp.serviceLog);
@@ -298,7 +298,7 @@ async function cmdStart(ctx, a) {
     writeLastPort(ctx.lp, status.port);
     ctx.log.info('service started', { cmd: 'start', pid: child.pid, port: status.port, reusedPort: port !== 0 && port === status.port });
     emit(json, uk.started(url), { state: 'started', url, pid: child.pid, instanceId, port: status.port });
-    if (a.flags.has('--open')) await openBrowser(ctx, status.port, { loopback: a.flags.has('--loopback'), json });
+    readyPort = status.port;
   } catch (err) {
     ctx.log.error('start failed', { cmd: 'start', code: err.code });
     if (child && childId && !exitState.exited) await stopProcess(ctx, childId, { viaIpc: true });
@@ -306,6 +306,15 @@ async function cmdStart(ctx, a) {
     releaseLock(ctx.lp.lock, { pid: process.pid, instanceId });
     if (child) releaseLock(ctx.lp.lock, { pid: child.pid, instanceId });
     throw err instanceof CliError ? new CliError(err.code, `${err.message}. ${uk.startFailed(ctx.paths.logs)}`) : err;
+  }
+  // The service is up; a browser that fails to open never stops it.
+  if (a.flags.has('--open')) {
+    try {
+      await openBrowser(ctx, readyPort, { loopback: a.flags.has('--loopback'), json });
+    } catch (err) {
+      ctx.log.warn('browser open failed after start', { cmd: 'start', code: err.code });
+      note(json, uk.failed(err.code ?? 'OPEN_FAILED', err.message));
+    }
   }
   if (!fg) {
     child.unref();

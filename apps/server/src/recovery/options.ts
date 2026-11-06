@@ -40,7 +40,8 @@ export type FaultPoint =
   | 'restore:before-switch'
   | 'restore:after-live-moved'
   | 'restore:after-switch'
-  | 'restore:verify-reopen';
+  | 'restore:verify-reopen'
+  | 'restore:after-commit';
 
 export interface FaultContext {
   readonly path?: string;

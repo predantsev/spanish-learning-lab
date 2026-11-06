@@ -335,6 +335,37 @@ describe('restore failures (A-07)', () => {
     });
   }
 
+  it('keeps the committed new profile after a crash between commit and cleanup', async () => {
+    const src = makeHome();
+    const archive = await exportBuffer(src);
+    const dst = makeHome({
+      epoch: 2,
+      recovery: {
+        faults: (p) => {
+          if (p === 'restore:after-commit') throw new SimulatedCrash(p);
+        },
+      },
+    });
+    const pv = await previewOf(dst, archive);
+    const operationId = randomUUID();
+    await expect(
+      dst.recovery.confirmRestore({ operationId, previewId: pv.id, archiveHash: pv.archiveHash, confirmation: pv.confirmation, trustImportedProvenance: true }),
+    ).rejects.toBeInstanceOf(SimulatedCrash);
+    dst.store.dispose();
+    expect(recoverJournalIfNeeded(dst.store.paths)).toEqual({ action: 'completed', operationId });
+    const restarted = reopenHome(dst);
+    const p = restarted.store.profile();
+    expect([p.id, p.epoch]).toEqual([src.profileId, 3]);
+    expect(restarted.store.db().prepare('SELECT last_restore_operation_id AS op FROM profiles').get()).toEqual({ op: operationId });
+    expect(existsSync(restarted.store.paths.journal)).toBe(false);
+    // The next start registers the rollback slot and pre-restore backup it finds on disk.
+    await restarted.recovery.start();
+    const kinds = restarted.store.db().prepare("SELECT kind FROM backup_records WHERE state = 'verified'").all() as Array<{ kind: string }>;
+    expect(kinds.map((k) => k.kind)).toEqual(expect.arrayContaining(['rollback', 'pre-change', 'daily']));
+    expect(runtimeLeftovers(restarted.store)).toEqual([]);
+    await restarted.recovery.stop();
+  });
+
   it('rolls back in-process when the reopened profile fails verification, then leaves maintenance', async () => {
     const src = makeHome();
     const archive = await exportBuffer(src);
