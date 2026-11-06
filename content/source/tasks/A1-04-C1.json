@@ -1,0 +1,655 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "A1-04-C1",
+  "tasks": [
+    {
+      "id": "A1-04-C1-T01",
+      "lessonId": "A1-04-C1",
+      "role": "transfer",
+      "family": "a104c.workday",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "reflexive.pronouns",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "present.ir",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю: встав займенник і форму дієслова ir."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Pablo ___ levanta temprano y ___ al trabajo. (ir)"
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        "Pablo ",
+        {
+          "slot": "s1"
+        },
+        " levanta temprano y ",
+        {
+          "slot": "s2"
+        },
+        " al trabajo."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "reflexive.pronouns/written-form",
+          "accepted": [
+            "se"
+          ],
+          "errors": [
+            {
+              "text": "me",
+              "feedbackUk": "«Me» — займенник для yo. Pablo — це él, тож se."
+            },
+            {
+              "text": "te",
+              "feedbackUk": "«Te» — займенник для tú. Pablo — це él, тож se."
+            },
+            {
+              "text": "nos",
+              "feedbackUk": "«Nos» — займенник для nosotros. Pablo — це él, тож se."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "present.ir/written-form",
+          "accepted": [
+            "va"
+          ],
+          "errors": [
+            {
+              "text": "voy",
+              "feedbackUk": "«voy» — форма для yo («я»). Тут потрібна форма для él / ella / usted; у дієслова ir її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "vas",
+              "feedbackUk": "«vas» — форма для tú («ти»). Тут потрібна форма для él / ella / usted; у дієслова ir її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "vamos",
+              "feedbackUk": "«vamos» — форма для nosotros / nosotras («ми»). Тут потрібна форма для él / ella / usted; у дієслова ir її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "vais",
+              "feedbackUk": "«vais» — форма для vosotros / vosotras («ви» — кілька людей, на «ти»). Тут потрібна форма для él / ella / usted; у дієслова ir її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "van",
+              "feedbackUk": "«van» — форма для ellos / ellas / ustedes. Тут потрібна форма для él / ella / usted; у дієслова ir її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "ir",
+              "feedbackUk": "«ir» — це інфінітив (словникова форма). У реченні з підметом потрібна форма для él / ella / usted; у дієслова ir її треба запам’ятати (див. таблицю)."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reflexive.pronouns/written-form",
+            "present.ir/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Займенник відповідає підмету: yo — me, tú — te, él / ella / usted — se, nosotros — nos, vosotros — os, ellos / ellas / ustedes — se. Ir («іти, їхати») має особливі форми, їх треба запам’ятати: voy, vas, va, vamos, vais, van. Форма vais пишеться без знака наголосу."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Пабло встає рано й іде на роботу."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reflexive.pronouns/written-form",
+            "present.ir/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Pablo se levanta temprano y va al trabajo."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Pablo se levanta temprano y va al trabajo.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Займенник відповідає підмету: yo — me, tú — te, él / ella / usted — se, nosotros — nos, vosotros — os, ellos / ellas / ustedes — se. Ir («іти, їхати») має особливі форми, їх треба запам’ятати: voy, vas, va, vamos, vais, van. Форма vais пишеться без знака наголосу.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-04-C1-T02",
+      "lessonId": "A1-04-C1",
+      "role": "transfer",
+      "family": "a104c.weekend",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "present.hacer",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "present.regular-er.plural",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю, вставивши правильні форми дієслів у дужках."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Los sábados yo ___ deporte y nosotros ___ el periódico en casa. (hacer, leer)"
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        "Los sábados yo ",
+        {
+          "slot": "s1"
+        },
+        " deporte y nosotros ",
+        {
+          "slot": "s2"
+        },
+        " el periódico en casa."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "present.hacer/written-form",
+          "accepted": [
+            "hago"
+          ],
+          "errors": [
+            {
+              "text": "haces",
+              "feedbackUk": "«haces» — форма для tú («ти»). Тут потрібна форма для yo («я»); у дієслова hacer її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "hace",
+              "feedbackUk": "«hace» — форма для él / ella / usted. Тут потрібна форма для yo («я»); у дієслова hacer її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "hacemos",
+              "feedbackUk": "«hacemos» — форма для nosotros / nosotras («ми»). Тут потрібна форма для yo («я»); у дієслова hacer її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "hacéis",
+              "feedbackUk": "«hacéis» — форма для vosotros / vosotras («ви» — кілька людей, на «ти»). Тут потрібна форма для yo («я»); у дієслова hacer її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "hacen",
+              "feedbackUk": "«hacen» — форма для ellos / ellas / ustedes. Тут потрібна форма для yo («я»); у дієслова hacer її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "hacer",
+              "feedbackUk": "«hacer» — це інфінітив (словникова форма). У реченні з підметом потрібна форма для yo («я»); у дієслова hacer її треба запам’ятати (див. таблицю)."
+            },
+            {
+              "text": "haco",
+              "feedbackUk": "Форма yo в дієслова hacer неправильна: hago."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "present.regular-er.plural/written-form",
+          "accepted": [
+            "leemos"
+          ],
+          "errors": [
+            {
+              "text": "leo",
+              "feedbackUk": "«leo» — форма для yo («я»). Тут потрібна форма для nosotros / nosotras («ми»): закінчення -emos."
+            },
+            {
+              "text": "lees",
+              "feedbackUk": "«lees» — форма для tú («ти»). Тут потрібна форма для nosotros / nosotras («ми»): закінчення -emos."
+            },
+            {
+              "text": "lee",
+              "feedbackUk": "«lee» — форма для él / ella / usted. Тут потрібна форма для nosotros / nosotras («ми»): закінчення -emos."
+            },
+            {
+              "text": "leéis",
+              "feedbackUk": "«leéis» — форма для vosotros / vosotras («ви» — кілька людей, на «ти»). Тут потрібна форма для nosotros / nosotras («ми»): закінчення -emos."
+            },
+            {
+              "text": "leen",
+              "feedbackUk": "«leen» — форма для ellos / ellas / ustedes. Тут потрібна форма для nosotros / nosotras («ми»): закінчення -emos."
+            },
+            {
+              "text": "leer",
+              "feedbackUk": "«leer» — це інфінітив (словникова форма). У реченні з підметом потрібна форма для nosotros / nosotras («ми»): закінчення -emos."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "present.hacer/written-form",
+            "present.regular-er.plural/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago. Решта форм: haces, hace, hacemos, hacéis, hacen. Дієслова на -er у множині: nosotros -emos (comemos), vosotros -éis зі знаком наголосу (coméis), ellos / ellas / ustedes -en (comen)."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щосуботи я займаюся спортом, а ми читаємо газету вдома."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "present.hacer/written-form",
+            "present.regular-er.plural/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Los sábados yo hago deporte y nosotros leemos el periódico en casa."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Los sábados yo hago deporte y nosotros leemos el periódico en casa.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago. Решта форм: haces, hace, hacemos, hacéis, hacen. Дієслова на -er у множині: nosotros -emos (comemos), vosotros -éis зі знаком наголосу (coméis), ellos / ellas / ustedes -en (comen).",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-04-C1-T03",
+      "lessonId": "A1-04-C1",
+      "role": "transfer",
+      "family": "a104c.text-pablo",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Що Пабло робить після сніданку?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Pablo es profesor y vive en Bilbao. Siempre se levanta temprano. Primero desayuna con su hija y después va a la escuela en autobús. Por la tarde corre en el parque. Los domingos nunca trabaja."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Бігає в парку.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Їде до школи автобусом.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Відпочиває вдома.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Їде до школи автобусом."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-04-C1-T04",
+      "lessonId": "A1-04-C1",
+      "role": "transfer",
+      "family": "a104c.text-pablo",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Що правда про неділю?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Pablo es profesor y vive en Bilbao. Siempre se levanta temprano. Primero desayuna con su hija y después va a la escuela en autobús. Por la tarde corre en el parque. Los domingos nunca trabaja."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Пабло ніколи не працює в неділю.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Пабло завжди працює в неділю.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Пабло встає пізно щонеділі.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Пабло ніколи не працює в неділю."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-04-C1-T05",
+      "lessonId": "A1-04-C1",
+      "role": "transfer",
+      "family": "a104c.l-father",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.routine",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай запис. Що тато робить після того, як приходить на роботу?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-04.routine.padre"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "Снідає вдома.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "П’є каву з друзями.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Іде додому.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Mi padre nunca desayuna en casa. Primero va al trabajo y después toma un café con sus amigos."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "П’є каву з друзями."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-04-C1-T06",
+      "lessonId": "A1-04-C1",
+      "role": "transfer",
+      "family": "a104c.write-morning",
+      "mode": "rubric-review",
+      "targets": [
+        {
+          "skillId": "writing.routine",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Напиши 3 речення іспанською про свій ранок: що ти робиш і в якій послідовності. Зразок у підказці — лише приклад."
+        }
+      ],
+      "input": "multiline",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "rubric": {
+        "criteriaUk": [
+          "Є 3 речення про ранок.",
+          "Дієслова в теперішньому часі узгоджені з особою; у зворотних дієсловах є займенник (me levanto).",
+          "Є слова послідовності (primero, después, luego, por último).",
+          "Відповідь може відрізнятися від прикладу: перевіряється зміст і вивчені форми."
+        ],
+        "exemplars": [
+          {
+            "id": "x1",
+            "text": "Me levanto temprano. Primero me ducho y después desayuno. Luego voy al trabajo."
+          }
+        ]
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después)."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Me levanto temprano. Primero me ducho y después desayuno. Luego voy al trabajo."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Me levanto temprano. Primero me ducho y después desayuno. Luego voy al trabajo.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después).",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    }
+  ]
+}
