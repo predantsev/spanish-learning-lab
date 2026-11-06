@@ -108,8 +108,12 @@ export class RestoreManager {
     removeTreeIfExists(rec.stagingDir);
   }
 
-  /** Removes expired or consumed preview records with their shadow/staging files, and orphan shadows. */
-  sweep(): void {
+  /**
+   * Removes expired or consumed preview records with their shadow/staging files. Orphan shadow/staging/export
+   * temp files are removed only when `orphans` is true (startup): at runtime a concurrent export or preview may
+   * own a temp file whose record does not exist yet.
+   */
+  sweep(orphans = false): void {
     const dir = previewDir(this.store);
     ensurePrivateDir(dir);
     const now = this.now().getTime();
@@ -128,6 +132,7 @@ export class RestoreManager {
       }
       removeIfExists(p);
     }
+    if (!orphans) return;
     for (const name of readdirSync(this.store.paths.runtime)) {
       const p = join(this.store.paths.runtime, name);
       const orphan = /^shadow-[0-9a-f-]{36}\.sqlite(?:-wal|-shm|-journal)?$/.test(name) || /^restore-staging-[0-9a-f-]{36}$/.test(name) || /^export-[0-9a-f-]{36}\.sqlite/.test(name);

@@ -37,7 +37,7 @@ export class RecoveryService implements Recovery {
   async prepare(): Promise<void> {
     this.artifacts.sweepOrphans(this.store.paths.exports);
     this.artifacts.sweepOrphans(this.store.paths.uploads);
-    this.restores.sweep();
+    this.restores.sweep(true);
     await this.backups.exclusive(async () => {
       await this.backups.reconcile();
       await this.backups.prune();

@@ -282,6 +282,23 @@ describe('replacement restore (A-06)', () => {
     expect(readFileSync(join(dst.store.paths.assets, 'private', `${privateSha}.mp3`))).toEqual(privateAudio);
   });
 
+  it('never sweeps temp files of concurrent work during a preview; orphans are removed only at startup', async () => {
+    const src = makeHome();
+    const archive = await exportBuffer(src);
+    const dst = makeHome({ epoch: 2 });
+    // Stand-ins for an export copy and a preview shadow that another in-flight operation still owns.
+    const exportTemp = join(dst.store.paths.runtime, `export-${randomUUID()}.sqlite`);
+    const shadowTemp = join(dst.store.paths.runtime, `shadow-${randomUUID()}.sqlite`);
+    writeFileSync(exportTemp, 'in-flight export copy');
+    writeFileSync(shadowTemp, 'in-flight preview shadow');
+    await previewOf(dst, archive);
+    expect(existsSync(exportTemp)).toBe(true);
+    expect(existsSync(shadowTemp)).toBe(true);
+    await dst.recovery.prepare(); // startup: nothing can own them any more
+    expect(existsSync(exportTemp)).toBe(false);
+    expect(existsSync(shadowTemp)).toBe(false);
+  });
+
   it('aborts safely on epoch overflow before anything is replaced', async () => {
     const src = makeHome({ epoch: Number.MAX_SAFE_INTEGER });
     const archive = await exportBuffer(src);
