@@ -14,9 +14,9 @@ import { clipLevel, collectionOut, exerciseTask, labelFor } from '../reads/model
 
 type LessonStatus = 'not-started' | 'visited' | 'completed';
 
-function progressByLesson(db: Db): Map<string, { status: 'visited' | 'completed'; visited: string[] }> {
-  const rows = db.prepare('SELECT lesson_id, status, visited_step_ids FROM lesson_progress').all() as Array<{ lesson_id: string; status: 'visited' | 'completed'; visited_step_ids: string }>;
-  return new Map(rows.map((r) => [r.lesson_id, { status: r.status, visited: JSON.parse(r.visited_step_ids) as string[] }]));
+function progressByLesson(db: Db): Map<string, { id: string; revision: number; status: 'visited' | 'completed'; visited: string[] }> {
+  const rows = db.prepare('SELECT id, revision, lesson_id, status, visited_step_ids FROM lesson_progress').all() as Array<{ id: string; revision: number; lesson_id: string; status: 'visited' | 'completed'; visited_step_ids: string }>;
+  return new Map(rows.map((r) => [r.lesson_id, { id: r.id, revision: r.revision, status: r.status, visited: JSON.parse(r.visited_step_ids) as string[] }]));
 }
 
 function introduced(db: Db): TargetState[] {
@@ -113,7 +113,9 @@ export function lessonView(db: Db, repo: ContentRepository, lessonId: string): L
         .filter((x): x is { clipId: string; hash: string } => x.hash !== undefined)
         .slice(0, 6),
     })),
-    progress: { status: (progress?.status ?? 'not-started') as LessonStatus, visitedStepIds: progress?.visited ?? [] },
+    progress: progress
+      ? { id: progress.id, revision: progress.revision, status: progress.status as LessonStatus, visitedStepIds: progress.visited }
+      : { status: 'not-started' as LessonStatus, visitedStepIds: [] },
     materials: materialRefs(repo, [lessonId, l.blockId]),
     previousLessonId: i > 0 ? ordered[i - 1]! : '',
     nextLessonId: i >= 0 && i < ordered.length - 1 ? ordered[i + 1]! : '',
@@ -173,7 +175,19 @@ export function progressView(db: Db, repo: ContentRepository): ProgressView {
   return { viewsVersion: 1, blocks, targets: targets.slice(0, 3000), summary };
 }
 
-export function phraseLibraryView(db: Db): PhraseLibraryView {
+/** `phrase-recall` targets of a course phrase: its skills that have that modality (≤ 6); personal phrases have none. */
+function phraseRecallTargets(repo: ContentRepository, courseLogicalId: string | null): Target[] {
+  if (!courseLogicalId) return [];
+  const phrase = repo.phrase(courseLogicalId);
+  if (!phrase) return [];
+  const out: Target[] = [];
+  for (const skillId of phrase.body.skills) {
+    if (repo.skill(skillId)?.body.modalities.includes('phrase-recall')) out.push({ skillId, modality: 'phrase-recall' });
+  }
+  return out.slice(0, 6);
+}
+
+export function phraseLibraryView(db: Db, repo: ContentRepository): PhraseLibraryView {
   const phrases = db.prepare('SELECT * FROM phrase_records ORDER BY created_at, rowid').all() as Array<{
     id: string;
     revision: number;
@@ -198,7 +212,7 @@ export function phraseLibraryView(db: Db): PhraseLibraryView {
       logicalId: (p.course_logical_id ?? '').slice(0, 150),
       spanish: p.spanish.slice(0, 2000),
       ukrainian: p.meaning.slice(0, 2000),
-      targets: [], // TODO(contract-v1.1): phrase-recall targets of course phrases (integration package)
+      targets: phraseRecallTargets(repo, p.course_logical_id),
       state: p.state,
       origin: p.source,
       collectionIds: (byPhrase.get(p.id) ?? []).slice(0, 200),

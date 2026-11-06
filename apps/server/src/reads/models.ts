@@ -21,7 +21,7 @@ import type {
   Verdict,
 } from '@sll/contracts';
 import type { Db } from '../db/connection.ts';
-import { contractContentState, type ContentRepository, type RevisionRow } from '../content/repository.ts';
+import type { ContentRepository, RevisionRow } from '../content/repository.ts';
 import { LISTENING_MODALITIES, parseTargetKey, targetKey, type ClipBody, type LessonBody, type MaterialBody, type PhraseBody, type TaskBody } from '../content/types.ts';
 import { evidenceLabel, stableLabel, type AttemptEntry, type TargetState } from '@sll/domain';
 
@@ -148,7 +148,7 @@ export function lessonContent(repo: ContentRepository, l: RevisionRow<LessonBody
     logicalId: l.logicalId,
     revision: repo.revisionOrdinal('lesson', l.logicalId, l.revisionId),
     resourceType: 'lesson',
-    state: contractContentState(l.state),
+    state: l.state,
     title: l.body.titleUk.slice(0, 160),
     topicId: l.body.blockId,
     blocks: flattenLessonBlocks(l.body),
@@ -162,7 +162,7 @@ export function materialContent(repo: ContentRepository, m: RevisionRow<Material
     logicalId: m.logicalId,
     revision: repo.revisionOrdinal('material', m.logicalId, m.revisionId),
     resourceType: 'material',
-    state: contractContentState(m.state),
+    state: m.state,
     title: m.body.titleUk.slice(0, 160),
     topicId: m.body.topicId,
     blocks: [...m.body.blocks],
@@ -196,7 +196,7 @@ export function phraseContent(repo: ContentRepository, p: PhraseRow): Content {
     logicalId: p.course_logical_id ?? p.id,
     revision: p.revision,
     resourceType: 'phrase',
-    state: contractContentState(p.state),
+    state: p.state,
     title: (p.spanish || p.meaning || '—').slice(0, 160),
     topicId: body?.firstLesson ?? 'personal',
     blocks,

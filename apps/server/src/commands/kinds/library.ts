@@ -1,5 +1,5 @@
 // practice.create, phrase.capture, material.draft, collection.create, collection.patch, review.submit
-import type { Payload_collection_create, Payload_collection_patch, Payload_material_draft, Payload_phrase_capture, Payload_practice_create, Payload_review_submit } from '@sll/contracts';
+import type { Payload_collection_create, Payload_collection_patch, Payload_material_draft, Payload_phrase_archive, Payload_phrase_capture, Payload_practice_create, Payload_review_submit } from '@sll/contracts';
 import { entitySha256, sha256Hex } from '../../content/pack-format.ts';
 import { conflict, notFound, unprocessable } from '../../http/errors.ts';
 import { LISTENING_MODALITIES, targetKey, type MaterialBody, type PhraseBody, type TaskBody } from '../../content/types.ts';
@@ -93,6 +93,23 @@ export function phraseCapture(env: CommandEnv): CommandResult {
   env.event('phrase.captured', 'phrase', id, { source: p.source });
   env.markCommitted('phrase.capture');
   return { entities: [ref(id, 1, 'phrase')], outcome: 'created', createdEntityId: id };
+}
+
+/**
+ * phrase.archive (browser): archived:true hides the phrase from new practice (practice.create refuses it,
+ * PhraseLibraryView.practiceReady is false) while its identity, history and collection memberships stay
+ * readable; archived:false is the recoverable undo. Nothing is deleted.
+ */
+export function phraseArchive(env: CommandEnv): CommandResult {
+  const p = env.cmd.payload as Payload_phrase_archive;
+  const row = env.db.prepare('SELECT id, revision, archived FROM phrase_records WHERE id = ?').get(env.cmd.subjectId) as { id: string; revision: number; archived: number } | undefined;
+  if (!row) throw notFound('PHRASE_NOT_FOUND');
+  requireRevision(row.revision, env.cmd.expectedRevision);
+  if ((row.archived === 1) === p.archived) return { entities: [ref(row.id, row.revision, 'phrase')], outcome: 'unchanged' };
+  env.db.prepare('UPDATE phrase_records SET archived = ?, revision = revision + 1, updated_at = ? WHERE id = ?').run(p.archived ? 1 : 0, env.now.toISOString(), row.id);
+  env.event(p.archived ? 'phrase.archived' : 'phrase.unarchived', 'phrase', row.id);
+  env.markCommitted('phrase.archive');
+  return { entities: [ref(row.id, row.revision + 1, 'phrase')], outcome: 'updated' };
 }
 
 /** Typed blocks only (schema), ≤20 000 chars, table widths, known topic; a draft revision never replaces the active one. */

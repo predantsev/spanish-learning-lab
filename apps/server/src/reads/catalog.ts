@@ -4,7 +4,7 @@
 import type { CatalogEntry, CatalogPage, Target } from '@sll/contracts';
 import { hmac, safeEqual } from '../auth/crypto.ts';
 import { canonicalJson, sha256Hex } from '../content/pack-format.ts';
-import { contractContentState, type ContentRepository } from '../content/repository.ts';
+import type { ContentRepository } from '../content/repository.ts';
 import { LISTENING_MODALITIES, type LessonBody, type LexemeBody, type SkillBody, type TaskBody } from '../content/types.ts';
 import { HttpError, conflict } from '../http/errors.ts';
 
@@ -56,7 +56,7 @@ function buildIndex(repo: ContentRepository): IndexedEntry[] {
         blockId: body.blockId,
         situationIds: [...body.situations].slice(0, 20),
         targets,
-        state: contractContentState(l.state),
+        state: l.state,
       },
       haystack: foldForSearch(aliases.join(' \u0001 ')),
       written: lessonTasks.some((t) => !listeningTask(t)),

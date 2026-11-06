@@ -33,6 +33,13 @@ export async function startLesson(h: Harness, lessonId: string): Promise<{ sessi
   return { sessionId, lv };
 }
 
+/** lesson.progress with the identity LessonView.progress carries (new subjectId + 0 for the first visit). */
+export async function visitStep(h: Harness, sessionId: string, lessonId: string, stepId: string, action: 'visit' | 'finish' = 'visit'): Promise<Res> {
+  const lv = await lessonView(h, lessonId);
+  const id = lv.progress.id ?? uuid();
+  return send(h, command(h, 'lesson.progress', id, lv.progress.revision ?? 0, { sessionId, stepId, action }));
+}
+
 export async function openTask(h: Harness, sessionId: string, taskRevisionId: string): Promise<Ctx> {
   const contextId = uuid();
   const r = await ok(await send(h, command(h, 'context.open', contextId, 0, { sessionId, taskRevisionId })));

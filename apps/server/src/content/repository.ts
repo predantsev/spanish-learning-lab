@@ -196,8 +196,3 @@ export class ContentRepository {
     return r.s ?? 0;
   }
 }
-
-/** Contract `Content.state`/`CatalogEntry.state` have no `reviewed`; it is reported as `needs-review` (not yet ready). */
-export function contractContentState(state: ContentState): 'draft' | 'needs-review' | 'ready' | 'retired' | 'quarantined' {
-  return state === 'reviewed' ? 'needs-review' : state;
-}

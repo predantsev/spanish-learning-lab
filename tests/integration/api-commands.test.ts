@@ -2,7 +2,7 @@
 // selection, leases, stale writes), lesson completion, session summary and recommended review.
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { command, contractErrors, send, startHarness, uuid, type Harness } from './helpers/server-harness.ts';
-import { attempt, createToken, lessonView, ok, openTask, rowCount, saveDraft, snapshot, startLesson, submit, taskOf } from './helpers/flows.ts';
+import { attempt, createToken, lessonView, ok, openTask, rowCount, saveDraft, snapshot, startLesson, submit, taskOf, visitStep } from './helpers/flows.ts';
 
 let h: Harness;
 beforeEach(async () => {
@@ -208,8 +208,19 @@ describe('A-24 agent context selection and leases', () => {
 describe('lessons, summaries and recommended review', () => {
   it('completes a lesson only after required steps and tasks; finish summarizes actual work', async () => {
     const { sessionId, lv } = await startLesson(h, 'A2-03-L1');
-    const visit = (stepId: string, action = 'visit') => send(h, command(h, 'lesson.progress', uuid(), 0, { sessionId, stepId, action }));
-    await ok(await visit('s1'));
+    const visit = (stepId: string, action: 'visit' | 'finish' = 'visit') => visitStep(h, sessionId, 'A2-03-L1', stepId, action);
+    const firstVisit = await ok(await visit('s1'));
+    const progressId = firstVisit.body.entities[0].id;
+    // LessonView.progress now carries the record identity.
+    const lv1 = await lessonView(h, 'A2-03-L1');
+    expect(lv1.progress).toMatchObject({ id: progressId, revision: 1, status: 'visited', visitedStepIds: ['s1'] });
+    // A concurrent first visit from another tab (new subjectId, revision 0) gets 409 naming the existing record.
+    const dup = await send(h, command(h, 'lesson.progress', uuid(), 0, { sessionId, stepId: 's2', action: 'visit' }));
+    expect(dup.status).toBe(409);
+    expect(dup.body).toMatchObject({ code: 'STALE_REVISION', currentRevision: 1, createdEntityId: progressId });
+    expect(contractErrors('post_commands', 409, dup.body)).toBeUndefined();
+    const staleRev = await send(h, command(h, 'lesson.progress', progressId, 0, { sessionId, stepId: 's2', action: 'visit' }));
+    expect(staleRev.body).toMatchObject({ code: 'STALE_REVISION', currentRevision: 1 });
     const early = await ok(await visit('s4', 'finish'));
     expect(early.body.outcome).toBe('updated');
     expect((await lessonView(h, 'A2-03-L1')).progress.status).toBe('visited');
@@ -223,7 +234,7 @@ describe('lessons, summaries and recommended review', () => {
     const done = await ok(await visit('s4', 'finish'));
     expect(done.body.entities[0].resourceType).toBe('lesson-progress');
     const view = await lessonView(h, 'A2-03-L1');
-    expect(view.progress).toEqual({ status: 'completed', visitedStepIds: ['s1', 's2', 's3', 's4'] });
+    expect(view.progress).toMatchObject({ id: progressId, status: 'completed', visitedStepIds: ['s1', 's2', 's3', 's4'] });
 
     const sess = await h.req('GET', `/api/v1/resources/session/${sessionId}`, { cookie: true });
     const finish = await ok(await send(h, command(h, 'session.finish', sessionId, sess.body.data.revision, {})));
