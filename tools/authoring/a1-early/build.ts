@@ -5,7 +5,8 @@
 import { writeUnits } from './lib.ts';
 import type { Unit } from './lib.ts';
 import { unit as a101l1 } from './units/A1-01-L1.ts';
+import { unit as a101l2 } from './units/A1-01-L2.ts';
 
-export const UNITS: Unit[] = [a101l1];
+export const UNITS: Unit[] = [a101l1, a101l2];
 
 for (const s of writeUnits(UNITS)) console.log(`${s.changed ? 'wrote' : 'same '} ${s.file} (${s.entities})`);
