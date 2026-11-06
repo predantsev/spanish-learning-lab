@@ -1,0 +1,172 @@
+{
+  "cases": [
+    {
+      "caseId": "cal-h1-01",
+      "reviewerAnswer": "¿Cómo te llamas? Informal address; ¿Cómo se llama? / ¿Cómo se llama usted? Formal address. The prompt permits either.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: «Запитайте в людини іспанською, як її звати.»; task.accepted contains only «¿Cómo te llamas?» with task.closed: true.",
+      "defect": "The intended form of address is unspecified. Both informal and formal formulas were taught, but the closed key accepts only the informal reading.",
+      "correction": "If informal address is intended, specify it. Otherwise, include the taught formal variants in accepted.",
+      "sources": [
+        "Supplied context.taughtBefore: «¿Cómo te llamas? / ¿Cómo se llama (usted)?» and «tú and usted as forms of address».",
+        "Course contract, rule 3; verdict instructions concerning underdetermined context."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-02",
+      "reviewerAnswer": "a — Me duele la cabeza.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.options[id=a].outcomes: «incorrect»; task.options[id=a].feedbackUk: «Потрібен присвійний займенник: «mi cabeza».»; task.hints[0].blocks[0].text: «З частинами тіла іспанською вживаємо присвійний займенник, як і в українській: mi cabeza, mi mano.»",
+      "defect": "The neutral translation with the definite article is correct and is wrongly rejected. With the possessor expressed by «me», Spanish normally uses «la cabeza». The hint falsely requires a possessive. A possessive can occur in marked contexts, but it is not required here.",
+      "correction": "Mark a correct and explain the definite article with body parts when the affected person is already expressed. Update the hints and feedback; replace b if only one unambiguous correct option is intended.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of body-part possession, definite articles and affected-person datives (from memory).",
+        "Course contract, rule 2."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-03",
+      "reviewerAnswer": "a — Позичити їй комп'ютер.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "clips[0].transcript: «Mi ordenador no funciona.»; context.taughtBefore lists «el mío, el tuyo» and «funcionar», but not possessive «mi», negation with «no», or the present form «funciona».",
+      "defect": "The meaning, translation and answer key agree. However, under the explicitly exhaustive prerequisite list, this opening sentence uses untaught forms without a prompt gloss or hint. The clip's stored Ukrainian translation is not supplied as a learner-facing hint.",
+      "correction": "Teach the uncovered forms before this task or provide appropriate vocabulary and meaning hints. Keep a as the correct option.",
+      "sources": [
+        "Course contract, rules 1 and 7.",
+        "Supplied context.taughtBefore, clips[0] and task, which contains no hints."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-04",
+      "reviewerAnswer": "¿Adónde vas? / ¿A dónde vas? Both are correct.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[id=e1].text: «¿A dónde vas?»; its outcome is «incorrect» and feedback says «Це питальне слово пишеться разом: «adónde».»",
+      "defect": "Both spellings are standard and were explicitly taught. The open key still explicitly rejects the correct two-word spelling.",
+      "correction": "Move «¿A dónde vas?» into accepted and remove the claim that the expression must be written together.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «adónde», admitting «adónde» and «a dónde» (from memory).",
+        "Supplied context.taughtBefore; course contract, rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-05",
+      "reviewerAnswer": "a — Ніхто.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.options[id=a].outcomes: «incorrect» and feedbackUk: «Ні, послухайте ще раз.»; task.options[id=b].outcomes: «correct» and feedbackUk: «Правильно!»",
+      "defect": "The key reverses the meaning of «no viene nadie»: nobody is coming, rather than everyone. The feedback consequently endorses the wrong answer and rejects the correct one.",
+      "correction": "Mark a correct and b incorrect, and revise their feedback accordingly.",
+      "sources": [
+        "Supplied clips[0].transcript: «Hoy es fiesta y no viene nadie a la oficina.» and translationUk: «Сьогодні свято, і до офісу ніхто не приходить.»",
+        "Supplied context.taughtBefore: «no … nadie».",
+        "Course contract, rule 2."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-06",
+      "reviewerAnswer": "conmigo",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: «¿Quieres venir al cine ___ el sábado?»; the word «venir» is absent from context.taughtBefore and has no gloss.",
+      "defect": "The pronoun key is correct, but the surrounding sentence introduces untaught vocabulary. Knowing the construction «querer + infinitive» does not establish the meaning of «venir».",
+      "correction": "Teach «venir» beforehand or add a vocabulary hint explaining it. A vocabulary-only hint must have an empty targets list.",
+      "sources": [
+        "Supplied context.taughtBefore and task.prompt[1]; no vocabulary hint is provided.",
+        "Course contract, rules 1 and 6."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-07",
+      "reviewerAnswer": "veintiuna",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[id=v1].text and task.referenceAnswer: «veintiún»; task.errors[id=e1].text: «veintiuna»; feedbackUk: «Перед іменником число 21 скорочується: «veintiún».»",
+      "defect": "«Personas» is feminine, so the required form is «veintiuna personas». The key accepts the wrong gender form and rejects the correct one. The explanation incorrectly extends masculine apocope to every noun.",
+      "correction": "Accept «veintiuna», reject «veintiún» in this sentence, and explain feminine agreement. Update the reference answer and feedback.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «uno», agreement and apocope of compound numerals ending in uno (from memory).",
+        "Supplied context.taughtBefore explicitly includes «veintiuna mesas».",
+        "Course contract, rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-08",
+      "reviewerAnswer": "café",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[id=e1].feedbackUk: «Над останньою «e» потрібен апостроф: «café».»",
+      "defect": "The acute accent in «café» is a written stress mark, not an apostrophe. This is incorrect Ukrainian orthographic terminology.",
+      "correction": "Use: «Над «e» потрібен знак наголосу: «café».»",
+      "sources": [
+        "Course contract, rule 8, including terminology rule 6a: the Spanish written accent is «знак наголосу» / «графічний наголос»."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-09",
+      "reviewerAnswer": "a — también.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-10",
+      "reviewerAnswer": "ha habido",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: «Esta semana ___ muchos problemas en el metro.»; «muchos» is absent from context.taughtBefore and is not glossed.",
+      "defect": "The impersonal-haber key and grammatical explanation are correct. However, the sentence uses unlisted vocabulary, contrary to the exhaustive prerequisite requirement.",
+      "correction": "Teach «muchos» beforehand or add a vocabulary hint such as «muchos problemas — багато проблем», with an empty targets list.",
+      "sources": [
+        "Supplied context.taughtBefore and task.prompt[1]; no hint glosses «muchos».",
+        "Course contract, rules 1 and 6."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-11",
+      "reviewerAnswer": "a or b — the clip says seven o'clock without specifying morning or evening.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "clips[0].transcript: «La clase de inglés es a las siete.»; task.options[id=a] rejects «О 7:00», while task.options[id=b] accepts «О 19:00».",
+      "defect": "The announcement does not distinguish 07:00 from 19:00. Neither the transcript nor its translation supplies the time of day, so the exclusive evening key is unsupported.",
+      "correction": "If an evening class is intended, specify «de la tarde» and update the translation. If morning is intended, specify «de la mañana» and change the key. Alternatively, use one answer meaning simply seven o'clock.",
+      "sources": [
+        "Supplied clips[0].transcript and translationUk: «Заняття з англійської — о сьомій.»",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «hora», expression of time with morning/afternoon/evening specifications (from memory).",
+        "Verdict instructions concerning underdetermined readings."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h1-12",
+      "reviewerAnswer": "a or b could fit. The text identifies one female neighbor but does not identify her as Laura or Carmen.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: «Tengo dos vecinas, Laura y Carmen. Una de ellas trabaja en el hospital. La veo todos los días en el autobús.»; task.options[id=a] accepts «Лауру» and task.options[id=b] rejects «Кармен».",
+      "defect": "«Una de ellas» does not name the hospital worker. The singular feminine pronoun «la» cannot establish whether she is Laura or Carmen. The key and feedback select Laura without textual evidence.",
+      "correction": "If Laura is intended, identify her explicitly in the passage; do the equivalent for Carmen if she is intended. Alternatively, ask about the unnamed neighbor without requiring her name.",
+      "sources": [
+        "Supplied task.prompt[0], which introduces both names but does not identify which neighbor works at the hospital.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «pronombres personales átonos», feminine singular «la» versus plural «las» (from memory).",
+        "Verdict instructions concerning underdetermined pronoun referents."
+      ],
+      "notes": ""
+    }
+  ]
+}
