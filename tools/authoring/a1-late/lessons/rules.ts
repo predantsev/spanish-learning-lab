@@ -31,4 +31,13 @@ export const RULES: Record<string, string> = {
     'Займенник відповідає підмету: yo — me, tú — te, él / ella / usted — se, nosotros — nos, vosotros — os, ellos / ellas / ustedes — se.',
   'reflexive.placement':
     'Займенник стоїть окремим словом перед відмінюваним дієсловом: Me levanto temprano. У запереченні no стоїть перед займенником: No me levanto tarde. У словнику таке дієслово має -se в кінці: levantarse.',
+  // A1-04-L5
+  'time.parts-of-day':
+    'Без точного часу частину доби називаємо з por і артиклем la: por la mañana — «зранку», por la tarde — «удень, після обіду», por la noche — «увечері, вночі».',
+  'time.frequency.adverbs':
+    'Siempre — «завжди», normalmente — «зазвичай», a menudo — «часто», a veces — «іноді». Найчастіше ці слова стоять перед дієсловом або на початку речення: Siempre desayuno en casa. A veces voy al cine.',
+  'neg.nunca':
+    'Nunca — «ніколи». Якщо nunca стоїть перед дієсловом, no не потрібне: Nunca como carne. Якщо nunca стоїть після дієслова, перед дієсловом ставимо no: No como carne nunca.',
+  'time.frequency.expressions':
+    'Todos los días або cada día — «щодня», los fines de semana — «на вихідних», una vez a la semana — «раз на тиждень», los sábados — «щосуботи» (los + день тижня означає повтор). Ці вирази зазвичай стоять на початку або в кінці речення.',
 };
