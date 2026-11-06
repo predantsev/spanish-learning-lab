@@ -7,7 +7,8 @@ import { randomUUID } from 'node:crypto';
 import { createServer } from 'node:net';
 import { fileURLToPath } from 'node:url';
 import { buildServer, listenLoopback } from './app.ts';
-import { privatePaths, resolvePrivateRoot } from './db/paths.ts';
+import { ensurePrivateDirs, privatePaths, resolvePrivateRoot } from './db/paths.ts';
+import { claimServiceLock } from './runtime/profile-lock.ts';
 import { RotatingLogStream } from './http/logging.ts';
 import { startIpcServer } from './ipc/server.ts';
 import { loadRecoveryModule } from './recovery-loader.ts';
@@ -37,6 +38,10 @@ async function main(): Promise<void> {
   const root = resolvePrivateRoot(process.env);
   const instanceId = process.env.SLL_INSTANCE_ID && UUID_RE.test(process.env.SLL_INSTANCE_ID) ? process.env.SLL_INSTANCE_ID : randomUUID();
   const wanted = preferredPort(process.env.SLL_PORT);
+  // One writer per profile: the launcher's lock names this process (or its launcher parent); started
+  // directly, the server takes runtime/profile.lock itself (role "service").
+  const profileLock = claimServiceLock(ensurePrivateDirs(root), instanceId, fileURLToPath(import.meta.url));
+  process.on('exit', () => profileLock.release());
   const recoveryModule = await loadRecoveryModule();
   if (recoveryModule?.recoverJournalIfNeeded) await recoveryModule.recoverJournalIfNeeded(privatePaths(root));
   const store = openProfileStore({ root, instanceId });

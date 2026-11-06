@@ -6,6 +6,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
 import { NON_PORTABLE_TABLES, PORTABLE_TABLES } from '../../apps/server/src/db/migrations/index.ts';
+import { APP_SCHEMA_VERSION } from '../../apps/server/src/db/connection.ts';
 import { createRecovery, recoverJournalIfNeeded, RecoveryError, SimulatedCrash, type RecoveryOptions, type RecoveryService } from '../../apps/server/src/recovery/index.ts';
 import type { ExportManifest } from '../../apps/server/src/recovery/archive.ts';
 import type { Db } from '../../apps/server/src/db/connection.ts';
@@ -122,7 +123,7 @@ describe('portable export (A-06)', () => {
     expect(sha(raw)).toBe(art.sha256);
     const entries = await readZip(art.path);
     const manifest = JSON.parse(entries.get('manifest.json')!.toString('utf8')) as ExportManifest;
-    expect(manifest).toMatchObject({ format: 'spanish-learning-lab.profile-export', formatVersion: 1, schemaVersion: 1, eventSeq: 3, selfContained: false });
+    expect(manifest).toMatchObject({ format: 'spanish-learning-lab.profile-export', formatVersion: 1, schemaVersion: APP_SCHEMA_VERSION(), eventSeq: 3, selfContained: false });
     expect(manifest.profile).toEqual({ id: src.profileId, epoch: 1 });
     expect(manifest.tables.map((t) => t.name).sort()).toEqual([...PORTABLE_TABLES].sort());
     expect([...entries.keys()].sort()).toEqual(['manifest.json', ...PORTABLE_TABLES.map((t) => `tables/${t}.ndjson`)].sort());
@@ -163,7 +164,7 @@ describe('replacement restore (A-06)', () => {
     const before = snapshotState(dst.store);
 
     const first = await previewOf(dst, archive);
-    expect(first).toMatchObject({ profileId: src.profileId, attemptCount: 1, draftCount: 1, schemaVersion: 1, liveEventSeq: before.seq, profileEpoch: 3 });
+    expect(first).toMatchObject({ profileId: src.profileId, attemptCount: 1, draftCount: 1, schemaVersion: APP_SCHEMA_VERSION(), liveEventSeq: before.seq, profileEpoch: 3 });
     expect(first.missingAssets).toEqual([]);
     expect(first.requiresSourceTrust).toBe(false);
     expect(first.confirmation).toMatch(/^[A-Za-z0-9_-]{43}$/);
