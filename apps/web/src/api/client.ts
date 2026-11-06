@@ -233,7 +233,7 @@ export class ApiClient {
   }
 
   /** Owner-only control writes (tokens, recovery, logout) with the same idempotency headers. */
-  async ownerWrite<T>(method: 'POST' | 'DELETE', path: string, body: OwnerWriteBase): Promise<T> {
+  async ownerWrite<T, B extends OwnerWriteBase = OwnerWriteBase>(method: 'POST' | 'DELETE', path: string, body: B): Promise<T> {
     const response = await this.request(path, {
       method,
       refreshOnAuth: true,

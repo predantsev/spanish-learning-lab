@@ -3,8 +3,13 @@ import { CatalogScreen } from '../screens/Catalog.tsx';
 import { ExerciseScreen } from '../screens/exercise/ExerciseScreen.tsx';
 import { HomeScreen } from '../screens/Home.tsx';
 import { LessonScreen } from '../screens/Lesson.tsx';
+import { ListeningScreen } from '../screens/Listening.tsx';
+import { MaterialsScreen } from '../screens/Materials.tsx';
 import { NotFound } from '../screens/NotFound.tsx';
+import { CollectionScreen, PhrasesScreen } from '../screens/Phrases.tsx';
 import { PracticeSetScreen, ReviewScreen } from '../screens/Practice.tsx';
+import { ProgressScreen } from '../screens/Progress.tsx';
+import { AgentsScreen, RecoveryScreen, SettingsScreen } from '../screens/Settings.tsx';
 
 export function RouteView({ route }: { readonly route: Route; readonly search: string }) {
   switch (route.name) {
@@ -20,7 +25,23 @@ export function RouteView({ route }: { readonly route: Route; readonly search: s
       return <ReviewScreen />;
     case 'practice':
       return <PracticeSetScreen key={route.setId} setId={route.setId} />;
-    default:
+    case 'listening':
+      return <ListeningScreen />;
+    case 'phrases':
+      return <PhrasesScreen phraseId={route.phraseId} />;
+    case 'collection':
+      return <CollectionScreen key={route.collectionId} collectionId={route.collectionId} />;
+    case 'materials':
+      return <MaterialsScreen key={route.topicId} topicId={route.topicId} />;
+    case 'progress':
+      return <ProgressScreen />;
+    case 'settings':
+      return <SettingsScreen />;
+    case 'settings-agents':
+      return <AgentsScreen />;
+    case 'settings-recovery':
+      return <RecoveryScreen />;
+    case 'not-found':
       return <NotFound />;
   }
 }
