@@ -1,0 +1,740 @@
+{
+  "schemaVersion": 1,
+  "kind": "sll-audio-technical-qa",
+  "scope": "Technical QA only (format, integrity, playability, loudness, peak, silence, clipping). NOT language QA: no judgment of words, stress, accent or naturalness.",
+  "generatedAt": "2026-11-05T23:56:51.380Z",
+  "index": {
+    "path": "work/media/index.json",
+    "sha256": "7f87478679965d784b25677e04049f81c23baaa81a834e8d011730bcbef78dc2",
+    "entries": 18
+  },
+  "tools": {
+    "ffmpeg": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1.1 Copyright (c) 2007-2026 the FFmpeg developers",
+    "node": "v24.22.1"
+  },
+  "thresholds": {
+    "format": {
+      "codec": "mp3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrateKbps": 128
+    },
+    "loudness": {
+      "targetLufs": -19,
+      "okLu": 1,
+      "warnLu": 2
+    },
+    "truePeakCeilingDbtp": -1,
+    "durationSec": {
+      "A1": {
+        "min": 2,
+        "max": 15
+      },
+      "A2": {
+        "min": 10,
+        "max": 60
+      }
+    },
+    "shortClipSec": 3,
+    "silence": {
+      "maxLeadingMs": 1000,
+      "maxTrailingMs": 1500,
+      "maxInternalMs": 2000,
+      "maxRatio": 0.6
+    },
+    "abruptEdge": {
+      "endDbfs": -40,
+      "maxTrailingSilenceMs": 30,
+      "startDbfs": -28,
+      "maxLeadingSilenceMs": 10
+    },
+    "clipping": {
+      "failRun": 3,
+      "failSamples": 10
+    }
+  },
+  "analysis": {
+    "frameMs": 10,
+    "silenceDbfs": -50,
+    "nearFullScale": 0.98,
+    "edgeMs": 20
+  },
+  "summary": {
+    "pass": 7,
+    "warn": 11,
+    "fail": 0
+  },
+  "files": [
+    {
+      "clipId": "clip.bench.amounts-time",
+      "voice": "macos.eddy",
+      "lessonId": "A1-05-L3",
+      "file": "610d84bdf5e778fcdc2afa6f3ae12c41b2a41afa196f65450154fe5eb9aa9318.mp3",
+      "sha256": "610d84bdf5e778fcdc2afa6f3ae12c41b2a41afa196f65450154fe5eb9aa9318",
+      "bytes": 90278,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 5567,
+        "decodedFrames": 215,
+        "integratedLufs": -19.5,
+        "lraLu": 1.8,
+        "truePeakDbtp": -4.8,
+        "samplePeakDbfs": -4.85,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 430,
+        "longestInternalSilenceMs": 390,
+        "silenceRatio": 0.194,
+        "headRmsDbfs": -33.08,
+        "tailRmsDbfs": null
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.bench.amounts-time",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L3",
+      "file": "bfa6d46d218feab33495f30ed654c1ae2bc0af098b3e1db37b9eb329159121c8.mp3",
+      "sha256": "bfa6d46d218feab33495f30ed654c1ae2bc0af098b3e1db37b9eb329159121c8",
+      "bytes": 74395,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 4589,
+        "decodedFrames": 177,
+        "integratedLufs": -19.5,
+        "lraLu": 0.2,
+        "truePeakDbtp": -6.2,
+        "samplePeakDbfs": -6.19,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 30,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.044,
+        "headRmsDbfs": -38.89,
+        "tailRmsDbfs": -91.74
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.bench.amounts-time",
+      "voice": "piper.davefx-medium",
+      "lessonId": "A1-05-L3",
+      "file": "e320aa3ec6b108d80296684712fbbea7eb3285584cfc7e0148615afad09c9dfd.mp3",
+      "sha256": "e320aa3ec6b108d80296684712fbbea7eb3285584cfc7e0148615afad09c9dfd",
+      "bytes": 83172,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 5132,
+        "decodedFrames": 198,
+        "integratedLufs": -19.3,
+        "lraLu": 1,
+        "truePeakDbtp": -4.3,
+        "samplePeakDbfs": -4.26,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 180,
+        "longestInternalSilenceMs": 250,
+        "silenceRatio": 0.088,
+        "headRmsDbfs": -30.71,
+        "tailRmsDbfs": -73.36
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.bench.command-stress",
+      "voice": "macos.eddy",
+      "lessonId": "A2-07-L6",
+      "file": "3d34ad78f5b5e1dbb2c423de68a07f8dda29919c133e4611dff8e4ade32c2c2f.mp3",
+      "sha256": "3d34ad78f5b5e1dbb2c423de68a07f8dda29919c133e4611dff8e4ade32c2c2f",
+      "bytes": 175959,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10937,
+        "decodedFrames": 420,
+        "integratedLufs": -19.4,
+        "lraLu": 1.3,
+        "truePeakDbtp": -3,
+        "samplePeakDbfs": -3,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 410,
+        "longestInternalSilenceMs": 440,
+        "silenceRatio": 0.314,
+        "headRmsDbfs": -50.87,
+        "tailRmsDbfs": null
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.bench.command-stress",
+      "voice": "macos.monica",
+      "lessonId": "A2-07-L6",
+      "file": "7b23866d7500ca0e5172e531a9b2a00eddfa5bc9220ffd984556ad01ae31163b.mp3",
+      "sha256": "7b23866d7500ca0e5172e531a9b2a00eddfa5bc9220ffd984556ad01ae31163b",
+      "bytes": 165928,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10313,
+        "decodedFrames": 396,
+        "integratedLufs": -19.5,
+        "lraLu": 1.6,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.86,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 20,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.174,
+        "headRmsDbfs": -27.31,
+        "tailRmsDbfs": -42.9
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-27.31 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.command-stress",
+      "voice": "piper.davefx-medium",
+      "lessonId": "A2-07-L6",
+      "file": "b284f2717938bff93b259278cd67c6364834d11528d02eac0f0fc822fc67b2c1.mp3",
+      "sha256": "b284f2717938bff93b259278cd67c6364834d11528d02eac0f0fc822fc67b2c1",
+      "bytes": 140433,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 8719,
+        "decodedFrames": 335,
+        "integratedLufs": -19.3,
+        "lraLu": 2,
+        "truePeakDbtp": -4.3,
+        "samplePeakDbfs": -4.34,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 160,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.143,
+        "headRmsDbfs": -29.27,
+        "tailRmsDbfs": -73.44
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "8.72 s outside A2 production bounds 10-60 s"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.past-contrast",
+      "voice": "macos.eddy",
+      "lessonId": "A2-06-L2",
+      "file": "d08ab5c124f7575d507dda618114d12edcebed04b134b1d92b062a26b4cab827.mp3",
+      "sha256": "d08ab5c124f7575d507dda618114d12edcebed04b134b1d92b062a26b4cab827",
+      "bytes": 109922,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 6815,
+        "decodedFrames": 262,
+        "integratedLufs": -19.4,
+        "lraLu": 1.3,
+        "truePeakDbtp": -4.3,
+        "samplePeakDbfs": -4.36,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 420,
+        "longestInternalSilenceMs": 400,
+        "silenceRatio": 0.236,
+        "headRmsDbfs": -14.21,
+        "tailRmsDbfs": null
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "6.82 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-14.21 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.past-contrast",
+      "voice": "macos.monica",
+      "lessonId": "A2-06-L2",
+      "file": "44e920edc8dc9841723108500ff857c28653aa4ff57f5e8a68ccc6e82909ca7c.mp3",
+      "sha256": "44e920edc8dc9841723108500ff857c28653aa4ff57f5e8a68ccc6e82909ca7c",
+      "bytes": 91532,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 5650,
+        "decodedFrames": 218,
+        "integratedLufs": -19.4,
+        "lraLu": 0.6,
+        "truePeakDbtp": -7.1,
+        "samplePeakDbfs": -7.14,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 30,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.057,
+        "headRmsDbfs": -21.84,
+        "tailRmsDbfs": -53.63
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "5.65 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-21.84 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.past-contrast",
+      "voice": "piper.davefx-medium",
+      "lessonId": "A2-06-L2",
+      "file": "94a8c5ae9d8f45e99cbe4879a356b3efbc07ed28634e891a0e9b6ce94cfe4450.mp3",
+      "sha256": "94a8c5ae9d8f45e99cbe4879a356b3efbc07ed28634e891a0e9b6ce94cfe4450",
+      "bytes": 104906,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 6490,
+        "decodedFrames": 250,
+        "integratedLufs": -19.2,
+        "lraLu": 1.2,
+        "truePeakDbtp": -3.9,
+        "samplePeakDbfs": -3.9,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 30,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.072,
+        "headRmsDbfs": -62.7,
+        "tailRmsDbfs": -72.61
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "6.49 s outside A2 production bounds 10-60 s"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.question-negation",
+      "voice": "macos.eddy",
+      "lessonId": "A1-03-L6",
+      "file": "fd9f80d55f3c8a6b63cbfb3dd476c0b11c008860f0b173f086e3115df17111d5.mp3",
+      "sha256": "fd9f80d55f3c8a6b63cbfb3dd476c0b11c008860f0b173f086e3115df17111d5",
+      "bytes": 81083,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 5007,
+        "decodedFrames": 193,
+        "integratedLufs": -19.2,
+        "lraLu": 1.3,
+        "truePeakDbtp": -3.4,
+        "samplePeakDbfs": -3.39,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 430,
+        "longestInternalSilenceMs": 390,
+        "silenceRatio": 0.309,
+        "headRmsDbfs": -15.82,
+        "tailRmsDbfs": null
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-15.82 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.question-negation",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L6",
+      "file": "516843a636b271d5354133edf1250b5d982b7d689fcd777af076b40adfc0f4f3.mp3",
+      "sha256": "516843a636b271d5354133edf1250b5d982b7d689fcd777af076b40adfc0f4f3",
+      "bytes": 65618,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 4036,
+        "decodedFrames": 156,
+        "integratedLufs": -19.4,
+        "lraLu": 0.5,
+        "truePeakDbtp": -5.6,
+        "samplePeakDbfs": -5.56,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 30,
+        "longestInternalSilenceMs": 210,
+        "silenceRatio": 0.131,
+        "headRmsDbfs": -20.85,
+        "tailRmsDbfs": -69.69
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-20.85 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.question-negation",
+      "voice": "piper.davefx-medium",
+      "lessonId": "A1-03-L6",
+      "file": "89aaf22a7ca31ae3df933b64fb100740308bce86c698f9466f1b6c541b952114.mp3",
+      "sha256": "89aaf22a7ca31ae3df933b64fb100740308bce86c698f9466f1b6c541b952114",
+      "bytes": 66872,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 4122,
+        "decodedFrames": 159,
+        "integratedLufs": -19.5,
+        "lraLu": 0.9,
+        "truePeakDbtp": -5.2,
+        "samplePeakDbfs": -5.16,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 20,
+        "trailingSilenceMs": 40,
+        "longestInternalSilenceMs": 210,
+        "silenceRatio": 0.145,
+        "headRmsDbfs": -58.73,
+        "tailRmsDbfs": -55.06
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.bench.shop-greeting",
+      "voice": "macos.eddy",
+      "lessonId": "A1-05-L2",
+      "file": "2b272b5af640c21ed8b0ecbcc12cd7ec1698386538ed0118b701093604cd9a3e.mp3",
+      "sha256": "2b272b5af640c21ed8b0ecbcc12cd7ec1698386538ed0118b701093604cd9a3e",
+      "bytes": 75231,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 4638,
+        "decodedFrames": 179,
+        "integratedLufs": -19.5,
+        "lraLu": 1,
+        "truePeakDbtp": -3,
+        "samplePeakDbfs": -3,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 440,
+        "longestInternalSilenceMs": 420,
+        "silenceRatio": 0.313,
+        "headRmsDbfs": -12.53,
+        "tailRmsDbfs": null
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-12.53 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.shop-greeting",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L2",
+      "file": "a462731aaa4d59cfa83d5f429c912936ef28f81d9cd5a8393598819d443bad7e.mp3",
+      "sha256": "a462731aaa4d59cfa83d5f429c912936ef28f81d9cd5a8393598819d443bad7e",
+      "bytes": 65618,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 4036,
+        "decodedFrames": 156,
+        "integratedLufs": -19.2,
+        "lraLu": 1,
+        "truePeakDbtp": -6,
+        "samplePeakDbfs": -6,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 30,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.129,
+        "headRmsDbfs": -19.11,
+        "tailRmsDbfs": -72.82
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-19.11 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.shop-greeting",
+      "voice": "piper.davefx-medium",
+      "lessonId": "A1-05-L2",
+      "file": "229d20ff09c20037313031d7ba6e8538187259bf8140432d1c20f3f62ad43e04.mp3",
+      "sha256": "229d20ff09c20037313031d7ba6e8538187259bf8140432d1c20f3f62ad43e04",
+      "bytes": 58931,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 3622,
+        "decodedFrames": 140,
+        "integratedLufs": -19.4,
+        "lraLu": 0.9,
+        "truePeakDbtp": -4.3,
+        "samplePeakDbfs": -4.32,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 30,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 310,
+        "silenceRatio": 0.135,
+        "headRmsDbfs": -71.03,
+        "tailRmsDbfs": -72.32
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.bench.voice-message",
+      "voice": "macos.eddy",
+      "lessonId": "A2-08-L5",
+      "file": "434c871c7d783abac2260b6bf8e184aa3350c8c167a105a64c5664474c1a44a6.mp3",
+      "sha256": "434c871c7d783abac2260b6bf8e184aa3350c8c167a105a64c5664474c1a44a6",
+      "bytes": 220263,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 13694,
+        "decodedFrames": 526,
+        "integratedLufs": -19.3,
+        "lraLu": 1.4,
+        "truePeakDbtp": -2.6,
+        "samplePeakDbfs": -2.6,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 420,
+        "longestInternalSilenceMs": 440,
+        "silenceRatio": 0.258,
+        "headRmsDbfs": -12.49,
+        "tailRmsDbfs": null
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-12.49 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.voice-message",
+      "voice": "macos.monica",
+      "lessonId": "A2-08-L5",
+      "file": "e85f5135c6e2e835bd860a8d661b3d10d4a33d0440baadcb6711f1cdeb672dbb.mp3",
+      "sha256": "e85f5135c6e2e835bd860a8d661b3d10d4a33d0440baadcb6711f1cdeb672dbb",
+      "bytes": 199365,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 12407,
+        "decodedFrames": 476,
+        "integratedLufs": -19.6,
+        "lraLu": 1.5,
+        "truePeakDbtp": -5.4,
+        "samplePeakDbfs": -5.42,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 30,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.11,
+        "headRmsDbfs": -19.19,
+        "tailRmsDbfs": -73.06
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "warn",
+          "message": "speech starts within 10 ms (-19.19 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.bench.voice-message",
+      "voice": "piper.davefx-medium",
+      "lessonId": "A2-08-L5",
+      "file": "4e3110230b5d4c95f09b51fc20c98370cc4ecd883f63ad782a4b85db94937d44.mp3",
+      "sha256": "4e3110230b5d4c95f09b51fc20c98370cc4ecd883f63ad782a4b85db94937d44",
+      "bytes": 216501,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 13456,
+        "decodedFrames": 517,
+        "integratedLufs": -19.3,
+        "lraLu": 1.4,
+        "truePeakDbtp": -4,
+        "samplePeakDbfs": -4.05,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 20,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 410,
+        "silenceRatio": 0.147,
+        "headRmsDbfs": -59.35,
+        "tailRmsDbfs": -68.89
+      },
+      "issues": []
+    }
+  ]
+}
