@@ -10,11 +10,11 @@ import { useTranslation } from 'react-i18next';
 import { useApp } from '../../app/context.tsx';
 import { HelpObserverContext } from '../../app/context.tsx';
 import { useResource, useWideLayout } from '../../app/hooks.ts';
-import { useTitles } from '../../app/titles.ts';
+import { targetTitle, useTitles } from '../../app/titles.ts';
 import type { ApiClient } from '../../api/client.ts';
 import { makeCommand, receiptEntity } from '../../api/commands.ts';
 import { ApiRequestError, isMissing } from '../../api/errors.ts';
-import type { Attempt, Command, Context, ExerciseView, LearningSession, LessonView, Target } from '../../api/types.ts';
+import type { AttemptResultView, Command, Context, ExerciseView, LearningSession, LessonView, Target } from '../../api/types.ts';
 import { Blocks } from '../../components/Blocks.tsx';
 import { CopyButton, PageHeader, SavePill, StateBadge, TargetLabel, targetKey } from '../../components/Common.tsx';
 import { Modal } from '../../components/Dialog.tsx';
@@ -181,7 +181,7 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
   const location = useLocation();
   const saved = exerciseViewState.get(contextId);
   const [referenceOpen, setReferenceOpen] = useState(saved?.referenceOpen ?? false);
-  const [attempt, setAttempt] = useState<Attempt | null>(null);
+  const [attempt, setAttempt] = useState<AttemptResultView | null>(null);
   const [frozen, setFrozen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<unknown>(null);
@@ -207,7 +207,6 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
   const position = session ? session.taskRevisionIds.indexOf(task.taskRevisionId) : -1;
   const hints = [...task.hints].sort((a, b) => HINT_ORDER.indexOf(a.kind) - HINT_ORDER.indexOf(b.kind) || a.index - b.index);
   const transcriptHint = task.hints.find((hint) => hint.kind === 'transcript');
-  const revealHint = task.hints.find((hint) => hint.kind === 'reveal');
   const ruleHint = task.hints.find((hint) => hint.kind === 'rule');
 
   // Record the context in the URL so a reload resumes the same context (no duplicate contexts).
@@ -295,7 +294,7 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
 
   const loadAttempt = async (attemptId: string) => {
     try {
-      const result = await api.resource<Attempt>('attempt', attemptId);
+      const result = (await api.get<AttemptResultView>(`/views/attempts/${encodeURIComponent(attemptId)}`)).data;
       setAttempt(result);
       setPendingAttemptId(null);
       setSubmitError(null);
@@ -310,6 +309,8 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
     try {
       const receipt = await api.command(command);
       setPendingSubmit(null);
+      // attempt.submit increments the context revision: the next active-context command re-reads
+      // GET /contexts/{id} for a new snapshot token first.
       lease.markStale();
       const ref = receiptEntity(receipt, 'attempt');
       if (!ref) throw new ApiRequestError('invalid-response', 200);
@@ -383,6 +384,7 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
       const ref = receipt ? receiptEntity(receipt, 'attempt') : undefined;
       if (ref) {
         setPendingSubmit(null);
+        lease.markStale();
         await loadAttempt(ref.id);
         return;
       }
@@ -402,17 +404,23 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
   };
 
   const closeContext = () => {
-    void api
-      .command(
-        makeCommand('context.close', epoch, {
-          subjectId: contextId,
-          expectedRevision: lease.revision,
-          contextId,
-          contextRevision: lease.revision,
-          payload: {},
-        }),
-      )
-      .catch(() => undefined);
+    void (async () => {
+      try {
+        // Re-read the context when a submit or save changed its revision (no lease needed for close).
+        const current = await lease.lease();
+        await api.command(
+          makeCommand('context.close', epoch, {
+            subjectId: current.contextId,
+            expectedRevision: current.contextRevision,
+            contextId: current.contextId,
+            contextRevision: current.contextRevision,
+            payload: {},
+          }),
+        );
+      } catch {
+        // Closing is housekeeping: the draft and attempts are already saved.
+      }
+    })();
   };
 
   const finishSession = async (target: LearningSession): Promise<void> => {
@@ -634,7 +642,7 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
               {task.targets.map((target, index) => (
                 <span key={targetKey(target)}>
                   {index > 0 ? ', ' : ''}
-                  <TargetLabel target={target} title={titles.targets.get(targetKey(target))} />
+                  <TargetLabel target={target} title={targetTitle(titles, target)} />
                 </span>
               ))}
             </p>
@@ -829,28 +837,20 @@ export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseS
             {attempt ? (
               <ResultPanel
                 ref={resultHeading}
-                attempt={attempt}
-                titles={titles.targets}
+                result={attempt}
+                answerLang={kind === 'options' ? undefined : 'es-ES'}
                 actions={{
                   onNext: () => void goNext(),
                   nextLabel,
                   onRetry: retryAfterResult,
-                  onShowReference: revealHint ? () => void requestHelp('reveal', revealHint.index) : undefined,
                   onOpenRule: ruleHint
                     ? () => {
                         setReferenceOpen(true);
                         void requestHelp('rule', ruleHint.index);
                       }
                     : undefined,
-                  referencePending: support.pendingKey !== null,
                 }}
               />
-            ) : null}
-            {attempt && isUnresolved(attempt) && revealHint && supportFor(supportKey('reveal', revealHint.index)) ? (
-              <section className="card" aria-label={t('exercise.reference.example')}>
-                <p className="notice notice-info">{t('exercise.reference.revealIsExample')}</p>
-                <Blocks blocks={supportFor(supportKey('reveal', revealHint.index))?.support.blocks ?? []} />
-              </section>
             ) : null}
             <p className="visually-hidden" role="status" aria-live="polite">
               {attempt ? (isUnresolved(attempt) ? t('result.unresolvedTitle') : t('result.title')) : ''}

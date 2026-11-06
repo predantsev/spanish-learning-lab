@@ -9,7 +9,7 @@ import { useApp } from '../app/context.tsx';
 import { useCommandRunner, useResource, useWideLayout } from '../app/hooks.ts';
 import { ApiRequestError } from '../api/errors.ts';
 import type { CatalogEntry, CatalogPage, Target } from '../api/types.ts';
-import { useTitles, type Titles } from '../app/titles.ts';
+import { catalogAliases, targetTitle, useTitles, type Titles } from '../app/titles.ts';
 import { DetailTitle, Es, PageHeader, StateBadge, TargetLabel, targetKey, useDocumentTitle } from '../components/Common.tsx';
 import { HelpButton } from '../components/HelpButton.tsx';
 import { ActionError, EmptyState, ErrorState, LoadingState } from '../components/States.tsx';
@@ -120,10 +120,9 @@ function BackToList() {
   );
 }
 
-function situationLabel(id: string, t: (key: string, options?: Record<string, unknown>) => string): string {
-  // TODO(contract): CatalogEntry carries situation ids only; titles (content SituationFile.titleUk)
-  // are not exposed by any view. Until they are, show the stable id.
-  return t(`situations.${id}`, { defaultValue: id });
+/** Reviewed situation name from catalog-meta; the stable id only if the name could not be read. */
+function situationLabel(id: string, titles: Titles): string {
+  return titles.situations.get(id) ?? id;
 }
 
 export function CatalogList({ entries, selectedId, titles }: { readonly entries: readonly CatalogEntry[]; readonly selectedId?: string; readonly titles: Titles }) {
@@ -133,13 +132,14 @@ export function CatalogList({ entries, selectedId, titles }: { readonly entries:
   const hintId = useId();
   const blocks = useMemo(() => [...new Set(entries.map((entry) => entry.blockId))], [entries]);
   const situations = useMemo(() => [...new Set(entries.flatMap((entry) => entry.situationIds))], [entries]);
+  const aliases = useMemo(() => catalogAliases(entries, titles), [entries, titles]);
 
   const filtered = useMemo(() => {
-    let list = searchCatalog(entries, ui.query);
+    let list = searchCatalog(entries, ui.query, aliases);
     if (ui.block) list = list.filter((entry) => entry.blockId === ui.block);
     if (ui.situation) list = list.filter((entry) => entry.situationIds.includes(ui.situation));
     return list;
-  }, [entries, ui.query, ui.block, ui.situation]);
+  }, [entries, aliases, ui.query, ui.block, ui.situation]);
 
   const groups = useMemo(() => {
     if (ui.tab === 'topics') {
@@ -153,7 +153,7 @@ export function CatalogList({ entries, selectedId, titles }: { readonly entries:
     const order = [...new Set(filtered.flatMap((entry) => entry.situationIds))];
     const groupsBySituation = order.map((situationId) => ({
       key: situationId,
-      title: situationLabel(situationId, t),
+      title: situationLabel(situationId, titles),
       items: filtered.filter((entry) => entry.situationIds.includes(situationId)),
     }));
     const withoutSituation = filtered.filter((entry) => entry.situationIds.length === 0);
@@ -213,7 +213,7 @@ export function CatalogList({ entries, selectedId, titles }: { readonly entries:
             <option value="">{t('catalog.filters.allSituations')}</option>
             {situations.map((id) => (
               <option key={id} value={id}>
-                {situationLabel(id, t)}
+                {situationLabel(id, titles)}
               </option>
             ))}
           </select>
@@ -320,7 +320,7 @@ export function CatalogDetail({ entry, titles }: { readonly entry: CatalogEntry;
       </p>
       {entry.situationIds.length > 0 ? (
         <p className="small">
-          {t('catalog.detail.situations')}: {entry.situationIds.map((id) => situationLabel(id, t)).join(', ')}
+          {t('catalog.detail.situations')}: {entry.situationIds.map((id) => situationLabel(id, titles)).join(', ')}
         </p>
       ) : null}
 
@@ -353,7 +353,7 @@ export function CatalogDetail({ entry, titles }: { readonly entry: CatalogEntry;
                   setSelection(allKeys.filter((k) => next.has(k)));
                 }}
               />
-              <TargetLabel target={target} title={titles.targets.get(key)} />
+              <TargetLabel target={target} title={targetTitle(titles, target)} />
             </label>
           );
         })}

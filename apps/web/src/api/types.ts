@@ -4,6 +4,8 @@ export type {
   ApiError as ApiErrorBody,
   Artifact,
   Attempt,
+  AttemptResultView,
+  CatalogMetaView,
   Block,
   CatalogEntry,
   CatalogPage,

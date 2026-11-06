@@ -12,7 +12,6 @@ import { PageHeader, TargetLabel, targetKey } from '../components/Common.tsx';
 import { HelpButton } from '../components/HelpButton.tsx';
 import { ActionError, EmptyState, ErrorState, LoadingState } from '../components/States.tsx';
 import { practiceCreateCommand, practiceRouteFromReceipt } from '../flows/session.ts';
-import { invalidateTitles } from '../app/titles.ts';
 import { foldForSearch } from '../lib/catalogSearch.ts';
 import { formatCalendarDate } from '../lib/format.ts';
 import { newId } from '../lib/ids.ts';
@@ -191,8 +190,8 @@ function TargetEvidence({ row, onChanged }: { readonly row: TargetRow; readonly 
 
   const setPreference = async (change: { frequency?: 'usual' | 'repeat-more' | 'known'; paused?: boolean }, messageKey: string) => {
     setMessage(null);
-    // TODO(contract): ProgressView.targets exposes no preference id/revision; a preference record for
-    // this explicit target is created (expectedRevision 0) and the service applies it to the target.
+    // preference.set appends a new preference record each time (API.md v1 clarification):
+    // a new subjectId with expectedRevision 0.
     const receipt = await runner.run(
       makeCommand('preference.set', api.profileEpoch, {
         subjectId: newId(),
@@ -202,7 +201,6 @@ function TargetEvidence({ row, onChanged }: { readonly row: TargetRow; readonly 
     );
     if (receipt) {
       setMessage(t(messageKey));
-      invalidateTitles();
       onChanged();
     }
   };

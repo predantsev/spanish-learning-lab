@@ -1,7 +1,7 @@
 // A-22: an unlisted free response stays unresolved inside the exercise — answer preserved, no
 // pass/fail, reference shown as one example, edit & retry / skip / keep for review available.
 import { expect, test } from '@playwright/test';
-import { commandBody, fixture, openExercise, signIn, submitChord, useRealService, waitForCommand, waitSaved } from './ui-helpers.ts';
+import { commandBody, fixture, openExercise, recordCommands, signIn, submitChord, useRealService, waitForCommand, waitSaved } from './ui-helpers.ts';
 
 useRealService();
 
@@ -31,13 +31,15 @@ test('free response unmatched to the exemplar is shown as unresolved with the an
   await expect(panel.getByRole('button', { name: 'Зберегти для перевірки' })).toBeVisible();
   await expect(page.getByTestId('next-button')).toBeVisible();
 
+  // The reference comes from GET /views/attempts/{id} after checking (no new support record) and is
+  // shown only on request, labelled as one example when alternatives are possible.
   const reference = panel.getByRole('button', { name: 'Показати приклад відповіді' });
   if (await reference.count()) {
-    const requested = waitForCommand(page, 'support.request');
+    const kinds = recordCommands(page);
     await reference.click();
-    const body = commandBody(await requested);
-    expect(body.payload['kind']).toBe('reveal');
-    await expect(page.getByText('Це приклад однієї можливої відповіді, а не єдиний правильний варіант.').first()).toBeVisible();
+    await expect(panel.getByTestId('reference-answer')).toBeVisible();
+    await expect(panel.getByText(/Це приклад однієї можливої відповіді|Еталонна відповідь/)).toBeVisible();
+    expect(kinds).not.toContain('support.request');
   }
 
   await panel.getByRole('button', { name: 'Зберегти для перевірки' }).click();

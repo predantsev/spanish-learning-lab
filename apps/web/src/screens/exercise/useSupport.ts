@@ -51,7 +51,9 @@ export function useSupport(api: ApiClient, lease: ContextLeaseManager, epoch: nu
     async (item: DeliveredSupport) => {
       if (confirming.current.has(item.key)) return;
       if (item.support.targets.length === 0) {
-        // Help without an assessed target is not language support for any target: nothing to confirm.
+        // API.md v1 clarification: Support.targets is empty only for help that supports no assessed
+        // target (vocabulary gloss) and then has no evidence effect; support.confirm requires ≥1 target,
+        // so nothing is confirmed.
         update(item.key, 'not-applicable');
         return;
       }

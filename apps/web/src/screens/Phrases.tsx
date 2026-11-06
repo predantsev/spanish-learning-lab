@@ -39,7 +39,7 @@ export function isDraftPhrase(phrase: Phrase): boolean {
 }
 
 export function isPracticeReady(phrase: Phrase): boolean {
-  return phrase.practiceReady && !phrase.archived && !isDraftPhrase(phrase);
+  return phrase.practiceReady && !phrase.archived && !isDraftPhrase(phrase) && phrase.targets.length > 0;
 }
 
 export function filterPhrases(phrases: readonly Phrase[], query: string, filter: Filter): Phrase[] {
@@ -55,12 +55,13 @@ export function filterPhrases(phrases: readonly Phrase[], query: string, filter:
 }
 
 /**
- * TODO(contract): practice.create requires targets (≥1) but PhraseLibraryView rows carry no target.
- * Until the view exposes each phrase's target, the exact-recall target is derived from the phrase's
- * stable logical id with the `phrase-recall` modality; the service validates it.
+ * Targets for practice.create: the `phrase-recall` targets the library view carries for each selected
+ * phrase (API.md v1 clarification), de-duplicated and capped at the command's 30 targets.
  */
-export function phraseRecallTarget(phrase: Phrase): Target {
-  return { skillId: phrase.logicalId, modality: 'phrase-recall' };
+export function practiceTargetsOf(phrases: readonly Phrase[]): Target[] {
+  const byKey = new Map<string, Target>();
+  for (const phrase of phrases) for (const target of phrase.targets) byKey.set(`${target.skillId}/${target.modality}`, target);
+  return [...byKey.values()].slice(0, 30);
 }
 
 function useLibrary(): Resource<PhraseLibraryView> {
@@ -189,7 +190,7 @@ export function PhraseLibrary({ view, selectedId, onChanged }: { readonly view: 
     const receipt = await runner.run(
       practiceCreateCommand(
         api.profileEpoch,
-        selected.map(phraseRecallTarget),
+        practiceTargetsOf(selected),
         ui.mode,
         Math.min(30, Math.max(1, selected.length * 2)),
         selected.map((phrase) => phrase.id),
@@ -303,8 +304,11 @@ export function PhraseLibrary({ view, selectedId, onChanged }: { readonly view: 
 
 export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phrase; readonly view: PhraseLibraryView; readonly onChanged: () => void }) {
   const { t } = useTranslation();
+  const { api } = useApp();
   const wide = useWideLayout();
   const { patch, runner } = useCollectionPatch(onChanged);
+  const archiveRunner = useCommandRunner();
+  const [confirmArchive, setConfirmArchive] = useState(false);
   const [undo, setUndo] = useState<UndoState | null>(null);
   const personal = view.collections.filter((collection) => collection.origin === 'personal');
   const courseMemberships = view.collections.filter((collection) => collection.origin === 'course' && collection.phraseIds.includes(phrase.id));
@@ -319,6 +323,30 @@ export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phr
         undo: async () => {
           await patch({ id: collection.id, revision }, [phrase.id], []);
           setUndo(null);
+        },
+      });
+    }
+  };
+
+  /** phrase.archive (browser-only): archived:true archives, archived:false is the recoverable undo. */
+  const setArchived = async (archived: boolean, expectedRevision: number): Promise<number | null> => {
+    const receipt = await archiveRunner.run(
+      makeCommand('phrase.archive', api.profileEpoch, { subjectId: phrase.id, expectedRevision, payload: { archived } }),
+    );
+    if (!receipt) return null;
+    onChanged();
+    return receiptEntity(receipt, 'phrase')?.revision ?? expectedRevision + 1;
+  };
+
+  const archive = async () => {
+    setConfirmArchive(false);
+    setUndo(null);
+    const revision = await setArchived(true, phrase.revision);
+    if (revision !== null) {
+      setUndo({
+        message: t('phrases.archive.done'),
+        undo: async () => {
+          if ((await setArchived(false, revision)) !== null) setUndo(null);
         },
       });
     }
@@ -367,16 +395,43 @@ export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phr
         <ActionError error={runner.status === 'failed' ? runner.error : null} onRetry={runner.canRetry ? () => void runner.retry() : undefined} />
       </fieldset>
 
-      <div className="stack">
-        <button type="button" className="btn btn-secondary" disabled aria-describedby="archive-unavailable">
-          {t('phrases.archive.action')}
-        </button>
-        {/* TODO(contract): no phrase archive command exists (Command kinds have no phrase.archive), so the
-            confirm + undo archive flow cannot be persisted. The control stays disabled with an explanation. */}
-        <p id="archive-unavailable" className="muted small">
-          {t('phrases.archive.unavailable')}
-        </p>
+      <div className="row">
+        {phrase.archived ? (
+          <button
+            type="button"
+            className="btn btn-secondary"
+            disabled={archiveRunner.status === 'pending'}
+            onClick={() => void setArchived(false, phrase.revision)}
+            data-testid="restore-phrase"
+          >
+            {t('phrases.archive.restore')}
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-secondary"
+            disabled={archiveRunner.status === 'pending'}
+            onClick={() => setConfirmArchive(true)}
+            data-testid="archive-phrase"
+          >
+            {t('phrases.archive.action')}
+          </button>
+        )}
+        <HelpButton topic="phrases.archive" />
       </div>
+      <ActionError
+        error={archiveRunner.status === 'failed' ? archiveRunner.error : null}
+        onRetry={archiveRunner.canRetry ? () => void archiveRunner.retry() : undefined}
+      />
+      <ConfirmDialog
+        open={confirmArchive}
+        title={t('phrases.archive.confirmTitle')}
+        body={<p>{t('phrases.archive.confirmBody')}</p>}
+        confirmLabel={t('phrases.archive.action')}
+        busy={archiveRunner.status === 'pending'}
+        onConfirm={() => void archive()}
+        onCancel={() => setConfirmArchive(false)}
+      />
       {undo ? <UndoBar message={undo.message} onUndo={() => void undo.undo()} onDismiss={() => setUndo(null)} /> : null}
     </article>
   );
@@ -636,7 +691,7 @@ export function CollectionScreen({ collectionId }: { readonly collectionId: stri
     const receipt = await practiceRunner.run(
       practiceCreateCommand(
         api.profileEpoch,
-        selectedPhrases.map(phraseRecallTarget),
+        practiceTargetsOf(selectedPhrases),
         mode,
         Math.min(30, Math.max(1, selectedPhrases.length * 2)),
         selectedPhrases.map((phrase) => phrase.id),

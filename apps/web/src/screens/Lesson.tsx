@@ -33,30 +33,18 @@ export function LessonScreen({ lessonId, stepId }: { readonly lessonId: string; 
   );
 }
 
-const PROGRESS_PREFIX = 'sll-lesson-progress:';
-
 interface ProgressRef {
   readonly id: string;
   readonly revision: number;
 }
 
-function loadProgressRef(lessonId: string): ProgressRef | null {
-  try {
-    const raw = window.localStorage.getItem(PROGRESS_PREFIX + lessonId);
-    if (!raw) return null;
-    const value = JSON.parse(raw) as Partial<ProgressRef>;
-    return typeof value.id === 'string' && typeof value.revision === 'number' ? { id: value.id, revision: value.revision } : null;
-  } catch {
-    return null;
-  }
-}
-
-function saveProgressRef(lessonId: string, ref: ProgressRef): void {
-  try {
-    window.localStorage.setItem(PROGRESS_PREFIX + lessonId, JSON.stringify(ref));
-  } catch {
-    // Convenience cache only.
-  }
+/**
+ * The lesson-progress record of a lesson (API.md v1 clarification): `LessonView.progress` carries
+ * its id/revision once a record exists; before that a first `lesson.progress` creates it with a new
+ * subjectId and expectedRevision 0.
+ */
+export function progressRefOf(progress: LessonView['progress']): ProgressRef | null {
+  return progress.id !== undefined && progress.revision !== undefined ? { id: progress.id, revision: progress.revision } : null;
 }
 
 export function currentStepOf(lesson: LessonView, stepId: string | undefined, focus: string | null): LessonStep | undefined {
@@ -84,9 +72,15 @@ export function LessonContent({ lesson, stepId, reload }: { readonly lesson: Les
   const [localVisits, setLocalVisits] = useState<ReadonlySet<string>>(new Set());
   const [progressError, setProgressError] = useState<unknown>(null);
   const [finishState, setFinishState] = useState<'idle' | 'pending' | 'done'>('idle');
-  const progressRef = useRef<ProgressRef | null>(loadProgressRef(lesson.lessonId));
+  const progressRef = useRef<ProgressRef | null>(progressRefOf(lesson.progress));
   const sessionPromise = useRef<Promise<LearningSession> | null>(null);
   const visited = new Set([...lesson.progress.visitedStepIds, ...localVisits]);
+
+  // A reloaded view (e.g. after "finish") may carry a newer record revision.
+  useEffect(() => {
+    const fromView = progressRefOf(lesson.progress);
+    if (fromView && (!progressRef.current || fromView.revision > progressRef.current.revision)) progressRef.current = fromView;
+  }, [lesson.progress]);
 
   const getSession = useCallback(async (): Promise<LearningSession> => {
     if (session) return session;
@@ -110,8 +104,6 @@ export function LessonContent({ lesson, stepId, reload }: { readonly lesson: Les
   const sendProgress = useCallback(
     async (step: string, action: 'visit' | 'finish'): Promise<boolean> => {
       const learnSession = await getSession();
-      // TODO(contract): LessonView.progress exposes no lesson-progress id/revision, so the subject is
-      // taken from the last receipt (cached per lesson) or created with expectedRevision 0.
       for (let attempt = 0; attempt < 2; attempt += 1) {
         const ref = progressRef.current;
         const command = makeCommand('lesson.progress', api.profileEpoch, {
@@ -122,18 +114,14 @@ export function LessonContent({ lesson, stepId, reload }: { readonly lesson: Les
         try {
           const receipt = await api.command(command);
           const entity = receiptEntity(receipt, 'lesson-progress');
-          if (entity) {
-            progressRef.current = { id: entity.id, revision: entity.revision };
-            saveProgressRef(lesson.lessonId, progressRef.current);
-          }
+          if (entity) progressRef.current = { id: entity.id, revision: entity.revision };
           return true;
         } catch (error) {
-          const body = error instanceof ApiRequestError ? error.body : undefined;
-          if (error instanceof ApiRequestError && error.status === 409 && body?.currentRevision !== undefined) {
-            progressRef.current = { id: body.createdEntityId ?? ref?.id ?? command.subjectId, revision: body.currentRevision };
-            continue;
-          }
-          throw error;
+          if (!(error instanceof ApiRequestError && error.status === 409) || attempt > 0) throw error;
+          // Stale or concurrently created record: re-read the lesson view and retry as a new operation.
+          const fresh = (await api.get<LessonView>(`/views/lessons/${encodeURIComponent(lesson.lessonId)}`)).data;
+          progressRef.current = progressRefOf(fresh.progress);
+          if (!progressRef.current) throw error;
         }
       }
       return false;
