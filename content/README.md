@@ -21,8 +21,11 @@ Synthetic audio files are generated from the transcripts below and are **not** s
 | `source/materials/<blockId>.json` | topic materials (Materials in topic) | `MaterialFile` |
 | `source/phrases.json` | shared course phrase identities | `PhraseFile` |
 | `source/collections.json` | the eight prepared collections × 12 phrase references | `CollectionFile` |
-| `reviews/` | review packets, reports and receipt metadata (no private learner data) | — |
+| `reviews/` | review packets, reports and receipt metadata (no private learner data); layout in `tools/content/README.md` | — |
 | `reports/` | generated `coverage.json` / `content-report.json` | — |
+
+Markdown notes (`*.md`) anywhere under `source/` are ignored by the tools; any other unexpected
+file is a validation error.
 
 IDs are stable and never renumbered: objective `A1-01-O1`, lesson `A1-01-L1`, check `A1-01-C1`,
 task `A1-01-L1-T01`, skill slug `participle.hecho`, clip `clip.…`, phrase `phrase.…`,
@@ -69,7 +72,10 @@ collection `collection.…`, material `material.…`, lexical item `lex.…`. A 
 7. **No speaking.** Listening = meaning tasks and optional dictation only. No microphone.
 8. **Review status.** Authors write `draft`. Opposite-provider review moves items to `reviewed`
    (receipt bound to the content hash); only `tools/review` sets `ready`. An edit after review
-   returns the item to `draft`. A disputed key is `quarantined`, never forced.
+   returns the item to `draft`. A disputed key is `quarantined`, never forced. The content hash is
+   the SHA-256 of the item's canonical JSON **without** `reviewStatus`, so a status change keeps the
+   receipt valid and any content edit invalidates it. Lexical items and situations may carry an
+   optional `reviewStatus`; when it is absent they count as `draft`.
 9. **Rights.** Only original text. Quote at most a short identifying phrase from a source when
    recording a source anchor; never copy tables, exercises or texts.
 
@@ -78,6 +84,8 @@ collection `collection.…`, material `material.…`, lexical item `lex.…`. A 
 `npm run content:validate` checks schema, IDs, references, DAG, first-teaching order, bank
 allocation, held-out families, clip/collection links and review states.
 `npm run content:coverage` writes `reports/coverage.json`: per objective/lesson/check/CV/skill
-counts of concrete artifacts and their production state. The pack builder turns `source/` into an
-immutable pack manifest with SHA-256 digests and deterministic revision IDs; audio files are added
-from the private media store only when their review/rights receipts exist.
+counts of concrete artifacts and their production state. The pack builder
+(`node tools/content/pack.ts --out <dir>`) turns `source/` into an immutable pack manifest with
+SHA-256 digests and deterministic revision IDs; audio files are added from the private media store
+only when their review/rights receipts exist. Details and the review workflow
+(`node tools/review/review.ts`): [`tools/content/README.md`](../tools/content/README.md).
