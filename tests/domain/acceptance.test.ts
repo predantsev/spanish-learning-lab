@@ -560,10 +560,20 @@ describe('acceptance A-09 … A-16 (domain)', () => {
     log.submit('2026-11-26T12:00:00Z', T01, correct(T01));
     s = fold(log.events);
     expect(target(s, HECHO)).toMatchObject({ stage: 3, dueDate: '2026-12-11', lastEligibleDate: '2026-11-27' });
-    expect(s.diagnostics.at(-1)).toMatchObject({ code: 'clock-backward', detail: '2026-11-26<2026-11-27' });
+    expect(s.diagnostics.at(-1)).toMatchObject({ code: 'clock-backward', detail: '2026-11-26T12:00:00Z<2026-11-28T03:00:00Z' });
     expect(s.lastEventSeq).toBe(log.events.at(-1)?.eventSeq);
     expect(() => applyEvent(s, { ...(log.events.at(-1) as SchedulerEvent) })).toThrow(/eventSeq/);
     expect(rebuild([...log.events].reverse(), TZ)).toStrictEqual(s);
     expect(addDays('2026-10-25', 1)).toBe('2026-10-26');
+
+    // A zone edit to a zone behind the old one holds the local date instead of reversing it,
+    // and is not reported as a clock problem.
+    const z = new EventLog();
+    z.introduce('2026-11-20T23:30:00Z', [HECHO]); // Madrid Nov 21 00:30
+    z.add({ kind: 'timezone-changed', at: '2026-11-20T23:40:00Z', timezone: 'America/New_York' });
+    z.submit('2026-11-21T01:00:00Z', T01, correct(T01)); // New York Nov 20 20:00
+    const zs = fold(z.events);
+    expect(zs.diagnostics.map((d) => d.code)).toEqual(['local-date-clamped']);
+    expect(target(zs, HECHO)).toMatchObject({ introducedDate: '2026-11-21', dueDate: '2026-11-22', lastExposureDate: '2026-11-21' });
   });
 });

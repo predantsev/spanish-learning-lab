@@ -5,7 +5,7 @@
 // application and projection rebuild cannot diverge. Every target keeps a journal of the entries
 // that affected it (with the local date fixed when the event was applied); an `adjudication` or
 // `item-invalidated` event edits that journal and re-folds the target chronologically.
-import { addDays, diffDays, isValidTimeZone, localDate, maxDate, minDate } from './calendar.ts';
+import { addDays, diffDays, isValidTimeZone, localDate, maxDate, minDate, parseInstant } from './calendar.ts';
 import { DomainError, isListeningModality, isTargetKey, parseTargetKey } from './types.ts';
 import type { CalendarDate, Correctness, Independence, Modality, TargetKey } from './types.ts';
 import type { SupportKind } from './evidence.ts';
@@ -97,7 +97,12 @@ export interface TargetState {
   readonly lastEventSeq: number;
 }
 
-export type DiagnosticCode = 'clock-backward' | 'unknown-attempt' | 'unknown-target';
+/**
+ * `clock-backward`: the event instant is earlier than one already processed (eventSeq order kept).
+ * `local-date-clamped`: the instant moved forward but its local date is earlier than one already
+ * used (e.g. after an explicit change to a zone behind the old one); the date is held, not reversed.
+ */
+export type DiagnosticCode = 'clock-backward' | 'local-date-clamped' | 'unknown-attempt' | 'unknown-target';
 
 export interface SchedulerDiagnostic {
   readonly eventSeq: number;
@@ -109,6 +114,8 @@ export interface SchedulerState {
   readonly projectionVersion: typeof PROJECTION_VERSION;
   readonly timezone: string;
   readonly lastEventSeq: number;
+  /** Latest event instant seen (UTC ISO), to detect a clock moving backward. */
+  readonly lastInstant: string | null;
   /** Latest effective local date seen; event dates never move behind it. */
   readonly lastLocalDate: CalendarDate | null;
   readonly invalidatedTaskRevisions: readonly string[];
@@ -216,6 +223,7 @@ export function initialSchedulerState(timezone: string = DEFAULT_TIMEZONE): Sche
     projectionVersion: PROJECTION_VERSION,
     timezone,
     lastEventSeq: 0,
+    lastInstant: null,
     lastLocalDate: null,
     invalidatedTaskRevisions: [],
     targets: {},
@@ -465,9 +473,14 @@ export function applyEvent(state: SchedulerState, event: SchedulerEvent, tz?: st
   }
   const observed = localDate(event.at, state.timezone);
   const date = state.lastLocalDate !== null && before(observed, state.lastLocalDate) ? state.lastLocalDate : observed;
+  const instantMs = parseInstant(event.at);
+  const lastMs = state.lastInstant === null ? null : parseInstant(state.lastInstant);
+  const clockBackward = lastMs !== null && instantMs < lastMs;
   let diagnostics: readonly SchedulerDiagnostic[] = state.diagnostics;
-  if (date !== observed) {
-    diagnostics = withDiagnostic(diagnostics, { eventSeq: event.eventSeq, code: 'clock-backward', detail: `${observed}<${date}` });
+  if (clockBackward) {
+    diagnostics = withDiagnostic(diagnostics, { eventSeq: event.eventSeq, code: 'clock-backward', detail: `${event.at}<${state.lastInstant}` });
+  } else if (date !== observed) {
+    diagnostics = withDiagnostic(diagnostics, { eventSeq: event.eventSeq, code: 'local-date-clamped', detail: `${observed}<${date}` });
   }
   let targets: Record<string, TargetState> = { ...state.targets };
   let timezone = state.timezone;
@@ -526,7 +539,11 @@ export function applyEvent(state: SchedulerState, event: SchedulerEvent, tz?: st
       for (const r of event.results) {
         const key = requireTargetKey(r.target);
         const ts = targets[key];
-        if (ts === undefined || !ts.journal.some((j) => j.kind === 'attempt' && j.attemptId === event.attemptId)) {
+        if (ts === undefined) {
+          diagnostics = withDiagnostic(diagnostics, { eventSeq: seq, code: 'unknown-target', detail: `${event.attemptId} ${key}` });
+          continue;
+        }
+        if (!ts.journal.some((j) => j.kind === 'attempt' && j.attemptId === event.attemptId)) {
           diagnostics = withDiagnostic(diagnostics, { eventSeq: seq, code: 'unknown-attempt', detail: `${event.attemptId} ${key}` });
           continue;
         }
@@ -560,6 +577,7 @@ export function applyEvent(state: SchedulerState, event: SchedulerEvent, tz?: st
     invalidatedTaskRevisions: invalidated,
     diagnostics,
     lastEventSeq: seq,
+    lastInstant: clockBackward ? state.lastInstant : event.at,
     lastLocalDate: date,
   };
 }
