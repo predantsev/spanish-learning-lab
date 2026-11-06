@@ -317,10 +317,17 @@ export async function installPack(store: ProfileStore, sourceDir: string, option
 
   mkdirSync(paths.packs, { recursive: true, mode: 0o700 });
   cleanupStaging(paths.packs);
-  const finalName = `${manifest.packId}-${manifest.version}-${manifestSha256.slice(0, 12)}`;
-  const finalDir = join(paths.packs, finalName);
+  // Installed packs live at packs/<packId>/<version> (the recovery module's resolvePackDir default);
+  // (packId, version) identifies one manifest (VERSION_CONFLICT above).
+  const finalDir = join(paths.packs, manifest.packId, manifest.version);
   const staging = join(paths.packs, `.staging-${randomUUID()}`);
   let packDir = finalDir;
+  if (existsSync(finalDir) && !known) {
+    // Left by an install that crashed before its activation committed: verify it is the same manifest, else replace it.
+    const leftover = join(finalDir, PACK_MANIFEST);
+    const sameManifest = existsSync(leftover) && createHash('sha256').update(readFileSync(leftover)).digest('hex') === manifestSha256;
+    if (!sameManifest) rmSync(finalDir, { recursive: true, force: true });
+  }
   const finalExists = existsSync(finalDir);
   const workDir = finalExists ? finalDir : staging;
   try {
@@ -361,7 +368,10 @@ export async function installPack(store: ProfileStore, sourceDir: string, option
         fail('BACKUP_FAILED', 'pre-change backup failed; previous pack stays active');
       }
     }
-    if (!finalExists) renameSync(staging, finalDir);
+    if (!finalExists) {
+      mkdirSync(join(paths.packs, manifest.packId), { recursive: true, mode: 0o700 });
+      renameSync(staging, finalDir);
+    }
     packDir = finalDir;
 
     await store.writeGate();

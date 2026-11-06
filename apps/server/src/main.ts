@@ -11,7 +11,8 @@ import { ensurePrivateDirs, privatePaths, resolvePrivateRoot } from './db/paths.
 import { claimServiceLock } from './runtime/profile-lock.ts';
 import { RotatingLogStream } from './http/logging.ts';
 import { startIpcServer } from './ipc/server.ts';
-import { loadRecoveryModule } from './recovery-loader.ts';
+import { recoverJournalIfNeeded } from './recovery/index.ts';
+import { createServerRecovery } from './recovery-wiring.ts';
 import { openProfileStore } from './store/profile-store.ts';
 import { CANONICAL_HOSTNAME } from './http/security.ts';
 
@@ -42,11 +43,11 @@ async function main(): Promise<void> {
   // directly, the server takes runtime/profile.lock itself (role "service").
   const profileLock = claimServiceLock(ensurePrivateDirs(root), instanceId, fileURLToPath(import.meta.url));
   process.on('exit', () => profileLock.release());
-  const recoveryModule = await loadRecoveryModule();
-  if (recoveryModule?.recoverJournalIfNeeded) await recoveryModule.recoverJournalIfNeeded(privatePaths(root));
+  // An interrupted restore switch is completed or rolled back before the profile opens.
+  recoverJournalIfNeeded(privatePaths(root));
   const store = openProfileStore({ root, instanceId });
   const logStream = new RotatingLogStream(store.paths.logs);
-  const recovery = recoveryModule?.createRecovery ? recoveryModule.createRecovery(store) : undefined;
+  const recovery = createServerRecovery(store, logStream);
   const staticDir = fileURLToPath(new URL('../../../dist/web', import.meta.url));
   const app = await buildServer({ store, ...(recovery ? { recovery } : {}), staticDir, logger: { sink: logStream } });
   const port = await listenLoopback(app, (await portFree(wanted)) ? wanted : 0);

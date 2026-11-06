@@ -8,7 +8,8 @@ import { resolve } from 'node:path';
 import { ensurePrivateDirs, resolvePrivateRoot } from '../db/paths.ts';
 import { ipcAlive } from '../ipc/server.ts';
 import { installPack, PackInstallError } from '../content/install.ts';
-import { loadRecoveryModule } from '../recovery-loader.ts';
+import { recoverJournalIfNeeded } from '../recovery/index.ts';
+import { createServerRecovery } from '../recovery-wiring.ts';
 import { claimOfflineLock, ProfileLockedError } from '../runtime/profile-lock.ts';
 import { openProfileStore } from '../store/profile-store.ts';
 
@@ -37,12 +38,13 @@ async function main(argv: string[]): Promise<number> {
   try {
     // Defence in depth: a live IPC socket means a service is answering for this profile.
     if (await ipcAlive(paths)) return refuse('stop the running service before installing a pack');
+    recoverJournalIfNeeded(paths);
     const store = openProfileStore({ root: paths.root });
     try {
-      const mod = await loadRecoveryModule();
-      const recovery = mod?.createRecovery ? mod.createRecovery(store) : undefined;
-      const result = await installPack(store, resolve(dir), { allowPreview: rest.includes('--allow-preview'), ...(recovery ? { recovery } : {}) });
-      process.stdout.write(`${JSON.stringify({ ok: true, ...result, preBackup: recovery !== undefined && result.outcome === 'activated' })}\n`);
+      // Pre-change snapshot before the activation switch (a failed backup blocks the switch).
+      const recovery = createServerRecovery(store);
+      const result = await installPack(store, resolve(dir), { allowPreview: rest.includes('--allow-preview'), recovery });
+      process.stdout.write(`${JSON.stringify({ ok: true, ...result, preBackup: result.outcome === 'activated' })}\n`);
       return 0;
     } catch (e) {
       if (e instanceof PackInstallError) {
