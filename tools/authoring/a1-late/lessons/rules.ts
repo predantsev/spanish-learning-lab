@@ -26,4 +26,9 @@ export const RULES: Record<string, string> = {
   'prep.a.destination': 'Куди рухаємося — ir a + місце: Voy a Madrid. Vamos a casa. Де перебуваємо — estar en: Estoy en casa.',
   'article.contraction-al':
     'Прийменник a й артикль el зливаються в al: Voy al cine (el cine). З la, los, las злиття немає: Voy a la playa. Перед назвою міста артикля немає — просто a: Voy a Madrid.',
+  // A1-04-L4
+  'reflexive.pronouns':
+    'Займенник відповідає підмету: yo — me, tú — te, él / ella / usted — se, nosotros — nos, vosotros — os, ellos / ellas / ustedes — se.',
+  'reflexive.placement':
+    'Займенник стоїть окремим словом перед відмінюваним дієсловом: Me levanto temprano. У запереченні no стоїть перед займенником: No me levanto tarde. У словнику таке дієслово має -se в кінці: levantarse.',
 };
