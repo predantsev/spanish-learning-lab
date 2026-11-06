@@ -149,7 +149,14 @@ export class RestoreManager {
     const live = backups.liveIdentity();
     const liveEventSeq = store.lastEventSeq();
     const id = randomUUID();
-    const result = await importArchive({ store, options: o }, upload.path, id);
+    let result;
+    try {
+      result = await importArchive({ store, options: o }, upload.path, id);
+    } catch (err) {
+      // A rejected archive is useless and private: drop it now. Transient failures keep it for a retry.
+      if (err instanceof RecoveryError && (err.status === 413 || err.status === 422)) artifacts.remove(uploadId);
+      throw err;
+    }
     try {
       const confirmation = randomBytes(32).toString('base64url');
       const createdAt = this.now();
