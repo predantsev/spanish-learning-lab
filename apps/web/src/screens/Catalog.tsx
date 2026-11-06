@@ -10,7 +10,7 @@ import { useCommandRunner, useResource, useWideLayout } from '../app/hooks.ts';
 import { ApiRequestError } from '../api/errors.ts';
 import type { CatalogEntry, CatalogPage, Target } from '../api/types.ts';
 import { useTitles, type Titles } from '../app/titles.ts';
-import { Es, PageHeader, StateBadge, TargetLabel, targetKey } from '../components/Common.tsx';
+import { DetailTitle, Es, PageHeader, StateBadge, TargetLabel, targetKey, useDocumentTitle } from '../components/Common.tsx';
 import { HelpButton } from '../components/HelpButton.tsx';
 import { ActionError, EmptyState, ErrorState, LoadingState } from '../components/States.tsx';
 import { practiceCreateCommand, practiceRouteFromReceipt } from '../flows/session.ts';
@@ -289,6 +289,7 @@ export function CatalogDetail({ entry, titles }: { readonly entry: CatalogEntry;
   const mode: PracticeMode = ui.practiceModes[entry.id] ?? 'written';
   const selectedTargets: Target[] = entry.targets.filter((target) => selectedKeys.has(targetKey(target)));
   const ready = entry.state === 'ready';
+  useDocumentTitle(wide ? null : entry.titleUk);
 
   const setSelection = (keys: readonly string[]) =>
     catalogStore.set((previous) => ({ ...previous, selections: { ...previous.selections, [entry.id]: keys } }));
@@ -305,7 +306,7 @@ export function CatalogDetail({ entry, titles }: { readonly entry: CatalogEntry;
     <section className="card" aria-labelledby="catalog-detail-title" data-testid="catalog-detail">
       {!wide ? <BackToList /> : null}
       <div className="page-title-row">
-        <h2 id="catalog-detail-title">{entry.titleUk}</h2>
+        <DetailTitle id="catalog-detail-title" wide={wide}>{entry.titleUk}</DetailTitle>
         <StateBadge state={entry.state} />
       </div>
       {entry.termEs ? (

@@ -9,7 +9,7 @@ import { useApp } from '../app/context.tsx';
 import { useCommandRunner, useResource, useWideLayout } from '../app/hooks.ts';
 import type { Block, MaterialsView } from '../api/types.ts';
 import { Blocks } from '../components/Blocks.tsx';
-import { PageHeader, StateBadge } from '../components/Common.tsx';
+import { DetailTitle, PageHeader, StateBadge, useDocumentTitle } from '../components/Common.tsx';
 import { HelpButton } from '../components/HelpButton.tsx';
 import { ActionError, EmptyState, ErrorState, LoadingState } from '../components/States.tsx';
 import { practiceCreateCommand, practiceRouteFromReceipt } from '../flows/session.ts';
@@ -179,6 +179,7 @@ export function MaterialReader({ revisions, onBack }: { readonly revisions: read
   const drafts = revisions.filter((material) => !isReadyMaterial(material));
   const [showDraftId, setShowDraftId] = useState<string | null>(active ? null : (drafts[0]?.revisionId ?? null));
   const shown = (showDraftId ? revisions.find((material) => material.revisionId === showDraftId) : active) ?? revisions[0];
+  useDocumentTitle(!wide && shown ? shown.titleUk : null);
   if (!shown) return null;
   const ready = isReadyMaterial(shown);
 
@@ -196,7 +197,7 @@ export function MaterialReader({ revisions, onBack }: { readonly revisions: read
         </button>
       ) : null}
       <div className="page-title-row">
-        <h2 id="material-title">{shown.titleUk}</h2>
+        <DetailTitle id="material-title" wide={wide}>{shown.titleUk}</DetailTitle>
         <StateBadge state={shown.state} />
       </div>
       <p className="muted small">

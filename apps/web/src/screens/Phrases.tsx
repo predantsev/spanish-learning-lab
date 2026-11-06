@@ -9,7 +9,7 @@ import { useCommandRunner, useResource, useWideLayout, type Resource } from '../
 import { makeCommand, receiptEntity } from '../api/commands.ts';
 import type { Collection, PhraseLibraryView, Target } from '../api/types.ts';
 import { ConfirmDialog, Modal } from '../components/Dialog.tsx';
-import { Es, PageHeader, StateBadge, UndoBar } from '../components/Common.tsx';
+import { DetailTitle, Es, PageHeader, StateBadge, UndoBar, useDocumentTitle } from '../components/Common.tsx';
 import { HelpButton } from '../components/HelpButton.tsx';
 import { ActionError, EmptyState, ErrorState, LoadingState } from '../components/States.tsx';
 import { practiceCreateCommand, practiceRouteFromReceipt } from '../flows/session.ts';
@@ -308,6 +308,7 @@ export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phr
   const [undo, setUndo] = useState<UndoState | null>(null);
   const personal = view.collections.filter((collection) => collection.origin === 'personal');
   const courseMemberships = view.collections.filter((collection) => collection.origin === 'course' && collection.phraseIds.includes(phrase.id));
+  useDocumentTitle(wide ? null : phrase.spanish);
 
   const toggleMembership = async (collection: Collection, member: boolean) => {
     setUndo(null);
@@ -330,9 +331,9 @@ export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phr
           ← {t('phrases.backToLibrary')}
         </button>
       ) : null}
-      <h2 id="phrase-title">
+      <DetailTitle id="phrase-title" wide={wide}>
         <Es>{phrase.spanish}</Es>
-      </h2>
+      </DetailTitle>
       <p>{phrase.ukrainian}</p>
       <p className="row">
         <StateBadge state={phrase.state} />

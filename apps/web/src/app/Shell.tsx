@@ -92,7 +92,10 @@ export function Shell({ route, children }: { readonly route: Route; readonly chi
     }
     const frame = window.requestAnimationFrame(() => {
       const active = document.activeElement;
-      if (!active || active === document.body) document.getElementById('page-title')?.focus({ preventScroll: true });
+      if (!active || active === document.body) {
+        const heading = document.getElementById('page-title') ?? document.querySelector<HTMLElement>('#main h1');
+        heading?.focus({ preventScroll: true });
+      }
     });
     return () => window.cancelAnimationFrame(frame);
   }, [location.key]);

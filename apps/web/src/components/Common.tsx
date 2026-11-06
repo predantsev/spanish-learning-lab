@@ -4,6 +4,28 @@ import type { Target } from '../api/types.ts';
 import type { SaveStatus } from '../outbox/draftMachine.ts';
 import { HelpButton } from './HelpButton.tsx';
 
+/** Sets the browser tab title for the current screen. */
+export function useDocumentTitle(title: string | null): void {
+  const { t } = useTranslation();
+  useEffect(() => {
+    if (title) document.title = `${title} · ${t('app.title')}`;
+  }, [title, t]);
+}
+
+/**
+ * Heading of a detail pane: an h2 beside the list on wide screens, the page h1 on phones (where the
+ * detail is shown as its own screen without the list header).
+ */
+export function DetailTitle({ id, wide, children }: { readonly id: string; readonly wide: boolean; readonly children: ReactNode }) {
+  return wide ? (
+    <h2 id={id}>{children}</h2>
+  ) : (
+    <h1 id={id} tabIndex={-1}>
+      {children}
+    </h1>
+  );
+}
+
 /** Page heading: sets the document title and receives focus after route changes. */
 export function PageHeader({
   title,
@@ -19,10 +41,7 @@ export function PageHeader({
   /** The title itself is Spanish. */
   readonly langEs?: boolean;
 }) {
-  const { t } = useTranslation();
-  useEffect(() => {
-    document.title = `${title} · ${t('app.title')}`;
-  }, [title, t]);
+  useDocumentTitle(title);
   return (
     <header className="page-header">
       <div className="page-title-row">
