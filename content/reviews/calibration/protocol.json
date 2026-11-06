@@ -85,6 +85,37 @@
         },
         "gate": "A direction passes repair cycle 1 only if its H1 run meets every held-out threshold. Informational main-set re-runs never replace the held-out gate."
       }
+    },
+    {
+      "date": "2026-11-06T00:55:00Z",
+      "madeBefore": "any reviewer run of prompt v3 or of held-out set H2",
+      "repairCycle1Results": {
+        "B-h1-v2": "PASS — seeded 5/5, valid rejected 0/4, ambiguous 3/3, release-blocking misses 0.",
+        "A-h1-v2": "FAIL — seeded 5/5, ambiguous 3/3, release-blocking misses 0, but 3/4 valid controls rejected without substantive support (cal-h1-03, cal-h1-06, cal-h1-10: ordinary earlier-taught words absent from taughtBefore, read as an exhaustive list because the prompt described taughtBefore as 'everything the learner has been taught').",
+        "adjudicationSha256": "aef41717c6592dc0a7f1e0f609997c89c521e7ad96f227e1dec22c47702f06f5",
+        "informational": "A-main-v2 and B-main-v2 flagged all 16 seeded defects and the 3 unintended «тильда» defects; A-main-v2 recognised 8/8 ambiguous cases, B-main-v2 8/8; B-main-v2 flagged valid control cal-18 as uncertain (incomplete context: strong endings not listed)."
+      },
+      "repairCycle2": {
+        "appliesTo": "direction A (failed cycle 1). Direction B is re-run on H2 with the same prompt only to validate one prompt for both directions; B's cycle-1 pass with v2 stands on its own.",
+        "change": "prompt only (reviewer-prompt.v3.md), models/efforts/flags unchanged. v3 differs from v2 in two places: taughtBefore is described as the prerequisites the author mapped (not an exhaustive word list), and rule 1 flags an unlisted item when it is new or advanced for this point of an A1-A2 course or when answering depends on it, but not ordinary earlier-taught vocabulary.",
+        "promptV3": { "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md", "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634" },
+        "heldOutSet": {
+          "path": "content/reviews/calibration/cases-h2.json",
+          "sha256": "ce5ac54b9f143ad4972f86f2bc53a26a90f9e7080801431515127a5f5f908dd5",
+          "cases": 12, "classes": { "flawed": 5, "valid": 4, "ambiguous": 3 },
+          "hiddenLabelsSha256": "f85fdb8880446a8fe03aa8aef49eea74396734c41d67cd74278d5f9b7819757e",
+          "sourceVerificationSha256": "c76efe4f51bb266d87478c35ace86d18ee931d68262da86257dcc0e7835de02a",
+          "note": "Fresh cases; valid controls use ordinary vocabulary their taughtBefore lists do not name; one flawed case depends on a genuinely untaught advanced form (imperfecto in an A1-03 task)."
+        },
+        "thresholdsOnHeldOut": {
+          "releaseBlockingMisses": { "max": 0 },
+          "validControlsRejectedWithoutSourceSupport": { "max": 0 },
+          "seededDefectDetection": { "min": 5, "of": 5, "rule": "ceil(0.95 * 5)" },
+          "ambiguousRecognizedAsUncertain": { "min": 3, "of": 3, "rule": "ceil(0.90 * 3)" }
+        },
+        "runs": { "A-h2-v3": "direction A gate run", "B-h2-v3": "direction B validation run" },
+        "afterCycle2": "If A-h2-v3 fails, direction A has used both repair cycles: the blocker is recorded and no further prompt tuning is counted."
+      }
     }
   ]
 }
