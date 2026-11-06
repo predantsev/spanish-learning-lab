@@ -43,5 +43,13 @@
     ]
   },
   "repairPolicy": "A direction that misses any threshold gets at most 2 repair cycles (prompt, effort, context or schema changes), each evaluated on FRESH held-out cases never shown to any reviewer. The 40-case truth set is never shrunk and thresholds are never lowered; after 2 failed cycles the blocker is recorded.",
-  "noFallback": "No same-provider substitute is counted as the opposite-provider direction."
+  "noFallback": "No same-provider substitute is counted as the opposite-provider direction.",
+  "amendments": [
+    {
+      "date": "2026-11-06T00:30:00Z",
+      "madeBefore": "inspecting any verdict of run B-main (only its run metadata had been read)",
+      "finding": "Run B-main (claude -p --tools \"\" --safe-mode) consulted the workstation's user-configured advisor model once: its JSON envelope lists modelUsage for claude-opus-5-5 and claude-fable-5-1, with one usage iteration of type advisor_message (model claude-fable-5-1, 49,497 input / 9,530 output tokens). The advisor comes from ~/.claude/settings.json (advisorModel: fable); neither --tools \"\" nor --safe-mode removes it. A probe asking the model to list its callable tools answered 'advisor' with those flags and 'NONE' when --setting-sources project,local is added.",
+      "decision": "The primary direction-B measurement is a clean Opus-only run (B-clean): same packet, same prompt, same model and effort, plus --setting-sources project,local so no user-level settings (and no advisor) load. B-main is reported separately as the configuration 'Opus 5.5 medium + automatic Fable 5.1 advisor (this workstation's default)'. Both are scored with the definitions above; neither replaces the other in the report."
+    }
+  ]
 }
