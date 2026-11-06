@@ -50,6 +50,41 @@
       "madeBefore": "inspecting any verdict of run B-main (only its run metadata had been read)",
       "finding": "Run B-main (claude -p --tools \"\" --safe-mode) consulted the workstation's user-configured advisor model once: its JSON envelope lists modelUsage for claude-opus-5-5 and claude-fable-5-1, with one usage iteration of type advisor_message (model claude-fable-5-1, 49,497 input / 9,530 output tokens). The advisor comes from ~/.claude/settings.json (advisorModel: fable); neither --tools \"\" nor --safe-mode removes it. A probe asking the model to list its callable tools answered 'advisor' with those flags and 'NONE' when --setting-sources project,local is added.",
       "decision": "The primary direction-B measurement is a clean Opus-only run (B-clean): same packet, same prompt, same model and effort, plus --setting-sources project,local so no user-level settings (and no advisor) load. B-main is reported separately as the configuration 'Opus 5.5 medium + automatic Fable 5.1 advisor (this workstation's default)'. Both are scored with the definitions above; neither replaces the other in the report."
+    },
+    {
+      "date": "2026-11-06T00:42:00Z",
+      "madeBefore": "any reviewer run of prompt v2 or of held-out set H1",
+      "labelCorrections": {
+        "file": "label-corrections.json (copied into the repository after all runs)",
+        "sha256": "e6d3021ab107b1a768b177c97e768b4f04cc8aa7eade4d4f4f64219295bec4c7",
+        "summary": "cal-02, cal-21, cal-34: valid -> flawed, blocking, poor-incorrect-ukrainian (unintended: «тильда» used for the acute accent; СУМ defines тильда as the ~ sign; integrator rule 6a). labels.json unchanged; both original and corrected scores are reported; corrected labels are the truth for pass/fail."
+      },
+      "mainResultsOnCorrectedLabels": "A-main FAIL (3 release-blocking misses: cal-02, cal-21, cal-34); B-clean FAIL (same 3 misses; ambiguous 7/8, cal-28); B-main FAIL, contaminated by the advisor (4 misses; ambiguous 6/8). Seeded detection 16/16 and 0 valid controls rejected in every run.",
+      "repairCycle1": {
+        "change": "prompt only (reviewer-prompt.v2.md); models, efforts, schema and flags unchanged. v2 differs from v1 in three places: the teach-before-testing digest also allows a gloss in a hint (as content/README.md rule 1 does); rule 8 makes a Ukrainian term used with a non-standard meaning a blocking defect and quotes content rule 6a; the 'uncertain' definition forbids asserting a correction that holds under only one of several readings.",
+        "promptV2": { "path": "content/reviews/calibration/prompts/reviewer-prompt.v2.md", "sha256": "4b7be042e9aa7c75bc786fefa722fdb0c6b812b9f322c4b7a7e926a9a1eeaaa8" },
+        "heldOutSet": {
+          "path": "content/reviews/calibration/cases-h1.json",
+          "sha256": "049d0b7ce8a880e9f02392790812a75389e406d5a49e67282f780a43f474f62e",
+          "cases": 12, "classes": { "flawed": 5, "valid": 4, "ambiguous": 3 },
+          "hiddenLabelsSha256": "79b645da15547a8c1336f25d7ec1030fe05d0a519b96e3791300c2abb11f7913",
+          "sourceVerificationSha256": "2ab6833e1a85ee5c7e0667d4575282e4af2b07eb9a22e43a2ad5f8b61580007e",
+          "note": "Fresh cases on facts not used in the main packet; never shown to any reviewer before; labels verified (12/12 passages found) before the runs."
+        },
+        "thresholdsOnHeldOut": {
+          "releaseBlockingMisses": { "max": 0 },
+          "validControlsRejectedWithoutSourceSupport": { "max": 0 },
+          "seededDefectDetection": { "min": 5, "of": 5, "rule": "ceil(0.95 * 5)" },
+          "ambiguousRecognizedAsUncertain": { "min": 3, "of": 3, "rule": "ceil(0.90 * 3)" }
+        },
+        "runs": {
+          "A-h1-v2": "direction A, gpt-6.1-sol xhigh, prompt v2, packet H1",
+          "B-h1-v2": "direction B, opus medium, --setting-sources project,local, prompt v2, packet H1",
+          "A-main-v2": "informational only: direction A on the main packet with prompt v2 (the main set is no longer held out)",
+          "B-main-v2": "informational only: direction B on the main packet with prompt v2"
+        },
+        "gate": "A direction passes repair cycle 1 only if its H1 run meets every held-out threshold. Informational main-set re-runs never replace the held-out gate."
+      }
     }
   ]
 }

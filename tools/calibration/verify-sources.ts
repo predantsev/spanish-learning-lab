@@ -140,10 +140,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   mkdirSync(cacheDir, { recursive: true });
   const labels = (JSON.parse(readFileSync(labelsPath, 'utf8')) as { labels: Label[] }).labels;
   const spec = JSON.parse(readFileSync(specPath, 'utf8')) as Spec;
+  // Every source in the spec is retrieved (label corrections may cite sources no label cites).
   const used = [...new Set(labels.flatMap((l) => l.sourceRefs))].sort();
   const missingSpec = used.filter((id) => !spec.sources[id]);
   const records = new Map<string, SourceRecord>();
-  for (const id of used) if (spec.sources[id]) records.set(id, retrieve(id, spec.sources[id] as SourceSpec, cacheDir));
+  for (const id of Object.keys(spec.sources).sort()) records.set(id, retrieve(id, spec.sources[id] as SourceSpec, cacheDir));
   const probes = spec.statusProbes.map((p, i) => {
     const file = join(cacheDir, `probe-${i}.html`);
     const status = curl(p.url, file);
