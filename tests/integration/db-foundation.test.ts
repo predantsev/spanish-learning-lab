@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { mkdtempSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { openDatabase, migrate, schemaVersion } from '../../apps/server/src/db/connection.ts';
+import { openDatabase, migrate, schemaVersion, APP_SCHEMA_VERSION } from '../../apps/server/src/db/connection.ts';
 import { ensurePrivateDirs } from '../../apps/server/src/db/paths.ts';
 import { PORTABLE_TABLES, NON_PORTABLE_TABLES } from '../../apps/server/src/db/migrations/index.ts';
 
@@ -18,8 +18,8 @@ describe('db foundation', () => {
     expect(db.pragma('foreign_keys', { simple: true })).toBe(1);
     const tables = (db.prepare("SELECT name FROM sqlite_master WHERE type='table'").all() as Array<{ name: string }>).map((r) => r.name);
     for (const t of [...PORTABLE_TABLES, ...NON_PORTABLE_TABLES]) expect(tables).toContain(t);
-    expect(schemaVersion(db)).toBe(1);
-    expect(migrate(db)).toEqual({ from: 1, to: 1 });
+    expect(schemaVersion(db)).toBe(APP_SCHEMA_VERSION());
+    expect(migrate(db)).toEqual({ from: APP_SCHEMA_VERSION(), to: APP_SCHEMA_VERSION() });
     expect(db.pragma('foreign_key_check')).toEqual([]);
     db.close();
   });
