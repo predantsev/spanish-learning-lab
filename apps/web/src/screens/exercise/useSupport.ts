@@ -4,7 +4,7 @@
 // Nothing is shown before the request returns, so help is never displayed without a reservation.
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ApiClient } from '../../api/client.ts';
-import { makeCommand, receiptEntity } from '../../api/commands.ts';
+import { makeCommand, receiptEntity, type CommandOf } from '../../api/commands.ts';
 import { ApiRequestError } from '../../api/errors.ts';
 import type { Command, Support } from '../../api/types.ts';
 import { newId } from '../../lib/ids.ts';
@@ -19,6 +19,9 @@ export interface DeliveredSupport {
   readonly support: Support;
   readonly phase: 'before-submit' | 'after-submit';
   readonly confirmation: 'pending' | 'confirmed' | 'failed' | 'not-applicable';
+  /** Context identifiers of the reservation (confirm binds these, not the live context revision). */
+  readonly contextId: string;
+  readonly contextRevision: number;
 }
 
 export interface SupportController {
@@ -37,7 +40,7 @@ export function useSupport(api: ApiClient, lease: ContextLeaseManager, epoch: nu
   const [delivered, setDelivered] = useState<readonly DeliveredSupport[]>([]);
   const [pendingKey, setPendingKey] = useState<string | null>(null);
   const [error, setError] = useState<unknown>(null);
-  const failedRequest = useRef(new Map<string, Command>());
+  const failedRequest = useRef(new Map<string, CommandOf<'support.request'>>());
   const confirmCommands = useRef(new Map<string, Command>());
   const confirming = useRef(new Set<string>());
 
@@ -58,8 +61,8 @@ export function useSupport(api: ApiClient, lease: ContextLeaseManager, epoch: nu
         command = makeCommand('support.confirm', epoch, {
           subjectId: item.support.id,
           expectedRevision: item.support.revision,
-          contextId: lease.contextId,
-          contextRevision: lease.revision,
+          contextId: item.contextId,
+          contextRevision: item.contextRevision,
           payload: {
             contentHash: item.support.contentHash,
             deliveryId: newId(),
@@ -127,7 +130,16 @@ export function useSupport(api: ApiClient, lease: ContextLeaseManager, epoch: nu
         const ref = receiptEntity(receipt, 'support');
         if (!ref) throw new ApiRequestError('invalid-response', 200);
         const support = await api.resource<Support>('support', ref.id);
-        const item: DeliveredSupport = { key, kind, hintIndex, support, phase, confirmation: 'pending' };
+        const item: DeliveredSupport = {
+          key,
+          kind,
+          hintIndex,
+          support,
+          phase,
+          confirmation: 'pending',
+          contextId: command.contextId,
+          contextRevision: command.contextRevision,
+        };
         setDelivered((previous) => [...previous, item]);
         return item;
       } catch (failure) {

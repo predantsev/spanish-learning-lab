@@ -113,7 +113,7 @@ interface ExerciseViewState {
 const exerciseViewState = new Map<string, ExerciseViewState>();
 
 export function ExerciseScreen({ taskRevisionId }: { readonly taskRevisionId: string }) {
-  const { api } = useApp();
+  const { api, outbox } = useApp();
   const params = useSearchParams();
   const ids: SetupIds = {
     sessionId: params.get('session') ?? undefined,
@@ -121,7 +121,12 @@ export function ExerciseScreen({ taskRevisionId }: { readonly taskRevisionId: st
     contextId: params.get('context') ?? undefined,
   };
   const key = `exercise:${taskRevisionId}:${ids.sessionId ?? ''}:${ids.lessonId ?? ''}`;
-  const setup = useResource(key, (signal) => setupExercise(api, taskRevisionId, ids, signal));
+  const setup = useResource(key, async (signal) => {
+    // The draft machine reads unacknowledged text from the outbox synchronously on mount, so the
+    // IndexedDB load must finish first (cold load straight into an exercise after a failure).
+    await outbox.ready;
+    return setupExercise(api, taskRevisionId, ids, signal);
+  });
   return (
     <div className="page">
       {setup.state.status === 'loading' ? <LoadingState /> : null}
