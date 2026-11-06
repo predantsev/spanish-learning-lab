@@ -29,8 +29,8 @@ describe('phrase.archive and phrase-recall targets', () => {
   it('archives and restores a phrase without deleting it; archived phrases leave practice', async () => {
     const lib = await view('/api/v1/views/phrases', 'get_views_phrases');
     const pan = lib.phrases.find((p: any) => p.logicalId === 'phrase.mas-pan');
-    expect(pan.targets).toEqual([{ skillId: 'phrase.more-bread', modality: 'phrase-recall' }]);
-    expect(lib.phrases.find((p: any) => p.logicalId === 'phrase.mas-queso').targets).toEqual([]);
+    expect(pan.targets).toEqual([{ skillId: 'phrase.shop-more', modality: 'phrase-recall' }]);
+    expect(lib.phrases.find((p: any) => p.logicalId === 'phrase.mas-agua').targets).toEqual([]);
     expect(pan).toMatchObject({ archived: false, practiceReady: true });
 
     const archived = await ok(await send(h, command(h, 'phrase.archive', pan.id, pan.revision, { archived: true })));
@@ -59,7 +59,7 @@ describe('catalog meta and attempt result views', () => {
       { blockId: 'A2-03', titleUk: 'Pretérito perfecto compuesto (синтетичний тестовий приклад)', termEs: 'pretérito perfecto compuesto' },
     ]);
     expect(meta.situations.map((s: any) => s.id)).toEqual(['everyday', 'shop']);
-    expect(meta.skills.map((s: any) => s.skillId)).toEqual(['participle.hecho', 'perfecto.choice', 'perfecto.haber', 'phrase.more-bread', 'shop.more']);
+    expect(meta.skills.map((s: any) => s.skillId)).toEqual(['participle.hecho', 'perfecto.choice', 'perfecto.haber', 'phrase.shop-more', 'shop.more']);
     expect(meta.skills.find((s: any) => s.skillId === 'participle.hecho').termEs).toBe('hecho');
     const progress = await view('/api/v1/views/progress', 'get_views_progress');
     expect(progress.blocks.map((b: any) => b.titleUk)).toEqual(meta.blocks.map((b: any) => b.titleUk));
