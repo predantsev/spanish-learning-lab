@@ -84,7 +84,7 @@ export function makeTask(lessonId, t) {
   }
   if (t.mode !== 'choice') task.policy = t.policy ?? LOOSE;
   if (t.hints?.length) task.hints = t.hints;
-  if (t.ref) task.referenceAnswer = t.ref;
+  if (t.ref && !CYR.test(t.ref)) task.referenceAnswer = t.ref;
   task.feedback = t.feedback;
   task.reviewStatus = 'draft';
   return task;
@@ -94,7 +94,8 @@ export function makeTask(lessonId, t) {
 export const hRule = (keys, text) => ({ kind: 'rule', targets: keys, blocks: [uk(text)] });
 export const hClue = (keys, text) => ({ kind: 'targeted-clue', targets: keys, blocks: [uk(text)] });
 export const hTr = (text) => ({ kind: 'translation', targets: [], blocks: [uk(text)] });
-export const hReveal = (keys, spanish) => ({ kind: 'reveal', targets: keys, blocks: [es(spanish)] });
+export const CYR = /\p{Script=Cyrillic}/u;
+export const hReveal = (keys, text) => ({ kind: 'reveal', targets: keys, blocks: [CYR.test(text) ? uk(`Правильна відповідь: ${text}`) : es(text)] });
 export const hTranscript = (keys, spanish) => ({ kind: 'transcript', targets: keys, blocks: [es(spanish)] });
 
 // ---------------- writing with status preservation ----------------

@@ -1,6 +1,6 @@
 // Compact task builders with per-skill default hints/feedback. Each lesson module calls
 // kit(lessonId, DEFAULTS) where DEFAULTS maps a target key to { rule, ok, bad, unres }.
-import { LOOSE, es, ex, hClue, hReveal, hRule, hTr, makeTask, uk } from './lib.mjs';
+import { LOOSE, es, ex, hClue, hReveal, hRule, hTr, hTranscript, makeTask, uk } from './lib.mjs';
 
 /** Adds "por favor" variants: ¿X? → ¿X, por favor? / Por favor, ¿x?; X. → X, por favor. */
 export function withPF(text) {
@@ -91,6 +91,14 @@ export function kit(lessonId, D) {
         feedback: feedback(keys, o),
         clips: o.clips,
       });
+    },
+    /** Listening meaning question (choice) on one clip, with the transcript as help. */
+    lm(n, role, clip, keys, o) {
+      return this.ch(n, role, clip.family, keys, { ...o, clips: [clip.id], extraHints: [...(o.extraHints ?? []), hTranscript([].concat(keys), clip.transcript)] });
+    },
+    /** Dictation of one line of a clip (exact-variants; closed only for one exact text). */
+    dict(n, role, clip, keys, o) {
+      return this.ev(n, role, clip.family, keys, { ...o, clips: [clip.id], closed: o.closed ?? true });
     },
     /** rubric-review free writing. o: instr, es, criteria[], exemplars[], ref. */
     rb(n, role, fam, keys, o) {
