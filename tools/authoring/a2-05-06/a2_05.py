@@ -54,6 +54,28 @@ INSTR_FORM = 'Напишіть форму імперфекту дієслова 
 INSTR_SLOTS = 'Напишіть речення повністю, вставивши форми імперфекту дієслів у дужках.'
 
 
+def ftask(t, role, fam, keys, sent, verb, ans, errs, rules, *, model=None, ex=None, instr=INSTR_FORM, fb=None):
+    """One-gap exact-variants task: `sent` contains ___; rules = [(keys, text_uk), ...]."""
+    full = sent.replace('___', ans)
+    prompt = [P((model + ' ' if model else '') + instr)]
+    if ex:
+        prompt.append(EX(*ex))
+    prompt.append(PE(f'{sent} ({verb})' if verb else sent))
+    hints = [rule(list(k), txt) for k, txt in rules] + [reveal(keys, full)]
+    return t.exact(role, fam, keys, prompt, [ans], errs, hints, fb or fb_form(ans), full)
+
+
+def stask(t, role, fam, keys, tmpl, verbs, slotdefs, rules, *, instr=INSTR_SLOTS, model=None):
+    """Two-gap finite-slots task written as a full sentence; tmpl uses {a}, {b}."""
+    import re as _re
+    display = _re.sub(r'\{[a-z]\}', '___', tmpl) + (f' ({verbs})' if verbs else '')
+    answers = {k: v[1][0] for k, v in slotdefs.items()}
+    full = tmpl.format(**answers)
+    prompt = [P((model + ' ' if model else '') + instr), PE(display)]
+    hints = [rule(list(k), txt) for k, txt in rules] + [reveal(keys, full)]
+    return t.slots(role, fam, keys, prompt, tmpl, slotdefs, hints, fb_slots(', '.join(answers.values())), full)
+
+
 # ============================================================================================
 # A2-05-L1 — regular -ar forms (-aba)
 # ============================================================================================
@@ -390,16 +412,31 @@ def materials():
     ]
 
 
+LESSON_MODULES = ['a2_05_l2']
+
+
 def build():
+    import importlib
     lessons = [l1()]
+    mats = materials()
+    clips: list = []
+    patches: dict = {}
+    additions: list = []
+    for name in LESSON_MODULES:
+        mod = importlib.import_module(name)
+        lessons += [fn() for fn in mod.LESSONS]
+        mats += getattr(mod, 'MATERIALS', lambda: [])()
+        clips += getattr(mod, 'CLIPS', lambda: [])()
+        patches.update(getattr(mod, 'SKILL_PATCHES', {}))
+        additions += getattr(mod, 'LEXICON_ADDITIONS', [])
     return {
         'block': BLOCK,
         'lessons': lessons,
-        'clips': [],
-        'materials': materials(),
-        'skill_patches': {},
+        'clips': clips,
+        'materials': mats,
+        'skill_patches': patches,
         'lexicon_updates': {
             'lex.cuidar': {'noteUk': 'Вживається з прийменником a або de: cuidar a los niños, cuidar de los niños.'},
         },
-        'lexicon_additions': [],
+        'lexicon_additions': additions,
     }
