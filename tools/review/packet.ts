@@ -6,11 +6,11 @@ import { join } from 'node:path';
 import { canonicalSha256 } from '../content/canonical.ts';
 import { TOOL_VERSION, allEntities, entityHash, entityState, loadCorpus, sourceDigest } from '../content/load.ts';
 import type { AnyRecord, Corpus } from '../content/load.ts';
-import { courseIndex } from '../content/ledger.ts';
+import { blockOfLesson, compareLessons, courseIndex } from '../content/ledger.ts';
 import type { EntityKind, Skill, Task } from '../content/types.ts';
 import { ENTITY_KINDS, targetKey } from '../content/types.ts';
 import { batchDir, packetHashOf } from './store.ts';
-import type { PacketItem, ReviewPacket, ReviewProvider, Severity } from './store.ts';
+import type { PacketItem, ReviewPacket, ReviewProvider, ReviewerCase, Severity } from './store.ts';
 
 export const MAX_BATCH_SKILLS = 25;
 export const MAX_BATCH_ITEMS = 25;
@@ -127,8 +127,6 @@ export function buildPacket(options: PacketOptions): ReviewPacket {
     if (r.kind === 'skill' && (r.body as Skill).assessed) for (const m of (r.body as Skill).modalities) targets.add(`${r.id}/${m}`);
     if (r.kind === 'clip') for (const t of (r.body as { targets: Array<{ skillId: string; modality: string }> }).targets) targets.add(`${t.skillId}/${t.modality}`);
   }
-  if (targets.size === 0) throw new Error('the batch assesses no target; add a related skill (ReviewReport needs at least one verdict)');
-  if (targets.size > MAX_BATCH_TARGETS) throw new Error(`the batch has ${targets.size} targets; at most ${MAX_BATCH_TARGETS} fit one review report — split it with --skills`);
 
   // Context: prerequisite and targeted skills that are not themselves under review, sources, lessons.
   const itemSkillIds = new Set(items.filter((r) => r.kind === 'skill').map((r) => r.id));
@@ -159,10 +157,15 @@ export function buildPacket(options: PacketOptions): ReviewPacket {
       : options.scope.type === 'skills'
         ? { type: 'skills', skillIds: [...options.scope.skillIds].sort() }
         : { type: 'items', items: packetItems.map((i) => ({ kind: i.kind, id: i.logicalId })) };
+  const cases = items.map((r) => reviewerCase(corpus, r));
+  const description =
+    'Course content of Spanish Learning Lab (Spain Spanish A1–A2 for Ukrainian speakers) for independent review. caseId = kind:logicalId. ' +
+    'Task cases follow the calibrated case format; other cases carry the item under `content` (lesson, skill, lexeme, clip, phrase, material, situation or collection).';
   const draft: Omit<ReviewPacket, 'packetHash' | 'batchId'> = {
     schemaVersion: 1,
     createdAt,
     toolVersion: TOOL_VERSION,
+    reviewerPacket: { schemaVersion: 1, packetId: '', description, cases },
     scope,
     authorProvider: options.authorProvider,
     author: {
@@ -184,8 +187,106 @@ export function buildPacket(options: PacketOptions): ReviewPacket {
         : `items-${packetItems[0]?.logicalId ?? 'x'}-n${packetItems.length}`;
   const batchId = options.batchId ?? `${slug}.${createdAt.slice(0, 10)}.${canonicalSha256(draft).slice(0, 8)}`;
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]{0,150}$/.test(batchId)) throw new Error(`invalid batch id ${batchId}`);
-  const withId = { ...draft, batchId } as Omit<ReviewPacket, 'packetHash'>;
+  const withId = { ...draft, batchId, reviewerPacket: { ...draft.reviewerPacket, packetId: batchId } } as Omit<ReviewPacket, 'packetHash'>;
   return { ...withId, packetHash: packetHashOf(withId) };
+}
+
+// ---------- calibrated reviewer case format (content/reviews/calibration/report.md) ----------
+
+const MAX_TAUGHT_WORDS = 60;
+
+function formsOf(skill: Skill): string {
+  const forms = skill.scope.forms ?? [];
+  return forms.length > 0 ? `: ${forms.slice(0, 12).join(', ')}` : '';
+}
+
+/**
+ * `taughtBefore`: the assessed targets' own steps, their prerequisite skills (transitively) and the
+ * words first taught in this lesson and earlier lessons of the same block (most recent first, capped).
+ */
+export function taughtBefore(corpus: Corpus, lessonId: string, targetSkillIds: string[]): string[] {
+  const skills = new Map(corpus.skills.map((s) => [s.id, s.body]));
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const id of targetSkillIds) {
+    if (seen.has(id)) continue;
+    seen.add(id);
+    const s = skills.get(id);
+    if (!s) continue;
+    out.push(s.firstLesson === lessonId ? `This lesson: ${s.titleUk}${formsOf(s)} [${id}]` : `${s.titleUk}${formsOf(s)} (${s.firstLesson}) [${id}]`);
+  }
+  const queue = targetSkillIds.flatMap((id) => skills.get(id)?.prerequisites ?? []);
+  while (queue.length > 0) {
+    const id = queue.shift() as string;
+    if (seen.has(id)) continue;
+    seen.add(id);
+    const s = skills.get(id);
+    if (!s) {
+      out.push(`${id} (prerequisite listed by the author; not in the inventory)`);
+      continue;
+    }
+    out.push(`${s.titleUk}${formsOf(s)} (${s.firstLesson}) [${id}]`);
+    queue.push(...s.prerequisites);
+  }
+  const block = blockOfLesson(lessonId);
+  const words = corpus.lexemes
+    .map((x) => x.body)
+    .filter((x) => blockOfLesson(x.firstLesson) === block && compareLessons(x.firstLesson, lessonId) <= 0)
+    .sort((a, b) => compareLessons(b.firstLesson, a.firstLesson) || (a.lemma < b.lemma ? -1 : 1))
+    .slice(0, MAX_TAUGHT_WORDS);
+  for (const x of words) out.push(x.firstLesson === lessonId ? `This lesson: ${x.lemma} — ${x.meaningUk}` : `${x.lemma} — ${x.meaningUk} (${x.firstLesson})`);
+  return out;
+}
+
+function lessonOf(record: AnyRecord): string {
+  const b = record.body as unknown as Record<string, unknown>;
+  switch (record.kind) {
+    case 'lesson':
+      return record.id;
+    case 'task':
+    case 'clip':
+      return String(b.lessonId);
+    case 'skill':
+    case 'lexeme':
+    case 'phrase':
+      return String(b.firstLesson);
+    case 'material':
+      return String(b.topicId);
+    case 'situation':
+      return String((b.firstLessons as string[] | undefined)?.[0] ?? '');
+    default:
+      return '';
+  }
+}
+
+function caseTargets(record: AnyRecord): Array<{ skillId: string; modality: string }> {
+  const b = record.body as unknown as Record<string, unknown>;
+  if (record.kind === 'task' || record.kind === 'clip') return (b.targets as Array<{ skillId: string; modality: string }>) ?? [];
+  if (record.kind === 'skill') return ((b.modalities as string[]) ?? []).map((m) => ({ skillId: record.id, modality: m }));
+  if (record.kind === 'lesson') return ((b.introduces as string[]) ?? []).map((id) => ({ skillId: id, modality: '*' }));
+  if (record.kind === 'phrase') return ((b.skills as string[]) ?? []).map((id) => ({ skillId: id, modality: 'phrase-recall' }));
+  return [];
+}
+
+export function reviewerCase(corpus: Corpus, record: AnyRecord): ReviewerCase {
+  const skills = new Map(corpus.skills.map((s) => [s.id, s.body]));
+  const lessonId = lessonOf(record);
+  const lesson = corpus.lessons.find((l) => l.id === lessonId)?.body;
+  const targets = caseTargets(record);
+  const context: ReviewerCase['context'] = {
+    lessonId: lessonId || 'n/a',
+    lessonTopic: lesson ? `${lesson.titleUk}${lesson.termEs ? ` (${lesson.termEs})` : ''}` : lessonId || 'n/a',
+    taughtBefore: lessonId ? taughtBefore(corpus, lessonId, [...new Set(targets.map((t) => t.skillId))]) : [],
+    targets: targets.map((t) => ({ target: t.modality === '*' ? t.skillId : `${t.skillId}/${t.modality}`, description: skills.get(t.skillId)?.titleUk ?? t.skillId })),
+  };
+  const caseId = `${record.kind}:${record.id}`;
+  if (record.kind === 'task') {
+    const task = record.body as Task;
+    const clipIds = new Set(task.clipIds ?? []);
+    const clips = corpus.clips.filter((c) => clipIds.has(c.id)).map((c) => c.body);
+    return { caseId, context, ...(clips.length > 0 ? { clips } : {}), task };
+  }
+  return { caseId, context, content: { kind: record.kind, body: record.body } };
 }
 
 /** Writes <reviewsDir>/<batchId>/packet.json; refuses to overwrite an existing batch. */

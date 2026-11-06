@@ -3,9 +3,10 @@
 // Every test works in its own temp directory; SLL_REVIEW_KEYS_DIR/SLL_HOME point to temp dirs.
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createHash } from 'node:crypto';
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { canonicalJson, canonicalSha256, revisionId } from '../../tools/content/canonical.ts';
 import { buildPack, verifyPack } from '../../tools/content/pack.ts';
 import { runValidation } from '../../tools/content/validate.ts';
@@ -15,12 +16,13 @@ import { loadOrCreateKey, resolveKeysDir } from '../../tools/review/keys.ts';
 import { buildPacket, writePacket } from '../../tools/review/packet.ts';
 import { promote } from '../../tools/review/promote.ts';
 import { signReceipt, verifyReceipt } from '../../tools/review/receipts.ts';
-import { LANGUAGE_DIRECTIVE, runCodexReview } from '../../tools/review/run-codex.ts';
+import { readPinned, runClaudeReview, runCodexReview } from '../../tools/review/run-codex.ts';
 import type { Runner, RunnerInput } from '../../tools/review/run-codex.ts';
 import { createReceiptIndex, packetHashOf, readPacket } from '../../tools/review/store.ts';
 import { makeFixture, writeFixture } from './content-fixture.ts';
 import type { Fixture, Json } from './content-fixture.ts';
 
+const REPO = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const tempRoots: string[] = [];
 const savedEnv = { keys: process.env.SLL_REVIEW_KEYS_DIR, home: process.env.SLL_HOME };
 
@@ -303,119 +305,187 @@ describe('content pack', () => {
   });
 });
 
-describe('review workflow (fake codex runner, no model calls)', () => {
+describe('review workflow (calibrated routes, fake runners, no model calls)', () => {
   const createdAt = '2026-11-06T09:00:00.000Z';
+  const V3 = readFileSync(join(REPO, 'content/reviews/calibration/prompts/reviewer-prompt.v3.md'), 'utf8');
+  const V2 = readFileSync(join(REPO, 'content/reviews/calibration/prompts/reviewer-prompt.v2.md'), 'utf8');
+  const SCHEMA = readFileSync(join(REPO, 'content/reviews/calibration/prompts/review-output.schema.json'), 'utf8');
 
-  function fakeRunner(reviewsDir: string, batchId: string, seen: RunnerInput[], blockingTask = 'A1-01-L1-T03'): Runner {
+  interface Seen {
+    input: RunnerInput;
+    cwdContents: string[];
+  }
+
+  function verdictsFor(reviewsDir: string, batchId: string, verdictOf: (caseId: string) => 'valid' | 'flawed' | 'uncertain'): Json {
+    const packet = readPacket(reviewsDir, batchId);
+    return {
+      cases: packet.reviewerPacket.cases.map((c) => {
+        const verdict = verdictOf(c.caseId);
+        return {
+          caseId: c.caseId,
+          reviewerAnswer: 'hecho',
+          verdict,
+          blocking: verdict === 'valid' ? 'no' : 'yes',
+          element: verdict === 'valid' ? '' : 'task.accepted[0].text "hecho"',
+          defect: verdict === 'valid' ? '' : 'Synthetic defect for the test.',
+          correction: verdict === 'valid' ? '' : 'Synthetic correction.',
+          sources: verdict === 'valid' ? [] : ['RAE, Diccionario de la lengua española, "hacer" https://dle.rae.es/hacer (from memory)'],
+          notes: '',
+        };
+      }),
+    };
+  }
+
+  /** Direction A fake: writes the final message where `-o` points, like codex. */
+  function fakeCodex(reviewsDir: string, batchId: string, seen: Seen[], verdictOf: (caseId: string) => 'valid' | 'flawed' | 'uncertain' = (id) => (id === 'task:A1-01-L1-T03' ? 'flawed' : 'valid'), drop?: string): Runner {
     return async (input) => {
-      seen.push(input);
-      const packet = readPacket(reviewsDir, batchId);
-      const output = {
-        items: packet.items.map((i) => ({
-          kind: i.kind,
-          logicalId: i.logicalId,
-          contentHash: i.contentHash,
-          severity: i.logicalId === blockingTask ? 'blocking' : 'none',
-          findings:
-            i.logicalId === blockingTask
-              ? [{ severity: 'blocking', category: 'answer-leakage', location: 'prompt[1].text', description: 'Synthetic finding: the prompt shows the answer.', suggestion: 'Remove the model sentence.' }]
-              : [],
-        })),
-        verdicts: packet.targets.map((t) => ({ skillId: t.slice(0, t.lastIndexOf('/')), modality: t.slice(t.lastIndexOf('/') + 1), correctness: 'correct', explanationKey: 'content-review.ok' })),
-        sources: [{ url: 'https://example.invalid/synthetic-reference', passage: 'not retrieved', finding: 'Synthetic test source.' }],
-        uncertainties: [],
-        findings: ['Synthetic review summary.'],
-      };
+      seen.push({ input, cwdContents: readdirSync(input.cwd) });
+      const output = verdictsFor(reviewsDir, batchId, verdictOf);
+      if (drop) output.cases = output.cases.filter((c: Json) => c.caseId !== drop);
       writeFileSync(input.lastMessagePath, JSON.stringify(output));
+      return { exitCode: 0, stdout: 'codex transcript', stderr: 'OpenAI Codex v0.166.0\n--------\nmodel: gpt-6.1-sol\nprovider: openai\nreasoning effort: xhigh\n--------\n', timedOut: false };
+    };
+  }
+
+  /** Direction B fake: prints the claude -p JSON envelope. */
+  function fakeClaude(reviewsDir: string, batchId: string, seen: Seen[]): Runner {
+    return async (input) => {
+      seen.push({ input, cwdContents: readdirSync(input.cwd) });
+      const structured = verdictsFor(reviewsDir, batchId, () => 'valid');
       return {
         exitCode: 0,
-        stdout: [
-          JSON.stringify({ type: 'thread.started', thread_id: '00000000-0000-7000-8000-000000000001' }),
-          JSON.stringify({ type: 'turn.started' }),
-          JSON.stringify({ type: 'turn.completed', usage: { input_tokens: 10, output_tokens: 5 } }),
-        ].join('\n'),
-        stderr: '[codex-wrapper] skipped: prompt is read from stdin\n',
+        stdout: JSON.stringify({ type: 'result', subtype: 'success', is_error: false, session_id: 's-1', num_turns: 1, structured_output: structured, modelUsage: { 'claude-opus-5-5': { canonicalModel: 'claude-opus-5-5', costUSD: 0.01 } } }),
+        stderr: '',
         timedOut: false,
       };
     };
   }
 
-  function setup(): { w: ReturnType<typeof writeFixture>; keysDir: string; batchId: string } {
+  function setup(authorProvider: 'anthropic' | 'openai' = 'anthropic'): { w: ReturnType<typeof writeFixture>; keysDir: string; batchId: string } {
     const w = writeFixture(makeFixture(), tempDir('sll-review-'));
     const keysDir = join(w.root, 'keys');
-    const packet = buildPacket({ sourceDir: w.sourceDir, scope: { type: 'lesson', lessonId: 'A1-01-L1' }, authorProvider: 'anthropic', authorModel: 'claude-opus-5-5', createdAt });
+    const packet = buildPacket({ sourceDir: w.sourceDir, scope: { type: 'lesson', lessonId: 'A1-01-L1' }, authorProvider, authorModel: 'synthetic-author', createdAt });
     writePacket(w.reviewsDir, packet);
     return { w, keysDir, batchId: packet.batchId };
   }
 
-  it('builds a hash-bound packet with items, targets, context and instructions', () => {
+  it('batches a whole lesson into calibrated reviewer cases (lesson, tasks, clips, introduced skills and words)', () => {
     const { w, batchId } = setup();
     const packet = readPacket(w.reviewsDir, batchId);
     expect(packet.packetHash).toBe(packetHashOf(packet));
     expect(packet.items.map((i) => `${i.kind}:${i.logicalId}`)).toEqual(expect.arrayContaining(['lesson:A1-01-L1', 'task:A1-01-L1-T01', 'task:A1-01-L1-T10', 'skill:participle.hecho', 'lexeme:lex.hacer', 'material:material.hecho-table', 'situation:greetings']));
-    expect(packet.targets).toEqual(['participle.hecho/written-form']);
-    expect(packet.instructions.duties).toHaveLength(8);
-    expect(packet.context.sources).toEqual([expect.objectContaining({ id: 'S1' })]);
+    const rp = packet.reviewerPacket;
+    expect(rp.packetId).toBe(batchId);
+    expect(rp.cases.map((c) => c.caseId)).toEqual(packet.items.map((i) => `${i.kind}:${i.logicalId}`));
+    const task = rp.cases.find((c) => c.caseId === 'task:A1-01-L1-T01') as Json;
+    expect(Object.keys(task)).toEqual(['caseId', 'context', 'task']);
+    expect(task.context).toMatchObject({ lessonId: 'A1-01-L1', lessonTopic: 'Синтетичний урок 1', targets: [{ target: 'participle.hecho/written-form', description: 'Синтетична навичка participle.hecho' }] });
+    expect(task.context.taughtBefore).toEqual(['This lesson: Синтетична навичка participle.hecho: hecho [participle.hecho]', 'This lesson: hacer — робити']);
+    expect(rp.cases.find((c) => c.caseId === 'lesson:A1-01-L1')?.content?.kind).toBe('lesson');
+    const l2 = buildPacket({ sourceDir: w.sourceDir, scope: { type: 'lesson', lessonId: 'A1-01-L2' }, authorProvider: 'anthropic', createdAt });
+    const listening = l2.reviewerPacket.cases.find((c) => c.caseId === 'task:A1-01-L2-T03') as Json;
+    expect(listening.clips.map((c: Json) => c.id)).toEqual(['clip.shop-more-a']);
+    expect(l2.reviewerPacket.cases.find((c) => c.caseId === 'task:A1-01-L2-T01')?.context.taughtBefore).toContain('Синтетична навичка participle.hecho: hecho (A1-01-L1) [participle.hecho]');
     expect(() => writePacket(w.reviewsDir, packet)).toThrow(/immutable/);
   });
 
-  it('runs the reviewer through an injected runner, signs a receipt and stores every artifact with hashes', async () => {
+  it('run-codex executes exactly the calibrated direction-A command in an isolated temp directory and signs the route', async () => {
     const { w, keysDir, batchId } = setup();
-    const seen: RunnerInput[] = [];
-    const dry = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, repoRoot: w.root, keysDir, runner: fakeRunner(w.reviewsDir, batchId, seen), dryRun: true });
+    const seen: Seen[] = [];
+    const dry = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: fakeCodex(w.reviewsDir, batchId, seen), dryRun: true });
     expect(dry.status).toBe('dry-run');
+    expect(dry.argv[0]).toBe('CODEX_NO_LANG_DIRECTIVE=1');
     expect(seen).toHaveLength(0);
-    const r = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, repoRoot: w.root, keysDir, runner: fakeRunner(w.reviewsDir, batchId, seen), versionProbe: () => 'codex-cli fake' });
+    const r = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: fakeCodex(w.reviewsDir, batchId, seen), versionProbe: () => 'codex-cli 0.166.0' });
     expect(r.problems).toEqual([]);
     expect(r.status).toBe('completed');
-    const input = seen[0] as RunnerInput;
-    expect(input.argv).toEqual(expect.arrayContaining(['exec', '--sandbox', 'read-only', '-m', 'gpt-6.1-sol', '-c', 'model_reasoning_effort=xhigh', '--json', '--ephemeral', '--output-schema', '--skip-git-repo-check']));
-    expect(input.argv.at(-1)).toBe('-');
-    expect(input.stdin.startsWith(LANGUAGE_DIRECTIVE)).toBe(true);
+    expect(r.counts).toMatchObject({ flawed: 1, blocking: 1 });
+    const { input, cwdContents } = seen[0] as Seen;
+    const run = dirname(input.cwd);
+    expect(cwdContents).toEqual(['packet.json']);
+    expect(input.cwd).toBe(join(run, 'packet'));
+    expect(run.startsWith(REPO)).toBe(false);
+    expect(input.env).toEqual({ CODEX_NO_LANG_DIRECTIVE: '1' });
+    expect(input.argv).toEqual(['exec', '--cd', join(run, 'packet'), '--skip-git-repo-check', '--sandbox', 'read-only', '--ignore-user-config', '--disable', 'memories', '-m', 'gpt-6.1-sol', '-c', 'model_reasoning_effort=xhigh', '--ephemeral', '--output-schema', join(run, 'output-schema.json'), '-o', join(run, 'last-message.json'), '-']);
+    const reviewerPacket = `${JSON.stringify(readPacket(w.reviewsDir, batchId).reviewerPacket, null, 2)}\n`;
+    expect(input.stdin).toBe(`${V3.replace(/\s+$/, '')}\n\n${reviewerPacket.replace(/\s+$/, '')}\n`);
+    expect(existsSync(run)).toBe(false);
     const dir = r.runDir as string;
     expect(readFileSync(join(dir, 'prompt.txt'), 'utf8')).toBe(input.stdin);
-    const run = JSON.parse(readFileSync(join(dir, 'run.json'), 'utf8'));
-    expect(run).toMatchObject({ status: 'completed', model: 'gpt-6.1-sol', effort: 'xhigh', codexVersion: 'codex-cli fake', threadId: '00000000-0000-7000-8000-000000000001', wrapper: { notes: ['[codex-wrapper] skipped: prompt is read from stdin'] } });
-    for (const [name, sha] of Object.entries(run.files as Record<string, string>)) expect(createHash('sha256').update(readFileSync(join(dir, name))).digest('hex')).toBe(sha);
+    expect(readFileSync(join(dir, 'output-schema.json'), 'utf8')).toBe(SCHEMA);
+    expect(readFileSync(join(dir, 'reviewer-packet.json'), 'utf8')).toBe(reviewerPacket);
+    const runRecord = JSON.parse(readFileSync(join(dir, 'run.json'), 'utf8'));
+    for (const [name, sha] of Object.entries(runRecord.files as Record<string, string>)) expect(createHash('sha256').update(readFileSync(join(dir, name))).digest('hex')).toBe(sha);
+    const report = JSON.parse(readFileSync(join(dir, 'report.json'), 'utf8'));
+    expect(report.route).toMatchObject({
+      direction: 'A',
+      provider: 'openai',
+      promptVersion: 'reviewer-prompt.v3',
+      promptTemplate: { sha256: 'c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634' },
+      outputSchema: { sha256: '232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe' },
+      promptAsSentSha256: r.promptSha256,
+      env: { CODEX_NO_LANG_DIRECTIVE: '1' },
+      cliVersion: 'codex-cli 0.166.0',
+      resolved: { banner: { model: 'gpt-6.1-sol', provider: 'openai' } },
+    });
+    expect(report.route.argv).toEqual(['codex', ...input.argv]);
+    expect(report.items.find((i: Json) => i.logicalId === 'A1-01-L1-T03')).toMatchObject({ verdict: 'flawed', severity: 'blocking', findings: [{ category: 'flawed', location: 'task.accepted[0].text "hecho"' }] });
+    expect(report.reviewReport).toMatchObject({ provider: 'openai', authorProvider: 'anthropic', sources: [{ url: 'https://dle.rae.es/hacer' }] });
     const receipt = JSON.parse(readFileSync(join(dir, 'receipt.json'), 'utf8'));
     expect(verifyReceipt(receipt, loadOrCreateKey(keysDir))).toEqual({ ok: true });
-    const report = JSON.parse(readFileSync(join(dir, 'report.json'), 'utf8'));
-    expect(receipt.reportHash).toBe(canonicalSha256(report));
-    expect(report.reviewReport).toMatchObject({ provider: 'openai', authorProvider: 'anthropic', artifactHash: readPacket(w.reviewsDir, batchId).packetHash });
+    expect(receipt).toMatchObject({ provider: 'openai', model: 'gpt-6.1-sol', effort: 'xhigh', artifactHash: readPacket(w.reviewsDir, batchId).packetHash, reportHash: canonicalSha256(report) });
   });
 
-  it('applies findings, promotes only verified reviewed items and keeps validation green', async () => {
+  it('run-claude executes the calibrated direction-B command with prompt v2 for OpenAI-authored content', async () => {
+    const { w, keysDir, batchId } = setup('openai');
+    const seen: Seen[] = [];
+    await expect(runCodexReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: fakeCodex(w.reviewsDir, batchId, seen) })).rejects.toThrow(/opposite-provider/);
+    const r = await runClaudeReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: fakeClaude(w.reviewsDir, batchId, seen), versionProbe: () => '2.1.318 (Claude Code)' });
+    expect(r.problems).toEqual([]);
+    const { input, cwdContents } = seen[0] as Seen;
+    expect(cwdContents).toEqual(['packet.json']);
+    expect(input.env).toEqual({});
+    expect(input.argv).toEqual(['-p', '--model', 'opus', '--effort', 'medium', '--tools', '', '--safe-mode', '--setting-sources', 'project,local', '--no-session-persistence', '--output-format', 'json', '--json-schema', SCHEMA]);
+    expect(input.stdin.startsWith(V2.replace(/\s+$/, ''))).toBe(true);
+    const report = JSON.parse(readFileSync(join(r.runDir as string, 'report.json'), 'utf8'));
+    expect(report.route).toMatchObject({ direction: 'B', provider: 'anthropic', promptVersion: 'reviewer-prompt.v2', promptTemplate: { sha256: '4b7be042e9aa7c75bc786fefa722fdb0c6b812b9f322c4b7a7e926a9a1eeaaa8' }, resolved: { models: ['claude-opus-5-5'] } });
+    const receipt = JSON.parse(readFileSync(join(r.runDir as string, 'receipt.json'), 'utf8'));
+    expect(receipt).toMatchObject({ provider: 'anthropic', model: 'opus', effort: 'medium' });
+    const applied = applyReview({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, batchId, keysDir });
+    expect(applied.transitions.every((t) => t.to === 'reviewed')).toBe(true);
+  });
+
+  it('applies verdicts (flawed/uncertain block), promotes only verified reviewed items and keeps validation green', async () => {
     const { w, keysDir, batchId } = setup();
-    await runCodexReview({ reviewsDir: w.reviewsDir, batchId, repoRoot: w.root, keysDir, runner: fakeRunner(w.reviewsDir, batchId, []), versionProbe: () => 'fake' });
+    await runCodexReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: fakeCodex(w.reviewsDir, batchId, [], (id) => (id === 'task:A1-01-L1-T03' ? 'flawed' : id === 'task:A1-01-L1-T04' ? 'uncertain' : 'valid')), versionProbe: () => 'fake' });
     const dryApply = applyReview({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, batchId, keysDir, dryRun: true });
     expect(dryApply.transitions.length).toBeGreaterThan(0);
     expect(readFileSync(join(w.sourceDir, 'tasks/A1-01-L1.json'), 'utf8')).not.toContain('"reviewed"');
     const applied = applyReview({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, batchId, keysDir });
     expect(applied.transitions).toContainEqual({ kind: 'task', id: 'A1-01-L1-T03', from: 'draft', to: 'needs-review', severity: 'blocking' });
+    expect(applied.transitions).toContainEqual({ kind: 'task', id: 'A1-01-L1-T04', from: 'draft', to: 'needs-review', severity: 'blocking' });
     expect(applied.transitions).toContainEqual({ kind: 'task', id: 'A1-01-L1-T01', from: 'draft', to: 'reviewed', severity: 'none' });
     expect(applied.transitions).toContainEqual({ kind: 'lexeme', id: 'lex.hacer', from: 'draft', to: 'reviewed', severity: 'none' });
-    expect(JSON.parse(readFileSync(applied.findingsPath as string, 'utf8')).items[0]).toMatchObject({ logicalId: 'A1-01-L1-T03', severity: 'blocking' });
+    const findings = JSON.parse(readFileSync(applied.findingsPath as string, 'utf8')).items;
+    expect(findings.map((i: Json) => [i.logicalId, i.verdict])).toEqual([['A1-01-L1-T03', 'flawed'], ['A1-01-L1-T04', 'uncertain']]);
 
     const receipts = createReceiptIndex({ reviewsDir: w.reviewsDir, verifySignatures: true, key: loadOrCreateKey(keysDir) });
-    const afterApply = runValidation({ sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, receipts });
-    expect(afterApply.errors).toEqual([]);
-
+    expect(runValidation({ sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, receipts }).errors).toEqual([]);
     const promoted = promote({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, batchId, keysDir });
     expect(promoted.promoted.map((p) => p.id)).toContain('A1-01-L1-T01');
-    expect(promoted.refused).toEqual([expect.objectContaining({ id: 'A1-01-L1-T03', reasons: expect.arrayContaining(['status is needs-review, expected reviewed']) })]);
+    expect(promoted.refused.map((x) => x.id).sort()).toEqual(['A1-01-L1-T03', 'A1-01-L1-T04']);
     const tasks = JSON.parse(readFileSync(join(w.sourceDir, 'tasks/A1-01-L1.json'), 'utf8')).tasks;
     expect(tasks.find((t: Json) => t.id === 'A1-01-L1-T01').reviewStatus).toBe('ready');
     expect(tasks.find((t: Json) => t.id === 'A1-01-L1-T03').reviewStatus).toBe('needs-review');
     const finalIndex = createReceiptIndex({ reviewsDir: w.reviewsDir, verifySignatures: true, key: loadOrCreateKey(keysDir) });
     expect(runValidation({ sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, receipts: finalIndex }).errors).toEqual([]);
-    // Without its receipts a hand-set ready status is caught.
     const bare = runValidation({ sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, receipts: { hasReviewReceipt: () => false, hasValidationReceipt: () => false } });
     expect(bare.errors.map((e) => e.code)).toContain('review.validation-missing');
   });
 
-  it('rejects tampered reports, same-provider reviews, edited content and failed runs', async () => {
+  it('rejects tampered reports, incomplete reviewer output, edited content, failed runs and changed prompts', async () => {
     const { w, keysDir, batchId } = setup();
-    const ok = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, repoRoot: w.root, keysDir, runner: fakeRunner(w.reviewsDir, batchId, [], 'none'), versionProbe: () => 'fake' });
+    const ok = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: fakeCodex(w.reviewsDir, batchId, [], () => 'valid'), versionProbe: () => 'fake' });
     const reportPath = join(ok.runDir as string, 'report.json');
     const original = readFileSync(reportPath, 'utf8');
     writeFileSync(reportPath, original.replace('"severity": "none"', '"severity": "minor"'));
@@ -427,23 +497,26 @@ describe('review workflow (fake codex runner, no model calls)', () => {
     expect(() => applyReview({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, batchId, keysDir })).toThrow(/signature mismatch/);
     writeFileSync(receiptPath, JSON.stringify(receipt));
 
-    applyReview({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, batchId, keysDir });
+    const partial = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: fakeCodex(w.reviewsDir, batchId, [], () => 'valid', 'task:A1-01-L1-T05'), versionProbe: () => 'fake' });
+    expect(partial.status).toBe('invalid-report');
+    expect(partial.problems.join(' ')).toMatch(/skipped 1 case\(s\): task:A1-01-L1-T05/);
+    expect(existsSync(join(partial.runDir as string, 'receipt.json'))).toBe(false);
+
+    applyReview({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, batchId, jobId: ok.jobId as string, keysDir });
     const path = join(w.sourceDir, 'tasks/A1-01-L1.json');
     writeFileSync(path, readFileSync(path, 'utf8').replace('Синтетичне завдання 1:', 'Синтетичне завдання 1 (змінено):'));
     const refused = promote({ reviewsDir: w.reviewsDir, sourceDir: w.sourceDir, ledgerPath: w.ledgerPath, items: [{ kind: 'task', id: 'A1-01-L1-T01' }], keysDir });
     expect(refused.refused[0]?.reasons.join(' ')).toMatch(/no verified opposite-provider review receipt/);
 
-    const same = buildPacket({ sourceDir: w.sourceDir, scope: { type: 'skills', skillIds: ['participle.hecho'] }, authorProvider: 'openai', createdAt });
-    writePacket(w.reviewsDir, same);
-    await expect(runCodexReview({ reviewsDir: w.reviewsDir, batchId: same.batchId, repoRoot: w.root, keysDir, runner: fakeRunner(w.reviewsDir, same.batchId, []) })).rejects.toThrow(/opposite-provider/);
-
-    const other = buildPacket({ sourceDir: w.sourceDir, scope: { type: 'items', items: [{ kind: 'collection', id: 'collection.c1' }, { kind: 'skill', id: 'shop.more' }] }, authorProvider: 'anthropic', createdAt });
-    writePacket(w.reviewsDir, other);
-    const failing: Runner = async () => ({ exitCode: 1, stdout: JSON.stringify({ type: 'turn.failed', error: { message: 'synthetic failure' } }), stderr: '', timedOut: false });
-    const failed = await runCodexReview({ reviewsDir: w.reviewsDir, batchId: other.batchId, repoRoot: w.root, keysDir, runner: failing, versionProbe: () => 'fake' });
+    const failing: Runner = async () => ({ exitCode: 1, stdout: '', stderr: 'synthetic failure', timedOut: false });
+    const failed = await runCodexReview({ reviewsDir: w.reviewsDir, batchId, keysDir, runner: failing, versionProbe: () => 'fake' });
     expect(failed.status).toBe('failed');
     expect(existsSync(join(failed.runDir as string, 'receipt.json'))).toBe(false);
     expect(existsSync(join(failed.runDir as string, 'run.json'))).toBe(true);
+
+    const fake = join(tempDir('sll-pin-'), 'prompt.md');
+    writeFileSync(fake, 'changed prompt');
+    expect(() => readPinned(fake, 'c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634')).toThrow(/recalibrate/);
   });
 });
 

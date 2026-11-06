@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "purpose": "A-32 text-review calibration (issue #111, brief 05). Calibrates the review WORKFLOW (prompt, model, effort, output schema) before bulk authoring. It is not evidence that the course corpus is correct and not a learning-effectiveness result.",
+  "registeredAt": "2026-11-06T00:20:00Z",
+  "registeredBefore": "any reviewer run of the main packet",
+  "inputs": {
+    "packet": { "path": "content/reviews/calibration/cases.json", "sha256": "d12c26f6d9d27d5ff7f58ef488f14b786d9f84e5bac7f831fa282a07a44a3dba" },
+    "promptTemplate": { "path": "content/reviews/calibration/prompts/reviewer-prompt.v1.md", "sha256": "accdca4639f3a3b09f729d5aef1d28b561565de85c407ded6e48dc98953e31f8" },
+    "outputSchema": { "path": "content/reviews/calibration/prompts/review-output.schema.json", "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe" },
+    "hiddenLabelsCommitment": {
+      "locationDuringRuns": "$TMPDIR/sll-calibration-labels/labels.json (outside the repository and outside every reviewer working directory)",
+      "sha256": "7f31d94096a310623c20c29dad5866e882bd4e6c1ae58d3eb29ac9c5b89fa271",
+      "note": "Labels are copied into the repository only after all runs. Any later label change must be listed in results.json with its evidence; the committed copy is compared against this hash."
+    },
+    "sourceVerificationCommitment": { "sha256": "77f5b9d8e54ecc9d937e89dd6caf80898590914915bdbf707f45145554a3b3a4" }
+  },
+  "truthSet": {
+    "cases": 40,
+    "classes": { "flawed": 16, "valid": 16, "ambiguous": 8 },
+    "primaryCategories": { "tenses-participles": 12, "reference-agreement": 8, "orthography-prerequisites-ukrainian": 8, "listening-meaning": 12 },
+    "seededDefectTypes": ["wrong-form", "wrong-rule", "wrong-stress-accent", "wrong-meaning", "unknown-prerequisite", "wrong-key", "valid-alternative-rejected", "answer-leakage", "poor-incorrect-ukrainian", "conflicting-feedback-support-attribution"]
+  },
+  "directions": {
+    "A": { "description": "Claude-authored packet -> OpenAI reviewer", "tool": "codex exec", "model": "gpt-6.1-sol", "effort": "xhigh", "runner": "tools/calibration/run-direction-a.sh" },
+    "B": { "description": "packet -> fresh Claude reviewer (no tools, never saw labels)", "tool": "claude -p", "model": "opus", "effort": "medium", "runner": "tools/calibration/run-direction-b.sh", "limitation": "The packet is Claude-authored, so direction B is same-provider by CONTENT-PLAN's definition: it calibrates Opus-as-reviewer settings, not the Sol-authored -> Opus production route." }
+  },
+  "thresholds": {
+    "releaseBlockingMisses": { "max": 0 },
+    "validControlsRejectedWithoutSourceSupport": { "max": 0 },
+    "seededDefectDetection": { "min": 16, "of": 16, "rule": "ceil(0.95 * 16)" },
+    "ambiguousRecognizedAsUncertain": { "min": 8, "of": 8, "rule": "ceil(0.90 * 8)" }
+  },
+  "definitions": {
+    "detected": "label.class == flawed AND verdict == flawed AND the reviewer's element/defect identifies the labelled wrong element; each match decision is adjudicated and recorded with the reviewer's text.",
+    "releaseBlockingMiss": "label.releaseBlocking == true AND (for class flawed: NOT (verdict == flawed AND blocking == yes); for class ambiguous: verdict == valid OR (verdict == flawed AND blocking == no)). A non-blocking finding lets an item become 'reviewed', so it counts as a miss.",
+    "validControlRejected": "label.class == valid AND verdict == flawed. Each rejection is adjudicated against the reviewer's cited source and retrievable authoritative passages; 'without source support' means the adjudication does not confirm the claimed error. A confirmed real error leads to an evidence-backed label correction (reported), never to hiding the case.",
+    "ambiguousRecognized": "label.class == ambiguous AND verdict == uncertain (exactly).",
+    "informationalOnly": [
+      "lenient detection: verdict in {flawed, uncertain} with the labelled element identified",
+      "ambiguity identified in the reviewer's text regardless of verdict",
+      "valid controls flagged uncertain (escalation cost, not a rejection)",
+      "precision / recall / F1 with positive = verdict flawed and truth = label class flawed; ambiguous cases tabulated separately"
+    ]
+  },
+  "repairPolicy": "A direction that misses any threshold gets at most 2 repair cycles (prompt, effort, context or schema changes), each evaluated on FRESH held-out cases never shown to any reviewer. The 40-case truth set is never shrunk and thresholds are never lowered; after 2 failed cycles the blocker is recorded.",
+  "noFallback": "No same-provider substitute is counted as the opposite-provider direction.",
+  "amendments": [
+    {
+      "date": "2026-11-06T00:30:00Z",
+      "madeBefore": "inspecting any verdict of run B-main (only its run metadata had been read)",
+      "finding": "Run B-main (claude -p --tools \"\" --safe-mode) consulted the workstation's user-configured advisor model once: its JSON envelope lists modelUsage for claude-opus-5-5 and claude-fable-5-1, with one usage iteration of type advisor_message (model claude-fable-5-1, 49,497 input / 9,530 output tokens). The advisor comes from ~/.claude/settings.json (advisorModel: fable); neither --tools \"\" nor --safe-mode removes it. A probe asking the model to list its callable tools answered 'advisor' with those flags and 'NONE' when --setting-sources project,local is added.",
+      "decision": "The primary direction-B measurement is a clean Opus-only run (B-clean): same packet, same prompt, same model and effort, plus --setting-sources project,local so no user-level settings (and no advisor) load. B-main is reported separately as the configuration 'Opus 5.5 medium + automatic Fable 5.1 advisor (this workstation's default)'. Both are scored with the definitions above; neither replaces the other in the report."
+    },
+    {
+      "date": "2026-11-06T00:42:00Z",
+      "madeBefore": "any reviewer run of prompt v2 or of held-out set H1",
+      "labelCorrections": {
+        "file": "label-corrections.json (copied into the repository after all runs)",
+        "sha256": "e6d3021ab107b1a768b177c97e768b4f04cc8aa7eade4d4f4f64219295bec4c7",
+        "summary": "cal-02, cal-21, cal-34: valid -> flawed, blocking, poor-incorrect-ukrainian (unintended: «тильда» used for the acute accent; СУМ defines тильда as the ~ sign; integrator rule 6a). labels.json unchanged; both original and corrected scores are reported; corrected labels are the truth for pass/fail."
+      },
+      "mainResultsOnCorrectedLabels": "A-main FAIL (3 release-blocking misses: cal-02, cal-21, cal-34); B-clean FAIL (same 3 misses; ambiguous 7/8, cal-28); B-main FAIL, contaminated by the advisor (4 misses; ambiguous 6/8). Seeded detection 16/16 and 0 valid controls rejected in every run.",
+      "repairCycle1": {
+        "change": "prompt only (reviewer-prompt.v2.md); models, efforts, schema and flags unchanged. v2 differs from v1 in three places: the teach-before-testing digest also allows a gloss in a hint (as content/README.md rule 1 does); rule 8 makes a Ukrainian term used with a non-standard meaning a blocking defect and quotes content rule 6a; the 'uncertain' definition forbids asserting a correction that holds under only one of several readings.",
+        "promptV2": { "path": "content/reviews/calibration/prompts/reviewer-prompt.v2.md", "sha256": "4b7be042e9aa7c75bc786fefa722fdb0c6b812b9f322c4b7a7e926a9a1eeaaa8" },
+        "heldOutSet": {
+          "path": "content/reviews/calibration/cases-h1.json",
+          "sha256": "049d0b7ce8a880e9f02392790812a75389e406d5a49e67282f780a43f474f62e",
+          "cases": 12, "classes": { "flawed": 5, "valid": 4, "ambiguous": 3 },
+          "hiddenLabelsSha256": "79b645da15547a8c1336f25d7ec1030fe05d0a519b96e3791300c2abb11f7913",
+          "sourceVerificationSha256": "2ab6833e1a85ee5c7e0667d4575282e4af2b07eb9a22e43a2ad5f8b61580007e",
+          "note": "Fresh cases on facts not used in the main packet; never shown to any reviewer before; labels verified (12/12 passages found) before the runs."
+        },
+        "thresholdsOnHeldOut": {
+          "releaseBlockingMisses": { "max": 0 },
+          "validControlsRejectedWithoutSourceSupport": { "max": 0 },
+          "seededDefectDetection": { "min": 5, "of": 5, "rule": "ceil(0.95 * 5)" },
+          "ambiguousRecognizedAsUncertain": { "min": 3, "of": 3, "rule": "ceil(0.90 * 3)" }
+        },
+        "runs": {
+          "A-h1-v2": "direction A, gpt-6.1-sol xhigh, prompt v2, packet H1",
+          "B-h1-v2": "direction B, opus medium, --setting-sources project,local, prompt v2, packet H1",
+          "A-main-v2": "informational only: direction A on the main packet with prompt v2 (the main set is no longer held out)",
+          "B-main-v2": "informational only: direction B on the main packet with prompt v2"
+        },
+        "gate": "A direction passes repair cycle 1 only if its H1 run meets every held-out threshold. Informational main-set re-runs never replace the held-out gate."
+      }
+    },
+    {
+      "date": "2026-11-06T00:55:00Z",
+      "madeBefore": "any reviewer run of prompt v3 or of held-out set H2",
+      "repairCycle1Results": {
+        "B-h1-v2": "PASS — seeded 5/5, valid rejected 0/4, ambiguous 3/3, release-blocking misses 0.",
+        "A-h1-v2": "FAIL — seeded 5/5, ambiguous 3/3, release-blocking misses 0, but 3/4 valid controls rejected without substantive support (cal-h1-03, cal-h1-06, cal-h1-10: ordinary earlier-taught words absent from taughtBefore, read as an exhaustive list because the prompt described taughtBefore as 'everything the learner has been taught').",
+        "adjudicationSha256": "aef41717c6592dc0a7f1e0f609997c89c521e7ad96f227e1dec22c47702f06f5",
+        "informational": "A-main-v2 and B-main-v2 flagged all 16 seeded defects and the 3 unintended «тильда» defects; A-main-v2 recognised 8/8 ambiguous cases, B-main-v2 8/8; B-main-v2 flagged valid control cal-18 as uncertain (incomplete context: strong endings not listed)."
+      },
+      "repairCycle2": {
+        "appliesTo": "direction A (failed cycle 1). Direction B is re-run on H2 with the same prompt only to validate one prompt for both directions; B's cycle-1 pass with v2 stands on its own.",
+        "change": "prompt only (reviewer-prompt.v3.md), models/efforts/flags unchanged. v3 differs from v2 in two places: taughtBefore is described as the prerequisites the author mapped (not an exhaustive word list), and rule 1 flags an unlisted item when it is new or advanced for this point of an A1-A2 course or when answering depends on it, but not ordinary earlier-taught vocabulary.",
+        "promptV3": { "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md", "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634" },
+        "heldOutSet": {
+          "path": "content/reviews/calibration/cases-h2.json",
+          "sha256": "ce5ac54b9f143ad4972f86f2bc53a26a90f9e7080801431515127a5f5f908dd5",
+          "cases": 12, "classes": { "flawed": 5, "valid": 4, "ambiguous": 3 },
+          "hiddenLabelsSha256": "f85fdb8880446a8fe03aa8aef49eea74396734c41d67cd74278d5f9b7819757e",
+          "sourceVerificationSha256": "c76efe4f51bb266d87478c35ace86d18ee931d68262da86257dcc0e7835de02a",
+          "note": "Fresh cases; valid controls use ordinary vocabulary their taughtBefore lists do not name; one flawed case depends on a genuinely untaught advanced form (imperfecto in an A1-03 task)."
+        },
+        "thresholdsOnHeldOut": {
+          "releaseBlockingMisses": { "max": 0 },
+          "validControlsRejectedWithoutSourceSupport": { "max": 0 },
+          "seededDefectDetection": { "min": 5, "of": 5, "rule": "ceil(0.95 * 5)" },
+          "ambiguousRecognizedAsUncertain": { "min": 3, "of": 3, "rule": "ceil(0.90 * 3)" }
+        },
+        "runs": { "A-h2-v3": "direction A gate run", "B-h2-v3": "direction B validation run" },
+        "afterCycle2": "If A-h2-v3 fails, direction A has used both repair cycles: the blocker is recorded and no further prompt tuning is counted."
+      }
+    }
+  ]
+}

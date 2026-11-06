@@ -1,5 +1,6 @@
 // Ordered migration registry. Append new migrations; never edit an applied one (checksums are verified).
 import { migration0001 } from './0001_initial.ts';
+import { migration0002 } from './0002_server_core.ts';
 
 export interface Migration {
   readonly version: number;
@@ -7,7 +8,7 @@ export interface Migration {
   readonly sql: string;
 }
 
-export const migrations: readonly Migration[] = [migration0001];
+export const migrations: readonly Migration[] = [migration0001, migration0002];
 
 /** Tables whose rows are portable profile data (logical export/restore). Credentials/sessions are excluded. */
 export const PORTABLE_TABLES = [

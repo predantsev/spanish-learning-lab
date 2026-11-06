@@ -3685,6 +3685,266 @@
         }
       }
     },
+    "/views/catalog-meta": {
+      "get": {
+        "operationId": "get_views_catalog_meta",
+        "security": [
+          {
+            "ownerCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "apiVersion": {
+                      "const": "1"
+                    },
+                    "requestId": {
+                      "$ref": "./schemas.json#/$defs/Id"
+                    },
+                    "profileEpoch": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "data": {
+                      "$ref": "./schemas.json#/$defs/CatalogMetaView"
+                    }
+                  },
+                  "required": [
+                    "apiVersion",
+                    "requestId",
+                    "profileEpoch",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/views/attempts/{attemptId}": {
+      "get": {
+        "operationId": "get_views_attempts_attemptId",
+        "security": [
+          {
+            "ownerCookie": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "apiVersion": {
+                      "const": "1"
+                    },
+                    "requestId": {
+                      "$ref": "./schemas.json#/$defs/Id"
+                    },
+                    "profileEpoch": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "data": {
+                      "$ref": "./schemas.json#/$defs/AttemptResultView"
+                    }
+                  },
+                  "required": [
+                    "apiVersion",
+                    "requestId",
+                    "profileEpoch",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Validated response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./schemas.json#/$defs/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "attemptId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "./schemas.json#/$defs/Id"
+            }
+          }
+        ]
+      }
+    },
     "/media/{sha256}": {
       "get": {
         "operationId": "get_media_sha256",
