@@ -5,7 +5,7 @@ import type { Block, Payload_support_cancel, Payload_support_confirm, Payload_su
 import { canonicalJson, sha256Hex } from '../../content/pack-format.ts';
 import { conflict, notFound, unprocessable } from '../../http/errors.ts';
 import { parseTargetKey, targetKey, type TaskBody } from '../../content/types.ts';
-import { applyToTarget } from '../../learning/targets.ts';
+import type { SupportKind, TargetKey } from '@sll/domain';
 import { checkBlocks, loadContext, ref, requireActiveContext, requireRevision, type CommandEnv, type CommandResult } from '../env.ts';
 
 export const SUPPORT_TTL_MS = 5 * 60_000;
@@ -138,17 +138,16 @@ export function supportConfirm(env: CommandEnv): CommandResult {
   const lateForAttempts = env.db
     .prepare("SELECT id FROM attempts WHERE context_id = ? AND submitted_at >= ? AND support_snapshot LIKE ?")
     .all(s.context_id, s.recorded_at, `%${s.id}%`) as Array<{ id: string }>;
-  const seq = env.event('support.delivered', 'support', s.id, {
-    phase: p.phase,
-    targets: reserved.map(targetKey),
-    reportedDeliveredAt: new Date(reported).toISOString(),
-    ...(lateForAttempts.length ? { lateForAttempts: lateForAttempts.map((a) => a.id) } : {}),
-  });
-  // Actual targeted help before checking resets the target; help after checking is review exposure only.
-  // A late confirmation never awards independent credit to an attempt that captured it as pending/unknown.
-  for (const t of reserved) {
-    applyToTarget(env.db, targetKey(t), p.phase === 'after-submit' ? { type: 'exposure', date: env.today } : { type: 'support-delivered', date: env.today }, seq);
-  }
+  // Actual targeted help before checking resets the target (step 1); help after checking, or with an
+  // unknown phase, is review exposure only. A late confirmation never awards independent credit to an
+  // attempt that captured the reservation as pending/unknown (its pinned verdict stays as recorded).
+  env.schedule(
+    'support.delivered',
+    'support',
+    s.id,
+    { kind: 'support-delivered', supportKind: s.kind as SupportKind, targets: reserved.map(targetKey) as TargetKey[], withinAssessedTask: p.phase === 'before-submit' },
+    { phase: p.phase, reportedDeliveredAt: new Date(reported).toISOString(), ...(lateForAttempts.length ? { lateForAttempts: lateForAttempts.map((a) => a.id) } : {}) },
+  );
   env.markCommitted('support.confirm');
   return { entities: [ref(s.id, s.revision + 1, 'support')], outcome: 'delivered', contentHash: s.content_hash };
 }
@@ -183,8 +182,18 @@ export function supportObserve(env: CommandEnv): CommandResult {
        VALUES (?, 1, ?, ?, ?, ?, ?, ?, NULL, NULL, ?, '[]', NULL, ?, ?, ?, ?)`,
     )
     .run(id, ctx.id, ctx.revision, ctx.task_revision_id, p.kind, reported ? 'learner-report' : 'ui', reported ? 'delivered' : 'neutral', JSON.stringify(p.targets), p.detailKey, env.principal.key, env.now.toISOString(), env.today);
-  const seq = env.event('support.observed', 'context', ctx.id, { kind: p.kind, targets: p.targets.map(targetKey), detailKey: p.detailKey });
-  if (reported) for (const t of p.targets) applyToTarget(env.db, targetKey(t), { type: 'support-delivered', date: env.today }, seq);
+  if (reported) {
+    // Learner-reported help during the active task: actual support for the mapped targets.
+    env.schedule(
+      'support.observed',
+      'context',
+      ctx.id,
+      { kind: 'support-delivered', supportKind: 'learner-reported-help', targets: p.targets.map(targetKey) as TargetKey[], withinAssessedTask: true },
+      { observedKind: p.kind, detailKey: p.detailKey },
+    );
+  } else {
+    env.event('support.observed', 'context', ctx.id, { observedKind: p.kind, targets: p.targets.map(targetKey), detailKey: p.detailKey });
+  }
   env.markCommitted('support.observe');
   return { entities: [ref(ctx.id, ctx.revision, 'context')], outcome: 'updated' };
 }

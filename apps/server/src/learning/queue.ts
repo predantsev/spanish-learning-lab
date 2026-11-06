@@ -1,98 +1,93 @@
-// Recommended review selection: due lanes from the target projection (domain queue), then one
-// least-recently-used eligible held-out task per selected target.
+// Recommended review through the @sll/domain queue: proposeSession is pure (viewing home never
+// consumes priority); the persisted QueueState changes only through startSession when the learner
+// actually starts the session.
+import {
+  estimateSecondsPerItem,
+  initialQueueState,
+  isDue,
+  LISTENING_MODALITIES,
+  proposeSession,
+  sessionItemCap,
+  startSession,
+  type QueueState,
+  type QueueTask,
+  type SessionProposal,
+  type TargetKey,
+  type TargetState,
+} from '@sll/domain';
 import type { Db } from '../db/connection.ts';
-import type { ContentRepository, RevisionRow } from '../content/repository.ts';
-import type { TaskBody, TargetKey } from '../content/types.ts';
-import { LISTENING_MODALITIES, targetKey } from '../content/types.ts';
-import { buildQueue, isDue, queueCount, type QueueCandidate } from '../domain-adapter.ts';
-import { allTargets, type TargetProjection } from './targets.ts';
-
-export interface QueueState {
-  readonly cursor: number;
-  readonly offerSeq: number;
-}
+import type { ContentRepository } from '../content/repository.ts';
+import { targetKey } from '../content/types.ts';
+import { allTargetStates } from './scheduler-store.ts';
 
 export function readQueueState(db: Db): QueueState {
   const r = db.prepare('SELECT queue_state FROM profiles LIMIT 1').get() as { queue_state: string } | undefined;
   const q = r ? (JSON.parse(r.queue_state) as Partial<QueueState>) : {};
-  return { cursor: typeof q.cursor === 'number' ? q.cursor : 0, offerSeq: typeof q.offerSeq === 'number' ? q.offerSeq : 0 };
+  const base = initialQueueState();
+  return {
+    revision: typeof q.revision === 'number' ? q.revision : base.revision,
+    cursor: typeof q.cursor === 'number' ? q.cursor : base.cursor,
+    offerSequence: typeof q.offerSequence === 'number' ? q.offerSequence : base.offerSequence,
+    lastOfferedSequence: q.lastOfferedSequence && typeof q.lastOfferedSequence === 'object' ? q.lastOfferedSequence : base.lastOfferedSequence,
+  };
 }
 
-export function writeQueueState(db: Db, q: QueueState): void {
+function writeQueueState(db: Db, q: QueueState): void {
   db.prepare('UPDATE profiles SET queue_state = ?').run(JSON.stringify(q));
 }
 
-export function candidateOf(p: TargetProjection): QueueCandidate {
-  return {
-    key: p.key,
-    dueDate: p.schedule.dueDate,
-    pendingNeed: p.schedule.pendingNeed,
-    frequency: p.schedule.frequency,
-    paused: p.schedule.paused,
-    introduced: p.schedule.introducedDate !== null,
-    lastOfferedSequence: p.lastOfferedSequence,
-  };
+/** Ready (usable, not quarantined) installed tasks as queue candidates; LRU by the last attempt on the logical task. */
+export function queueTasks(db: Db, repo: ContentRepository): QueueTask[] {
+  const lastUse = new Map(
+    (db
+      .prepare('SELECT cr.logical_id AS id, max(a.rowid) AS seq FROM attempts a JOIN content_revisions cr ON cr.revision_id = a.task_revision_id GROUP BY cr.logical_id')
+      .all() as Array<{ id: string; seq: number }>).map((r) => [r.id, r.seq]),
+  );
+  return repo.tasks().map((t) => ({
+    taskId: t.logicalId,
+    revision: repo.revisionOrdinal('task', t.logicalId, t.revisionId),
+    targets: t.body.targets.map((x) => targetKey(x) as TargetKey),
+    role: t.body.role,
+    contextFamily: t.body.family,
+    clipHash: repo.taskAudioHashes(t.body)[0] ?? null,
+    ready: repo.isUsable(t.state),
+    lastUsedSeq: lastUse.get(t.logicalId) ?? null,
+  }));
 }
 
-export function dueTargets(db: Db, today: string): TargetProjection[] {
-  return allTargets(db).filter((p) => isDue(candidateOf(p), today));
-}
-
-/** Least-recently-used eligible held-out task for a target; prefers a family other than the last eligible check. */
-export function chooseTask(db: Db, repo: ContentRepository, key: TargetKey, lastFamily: string | null, exclude: ReadonlySet<string>): RevisionRow<TaskBody> | undefined {
-  const tasks = repo
-    .tasks()
-    .filter((t) => repo.isUsable(t.state) && t.body.role !== 'supported' && !exclude.has(t.revisionId) && t.body.targets.some((x) => targetKey(x) === key));
-  if (tasks.length === 0) return undefined;
-  const lastUsed = (revisionId: string): string => {
-    const r = db.prepare('SELECT max(submitted_at) AS t FROM attempts WHERE task_revision_id = ?').get(revisionId) as { t: string | null };
-    return r.t ?? '';
-  };
-  const roleRank = (t: TaskBody): number => (t.role === 'delayed' || t.role === 'transfer' ? 0 : 1);
-  return tasks
-    .map((t) => ({ t, used: lastUsed(t.revisionId) }))
-    .sort(
-      (a, b) =>
-        Number(a.t.body.family === lastFamily) - Number(b.t.body.family === lastFamily) ||
-        roleRank(a.t.body) - roleRank(b.t.body) ||
-        a.used.localeCompare(b.used) ||
-        a.t.logicalId.localeCompare(b.t.logicalId) ||
-        a.t.revisionId.localeCompare(b.t.revisionId),
-    )[0]?.t;
+export function dueTargets(db: Db, today: string): TargetState[] {
+  return allTargetStates(db).filter((ts) => isDue(ts, today) && !ts.paused);
 }
 
 export interface RecommendedSelection {
-  readonly keys: TargetKey[];
+  readonly proposal: SessionProposal;
   readonly taskRevisionIds: string[];
-  readonly missingVariety: TargetKey[];
-  readonly cursor: number;
 }
 
-/** Pure selection for a recommended session (no persistence; the caller persists cursor/offers on start). */
-export function selectRecommended(
+/** Proposes and STARTS a recommended session (persists the advanced queue state). */
+export function startRecommended(
   db: Db,
   repo: ContentRepository,
-  input: { today: string; minutes: number; maxItems: number; scope: ReadonlySet<TargetKey>; listeningOnly: boolean; cursor: number },
+  input: { today: string; minutes: number; maxItems: number; scope: readonly string[]; listeningOnly: boolean; seed: string },
 ): RecommendedSelection {
-  const projections = allTargets(db).filter(
-    (p) => (input.scope.size === 0 || input.scope.has(p.key)) && (!input.listeningOnly || LISTENING_MODALITIES.has(p.target.modality)),
-  );
-  const count = queueCount(input.minutes, input.maxItems);
-  const { selected, cursor } = buildQueue(projections.map(candidateOf), input.today, count, input.cursor);
-  const byKey = new Map(projections.map((p) => [p.key, p]));
-  const taskIds: string[] = [];
-  const keys: TargetKey[] = [];
-  const missing: TargetKey[] = [];
-  const used = new Set<string>();
-  for (const key of selected) {
-    const task = chooseTask(db, repo, key, byKey.get(key)?.schedule.lastEligibleFamily ?? null, used);
-    if (!task) {
-      missing.push(key);
-      continue;
-    }
-    used.add(task.revisionId);
-    taskIds.push(task.revisionId);
-    keys.push(key);
+  const queueState = readQueueState(db);
+  const estimate = estimateSecondsPerItem([]);
+  const count = Math.min(input.maxItems, sessionItemCap({ kind: 'minutes', minutes: input.minutes }, estimate));
+  const proposal = proposeSession({
+    today: input.today,
+    targets: allTargetStates(db),
+    tasks: queueTasks(db, repo),
+    scope: input.scope.length > 0 ? (input.scope as TargetKey[]) : null,
+    modalities: input.listeningOnly ? LISTENING_MODALITIES : null,
+    budget: { kind: 'count', count },
+    queueState,
+    sessionSeed: input.seed,
+  });
+  const taskRevisionIds: string[] = [];
+  for (const item of proposal.items) {
+    const t = repo.task(item.taskId);
+    if (t) taskRevisionIds.push(t.revisionId);
   }
-  return { keys, taskRevisionIds: taskIds, missingVariety: missing, cursor };
+  if (taskRevisionIds.length > 0) writeQueueState(db, startSession(queueState, proposal));
+  return { proposal, taskRevisionIds };
 }

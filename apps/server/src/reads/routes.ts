@@ -17,8 +17,8 @@ import { ALL_SCOPES } from '../auth/tokens.ts';
 import { activeDraft } from '../commands/env.ts';
 import { allowedKinds, mayRun, type CommandKind } from '../commands/env.ts';
 import { creatorOf, findReceipt } from '../commands/receipts.ts';
-import { localDate } from '../domain-adapter.ts';
-import { loadTarget } from '../learning/targets.ts';
+import { localDate } from '@sll/domain';
+import { targetState } from '../learning/scheduler-store.ts';
 import { catalogPage } from './catalog.ts';
 import {
   attemptOut,
@@ -248,7 +248,7 @@ export function registerReadRoutes(app: FastifyInstance, state: ServerState): vo
         const r = db.prepare('SELECT * FROM learner_preferences WHERE id = ?').get(id) as Parameters<typeof preferenceOut>[0] | undefined;
         if (r) {
           if (!ownsOrOwner(state, p, 'preference:write', id)) throw notFound();
-          data = preferenceOut(r, (key) => loadTarget(db, key), localDate(state.now(), profile.reviewTimezone));
+          data = preferenceOut(r, (key) => targetState(db, key), localDate(state.now().toISOString(), profile.reviewTimezone));
         }
         break;
       }

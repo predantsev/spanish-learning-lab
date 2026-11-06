@@ -10,7 +10,8 @@ import { join, relative } from 'node:path';
 import type { Db } from '../db/connection.ts';
 import type { ProfileStore } from '../store/types.ts';
 import type { BackupKind, BackupRecordInfo } from '../recovery/types.ts';
-import { localDate } from '../domain-adapter.ts';
+import { localDate, type SchedulerEvent } from '@sll/domain';
+import { applySchedulerEvent, invalidatedRevisions } from '../learning/scheduler-store.ts';
 import { appendEvent } from '../learning/events.ts';
 import { bodyLogicalId, validateContentBody } from './content-schema.ts';
 import {
@@ -464,12 +465,26 @@ function activate(db: Db, store: ProfileStore, a: ActivationInput, faults?: Inst
     c.phraseIds.forEach((pid, i) => ins.run(cid, deriveStableId('phrase-record', pid), i));
   }
 
+  const day = localDate(a.at.toISOString(), profile.reviewTimezone);
+  // Quarantine: evidence of a disputed item (this revision and earlier revisions of the same logical
+  // task that have attempts) is excluded from the projections; history stays readable.
+  const already = invalidatedRevisions(db);
+  for (const e of a.ix.byKind.get('task')!.values()) {
+    if (e.state !== 'quarantined') continue;
+    const older = (db.prepare("SELECT DISTINCT a.task_revision_id AS id FROM attempts a JOIN content_revisions cr ON cr.revision_id = a.task_revision_id WHERE cr.kind = 'task' AND cr.logical_id = ?").all(e.logicalId) as Array<{ id: string }>).map((r) => r.id);
+    for (const rev of new Set([e.revisionId, ...older])) {
+      if (already.has(rev)) continue;
+      const pending = { kind: 'item-invalidated' as const, taskRevisionId: rev };
+      const s = appendEvent(db, { kind: 'content.item-invalidated', entityType: 'task', entityId: rev, at: a.at, localDate: day, epoch: profile.epoch, payload: { logicalId: e.logicalId, scheduler: pending } });
+      applySchedulerEvent(db, { ...pending, eventSeq: s, at: a.at.toISOString() } as SchedulerEvent);
+    }
+  }
   const seq = appendEvent(db, {
     kind: 'content.activated',
     entityType: 'pack',
     entityId: `${manifest.packId}@${manifest.version}`,
     at: a.at,
-    localDate: localDate(a.at, profile.reviewTimezone),
+    localDate: day,
     epoch: profile.epoch,
     payload: { packId: manifest.packId, version: manifest.version, manifestSha256: a.manifestSha256, preview: manifest.preview === true },
   });

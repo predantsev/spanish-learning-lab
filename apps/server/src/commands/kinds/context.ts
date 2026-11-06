@@ -2,11 +2,11 @@
 import { randomUUID } from 'node:crypto';
 import type { Payload_attempt_submit, Payload_context_activity, Payload_context_open, Payload_draft_save } from '@sll/contracts';
 import { HttpError, conflict, notFound, unprocessable } from '../../http/errors.ts';
-import { CheckInputError, checkResponse, deriveVerdicts, normalizeAnswer, type SupportSnapshotItem } from '../../domain-adapter.ts';
+import { assessEvidence, CHECK_KEYS, checkResponse, type CheckResult, type SupportKind, type SupportSnapshotEntry, type TargetKey } from '@sll/domain';
 import { targetKey, type LessonBody, type TaskBody } from '../../content/types.ts';
-import { applyToTarget } from '../../learning/targets.ts';
 import { activeDraft, failure, loadContext, ref, requireActiveContext, requireRevision, type CommandEnv, type CommandFailure, type CommandResult, type DraftRow } from '../env.ts';
-import { loadSession } from './session.ts';
+import { introduceTargets, lessonIntroducedTargets, loadSession } from './session.ts';
+import { targetState } from '../../learning/scheduler-store.ts';
 
 export const TYPING_COALESCE_MS = 5_000;
 
@@ -107,26 +107,33 @@ interface SupportRow {
   kind: string;
   delivery: string;
   delivery_route: string | null;
+  phase: string | null;
   targets: string;
 }
 
-/** Support captured at submit: app reservations never rendered become confirmed-undelivered (neutral). */
-function captureSupport(env: CommandEnv, contextId: string): SupportSnapshotItem[] {
-  const rows = env.db.prepare('SELECT id, revision, kind, delivery, delivery_route, targets FROM support_events WHERE context_id = ? ORDER BY recorded_at, rowid').all(contextId) as SupportRow[];
-  const out: SupportSnapshotItem[] = [];
+export interface PinnedSupport extends SupportSnapshotEntry {
+  readonly supportId: string;
+}
+
+/**
+ * Support captured at submit (pinned into the attempt): an app-route reservation never rendered is
+ * confirmed-undelivered (neutral); a pending external reservation is `pending` (independence unknown);
+ * help already delivered in this context counts as before THIS submission.
+ */
+function captureSupport(env: CommandEnv, contextId: string): PinnedSupport[] {
+  const rows = env.db.prepare('SELECT id, revision, kind, delivery, delivery_route, phase, targets FROM support_events WHERE context_id = ? ORDER BY recorded_at, rowid').all(contextId) as SupportRow[];
+  const out: PinnedSupport[] = [];
   for (const r of rows) {
-    const targets = (JSON.parse(r.targets) as Array<{ skillId: string; modality: string }>).map((t) => `${t.skillId}/${t.modality}`);
-    let delivery: SupportSnapshotItem['delivery'];
-    if (r.delivery === 'prepared') {
-      if (r.delivery_route === 'app') {
-        env.db.prepare("UPDATE support_events SET delivery = 'confirmed-undelivered', revision = revision + 1 WHERE id = ?").run(r.id);
-        delivery = 'confirmed-undelivered';
-      } else delivery = 'pending';
-    } else if (r.delivery === 'delivered') delivery = 'delivered';
-    else if (r.delivery === 'delivery-unknown') delivery = 'delivery-unknown';
-    else if (r.delivery === 'confirmed-undelivered') delivery = 'confirmed-undelivered';
-    else delivery = 'neutral';
-    out.push({ supportId: r.id, kind: r.kind, delivery, targets });
+    const targets = (JSON.parse(r.targets) as Array<{ skillId: string; modality: string }>).map((t) => `${t.skillId}/${t.modality}` as TargetKey);
+    const kind = r.kind as SupportKind;
+    if (r.delivery === 'prepared' && r.delivery_route === 'app') {
+      env.db.prepare("UPDATE support_events SET delivery = 'confirmed-undelivered', revision = revision + 1 WHERE id = ?").run(r.id);
+      out.push({ supportId: r.id, kind, targets, delivery: 'confirmed-undelivered' });
+    } else if (r.delivery === 'prepared') out.push({ supportId: r.id, kind, targets, delivery: 'pending' });
+    else if (r.delivery === 'delivered') out.push({ supportId: r.id, kind, targets, delivery: 'delivered', phase: r.phase === 'unknown' ? 'unknown' : 'before-submit' });
+    else if (r.delivery === 'delivery-unknown') out.push({ supportId: r.id, kind, targets, delivery: 'delivery-unknown' });
+    else if (r.delivery === 'confirmed-undelivered') out.push({ supportId: r.id, kind, targets, delivery: 'confirmed-undelivered' });
+    else out.push({ supportId: r.id, kind, targets });
   }
   return out;
 }
@@ -146,20 +153,21 @@ export function attemptSubmit(env: CommandEnv): CommandResult {
   if (draft.revision !== p.draftRevision) throw conflict('STALE_REVISION', draft.revision);
   const task = env.repo.byRevision<TaskBody>(ctx.task_revision_id);
   if (!task) throw unprocessable('UNKNOWN_TASK');
-  const isOption = 'optionId' in p.response;
-  if (isOption !== (task.body.input === 'options')) throw unprocessable('RESPONSE_KIND_MISMATCH');
+  // Responses the checker cannot evaluate are rejected before checking (never a fabricated grade).
+  if ('optionId' in p.response) {
+    const optionId = p.response.optionId;
+    if (task.body.input !== 'options' || !(task.body.options ?? []).some((o) => o.id === optionId)) throw unprocessable('INVALID_RESPONSE');
+  } else if (task.body.input === 'options') throw unprocessable('INVALID_RESPONSE');
   const support = captureSupport(env, ctx.id);
-  let checks;
-  try {
-    checks = checkResponse(task.body, p.response);
-  } catch (e) {
-    if (e instanceof CheckInputError) throw unprocessable('INVALID_RESPONSE');
-    throw e;
-  }
-  const verdicts = deriveVerdicts(checks, support);
+  const quarantined = task.state === 'quarantined' || task.state === 'retired';
+  // A quarantined item never produces evidence: every target is invalid-item (not-assessed).
+  const check: CheckResult = quarantined
+    ? { mode: task.body.mode, wellFormed: true, normalizedText: null, results: task.body.targets.map((t) => ({ target: t, correctness: 'invalid-item' as const, explanationKey: CHECK_KEYS.invalidItem })) }
+    : checkResponse(task.body, p.response);
+  const verdicts = assessEvidence(check, support);
   const status = verdicts.some((v) => v.correctness === 'unresolved') ? 'unresolved' : 'checked';
   const original = 'optionId' in p.response ? p.response.optionId : p.response.text;
-  const normalized = 'optionId' in p.response ? p.response.optionId : normalizeAnswer(p.response.text, task.body.policy);
+  const normalized = 'optionId' in p.response ? p.response.optionId : (check.normalizedText ?? p.response.text.normalize('NFC').trim());
   const audioHashes = env.repo.taskAudioHashes(task.body);
   const pinned = {
     taskRevisionId: task.revisionId,
@@ -179,20 +187,36 @@ export function attemptSubmit(env: CommandEnv): CommandResult {
       `INSERT INTO attempts (id, revision, context_id, draft_id, draft_revision, task_revision_id, previous_attempt_id, response_kind, original_answer, normalized_answer,
          status, support_snapshot, pinned, submitted_at, local_date, saved_for_review) VALUES (?, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
     )
-    .run(id, ctx.id, draft.id, draft.revision, task.revisionId, previous?.id ?? null, isOption ? 'option' : 'text', original, normalized, status, JSON.stringify(support), JSON.stringify(pinned), env.now.toISOString(), env.today);
+    .run(id, ctx.id, draft.id, draft.revision, task.revisionId, previous?.id ?? null, 'optionId' in p.response ? 'option' : 'text', original, normalized, status, JSON.stringify(support), JSON.stringify(pinned), env.now.toISOString(), env.today);
+  // Within a lesson session the lesson's own targets count as introduced before the first result.
+  const session = loadSession(env, ctx.session_id);
+  if (session.source === 'lesson' && session.source_id) {
+    const lesson = env.repo.byRevision<LessonBody>(session.source_id);
+    const taught = new Set(lesson ? lessonIntroducedTargets(env, lesson.body) : []);
+    introduceTargets(env, task.body.targets.map(targetKey).filter((k) => taught.has(k)), { lessonId: lesson?.logicalId ?? null });
+  }
   const clip = audioHashes[0] ?? null;
-  const seq = env.event('attempt.submitted', 'attempt', id, {
-    taskRevisionId: task.revisionId,
-    family: task.body.family,
-    clip,
-    results: verdicts.map((v) => ({ target: targetKey(v.target), correctness: v.correctness, independence: v.independence })),
-  });
+  const itemReady = !quarantined && env.repo.isUsable(task.state);
+  env.schedule(
+    'attempt.submitted',
+    'attempt',
+    id,
+    {
+      kind: 'attempt-result',
+      attemptId: id,
+      taskRevisionId: task.revisionId,
+      results: verdicts.map((v) => ({ target: targetKey(v.target) as TargetKey, correctness: v.correctness, independence: v.independence, contextFamily: task.body.family, clipHash: clip, itemReady })),
+    },
+    { contextId: ctx.id },
+  );
   const insertResult = env.db.prepare(
     `INSERT INTO target_results (attempt_id, skill_id, modality, correctness, independence, explanation_key, matched_variant_id, context_family, clip_hash, eligible)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
   );
   for (const v of verdicts) {
-    const { eligible } = applyToTarget(env.db, targetKey(v.target), { type: 'attempt-result', date: env.today, correctness: v.correctness, independence: v.independence, family: task.body.family, clip }, seq);
+    // Eligible = recorded by the scheduler as a delayed eligible check for this attempt.
+    const ts = targetState(env.db, targetKey(v.target));
+    const eligible = ts?.history.some((h) => h.attemptId === id) === true;
     insertResult.run(id, v.target.skillId, v.target.modality, v.correctness, v.independence, v.explanationKey, v.matchedVariantId ?? null, task.body.family, clip, eligible ? 1 : 0);
   }
   env.db.prepare('UPDATE contexts SET revision = revision + 1, last_activity_at = ? WHERE id = ?').run(env.now.toISOString(), ctx.id);

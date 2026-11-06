@@ -2,9 +2,8 @@
 import { randomUUID } from 'node:crypto';
 import type { Payload_preference_set, Payload_profile_settings, Payload_profile_timezone_preview } from '@sll/contracts';
 import { conflict, unprocessable } from '../../http/errors.ts';
-import { isValidTimeZone } from '../../domain-adapter.ts';
+import { isValidTimeZone, type TargetKey } from '@sll/domain';
 import { targetKey } from '../../content/types.ts';
-import { applyToTarget } from '../../learning/targets.ts';
 import { TIMEZONE_PREVIEW_TTL_MS } from '../../state.ts';
 import { ref, requireRevision, type CommandEnv, type CommandResult } from '../env.ts';
 
@@ -20,10 +19,12 @@ export function preferenceSet(env: CommandEnv): CommandResult {
   env.db
     .prepare('INSERT INTO learner_preferences (id, revision, targets, frequency, paused, source, created_at) VALUES (?, 1, ?, ?, ?, ?, ?)')
     .run(id, JSON.stringify(p.targets), p.frequency ?? null, p.paused === undefined ? null : p.paused ? 1 : 0, env.principal.kind === 'agent' ? 'agent' : 'ui', env.now.toISOString());
-  const seq = env.event('preference.set', 'preference', id, { targets: p.targets.map(targetKey), ...(p.frequency ? { frequency: p.frequency } : {}), ...(p.paused !== undefined ? { paused: p.paused } : {}) });
-  for (const t of p.targets) {
-    applyToTarget(env.db, targetKey(t), { type: 'preference-set', date: env.today, ...(p.frequency ? { frequency: p.frequency } : {}), ...(p.paused !== undefined ? { paused: p.paused } : {}) }, seq);
-  }
+  env.schedule('preference.set', 'preference', id, {
+    kind: 'preference-set',
+    targets: p.targets.map(targetKey) as TargetKey[],
+    ...(p.frequency ? { frequency: p.frequency } : {}),
+    ...(p.paused !== undefined ? { paused: p.paused } : {}),
+  });
   env.markCommitted('preference.set');
   return { entities: [ref(id, 1, 'preference')], outcome: 'updated', createdEntityId: id };
 }
@@ -73,7 +74,11 @@ export function profileSettings(env: CommandEnv): CommandResult {
     )
     .run(changes.reviewTimezone ? p.reviewTimezone : null, changes.audioSpeed !== undefined ? p.audioSpeed : null, changes.theme !== undefined ? p.theme : null, env.now.toISOString(), profile.id);
   // Historical UTC/local dates and existing dueDate labels are kept; only future dates use the new zone.
-  env.event(changes.reviewTimezone ? 'profile.timezone-changed' : 'profile.settings-changed', 'profile', profile.id, changes);
+  if (changes.reviewTimezone) {
+    env.schedule('profile.timezone-changed', 'profile', profile.id, { kind: 'timezone-changed', timezone: p.reviewTimezone as string }, changes);
+  } else {
+    env.event('profile.settings-changed', 'profile', profile.id, changes);
+  }
   env.markCommitted('profile.settings');
   return { entities: [ref(profile.id, profile.revision + 1, 'profile')], outcome: 'updated' };
 }

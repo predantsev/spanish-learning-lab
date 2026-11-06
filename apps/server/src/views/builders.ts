@@ -7,7 +7,8 @@ import type { ContentRepository, RevisionRow } from '../content/repository.ts';
 import { lessonOrderKey } from '../content/pack-format.ts';
 import { LISTENING_MODALITIES, parseTargetKey, targetKey, type ClipBody, type LessonBody, type MaterialBody, type TaskBody } from '../content/types.ts';
 import { notFound } from '../http/errors.ts';
-import { allTargets, type TargetProjection } from '../learning/targets.ts';
+import { isListeningModality, type TargetState } from '@sll/domain';
+import { allTargetStates } from '../learning/scheduler-store.ts';
 import { dueTargets } from '../learning/queue.ts';
 import { clipLevel, collectionOut, exerciseTask, labelFor } from '../reads/models.ts';
 
@@ -18,8 +19,8 @@ function progressByLesson(db: Db): Map<string, { status: 'visited' | 'completed'
   return new Map(rows.map((r) => [r.lesson_id, { status: r.status, visited: JSON.parse(r.visited_step_ids) as string[] }]));
 }
 
-function introduced(db: Db): TargetProjection[] {
-  return allTargets(db).filter((p) => p.schedule.introducedDate !== null);
+function introduced(db: Db): TargetState[] {
+  return allTargetStates(db).filter((ts) => ts.introducedDate !== null);
 }
 
 export function homeView(db: Db, repo: ContentRepository, today: string): HomeView {
@@ -28,19 +29,19 @@ export function homeView(db: Db, repo: ContentRepository, today: string): HomeVi
   const progress = progressByLesson(db);
   const due = dueTargets(db, today);
   const targets = introduced(db);
-  const labels = targets.map((p) => ({ p, ...labelFor(p) }));
+  const labels = targets.map((ts) => ({ ts, ...labelFor(ts) }));
   const evidence = {
     introduced: targets.length,
     independent: labels.filter((x) => x.label === 'independent').length,
     supported: labels.filter((x) => x.label === 'supported').length,
     uncertain: labels.filter((x) => x.label === 'uncertain').length,
-    listening: labels.filter((x) => LISTENING_MODALITIES.has(x.p.target.modality) && (x.label === 'independent' || x.label === 'stable')).length,
+    listening: labels.filter((x) => isListeningModality(x.ts.modality) && (x.label === 'independent' || x.label === 'stable')).length,
     stable: labels.filter((x) => x.label === 'stable').length,
   };
   const view: { -readonly [K in keyof HomeView]: HomeView[K] } = {
     viewsVersion: 1,
     firstUse: attempts === 0 && progress.size === 0,
-    review: { dueTargets: due.length, supportPending: due.filter((p) => p.schedule.pendingNeed).length, estimatedMinutes: Math.min(30, due.length) },
+    review: { dueTargets: due.length, supportPending: due.filter((ts) => ts.pendingNeed).length, estimatedMinutes: Math.min(30, due.length) },
     evidence,
     pack: pack ? { state: pack.preview ? 'preview' : 'ready', version: pack.version.slice(0, 80), hash: pack.manifestSha256 } : { state: 'missing', version: '', hash: '' },
   };
@@ -143,17 +144,18 @@ export function progressView(db: Db, repo: ContentRepository): ProgressView {
       .map((l) => ({ lessonId: l.logicalId, titleUk: l.body.titleUk.slice(0, 160), kind: l.body.kind, status: (progress.get(l.logicalId)?.status ?? 'not-started') as LessonStatus })),
   }));
   const titles = new Map(repo.skills().map((s) => [s.logicalId, s.body.titleUk]));
-  const targets = introduced(db).map((p) => {
-    const { label, reasonKey } = labelFor(p);
+  const targets = introduced(db).map((ts) => {
+    const { label, reasonKey, lastEvidenceDate } = labelFor(ts);
+    const target = parseTargetKey(ts.target);
     return {
-      target: p.target,
-      titleUk: (titles.get(p.target.skillId) ?? p.target.skillId).slice(0, 160),
+      target,
+      titleUk: (titles.get(target.skillId) ?? target.skillId).slice(0, 160),
       label,
       reasonKey,
-      lastEvidenceDate: p.schedule.latest?.date ?? '',
-      dueDate: p.schedule.dueDate ?? '',
-      frequency: p.schedule.frequency,
-      paused: p.schedule.paused,
+      lastEvidenceDate,
+      dueDate: ts.dueDate ?? '',
+      frequency: ts.frequency,
+      paused: ts.paused,
     };
   });
   const profile = db.prepare('SELECT id FROM profiles LIMIT 1').get() as { id: string };
@@ -166,7 +168,7 @@ export function progressView(db: Db, repo: ContentRepository): ProgressView {
     independentTargets: targets.filter((t) => t.label === 'independent' || t.label === 'stable').length,
     supportedTargets: targets.filter((t) => t.label === 'supported').length,
     unresolvedTargets: targets.filter((t) => t.label === 'uncertain').length,
-    recommendedTargetIds: introduced(db).filter((p) => p.schedule.pendingNeed).map((p) => p.target).slice(0, 30),
+    recommendedTargetIds: introduced(db).filter((ts) => ts.pendingNeed).map((ts) => parseTargetKey(ts.target)).slice(0, 30),
   };
   return { viewsVersion: 1, blocks, targets: targets.slice(0, 3000), summary };
 }
@@ -231,7 +233,7 @@ export function materialsView(repo: ContentRepository, topicId: string): Materia
 }
 
 export function listeningView(db: Db, repo: ContentRepository, today: string): ListeningView {
-  const due = new Set(dueTargets(db, today).map((p) => p.key));
+  const due = new Set<string>(dueTargets(db, today).map((ts) => ts.target));
   const tasks = repo.tasks().filter((t) => repo.isUsable(t.state));
   const clips = repo.listActive<ClipBody>('clip');
   const items = repo

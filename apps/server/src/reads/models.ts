@@ -23,8 +23,7 @@ import type {
 import type { Db } from '../db/connection.ts';
 import { contractContentState, type ContentRepository, type RevisionRow } from '../content/repository.ts';
 import { LISTENING_MODALITIES, parseTargetKey, targetKey, type ClipBody, type LessonBody, type MaterialBody, type PhraseBody, type TaskBody } from '../content/types.ts';
-import { stableLabel } from '../domain-adapter.ts';
-import type { TargetProjection } from '../learning/targets.ts';
+import { evidenceLabel, stableLabel, type AttemptEntry, type TargetState } from '@sll/domain';
 
 export function taskView(repo: ContentRepository, t: RevisionRow<TaskBody>): TaskView {
   return {
@@ -227,18 +226,18 @@ export function reviewOut(r: { id: string; revision: number; attempt_id: string;
 
 export function preferenceOut(
   r: { id: string; revision: number; targets: string; frequency: 'usual' | 'repeat-more' | 'known' | null; paused: number | null },
-  load: (key: string) => TargetProjection | undefined,
+  load: (key: string) => TargetState | undefined,
   today: string,
 ): Preference {
   const targets = JSON.parse(r.targets) as Target[];
   const first = targets[0] ? load(targetKey(targets[0])) : undefined;
-  const dues = targets.map((t) => load(targetKey(t))?.schedule.dueDate).filter((d): d is string => typeof d === 'string').sort();
+  const dues = targets.map((t) => load(targetKey(t))?.dueDate).filter((d): d is string => typeof d === 'string').sort();
   return {
     id: r.id,
     revision: r.revision,
     targets,
-    frequency: r.frequency ?? first?.schedule.frequency ?? 'usual',
-    paused: r.paused === null ? first?.schedule.paused ?? false : r.paused === 1,
+    frequency: r.frequency ?? first?.frequency ?? 'usual',
+    paused: r.paused === null ? first?.paused ?? false : r.paused === 1,
     dueDate: dues[0] ?? today,
   };
 }
@@ -258,17 +257,21 @@ export function lessonProgressOut(r: { id: string; revision: number; lesson_id: 
 
 export type EvidenceLabel = 'stable' | 'independent' | 'supported' | 'uncertain' | 'introduced';
 
-/** Evidence label + specific reason (never a mastery percentage, never a pass/fail). */
-export function labelFor(p: TargetProjection): { label: EvidenceLabel; reasonKey: string } {
-  const s = p.schedule;
-  if (stableLabel(s, LISTENING_MODALITIES.has(p.target.modality))) return { label: 'stable', reasonKey: 'progress.reason.stable' };
-  const latest = s.latest;
-  if (!latest) return { label: 'introduced', reasonKey: s.pendingNeed ? 'progress.reason.recentSupport' : 'progress.reason.introduced' };
-  if (latest.correctness === 'invalid-item') return { label: 'introduced', reasonKey: 'progress.reason.invalidItem' };
-  if (latest.correctness === 'unresolved' || latest.independence === 'unknown') return { label: 'uncertain', reasonKey: latest.correctness === 'unresolved' ? 'progress.reason.unresolved' : 'progress.reason.unknownSupport' };
-  if (latest.independence === 'supported') return { label: 'supported', reasonKey: 'progress.reason.supportedCheck' };
-  if (latest.correctness === 'correct') return { label: 'independent', reasonKey: 'progress.reason.independentCheck' };
-  return { label: 'introduced', reasonKey: 'progress.reason.recentError' };
+function lastAttempt(ts: TargetState): AttemptEntry | undefined {
+  return [...ts.journal].reverse().find((j): j is AttemptEntry => j.kind === 'attempt' && !j.invalidated && j.correctness !== 'invalid-item');
+}
+
+/** Evidence label (@sll/domain evidenceLabel) + a specific reason key — never a mastery percentage or pass/fail. */
+export function labelFor(ts: TargetState): { label: EvidenceLabel; reasonKey: string; lastEvidenceDate: string } {
+  const label = evidenceLabel(ts) ?? 'introduced';
+  const last = lastAttempt(ts);
+  let reasonKey: string;
+  if (label === 'stable') reasonKey = stableLabel(ts).reasonKey;
+  else if (label === 'supported') reasonKey = last && last.correctness === 'incorrect' && last.seq === ts.lastSupportOrErrorSeq ? 'progress.reason.recentError' : 'progress.reason.recentSupport';
+  else if (label === 'uncertain') reasonKey = last?.correctness === 'unresolved' ? 'progress.reason.unresolved' : 'progress.reason.unknownSupport';
+  else if (label === 'independent') reasonKey = 'progress.reason.independentCheck';
+  else reasonKey = 'progress.reason.introduced';
+  return { label, reasonKey, lastEvidenceDate: last?.date ?? '' };
 }
 
 export function clipLevel(clips: readonly ClipBody[]): 'phrase' | 'sentence' | 'text' {

@@ -1,11 +1,12 @@
 // session.start, session.finish, lesson.progress
 import { randomBytes, randomUUID } from 'node:crypto';
 import type { Payload_lesson_progress, Payload_session_start, Summary, Target } from '@sll/contracts';
+import type { TargetKey } from '@sll/domain';
 import { conflict, notFound, unprocessable } from '../../http/errors.ts';
-import { targetKey, type LessonBody, type SkillBody, type TaskBody, type TargetKey } from '../../content/types.ts';
+import { targetKey, type LessonBody, type SkillBody, type TaskBody } from '../../content/types.ts';
 import type { RevisionRow } from '../../content/repository.ts';
-import { applyToTarget, loadTarget, setOffered } from '../../learning/targets.ts';
-import { readQueueState, selectRecommended, writeQueueState } from '../../learning/queue.ts';
+import { targetState } from '../../learning/scheduler-store.ts';
+import { startRecommended } from '../../learning/queue.ts';
 import { ref, requireRevision, type CommandEnv, type CommandResult } from '../env.ts';
 
 interface SessionRow {
@@ -17,6 +18,7 @@ interface SessionRow {
   status: 'active' | 'finished';
   queue_snapshot: string;
   task_revision_ids: string;
+  seed: string;
   started_at: string;
 }
 
@@ -43,35 +45,41 @@ export function lessonTasks(env: CommandEnv, lesson: LessonBody): Array<Revision
   return out;
 }
 
+/** Introduces targets not yet introduced (stage 0, due tomorrow, no pass) through the domain scheduler. */
+export function introduceTargets(env: CommandEnv, keys: readonly string[], cause: Record<string, unknown>): void {
+  const fresh = [...new Set(keys)].filter((k) => targetState(env.db, k)?.introducedDate == null);
+  if (fresh.length === 0) return;
+  env.schedule('targets.introduced', 'target', fresh[0]!, { kind: 'introduced', targets: fresh as TargetKey[] }, cause);
+}
+
 export function sessionStart(env: CommandEnv): CommandResult {
   const p = env.cmd.payload as Payload_session_start;
   const id = env.cmd.subjectId;
   requireRevision(existingRevision(env, 'sessions', id), env.cmd.expectedRevision);
   if (env.cmd.expectedRevision !== 0) throw conflict('STALE_REVISION', 0);
-  const scope = new Set<TargetKey>(p.targets.map(targetKey));
+  const scope = [...new Set(p.targets.map(targetKey))];
+  const seed = randomBytes(8).toString('hex');
   let taskIds: string[];
   let sourceId: string | null = null;
-  const snapshot: Record<string, unknown> = { source: p.source, minutes: p.minutes, maxItems: p.maxItems, targets: [...scope] };
+  const snapshot: Record<string, unknown> = { source: p.source, minutes: p.minutes, maxItems: p.maxItems, targets: scope };
   if (p.source === 'recommended') {
     if (p.sourceId !== undefined) throw unprocessable('SOURCE_ID_FORBIDDEN');
-    const q = readQueueState(env.db);
-    const sel = selectRecommended(env.db, env.repo, { today: env.today, minutes: p.minutes, maxItems: p.maxItems, scope, listeningOnly: p.mode === 'listening', cursor: q.cursor });
+    const sel = startRecommended(env.db, env.repo, { today: env.today, minutes: p.minutes, maxItems: p.maxItems, scope, listeningOnly: p.mode === 'listening', seed });
     if (sel.taskRevisionIds.length === 0) throw unprocessable('QUEUE_EMPTY');
-    // Persist the fair-order cursor and offer sequence only now that the learner starts the session.
-    let offerSeq = q.offerSeq;
-    for (const key of sel.keys) setOffered(env.db, key, ++offerSeq);
-    writeQueueState(env.db, { cursor: sel.cursor, offerSeq });
     taskIds = sel.taskRevisionIds;
-    Object.assign(snapshot, { selectedTargets: sel.keys, missingVariety: sel.missingVariety, cursorBefore: q.cursor, cursorAfter: sel.cursor });
+    // Durable queue snapshot: lanes, scored vs labeled extra practice, content shortages.
+    Object.assign(snapshot, { items: sel.proposal.items, shortages: sel.proposal.shortages, deferred: sel.proposal.deferred, itemCap: sel.proposal.itemCap });
   } else {
     if (p.sourceId === undefined) throw unprocessable('SOURCE_ID_REQUIRED');
     sourceId = p.sourceId;
+    const scopeSet = new Set(scope);
     if (p.source === 'lesson') {
       const lesson = env.repo.byRevision<LessonBody>(p.sourceId);
       if (!lesson || lesson.kind !== 'lesson') throw unprocessable('UNKNOWN_SOURCE');
       if (lesson.state === 'quarantined' || lesson.state === 'retired') throw unprocessable('SOURCE_NOT_READY');
-      const tasks = lessonTasks(env, lesson.body).filter((t) => scope.size === 0 || t.body.targets.some((x) => scope.has(targetKey(x))));
-      taskIds = tasks.map((t) => t.revisionId);
+      taskIds = lessonTasks(env, lesson.body)
+        .filter((t) => scopeSet.size === 0 || t.body.targets.some((x) => scopeSet.has(targetKey(x))))
+        .map((t) => t.revisionId);
       snapshot.lessonId = lesson.logicalId;
     } else {
       const set = env.db.prepare('SELECT task_revision_ids FROM practice_sets WHERE id = ?').get(p.sourceId) as { task_revision_ids: string } | undefined;
@@ -79,7 +87,7 @@ export function sessionStart(env: CommandEnv): CommandResult {
       taskIds = (JSON.parse(set.task_revision_ids) as string[])
         .filter((tid) => {
           const t = env.repo.byRevision<TaskBody>(tid);
-          return t !== undefined && env.repo.isUsable(t.state) && (scope.size === 0 || t.body.targets.some((x) => scope.has(targetKey(x))));
+          return t !== undefined && env.repo.isUsable(t.state) && (scopeSet.size === 0 || t.body.targets.some((x) => scopeSet.has(targetKey(x))));
         })
         .slice(0, p.maxItems);
       if (taskIds.length === 0) throw unprocessable('NO_READY_ITEMS');
@@ -90,7 +98,7 @@ export function sessionStart(env: CommandEnv): CommandResult {
       `INSERT INTO sessions (id, revision, mode, source, source_id, status, queue_snapshot, task_revision_ids, seed, started_at)
        VALUES (?, 1, ?, ?, ?, 'active', ?, ?, ?, ?)`,
     )
-    .run(id, p.mode, p.source, sourceId, JSON.stringify(snapshot), JSON.stringify(taskIds), randomBytes(8).toString('hex'), env.now.toISOString());
+    .run(id, p.mode, p.source, sourceId, JSON.stringify(snapshot), JSON.stringify(taskIds), seed, env.now.toISOString());
   env.event('session.started', 'session', id, { source: p.source, mode: p.mode, tasks: taskIds.length });
   env.markCommitted('session.start');
   return {
@@ -132,8 +140,9 @@ export function sessionFinish(env: CommandEnv): CommandResult {
       completed = lp.status === 'completed' ? 1 : 0;
     }
   }
+  // Optional next action: targets of this session that recent support/errors bring back sooner.
   const recommended = [...touched.entries()]
-    .filter(([key]) => loadTarget(env.db, key)?.schedule.pendingNeed === true)
+    .filter(([key]) => targetState(env.db, key)?.pendingNeed === true)
     .map(([, t]) => t)
     .slice(0, 30);
   const summaryId = randomUUID();
@@ -177,18 +186,15 @@ function lessonComplete(env: CommandEnv, lesson: LessonBody, visited: ReadonlySe
   return true;
 }
 
-/** Introduces every assessed target taught by the lesson (stage 0, due tomorrow) the first time it is visited. */
-function introduceLessonTargets(env: CommandEnv, lesson: LessonBody, eventSeq: number): void {
+/** Assessed targets taught by a lesson (its `introduces` skills × their modalities). */
+export function lessonIntroducedTargets(env: CommandEnv, lesson: LessonBody): string[] {
+  const keys: string[] = [];
   for (const skillId of lesson.introduces) {
     const skill = env.repo.skill(skillId) as RevisionRow<SkillBody> | undefined;
     if (!skill || !skill.body.assessed) continue;
-    for (const modality of skill.body.modalities) {
-      const key = `${skillId}/${modality}`;
-      const existing = loadTarget(env.db, key);
-      if (existing && existing.schedule.introducedDate !== null) continue;
-      applyToTarget(env.db, key, { type: 'introduced', date: env.today }, eventSeq);
-    }
+    for (const modality of skill.body.modalities) keys.push(`${skillId}/${modality}`);
   }
+  return keys;
 }
 
 export function lessonProgress(env: CommandEnv): CommandResult {
@@ -220,14 +226,15 @@ export function lessonProgress(env: CommandEnv): CommandResult {
   const revision = row ? (changed ? row.revision + 1 : row.revision) : 1;
   if (!row) {
     env.db
-      .prepare("INSERT INTO lesson_progress (id, revision, lesson_id, visited_step_ids, status, updated_at) VALUES (?, 1, ?, ?, ?, ?)")
+      .prepare('INSERT INTO lesson_progress (id, revision, lesson_id, visited_step_ids, status, updated_at) VALUES (?, 1, ?, ?, ?, ?)')
       .run(id, lesson.logicalId, JSON.stringify(orderedVisited), status, env.now.toISOString());
   } else if (changed) {
     env.db.prepare('UPDATE lesson_progress SET revision = ?, visited_step_ids = ?, status = ?, updated_at = ? WHERE id = ?').run(revision, JSON.stringify(orderedVisited), status, env.now.toISOString(), id);
   }
   if (changed) {
-    const seq = env.event('lesson.progressed', 'lesson-progress', id, { lessonId: lesson.logicalId, stepId: p.stepId, action: p.action, status });
-    if (firstVisit) introduceLessonTargets(env, lesson.body, seq);
+    env.event('lesson.progressed', 'lesson-progress', id, { lessonId: lesson.logicalId, stepId: p.stepId, action: p.action, status });
+    // ASSUMPTION: the first visit of a lesson introduces its taught targets (stage 0, due tomorrow).
+    if (firstVisit) introduceTargets(env, lessonIntroducedTargets(env, lesson.body), { lessonId: lesson.logicalId });
     env.markCommitted('lesson.progress');
   }
   return { entities: [ref(id, revision, 'lesson-progress')], outcome: !row ? 'created' : changed ? 'updated' : 'unchanged', ...(!row ? { createdEntityId: id } : {}) };

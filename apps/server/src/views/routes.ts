@@ -2,7 +2,7 @@
 import type { FastifyInstance } from 'fastify';
 import type { ServerState } from '../state.ts';
 import { ContentRepository } from '../content/repository.ts';
-import { localDate } from '../domain-adapter.ts';
+import { localDate } from '@sll/domain';
 import { notFound } from '../http/errors.ts';
 import { ok, UUID_RE } from '../http/reply.ts';
 import { exerciseView, homeView, lessonView, listeningView, materialsView, phraseLibraryView, progressView } from './builders.ts';
@@ -16,7 +16,7 @@ export function registerViewRoutes(app: FastifyInstance, state: ServerState): vo
   const ctx = () => {
     const db = state.store.db();
     const profile = state.store.profile();
-    return { db, repo: new ContentRepository(db), epoch: profile.epoch, today: localDate(state.now(), profile.reviewTimezone) };
+    return { db, repo: new ContentRepository(db), epoch: profile.epoch, today: localDate(state.now().toISOString(), profile.reviewTimezone) };
   };
 
   app.get(`${API}/views/home`, cfg('views.home'), async (request) => {

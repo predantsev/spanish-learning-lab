@@ -7,7 +7,8 @@ import type { FastifyInstance } from 'fastify';
 import type { Command, Receipt } from '@sll/contracts';
 import type { ServerState } from '../state.ts';
 import { ContentRepository } from '../content/repository.ts';
-import { localDate } from '../domain-adapter.ts';
+import { localDate, type SchedulerEvent } from '@sll/domain';
+import { applySchedulerEvent } from '../learning/scheduler-store.ts';
 import { HttpError, conflict, forbidden, unavailable } from '../http/errors.ts';
 import { checkWriteHeaders, requireBody } from '../http/write-request.ts';
 import { bodyDigest, findReceipt, storeReceipt } from './receipts.ts';
@@ -34,7 +35,7 @@ export function registerCommandRoutes(app: FastifyInstance, state: ServerState):
     const now = state.now();
     const profile = state.store.profile();
     const tz = profile.reviewTimezone;
-    const today = localDate(now, tz);
+    const today = localDate(now.toISOString(), tz);
     const committedKinds: string[] = [];
     let lastSeq = 0;
     let failure: HttpError | undefined;
@@ -62,6 +63,11 @@ export function registerCommandRoutes(app: FastifyInstance, state: ServerState):
         requestId: request.id,
         event: (kind, entityType, entityId, payload) => {
           lastSeq = emit(kind, entityType, entityId, payload);
+          return lastSeq;
+        },
+        schedule: (kind, entityType, entityId, pending, extra) => {
+          lastSeq = emit(kind, entityType, entityId, { ...(extra ?? {}), scheduler: pending as unknown as Record<string, unknown> });
+          applySchedulerEvent(db, { ...pending, eventSeq: lastSeq, at: now.toISOString() } as SchedulerEvent);
           return lastSeq;
         },
         markCommitted: (kind) => {

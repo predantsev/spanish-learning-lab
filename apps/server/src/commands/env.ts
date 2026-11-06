@@ -7,6 +7,7 @@ import type { Principal } from '../http/principal.ts';
 import type { ServerState } from '../state.ts';
 import { HttpError, conflict, notFound, unprocessable } from '../http/errors.ts';
 import { appendEvent } from '../learning/events.ts';
+import type { PendingSchedulerEvent } from '../learning/scheduler-store.ts';
 
 export type CommandKind = Command['kind'];
 
@@ -23,6 +24,11 @@ export interface CommandEnv {
   readonly requestId: string;
   /** Appends an event row and returns its eventSeq. */
   event(kind: string, entityType: string, entityId: string, payload?: Record<string, unknown>): number;
+  /**
+   * Appends an event row carrying a scheduler event (payload.scheduler) and folds it into the
+   * @sll/domain projection with that row's eventSeq and the command clock; returns the eventSeq.
+   */
+  schedule(kind: string, entityType: string, entityId: string, pending: PendingSchedulerEvent, extra?: Record<string, unknown>): number;
   /** Marks this command as a committed learning/content/draft/preference change (backup scheduling). */
   markCommitted(kind: string): void;
 }
