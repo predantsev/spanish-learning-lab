@@ -198,6 +198,7 @@ export function phraseLibraryView(db: Db): PhraseLibraryView {
       logicalId: (p.course_logical_id ?? '').slice(0, 150),
       spanish: p.spanish.slice(0, 2000),
       ukrainian: p.meaning.slice(0, 2000),
+      targets: [], // TODO(contract-v1.1): phrase-recall targets of course phrases (integration package)
       state: p.state,
       origin: p.source,
       collectionIds: (byPhrase.get(p.id) ?? []).slice(0, 200),

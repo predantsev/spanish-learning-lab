@@ -59,6 +59,7 @@ export const AUTHORITY: Record<CommandKind, Authority | 'privileged'> = {
   'session.start': { owner: true },
   'session.finish': { owner: true },
   'lesson.progress': { owner: true },
+  'phrase.archive': { owner: true },
   'context.open': { owner: true },
   'context.activity': { owner: true },
   'context.close': { owner: true },

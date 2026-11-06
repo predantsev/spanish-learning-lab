@@ -516,8 +516,8 @@ describe('progress', () => {
 const phrases: PhraseLibraryView = {
   viewsVersion: 1,
   phrases: [
-    { id: ID(80), revision: 1, logicalId: 'phrase.synthetic.uno', spanish: '¿Me pone un café?', ukrainian: 'Дайте мені каву.', state: 'ready', origin: 'course', collectionIds: [ID(85), ID(86)], practiceReady: true, archived: false },
-    { id: ID(81), revision: 1, logicalId: 'phrase.synthetic.dos', spanish: 'Synthetic borrador', ukrainian: 'чернетка', state: 'draft', origin: 'spanish', collectionIds: [], practiceReady: false, archived: false },
+    { id: ID(80), revision: 1, logicalId: 'phrase.synthetic.uno', spanish: '¿Me pone un café?', ukrainian: 'Дайте мені каву.', state: 'ready', origin: 'course', collectionIds: [ID(85), ID(86)], targets: [], practiceReady: true, archived: false },
+    { id: ID(81), revision: 1, logicalId: 'phrase.synthetic.dos', spanish: 'Synthetic borrador', ukrainian: 'чернетка', state: 'draft', origin: 'spanish', collectionIds: [], targets: [], practiceReady: false, archived: false },
   ],
   collections: [
     { id: ID(85), revision: 2, name: 'Перед поїздкою', origin: 'personal', phraseIds: [ID(80), ID(81)] },
