@@ -412,7 +412,7 @@ def materials():
     ]
 
 
-LESSON_MODULES = ['a2_05_l2', 'a2_05_l3', 'a2_05_l4', 'a2_05_l5', 'a2_05_l6', 'a2_05_l7']
+LESSON_MODULES = ['a2_05_l2', 'a2_05_l3', 'a2_05_l4', 'a2_05_l5', 'a2_05_l6', 'a2_05_l7', 'a2_05_c1']
 
 
 def build():
