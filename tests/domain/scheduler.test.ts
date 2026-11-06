@@ -110,7 +110,7 @@ describe('scheduler', () => {
     for (const [name, count] of Object.entries(seen)) expect(count, name).toBeGreaterThan(10);
   });
 
-  it('keeps invariants on random streams: stage range, one advance per date, dates from the ladder', () => {
+  it('keeps invariants on random streams: stage range, one advance per date, no schedule before introduction', () => {
     for (let seed = 100; seed < 130; seed += 1) {
       const state = rebuild(randomEvents(seed, 120), TZ);
       for (const ts of Object.values(state.targets)) {
