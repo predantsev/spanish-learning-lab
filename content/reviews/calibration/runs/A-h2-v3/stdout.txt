@@ -1,0 +1,158 @@
+{
+  "cases": [
+    {
+      "caseId": "cal-h2-01",
+      "reviewerAnswer": "Aún. «Todavía» also satisfies the stated prompt.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[0].text and task.referenceAnswer: \"Aun\"; task.errors[0]: \"Aún\" marked incorrect, with feedbackUk \"Тут знак наголосу не потрібен: «aun».\".",
+      "defect": "When equivalent to «todavía», «aún» requires a written accent. The key accepts the wrong spelling and rejects the correct one. The closed key also excludes «Todavía», which fits the unrestricted wording.",
+      "correction": "Accept «Aún», reject «Aun», and update the reference answer and feedback. Either explicitly restrict the prompt to «aun/aún» or also accept «Todavía».",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), distinction between «aun» and «aún» when equivalent to «todavía» (from memory).",
+        "Course contract, rules 3 and 5."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-02",
+      "reviewerAnswer": "hubo",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[1].text: \"hubieron\"; task.accepted[1].noteUk: \"Теж правильно: дієслово узгоджується з «dos accidentes».\".",
+      "defect": "Existential «haber» is impersonal and remains singular in standard Spanish: «hubo dos accidentes». The accepted plural form and its agreement explanation are incorrect.",
+      "correction": "Remove «hubieron» from accepted answers and remove the false explanation. It may be added as a reviewed error with feedback explaining impersonal singular «hubo».",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «haber», impersonal existential use and singular agreement (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-03",
+      "reviewerAnswer": "a or b: «a las diez» permits either 10:00 or 22:00.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "clips[0].transcript: \"Quedamos mañana a las diez en la puerta del cine.\"; task.options[0].outcomes and task.options[1].outcomes; task.feedback.incorrectUk: \"Неправильно. Зустріч о 22:00.\".",
+      "defect": "The transcript supplies no morning/night qualifier. Both clock readings remain possible (inferred from the unqualified «a las diez»); meeting outside a cinema does not establish 22:00.",
+      "correction": "Specify «a las diez de la mañana» or «a las diez de la noche» and align the translation and key, or avoid distinguishing 10:00 from 22:00 in the options.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «hora», twelve-hour expressions and day-period qualifiers (from memory).",
+        "Supplied verdict definition: use «uncertain» when the intended reading is underdetermined."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-04",
+      "reviewerAnswer": "a, b or c: the recipient represented by «se» is unspecified.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: \"Ayer hablé con Luis y con sus hermanos. Tenía dos entradas para el concierto y se las di.\"; task.options[1].feedbackUk and task.options[2].feedbackUk: \"Ні: квитки отримав Луїс.\".",
+      "defect": "Before «las», «se» can replace either singular «le» or plural «les». Luis, his brothers, or the group are possible recipients (inferred from the mentioned antecedents). The text does not establish Luis alone.",
+      "correction": "Specify the intended recipient, for example by adding «a Luis», «a sus hermanos» or «a Luis y a sus hermanos», then align the key and feedback.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «se», replacement of «le/les» before «lo/la/los/las» (from memory).",
+        "Supplied verdict definition: use «uncertain» for unresolved pronoun reference."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-05",
+      "reviewerAnswer": "a or b: «vivía» describes background residence; «viví» can describe a completed period of residence during childhood.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: \"Cuando era pequeña, ___ en Sevilla.\"; task.options[1].feedbackUk: \"Ні: тут потрібен імперфект — це фон.\".",
+      "defect": "The sentence permits both a background description and a completed episode of residence. The intended aspectual viewpoint is unspecified (inferred from the standalone prompt), so «viví» cannot be excluded on this context alone.",
+      "correction": "Specify the intended viewpoint in the instruction or provide context that establishes it, then align the key and feedback.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of perfective and imperfective past aspect (from memory).",
+        "Supplied verdict definition: use «uncertain» when multiple contextual readings remain possible."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-06",
+      "reviewerAnswer": "está on a habitual-present reading of «llegamos»; estaba on a past-background reading.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[0].text: \"estaba\"; task.errors[0].text: \"está\"; task.errors[0].feedbackUk: \"Ідеться про минуле: «estaba».\".",
+      "defect": "The key requires imperfect «estaba», while context.taughtBefore maps only present-tense «estar». This is an untaught prerequisite. Additionally, «llegamos» can be present or preterite, so the past reading is not established (inferred from the shared form and absence of a past-time marker).",
+      "correction": "Explicitly request present-tense «estar», use a simple location sentence and accept «está». Reserve the past-tense task for after the imperfect has been taught and supply a clear past context.",
+      "sources": [
+        "Course contract, rule 1; context.taughtBefore[0] explicitly lists present-tense «estar».",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «llegar» and «estar» (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-07",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-08",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-09",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.options[1].feedbackUk: \"Правильно! «Tengo veinte años» — мені двадцять років.\".",
+      "defect": "Option b means 12 and is correctly marked incorrect, but its feedback declares the answer correct. This conflicts with both the outcome and the clip's «veinte».",
+      "correction": "Replace «Правильно!» with feedback indicating an incorrect answer and explaining that «veinte» means twenty.",
+      "sources": [
+        "Course contract, rule 2.",
+        "Packet evidence: clips[0].transcript contains «Tengo veinte años»; task.options[1].label is «12»."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-10",
+      "reviewerAnswer": "Mi hermana es médica.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.role: \"delayed\"; task.prompt[1].spanish: \"Mi hermana es médica.\"; task.prompt[1].ukrainian: \"Моя сестра — лікарка.\".",
+      "defect": "The delayed task displays the complete translation of the exact sentence being assessed. This leaks the answer and violates the held-out role.",
+      "correction": "Remove the example from the delayed prompt. If a visible model is intended, use a supported task instead.",
+      "sources": [
+        "Course contract, rule 7."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-11",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-h2-12",
+      "reviewerAnswer": "mí",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    }
+  ]
+}

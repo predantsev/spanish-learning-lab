@@ -172,7 +172,7 @@ export type Content = {
   readonly logicalId: string;
   readonly revision: number;
   readonly resourceType: "lesson" | "material" | "phrase";
-  readonly state: "draft" | "needs-review" | "ready" | "retired" | "quarantined";
+  readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
   readonly title: string;
   readonly topicId: string;
   readonly blocks: Array<Block>;
@@ -295,7 +295,7 @@ export type CatalogEntry = {
   readonly blockId: string;
   readonly situationIds: Array<string>;
   readonly targets: Array<Target>;
-  readonly state: "draft" | "needs-review" | "ready" | "retired" | "quarantined";
+  readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
 };
 
 export type CatalogPage = {
@@ -421,6 +421,10 @@ export type Payload_phrase_capture = ({
   readonly text: string;
   readonly meaning: string;
 });
+
+export type Payload_phrase_archive = {
+  readonly archived: boolean;
+};
 
 export type Payload_material_draft = {
   readonly title: string;
@@ -627,6 +631,16 @@ export type Command = ({
   readonly subjectId: Id;
   readonly expectedRevision: number;
   readonly payload: Payload_phrase_capture;
+  readonly contextId?: Id;
+  readonly contextRevision?: number;
+  readonly contextSnapshot?: Snapshot;
+}) | ({
+  readonly operationId: Id;
+  readonly profileEpoch: number;
+  readonly kind: "phrase.archive";
+  readonly subjectId: Id;
+  readonly expectedRevision: number;
+  readonly payload: Payload_phrase_archive;
   readonly contextId?: Id;
   readonly contextRevision?: number;
   readonly contextSnapshot?: Snapshot;
@@ -899,6 +913,8 @@ export type LessonView = {
     }>;
   }>;
   readonly progress: {
+    readonly id?: Id;
+    readonly revision?: number;
     readonly status: "not-started" | "visited" | "completed";
     readonly visitedStepIds: Array<string>;
   };
@@ -948,6 +964,7 @@ export type PhraseLibraryView = {
     readonly state: "draft" | "needs-review" | "reviewed" | "ready" | "retired" | "quarantined";
     readonly origin: "course" | "spanish" | "uk-intent";
     readonly collectionIds: Array<Id>;
+    readonly targets: Array<Target>;
     readonly practiceReady: boolean;
     readonly archived: boolean;
   }>;
@@ -968,6 +985,44 @@ export type MaterialsView = {
     readonly blocks: Array<Block>;
     readonly linkedTargets: Array<Target>;
   }>;
+};
+
+export type CatalogMetaView = {
+  readonly viewsVersion: 1;
+  readonly blocks: Array<{
+    readonly blockId: string;
+    readonly titleUk: string;
+    readonly termEs: string;
+  }>;
+  readonly situations: Array<{
+    readonly id: string;
+    readonly titleUk: string;
+  }>;
+  readonly skills: Array<{
+    readonly skillId: string;
+    readonly titleUk: string;
+    readonly termEs: string;
+  }>;
+};
+
+export type AttemptResultView = {
+  readonly viewsVersion: 1;
+  readonly attemptId: Id;
+  readonly taskRevisionId: Id;
+  readonly status: "checked" | "unresolved";
+  readonly originalAnswer: string;
+  readonly verdicts: Array<{
+    readonly target: Target;
+    readonly titleUk: string;
+    readonly correctness: "correct" | "incorrect" | "unresolved" | "invalid-item";
+    readonly independence: "independent" | "supported" | "unknown" | "not-assessed";
+    readonly feedbackUk: string;
+  }>;
+  readonly feedbackUk: string;
+  readonly referenceAnswer: string;
+  readonly referenceIsExample: boolean;
+  readonly supportUsed: Array<"rule" | "targeted-clue" | "translation" | "transcript" | "reveal" | "external-help" | "delivery-unknown">;
+  readonly savedForReview: boolean;
 };
 
 export type ListeningView = {
@@ -1041,6 +1096,7 @@ export const schemaDefinitionNames = [
   "Payload_support_cancel",
   "Payload_practice_create",
   "Payload_phrase_capture",
+  "Payload_phrase_archive",
   "Payload_material_draft",
   "Payload_collection_create",
   "Payload_collection_patch",
@@ -1068,6 +1124,8 @@ export const schemaDefinitionNames = [
   "ProgressView",
   "PhraseLibraryView",
   "MaterialsView",
+  "CatalogMetaView",
+  "AttemptResultView",
   "ListeningView",
   "ContextList"
 ] as const;

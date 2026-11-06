@@ -37,6 +37,9 @@ export const FINDING_CATEGORIES = [
   'wrong-level-or-meaning',
   'conflicting-feedback-or-support',
   'other',
+  // Calibrated v3/v2 reviewer verdicts (content/reviews/calibration/prompts/review-output.schema.json).
+  'flawed',
+  'uncertain',
 ] as const;
 export type FindingCategory = (typeof FINDING_CATEGORIES)[number];
 
@@ -69,11 +72,68 @@ export interface ReviewPacket {
     checkingRules: string[];
     evidenceRules: string[];
   };
-  /** Targets assessed by the batch (`skillId/modality`), one verdict each. */
+  /** Targets assessed by the batch (`skillId/modality`). */
   targets: string[];
   items: PacketItem[];
   context: { skills: unknown[]; sources: unknown[]; lessons: Array<{ id: string; titleUk: string; order: number }> };
+  /** Exactly what the calibrated reviewer receives as packet.json (one case per item, caseId = kind:id). */
+  reviewerPacket: ReviewerPacket;
   packetHash: string;
+}
+
+export interface ReviewerCase {
+  caseId: string;
+  context: {
+    lessonId: string;
+    lessonTopic: string;
+    taughtBefore: string[];
+    targets: Array<{ target: string; description: string }>;
+  };
+  clips?: unknown[];
+  /** Task cases use the calibrated shape. */
+  task?: unknown;
+  /** Non-task items (lesson, skill, lexeme, clip, …): outside the calibrated case set. */
+  content?: { kind: EntityKind; body: unknown };
+}
+
+export interface ReviewerPacket {
+  schemaVersion: 1;
+  packetId: string;
+  description: string;
+  cases: ReviewerCase[];
+}
+
+/** One entry of the calibrated reviewer output (review-output.schema.json). */
+export interface ReviewerVerdict {
+  caseId: string;
+  reviewerAnswer: string;
+  verdict: 'valid' | 'flawed' | 'uncertain';
+  blocking: 'yes' | 'no';
+  element: string;
+  defect: string;
+  correction: string;
+  sources: string[];
+  notes: string;
+}
+
+/** Route metadata signed through report.json (the ExecutionReceipt contract has no free fields). */
+export interface RouteMetadata {
+  direction: 'A' | 'B';
+  provider: 'openai' | 'anthropic';
+  tool: 'codex exec' | 'claude -p';
+  promptVersion: string;
+  promptTemplate: { path: string; sha256: string };
+  outputSchema: { path: string; sha256: string };
+  promptAsSentSha256: string;
+  reviewerPacketSha256: string;
+  argv: string[];
+  env: Record<string, string>;
+  cwd: string;
+  workingDirectoryContents: string[];
+  cliVersion: string;
+  requestedModel: string;
+  requestedEffort: string;
+  resolved: Record<string, unknown>;
 }
 
 export interface ItemFinding {
@@ -92,13 +152,23 @@ export interface ReportItem {
   severity: Severity;
   declaredSeverity: Severity;
   findings: ItemFinding[];
+  /** Calibrated reviewer fields (present for v3/v2 runs). */
+  caseId?: string;
+  verdict?: ReviewerVerdict['verdict'];
+  reviewerAnswer?: string;
+  notes?: string;
+  sources?: string[];
 }
 
 export interface StoredReport {
-  schemaVersion: 1;
+  schemaVersion: 1 | 2;
   batchId: string;
   packetHash: string;
-  reviewReport: ReviewReport;
+  /** Contract ReviewReport when it can be formed (≤30 targets and ≥1 https citation); otherwise null. */
+  reviewReport: ReviewReport | null;
+  reviewReportNote?: string;
+  route?: RouteMetadata;
+  reviewer?: { cases: ReviewerVerdict[] };
   items: ReportItem[];
   missingItems: Array<{ kind: EntityKind; logicalId: string }>;
   unexpectedItems: Array<{ kind: string; logicalId: string }>;

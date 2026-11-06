@@ -2,20 +2,22 @@
 //   node tools/review/review.ts packet (--lesson <id> | --skills a,b,… | --items kind:id,…)
 //        --author-provider openai|anthropic|google|local|other [--author-model m] [--author-effort e]
 //        [--batch-id id] [--dry-run]
-//   node tools/review/review.ts run-codex --batch <id> [--model gpt-6.1-sol] [--effort xhigh]
-//        [--repo dir] [--no-output-schema] [--timeout-min 45] [--dry-run]
+//   node tools/review/review.ts run-codex --batch <id> [--model gpt-6.1-sol] [--effort xhigh] [--timeout-min 60] [--dry-run]
+//        (direction A, calibrated prompt v3; for Claude-authored content)
+//   node tools/review/review.ts run-claude --batch <id> [--model opus] [--effort medium] [--timeout-min 60] [--dry-run]
+//        (direction B, calibrated prompt v2; for OpenAI-authored content)
 //   node tools/review/review.ts apply --batch <id> [--run <jobId>] [--dry-run]
 //   node tools/review/review.ts promote (--batch <id> | --items kind:id,…) [--dry-run]
 // Common: [--source dir] [--ledger file] [--reviews dir]. Keys: $SLL_REVIEW_KEYS_DIR, else
 // $SLL_HOME/keys, else ~/Library/Application Support/Spanish Learning Lab/keys.
-import { DEFAULT_LEDGER_PATH, DEFAULT_REVIEWS_DIR, DEFAULT_SOURCE_DIR, REPO_ROOT, flagString, isMain, parseArgs } from '../content/load.ts';
+import { DEFAULT_LEDGER_PATH, DEFAULT_REVIEWS_DIR, DEFAULT_SOURCE_DIR, flagString, isMain, parseArgs } from '../content/load.ts';
 import type { EntityKind } from '../content/types.ts';
 import { ENTITY_KINDS } from '../content/types.ts';
 import { applyReview } from './apply.ts';
 import { buildPacket, writePacket } from './packet.ts';
 import type { PacketScope } from './packet.ts';
 import { promote } from './promote.ts';
-import { runCodexReview } from './run-codex.ts';
+import { runReview } from './run-codex.ts';
 import { REVIEW_PROVIDERS } from './store.ts';
 import type { ReviewProvider } from './store.ts';
 
@@ -74,27 +76,28 @@ async function main(): Promise<void> {
       else console.log(`wrote ${writePacket(reviewsDir, packet)}`);
       return;
     }
-    case 'run-codex': {
+    case 'run-codex':
+    case 'run-claude': {
       if (!batchId) fail('--batch is required');
       const model = flagString(flags, 'model');
       const effort = flagString(flags, 'effort');
-      const timeoutMin = Number(flagString(flags, 'timeout-min') ?? '45');
-      const result = await runCodexReview({
+      const timeoutMin = Number(flagString(flags, 'timeout-min') ?? '60');
+      const result = await runReview({
         reviewsDir,
         batchId,
-        repoRoot: flagString(flags, 'repo') ?? REPO_ROOT,
-        useOutputSchema: !flags.has('no-output-schema'),
+        direction: command === 'run-codex' ? 'A' : 'B',
         timeoutMs: timeoutMin * 60 * 1000,
         dryRun,
         ...(model ? { model } : {}),
         ...(effort ? { effort } : {}),
       });
-      console.log(`command: ${result.argv.map((a) => (/\s/.test(a) ? JSON.stringify(a) : a)).join(' ')} < prompt (sha256 ${result.promptSha256})`);
+      const shown = result.argv.map((a) => (a === '' || /[\s"'$]/.test(a) ? (a.length > 80 ? "'<contents of output-schema.json>'" : JSON.stringify(a)) : a));
+      console.log(`command: ${shown.join(' ')} < prompt.txt (sha256 ${result.promptSha256})`);
       if (result.status === 'dry-run') {
-        console.log('dry run: codex not executed, nothing written');
+        console.log('dry run: reviewer not executed, nothing written');
         return;
       }
-      console.log(`run ${result.jobId} → ${result.status}${result.receiptId ? `, receipt ${result.receiptId}` : ''}\n  ${result.runDir}`);
+      console.log(`run ${result.jobId} → ${result.status}${result.receiptId ? `, receipt ${result.receiptId}` : ''}${result.counts ? ` ${JSON.stringify(result.counts)}` : ''}\n  ${result.runDir}`);
       for (const p of result.problems) console.error(`  problem: ${p}`);
       if (!result.ok) process.exit(1);
       return;

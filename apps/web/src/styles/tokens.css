@@ -1,0 +1,137 @@
+/*
+ * Design tokens — Spanish Learning Lab (WP-06).
+ * One coherent token set for every screen (IMPLEMENTATION-PLAN "Product behavior" defaults):
+ * 8 px spacing scale, 16 px base text, readable max width 72rem, exercise column 44rem,
+ * system font stack, light default, system dark respected, explicit data-theme override.
+ * Breakpoint: 48rem (768 px) — below it the app uses bottom navigation and separate detail routes.
+ * (Custom properties cannot be used inside media queries, so 48rem is repeated where needed.)
+ */
+
+:root {
+  /* 8 px spacing scale (1rem = 16 px). --space-half exists only for hairline gaps. */
+  --space-half: 0.25rem;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+
+  /* Type: 16 px base, system font stack. */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --line-height: 1.5;
+  --line-height-tight: 1.25;
+
+  /* Layout widths. */
+  --width-readable: 72rem;
+  --width-exercise: 44rem;
+  --width-nav: 15rem;
+  --width-reference: 22rem;
+  --height-bottom-nav: 4rem;
+
+  /* Interaction. */
+  --touch-target: 2.75rem; /* 44 px minimum touch target */
+  --radius-1: 0.25rem;
+  --radius-2: 0.5rem;
+  --radius-3: 1rem;
+  --border-width: 1px;
+  --focus-ring-width: 3px;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+
+  /* Light palette (default). Contrast pairs target WCAG AA for text. */
+  color-scheme: light;
+  --color-bg: #f6f6f2;
+  --color-surface: #ffffff;
+  --color-surface-2: #eeede6;
+  --color-surface-3: #e3e1d7;
+  --color-text: #1c1c1a;
+  --color-text-muted: #55554f;
+  --color-border: #c9c7bb;
+  --color-border-strong: #8e8c80;
+  --color-accent: #1b5aa6;
+  --color-accent-hover: #164a89;
+  --color-accent-contrast: #ffffff;
+  --color-accent-soft: #e3edf9;
+  --color-focus: #1b5aa6;
+  --color-success: #1b6b38;
+  --color-success-soft: #e2f1e6;
+  --color-danger: #a1271c;
+  --color-danger-soft: #f8e5e2;
+  --color-warning: #7d5300;
+  --color-warning-soft: #f8eed6;
+  --color-neutral-soft: #ebeae3;
+  --color-overlay: rgb(20 20 18 / 45%);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 8%), 0 2px 8px rgb(0 0 0 / 6%);
+  --shadow-2: 0 4px 24px rgb(0 0 0 / 18%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-bg: #141513;
+    --color-surface: #1d1e1b;
+    --color-surface-2: #272824;
+    --color-surface-3: #31322d;
+    --color-text: #edece6;
+    --color-text-muted: #b4b2a8;
+    --color-border: #43443e;
+    --color-border-strong: #7b7a70;
+    --color-accent: #8cb7f0;
+    --color-accent-hover: #a9c9f4;
+    --color-accent-contrast: #0b1626;
+    --color-accent-soft: #1e2d42;
+    --color-focus: #a9c9f4;
+    --color-success: #8bd3a1;
+    --color-success-soft: #1d3324;
+    --color-danger: #f2a197;
+    --color-danger-soft: #3d201c;
+    --color-warning: #e8c46e;
+    --color-warning-soft: #3a2f14;
+    --color-neutral-soft: #2a2b27;
+    --color-overlay: rgb(0 0 0 / 60%);
+    --shadow-1: 0 1px 2px rgb(0 0 0 / 40%);
+    --shadow-2: 0 4px 24px rgb(0 0 0 / 55%);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #141513;
+  --color-surface: #1d1e1b;
+  --color-surface-2: #272824;
+  --color-surface-3: #31322d;
+  --color-text: #edece6;
+  --color-text-muted: #b4b2a8;
+  --color-border: #43443e;
+  --color-border-strong: #7b7a70;
+  --color-accent: #8cb7f0;
+  --color-accent-hover: #a9c9f4;
+  --color-accent-contrast: #0b1626;
+  --color-accent-soft: #1e2d42;
+  --color-focus: #a9c9f4;
+  --color-success: #8bd3a1;
+  --color-success-soft: #1d3324;
+  --color-danger: #f2a197;
+  --color-danger-soft: #3d201c;
+  --color-warning: #e8c46e;
+  --color-warning-soft: #3a2f14;
+  --color-neutral-soft: #2a2b27;
+  --color-overlay: rgb(0 0 0 / 60%);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-2: 0 4px 24px rgb(0 0 0 / 55%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}
