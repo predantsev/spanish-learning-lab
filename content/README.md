@@ -69,6 +69,8 @@ collection `collection.…`, material `material.…`, lexical item `lex.…`. A 
 6. **Ukrainian** for every instruction, explanation, hint and feedback; Spanish of Spain for every
    Spanish text (vosotros where person forms are taught; usted/ustedes as reference). Prompts mark
    Spanish blocks `language: "es-ES"`.
+6a. **Ukrainian terminology.** The Spanish written accent ´ is «знак наголосу» / «графічний наголос», never
+   «тильда» (in Ukrainian «тильда» is only the ~ sign, e.g. of ñ). Inverted marks are «знаки ¿ ¡».
 7. **No speaking.** Listening = meaning tasks and optional dictation only. No microphone.
 8. **Review status.** Authors write `draft`. Opposite-provider review moves items to `reviewed`
    (receipt bound to the content hash); only `tools/review` sets `ready`. An edit after review
