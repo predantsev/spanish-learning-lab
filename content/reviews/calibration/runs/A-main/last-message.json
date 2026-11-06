@@ -1,0 +1,513 @@
+{
+  "cases": [
+    {
+      "caseId": "cal-01",
+      "reviewerAnswer": "la",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].targets: [\"object-pron.lo-la/written-form\"] for the vocabulary gloss \"la cartera\" / \"гаманець\".",
+      "defect": "The vocabulary gloss is incorrectly attributed as grammar support. The contract explicitly excludes vocabulary translations from supporting grammar targets.",
+      "correction": "Set this hint's targets to []. Keep the grammatical explanation in task.hints[1] attributed to the pronoun target.",
+      "sources": [
+        "Course contract rule 6."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-02",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-03",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: \"Назви днів тижня в іспанській завжди пишуться з великої літери, як в англійській: Lunes, Martes, Jueves.\"; task.hints[0].targets: [\"date.weekdays/reading-meaning\"].",
+      "defect": "Spanish weekday names ordinarily take lowercase letters. Furthermore, a capitalization explanation does not explain the assessed weekday meaning.",
+      "correction": "Explain that weekday names ordinarily use lowercase: lunes, martes, jueves. Remove the reading-meaning attribution from that spelling hint, or replace it with help explaining the weekday's meaning.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), capitalization of days, months and seasons (from memory).",
+        "Course contract rule 6."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-04",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "clips[0].translationUk and task.hints[0].blocks[0].text: \"Зустрічаємося завтра через пів дня біля входу до музею.\"",
+      "defect": "\"A mediodía\" means at noon, whereas \"через пів дня\" expresses a delay of half a day. The translation contradicts the transcript and the correct option.",
+      "correction": "Use \"Зустрічаємося завтра опівдні біля входу до музею.\" in both places.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «mediodía» (from memory).",
+        "Course contract rule 8."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-05",
+      "reviewerAnswer": "Sentaos or Siéntense. The form of address is unspecified.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: \"До вас щойно прийшли гості. Запросіть їх сісти (sentarse).\"; task.accepted accepts only \"Siéntense\", while task.errors[0] rejects \"Sentaos\".",
+      "defect": "The prompt does not establish whether the guests are addressed as vosotros or ustedes. Both invitations fit reasonable Spain Spanish contexts.",
+      "correction": "Specify the intended form of address, or accept both Sentaos and Siéntense with an explanation of their use.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «usted», forms of plural address in Spain (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-06",
+      "reviewerAnswer": "leído",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: \"Правило: якщо основа дієслова закінчується на голосний, дієприкметник на -ido завжди пишеться з тильдою над í: leído, oído, traído, construído, incluído.\"",
+      "defect": "The universal rule is false. The standard spellings are construido and incluido, without a written accent. Their ui sequence does not follow the hiatus-accent rule illustrated by leído, oído and traído.",
+      "correction": "Explain the written accent in the taught hiatus examples leído, oído and traído. Remove the universal vowel-ending claim and correct construido and incluido if retained.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatuses and ui/iu diphthongs (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-07",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-08",
+      "reviewerAnswer": "Se la",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[1].text: \"Se las\"; task.accepted[1].noteUk: \"Також правильно: множину «vecinos» можна перенести на займенник.\"",
+      "defect": "The direct object is singular la llave, so its replacement is la. The plurality of the recipients does not license las in standard Spain Spanish; indirect-object se remains invariant.",
+      "correction": "Remove Se las from accepted answers and reject it with feedback explaining that la replaces la llave and se replaces les.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «se», substitution for le/les before direct-object clitics and plural transfer (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-09",
+      "reviewerAnswer": "¿Ya habéis comido?, ¿Ya ha comido? or ¿Ya han comido?, depending on the addressee.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: \"Перекладіть іспанською: «Ви вже поїли?»\"; task.accepted contains only questions with \"habéis\".",
+      "defect": "Ukrainian Ви can address several people or politely address one person. The prompt also does not distinguish vosotros from ustedes for plural address. The closed key selects one interpretation without specifying it.",
+      "correction": "Specify the addressee and form of address, or accept the corresponding usted, vosotros and ustedes questions and their appropriate word orders.",
+      "sources": [
+        "Academic Dictionary of the Ukrainian Language (11 volumes), entry «ви», plural and respectful singular address (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «usted» (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-10",
+      "reviewerAnswer": "Idos or Iros.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[0].text: \"Iros\"; task.errors[0].feedbackUk: \"«Iros» — помилка: це інфінітив із займенником, а не наказовий спосіб. Правильно: «Idos».\"; task.accepted contains only \"Idos\" despite task.closed being true.",
+      "defect": "Iros is an admitted vosotros imperative variant of irse. Rejecting it categorically is especially inappropriate in this informal address to friends.",
+      "correction": "Accept both Idos and Iros. Explain that Idos is the traditionally recommended form and Iros is also admitted; update the rejection and general feedback.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «ir(se)», imperative variants idos and iros (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-11",
+      "reviewerAnswer": "b",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-12",
+      "reviewerAnswer": "a or b. Trabajaba describes a past situation; trabajó can present the employment as a completed period.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: \"Mi abuelo ___ en una fábrica de muebles de Valencia.\"; task.options[1] rejects \"trabajó\" because \"тут потрібен імперфект\".",
+      "defect": "The sentence supplies no discourse establishing habitual background rather than a completed employment period. Neither tense is uniquely selected.",
+      "correction": "Provide context and an instruction establishing the intended viewpoint, or accept both forms and explain their different readings.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), chapter 23, perfective and imperfective interpretations of past tenses (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-13",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-14",
+      "reviewerAnswer": "habláis",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: \"Vosotros ___ muy bien español.\" requires the accepted form \"habláis\".",
+      "defect": "The prerequisites explicitly limit instruction to yo, tú and él/ella/usted. Neither vosotros nor its present-tense ending has been introduced.",
+      "correction": "Teach vosotros and -áis, including the written accent, before this task, or test an already introduced person.",
+      "sources": [
+        "Course contract rule 1.",
+        "Packet context.taughtBefore explicitly lists only yo, tú and él/ella/usted forms."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-15",
+      "reviewerAnswer": "vio",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[0].text and task.referenceAnswer: \"vió\"; task.errors[0].text: \"vio\"; task.hints[0].blocks[0].text includes \"habló, comió, vió\"; task.feedback.incorrectUk also prescribes \"vió\".",
+      "defect": "Vio is an orthographic monosyllable and takes no written accent. The key reverses the correct and incorrect spellings, and the explanation falsely extends the accent pattern of habló and comió to vio.",
+      "correction": "Accept vio, reject vió, and update the reference answer and all feedback. Explain that these monosyllabic forms do not take a written accent.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), monosyllables and written accents, including vio, dio, fue and fui (from memory).",
+        "Course contract rules 3 and 5."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-16",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.options[1].feedbackUk: \"Неправильно. Ця слово жіночого роду, тому потрібен артикль «la».\"",
+      "defect": "The Ukrainian demonstrative Ця does not agree with the neuter noun слово.",
+      "correction": "Use \"Неправильно. Це слово жіночого роду, тому потрібен артикль «la».\"",
+      "sources": [
+        "Academic Dictionary of the Ukrainian Language (11 volumes), entries «слово» and «цей» (from memory).",
+        "Course contract rule 8."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-17",
+      "reviewerAnswer": "viven or vive.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-18",
+      "reviewerAnswer": "condujo",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-19",
+      "reviewerAnswer": "3,20",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[0].text: \"3,02\"; task.accepted[1].text: \"3.02\"; task.referenceAnswer: \"3,02\".",
+      "defect": "The transcript states three euros and twenty cents, which is 3,20, not 3,02. An open key still must not explicitly accept a wrong amount.",
+      "correction": "Replace the accepted amounts with 3,20 and 3.20, and set the reference answer to 3,20.",
+      "sources": [
+        "Packet clips[0].transcript: \"—¿Cuánto es? —Son tres euros con veinte.\"",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-20",
+      "reviewerAnswer": "Assuming the subject is yo, he llamado or llamé can fit different temporal contexts.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: \"Por la mañana ___ a mi hermana.\"; task.errors[0] rejects \"llamé\", while task.accepted permits only \"he llamado\".",
+      "defect": "The prompt does not identify which morning is meant or the temporal viewpoint. It also does not state the subject: mi hermana identifies the recipient, not the caller. The unique first-person perfecto answer is underdetermined.",
+      "correction": "Specify the subject and temporal context or accept the appropriate alternatives with their readings. Do not claim that por la mañana alone requires perfecto.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), chapter 23, perfecto compuesto versus pretérito perfecto simple and temporal reference (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-21",
+      "reviewerAnswer": "¿Dónde está la estación de tren?",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-22",
+      "reviewerAnswer": "a or b. Le could refer to Pablo or Professor Ruiz.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: \"Ana, Pablo y el profesor Ruiz están en la biblioteca. Ana le da un diccionario.\"; task.options[0] rejects \"Пабло\" and task.options[1] uniquely accepts \"Професорові Руїсу\".",
+      "defect": "Both men are possible singular recipients. Neither le nor the preceding sentence identifies which one receives the dictionary.",
+      "correction": "Add context identifying the recipient, explicitly include a Pablo or al profesor Ruiz, or offer an answer stating that the recipient cannot be determined.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «pronombres personales átonos», singular indirect-object le (from memory).",
+        "Packet task.prompt[0] introduces both possible recipients without selecting one."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-23",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-24",
+      "reviewerAnswer": "A ver. is the supplied transcript's reading; isolated speech also permits the homophonous spelling haber.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: \"Прослухайте й запишіть те, що почули.\"; clips[0].transcript: \"A ver.\"; the closed task.accepted list contains only \"A ver.\".",
+      "defect": "A ver and haber are homophones. The learner receives no semantic or conversational context distinguishing them. The reviewer-visible translation establishes the author's intention but does not resolve the learner's isolated dictation.",
+      "correction": "Provide semantic or conversational context selecting a ver, or accept both spellings if the recording is genuinely isolated.",
+      "sources": [
+        "RAE, Dudas rápidas, guidance distinguishing the homophones «a ver» and «haber» (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-25",
+      "reviewerAnswer": "fui",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: \"El lunes (yo) ___ (ir) al dentista.\"; task.targets specifies \"indefinido.regular-ar/written-form\"; task.hints[0] supplies regular -ar endings.",
+      "defect": "The task tests the irregular preterite of ir, which is absent from the prerequisites and does not instantiate the declared regular -ar target. The hint cannot derive fui.",
+      "correction": "Use an already taught regular -ar verb and update the key, or first teach the irregular preterite of ir and assign the appropriate target and hint.",
+      "sources": [
+        "Course contract rule 1.",
+        "Packet context.taughtBefore introduces only regular -ar preterite endings."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-26",
+      "reviewerAnswer": "a or b. A las ocho does not distinguish 08:00 from 20:00.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "clips[0].transcript: \"Te espero en la estación a las ocho.\"; task.options[0] rejects \"О 8:00\", while task.options[1] uniquely accepts \"О 20:00\".",
+      "defect": "Neither the transcript nor the prompt supplies a time-of-day qualifier or other context selecting morning or evening.",
+      "correction": "Add de la mañana or de la tarde/noche to the recording and transcript, or accept both interpretations.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), clock-time expressions and twelve-hour versus twenty-four-hour notation (from memory).",
+        "Packet clips[0].transcript contains no time-of-day qualifier."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-27",
+      "reviewerAnswer": "anduve",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-28",
+      "reviewerAnswer": "a or b. Singular la could refer to Marta or Lucía, but not both.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "clips[0].transcript: \"—Busco a Marta y a Lucía. —La llamo ahora mismo.\"; task.options[0] uniquely accepts \"Марті\", while task.options[1].feedbackUk states \"Ні, «la» — це Марта.\".",
+      "defect": "Both named people are possible feminine singular antecedents. Nothing identifies Marta as the person being called. The singular pronoun establishes number, not which woman is intended.",
+      "correction": "Provide context identifying one woman. If both are intended, change the response to Las llamo ahora mismo, update the translation and accept option c.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «pronombres personales átonos», gender and number of direct-object clitics (from memory).",
+        "Packet clips[0].transcript names two possible feminine singular antecedents."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-29",
+      "reviewerAnswer": "b",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.options[0] labels \"Так, працює\" correct; task.options[1] labels \"Ні, не працює\" incorrect.",
+      "defect": "The key reverses the meaning of the explicit statement Los domingos no abrimos. The option feedback consequently rewards the wrong answer and rejects the right one.",
+      "correction": "Mark option b correct and option a incorrect. Explain that the shop does not open on Sundays.",
+      "sources": [
+        "Packet clips[0].transcript: \"Los domingos no abrimos.\"",
+        "Course contract rule 2."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-30",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[1].text: \"Hola, soy Elena. Llego al aeropuerto el viernes a las diez de la noche. ¿Puedes recogerme?\"",
+      "defect": "The listening-meaning prompt displays the complete transcript, allowing the learner to answer by reading.",
+      "correction": "Remove the transcript from the prompt. If offered as help, place it in a hint of kind transcript.",
+      "sources": [
+        "Course contract rule 7."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-31",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-32",
+      "reviewerAnswer": "Mañana va a llover en Bilbao.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-33",
+      "reviewerAnswer": "¿Me pasas el agua fría, por favor?",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-34",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-35",
+      "reviewerAnswer": "mí",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[0].text and task.referenceAnswer: \"mi\"; task.errors[0].text: \"mí\"; task.errors[0].feedbackUk: \"Тильда не потрібна: односкладові слова в іспанській пишуться без тильди.\"",
+      "defect": "The prepositional pronoun mí requires a diacritic accent; mi without an accent is possessive. The explanation falsely excludes diacritic accents on monosyllables, and the key reverses the correct and incorrect forms.",
+      "correction": "Accept mí, reject mi in this sentence, and update the reference answer and feedback to explain mí versus possessive mi.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entries «mí» and «mi» (from memory).",
+        "Course contract rules 3 and 5."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-36",
+      "reviewerAnswer": "había",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[1].text: \"habían\"; task.accepted[1].noteUk: \"Теж правильно: дієслово узгоджується з «muchas personas».\"",
+      "defect": "Existential haber is impersonal and remains third-person singular in standard Spanish. Muchas personas is not a subject licensing plural agreement. The additional accepted form and its explanation also conflict with the final feedback requiring había.",
+      "correction": "Remove habían from accepted answers and review it as incorrect here. Explain that existential había remains singular before plural noun phrases.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «haber», impersonal existential use and avoidance of plural agreement (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-37",
+      "reviewerAnswer": "lo or le.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-38",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-39",
+      "reviewerAnswer": "impreso or imprimido.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "cal-40",
+      "reviewerAnswer": "frito or freído.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[0].text: \"freído\"; task.errors[0].feedbackUk: \"Форма «freído» неправильна: дієслово freír має лише дієприкметник «frito».\"; the closed task.accepted list contains only \"frito\".",
+      "defect": "Freír has two accepted participles, frito and freído, and both can be used with haber. The closed key rejects a correct answer and teaches a false exclusivity rule.",
+      "correction": "Accept both frito and freído. Remove freído from the wrong-answer list and update the explanation and general feedback.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «freír», double participles and their use in compound tenses (from memory).",
+        "Course contract rule 3."
+      ],
+      "notes": ""
+    }
+  ]
+}
