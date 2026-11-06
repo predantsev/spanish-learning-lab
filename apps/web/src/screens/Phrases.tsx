@@ -131,7 +131,7 @@ export function PhrasesScreen({ phraseId }: { readonly phraseId?: string }) {
   );
 }
 
-function CollectionsOverview({ view, onChanged }: { readonly view: PhraseLibraryView; readonly onChanged: () => void }) {
+export function CollectionsOverview({ view, onChanged }: { readonly view: PhraseLibraryView; readonly onChanged: () => void }) {
   const { t } = useTranslation();
   const [creating, setCreating] = useState(false);
   const readyById = new Map(view.phrases.map((phrase) => [phrase.id, isPracticeReady(phrase)]));
@@ -168,7 +168,7 @@ function CollectionsOverview({ view, onChanged }: { readonly view: PhraseLibrary
   );
 }
 
-function PhraseLibrary({ view, selectedId, onChanged }: { readonly view: PhraseLibraryView; readonly selectedId?: string; readonly onChanged: () => void }) {
+export function PhraseLibrary({ view, selectedId, onChanged }: { readonly view: PhraseLibraryView; readonly selectedId?: string; readonly onChanged: () => void }) {
   const { t } = useTranslation();
   const { api } = useApp();
   const ui = useStore(phraseStore);
@@ -301,7 +301,7 @@ function PhraseLibrary({ view, selectedId, onChanged }: { readonly view: PhraseL
   );
 }
 
-function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phrase; readonly view: PhraseLibraryView; readonly onChanged: () => void }) {
+export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phrase; readonly view: PhraseLibraryView; readonly onChanged: () => void }) {
   const { t } = useTranslation();
   const wide = useWideLayout();
   const { patch, runner } = useCollectionPatch(onChanged);

@@ -72,7 +72,7 @@ export function currentStepOf(lesson: LessonView, stepId: string | undefined, fo
   return lesson.steps.find((step) => !visited.has(step.id)) ?? lesson.steps[0];
 }
 
-function LessonContent({ lesson, stepId, reload }: { readonly lesson: LessonView; readonly stepId?: string; readonly reload: () => void }) {
+export function LessonContent({ lesson, stepId, reload }: { readonly lesson: LessonView; readonly stepId?: string; readonly reload: () => void }) {
   const { t } = useTranslation();
   const { api } = useApp();
   const wide = useWideLayout();

@@ -126,7 +126,7 @@ function situationLabel(id: string, t: (key: string, options?: Record<string, un
   return t(`situations.${id}`, { defaultValue: id });
 }
 
-function CatalogList({ entries, selectedId, titles }: { readonly entries: readonly CatalogEntry[]; readonly selectedId?: string; readonly titles: Titles }) {
+export function CatalogList({ entries, selectedId, titles }: { readonly entries: readonly CatalogEntry[]; readonly selectedId?: string; readonly titles: Titles }) {
   const { t } = useTranslation();
   const ui = useStore(catalogStore);
   const searchId = useId();
@@ -278,7 +278,7 @@ function CatalogList({ entries, selectedId, titles }: { readonly entries: readon
   );
 }
 
-function CatalogDetail({ entry, titles }: { readonly entry: CatalogEntry; readonly titles: Titles }) {
+export function CatalogDetail({ entry, titles }: { readonly entry: CatalogEntry; readonly titles: Titles }) {
   const { t } = useTranslation();
   const { api } = useApp();
   const ui = useStore(catalogStore);

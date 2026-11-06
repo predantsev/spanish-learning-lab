@@ -48,7 +48,7 @@ export function ProgressScreen() {
   );
 }
 
-function ProgressContent({ view, reload }: { readonly view: ProgressView; readonly reload: () => void }) {
+export function ProgressContent({ view, reload }: { readonly view: ProgressView; readonly reload: () => void }) {
   const { t } = useTranslation();
   const { api } = useApp();
   const practiceRunner = useCommandRunner();

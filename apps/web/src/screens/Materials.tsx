@@ -170,7 +170,7 @@ export function MaterialsScreen({ topicId }: { readonly topicId: string }) {
   );
 }
 
-function MaterialReader({ revisions, onBack }: { readonly revisions: readonly Material[]; readonly onBack: () => void }) {
+export function MaterialReader({ revisions, onBack }: { readonly revisions: readonly Material[]; readonly onBack: () => void }) {
   const { t } = useTranslation();
   const { api } = useApp();
   const wide = useWideLayout();

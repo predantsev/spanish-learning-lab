@@ -142,7 +142,7 @@ export function ExerciseScreen({ taskRevisionId }: { readonly taskRevisionId: st
   );
 }
 
-function UnavailableTask({ view }: { readonly view: ExerciseView }) {
+export function UnavailableTask({ view }: { readonly view: ExerciseView }) {
   const { t } = useTranslation();
   return (
     <>
@@ -164,7 +164,7 @@ function listeningTargets(targets: readonly Target[]): Target[] {
   return listening.length > 0 ? listening : [...targets];
 }
 
-function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseSetup & { readonly context: Context }; readonly stepId?: string }) {
+export function ExerciseWorkspace({ setup, stepId }: { readonly setup: ExerciseSetup & { readonly context: Context }; readonly stepId?: string }) {
   const { t } = useTranslation();
   const { api, outbox, platform, profile, session: auth } = useApp();
   const epoch = auth.profileEpoch;

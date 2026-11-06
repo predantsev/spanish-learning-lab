@@ -80,7 +80,7 @@ export function SettingsScreen() {
   );
 }
 
-function SettingsContent({ profile, reload }: { readonly profile: OwnerProfile; readonly reload: () => void }) {
+export function SettingsContent({ profile, reload }: { readonly profile: OwnerProfile; readonly reload: () => void }) {
   const { t } = useTranslation();
   const { api, locale } = useApp();
   const runner = useCommandRunner();
@@ -620,14 +620,14 @@ export function RecoveryScreen() {
                   <p className="strong">{entry.title}</p>
                   <p className="small muted">
                     {t(`recovery.local.states.${entry.state}`)} · {formatDateTime(entry.updatedAt, locale)}
-                    {entry.epoch !== api.profileEpoch ? ` · ${t('recovery.local.otherProfile')}` : ''}
+                    {entry.epoch !== session.profileEpoch ? ` · ${t('recovery.local.otherProfile')}` : ''}
                   </p>
                   <pre className="draft-text" lang="es-ES">
                     {entry.text}
                   </pre>
                   <div className="row">
                     <CopyButton text={entry.text} />
-                    {entry.state === 'conflict' || entry.epoch !== api.profileEpoch ? (
+                    {entry.state === 'conflict' || entry.epoch !== session.profileEpoch ? (
                       <button type="button" className="btn btn-ghost btn-small" onClick={() => setDiscard(entry)}>
                         {t('recovery.local.discard')}
                       </button>
