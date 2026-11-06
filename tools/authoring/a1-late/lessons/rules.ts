@@ -83,4 +83,19 @@ export const RULES: Record<string, string> = {
     'Продавець: ¿Qué desea? або ¿Qué le pongo? — «Що бажаєте?»; ¿Algo más? — «Щось іще?». Ти: ¿Me pone un café, por favor? / Un kilo de tomates, por favor; Nada más, gracias. Aquí tiene — «ось, будь ласка». ¿En efectivo o con tarjeta? — «готівкою чи карткою?». У кафе: La cuenta, por favor.',
   'reading.price-label':
     'На цінниках вказують товар, ціну й одиницю: Tomates 2,30 €/kg — кілограм помідорів коштує 2,30 €. Oferta — акція, 2 x 1 — «два за ціною одного». Menú del día — комплексний обід за фіксовану ціну.',
+  // A1-05-L3
+  'time.clock.hours': 'Котра година — ¿Qué hora es? Відповідь: Son las + число: Son las dos, Son las diez. Артикль las обов’язковий: не «son dos», а son las dos.',
+  'time.clock.es-la-una': 'Перша година — в однині: Es la una, Es la una y media. Усі інші години — у множині: Son las dos. Так само «о першій» — a la una, а «о другій» — a las dos.',
+  'time.clock.minutes':
+    'До половини години хвилини додаємо через y: las tres y cuarto (3:15), las tres y media (3:30), las cinco y diez (5:10). Після половини називаємо наступну годину й віднімаємо хвилини через menos: las cuatro menos cuarto (3:45), las seis menos veinte (5:40).',
+  'time.clock.de-la-manana':
+    'З точним часом частину доби додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. Без точного часу — por: por la mañana.',
+  'time.event.a-las': 'Про час події питаємо ¿A qué hora…?: ¿A qué hora es la clase? Відповідь: a las + година: A las nueve. О першій — a la una.',
+  'contrast.que-hora-a-que-hora': '¿Qué hora es? — «Котра година зараз?» (Son las cinco.) ¿A qué hora…? — «О котрій відбувається подія?» (A las nueve.)',
+  'time.range.de-a': '«Від … до …» — de … a …: El banco abre de nueve a dos. Інший варіант — desde las nueve hasta las dos. На табличках коротко: de 9:00 a 14:00.',
+  'time.abre-cierra':
+    'Abre — «відчиняється», cierra — «зачиняється»; про кілька закладів — abren, cierran. El banco abre a las nueve y cierra a las dos. Стан зараз — estar: La farmacia está cerrada.',
+  'reading.opening-hours':
+    'Horario — «години роботи». L–V — «з понеділка до п’ятниці». Багато закладів в Іспанії працюють із перервою: 9:00–14:00 y 17:00–20:30. Festivos — святкові дні, cerrado — зачинено.',
+  'listening.times': 'Послухай і визнач час. Звертай увагу на y і menos: las cuatro menos cuarto — це 3:45, а не 4:15.',
 };
