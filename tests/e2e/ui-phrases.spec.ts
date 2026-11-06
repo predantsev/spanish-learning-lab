@@ -96,7 +96,25 @@ test('copying a course collection creates a personal collection with the same ph
   await expect(page).toHaveURL(/\/collections\//);
 });
 
-test('practice uses exactly the selected ready phrases', async ({ page }) => {
+test('archiving a phrase asks first and can be undone (phrase.archive true → false)', async ({ page }) => {
+  const stamp = Date.now().toString(36);
+  await addPhrase(page, 'Іспанська фраза', `Synthetic archivo ${stamp}`, '');
+  await page.keyboard.press('Escape');
+  await page.getByLabel('Пошук іспанською чи українською').fill(stamp);
+  await page.getByTestId('phrase-row').first().getByRole('link').click();
+  const detail = page.getByTestId('phrase-detail');
+  await detail.getByTestId('archive-phrase').click();
+  const dialog = page.locator('dialog[open]');
+  await expect(dialog).toContainText('Архівувати фразу?');
+  const archived = waitForCommand(page, 'phrase.archive');
+  await dialog.getByRole('button', { name: 'Архівувати фразу' }).click();
+  expect(commandBody(await archived).payload).toEqual({ archived: true });
+  const restored = waitForCommand(page, 'phrase.archive');
+  await page.getByRole('button', { name: 'Повернути' }).click();
+  expect(commandBody(await restored).payload).toEqual({ archived: false });
+});
+
+test('practice uses exactly the selected ready phrases and their phrase-recall targets', async ({ page }) => {
   const ready = page.getByTestId('phrase-row').locator('input[type="checkbox"]:not([disabled])');
   test.skip((await ready.count()) < 2, 'Fewer than two ready phrases in this fixture');
   await page.getByRole('button', { name: 'Зняти вибір' }).first().click();
@@ -107,4 +125,7 @@ test('practice uses exactly the selected ready phrases', async ({ page }) => {
   const body = commandBody(await sent);
   expect((body.payload['phraseIds'] as string[]).length).toBe(2);
   expect(body.payload['mode']).toBe('written');
+  const targets = body.payload['targets'] as { modality: string }[];
+  expect(targets.length).toBeGreaterThan(0);
+  for (const target of targets) expect(target.modality).toBe('phrase-recall');
 });

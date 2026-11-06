@@ -9,7 +9,8 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { ApiClient } from '../../apps/web/src/api/client.ts';
 import { ApiRequestError } from '../../apps/web/src/api/errors.ts';
 import type {
-  Attempt,
+  AttemptResultView,
+  CatalogMetaView,
   CatalogEntry,
   Context,
   ExerciseView,
@@ -23,6 +24,7 @@ import type {
 } from '../../apps/web/src/api/types.ts';
 import { AuthRequiredScreen, CheckingScreen, ServiceDownScreen } from '../../apps/web/src/app/BootScreens.tsx';
 import { AppContext, type AppServices } from '../../apps/web/src/app/context.tsx';
+import { EMPTY_TITLES, titlesFromMeta } from '../../apps/web/src/app/titles.ts';
 import { Shell } from '../../apps/web/src/app/Shell.tsx';
 import { Blocks } from '../../apps/web/src/components/Blocks.tsx';
 import { HelpButton } from '../../apps/web/src/components/HelpButton.tsx';
@@ -243,7 +245,18 @@ const catalogEntries: CatalogEntry[] = [
   },
   { id: 'A2-03-C1', titleUk: 'Перевірка блоку', termEs: '', blockId: 'A2-03', situationIds: [], targets: [], state: 'draft' },
 ];
-const noTitles = { blocks: new Map<string, string>(), targets: new Map<string, string>() };
+const noTitles = EMPTY_TITLES;
+// Synthetic catalog-meta read model (GET /views/catalog-meta).
+const meta: CatalogMetaView = {
+  viewsVersion: 1,
+  blocks: [{ blockId: 'A2-03', titleUk: 'Минулий час: pretérito perfecto', termEs: 'pretérito perfecto' }],
+  situations: [{ id: 'home', titleUk: 'Вдома' }],
+  skills: [
+    { skillId: 'participle.hecho', titleUk: 'Дієприкметник hecho', termEs: 'hecho' },
+    { skillId: 'participle.dicho', titleUk: 'Дієприкметник dicho', termEs: 'dicho' },
+  ],
+};
+const metaTitles = titlesFromMeta(meta);
 
 describe('catalog — List and details', () => {
   it('list groups by block with search hint, filters and Spanish terms tagged', () => {
@@ -257,20 +270,40 @@ describe('catalog — List and details', () => {
     expect(visible).toContain('Тем у списку: 2');
   });
 
-  it('detail offers Rule / Learn / Practice with explicit target and mode choice', () => {
-    const html = render(createElement(CatalogDetail, { entry: catalogEntries[0] as CatalogEntry, titles: noTitles }));
+  it('catalog-meta names label blocks and situations instead of ids', () => {
+    const visible = text(render(createElement(CatalogList, { entries: catalogEntries, titles: metaTitles })));
+    expect(visible).toContain('Минулий час: pretérito perfecto');
+    expect(visible).not.toContain('Блок A2-03');
+    expect(visible).toContain('Вдома');
+  });
+
+  it('detail offers Rule / Learn / Practice with explicit target and mode choice, named from catalog-meta', () => {
+    const html = render(createElement(CatalogDetail, { entry: catalogEntries[0] as CatalogEntry, titles: metaTitles }));
     const visible = text(html);
     expect(visible).toContain('Правило');
     expect(visible).toContain('Вивчити тему');
     expect(visible).toContain('Практикувати вибране (2)');
     expect(html.match(/type="checkbox"/g)).toHaveLength(2);
-    expect(visible).toContain('participle.hecho');
+    expect(visible).toContain('Дієприкметник hecho · написання форми');
+    expect(visible).toMatch(/Ситуації\s*:\s*Вдома/);
     expect(visible).toContain('Набір міститиме лише вибрані навички та формат.');
+  });
+
+  it('without catalog-meta the stable skill id is shown (nothing invented)', () => {
+    const visible = text(render(createElement(CatalogDetail, { entry: catalogEntries[0] as CatalogEntry, titles: noTitles })));
+    expect(visible).toContain('participle.hecho');
   });
 
   it('a not-ready entry cannot be practised', () => {
     const html = render(createElement(CatalogDetail, { entry: catalogEntries[1] as CatalogEntry, titles: noTitles }));
     expect(text(html)).toContain('Цей урок ще не перевірено');
+    expect(html).toMatch(/data-testid="catalog-practice"[^>]*disabled=""|disabled=""[^>]*data-testid="catalog-practice"/);
+  });
+
+  it('a reviewed (not yet validated) entry is labelled pending and cannot be practised', () => {
+    const html = render(createElement(CatalogDetail, { entry: { ...(catalogEntries[0] as CatalogEntry), state: 'reviewed' }, titles: noTitles }));
+    expect(text(html)).toContain('Перевірено, очікує підтвердження');
+    expect(html).toContain('data-tone="pending"');
     expect(html).toMatch(/data-testid="catalog-practice"[^>]*disabled=""|disabled=""[^>]*data-testid="catalog-practice"/);
   });
 });
@@ -389,49 +422,74 @@ describe('exercise — focus with reference, input rules, no character strip', (
   });
 });
 
-const checked: Attempt = {
-  id: ID(50),
-  revision: 1,
+// Synthetic AttemptResultView read models (GET /views/attempts/{attemptId}).
+const checked: AttemptResultView = {
+  viewsVersion: 1,
+  attemptId: ID(50),
   taskRevisionId: ID(20),
-  originalAnswer: 'he hecho',
-  submittedAt: '2026-10-01T08:01:00Z',
   status: 'checked',
+  originalAnswer: 'he hecho',
   verdicts: [
-    { target: { skillId: 'participle.hecho', modality: 'written-form' }, correctness: 'correct', independence: 'independent', explanationKey: 'synthetic' },
-    { target: { skillId: 'perfecto.haber', modality: 'written-form' }, correctness: 'incorrect', independence: 'supported', explanationKey: 'synthetic' },
+    { target: { skillId: 'participle.hecho', modality: 'written-form' }, titleUk: 'Дієприкметник hecho', correctness: 'correct', independence: 'independent', feedbackUk: 'Синтетичний відгук: форма правильна.' },
+    { target: { skillId: 'perfecto.haber', modality: 'written-form' }, titleUk: 'Форми haber', correctness: 'incorrect', independence: 'supported', feedbackUk: '' },
   ],
-  supportIds: [],
-  adjudicationIds: [],
+  feedbackUk: 'Синтетичний загальний відгук.',
+  referenceAnswer: 'He hecho la cena.',
+  referenceIsExample: false,
+  supportUsed: ['targeted-clue'],
+  savedForReview: false,
 };
-const unresolved: Attempt = {
+const unresolved: AttemptResultView = {
   ...checked,
-  id: ID(51),
+  attemptId: ID(51),
   status: 'unresolved',
-  verdicts: [{ target: { skillId: 'writing.free', modality: 'construction-use' }, correctness: 'unresolved', independence: 'independent', explanationKey: 'synthetic' }],
+  verdicts: [{ target: { skillId: 'writing.free', modality: 'construction-use' }, titleUk: 'Вільне письмо', correctness: 'unresolved', independence: 'independent', feedbackUk: '' }],
+  feedbackUk: '',
+  referenceAnswer: 'Esta mañana he escrito una carta.',
+  referenceIsExample: true,
+  supportUsed: [],
 };
-const actions = { onNext: () => undefined, nextLabel: 'Далі', onRetry: () => undefined, onShowReference: () => undefined, onOpenRule: () => undefined, referencePending: false };
+const actions = { onNext: () => undefined, nextLabel: 'Далі', onRetry: () => undefined, onOpenRule: () => undefined };
 
 describe('result — correctness and independence separately; unresolved in the exercise', () => {
-  it('checked result shows icon + text for correctness and independence per target and an explicit Next', () => {
-    const html = render(createElement(ResultPanel, { attempt: checked, titles: new Map(), actions }));
+  it('checked result shows titled targets, icon + text correctness and independence, feedback, help used and an explicit Next', () => {
+    const html = render(createElement(ResultPanel, { result: checked, actions, answerLang: 'es-ES' }));
     const visible = text(html);
     expect(visible).toContain('Результат перевірки');
+    expect(visible).toContain('Дієприкметник hecho · написання форми');
     expect(visible).toMatch(/✓\s*Правильно · самостійно/);
     expect(visible).toMatch(/✗\s*Неправильно · з підтримкою/);
+    expect(visible).toContain('Синтетичний відгук: форма правильна.');
+    expect(visible).toContain('Синтетичний загальний відгук.');
+    expect(visible).toContain('Використана допомога: підказка.');
+    expect(visible).toContain('Показати приклад відповіді');
+    expect(visible).not.toContain('He hecho la cena.'); // the reference is shown only on request
     expect(visible).toContain('Далі');
     expect(html).toContain('data-unresolved="false"');
   });
 
-  it('unresolved result: no pass/fail, answer kept, example/retry/review/skip actions', () => {
-    const html = render(createElement(ResultPanel, { attempt: unresolved, titles: new Map(), actions }));
+  it('unresolved result: no pass/fail, answer kept, example/retry/review/rule actions', () => {
+    const html = render(createElement(ResultPanel, { result: unresolved, actions }));
     const visible = text(html);
     expect(visible).toContain('Поки що не вдалося надійно оцінити');
     expect(visible).not.toContain('Неправильно');
     expect(visible).not.toContain('Правильно ·');
+    expect(visible).toContain('Допомогу в цій спробі не використано.');
     expect(visible).toContain('Показати приклад відповіді');
     expect(visible).toContain('Редагувати й спробувати знову');
     expect(visible).toContain('Зберегти для перевірки');
     expect(visible).toContain('Відкрити правило');
+  });
+
+  it('a result already saved for review says so instead of offering to save it again', () => {
+    const visible = text(render(createElement(ResultPanel, { result: { ...unresolved, savedForReview: true }, actions })));
+    expect(visible).toContain('Цю відповідь уже збережено для перевірки.');
+    expect(visible).not.toContain('Зберегти для перевірки');
+  });
+
+  it('no reference answer → no reference button', () => {
+    const visible = text(render(createElement(ResultPanel, { result: { ...checked, referenceAnswer: '' }, actions })));
+    expect(visible).not.toContain('Показати приклад відповіді');
   });
 });
 
@@ -516,7 +574,7 @@ describe('progress', () => {
 const phrases: PhraseLibraryView = {
   viewsVersion: 1,
   phrases: [
-    { id: ID(80), revision: 1, logicalId: 'phrase.synthetic.uno', spanish: '¿Me pone un café?', ukrainian: 'Дайте мені каву.', state: 'ready', origin: 'course', collectionIds: [ID(85), ID(86)], targets: [], practiceReady: true, archived: false },
+    { id: ID(80), revision: 1, logicalId: 'phrase.synthetic.uno', spanish: '¿Me pone un café?', ukrainian: 'Дайте мені каву.', state: 'ready', origin: 'course', collectionIds: [ID(85), ID(86)], targets: [{ skillId: 'phrase.synthetic.uno', modality: 'phrase-recall' }], practiceReady: true, archived: false },
     { id: ID(81), revision: 1, logicalId: 'phrase.synthetic.dos', spanish: 'Synthetic borrador', ukrainian: 'чернетка', state: 'draft', origin: 'spanish', collectionIds: [], targets: [], practiceReady: false, archived: false },
   ],
   collections: [
@@ -544,13 +602,22 @@ describe('phrases — library and collections', () => {
     expect(visible).toContain('готових: 1 з 2');
   });
 
-  it('phrase detail: memberships, course membership note, honest disabled archive', () => {
+  it('phrase detail: memberships, course membership note, archive with confirmation', () => {
     const html = render(createElement(PhraseDetail, { phrase: phrases.phrases[0] as PhraseLibraryView['phrases'][number], view: phrases, onChanged: () => undefined }));
     const visible = text(html);
     expect(visible).toContain('Перед поїздкою');
     expect(visible).toContain('Також у добірках курсу');
-    expect(visible).toContain('Архівування поки недоступне');
-    expect(html).toMatch(/disabled=""[^>]*aria-describedby="archive-unavailable"|aria-describedby="archive-unavailable"[^>]*disabled=""/);
+    expect(html).toMatch(/<button[^>]*data-testid="archive-phrase"[^>]*>Архівувати фразу<\/button>/);
+    expect(html).not.toMatch(/<button[^>]*disabled=""[^>]*data-testid="archive-phrase"/);
+    expect(html).not.toContain('data-testid="restore-phrase"');
+  });
+
+  it('an archived phrase offers restore (the recoverable undo) instead of archive', () => {
+    const archived = { ...(phrases.phrases[0] as PhraseLibraryView['phrases'][number]), archived: true };
+    const visible = text(render(createElement(PhraseDetail, { phrase: archived, view: phrases, onChanged: () => undefined })));
+    expect(visible).toContain('Фразу архівовано');
+    expect(visible).toContain('Повернути з архіву');
+    expect(visible).not.toContain('Архівувати фразу');
   });
 });
 

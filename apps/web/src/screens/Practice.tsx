@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useApp } from '../app/context.tsx';
 import { useCommandRunner, useResource } from '../app/hooks.ts';
+import { targetTitle, useTitles } from '../app/titles.ts';
 import type { HomeView, LearningSession, PracticeSet, Summary, Target } from '../api/types.ts';
 import { PageHeader, TargetLabel, targetKey } from '../components/Common.tsx';
 import { HelpButton } from '../components/HelpButton.tsx';
@@ -159,11 +160,12 @@ export function PracticeSetScreen({ setId }: { readonly setId: string }) {
 }
 
 function TargetList({ targets }: { readonly targets: readonly Target[] }) {
+  const titles = useTitles();
   return (
     <ul>
       {targets.map((target) => (
         <li key={targetKey(target)}>
-          <TargetLabel target={target} />
+          <TargetLabel target={target} title={targetTitle(titles, target)} />
         </li>
       ))}
     </ul>

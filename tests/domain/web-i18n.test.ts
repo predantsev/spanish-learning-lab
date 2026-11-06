@@ -120,6 +120,7 @@ describe('uk.json completeness', () => {
       'lesson.status': ['not-started', 'visited', 'completed'],
       'result.correctness': ['correct', 'incorrect', 'unresolved', 'invalid-item'],
       'result.independence': ['independent', 'supported', 'unknown', 'not-assessed'],
+      'result.supportKinds': ['rule', 'targeted-clue', 'translation', 'transcript', 'reveal', 'external-help', 'delivery-unknown'],
       'exercise.hints': ['rule', 'targeted-clue', 'translation', 'transcript', 'reveal'],
       'exercise.hintEffect': ['rule', 'targeted-clue', 'translation', 'transcript', 'reveal'],
       'listening.player.state': ['idle', 'playing', 'paused', 'ended', 'error'],
