@@ -159,9 +159,12 @@ export function choice(lessonId, spec) {
   if (spec.clue) hints.push({ kind: 'targeted-clue', targets: spec.clueTargets ?? spec.ts, blocks: [UK(spec.clue)] });
   if (spec.uk) hints.push({ kind: 'translation', targets: spec.ukTargets ?? [], blocks: [UK(spec.uk)] });
   if (spec.transcript) hints.push({ kind: 'transcript', targets: spec.ts, blocks: [ES(spec.transcript)] });
-  if (correct) hints.push({ kind: 'reveal', targets: spec.ts, blocks: [/\p{Script=Cyrillic}/u.test(correct[0]) ? UK(correct[0]) : ES(correct[0])] });
+  const cyr = (x) => /\p{Script=Cyrillic}/u.test(x);
+  if (spec.ref) hints.push({ kind: 'reveal', targets: spec.ts, blocks: [ES(spec.ref)] });
+  else if (correct) hints.push({ kind: 'reveal', targets: spec.ts, blocks: [cyr(correct[0]) ? UK(correct[0]) : ES(correct[0])] });
   task.hints = hints;
-  if (correct) task.referenceAnswer = correct[0];
+  if (spec.ref) task.referenceAnswer = spec.ref;
+  else if (correct && !cyr(correct[0])) task.referenceAnswer = correct[0];
   task.feedback = { correctUk: spec.ok, incorrectUk: spec.no };
   task.reviewStatus = 'draft';
   return task;

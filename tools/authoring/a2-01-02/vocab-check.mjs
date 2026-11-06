@@ -52,18 +52,22 @@ for (const f of listJson(join(SRC, 'skills'))) {
 
 // Function words and closed classes taught across A1 (articles, pronouns, prepositions, etc.).
 const A1 = courseIndex('A1-06-L6');
-for (const w of 'el la los las un una unos unas lo al del de en a con para por sin que y o e pero porque si no sí yo tú él ella usted nosotros nosotras vosotros vosotras ellos ellas ustedes me te se nos os le les mi mis tu tus su sus nuestro nuestra nuestros nuestras vuestro vuestra vuestros vuestras este esta estos estas qué quién quiénes dónde cómo cuándo cuánto cuánta cuántos cuántas cuál cuáles muy mucho mucha muchos muchas poco poca pocos pocas más menos también tampoco hoy ya bien mal aquí allí'.split(' ')) teach(w, A1);
+// Deliberately absent (checked by hand where they occur): lo/la as object pronouns, para, sin, si,
+// ya, demonstratives beyond the A1 fixed time expressions (este fin de semana, esta tarde/noche).
+for (const w of 'el la los las un una unos unas al del de en a con por que y o e pero porque no sí yo tú él ella usted nosotros nosotras vosotros vosotras ellos ellas ustedes me te se nos os le les mi mis tu tus su sus nuestro nuestra nuestros nuestras vuestro vuestra vuestros vuestras qué quién quiénes dónde cómo cuándo cuánto cuánta cuántos cuántas cuál cuáles muy mucho mucha muchos muchas poco poca pocos pocas más menos también tampoco hoy bien mal aquí allí'.split(' ')) teach(w, A1);
 
 function knownIndex(token) {
-  if (known.has(token)) return known.get(token);
+  let best = known.get(token);
+  const take = (idx) => {
+    if (idx !== undefined) best = Math.min(best ?? Infinity, idx);
+  };
   // plural / gender stripping for nouns and adjectives
   const candidates = [];
   if (token.endsWith('es')) candidates.push(token.slice(0, -2));
   if (token.endsWith('s')) candidates.push(token.slice(0, -1));
   if (/[ao]s?$/u.test(token)) candidates.push(token.replace(/[ao]s?$/u, 'o'), token.replace(/[ao]s?$/u, 'a'));
-  for (const c of candidates) if (known.has(c)) return known.get(c);
+  for (const c of candidates) take(known.get(c));
   // regular verb inflection (present, gerund, infinitive) from a taught verb stem
-  let best;
   for (const { stem, idx } of verbStems) {
     if (stem.length >= 2 && token.startsWith(stem)) {
       const ending = token.slice(stem.length);
