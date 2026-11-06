@@ -48,4 +48,28 @@ export const RULES: Record<string, string> = {
   'writing.routine':
     'Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después).',
   'listening.routine': 'Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії.',
+  // A1-05-L1
+  'number.0-15': 'Числа від 0 до 15 — окремі слова: cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce, trece, catorce, quince.',
+  'number.16-29':
+    'Від 16 до 29 числа пишуться одним словом: dieci- + одиниці (dieciséis, diecisiete), veinti- + одиниці (veintiuno, veintidós). Знак наголосу мають dieciséis, veintidós, veintitrés і veintiséis.',
+  'number.30-99':
+    'Десятки: treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa. Від 31 до 99 між десятками й одиницями ставимо y і пишемо окремо: treinta y uno, cuarenta y cinco.',
+  'number.100-1000':
+    'Рівно 100 — cien, 101–199 — ciento + решта (ciento veinte). Сотні: doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos; перед іменником жіночого роду — -as (doscientas fotos). 1000 — mil.',
+  'number.uno-un-una':
+    'Рахуючи, кажемо uno, а перед іменником — un (чоловічий рід) або una (жіночий рід): un libro, una casa. Так само в складених числах: veintiún años (зі знаком наголосу), treinta y un chicos.',
+  'number.ordinal':
+    'Порядкові числа змінюються, як прикметники на -o: primero / primera, segundo / segunda, tercero, cuarto, quinto, sexto, séptimo, octavo, noveno, décimo. На табличках: 1.º, 2.ª.',
+  'number.ordinal.apocope':
+    'Перед іменником чоловічого роду в однині primero і tercero втрачають -o: el primer piso, el tercer día. Перед жіночим родом форма повна: la primera calle, la tercera planta.',
+  'listening.amounts': 'Послухай і визнач число чи кількість. Відповідати можна цифрами: тут перевіряється, чи ти правильно почув, а не як пишеться число.',
+  'quant.mucho':
+    'Перед іменником mucho («багато») і poco («мало») узгоджуються з ним: mucho dinero, mucha agua, muchos libros, muchas personas; poco tiempo, pocas sillas. Після дієслова вони не змінюються: Trabaja mucho.',
+  'contrast.muy-mucho':
+    'Muy — перед прикметником чи прислівником: muy grande, muy bien. Mucho — перед іменником (mucho trabajo) або після дієслова (Estudia mucho). Українською обидва часто звучать як «дуже» чи «багато», тож дивись, що стоїть поруч.',
+  'quant.containers':
+    'Кількість товару: міра + de + іменник без артикля: un kilo de tomates, una botella de agua, un paquete de café. Половина: medio kilo, medio litro, media docena.',
+  'tener.age': 'Вік в іспанській «мають»: Tengo veinte años — «мені двадцять років». Питання: ¿Cuántos años tienes? Не кажи «soy veinte años».',
+  'question.word.cuanto':
+    'Cuánto питає про кількість і перед іменником узгоджується з ним: ¿Cuánto dinero? ¿Cuánta agua? ¿Cuántos años? ¿Cuántas personas? Усі форми пишуться зі знаком наголосу.',
 };
