@@ -1,6 +1,7 @@
 import type { Route } from '../router/routes.ts';
 import { CatalogScreen } from '../screens/Catalog.tsx';
 import { HomeScreen } from '../screens/Home.tsx';
+import { LessonScreen } from '../screens/Lesson.tsx';
 import { NotFound } from '../screens/NotFound.tsx';
 import { PracticeSetScreen, ReviewScreen } from '../screens/Practice.tsx';
 
@@ -10,6 +11,8 @@ export function RouteView({ route }: { readonly route: Route; readonly search: s
       return <HomeScreen />;
     case 'catalog':
       return <CatalogScreen lessonId={route.lessonId} />;
+    case 'lesson':
+      return <LessonScreen key={route.lessonId} lessonId={route.lessonId} stepId={route.stepId} />;
     case 'review':
       return <ReviewScreen />;
     case 'practice':
