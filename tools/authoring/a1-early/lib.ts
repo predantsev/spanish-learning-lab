@@ -60,13 +60,17 @@ export function target(key: string): Target {
   return { skillId, modality };
 }
 
-/** 'c' = every target correct; 'x' = the single target incorrect; object = explicit per-target verdicts (c/x/u). */
-export type OutcomeSpec = 'c' | 'x' | Record<string, 'c' | 'x' | 'u'>;
+/**
+ * 'c' = every target correct; 'x' = the single target incorrect; 'u' = every target unresolved
+ * (feedback only, e.g. a spelling slip outside the assessed targets); object = per-target verdicts.
+ */
+export type OutcomeSpec = 'c' | 'x' | 'u' | Record<string, 'c' | 'x' | 'u'>;
 
 const VERDICT: Record<'c' | 'x' | 'u', Outcome> = { c: 'correct', x: 'incorrect', u: 'unresolved' };
 
 export function outcomes(targets: string[], spec: OutcomeSpec, where: string): Record<string, Outcome> {
   if (spec === 'c') return Object.fromEntries(targets.map((t) => [t, 'correct' as const]));
+  if (spec === 'u') return Object.fromEntries(targets.map((t) => [t, 'unresolved' as const]));
   if (spec === 'x') {
     if (targets.length !== 1) throw new Error(`${where}: 'x' needs exactly one target; give per-target verdicts`);
     return { [targets[0] as string]: 'incorrect' };
