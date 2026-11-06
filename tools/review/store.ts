@@ -55,7 +55,10 @@ export interface ReviewPacket {
   batchId: string;
   createdAt: string;
   toolVersion: string;
-  scope: { type: 'lesson'; lessonId: string } | { type: 'skills'; skillIds: string[] };
+  scope:
+    | { type: 'lesson'; lessonId: string }
+    | { type: 'skills'; skillIds: string[] }
+    | { type: 'items'; items: Array<{ kind: EntityKind; id: string }> };
   authorProvider: ReviewProvider;
   author: { provider: ReviewProvider; model?: string; effort?: string };
   sourceDigest: string;
