@@ -75,15 +75,22 @@ describe('server process (main.ts)', () => {
     expect(statSync(sockPath).mode & 0o777).toBe(0o600);
     expect(statSync(join(home, 'profile.sqlite')).mode & 0o777).toBe(0o600);
     for (const d of ['', 'runtime', 'logs', 'keys', 'assets', 'backups', 'exports']) expect(statSync(join(home, d)).mode & 0o777, d).toBe(0o700);
+    // Started directly (no launcher), the server holds runtime/profile.lock itself.
+    expect(JSON.parse(readFileSync(join(runtime, 'profile.lock'), 'utf8'))).toMatchObject({ pid: child.pid, role: 'service', instanceId: info.instanceId });
     const key = readFileSync(keyPath, 'utf8').trim();
 
-    expect(await ipcRequest(sockPath, { secret: 'wrong', verb: 'status' })).toEqual({ ok: false, error: 'UNAUTHORIZED' });
-    const status = await ipcRequest(sockPath, { secret: key, verb: 'status' });
-    expect(status).toMatchObject({ ok: true, pid: child.pid, port: info.port, instanceId: info.instanceId, profileEpoch: 1 });
+    expect(key).toMatch(/^[0-9a-f]{64}$/);
+    expect(await ipcRequest(sockPath, 'wrong', 'status')).toMatchObject({ ok: false, error: { code: 'IPC_UNAUTHORIZED', status: 401 } });
+    expect(await ipcRequest(sockPath, key, 'no-such-verb')).toMatchObject({ ok: false, error: { code: 'IPC_UNKNOWN_VERB' } });
+    const status = await ipcRequest(sockPath, key, 'status');
+    expect(status).toMatchObject({ ok: true, result: { pid: child.pid, port: info.port, instanceId: info.instanceId, profileEpoch: 1, schemaVersion: 2, maintenance: { on: false }, lastRestoreOperationId: null } });
+    expect(status.result.profileId).toMatch(/^[0-9a-f-]{36}$/);
 
     // Launcher flow: register a nonce over IPC, exchange it once from the browser origin.
     const nonce = secret();
-    expect(await ipcRequest(sockPath, { secret: key, verb: 'register-nonce', nonce })).toEqual({ ok: true, nonce });
+    const reg = await ipcRequest(sockPath, key, 'register-nonce', { nonce });
+    expect(reg).toMatchObject({ ok: true, result: { expiresAt: expect.any(String) } });
+    expect((await ipcRequest(sockPath, key, 'register-nonce', { nonce: 'short' })).error).toMatchObject({ code: 'IPC_BAD_ARGS' });
     const host = `spanish-learning-lab.localhost:${info.port}`;
     const body = JSON.stringify({ nonce });
     const exchange = await rawRequest(info.port, 'POST', '/api/v1/auth/exchange', { host, origin: `http://${host}`, 'content-type': 'application/json', 'content-length': String(body.length) }, body);
@@ -91,10 +98,17 @@ describe('server process (main.ts)', () => {
     const again = await rawRequest(info.port, 'POST', '/api/v1/auth/exchange', { host, origin: `http://${host}`, 'content-type': 'application/json', 'content-length': String(body.length) }, body);
     expect(again.status).toBe(401);
 
-    expect(await ipcRequest(sockPath, { secret: key, verb: 'stop' })).toEqual({ ok: true });
+    // Recovery verbs answer over IPC (owner-equivalent local launcher).
+    const backup = await ipcRequest(sockPath, key, 'backup', { reason: 'test' });
+    expect(backup).toMatchObject({ ok: true, result: { kind: 'manual' } });
+    const exported = await ipcRequest(sockPath, key, 'export', { selfContained: false });
+    expect(exported.ok).toBe(true);
+    expect(exported.result.path.startsWith(join(home, 'exports'))).toBe(true);
+    expect(await ipcRequest(sockPath, key, 'stop')).toMatchObject({ ok: true, result: { stopping: true } });
     expect(await waitExit(child)).toBe(0);
     expect(existsSync(sockPath)).toBe(false);
     expect(existsSync(keyPath)).toBe(false);
+    expect(existsSync(join(runtime, 'profile.lock'))).toBe(false);
 
     // Logs: request ids/status/op only — no nonce, cookie, CSRF token or IPC secret.
     const logs = readdirSync(join(home, 'logs')).map((f) => readFileSync(join(home, 'logs', f), 'utf8')).join('\n');
