@@ -25,6 +25,8 @@ export interface BuildOptions {
   /** Override review states for a preview pack. */
   readonly state?: (kind: EntityKind, body: Record<string, unknown>) => string;
   readonly omitMediaForClips?: readonly string[];
+  /** Changes the synthetic audio bytes (a new audio revision with a new hash). */
+  readonly mediaSalt?: string;
 }
 
 export interface BuiltPack {
@@ -78,7 +80,7 @@ export function buildSyntheticPack(dir: string, options: BuildOptions = {}): Bui
   const clipHashes: Record<string, string> = {};
   for (const clip of entities.clips) {
     if (options.omitMediaForClips?.includes(clip.id)) continue;
-    const bytes = fakeMp3(clip.id);
+    const bytes = fakeMp3(`${clip.id}${options.mediaSalt ?? ''}`);
     const sha = createHash('sha256').update(bytes).digest('hex');
     writeFileSync(join(dir, 'media', `${sha}.mp3`), bytes);
     files.push({ path: `media/${sha}.mp3`, sha256: sha, bytes: bytes.length });
