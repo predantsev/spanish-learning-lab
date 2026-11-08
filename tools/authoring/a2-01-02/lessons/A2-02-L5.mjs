@@ -117,7 +117,7 @@ export const lesson = mkLesson({
         T_TWO,
         EX('—¿Le das el regalo a Ana? —Sí, se lo doy mañana.', '— Даси подарунок Ані? — Так, дам їй завтра.'),
         EX('Les compro las entradas a mis padres. → Se las compro.', 'Я купую батькам квитки. → Я купую їх їм.'),
-        UK('Для впізнавання: з інфінітивом чи герундієм обидва займенники можна приєднати в кінці, у тому самому порядку, і тоді пишемо знак наголосу: Voy a dárselo = Se lo voy a dar; Estoy explicándotelo = Te lo estoy explicando.'),
+        UK('Для впізнавання: з інфінітивом чи формою gerundio обидва займенники можна приєднати в кінці, у тому самому порядку, і тоді пишемо знак наголосу: Voy a dárselo = Se lo voy a dar; Estoy explicándotelo = Te lo estoy explicando.'),
       ],
     }),
     s('s4', 'supported-practice', 'Крок 2. Se lo, se la за зразком', true, { tasks: ['T21', 'T22', 'T31', 'T32'] }),

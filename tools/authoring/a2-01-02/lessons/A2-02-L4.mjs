@@ -11,8 +11,8 @@ const GA = 'ortho.gerund-pronoun-accent/written-form';
 
 const R = {
   pi: 'З інфінітивом займенник можна поставити двома способами: перед особовою формою (Lo voy a comprar) або приєднати до інфінітива (Voy a comprarlo). Обидва варіанти правильні. Між a і інфінітивом чи між двома дієсловами займенник не ставимо.',
-  pg: 'З estar + герундій так само два варіанти: Lo estoy leyendo або Estoy leyéndolo. Обидва правильні.',
-  ga: 'Коли займенник приєднано до герундія, ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo. З інфінітивом і одним займенником знака немає: comprarlo, verla.',
+  pg: 'З estar + gerundio так само два варіанти: Lo estoy leyendo або Estoy leyéndolo. Обидва правильні.',
+  ga: 'Коли займенник приєднано до форми gerundio, ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo. З інфінітивом і одним займенником знака немає: comprarlo, verla.',
 };
 const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
 /** Gerund + attached pronoun with the written accent on the stressed vowel. */
@@ -39,7 +39,7 @@ const sentenceCase = (x) => (/^[¿¡]/u.test(x) ? x.slice(0, 1) + cap(x.slice(1)
 function rewrite(id, role, family, t, es, uk, f, extra = {}) {
   const v = forms(f);
   const acc = [sentenceCase(v.after), sentenceCase(v.before)];
-  const err = [[sentenceCase(v.between), { [t]: 'incorrect' }, f.ger ? 'Займенник не ставимо між estar і герундієм: перед estar або в кінці герундія.' : 'Займенник не ставимо між дієсловами: перед особовою формою або в кінці інфінітива.']];
+  const err = [[sentenceCase(v.between), { [t]: 'incorrect' }, f.ger ? 'Займенник не ставимо між estar і формою gerundio: перед estar або в кінці форми gerundio.' : 'Займенник не ставимо між дієсловами: перед особовою формою або в кінці інфінітива.']];
   if (f.ger) err.push([sentenceCase(v.noAccent), { [t]: 'unresolved' }, `Розміщення правильне, але з приєднаним займенником потрібен знак наголосу: ${acc[0]}`]);
   const ask = `${extra.model ? 'Подивіться на зразок. ' : ''}Перепишіть речення, замінивши ${extra.what ?? 'виділене'} займенником ${f.pron}. Можна обидва варіанти розміщення.`;
   return open(L, { id, role, family, ts: [t], ask, model: extra.model, es, uk, a: acc, err, rule: f.ger ? [R.pg, R.ga] : R.pi, full: acc[0], ok: `Правильно. Обидва варіанти можливі: ${acc[0]} / ${acc[1]}`, no: `Правильні варіанти: ${acc[0]} / ${acc[1]}` });
@@ -50,7 +50,7 @@ function reply(id, role, family, t, es, uk, f, wrongPron, fbWrong, full, extra =
   const w = forms({ ...f, pron: wrongPron });
   const acc = [v.after, v.before];
   const err = [
-    [v.between, { [t]: 'incorrect' }, f.ger ? 'Займенник не ставимо між estar і герундієм.' : 'Займенник не ставимо між дієсловами.'],
+    [v.between, { [t]: 'incorrect' }, f.ger ? 'Займенник не ставимо між estar і формою gerundio.' : 'Займенник не ставимо між дієсловами.'],
     [w.after, { [t]: 'incorrect' }, fbWrong],
     [w.before, { [t]: 'incorrect' }, fbWrong],
   ];
@@ -59,7 +59,7 @@ function reply(id, role, family, t, es, uk, f, wrongPron, fbWrong, full, extra =
 }
 /** Attach the pronoun to the gerund (or to the infinitive, contrast without accent). */
 const accent = (id, role, family, es, uk, a, wrong, full, model) =>
-  gap(L, { id, role, family, t: GA, ask: `${model ? 'Подивіться на зразок. ' : ''}Приєднайте займенник до ${/ndo/u.test(a) ? 'герундія' : 'інфінітива'} і впишіть одним словом.`, model, es, uk, a, err: [[wrong, /ndo/u.test(a) ? `З приєднаним до герундія займенником пишемо знак наголосу: ${a}.` : `З інфінітивом і одним займенником знак наголосу не потрібен: ${a}.`]], rule: R.ga, full });
+  gap(L, { id, role, family, t: GA, ask: `${model ? 'Подивіться на зразок. ' : ''}Приєднайте займенник до ${/ndo/u.test(a) ? 'форми gerundio' : 'інфінітива'} і впишіть одним словом.`, model, es, uk, a, err: [[wrong, /ndo/u.test(a) ? `З приєднаним до форми gerundio займенником пишемо знак наголосу: ${a}.` : `З інфінітивом і одним займенником знак наголосу не потрібен: ${a}.`]], rule: R.ga, full });
 
 export const tasks = [
   // infinitive — rewrite (written-form)
@@ -126,7 +126,7 @@ export const tasks = [
 const T_PLACE = TABLE_UK(['конструкція', 'займенник перед дієсловом', 'займенник у кінці'], [
   ['ir a + інфінітив', 'Lo voy a comprar.', 'Voy a comprarlo.'],
   ['querer / poder / tener que + інфінітив', 'La quiero ver.', 'Quiero verla.'],
-  ['estar + герундій', 'Lo estoy leyendo.', 'Estoy leyéndolo.'],
+  ['estar + gerundio', 'Lo estoy leyendo.', 'Estoy leyéndolo.'],
 ]);
 
 const s = (id, kind, title, required, opts = {}) => step(id, kind, title, required, { ...opts, lessonId: L });
@@ -135,7 +135,7 @@ export const lesson = mkLesson({
   id: L,
   titleUk: 'Де стоїть займенник: voy a comprarlo, lo estoy leyendo',
   termEs: 'colocación de los pronombres con infinitivo y gerundio',
-  summaryUk: 'З інфінітивом і герундієм займенник можна поставити перед особовою формою або приєднати в кінці: Lo voy a comprar = Voy a comprarlo; Lo estoy leyendo = Estoy leyéndolo (зі знаком наголосу).',
+  summaryUk: 'З інфінітивом і формою gerundio займенник можна поставити перед особовою формою або приєднати в кінці: Lo voy a comprar = Voy a comprarlo; Lo estoy leyendo = Estoy leyéndolo (зі знаком наголосу).',
   objectives: ['A2-02-O5'],
   situations: ['food-shopping', 'people-family-home', 'routine-study-leisure'],
   estimatedMinutes: 18,
@@ -152,21 +152,21 @@ export const lesson = mkLesson({
       ],
     }),
     s('s2', 'supported-practice', 'Крок 1. З інфінітивом за зразком', true, { tasks: ['T01', 'T02', 'T11', 'T12'] }),
-    s('s3', 'explanation', 'Займенник з герундієм і знак наголосу', true, {
+    s('s3', 'explanation', 'Займенник з формою gerundio і знак наголосу', true, {
       blocks: [
-        UK('З estar + герундій так само: Lo estoy leyendo або Estoy leyéndolo. Коли займенник приєднано до герундія, слово стає довшим, і ми ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo, escribiendo → escribiéndola.'),
+        UK('З estar + gerundio (форма на -ando / -iendo) так само: Lo estoy leyendo або Estoy leyéndolo. Коли займенник приєднано до форми gerundio, слово стає довшим, і ми ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo, escribiendo → escribiéndola.'),
         EX('Estoy viendo la película. → La estoy viendo. / Estoy viéndola.', 'Я зараз дивлюся фільм.'),
         EX('Mi madre está esperando a los niños. → Mi madre está esperándolos.', 'Мама зараз чекає дітей.'),
       ],
     }),
-    s('s4', 'supported-practice', 'Крок 2. З герундієм за зразком', true, { tasks: ['T21', 'T22', 'T31', 'T32', 'T41', 'T42'] }),
+    s('s4', 'supported-practice', 'Крок 2. З формою gerundio за зразком', true, { tasks: ['T21', 'T22', 'T31', 'T32', 'T41', 'T42'] }),
     s('s5', 'independent-practice', 'Самостійно', true, { tasks: ['T03', 'T04', 'T13', 'T14', 'T23', 'T24', 'T33', 'T34', 'T43', 'T44'] }),
     s('s6', 'independent-practice', 'Додаткова практика', false, { tasks: ['T05', 'T06', 'T15', 'T16', 'T25', 'T26', 'T35', 'T36', 'T45', 'T46'] }),
     s('s7', 'summary', 'Підсумок', true, {
       blocks: [
         LIST_UK([
           'Lo voy a comprar = Voy a comprarlo; la quiero ver = quiero verla.',
-          'Lo estoy leyendo = Estoy leyéndolo — з приєднаним займенником герундій має знак наголосу.',
+          'Lo estoy leyendo = Estoy leyéndolo — з приєднаним займенником форма gerundio має знак наголосу.',
           'Між двома дієсловами займенник не ставимо.',
         ]),
         LINK('Потренувати місце займенника', [PIC, PIW, PGC, PGW, GA], 'written', 10),
