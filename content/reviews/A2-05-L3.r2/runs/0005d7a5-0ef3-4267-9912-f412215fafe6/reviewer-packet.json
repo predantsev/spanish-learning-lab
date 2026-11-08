@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "packetId": "A2-05-L3.r2",
+  "description": "Course content of Spanish Learning Lab (Spain Spanish A1–A2 for Ukrainian speakers) for independent review. caseId = kind:logicalId. Task cases follow the calibrated case format; other cases carry the item under `content` (lesson, skill, lexeme, clip, phrase, material, situation or collection).",
+  "cases": [
+    {
+      "caseId": "task:A2-05-L3-T28",
+      "context": {
+        "lessonId": "A2-05-L3",
+        "lessonTopic": "Ser, ir, ver в імперфекті: era, iba, veía (pretérito imperfecto: ser, ir, ver)",
+        "taughtBefore": [
+          "This lesson: Імперфект ver: veía, veías, veía, veíamos, veíais, veían: veía, veías, veía, veíamos, veíais, veían [imperfecto.ver]",
+          "Знак наголосу на í у закінченнях -ía (comía, vivía, veía): comía, comías, comíamos, comíais, comían, vivía, veía, había (A2-05-L2) [imperfecto.ia-accent]",
+          "Імперфект дієслів на -er та -ir: однина: comía, comías, vivía, vivías, tenía, hacía, quería, podía (A2-05-L2) [imperfecto.regular-er-ir.singular]",
+          "Наголошений склад у слові: CA-sa, ME-sa, ho-TEL, ca-FÉ, a-DIÓS, NÚ-me-ro, LÁ-piz (A1-01-L2) [ortho.stress-awareness]",
+          "Правильні дієслова на -er: однина: como, comes, come, bebo, bebes, bebe, leo, lees, lee (A1-04-L2) [present.regular-er]",
+          "Правильні дієслова на -ir: однина: vivo, vives, vive, escribo, escribes, escribe, abro, abres, abre (A1-04-L2) [present.regular-ir]",
+          "Імперфект дієслів на -ar: однина (yo, tú, él/ella/usted): hablaba, hablabas, trabajaba, estudiaba, estaba, estabas (A2-05-L1) [imperfecto.regular-ar.singular]",
+          "Правильні дієслова на -ar: однина (yo, tú, él/ella/usted): hablo, hablas, habla, trabajo, trabajas, trabaja, estudio, estudias, estudia (A1-04-L1) [present.regular-ar]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "This lesson: abuela — бабуся",
+          "This lesson: abuelo — дідусь",
+          "This lesson: colegio — школа (для дітей)",
+          "This lesson: dibujos animados — мультфільми",
+          "This lesson: tele — телевізор (розмовне скорочення від la televisión)",
+          "deberes — домашнє завдання (A2-05-L2)",
+          "antes — раніше, колись (A2-05-L1)",
+          "cuidar — доглядати, піклуватися (про когось) (A2-05-L1)",
+          "dibujar — малювати (A2-05-L1)",
+          "merendar — полуднувати, їсти підвечірок (A2-05-L1)"
+        ],
+        "targets": [
+          {
+            "target": "imperfecto.ver/written-form",
+            "description": "Імперфект ver: veía, veías, veía, veíamos, veíais, veían"
+          },
+          {
+            "target": "imperfecto.ia-accent/written-form",
+            "description": "Знак наголосу на í у закінченнях -ía (comía, vivía, veía)"
+          }
+        ]
+      },
+      "task": {
+        "id": "A2-05-L3-T28",
+        "lessonId": "A2-05-L3",
+        "role": "delayed",
+        "family": "family-before",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "imperfecto.ver",
+            "modality": "written-form"
+          },
+          {
+            "skillId": "imperfecto.ia-accent",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Напишіть форму імперфекту дієслова в дужках."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Antes yo ___ películas con mi hermana los viernes. (ver)"
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "v1",
+            "text": "veía"
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "veia",
+            "outcomes": {
+              "imperfecto.ver/written-form": "correct",
+              "imperfecto.ia-accent/written-form": "incorrect"
+            },
+            "feedbackUk": "Форму утворено правильно, але бракує знака наголосу: veía."
+          },
+          {
+            "id": "e2",
+            "text": "vía",
+            "outcomes": {
+              "imperfecto.ver/written-form": "incorrect",
+              "imperfecto.ia-accent/written-form": "unresolved"
+            },
+            "feedbackUk": "Ver зберігає e з інфінітива: veía."
+          },
+          {
+            "id": "e3",
+            "text": "veo",
+            "outcomes": {
+              "imperfecto.ver/written-form": "incorrect",
+              "imperfecto.ia-accent/written-form": "unresolved"
+            },
+            "feedbackUk": "Veo — теперішній час. В імперфекті: veía."
+          },
+          {
+            "id": "e4",
+            "text": "vi",
+            "outcomes": {
+              "imperfecto.ver/written-form": "incorrect",
+              "imperfecto.ia-accent/written-form": "unresolved"
+            },
+            "feedbackUk": "Vi — pretérito indefinido. Для звички в минулому тут потрібен імперфект: veía."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "imperfecto.ver/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Ver зберігає e з інфінітива: ve- + -ía → veía, veías, veía, veíamos, veíais, veían (не *vía)."
+              }
+            ]
+          },
+          {
+            "kind": "rule",
+            "targets": [
+              "imperfecto.ia-accent/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "У закінченнях -ía, -ías, -íamos, -íais, -ían наголос падає на í, яка вимовляється окремим складом (co-MÍ-a), тому над í завжди пишемо знак наголосу."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "imperfecto.ver/written-form",
+              "imperfecto.ia-accent/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Правильна відповідь:"
+              },
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Antes yo veía películas con mi hermana los viernes."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Antes yo veía películas con mi hermana los viernes.",
+        "feedback": {
+          "correctUk": "Правильно: veía.",
+          "incorrectUk": "Ні. Правильна форма — veía.",
+          "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично. Порівняйте її з правильною формою: veía."
+        },
+        "reviewStatus": "draft"
+      }
+    }
+  ]
+}
