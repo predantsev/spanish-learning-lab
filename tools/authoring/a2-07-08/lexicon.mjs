@@ -20,6 +20,14 @@ export const ADDITIONS = {
   'A2-08': [],
 };
 
+// Field fixes on existing rows of this range (IDs unchanged); a changed row returns to draft.
+export const FIXES = {
+  'A2-08': {
+    'lex.via': { noteUk: 'На вокзалі: El tren sale de la vía 3. — Потяг відходить з третьої колії.' },
+    'lex.destino': { noteUk: 'El tren con destino a Valencia — потяг до Валенсії.' },
+  },
+};
+
 const order = (id) => {
   const m = /^A([12])-0([1-8])-(?:L([0-9]{1,2})|(C1))$/.exec(id);
   return m ? Number(m[1]) * 10000 + Number(m[2]) * 100 + (m[4] ? 99 : Number(m[3])) : 0;
@@ -30,6 +38,7 @@ export function applyAdditions() {
   for (const [block, rows] of Object.entries(ADDITIONS)) {
     const path = join(SRC, 'lexicon', `${block}.json`);
     const json = JSON.parse(readFileSync(path, 'utf8'));
+    const before = added.length;
     for (const row of rows) {
       if (json.items.some((x) => x.id === row.id)) continue;
       let at = json.items.length;
@@ -43,7 +52,17 @@ export function applyAdditions() {
       json.items.splice(at, 0, row);
       added.push(`${block}:${row.id}`);
     }
-    writeFileSync(path, `${JSON.stringify(json, null, 2)}\n`);
+    for (const [id, fields] of Object.entries(FIXES[block] ?? {})) {
+      const row = json.items.find((x) => x.id === id);
+      if (!row) throw new Error(`unknown lexeme ${id}`);
+      for (const [field, value] of Object.entries(fields)) {
+        if (row[field] === value) continue;
+        row[field] = value;
+        if (row.reviewStatus !== undefined) row.reviewStatus = 'draft';
+        added.push(`${block}:${id}.${field}`);
+      }
+    }
+    if (added.length > before) writeFileSync(path, `${JSON.stringify(json, null, 2)}\n`);
   }
   return added;
 }
