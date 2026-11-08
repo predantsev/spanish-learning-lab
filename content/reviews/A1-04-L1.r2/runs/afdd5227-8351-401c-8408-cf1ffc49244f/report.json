@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L1.r2",
+  "packetHash": "fa0631baa4f1eaebfa356eae71a750ab7001cdf03d0d257cd5b0195bd108572c",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "df77430a650d8deb787748fca16618600828a83e87bf1ffca41f8ce9ef1eba66",
+    "reviewerPacketSha256": "23ca3d9eb4092e6b8101974e3758b9bbebd018003dd92b83773588768413b9b0",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zdFbET/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zdFbET/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zdFbET/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zdFbET/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zdFbET/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc92-bb25-7630-9d24-f7057996a21b",
+        "version": "v0.166.0",
+        "tokens used": "45,964"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-04-L1",
+        "reviewerAnswer": "Not applicable: this case contains lesson exposition rather than a learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L1-T12",
+        "reviewerAnswer": "cocinan",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L1-T18",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L1-T24",
+        "reviewerAnswer": "con",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L1-T25",
+        "reviewerAnswer": "Paseamos con nuestro perro.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore: missing plural regular -ar conjugation; task.prompt[0].text: \"Переклади іспанською: «Ми гуляємо з нашим собакою».\"",
+        "defect": "Producing the translation requires the newly introduced first-person plural ending -amos. This case maps only singular regular -ar conjugation, and its explanatory hints do not teach the plural form. The vocabulary hint supplies 'nuestro perro', but not 'paseamos'.",
+        "correction": "Add the plural instruction from lesson step s2 to this task's taughtBefore, including nosotros/nosotras -amos, and ensure that instruction precedes the task.",
+        "sources": [
+          "Course contract rule 1 (provided in the prompt): required forms and constructions must be mapped as taught or glossed in the prompt or a hint.",
+          "Packet: task:A1-04-L1-T25 context.taughtBefore maps present.regular-ar but not present.regular-ar.plural; task.hints[0–1] cover vocabulary and con.",
+          "Packet: lesson:A1-04-L1 content.body.steps[id=s2] teaches \"nosotros -amos\"."
+        ],
+        "notes": "The Spanish answer is correct. The defect concerns the prerequisite mapping."
+      },
+      {
+        "caseId": "task:A1-04-L1-T27",
+        "reviewerAnswer": "Pablo trabaja con su hermano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L1-T29",
+        "reviewerAnswer": "Tomamos café con nuestros amigos. Also acceptable: Tomamos un café con nuestros amigos.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore: missing plural regular -ar conjugation; task.prompt[0].text: \"Переклади іспанською: «Ми п’ємо каву з нашими друзями».\"",
+        "defect": "The task requires 'tomamos', but its prerequisite mapping records only singular regular -ar conjugation. Neither the vocabulary hint nor the con rule explains the required first-person plural ending -amos.",
+        "correction": "Record prior teaching of present.regular-ar.plural in taughtBefore, including nosotros/nosotras -amos, and ensure it occurs before this transfer task.",
+        "sources": [
+          "Course contract rule 1 (provided in the prompt).",
+          "Packet: task:A1-04-L1-T29 context.taughtBefore maps present.regular-ar but not present.regular-ar.plural; task.hints[0–1] explain 'nuestros amigos' and con.",
+          "Packet: lesson:A1-04-L1 content.body.steps[id=s2] teaches \"nosotros -amos\"."
+        ],
+        "notes": "Both accepted coffee constructions are natural Spain Spanish. No closed key is declared, so omitted alternative translations do not establish incorrect rejection."
+      },
+      {
+        "caseId": "task:A1-04-L1-T30",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Reviewed against the supplied transcript; actual audio was not assessed."
+      },
+      {
+        "caseId": "task:A1-04-L1-T31",
+        "reviewerAnswer": "c",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore: missing prep.con.company; clips[0].transcript: \"Mis padres cenan en casa con mi hermana.\"",
+        "defect": "Understanding the companion phrase 'con mi hermana' depends on the con construction introduced in this lesson. It is absent from this task's prerequisite mapping and is not glossed by its hints. The transcript hint repeats the Spanish construction without explaining its meaning.",
+        "correction": "Add the con instruction from lesson step s3 to this task's taughtBefore and ensure it precedes the listening task.",
+        "sources": [
+          "Course contract rule 1 (provided in the prompt).",
+          "Packet: task:A1-04-L1-T31 context.taughtBefore omits prep.con.company; task.hints contain a transcript, a verb-ending explanation and an answer reveal.",
+          "Packet: lesson:A1-04-L1 content.body.introduces includes prep.con.company, taught in content.body.steps[id=s3]."
+        ],
+        "notes": "Option c and the supplied Ukrainian clip translation correctly represent the transcript. Actual audio was not assessed."
+      },
+      {
+        "caseId": "task:A1-04-L1-T32",
+        "reviewerAnswer": "Trabajo en una oficina y estudio español.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Reviewed against the supplied transcript; actual audio was not assessed."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L1",
+      "contentHash": "070a2f231acf655d470b51986ea0087c026d1763327ca6e6c7c99644fa834efc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-04-L1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this case contains lesson exposition rather than a learner task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T12",
+      "contentHash": "b3b79bb57fe6f9dbf4f09c7426d63602dc0c2febc8eb34928ebea206cc09a7e9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "cocinan",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T18",
+      "contentHash": "03917350251fc63f576dc16c1409fc7070e124bba6546bf381d8c9c9f4636256",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T24",
+      "contentHash": "c50d636216de459fe32db1a2dc8b152bd185a73fa7b86d19d6f1bd1e99211503",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "con",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T25",
+      "contentHash": "35740b8d556f9ff8e8a6df76e1b9976b148f857c054bf9e0d6307edb72e9ba42",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: missing plural regular -ar conjugation; task.prompt[0].text: \"Переклади іспанською: «Ми гуляємо з нашим собакою».\"",
+          "description": "Producing the translation requires the newly introduced first-person plural ending -amos. This case maps only singular regular -ar conjugation, and its explanatory hints do not teach the plural form. The vocabulary hint supplies 'nuestro perro', but not 'paseamos'.",
+          "suggestion": "Add the plural instruction from lesson step s2 to this task's taughtBefore, including nosotros/nosotras -amos, and ensure that instruction precedes the task."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "Paseamos con nuestro perro.",
+      "notes": "The Spanish answer is correct. The defect concerns the prerequisite mapping.",
+      "sources": [
+        "Course contract rule 1 (provided in the prompt): required forms and constructions must be mapped as taught or glossed in the prompt or a hint.",
+        "Packet: task:A1-04-L1-T25 context.taughtBefore maps present.regular-ar but not present.regular-ar.plural; task.hints[0–1] cover vocabulary and con.",
+        "Packet: lesson:A1-04-L1 content.body.steps[id=s2] teaches \"nosotros -amos\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T27",
+      "contentHash": "e1ed1947452c1c1c77047d43861ab9c9d008ec08f1ec823d7ce6f5cbb17edb87",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo trabaja con su hermano.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T29",
+      "contentHash": "622d4a062a37753aa54e5f9ffcd1dc4f391ab7a3c2932f8c6b2a0792225ad4df",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: missing plural regular -ar conjugation; task.prompt[0].text: \"Переклади іспанською: «Ми п’ємо каву з нашими друзями».\"",
+          "description": "The task requires 'tomamos', but its prerequisite mapping records only singular regular -ar conjugation. Neither the vocabulary hint nor the con rule explains the required first-person plural ending -amos.",
+          "suggestion": "Record prior teaching of present.regular-ar.plural in taughtBefore, including nosotros/nosotras -amos, and ensure it occurs before this transfer task."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T29",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tomamos café con nuestros amigos. Also acceptable: Tomamos un café con nuestros amigos.",
+      "notes": "Both accepted coffee constructions are natural Spain Spanish. No closed key is declared, so omitted alternative translations do not establish incorrect rejection.",
+      "sources": [
+        "Course contract rule 1 (provided in the prompt).",
+        "Packet: task:A1-04-L1-T29 context.taughtBefore maps present.regular-ar but not present.regular-ar.plural; task.hints[0–1] explain 'nuestros amigos' and con.",
+        "Packet: lesson:A1-04-L1 content.body.steps[id=s2] teaches \"nosotros -amos\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T30",
+      "contentHash": "0d2fc9831a02b81848ca260eba49efafd5409886b6bfd97ed5b0d124c4df5959",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "Reviewed against the supplied transcript; actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T31",
+      "contentHash": "785980753df5968a02b949be1cb6e775d584a1aa76a1937fd815576e4bfbbe40",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: missing prep.con.company; clips[0].transcript: \"Mis padres cenan en casa con mi hermana.\"",
+          "description": "Understanding the companion phrase 'con mi hermana' depends on the con construction introduced in this lesson. It is absent from this task's prerequisite mapping and is not glossed by its hints. The transcript hint repeats the Spanish construction without explaining its meaning.",
+          "suggestion": "Add the con instruction from lesson step s3 to this task's taughtBefore and ensure it precedes the listening task."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "c",
+      "notes": "Option c and the supplied Ukrainian clip translation correctly represent the transcript. Actual audio was not assessed.",
+      "sources": [
+        "Course contract rule 1 (provided in the prompt).",
+        "Packet: task:A1-04-L1-T31 context.taughtBefore omits prep.con.company; task.hints contain a transcript, a verb-ending explanation and an answer reveal.",
+        "Packet: lesson:A1-04-L1 content.body.introduces includes prep.con.company, taught in content.body.steps[id=s3]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T32",
+      "contentHash": "a33ed84cd8471393386a65138966fccac9242ccb032718b10d8204a73cf50858",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "Trabajo en una oficina y estudio español.",
+      "notes": "Reviewed against the supplied transcript; actual audio was not assessed.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
