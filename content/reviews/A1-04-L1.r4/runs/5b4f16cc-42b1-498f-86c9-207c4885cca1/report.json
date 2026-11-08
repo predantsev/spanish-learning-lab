@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L1.r4",
+  "packetHash": "3257bc3f410a1a6cd2be2f82b20b6a6c5cdf9893ea7e5d4e03d23675838cc36a",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "8a45f908fa85fd238e75f1b7319a6d9c4dfce96de1f6e89befb40e4dfd1177a1",
+    "reviewerPacketSha256": "f20f58f4dec36f23ea0e3d9a448f3e726bab48b5a9ae1690e62f01bfd2243a00",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rdfMdJ/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rdfMdJ/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rdfMdJ/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rdfMdJ/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rdfMdJ/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bcab-4158-7f52-9003-0cac41cca936",
+        "version": "v0.166.0",
+        "tokens used": "32,543"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-04-L1",
+        "reviewerAnswer": "Regular -ar present endings: yo -o; tú -as; él/ella/usted -a; nosotros/nosotras -amos; vosotros/vosotras -áis; ellos/ellas/ustedes -an. Use con to express accompaniment.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The statement about vosotros requiring a written accent is correct within the lesson's scope of regular -ar present forms. 'Six persons' is understandable here as shorthand for the six person-number combinations."
+      },
+      {
+        "caseId": "task:A1-04-L1-T30",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supplied transcript supports b. The reveal hint answers the third-person question; the first-person transcript appears in a transcript hint. Actual audio quality and correspondence with the transcript are outside this text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L1",
+      "contentHash": "11f03dd36c8bd85b27d33980b5c9813b71cb4c5ca8b68d59665456b4b818c284",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-04-L1",
+      "verdict": "valid",
+      "reviewerAnswer": "Regular -ar present endings: yo -o; tú -as; él/ella/usted -a; nosotros/nosotras -amos; vosotros/vosotras -áis; ellos/ellas/ustedes -an. Use con to express accompaniment.",
+      "notes": "The statement about vosotros requiring a written accent is correct within the lesson's scope of regular -ar present forms. 'Six persons' is understandable here as shorthand for the six person-number combinations.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T30",
+      "contentHash": "24781f0744f6506451339a549ebc3cddee063b6995aed8d144f5a461fe7fd835",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "The supplied transcript supports b. The reveal hint answers the third-person question; the first-person transcript appears in a transcript hint. Actual audio quality and correspondence with the transcript are outside this text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
