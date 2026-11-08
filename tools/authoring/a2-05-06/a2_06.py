@@ -643,6 +643,8 @@ def l6():
                       step('s1', 'explanation', 'Як читати й писати розповідь', True, blocks=[
                           P(R_RT + ' Слова primero, después, luego, al final показують порядок подій.'),
                           P(R_WA + ' Кількість часів і збіг зі зразком не важливі — важливі зміст і зрозумілість.'),
+                          P('Нові слова: la montaña — гори; la lluvia — дощ; la catedral — собор; contestar — відповідати; '
+                            'el compañero de piso — сусід по квартирі; cambiar de trabajo — змінити роботу.'),
                       ]),
                       step('s2', 'reading', 'Читання: лист Марти', True, blocks=[PE(TXT_A)], tasks=[r1, r2, r3]),
                       step('s3', 'listening', 'Аудіювання: короткі розповіді', True, clips=[CA1['id'], CA2['id']], tasks=[la, lb]),
@@ -666,7 +668,7 @@ def c1():
       [('gusta', 'i', 'Antes вказує на минуле: gustaba.'), ('gustó', 'i', 'Тут — колишнє ставлення, а не одна подія: gustaba.')], R_PP)
     g(t, 'independent', fam, TF_C, 'Esta mañana he desayunado en casa, pero ayer ___ en un bar.', 'desayunar, yo', ['desayuné'],
       [('he desayunado', 'i', 'Учорашній день уже минув: desayuné.')], R_TF)
-    g(t, 'independent', fam, EO_C, '—¿___ alguna vez paella? —Sí, muchas veces.', 'comer, tú', ['Has comido'],
+    g(t, 'independent', fam, EO_C, '—¿___ alguna vez en un restaurante ucraniano? —Sí, muchas veces.', 'comer, tú', ['Has comido'],
       [('Comiste', 'u', NORM.format('¿Has comido alguna vez…?'))], R_EO)
     g(t, 'independent', fam, HE_C, 'Cuando trabajaba en Bilbao, ___ al trabajo en bicicleta.', 'ir, yo', ['iba'],
       [('fui', 'i', 'Звичка того періоду: iba.')], R_HE)
@@ -728,5 +730,20 @@ def build():
         'materials': MATERIALS(),
         'skill_patches': {},
         'lexicon_updates': {},
-        'lexicon_additions': [],
+        'lexicon_additions': LEXICON_ADDITIONS,
     }
+
+
+LEXICON_ADDITIONS = [
+    {'id': 'lex.montana', 'lemma': 'montaña', 'pos': 'noun', 'gender': 'f', 'plural': 'montañas',
+     'meaningUk': 'гора; гори (як місцевість)', 'firstLesson': 'A2-06-L6', 'noteUk': 'Ir a la montaña — поїхати в гори.'},
+    {'id': 'lex.lluvia', 'lemma': 'lluvia', 'pos': 'noun', 'gender': 'f', 'plural': 'lluvias',
+     'meaningUk': 'дощ', 'firstLesson': 'A2-06-L6'},
+    {'id': 'lex.catedral', 'lemma': 'catedral', 'pos': 'noun', 'gender': 'f', 'plural': 'catedrales',
+     'meaningUk': 'собор', 'firstLesson': 'A2-06-L6'},
+    {'id': 'lex.contestar', 'lemma': 'contestar', 'pos': 'verb',
+     'meaningUk': 'відповідати (на питання, дзвінок, повідомлення)', 'firstLesson': 'A2-06-L6'},
+    {'id': 'lex.companero-de-piso', 'lemma': 'compañero de piso', 'pos': 'noun', 'gender': 'm', 'plural': 'compañeros de piso',
+     'meaningUk': 'сусід по квартирі (з яким разом винаймають житло)', 'firstLesson': 'A2-06-L6',
+     'noteUk': 'Жіночий рід: compañera de piso.'},
+]
