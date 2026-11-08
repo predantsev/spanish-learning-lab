@@ -16,7 +16,6 @@ export const ADDITIONS = {
     { id: 'lex.reservar', lemma: 'reservar', pos: 'verb', meaningUk: 'бронювати, резервувати', firstLesson: 'A2-07-L7', noteUk: 'Hay que reservar mesa. — Треба забронювати столик.' },
     { id: 'lex.vender', lemma: 'vender', pos: 'verb', meaningUk: 'продавати', firstLesson: 'A2-07-L7', noteUk: 'Se vende — продається (в оголошеннях).' },
     { id: 'lex.boton', lemma: 'botón', pos: 'noun', gender: 'm', plural: 'botones', meaningUk: 'кнопка', firstLesson: 'A2-07-L7', noteUk: 'Pulsar el botón — натиснути кнопку.' },
-    { id: 'lex.mama', lemma: 'mamá', pos: 'noun', gender: 'f', plural: 'mamás', meaningUk: 'мама', firstLesson: 'A2-07-L7', noteUk: 'Розмовне слово; нейтральне — madre.' },
   ],
   'A2-08': [],
 };
