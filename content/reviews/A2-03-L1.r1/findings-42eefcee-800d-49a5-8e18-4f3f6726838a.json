@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-03-L1.r1",
+  "jobId": "42eefcee-800d-49a5-8e18-4f3f6726838a",
+  "receiptId": "9dbff9f9-e144-4b1a-84b8-84c1d5a50042",
+  "recordedAt": "2026-11-06T08:06:40.949Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "perfecto.haber-vs-hay",
+      "contentHash": "ac10553e9ca105c683950633dbcaccf61a39c1f2b5e106f90a5e5aa6ff915a07",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.bankJustificationUk: \"2 відкладені\" in both modality breakdowns.",
+          "description": "The stated role counts differ from the packet. Written-form tasks T15 and T16 are respectively delayed and transfer; context-choice tasks T19 and T20 are respectively delayed and transfer. Each breakdown therefore contains one task of each role, rather than two delayed tasks.",
+          "suggestion": "Replace each occurrence of \"2 відкладені\" with \"1 відкладене, 1 на перенесення\", or explicitly describe the pair as two held-out tasks."
+        }
+      ],
+      "caseId": "skill:perfecto.haber-vs-hay",
+      "verdict": "flawed",
+      "reviewerAnswer": "Use hay for present existence and the appropriate personal auxiliary before the participle: Ana ha comido.",
+      "notes": "The linguistic contrast and the totals of six written-form tasks and four context-choice tasks are correct.",
+      "sources": [
+        "Course contract rule 7 distinguishes delayed and transfer roles while identifying both as held-out prompts.",
+        "Packet task:A2-03-L1-T15.task.role = delayed; task:A2-03-L1-T16.task.role = transfer; task:A2-03-L1-T19.task.role = delayed; task:A2-03-L1-T20.task.role = transfer."
+      ]
+    }
+  ]
+}
