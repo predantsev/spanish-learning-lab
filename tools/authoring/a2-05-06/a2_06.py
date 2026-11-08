@@ -722,13 +722,46 @@ def MATERIALS():
         LINK('Потренувати вибір часу', keys, 'written', 10)], keys)]
 
 
+# Prerequisite mappings widened so that every form a task needs is reachable from the target skill (the review
+# packet's taughtBefore is built from these, transitively). IDs are unchanged.
+IMPF = ['imperfecto.regular-ar.singular', 'imperfecto.regular-ar.plural', 'imperfecto.regular-er-ir.singular',
+        'imperfecto.regular-er-ir.plural', 'imperfecto.present-irregulars-regular', 'imperfecto.ser', 'imperfecto.ir', 'imperfecto.ver']
+PERF = ['perfecto.haber-forms', 'participle.regular-ar', 'participle.regular-er-ir', 'participle.hecho', 'participle.visto',
+        'participle.abierto', 'participle.ido-accent', 'perfecto.use-current-period', 'perfecto.use-experience', 'perfecto.choice-context']
+INDEF = ['indefinido.regular-ar', 'indefinido.regular-er-ir', 'indefinido.strong-endings', 'indefinido.estar', 'indefinido.tener',
+         'indefinido.hacer', 'indefinido.ver', 'indefinido.ser-ir', 'indefinido.use-completed-event']
+SKILL_PATCHES = {  # the schema allows at most 20 prerequisites per skill; the mapping is transitive
+    'contrast.present-past': {'prerequisites': [
+        'present.regular-ar', 'present.regular-er', 'present.regular-ir', 'present.ir', 'present.estar',
+        'imperfecto.regular-ar.singular', 'imperfecto.regular-ar.plural', 'imperfecto.regular-er-ir.singular',
+        'imperfecto.regular-er-ir.plural', 'imperfecto.ser', 'imperfecto.ir', 'imperfecto.use-habit', 'imperfecto.estar-state',
+        'imperfecto.use-description', 'time.past-habit-frames', 'indefinido.regular-ar', 'indefinido.regular-er-ir',
+        'indefinido.use-completed-event']},
+    'contrast.perfecto-indefinido.time-frame': {'prerequisites': PERF + INDEF + ['contrast.perfecto-indefinido']},
+    'contrast.perfecto-indefinido.experience-occasion': {'prerequisites': PERF + INDEF + ['contrast.perfecto-indefinido']},
+    'contrast.indefinido-imperfecto.habit-event': {'prerequisites': IMPF + [
+        'indefinido.regular-ar', 'indefinido.regular-er-ir', 'indefinido.ser-ir', 'indefinido.ver', 'indefinido.use-completed-event',
+        'imperfecto.use-habit', 'time.past-habit-frames', 'contrast.indefinido-imperfecto.background-event']},
+    'contrast.past-form-identification': {'prerequisites': IMPF + [
+        'participle.hecho', 'perfecto.haber-forms', 'indefinido.regular-ar', 'indefinido.regular-er-ir', 'indefinido.hacer',
+        'indefinido.ver', 'indefinido.ser-ir', 'contrast.fue-ser-ir', 'present.hacer', 'present.ir']},
+    'contrast.nosotros-present-indefinido': {'prerequisites': [
+        'present.regular-ar', 'present.regular-ar.plural', 'present.regular-er.plural', 'present.regular-ir.plural',
+        'indefinido.regular-ar', 'indefinido.regular-er-ir', 'indefinido.nosotros-syncretism', 'imperfecto.regular-er-ir.plural']},
+    'contrast.mixed-unlabelled': {'prerequisites': [
+        'contrast.present-past', 'contrast.perfecto-indefinido.time-frame', 'contrast.perfecto-indefinido.experience-occasion',
+        'contrast.indefinido-imperfecto.background-event', 'contrast.indefinido-imperfecto.habit-event', 'imperfecto.habia',
+        'imperfecto.use-background', 'link.cuando-temporal']},
+}
+
+
 def build():
     return {
         'block': BLOCK,
         'lessons': [l1(), l2(), l3(), l4(), l5(), l6(), c1()],
         'clips': [CT1, CT2, CT3, CA1, CA2, CA3],
         'materials': MATERIALS(),
-        'skill_patches': {},
+        'skill_patches': SKILL_PATCHES,
         'lexicon_updates': {},
         'lexicon_additions': LEXICON_ADDITIONS,
     }
