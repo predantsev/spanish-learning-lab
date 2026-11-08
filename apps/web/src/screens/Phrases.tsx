@@ -2,7 +2,7 @@
 // searchable but labelled and never used as answer models), three add paths, personal and course
 // collections over the same phrase records (one history), copy of a course collection by
 // references, practice of an explicitly selected ready subset, membership removal with undo.
-import { useEffect, useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useApp } from '../app/context.tsx';
 import { useCommandRunner, useResource, useWideLayout, type Resource } from '../app/hooks.ts';
@@ -64,9 +64,18 @@ export function practiceTargetsOf(phrases: readonly Phrase[]): Target[] {
   return [...byKey.values()].slice(0, 30);
 }
 
+/**
+ * The phrase library view. A reload after a write keeps showing the last loaded view instead of
+ * dropping back to the loading state, so the detail, the open dialogs and a pending undo stay
+ * mounted while the fresh view arrives.
+ */
 function useLibrary(): Resource<PhraseLibraryView> {
   const { api } = useApp();
-  return useResource('phrases', (signal) => api.get<PhraseLibraryView>('/views/phrases', signal).then((envelope) => envelope.data));
+  const resource = useResource('phrases', (signal) => api.get<PhraseLibraryView>('/views/phrases', signal).then((envelope) => envelope.data));
+  const last = useRef<PhraseLibraryView | null>(null);
+  if (resource.state.status === 'ready') last.current = resource.state.data;
+  if (resource.state.status === 'loading' && last.current) return { ...resource, state: { status: 'ready', data: last.current } };
+  return resource;
 }
 
 interface UndoState {
