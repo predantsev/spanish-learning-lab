@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-04-L2.r1",
+  "jobId": "77f6d028-b282-4b7e-8906-2e5b779453eb",
+  "receiptId": "5da7dc29-6990-43db-a75e-e61cc6e8d50e",
+  "recordedAt": "2026-11-08T19:25:56.562Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L2",
+      "contentHash": "4273aea13965d531e3036d9cbccf57c45abc35dff78a15decefed4a5f17fd0cc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[0].text: \"Але в закінченнях тут голосна -e-: comes, come, comemos.\"",
+          "description": "The unqualified statement presents e as the vowel of the -er endings, but the yo ending is -o. The following table itself supplies como, bebo and leo, contradicting that generalization.",
+          "suggestion": "Specify that most endings contain e, while yo retains -o, as in como, bebo and leo."
+        }
+      ],
+      "caseId": "lesson:A1-04-L2",
+      "verdict": "flawed",
+      "reviewerAnswer": "comer: como, comes, come, comemos, coméis, comen. vivir: vivo, vives, vive, vivimos, vivís, viven. The endings differ only in nosotros and vosotros.",
+      "notes": "",
+      "sources": [
+        "Packet, lesson:A1-04-L2, content.body.steps[0].blocks[1].rows[0]: yo — como, bebo, leo.",
+        "RAE/ASALE, Diccionario de la lengua española, comer, conjugation table, presente de indicativo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L2-T48",
+      "contentHash": "266d5326c7c33a498b54292a2ecab50295e4dd9e1d22b70d87a718ae4c38a25d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: \"This lesson: vivir — жити\" and \"This lesson: escribir — писати\" list infinitives only; clips[0].transcript requires \"vive\" and \"escribe\" in \"Mi hermana vive en Madrid y escribe en español.\"",
+          "description": "The task's prerequisite mapping omits the newly introduced present-tense -ir forms needed for comprehension. Neither the prompt nor a hint glosses those forms; the transcript hint merely repeats them.",
+          "suggestion": "Add the earlier current-lesson teaching of present.regular-ir, including vive and escribe, to taughtBefore."
+        }
+      ],
+      "caseId": "task:A1-04-L2-T48",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "This is a prerequisite-mapping defect: lesson step s4 already supplies the teaching. The transcript, Ukrainian translation and option b agree.",
+      "sources": [
+        "Course contract rule 1: dependent forms must be taught and mapped or glossed.",
+        "Packet, task:A1-04-L2-T48, context.taughtBefore, clips[0].transcript and task.hints.",
+        "Packet, lesson:A1-04-L2, content.body.steps[id=s4].blocks[1], él / ella / usted row: vive, escribe, abre."
+      ]
+    }
+  ]
+}
