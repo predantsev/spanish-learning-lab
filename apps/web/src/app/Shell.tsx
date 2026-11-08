@@ -84,7 +84,9 @@ export function Shell({ route, children }: { readonly route: Route; readonly chi
   const first = useRef(true);
 
   // After a route change, move focus to the page heading unless the screen placed focus itself
-  // (e.g. the exercise restores the caret in the answer field).
+  // (e.g. the exercise restores the caret in the answer field). Focus left on persistent chrome
+  // outside <main> (the nav link that was activated with the keyboard, the top bar) does not
+  // count as screen-placed focus, so it moves to the new heading as well.
   useEffect(() => {
     if (first.current) {
       first.current = false;
@@ -92,7 +94,9 @@ export function Shell({ route, children }: { readonly route: Route; readonly chi
     }
     const frame = window.requestAnimationFrame(() => {
       const active = document.activeElement;
-      if (!active || active === document.body) {
+      const main = document.getElementById('main');
+      const placedByScreen = active !== null && active !== document.body && active !== main && main !== null && main.contains(active);
+      if (!placedByScreen) {
         const heading = document.getElementById('page-title') ?? document.querySelector<HTMLElement>('#main h1');
         heading?.focus({ preventScroll: true });
       }

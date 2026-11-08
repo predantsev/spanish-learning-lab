@@ -107,7 +107,7 @@ test('archiving a phrase asks first and can be undone (phrase.archive true → f
   const dialog = page.locator('dialog[open]');
   await expect(dialog).toContainText('Архівувати фразу?');
   const archived = waitForCommand(page, 'phrase.archive');
-  await dialog.getByRole('button', { name: 'Архівувати фразу' }).click();
+  await dialog.getByRole('button', { name: 'Архівувати фразу', exact: true }).click();
   expect(commandBody(await archived).payload).toEqual({ archived: true });
   const restored = waitForCommand(page, 'phrase.archive');
   await page.getByRole('button', { name: 'Повернути' }).click();

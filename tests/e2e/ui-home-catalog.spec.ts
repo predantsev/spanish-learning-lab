@@ -82,7 +82,7 @@ test('topics and situations lead to the same lesson identities', async ({ page }
   await page.goto('/catalog');
   await expect(page.getByTestId('catalog-result').first()).toBeVisible();
   const topicHrefs = new Set(await page.getByTestId('catalog-result').evaluateAll((links) => links.map((link) => link.getAttribute('href'))));
-  await page.getByRole('button', { name: 'Ситуації' }).click();
+  await page.getByRole('button', { name: 'Ситуації', exact: true }).click();
   const situationHrefs = await page.getByTestId('catalog-result').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
   for (const href of situationHrefs) expect(topicHrefs.has(href)).toBe(true);
 });
