@@ -22,7 +22,7 @@ const D = {
     unres: 'Цю відповідь не вдалося перевірити автоматично. Порівняйте її зі зразком.',
   },
   [TV]: {
-    rule: 'Наказ для vosotros: кінцеве -r інфінітива замінюємо на -d: hablar → hablad, comer → comed, escribir → escribid. Чергування кореня немає (cerrad, volved), знак наголосу не пишемо.',
+    rule: 'Наказ для vosotros: кінцеве -r інфінітива замінюємо на -d: hablar → hablad, comer → comed, escribir → escribid. Чергування кореня немає (cerrad, volved). У формах цього уроку (hablad, comed, escribid, cerrad…) знак наголосу не потрібен.',
     ok: 'Правильно! Форма для vosotros на -d.',
     bad: 'Ще ні. Замініть -r інфінітива на -d: hablad, comed, escribid.',
     unres: 'Цю відповідь не вдалося перевірити автоматично. Порівняйте її зі зразком.',
@@ -293,7 +293,7 @@ const tasks = [
     err: err([
       ['come', 'Come — до однієї людини. До кількох дітей: comed.'],
       ['comer', 'У розмовній мові так часто кажуть, але норма для vosotros — comed.'],
-      ['coméd', 'У формі на -d знак наголосу не пишемо: comed.'],
+      ['coméd', 'Comed пишеться без знака наголосу: наголос на останньому складі, слово закінчується на -d.'],
     ]),
     tr: 'Діти, їжте фрукти.',
   }),
@@ -503,7 +503,7 @@ const lesson = {
       titleUk: 'Наказ для vosotros: -ad, -ed, -id',
       required: true,
       blocks: [
-        uk('До кількох людей, з якими ви на «ти», в Іспанії звертаються на vosotros. Наказ утворюємо, замінивши кінцеве -r інфінітива на -d: hablar → hablad, comer → comed, escribir → escribid. Чергування кореня тут немає (cerrar → cerrad, volver → volved), знак наголосу не пишемо.'),
+        uk('До кількох людей, з якими ви на «ти», в Іспанії звертаються на vosotros. Наказ утворюємо, замінивши кінцеве -r інфінітива на -d: hablar → hablad, comer → comed, escribir → escribid. Чергування кореня тут немає (cerrar → cerrad, volver → volved). У формах цього уроку знак наголосу не потрібен: hablad, comed, escribid.'),
         table(
           ['infinitivo', 'vosotros (imperativo)'],
           [
@@ -545,7 +545,7 @@ const lesson = {
         ul([
           'Tú: наказ = форма él теперішнього часу (habla, come, escribe).',
           'Чергування кореня зберігається: cierra, vuelve, pide, sigue.',
-          'Vosotros: -r → -d (hablad, comed, escribid), без чергування й без знака наголосу.',
+          'Vosotros: -r → -d (hablad, comed, escribid), без чергування; у цих формах знак наголосу не потрібен.',
           'Лише ствердний наказ; заперечних наказів поки не вивчаємо.',
         ]),
       ],

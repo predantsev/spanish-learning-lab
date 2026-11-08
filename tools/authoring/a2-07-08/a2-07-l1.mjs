@@ -52,7 +52,7 @@ const tasks = [
       ['¿Puedes me ayudar?', 'x', 'Me стоїть або перед poder (¿Me puedes ayudar?), або в кінці інфінітива (¿Puedes ayudarme?).'],
       ['¿Puedes ayudas?', 'x', 'Після poder ставимо інфінітив: ayudar, а не ayudas.'],
     ],
-    tr: '¿Puedes ayudarme? — Можеш мені допомогти?',
+    tr: 'ayudar — допомагати',
   }),
   k.ev(2, 'supported', 'fam.class', P, {
     instr: 'За зразком попросіть однокурсника зачинити двері (cerrar la puerta). Звертайтеся на tú; por favor можна додати.',
@@ -236,7 +236,7 @@ const tasks = [
     pre: uk('Нагадування: Quería + те, чого ви хочете.'),
     opts: [
       ['Quería un billete para Toledo.', 'c'],
-      ['Quise un billete para Toledo.', 'x', 'Quise — минулий час про одну подію. Для ввічливого прохання — quería.'],
+      ['Quise un billete para Toledo.', 'x', 'Quise — форма простого минулого часу від querer, вона говорить про минуле. Для ввічливого прохання тут і тепер — quería.'],
       ['Quiera un billete para Toledo.', 'x', 'Quiera — інша форма, її ще не вивчали. Для ввічливого прохання — quería.'],
     ],
     tr: 'un billete para Toledo — квиток до Толедо',
@@ -309,24 +309,24 @@ const tasks = [
     ],
   }),
   k.ch(34, 'independent', 'fam.street', R, {
-    instr: 'На вулиці ви звертаєтеся по допомогу до незнайомої літньої жінки. Яке прохання доречне?',
+    instr: 'На вулиці ви звертаєтеся по допомогу до незнайомої літньої жінки й хочете говорити ввічливо, на «ви» (usted). Яке прохання відповідає цьому звертанню?',
     opts: [
       ['Señora, ¿puede ayudarme?', 'c'],
-      ['Señora, ¿puedes ayudarme?', 'x', 'До незнайомої літньої людини доречніше usted: ¿Puede…?'],
+      ['Señora, ¿puedes ayudarme?', 'x', 'Ви обрали ввічливе звертання usted, тому потрібно ¿Puede…? ¿Puedes…? — звертання на tú.'],
     ],
   }),
   k.ch(35, 'delayed', 'fam.work', R, {
-    instr: 'Ви звертаєтеся до колеги свого віку, з яким працюєте щодня. Яке прохання звучить природно?',
+    instr: 'Ви звертаєтеся до колеги свого віку, з яким працюєте щодня й давно на «ти» (tú). Яке прохання відповідає вашому звичному звертанню?',
     opts: [
       ['¿Puedes enviarme el mensaje?', 'c'],
-      ['¿Puede enviarme el mensaje?', 'x', 'Між колегами одного віку в Іспанії зазвичай звертаються на tú; usted тут звучить надто офіційно.'],
+      ['¿Puede enviarme el mensaje?', 'x', 'Ви з цим колегою на «ти», тому потрібно ¿Puedes…? ¿Puede…? — звертання на usted.'],
     ],
   }),
   k.ch(36, 'transfer', 'fam.station', R, {
-    instr: 'На вокзалі ви звертаєтеся до групи незнайомих літніх туристів. Яке прохання доречне?',
+    instr: 'На вокзалі ви звертаєтеся до групи незнайомих літніх туристів і хочете говорити ввічливо, на «ви» (ustedes). Яке прохання відповідає цьому звертанню?',
     opts: [
       ['Perdón, ¿pueden esperar un momento?', 'c'],
-      ['Perdón, ¿podéis esperar un momento?', 'x', 'До кількох незнайомих старших людей доречне ustedes: ¿Pueden…?'],
+      ['Perdón, ¿podéis esperar un momento?', 'x', 'Ви обрали ввічливе звертання ustedes, тому потрібно ¿Pueden…? ¿Podéis…? — звертання на vosotros, до кількох людей на «ти».'],
     ],
   }),
 ];

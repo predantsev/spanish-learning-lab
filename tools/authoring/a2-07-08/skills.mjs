@@ -17,6 +17,17 @@ export const EDITS = {
     'imperative.tu.tener': { bankJustificationUk: single('ten', 'tener') },
     'imperative.tu.venir': { bankJustificationUk: single('ven', 'venir') },
     'imperative.tu.ir': { bankJustificationUk: single('ve', 'ir') },
+    // A2-07-L5.r1 findings (cycle 1)
+    'imperative.usted.yo-g': {
+      ruleUk: 'Якщо дієслово на -er / -ir має неправильну форму yo на -go (tengo, pongo, digo, hago, salgo, vengo), наказ для usted будуємо від неї: відкидаємо -o і додаємо -a (для ustedes — -an): tengo → tenga, pongo → ponga, digo → diga.',
+    },
+    // A2-07-L3.r1 findings (cycle 1)
+    'imperative.tu.regular': {
+      ruleUk: 'Щоб дати інструкцію чи звернутися з проханням до однієї людини на «ти», беремо форму él/ella теперішнього часу: hablar → habla, comer → come, escribir → escribe. Ця форма — лише для ствердного наказу.',
+    },
+    'imperative.addressee': {
+      variantPolicyUk: 'Завдання дає достатньо контексту, щоб речення читалося як інструкція чи прохання. Якщо за формою і контекстом можливі два адресати, завдання уточнюється, а обидва прочитання не вважаються помилкою. Речення-розповідь про третю особу (él/ella) не є наказом і не використовується як завдання на адресата.',
+    },
   },
   'A2-08': {},
 };

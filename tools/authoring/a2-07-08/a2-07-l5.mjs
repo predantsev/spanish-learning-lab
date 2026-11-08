@@ -21,9 +21,9 @@ const D = {
     unres,
   },
   [UG]: {
-    rule: 'Якщо форма yo теперішнього часу закінчується на -go, наказ для usted будуємо від неї: відкидаємо -o і додаємо -a (для ustedes — -an): tengo → tenga, pongo → ponga, digo → diga.',
+    rule: 'Якщо дієслово на -er / -ir має неправильну форму yo на -go (tengo, pongo, digo, hago, salgo, vengo), наказ для usted будуємо від неї: відкидаємо -o і додаємо -a (для ustedes — -an): tengo → tenga, pongo → ponga, digo → diga.',
     ok: 'Правильно! Форму утворено від yo на -go.',
-    bad: 'Ще ні. Візьміть форму yo (tengo, pongo, digo…), відкиньте -o і додайте -a.',
+    bad: 'Ще ні. Візьміть форму yo (tengo, pongo, digo…), відкиньте -o і додайте -a для usted або -an для ustedes.',
     unres,
   },
   [US]: {
@@ -47,7 +47,7 @@ const D = {
   [AD]: {
     rule: 'Habla — tú; hablad — vosotros; hable — usted; hablen — ustedes. У дієсловах на -er / -ir: come — tú, coma — usted, coman — ustedes.',
     ok: 'Правильно! Ви визначили адресата за формою.',
-    bad: 'Ні. Подивіться на закінчення: -e / -a — usted, -en / -an — ustedes, -d — vosotros.',
+    bad: 'Ні. Дієслова на -ar: -a — tú, -e — usted; на -er / -ir: -e — tú, -a — usted. -en / -an — ustedes, -d — vosotros.',
   },
   [RG]: {
     rule: 'Usted — до незнайомих старших людей і в офіційних ситуаціях; tú — до родини, друзів, дітей.',
@@ -384,7 +384,7 @@ const tasks = [
   // ---- addressee (now with usted / ustedes) ----
   k.ch(51, 'supported', 'fam.clinic', AD, {
     instr: 'Прочитайте інструкцію. Кому вона адресована?',
-    pre: uk('Нагадування: -e / -a — usted, -en / -an — ustedes, -d — vosotros.'),
+    pre: uk('Нагадування: у дієсловах на -ar -a — tú, -e — usted; на -er / -ir -e — tú, -a — usted. -en / -an — ustedes, -d — vosotros.'),
     es: 'Rellene el formulario, por favor.',
     opts: [
       ['одній людині на usted', 'c'],
@@ -424,15 +424,15 @@ const tasks = [
   k.ch(55, 'independent', 'fam.clinic', RG, {
     instr: 'У поліклініці медсестра звертається до незнайомого літнього пацієнта. Яка інструкція доречна?',
     opts: [
-      ['Espere aquí, por favor.', 'c'],
-      ['Espera aquí, por favor.', 'x', 'До незнайомого літнього пацієнта доречне usted: espere.'],
+      ['Espere aquí, por favor. (usted)', 'c'],
+      ['Espera aquí, por favor. (tú)', 'x', 'До незнайомого літнього пацієнта доречне usted: espere.'],
     ],
   }),
   k.ch(56, 'delayed', 'fam.home', RG, {
     instr: 'Мама звертається до свого сина. Яка інструкція доречна?',
     opts: [
-      ['Espera aquí.', 'c'],
-      ['Espere aquí.', 'x', 'До сина звертаються на tú: espera.'],
+      ['Espera aquí. (tú)', 'c'],
+      ['Espere aquí. (usted)', 'x', 'До сина звертаються на tú: espera.'],
     ],
   }),
 ];
@@ -484,7 +484,7 @@ const lesson = {
       titleUk: 'Від форми yo: diga, haga, ponga, tenga',
       required: true,
       blocks: [
-        uk('Якщо форма yo теперішнього часу закінчується на -go, наказ для usted будуємо від неї: відкидаємо -o і додаємо -a (для ustedes — -an).'),
+        uk('Якщо дієслово на -er / -ir має неправильну форму yo на -go (tengo, pongo, digo, hago, salgo, vengo), наказ для usted будуємо від неї: відкидаємо -o і додаємо -a (для ustedes — -an).'),
         table(
           ['yo (presente)', 'usted', 'ustedes'],
           [

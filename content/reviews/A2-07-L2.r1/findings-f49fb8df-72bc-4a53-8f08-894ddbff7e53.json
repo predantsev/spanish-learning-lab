@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-07-L2.r1",
+  "jobId": "f49fb8df-72bc-4a53-8f08-894ddbff7e53",
+  "receiptId": "d285e7ff-19ae-45c7-9e52-20f072eaa43b",
+  "recordedAt": "2026-11-08T19:18:12.177Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A2-07-L2",
+      "contentHash": "2305083c2eef8da6c9ae3fd3b51db2e60ef5211099b1688afa2a5c9d677f087e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[1].text: «Після es que іде звичайне речення в теперішньому часі: es que trabajo, es que estoy cansado.»",
+          "description": "The explanation presents present tense as a grammatical requirement after es que. Other tenses are possible, for example «Lo siento, es que mañana estaré fuera.»",
+          "suggestion": "Explain that es que introduces a complete clause; explicitly limit the present-tense instruction to the examples practiced in this lesson."
+        }
+      ],
+      "caseId": "lesson:A2-07-L2",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Puedo abrir la ventana? — Sí, claro. / Lo siento, es que hoy trabajo.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of explanatory «es que» constructions (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L2-T11",
+      "contentHash": "1dfdc127d10a49a0a3664312292c107d71e852b34ed8d21a16aa465fb4d0e0ef",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: «Почніть із Lo siento, es que…» conflicts with task.accepted[id=v2,v5], beginning «Lo siento, pero», and task.accepted[id=v3,v6], beginning «No, lo siento».",
+          "description": "Four accepted answers do not satisfy the explicitly required opening. They are natural refusals, but the key and instruction impose different requirements.",
+          "suggestion": "Make the opening a suggestion rather than a requirement, or restrict accepted answers to those beginning with Lo siento, es que."
+        }
+      ],
+      "caseId": "task:A2-07-L2-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "Lo siento, es que el sábado trabajo.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3: accepted entries must be acceptable answers for the stated task."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L2-T21",
+      "contentHash": "40f59cd58abe1dbc4cdb9846c7fc482ace99be1ab01788d8c4a40748a39d82fb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «У вас дві ручки. Як ви відповісте?»; task.options[id=a].feedbackUk: «У вас дві ручки, тож відмовляти немає причини.»",
+          "description": "The learner could lend the requested pen or need that particular pen despite owning another. The prompt does not specify availability or willingness, but the key accepts only agreement.",
+          "suggestion": "Specify that the requested pen is available and the learner wants to lend it, or explicitly ask the learner to choose an expression of agreement."
+        }
+      ],
+      "caseId": "task:A2-07-L2-T21",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Both a and b can fit: having two pens does not establish whether the requested pen is available.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2: the choice key and feedback must correctly evaluate the options.",
+        "Verdict definition «uncertain»: use this verdict when the key selects one reading from an underdetermined context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L2-T25",
+      "contentHash": "be4a5532f2976a856b16cb064558eca9b09e576aced8174de1094eb5118e9585",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «Ваш телефон уже заряджений. Як ви відповісте?»; task.options[id=a].outcomes marks «Lo siento, es que lo necesito.» incorrect.",
+          "description": "The learner might still need the charger, for example for another device or to take elsewhere. Availability and willingness to lend it are unspecified, so agreement is not the only contextually possible response.",
+          "suggestion": "State that the charger is free and the learner wants to lend it, or explicitly request an affirmative response."
+        }
+      ],
+      "caseId": "task:A2-07-L2-T25",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Both a and b can fit: the phone being charged does not establish whether the charger is available.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2: the choice key must correctly evaluate the options.",
+        "Verdict definition «uncertain»: the intended response depends on context the packet does not fix."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L2-T37",
+      "contentHash": "24d37457de63514c54a9ce68af289c1ced47b585459fb33cfcf13c0cbccfe6a0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.options[id=a].feedbackUk: «У супермаркет Кармен іде сама й питає, чи Олені щось потрібно.»",
+          "description": "If «сама» means unaccompanied, the feedback adds information the transcript does not provide. «Esta tarde voy al supermercado» identifies Carmen as going but does not establish whether anyone accompanies her. An emphatic 'Carmen herself' reading is also possible.",
+          "suggestion": "Clarify the intended meaning of «сама». If companionship is irrelevant, use neutral wording such as «Кармен повідомляє, що йде в супермаркет, і питає, чи Олені щось потрібно.»"
+        }
+      ],
+      "caseId": "task:A2-07-L2-T37",
+      "verdict": "uncertain",
+      "reviewerAnswer": "c",
+      "notes": "The main answer c is supported by the transcript; the uncertainty concerns the feedback's additional claim.",
+      "sources": [
+        "Packet, clips[id=clip.a2-07.bicicleta-permiso].transcript: «Esta tarde voy al supermercado. ¿Necesitas algo?»",
+        "Verdict definition «uncertain»: use this verdict when an element's correctness depends on an unspecified reading or context."
+      ]
+    }
+  ]
+}
