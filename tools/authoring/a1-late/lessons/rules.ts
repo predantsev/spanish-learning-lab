@@ -192,4 +192,12 @@ export const RULES: Record<string, string> = {
   'neg.short-answer.nada-nadie': 'Nada — «нічого», nadie — «ніхто». Коротка відповідь: —¿Necesitas algo? —Nada, gracias. —¿Quién está en casa? —Nadie. Nada más — «більше нічого».',
   'link.sequence.antes-despues-de':
     'Antes de — «перед, до», después de — «після». Після них — інфінітив або іменник з артиклем: después de cenar, antes de la clase, después del trabajo (de + el = del). Не «después de ceno».',
+  // A1-06-L6
+  'formula.message-opening-closing':
+    'Повідомлення другу починають так: ¡Hola, Ana! або Hola, Ana: (після звертання часто ставлять двокрапку). Querido Pablo / Querida Ana — «дорогий / дорога». Закінчують: Un abrazo — «обіймаю», Besos або Un beso — «цілую» (між друзями в Іспанії це звично), ¡Hasta pronto! — «до скорого», Nos vemos — «побачимося».',
+  'reading.personal-message':
+    'Прочитай повідомлення й визнач: хто пише, чого хоче (запрошує, розповідає про план, щось просить) і які деталі важливі — день, час, місце. Потім вибери відповідь, що підходить за змістом.',
+  'writing.personal-message':
+    'Напиши 3–5 речень: привітання, головне (вподобання, план або запрошення), причина з porque, прощання. Використовуй вивчені моделі: me gusta, prefiero, necesito, quiero + інфінітив, el sábado voy…',
+  'listening.message': 'Послухай повідомлення і визнач, навіщо людина телефонує: запрошує, розповідає про план чи щось просить. Потім знайди деталі: день, годину, місце.',
 };
