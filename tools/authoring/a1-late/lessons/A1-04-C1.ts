@@ -106,7 +106,7 @@ k.rubric({
     'Є слова послідовності (primero, después, luego, por último).',
     'Відповідь може відрізнятися від прикладу: перевіряється зміст і вивчені форми.',
   ],
-  exm: ['Me levanto temprano. Primero me ducho y después desayuno. Luego voy al trabajo.'],
+  exm: ['Siempre me levanto temprano. Primero me ducho y después desayuno. Luego voy al trabajo.'],
 });
 
 const ref = (lesson: string, ...nums: number[]): string[] => nums.map((n) => `${lesson}-T${String(n).padStart(2, '0')}`);

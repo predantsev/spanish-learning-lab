@@ -1,5 +1,5 @@
 // A1-04-L2 — regular -er and -ir present forms in two short steps, then the nosotros/vosotros contrast.
-import { Kit, S, ex, family, form, hTranscript, plink, tableEs, ul, uk, verbErrors, vgap, vslot } from '../lib.ts';
+import { Kit, S, ex, family, form, hTr, hTranscript, plink, tableEs, ul, uk, verbErrors, vgap, vslot } from '../lib.ts';
 import type { Person, SlotSpec } from '../lib.ts';
 import { RULES } from './rules.ts';
 
@@ -352,7 +352,7 @@ k.choice({
     ['Живе в Мадриді й пише іспанською.', true],
     ['Живе в Мадриді й вивчає англійську.', false],
   ],
-  hints: [hTranscript([LM], 'Mi hermana vive en Madrid y escribe en español.')],
+  hints: [hTr('Слова: vive — «живе», escribe — «пише» (форми él / ella дієслів vivir, escribir; див. крок про -ir).'), hTranscript([LM], 'Mi hermana vive en Madrid y escribe en español.')],
 });
 
 k.material({
@@ -391,7 +391,7 @@ export default k.build({
       kind: 'explanation',
       title: 'Крок 1. Дієслова на -er',
       blocks: [
-        uk('Дієслова на -er утворюють форми так само, як -ar: відкинь -er і додай закінчення. Але в закінченнях тут голосна -e-: comes, come, comemos.'),
+        uk('Дієслова на -er утворюють форми так само, як -ar: відкинь -er і додай закінчення. Але в більшості закінчень тут голосна -e-: comes, come, comemos; форма yo, як і в -ar, закінчується на -o: como.'),
         tableEs(
           ['persona', 'comer', 'beber', 'leer'],
           [

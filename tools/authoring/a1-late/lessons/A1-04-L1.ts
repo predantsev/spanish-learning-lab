@@ -1,5 +1,5 @@
 // A1-04-L1 — regular -ar present forms (singular and plural persons) and «con» (CV-03).
-import { Kit, S, ex, hRule, hTranscript, plink, tableEs, ul, uk, vgap, vslot, DICTATION } from '../lib.ts';
+import { Kit, S, ex, hRule, hTr, hTranscript, plink, tableEs, ul, uk, vgap, vslot, DICTATION } from '../lib.ts';
 import { RULES } from './rules.ts';
 
 const k = new Kit('A1-04-L1', RULES);
@@ -49,7 +49,7 @@ k.slots({
 
 // ---- held-out (delayed / transfer): not shown in lesson steps
 vgap(k, { n: 11, role: 'delayed', fam: 'a104.work', t: [AR], verb: 'trabajar', person: 2, s: '¿Usted ___ en una oficina? (trabajar)', tr: 'Ви працюєте в офісі?' });
-vgap(k, { n: 12, role: 'delayed', fam: 'a104.home', t: [ARP], verb: 'cenar', person: 5, s: '¿Ustedes ___ en casa? (cenar)', tr: 'Ви (кілька людей, ввічливо) вечеряєте вдома?' });
+vgap(k, { n: 12, role: 'delayed', fam: 'a104.home', t: [ARP], verb: 'cocinar', person: 5, s: '¿Ustedes ___ en casa? (cocinar)', tr: 'Ви (кілька людей, ввічливо) готуєте вдома?' });
 k.slots({
   n: 13,
   role: 'delayed',
@@ -119,13 +119,13 @@ k.choice({
   fam: 'a104.study',
   t: [ARC],
   ins: 'Обери форму, яка підходить до підмета.',
-  p: ['¿Usted ___ inglés?'],
+  p: ['¿Usted ___ ucraniano?'],
   o: [
     ['habla', true],
     ['hablas', ARC, '«Hablas» — форма для tú. Usted уживає форму 3-ї особи, як él / ella.'],
     ['hablo', ARC, '«Hablo» — форма для yo.'],
   ],
-  tr: 'Ви розмовляєте англійською?',
+  tr: 'Ви розмовляєте українською?',
 });
 k.choice({
   n: 19,
@@ -181,7 +181,7 @@ k.exact({
   acc: ['Trabajo con Marta.', 'Yo trabajo con Marta.'],
   err: [['Trabajo Marta.', 'Бракує con: «з кимось» — con + людина.']],
 });
-k.exact({ n: 24, role: 'independent', fam: 'a104.study', t: [CONW], ins: 'Впиши слово, якого бракує.', p: ['Estudio español ___ mis amigos.'], acc: ['con'], err: conErr, tr: 'Я вивчаю іспанську зі своїми друзями.' });
+k.exact({ n: 24, role: 'independent', fam: 'a104.study', t: [CONW], ins: 'Впиши слово, якого бракує, щоб речення означало «Я вивчаю іспанську разом зі своїми друзями».', p: ['Estudio español ___ mis amigos.'], acc: ['con'], err: conErr, tr: 'Я вивчаю іспанську зі своїми друзями.' });
 k.exact({
   n: 25,
   role: 'independent',
@@ -189,7 +189,7 @@ k.exact({
   t: [CONU],
   ins: 'Переклади іспанською: «Ми гуляємо з нашим собакою».',
   acc: ['Paseamos con nuestro perro.', 'Nosotros paseamos con nuestro perro.', 'Nosotras paseamos con nuestro perro.'],
-  err: [['Paseamos nuestro perro.', 'Бракує con: «з кимось» — con + людина чи тварина.']],
+  hints: [hTr('Слова: paseamos — «ми гуляємо» (форма nosotros: закінчення -amos, див. крок «Множина»); nuestro perro — «наш собака» (nuestro — «наш», тема A1-02).')],
 });
 k.exact({
   n: 26,
@@ -205,7 +205,7 @@ k.slots({
   role: 'delayed',
   fam: 'a104.work',
   t: [CONW],
-  ins: 'Перепиши речення повністю, вставивши слово, якого бракує.',
+  ins: 'Перепиши речення повністю, вставивши слово, якого бракує, щоб воно означало «Пабло працює разом зі своїм братом».',
   p: ['Pablo trabaja ___ su hermano.'],
   tpl: ['Pablo trabaja ', S('s1'), ' su hermano.'],
   slots: [{ id: 's1', t: CONW, acc: ['con'], err: conErr }],
@@ -235,6 +235,7 @@ k.exact({
     'Nosotras tomamos café con nuestros amigos.',
   ],
   err: [['Tomamos un café nuestros amigos.', 'Бракує con: «з кимось» — con + людина.']],
+  hints: [hTr('Слова: tomamos — «ми п’ємо» (форма nosotros: закінчення -amos, див. крок «Множина»); nuestros amigos — «наші друзі» (nuestro — «наш», у множині nuestros; тема A1-02).')],
 });
 
 // ---- listening: daily actions (≥2 distinct clips, a meaning task per clip, optional dictation)
@@ -280,7 +281,7 @@ k.choice({
     ['Батьки з братом.', false],
     ['Батьки із сестрою.', true],
   ],
-  hints: [hTranscript([LM], 'Mis padres cenan en casa con mi hermana.')],
+  hints: [hTr('Слово: con — «з, разом із» (див. крок «З ким: con»).'), hTranscript([LM], 'Mis padres cenan en casa con mi hermana.')],
 });
 k.exact({
   n: 32,
@@ -292,6 +293,7 @@ k.exact({
   acc: ['Trabajo en una oficina y estudio español.'],
   pol: DICTATION,
   noRule: true,
+  bad: 'Поки що ні. Порівняй свій запис зі зразком у підказці «Показати відповідь»: зверни увагу на кожне слово й на знаки наголосу.',
   hints: [hRule([LD], 'Пиши так, як чуєш. Орфографічна помилка тут не означає, що ти не зрозумів запис: розуміння перевіряє окреме завдання.')],
 });
 
@@ -327,7 +329,7 @@ export default k.build({
   situations: ['routine-study-leisure'],
   minutes: 18,
   introduces: ['present.regular-ar', 'present.regular-ar.plural', 'prep.con.company', 'listening.daily-actions'],
-  revisits: ['pron.subject', 'pron.subject.plural', 'pron.person-mapping', 'pron.subject-omission', 'neg.no-before-verb', 'question.yes-no', 'prep.en.location', 'poss.mi-tu-su'],
+  revisits: ['pron.subject', 'pron.subject.plural', 'pron.person-mapping', 'pron.subject-omission', 'neg.no-before-verb', 'question.yes-no', 'prep.en.location', 'poss.mi-tu-su', 'poss.nuestro-vuestro'],
   steps: [
     {
       kind: 'explanation',
@@ -363,7 +365,7 @@ export default k.build({
           ],
         ),
         uk('У формі vosotros завжди пишемо знак наголосу: habláis, trabajáis. В Іспанії до кількох знайомих людей звертаються vosotros: ¿Habláis inglés?'),
-        uk('Ustedes — ввічливе «Ви» до кількох людей — уживає форму на -an, як ellos: ¿Ustedes cenan en casa?'),
+        uk('Ustedes — формальне «ви» до кількох людей — уживає форму на -an, як ellos: ¿Ustedes cenan en casa?'),
         ex('Cenamos en casa.', 'Ми вечеряємо вдома.'),
         ex('¿Trabajáis en Madrid?', 'Ви працюєте в Мадриді?'),
         ex('Mis padres hablan ucraniano.', 'Мої батьки розмовляють українською.'),

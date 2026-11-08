@@ -1,0 +1,3406 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "A1-05-L6",
+  "tasks": [
+    {
+      "id": "A1-05-L6-T01",
+      "lessonId": "A1-05-L6",
+      "role": "supported",
+      "family": "a105.contact",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Впиши питальне слово, щоб дізнатися номер телефону. Зразок: ¿Cuál es tu dirección?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ es tu número de teléfono?"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Cuál"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Cual",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuál пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e2",
+          "text": "Qué",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Який твій номер телефону?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Cuál"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Cuál",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T02",
+      "lessonId": "A1-05-L6",
+      "role": "supported",
+      "family": "a105.school-things",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши питання повністю, вставивши питальне слово: «Які (з цих) книжки — твої?» Зразок: ¿Cuáles son tus coches?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ son tus libros?"
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        "¿",
+        {
+          "slot": "s1"
+        },
+        " son tus libros?"
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "question.word.cual/written-form",
+          "accepted": [
+            "Cuáles"
+          ],
+          "errors": [
+            {
+              "text": "Cuales",
+              "feedbackUk": "У питанні cuáles пишеться зі знаком наголосу."
+            },
+            {
+              "text": "Cuál",
+              "feedbackUk": "Libros — множина, тож cuáles: ¿Cuáles son…?"
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuáles son tus libros?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuáles son tus libros?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T03",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.contact",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Запитай іспанською: «Яка твоя адреса?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuál es tu dirección?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cual es tu dirección?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuál пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e2",
+          "text": "¿Qué es tu dirección?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuál es tu dirección?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuál es tu dirección?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T04",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.form",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти заповнюєш анкету разом з другом. Запитай іспанською: «Яке твоє прізвище?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuál es tu apellido?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cual es tu apellido?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuál пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e2",
+          "text": "¿Qué es tu apellido?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuál es tu apellido?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuál es tu apellido?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T05",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.opening-hours",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Впиши питальне слово, щоб дізнатися розклад аптеки."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ es el horario de la farmacia?"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Cuál"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Cual",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuál пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e2",
+          "text": "Qué",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Який розклад аптеки?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Cuál"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Cuál",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T06",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.school-things",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "На столі кілька зв’язок ключів. Запитай іспанською: «Які ключі — твої?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuáles son tus llaves?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cuál son tus llaves?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Llaves — множина: ¿Cuáles son…?"
+        },
+        {
+          "id": "e2",
+          "text": "¿Cuales son tus llaves?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuáles пишеться зі знаком наголосу."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuáles son tus llaves?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuáles son tus llaves?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T07",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.shop-price",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Запитай іспанською: «Яка ціна?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuál es el precio?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cual es el precio?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuál пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e2",
+          "text": "¿Qué es el precio?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuál es el precio?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuál es el precio?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T08",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.hotel-info",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши питання повністю, вставивши питальне слово: «Яка адреса готелю?»"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ es la dirección del hotel?"
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        "¿",
+        {
+          "slot": "s1"
+        },
+        " es la dirección del hotel?"
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "question.word.cual/written-form",
+          "accepted": [
+            "Cuál"
+          ],
+          "errors": [
+            {
+              "text": "Cual",
+              "feedbackUk": "У питанні cuál пишеться зі знаком наголосу."
+            },
+            {
+              "text": "Qué",
+              "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuál es la dirección del hotel?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuál es la dirección del hotel?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T09",
+      "lessonId": "A1-05-L6",
+      "role": "transfer",
+      "family": "a105.reception",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "На рецепції готелю запитай іспанською: «Який номер кімнати?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuál es el número de la habitación?"
+        },
+        {
+          "id": "v2",
+          "text": "¿Cuál es el número de habitación?"
+        },
+        {
+          "id": "v3",
+          "text": "¿Cuál es el número de mi habitación?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cual es el número de la habitación?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuál пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e2",
+          "text": "¿Qué es el número de la habitación?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuál es el número de la habitación?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuál es el número de la habitación?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T10",
+      "lessonId": "A1-05-L6",
+      "role": "transfer",
+      "family": "a105.lost-bags",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Біля дверей стоять кілька рюкзаків. Запитай друзів (vosotros) іспанською: «Які рюкзаки — ваші?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuáles son vuestras mochilas?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cuál son vuestras mochilas?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "Mochilas — множина: ¿Cuáles son…?"
+        },
+        {
+          "id": "e2",
+          "text": "¿Cuales son vuestras mochilas?",
+          "outcomes": {
+            "question.word.cual/written-form": "incorrect"
+          },
+          "feedbackUk": "У питанні cuáles пишеться зі знаком наголосу."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuáles son vuestras mochilas?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuáles son vuestras mochilas?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T11",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.contact",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай питання. Що хоче дізнатися людина?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿Cuál es tu número de teléfono?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Твій номер телефону.",
+          "outcomes": {
+            "question.word.cual/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Скільки в тебе телефонів.",
+          "outcomes": {
+            "question.word.cual/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Що таке телефон.",
+          "outcomes": {
+            "question.word.cual/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Твій номер телефону."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T12",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.school-things",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "question.word.cual",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Обери питальне слово."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ son tus llaves?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cuál",
+          "outcomes": {
+            "question.word.cual/context-choice": "incorrect"
+          },
+          "feedbackUk": "Llaves — множина: cuáles."
+        },
+        {
+          "id": "b",
+          "label": "Cuáles",
+          "outcomes": {
+            "question.word.cual/context-choice": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Які ключі — твої?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Cuáles"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Cuáles",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T13",
+      "lessonId": "A1-05-L6",
+      "role": "supported",
+      "family": "a105.contact",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "contrast.que-cual",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти хочеш дізнатися конкретний номер. Обери питальне слово. Зразок: ¿Cuál es tu dirección?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ es tu número de teléfono?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Qué",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "incorrect"
+          },
+          "feedbackUk": "Qué es…? питає, що це таке взагалі. Конкретний номер — ¿Cuál es…?"
+        },
+        {
+          "id": "b",
+          "label": "Cuál",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Cuál"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Cuál",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T14",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.word-meaning",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "contrast.que-cual",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти не знаєш слова aviso і хочеш дізнатися, що воно означає. Обери питальне слово."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ es un aviso?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Qué",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Cuál",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "incorrect"
+          },
+          "feedbackUk": "Cuál питає про конкретну інформацію. Що це таке — ¿Qué es…?"
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Qué"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Qué",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T15",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.car",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "contrast.que-cual",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Обери питальне слово (перед іменником)."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ coche es de Ana?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Qué",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Cuál",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "incorrect"
+          },
+          "feedbackUk": "Перед іменником в Іспанії вживають qué: ¿Qué coche…?"
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Яка машина — Анина?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Qué"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Qué",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T16",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.opening-hours",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "contrast.que-cual",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти хочеш дізнатися, коли працює музей. Обери питальне слово."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "¿___ es el horario del museo?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Qué",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "incorrect"
+          },
+          "feedbackUk": "Тобі потрібні конкретні години, а не визначення слова horario: ¿Cuál es…?"
+        },
+        {
+          "id": "b",
+          "label": "Cuál",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Cuál"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Cuál",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T17",
+      "lessonId": "A1-05-L6",
+      "role": "transfer",
+      "family": "a105.street-sign",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "contrast.que-cual",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти бачиш на вулиці табличку «farmacia de guardia» і не знаєш, що це. Обери питання."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "¿Qué es una farmacia de guardia?",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "¿Cuál es una farmacia de guardia?",
+          "outcomes": {
+            "contrast.que-cual/context-choice": "incorrect"
+          },
+          "feedbackUk": "Що це таке — ¿Qué es…?"
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "contrast.que-cual/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Qué es una farmacia de guardia?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Qué es una farmacia de guardia?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T21",
+      "lessonId": "A1-05-L6",
+      "role": "supported",
+      "family": "a105.class-notice",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "В оголошенні написано: «Clase de español: sala 3». Ти не знаєш, о котрій заняття. Обери питання."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "¿A qué hora es la clase?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "¿Dónde es la clase?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Де — уже відомо: sala 3. Бракує години."
+        },
+        {
+          "id": "c",
+          "label": "¿Cuánto cuesta la clase?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Ти хочеш дізнатися годину, а не ціну."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿A qué hora es la clase?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿A qué hora es la clase?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T22",
+      "lessonId": "A1-05-L6",
+      "role": "supported",
+      "family": "a105.pharmacy",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти знаєш, що аптека відчиняється о дев’ятій, але не знаєш, де вона. Запитай іспанською. Зразок: ¿Dónde está el banco?"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Dónde está la farmacia?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Donde está la farmacia?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "У питанні dónde пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e2",
+          "text": "¿A qué hora abre la farmacia?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "Годину ти вже знаєш. Бракує місця: ¿Dónde…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Dónde está la farmacia?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Dónde está la farmacia?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T23",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.market",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "На ринку ти бачиш гарні помідори, але ціни немає. Обери питання."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "¿Dónde están los tomates?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Помідори ти бачиш. Бракує ціни."
+        },
+        {
+          "id": "b",
+          "label": "¿Cuánto cuestan los tomates?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "¿Cuándo son los tomates?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Ти хочеш дізнатися ціну: ¿Cuánto cuestan…?"
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuánto cuestan los tomates?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuánto cuestan los tomates?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T24",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.meeting-info",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "У записці: «Reunión: sala 2, a las diez». Дня немає. Запитай іспанською, коли нарада."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuándo es la reunión?"
+        },
+        {
+          "id": "v2",
+          "text": "¿Qué día es la reunión?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿A qué hora es la reunión?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "Годину ти вже знаєш. Бракує дня: ¿Cuándo…? або ¿Qué día…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuándo es la reunión?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuándo es la reunión?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T25",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.new-class",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "На першому занятті ти бачиш жінку біля дошки й не знаєш, хто вона. Запитай одногрупника іспанською: «Хто викладачка?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Quién es la profesora?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Quien es la profesora?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "У питанні quién пишеться зі знаком наголосу."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Quién es la profesora?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Quién es la profesora?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T26",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.pharmacy",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти в новому районі й не знаєш, чи є тут аптека. Обери питання."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "¿Hay una farmacia cerca de aquí?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "¿Cuándo abre la farmacia?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Ти ще не знаєш, чи є аптека. Спершу — ¿Hay…?"
+        },
+        {
+          "id": "c",
+          "label": "¿Cuánto cuesta la farmacia?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Ти хочеш дізнатися, чи є аптека: ¿Hay…?"
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Hay una farmacia cerca de aquí?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Hay una farmacia cerca de aquí?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T27",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.museum-info",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти знаєш адресу музею, але не знаєш, о котрій він відчиняється. Запитай іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿A qué hora abre el museo?"
+        },
+        {
+          "id": "v2",
+          "text": "¿Cuándo abre el museo?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Dónde está el museo?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "Адресу ти вже знаєш. Бракує години: ¿A qué hora abre…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿A qué hora abre el museo?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿A qué hora abre el museo?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T28",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.contact",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти хочеш подзвонити новому колезі, але не маєш його номера. Обери питання."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "¿Dónde está tu teléfono?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Тобі потрібен номер, а не місце, де лежить телефон."
+        },
+        {
+          "id": "b",
+          "label": "¿Cuál es tu número de teléfono?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "¿Quién es tu teléfono?",
+          "outcomes": {
+            "question.choice-missing-info/context-choice": "incorrect"
+          },
+          "feedbackUk": "Quién питає про людину."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuál es tu número de teléfono?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuál es tu número de teléfono?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T29",
+      "lessonId": "A1-05-L6",
+      "role": "transfer",
+      "family": "a105.hotel-phone",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти знаєш назву й адресу готелю, але не маєш його телефону. Запитай іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuál es el número de teléfono del hotel?"
+        },
+        {
+          "id": "v2",
+          "text": "¿Cuál es el teléfono del hotel?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Qué es el número de teléfono del hotel?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "Перед es, коли потрібна конкретна інформація (номер, адреса, розклад), в Іспанії питаємо cuál: ¿Cuál es…?"
+        },
+        {
+          "id": "e2",
+          "text": "¿Dónde está el hotel?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "Адресу ти вже знаєш. Бракує номера телефону: ¿Cuál es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuál es el número de teléfono del hotel?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuál es el número de teléfono del hotel?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T30",
+      "lessonId": "A1-05-L6",
+      "role": "transfer",
+      "family": "a105.class-price",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти знаєш, коли й де заняття з іспанської, але не знаєш ціни. Запитай іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Cuánto cuesta la clase?"
+        },
+        {
+          "id": "v2",
+          "text": "¿Cuánto cuesta la clase de español?"
+        },
+        {
+          "id": "v3",
+          "text": "¿Cuánto cuestan las clases?"
+        },
+        {
+          "id": "v4",
+          "text": "¿Cuánto cuestan las clases de español?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cuánto cuestan la clase?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "Clase — одна, тож cuesta: ¿Cuánto cuesta la clase?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cuánto cuesta la clase?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cuánto cuesta la clase?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T41",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.n-holiday",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Чому зачинено?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Cerrado por vacaciones del 1 al 15 de agosto."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Через свято.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Через відпустку.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Через ремонт.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Через відпустку."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T42",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.n-holiday",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. До якого числа зачинено?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Cerrado por vacaciones del 1 al 15 de agosto."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "До 1 серпня.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "До 15 серпня.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "До 15 квітня.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "До 15 серпня."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T43",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.n-class",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. У які дні заняття?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Clase de español: martes y jueves, 19:00, sala 2."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "У вівторок і четвер.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "У понеділок і середу.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Щодня.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "У вівторок і четвер."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T44",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.n-class",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Де заняття?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Clase de español: martes y jueves, 19:00, sala 2."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "У залі 2.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "У залі 19.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "На вулиці.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "У залі 2."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T45",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.n-pharmacy",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Де чергова аптека?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Farmacia de guardia: calle Mayor, 5. Abierta 24 horas."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "На вулиці Майор, 5.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "На площі Майор.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "На вулиці Майор, 24.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "На вулиці Майор, 5."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T46",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.n-pharmacy",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Коли вона працює?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Farmacia de guardia: calle Mayor, 5. Abierta 24 horas."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Цілодобово.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "До 24 серпня.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Лише вранці.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Цілодобово."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T47",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.n-museum",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Скільки коштує вхід?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Museo de la Ciudad. Horario: de martes a domingo, de 10:00 a 18:00. Lunes: cerrado. Entrada: 6 €."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "10 €.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "6 €.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "18 €.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "6 €."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "6 €.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T48",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.n-museum",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Коли музей зачинений?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Museo de la Ciudad. Horario: de martes a domingo, de 10:00 a 18:00. Lunes: cerrado. Entrada: 6 €."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "У неділю.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "У понеділок.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "У вівторок.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "У понеділок."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T51",
+      "lessonId": "A1-05-L6",
+      "role": "supported",
+      "family": "a105.a-pharmacy",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "writing.info-answer",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "На дверях аптеки написано: «Abre a las 9:00». Друг питає: «¿A qué hora abre la farmacia?» Відповідай коротко іспанською. Зразок: Cierra a las ocho."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Abre a las nueve."
+        },
+        {
+          "id": "v2",
+          "text": "A las nueve."
+        },
+        {
+          "id": "v3",
+          "text": "La farmacia abre a las nueve."
+        },
+        {
+          "id": "v4",
+          "text": "Abre a las 9:00."
+        },
+        {
+          "id": "v5",
+          "text": "A las 9:00."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Abre las nueve.",
+          "outcomes": {
+            "writing.info-answer/construction-use": "incorrect"
+          },
+          "feedbackUk": "Годину події кажемо з a: a las nueve."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Abre a las nueve."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Abre a las nueve.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T52",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.a-class",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "writing.info-answer",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення: «Clase de español: martes y jueves, 19:00, sala 2.» Друг питає: «¿Dónde es la clase?» Відповідай коротко іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "En la sala 2."
+        },
+        {
+          "id": "v2",
+          "text": "En la sala dos."
+        },
+        {
+          "id": "v3",
+          "text": "Es en la sala 2."
+        },
+        {
+          "id": "v4",
+          "text": "Es en la sala dos."
+        },
+        {
+          "id": "v5",
+          "text": "La clase es en la sala 2."
+        },
+        {
+          "id": "v6",
+          "text": "La clase es en la sala dos."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "En la sala 2."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "En la sala 2.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T53",
+      "lessonId": "A1-05-L6",
+      "role": "independent",
+      "family": "a105.a-cafe",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "writing.info-answer",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "У меню: «Café: 1,50 €». Друг питає: «¿Cuánto cuesta el café?» Відповідай коротко іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Cuesta un euro con cincuenta."
+        },
+        {
+          "id": "v2",
+          "text": "Cuesta un euro cincuenta."
+        },
+        {
+          "id": "v3",
+          "text": "Un euro con cincuenta."
+        },
+        {
+          "id": "v4",
+          "text": "Un euro cincuenta."
+        },
+        {
+          "id": "v5",
+          "text": "Cuesta 1,50 €."
+        },
+        {
+          "id": "v6",
+          "text": "El café cuesta un euro con cincuenta."
+        },
+        {
+          "id": "v7",
+          "text": "El café cuesta un euro cincuenta."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Cuestan un euro con cincuenta.",
+          "outcomes": {
+            "writing.info-answer/construction-use": "incorrect"
+          },
+          "feedbackUk": "Café — одна річ, тож cuesta."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Cuesta un euro con cincuenta."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Cuesta un euro con cincuenta.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T54",
+      "lessonId": "A1-05-L6",
+      "role": "delayed",
+      "family": "a105.a-guardia",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "writing.info-answer",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай: «Farmacia de guardia: calle Sol, 8». Друг питає: «¿Dónde está la farmacia de guardia?» Відповідай коротко іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Está en la calle Sol, 8."
+        },
+        {
+          "id": "v2",
+          "text": "En la calle Sol, 8."
+        },
+        {
+          "id": "v3",
+          "text": "Está en la calle Sol, número 8."
+        },
+        {
+          "id": "v4",
+          "text": "En la calle Sol, número 8."
+        },
+        {
+          "id": "v5",
+          "text": "Está en la calle Sol, ocho."
+        },
+        {
+          "id": "v6",
+          "text": "En la calle Sol, ocho."
+        },
+        {
+          "id": "v7",
+          "text": "La farmacia de guardia está en la calle Sol, 8."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Es en la calle Sol, 8.",
+          "outcomes": {
+            "writing.info-answer/construction-use": "incorrect"
+          },
+          "feedbackUk": "Де щось знаходиться — estar: Está en la calle Sol, 8."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Está en la calle Sol, 8."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Está en la calle Sol, 8.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-L6-T55",
+      "lessonId": "A1-05-L6",
+      "role": "transfer",
+      "family": "a105.a-meeting",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "writing.info-answer",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "У календарі колеги: «Reunión: lunes, 10:00». Тебе питають: «¿Cuándo es la reunión?» Відповідай коротко іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Es el lunes a las diez."
+        },
+        {
+          "id": "v2",
+          "text": "El lunes a las diez."
+        },
+        {
+          "id": "v3",
+          "text": "La reunión es el lunes a las diez."
+        },
+        {
+          "id": "v4",
+          "text": "Es el lunes a las 10:00."
+        },
+        {
+          "id": "v5",
+          "text": "El lunes a las 10:00."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Es en el lunes a las diez.",
+          "outcomes": {
+            "writing.info-answer/construction-use": "incorrect"
+          },
+          "feedbackUk": "З днем тижня прийменник не потрібен: el lunes."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Es el lunes a las diez."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Es el lunes a las diez.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    }
+  ]
+}

@@ -87,7 +87,7 @@ k.exact({ n: 15, role: 'independent', fam: 'a105.class-time', t: [EU], ins: 'В�
 k.exact({ n: 16, role: 'delayed', fam: 'a105.clock', t: [EU], ins: clockIns('1:15'), acc: ['Es la una y cuarto.', 'Es la una y quince.'], err: [['Son la una y cuarto.', 'Перша година — однина: Es la una y cuarto.']] });
 k.slots({ n: 17, role: 'transfer', fam: 'a105.train', t: [EU], ins: 'Перепиши речення повністю: потяг відправляється о першій.', p: ['El tren sale ___ una.'], tpl: ['El tren sale ', S('s1'), ' una.'], slots: [{ id: 's1', t: EU, acc: ['a la'], err: [['a las', 'Перша година — однина: a la una.']] }], tr: 'Потяг відправляється о першій.' });
 k.exact({ n: 18, role: 'transfer', fam: 'a105.lunch', t: [EU], ins: clockIns('12:45 (обідня перерва скоро закінчиться)'), acc: ['Es la una menos cuarto.', 'Son las doce cuarenta y cinco.'], err: [['Son la una menos cuarto.', 'Перша година — однина: Es la una menos cuarto.'], ['Son las doce menos cuarto.', 'Las doce menos cuarto — це 11:45. Після половини називаємо наступну годину.']] });
-k.choice({ n: 19, role: 'delayed', fam: 'a105.clock', t: [EUC], ins: 'Зараз 1:00. Обери правильне слово.', p: ['___ la una.'], o: [['Son', EUC, 'Перша година — однина: Es la una.'], ['Es', true]] });
+k.choice({ n: 19, role: 'delayed', fam: 'a105.clock', t: [EUC], ins: 'Зараз 1:10. Обери правильне слово.', p: ['___ la una y diez.'], o: [['Son', EUC, 'Перша година — однина: Es la una y diez.'], ['Es', true]] });
 
 // ======================= minutes
 function mins(n: number, role: TaskRole, fam: string, clock: string, acc: string[], err: E = [], model?: string): string {
@@ -134,7 +134,7 @@ k.slots({
 k.exact({ n: 38, role: 'delayed', fam: 'a105.afternoon-time', t: [DM], ins: dmIns('після обіду'), p: ['a las cuatro ___'], acc: ['de la tarde'], err: dmErr('tarde'), tr: 'о четвертій після обіду' });
 k.exact({ n: 39, role: 'delayed', fam: 'a105.class-time', t: [DM], ins: dmIns('зранку'), p: ['La clase es a las diez ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Заняття о десятій ранку.' });
 k.exact({ n: 40, role: 'transfer', fam: 'a105.train', t: [DM], ins: dmIns('зранку'), p: ['El tren sale a las seis ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Потяг відправляється о шостій ранку.' });
-k.exact({ n: 41, role: 'transfer', fam: 'a105.concert', t: [DM], ins: dmIns('увечері, 21:00'), p: ['El concierto es a las nueve ___.'], acc: ['de la noche'], err: dmErr('noche'), tr: 'Концерт о дев’ятій вечора.' });
+k.exact({ n: 41, role: 'transfer', fam: 'a105.concert', t: [DM], ins: dmIns('увечері, 22:00'), p: ['La cena es a las diez ___.'], acc: ['de la noche'], err: dmErr('noche'), tr: 'Вечеря о десятій вечора.' });
 k.choice({ n: 42, role: 'independent', fam: 'a105.morning-time', t: [DMC], ins: 'Обери правильний варіант.', p: ['Me levanto a las siete ___.'], o: [['por la mañana', DMC, 'З точним часом — de la mañana.'], ['de la mañana', true]], tr: 'Я встаю о сьомій ранку.' });
 
 // ======================= ¿A qué hora…? — a las …
@@ -239,9 +239,9 @@ k.exact({
   role: 'transfer',
   fam: 'a105.notice-closed',
   t: [ACU],
-  ins: 'Переклади іспанською: «Аптека зараз зачинена».',
-  acc: ['La farmacia está cerrada.', 'Ahora la farmacia está cerrada.', 'La farmacia está cerrada ahora.'],
-  err: [['La farmacia cierra.', 'Cierra — дія: «зачиняється» (о певній годині). Стан «зачинено зараз» — está cerrada.']],
+  ins: 'Переклади іспанською: «Банк зараз зачинений».',
+  acc: ['El banco está cerrado.', 'Ahora el banco está cerrado.', 'El banco está cerrado ahora.'],
+  err: [['El banco cierra.', 'Cierra — дія: «зачиняється» (о певній годині). Стан «зачинений зараз» — está cerrado.']],
 });
 k.choice({ n: 78, role: 'independent', fam: 'a105.pharmacy-hours', t: [ACR], ins: 'Прочитай. О котрій зачиняється аптека?', p: ['La farmacia abre a las nueve y cierra a las nueve de la noche.'], o: [['О 9:00.', false], ['О 21:00.', true], ['О 19:00.', false]] });
 

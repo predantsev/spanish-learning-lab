@@ -303,14 +303,14 @@ k.choice({
 });
 
 const cuAcc = (word: string): [string, string] => [word.replace(/á/, 'a'), `Питальне слово пишеться зі знаком наголосу: ${word.toLowerCase()}.`];
-k.exact({ n: 59, role: 'supported', fam: 'a105.age', t: [CU], ins: 'Впиши питальне слово. Зразок: ¿Cuántas personas hay?', p: ['¿___ años tienes?'], acc: ['Cuántos'], err: [cuAcc('Cuántos'), ['Cuántas', 'Años — чоловічого роду, множина: cuántos.'], ['Cuánto', 'Años — множина: cuántos.']], tr: 'Скільки тобі років?' });
-k.exact({ n: 60, role: 'supported', fam: 'a105.class', t: [CU], ins: 'Впиши питальне слово. Зразок: ¿Cuántos años tienes?', p: ['¿___ personas hay?'], acc: ['Cuántas'], err: [cuAcc('Cuántas'), ['Cuántos', 'Personas — жіночого роду: cuántas.']], tr: 'Скільки людей?' });
-k.exact({ n: 61, role: 'independent', fam: 'a105.money', t: [CU], ins: 'Впиши питальне слово.', p: ['¿___ dinero tienes?'], acc: ['Cuánto'], err: [cuAcc('Cuánto'), ['Cuántos', 'Dinero — чоловічого роду, однина: cuánto.']], tr: 'Скільки в тебе грошей?' });
-k.exact({ n: 62, role: 'independent', fam: 'a105.drink', t: [CU], ins: 'Впиши питальне слово.', p: ['¿___ agua bebes?'], acc: ['Cuánta'], err: [cuAcc('Cuánta'), ['Cuánto', 'Agua — жіночого роду (хоч і з артиклем el): cuánta agua.']], tr: 'Скільки води ти п’єш?' });
+k.exact({ n: 59, role: 'supported', fam: 'a105.age', t: [CU], ins: 'Впиши питальне слово зі значенням «скільки». Зразок: ¿Cuántas personas hay?', p: ['¿___ años tienes?'], acc: ['Cuántos'], err: [cuAcc('Cuántos'), ['Cuántas', 'Años — чоловічого роду, множина: cuántos.'], ['Cuánto', 'Años — множина: cuántos.']], tr: 'Скільки тобі років?' });
+k.exact({ n: 60, role: 'supported', fam: 'a105.class', t: [CU], ins: 'Впиши питальне слово зі значенням «скільки». Зразок: ¿Cuántos años tienes?', p: ['¿___ personas hay?'], acc: ['Cuántas'], err: [cuAcc('Cuántas'), ['Cuántos', 'Personas — жіночого роду: cuántas.']], tr: 'Скільки людей?' });
+k.exact({ n: 61, role: 'independent', fam: 'a105.money', t: [CU], ins: 'Впиши питальне слово зі значенням «скільки».', p: ['¿___ dinero tienes?'], acc: ['Cuánto'], err: [cuAcc('Cuánto'), ['Cuántos', 'Dinero — чоловічого роду, однина: cuánto.']], tr: 'Скільки в тебе грошей?' });
+k.exact({ n: 62, role: 'independent', fam: 'a105.drink', t: [CU], ins: 'Впиши питальне слово зі значенням «скільки».', p: ['¿___ agua bebes?'], acc: ['Cuánta'], err: [cuAcc('Cuánta'), ['Cuánto', 'Agua — жіночого роду (хоч і з артиклем el): cuánta agua.']], tr: 'Скільки води ти п’єш?' });
 k.exact({ n: 63, role: 'independent', fam: 'a105.family', t: [CU], ins: 'Переклади іспанською: «Скільки в тебе братів?»', acc: ['¿Cuántos hermanos tienes?', '¿Cuántos hermanos tienes tú?'], err: [['¿Cuantos hermanos tienes?', 'Питальне слово пишеться зі знаком наголосу: cuántos.']] });
 k.exact({ n: 64, role: 'independent', fam: 'a105.class', t: [CU], ins: 'Переклади іспанською: «Скільки людей у класі?»', acc: ['¿Cuántas personas hay en la clase?'], err: [['¿Cuántos personas hay en la clase?', 'Personas — жіночого роду: cuántas.']] });
-k.exact({ n: 65, role: 'delayed', fam: 'a105.home', t: [CU], ins: 'Впиши питальне слово.', p: ['¿___ libros tienes?'], acc: ['Cuántos'], err: [cuAcc('Cuántos'), ['Cuántas', 'Libros — чоловічого роду: cuántos.']], tr: 'Скільки в тебе книжок?' });
-k.slots({ n: 66, role: 'delayed', fam: 'a105.drink', t: [CU], ins: 'Перепиши питання повністю, вставивши питальне слово.', p: ['¿___ botellas de agua hay?'], tpl: ['¿', S('s1'), ' botellas de agua hay?'], slots: [slot('s1', CU, ['Cuántas'], [cuAcc('Cuántas'), ['Cuántos', 'Botellas — жіночого роду: cuántas.']])], tr: 'Скільки пляшок води є?' });
+k.exact({ n: 65, role: 'delayed', fam: 'a105.home', t: [CU], ins: 'Впиши питальне слово зі значенням «скільки».', p: ['¿___ libros tienes?'], acc: ['Cuántos'], err: [cuAcc('Cuántos'), ['Cuántas', 'Libros — чоловічого роду: cuántos.']], tr: 'Скільки в тебе книжок?' });
+k.slots({ n: 66, role: 'delayed', fam: 'a105.drink', t: [CU], ins: 'Перепиши питання повністю, вставивши питальне слово зі значенням «скільки».', p: ['¿___ botellas de agua hay?'], tpl: ['¿', S('s1'), ' botellas de agua hay?'], slots: [slot('s1', CU, ['Cuántas'], [cuAcc('Cuántas'), ['Cuántos', 'Botellas — жіночого роду: cuántas.']])], tr: 'Скільки пляшок води є?' });
 k.exact({ n: 67, role: 'transfer', fam: 'a105.time', t: [CU], ins: 'Переклади іспанською: «Скільки в тебе часу?»', acc: ['¿Cuánto tiempo tienes?', '¿Cuánto tiempo tienes tú?'], err: [['¿Cuánta tiempo tienes?', 'Tiempo — чоловічого роду: cuánto.']] });
 k.exact({ n: 68, role: 'transfer', fam: 'a105.kitchen', t: [CU], ins: 'Переклади іспанською: «Скільки яєць є вдома?»', acc: ['¿Cuántos huevos hay en casa?'], err: [['¿Cuántas huevos hay en casa?', 'Huevos — чоловічого роду: cuántos.']] });
 k.choice({
@@ -318,7 +318,7 @@ k.choice({
   role: 'independent',
   fam: 'a105.class',
   t: [CUC],
-  ins: 'Обери питальне слово.',
+  ins: 'Обери питальне слово зі значенням «скільки».',
   p: ['¿___ sillas hay?'],
   o: [
     ['Cuántos', CUC, 'Sillas — жіночого роду, множина: cuántas.'],

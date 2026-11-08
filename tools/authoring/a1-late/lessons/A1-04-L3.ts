@@ -1,5 +1,5 @@
 // A1-04-L3 — irregular ir and hacer, ir a + place (CV-03) and the contraction al (CV-03).
-import { Kit, S, el, ex, hTranscript, plink, tableEs, ul, uk, vgap, vslot } from '../lib.ts';
+import { Kit, S, el, ex, hTr, hTranscript, plink, tableEs, ul, uk, vgap, vslot } from '../lib.ts';
 import { RULES } from './rules.ts';
 
 const k = new Kit('A1-04-L3', RULES);
@@ -103,7 +103,7 @@ k.exact({
 
 // ======================= ir a + place
 const enForA: [string, string] = ['en', 'En означає, де ти є (estar en). Куди рухаєшся — ir a.'];
-k.exact({ n: 21, role: 'supported', fam: 'a104.city', t: [ADW], ins: 'Впиши прийменник. Зразок: Voy a casa. — «Я йду додому».', p: ['Voy ___ Madrid.'], acc: ['a'], err: [enForA, ['al', 'Перед назвою міста артикля немає, тож злиття al не потрібне — просто a.']], tr: 'Я їду в Мадрид.' });
+k.exact({ n: 21, role: 'supported', fam: 'a104.city', t: [ADW], ins: 'Впиши прийменник. Зразок: Voy a casa. — «Я йду додому».', p: ['Voy ___ Madrid.'], acc: ['a'], err: [enForA, ['al', 'Перед Madrid артикля немає, тож злиття al не потрібне — просто a.']], tr: 'Я їду в Мадрид.' });
 k.exact({
   n: 22,
   role: 'supported',
@@ -115,7 +115,7 @@ k.exact({
   err: [['Vamos en casa.', 'En casa — де ми є. Куди йдемо — a casa.']],
   tr: 'Ми йдемо додому.',
 });
-k.exact({ n: 23, role: 'independent', fam: 'a104.study', t: [ADW], ins: 'Впиши прийменник, якого бракує.', p: ['Ana va ___ la universidad.'], acc: ['a'], err: [enForA], tr: 'Ана йде до університету.' });
+k.exact({ n: 23, role: 'independent', fam: 'a104.study', t: [ADW], ins: 'Впиши прийменник, щоб речення означало «Ана йде до університету».', p: ['Ana va ___ la universidad.'], acc: ['a'], err: [enForA], tr: 'Ана йде до університету.' });
 k.exact({
   n: 24,
   role: 'independent',
@@ -139,7 +139,7 @@ k.slots({
   role: 'independent',
   fam: 'a104.city',
   t: [ADW],
-  ins: 'Перепиши речення повністю, вставивши прийменник, якого бракує.',
+  ins: 'Перепиши речення повністю, вставивши прийменник, щоб воно означало «Мої батьки їдуть до Севільї».',
   p: ['Mis padres van ___ Sevilla.'],
   tpl: ['Mis padres van ', S('s1'), ' Sevilla.'],
   slots: [{ id: 's1', t: ADW, acc: ['a'], err: [enForA] }],
@@ -154,7 +154,7 @@ k.exact({
   acc: ['¿Vas a la playa?', '¿Tú vas a la playa?', '¿Vas tú a la playa?'],
   err: [['¿Vas en la playa?', 'En la playa — де ти є. Куди йдеш — a la playa.']],
 });
-k.exact({ n: 28, role: 'delayed', fam: 'a104.work', t: [ADW], ins: 'Впиши прийменник, якого бракує.', p: ['Vamos ___ la oficina.'], acc: ['a'], err: [enForA], tr: 'Ми йдемо в офіс.' });
+k.exact({ n: 28, role: 'delayed', fam: 'a104.work', t: [ADW], ins: 'Впиши прийменник, щоб речення означало «Ми йдемо в офіс».', p: ['Vamos ___ la oficina.'], acc: ['a'], err: [enForA], tr: 'Ми йдемо в офіс.' });
 k.exact({
   n: 29,
   role: 'transfer',
@@ -394,7 +394,7 @@ k.choice({
     ['На роботу.', true],
     ['У спортзал.', false],
   ],
-  hints: [hTranscript([LM], 'Los niños van a la escuela y yo voy al trabajo.')],
+  hints: [hTr('Слова: van — «ідуть», voy — «я йду» (форми ir); a la escuela — «до школи», al trabajo — «на роботу» (a + el = al).'), hTranscript([LM], 'Los niños van a la escuela y yo voy al trabajo.')],
 });
 
 k.material({
@@ -468,7 +468,7 @@ export default k.build({
       kind: 'explanation',
       title: 'Hacer — «робити»: yo hago',
       blocks: [
-        uk('Hacer відмінюється як правильне дієслово на -er, крім форми «я»: yo hago.'),
+        uk('Hacer змінюється за особами як правильне дієслово на -er, крім форми «я»: yo hago.'),
         tableEs(
           ['persona', 'hacer'],
           [

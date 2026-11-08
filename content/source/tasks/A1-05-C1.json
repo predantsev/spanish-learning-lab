@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "A1-05-C1",
+  "tasks": [
+    {
+      "id": "A1-05-C1-T01",
+      "lessonId": "A1-05-C1",
+      "role": "transfer",
+      "family": "a105c.concert-question",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.choice-missing-info",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти знаєш, що концерт у суботу і квиток коштує 8 €, але не знаєш, де він. Запитай іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "¿Dónde es el concierto?"
+        },
+        {
+          "id": "v2",
+          "text": "¿Dónde es el concierto el sábado?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cuándo es el concierto?",
+          "outcomes": {
+            "question.choice-missing-info/construction-use": "incorrect"
+          },
+          "feedbackUk": "День ти вже знаєш. Бракує місця: ¿Dónde…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.choice-missing-info/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Dónde es el concierto?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Dónde es el concierto?",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-C1-T02",
+      "lessonId": "A1-05-C1",
+      "role": "transfer",
+      "family": "a105c.museum-plan",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "article.contraction-del",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "time.event.a-las",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю, щоб воно означало «Музей близько від готелю й відчиняється о десятій»."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "El museo está cerca ___ hotel y abre ___ diez."
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        "El museo está cerca ",
+        {
+          "slot": "s1"
+        },
+        " hotel y abre ",
+        {
+          "slot": "s2"
+        },
+        " diez."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "article.contraction-del/written-form",
+          "accepted": [
+            "del"
+          ],
+          "errors": [
+            {
+              "text": "de el",
+              "feedbackUk": "De + el завжди зливаються: del hotel."
+            },
+            {
+              "text": "de la",
+              "feedbackUk": "Hotel — чоловічого роду: el hotel → del hotel."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "time.event.a-las/written-form",
+          "accepted": [
+            "a las"
+          ],
+          "errors": [
+            {
+              "text": "las",
+              "feedbackUk": "Година події — з a: a las diez."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "article.contraction-del/written-form",
+            "time.event.a-las/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "De + el зливаються в del: al lado del banco, cerca del hotel. З la, los, las злиття немає: cerca de la estación, al lado de los coches. Так само в належності: el coche del profesor. Про час події питаємо ¿A qué hora…?: ¿A qué hora es la clase? Відповідь: a las + година: A las nueve. О першій — a la una."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "article.contraction-del/written-form",
+            "time.event.a-las/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "El museo está cerca del hotel y abre a las diez."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "El museo está cerca del hotel y abre a las diez.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. De + el зливаються в del: al lado del banco, cerca del hotel. З la, los, las злиття немає: cerca de la estación, al lado de los coches. Так само в належності: el coche del profesor. Про час події питаємо ¿A qué hora…?: ¿A qué hora es la clase? Відповідь: a las + година: A las nueve. О першій — a la una.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-C1-T03",
+      "lessonId": "A1-05-C1",
+      "role": "transfer",
+      "family": "a105c.n-concert",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Коли концерт?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "CONCIERTO DE PRIMAVERA — sábado 12 de abril, 20:00. Plaza Mayor, al lado de la estación. Entrada: 8 €."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "У суботу, 12 квітня, о 20:00.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "У неділю, 12 квітня, о 20:00.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "У суботу, 2 квітня, о 8:00.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "У суботу, 12 квітня, о 20:00."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-C1-T04",
+      "lessonId": "A1-05-C1",
+      "role": "transfer",
+      "family": "a105c.n-concert",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.practical-notice",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення. Де концерт?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "CONCIERTO DE PRIMAVERA — sábado 12 de abril, 20:00. Plaza Mayor, al lado de la estación. Entrada: 8 €."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Навпроти станції.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "На площі Майор, поруч зі станцією.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "На станції.",
+          "outcomes": {
+            "reading.practical-notice/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.practical-notice/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "На площі Майор, поруч зі станцією."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-C1-T05",
+      "lessonId": "A1-05-C1",
+      "role": "transfer",
+      "family": "a105c.l-class",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.dates",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай. Коли заняття з іспанської?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-05.check.clase"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "У понеділок о шостій.",
+          "outcomes": {
+            "listening.dates/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "У четвер о шостій.",
+          "outcomes": {
+            "listening.dates/listening-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "У понеділок о четвертій.",
+          "outcomes": {
+            "listening.dates/listening-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.dates/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "La clase de español es el lunes a las seis, en la sala cuatro."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.dates/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Послухай і визнач день, дату чи годину. Спершу звертай увагу на день тижня й число, потім — на місяць і час."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "listening.dates/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "У понеділок о шостій."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Послухай і визнач день, дату чи годину. Спершу звертай увагу на день тижня й число, потім — на місяць і час."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-05-C1-T06",
+      "lessonId": "A1-05-C1",
+      "role": "transfer",
+      "family": "a105c.a-concert",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "writing.info-answer",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай оголошення: «CONCIERTO DE PRIMAVERA — sábado 12 de abril, 20:00. Plaza Mayor, al lado de la estación. Entrada: 8 €.» Друг питає: «¿Cuánto cuesta la entrada?» Відповідай коротко іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Cuesta ocho euros."
+        },
+        {
+          "id": "v2",
+          "text": "Ocho euros."
+        },
+        {
+          "id": "v3",
+          "text": "La entrada cuesta ocho euros."
+        },
+        {
+          "id": "v4",
+          "text": "Cuesta 8 €."
+        },
+        {
+          "id": "v5",
+          "text": "8 €."
+        },
+        {
+          "id": "v6",
+          "text": "Cuesta 8 euros."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Cuestan ocho euros.",
+          "outcomes": {
+            "writing.info-answer/construction-use": "incorrect"
+          },
+          "feedbackUk": "Entrada — одна річ, тож cuesta: Cuesta ocho euros."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.info-answer/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Cuesta ocho euros."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Cuesta ocho euros.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "draft"
+    }
+  ]
+}

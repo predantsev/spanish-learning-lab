@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L1.r3",
+  "packetHash": "c8c0507738a3439223a1f857aa9e03f523c55ad9e03b320f18cb1da840b8687d",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "193207c4e38fc65d2dc3d6084d8bd48433339329b10647d2eac86f3ee496cb4c",
+    "reviewerPacketSha256": "5d065ff8c8349ffbcb213de885b6a1517f97df942c0c142dd834cc4ddfa92923",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-uIYP5R/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-uIYP5R/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-uIYP5R/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-uIYP5R/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-uIYP5R/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc98-3efc-7212-af25-53518074849b",
+        "version": "v0.166.0",
+        "tokens used": "32,485"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-04-L1-T25",
+        "reviewerAnswer": "Paseamos con nuestro perro. Optional subjects: Nosotros or Nosotras.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The hint supplies the plural verb and possessive phrase, as contract rule 1 permits. Broadening “con + людина” to include animal companions would make the explanation clearer here; it does not explicitly exclude animals."
+      },
+      {
+        "caseId": "task:A1-04-L1-T29",
+        "reviewerAnswer": "Tomamos café con nuestros amigos. Tomamos un café con nuestros amigos also fits; Nosotros or Nosotras may be added.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The required plural forms are glossed in a hint. No closed key is specified, so rejection of other acceptable translations cannot be inferred."
+      },
+      {
+        "caseId": "task:A1-04-L1-T31",
+        "reviewerAnswer": "c",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[2].blocks[0].text and task.feedback.incorrectUk: “ustedes (ввічливе «Ви» до кількох людей)”",
+        "defect": "The Ukrainian explanation uses uppercase «Ви» explicitly for multiple addressees. Respectful capitalization of Ukrainian Ви applies to addressing one specific person; plural address takes lowercase ви. The answer key and the transcript translation are otherwise correct.",
+        "correction": "In both fields, replace “ustedes (ввічливе «Ви» до кількох людей)” with “ustedes (формальне «ви» до кількох людей)”.",
+        "sources": [
+          "Course contract rule 8: learner-facing Ukrainian, including terminology and orthography, must be correct.",
+          "Український правопис (2019), capitalization rule for Ви and Ваш when respectfully addressing one specific person (from memory)."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T25",
+      "contentHash": "2698bd9a84a426d17a724baee42b69289cba2dde7a665c06a81323b611829b46",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "Paseamos con nuestro perro. Optional subjects: Nosotros or Nosotras.",
+      "notes": "The hint supplies the plural verb and possessive phrase, as contract rule 1 permits. Broadening “con + людина” to include animal companions would make the explanation clearer here; it does not explicitly exclude animals.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T29",
+      "contentHash": "8f342e0116c9dfd7eba01a98e0c1d42a5d5dab54e58d3b612539ff33363b7261",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L1-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "Tomamos café con nuestros amigos. Tomamos un café con nuestros amigos also fits; Nosotros or Nosotras may be added.",
+      "notes": "The required plural forms are glossed in a hint. No closed key is specified, so rejection of other acceptable translations cannot be inferred.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L1-T31",
+      "contentHash": "8e70ef2ce65e1f1cd2b31f43d7ef0834b2e72caaf40173d95c93b9a3285e0f57",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[2].blocks[0].text and task.feedback.incorrectUk: “ustedes (ввічливе «Ви» до кількох людей)”",
+          "description": "The Ukrainian explanation uses uppercase «Ви» explicitly for multiple addressees. Respectful capitalization of Ukrainian Ви applies to addressing one specific person; plural address takes lowercase ви. The answer key and the transcript translation are otherwise correct.",
+          "suggestion": "In both fields, replace “ustedes (ввічливе «Ви» до кількох людей)” with “ustedes (формальне «ви» до кількох людей)”."
+        }
+      ],
+      "caseId": "task:A1-04-L1-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "c",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8: learner-facing Ukrainian, including terminology and orthography, must be correct.",
+        "Український правопис (2019), capitalization rule for Ви and Ваш when respectfully addressing one specific person (from memory)."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
