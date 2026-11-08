@@ -193,7 +193,7 @@ const tasks = [
 
   // ---- formula.response-refuse-reason (construction-use) ----
   k.ev(11, 'supported', 'fam.friends', REF, {
-    instr: 'Подруга просить вас допомогти їй у суботу. Відмовте з причиною: у суботу ви працюєте (el sábado trabajo). Почніть із Lo siento, es que…',
+    instr: 'Подруга просить вас допомогти їй у суботу. Відмовте з причиною: у суботу ви працюєте (el sábado trabajo). Можна почати, наприклад, із Lo siento, es que…',
     model: ['Lo siento, es que no tengo coche.', 'Вибач, просто в мене немає машини.'],
     acc: refuse('el sábado trabajo', 'trabajo el sábado'),
     err: [
@@ -254,11 +254,11 @@ const tasks = [
 
   // ---- accept vs refuse in context (context-choice) ----
   k.ch(21, 'supported', 'fam.class', ACC, {
-    instr: 'Однокурсниця питає: «¿Me dejas tu boli?» У вас дві ручки. Як ви відповісте?',
+    instr: 'Однокурсниця питає: «¿Me dejas tu boli?» У вас дві ручки, одна вам зараз не потрібна, і ви охоче її позичите. Як ви відповісте?',
     pre: uk('Нагадування: Sí, claro. / Vale. / Sin problema. — згода; Lo siento, es que… — відмова.'),
     opts: [
       ['Sí, claro.', 'c'],
-      ['Lo siento, es que lo necesito.', 'x', 'У вас дві ручки, тож відмовляти немає причини.'],
+      ['Lo siento, es que lo necesito.', 'x', 'Ви хочете позичити ручку, тож потрібна згода: Sí, claro.'],
     ],
   }),
   k.ch(22, 'supported', 'fam.friends', REF_CC, {
@@ -286,10 +286,10 @@ const tasks = [
     ],
   }),
   k.ch(25, 'delayed', 'fam.home', ACC, {
-    instr: 'Сестра питає: «¿Puedo usar tu cargador?» Ваш телефон уже заряджений. Як ви відповісте?',
+    instr: 'Сестра питає: «¿Puedo usar tu cargador?» Ваш телефон уже заряджений, зарядка вам зараз не потрібна, і ви охоче її дасте. Як ви відповісте?',
     opts: [
       ['Claro que sí.', 'c'],
-      ['Lo siento, es que lo necesito.', 'x', 'Ваш телефон уже заряджений, тож доречно погодитися.'],
+      ['Lo siento, es que lo necesito.', 'x', 'Ви охоче даєте зарядку, тож потрібна згода: Claro que sí.'],
     ],
   }),
   k.ch(26, 'transfer', 'fam.meeting', REF_CC, {
@@ -386,7 +386,7 @@ const tasks = [
     instr: 'Прослухайте голосове повідомлення. Про що Кармен просить дозволу?',
     opts: [
       ['узяти велосипед Олени в суботу', 'c'],
-      ['піти з Оленою в супермаркет', 'x', 'У супермаркет Кармен іде сама й питає, чи Олені щось потрібно.'],
+      ['піти з Оленою в супермаркет', 'x', 'Кармен повідомляє, що йде в супермаркет, і питає, чи Олені щось потрібно. Вона не запрошує Олену піти разом.'],
       ['узяти машину Олени', 'x', 'Кармен питає про bicicleta — велосипед.'],
     ],
   }),
@@ -470,7 +470,7 @@ const lesson = {
       required: true,
       blocks: [
         uk('Ввічлива відмова зазвичай має вибачення і причину: Lo siento, es que + причина. Es que не перекладаємо дослівно: це «справа в тому, що», «просто». Можна сказати й так: Lo siento, pero + що заважає.'),
-        uk('Після es que іде звичайне речення в теперішньому часі: es que trabajo, es que estoy cansado.'),
+        uk('Після es que іде ціле речення з дієсловом у формі. У цьому уроці причини — у теперішньому часі: es que trabajo, es que estoy cansado.'),
         ex('Lo siento, es que no tengo coche.', 'Вибач, просто в мене немає машини.'),
         ex('Lo siento, pero ahora no puedo.', 'Вибач, але зараз я не можу.'),
         ex('No, lo siento, es que lo necesito.', 'Ні, вибач, він мені самому потрібен.'),
