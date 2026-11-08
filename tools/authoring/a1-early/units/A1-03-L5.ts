@@ -257,7 +257,7 @@ export const unit: Unit = {
       n: 62, role: 'delayed', family: 'listen-question-feel', targets: [LS_L], clips: ['clip.a1-03.tienes-hambre'],
       prompt: [uk('Послухай. Про що питають Пабло?')],
       options: [['чи ти голодний', 'c'], ['чи тобі холодно', 'x', 'У записі hambre — «голод».'], ['чи ти хочеш спати', 'x', 'У записі ¿Tienes hambre?']],
-      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. У питанні голос у кінці підвищується.']],
+      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. У загальному питанні («так чи ні») голос у кінці зазвичай підвищується.']],
       extraHints: [transcript([LS_L], 'Pablo, ¿tienes hambre?')],
       ok: 'Так: Pablo, ¿tienes hambre? — «Пабло, ти голодний?».', bad: 'Ні. У записі: Pablo, ¿tienes hambre?',
     }),

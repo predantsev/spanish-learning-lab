@@ -227,7 +227,7 @@ export const unit: Unit = {
       n: 52, role: 'delayed', family: 'listen-question-where', targets: [LS_L], clips: ['clip.a1-03.donde-estacion'],
       prompt: [uk('Послухай. Що питає людина?')],
       options: [['де вокзал', 'c'], ['чи є тут вокзал', 'x', 'У записі ¿Dónde está la estación? — «Де вокзал?».'], ['де готель', 'x', 'У записі la estación — «вокзал».']],
-      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. У питанні голос у кінці підвищується.']],
+      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. Питання з питальним словом (¿Dónde…?) починається з цього слова.']],
       extraHints: [transcript([LS_L], 'Perdón, ¿dónde está la estación?')],
       ok: 'Так: Perdón, ¿dónde está la estación?', bad: 'Ні. У записі: Perdón, ¿dónde está la estación? — «Де вокзал?».',
     }),

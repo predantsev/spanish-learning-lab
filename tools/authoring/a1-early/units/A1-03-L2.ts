@@ -541,7 +541,7 @@ export const unit: Unit = {
       n: 78, role: 'delayed', family: 'listen-question', targets: [LS_L], clips: ['clip.a1-03.de-donde-eres'],
       prompt: [uk('Послухай. Про що питають Пабло?')],
       options: [['звідки він', 'c'], ['як його звати', 'x', 'Ім’я вже названо: Hola, Pablo. Питають ¿De dónde eres?'], ['ким він працює', 'x', 'У записі питання ¿De dónde eres? — «Звідки ти?».']],
-      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано: хто, звідки, де, що є. У питанні голос у кінці підвищується.']],
+      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано: хто, звідки, де, що є. Питання з питальним словом (¿De dónde…?) починається з цього слова.']],
       extraHints: [transcript([LS_L], 'Hola, Pablo. ¿De dónde eres?')],
       ok: 'Так: ¿De dónde eres? — «Звідки ти?».', bad: 'Ні. У записі: Hola, Pablo. ¿De dónde eres?',
     }),
