@@ -17,20 +17,24 @@ ST_R = 'imperfecto.ser-time-setting/reading-meaning'
 
 R_AGE = ('Вік іспанською «мають»: tener + число + años. Про вік у минулому — імперфект: tenía, tenías, tenía, '
          'teníamos, teníais, tenían + años.')
-R_WE = ('Погоду в минулому описуємо безособово, у 3-й особі однини імперфекту: hacía calor / frío / sol / viento, '
-        'llovía, nevaba, estaba nublado.')
+R_WE = ('Погоду в минулому описуємо в 3-й особі однини імперфекту — безособово: hacía calor / frío / sol / viento, '
+        'llovía, nevaba, estaba nublado; або з підметом el cielo («небо»): el cielo estaba nublado — стан неба.')
 R_ES = ('Де хтось був або в якому стані — estar в імперфекті: estaba, estabas, estaba, estábamos, estabais, estaban. '
         'Прикметник узгоджується з підметом: estaba cansada.')
 R_HA = ('Hay (є, наявне) в описі минулого стає había — одна форма для однини й множини: había un parque, había dos '
-        'parques. Про наявність чогось кажемо haber, а не estar.')
+        'parques. Коли повідомляємо, що щось було (існувало) в місці, кажемо había; estar кажуть про розташування вже '
+        'відомого: La farmacia estaba cerca de mi casa.')
 R_ST = ('Котра була година чи яка пора — ser в імперфекті: era la una (однина), eran las diez (множина), era de noche, '
         'era tarde, era temprano.')
 R_UD = ('Щоб описати, якими були люди, речі й місця в минулому, вживаємо імперфект: era, tenía, estaba, había. Опис '
         'відповідає на питання «яким було?», а не «що сталося?».')
 
-INSTR_USE = 'Доповніть речення правильною формою дієслова в дужках. Час не підказано: вирішіть за змістом.'
-INSTR_USE2 = 'Напишіть речення повністю, вставивши правильні форми дієслів у дужках. Час не підказано: вирішіть за змістом.'
-INSTR_HAY = 'Доповніть опис дієсловом у потрібній формі (що було в цьому місці).'
+INSTR_USE = ('Доповніть речення правильною формою дієслова в дужках. Усі речення — про минуле: мовець описує, яким усе було тоді '
+             '(обставини, стан, тло), а не підсумовує завершений період. Час не підказано: вирішіть за змістом.')
+INSTR_USE2 = ('Напишіть речення повністю, вставивши правильні форми дієслів у дужках. Усі речення — про минуле: мовець описує, яким усе було тоді '
+              '(обставини, стан, тло), а не підсумовує завершений період. Час не підказано: вирішіть за змістом.')
+INSTR_HAY = ('Доповніть опис потрібною формою дієслова haber: мовець розповідає про минуле й повідомляє, що було '
+             '(існувало) в цьому місці.')
 
 NOW_THEN = TB(
     ['ahora', 'antes'],
@@ -74,7 +78,7 @@ def l5():
         stask(t, 'supported', 'summer-memory', [AGE, WE_C], 'Aquel verano yo {a} diez años y {b} mucho calor en el pueblo.', 'tener, hacer',
               {'a': (AGE, ['tenía'], [('era', age_have.format('tenía diez años')),
                                        ('tuve', age_tense.format('tenía'))]),
-               'b': (WE_C, ['hacía', 'había'], [('hizo', 'Тут описано, якою була погода того літа: hacía calor.'),
+               'b': (WE_C, ['hacía'], [('hizo', 'Тут описано, якою була погода того літа: hacía calor.'),
                                                 ('estaba', 'З calor про погоду вживаємо hacer: hacía calor.'),
                                                 ('tenía', 'Tener calor — відчуття людини. Про погоду: hacía calor.')])},
               [((AGE,), R_AGE), ((WE_C,), R_WE)], instr=INSTR_USE2,
@@ -109,7 +113,7 @@ def l5():
           [('habia', 'cci', acc_missing('había')),
            ('habían', 'icu', 'Había не змінюється за числом: había muchos árboles. (Форма habían тут ненормативна.)'),
            ('hay', 'iiu', 'Hay — теперішній час. В описі минулого: había.'),
-           ('estaban', 'uiu', 'Про наявність чогось у місці кажемо haber (había), а не estar.')],
+           ('estaban', 'uiu', 'Тут потрібна форма haber: повідомляємо, що щось було (існувало) в цьому місці. Estar кажуть про розташування вже відомого: La farmacia estaba cerca de mi casa.')],
           rH3, instr=INSTR_HAY, model='Зразок: En mi barrio había un parque y dos tiendas.'),
         x(t, 'supported', 'dinner', [ST_C], 'Cuando terminamos la cena, ___ las once.', 'ser', 'eran',
           [('era', 'i', 'З годинами, крім la una, — множина: eran las once.'),
@@ -148,7 +152,7 @@ def l5():
           [('habia', 'cci', acc_missing('había')),
            ('habían', 'icu', 'Había не змінюється за числом: había muchos coches. (Форма habían тут ненормативна.)'),
            ('hay', 'iiu', 'Hay — теперішній час, а antes вказує на минуле: había.'),
-           ('estaban', 'uiu', 'Про наявність кажемо haber (había), а не estar.')],
+           ('estaban', 'uiu', 'Тут потрібна форма haber: повідомляємо, що щось було (існувало) в цьому місці. Estar кажуть про розташування вже відомого: La farmacia estaba cerca de mi casa.')],
           rH3, instr=INSTR_HAY),
         x(t, 'independent', 'bus', [ST_C], '___ la una cuando llegó el autobús.', 'ser', 'Era',
           [('Eran', 'i', 'З la una — однина: era la una.'),
@@ -157,7 +161,7 @@ def l5():
           rT),
         t.choice('independent', 'pharmacy', [HA_C],
                  [P('Як сказати «Раніше біля мого дому була аптека»?')],
-                 [('Antes estaba una farmacia cerca de mi casa.', 'i', 'Про наявність чогось у місці кажемо hay / había, а не estar.'),
+                 [('Antes estaba una farmacia cerca de mi casa.', 'i', 'Тут повідомляємо, що аптека була (існувала), — це нова інформація, тому había. Estar кажуть про розташування вже відомого: La farmacia estaba cerca de mi casa.'),
                   ('Antes había una farmacia cerca de mi casa.', 'c', None),
                   ('Antes era una farmacia cerca de mi casa.', 'i', 'Ser тут не підходить: про наявність — había.')],
                  [rule([HA_C], R_HA)],
@@ -250,7 +254,7 @@ def l5():
           [('habia', 'cci', acc_missing('había')),
            ('habían', 'icu', 'Había не змінюється за числом: había veinte estudiantes. (Форма habían тут ненормативна.)'),
            ('hay', 'iiu', 'Hay — теперішній час. В описі минулого: había.'),
-           ('estaban', 'uiu', 'Про наявність кажемо haber (había), а не estar.')],
+           ('estaban', 'uiu', 'Тут потрібна форма haber: повідомляємо, що щось було (існувало) в цьому місці. Estar кажуть про розташування вже відомого: La farmacia estaba cerca de mi casa.')],
           rH3, instr=INSTR_HAY),
         x(t, 'independent', 'concert', [ST_C], 'Cuando salimos del concierto, ___ muy tarde.', 'ser', 'era',
           [('fue', 'i', 'Пора — обставина: era tarde.'),
@@ -264,8 +268,8 @@ def l5():
                                         ('tuvo', 'Для опису в минулому — імперфект: tenía.')])},
               rD, instr=INSTR_USE2),
         t.choice('independent', 'grandparents', [UD_X],
-                 [P('Оберіть форму, яка підходить за змістом.'), PE('Cuando yo era pequeña, mi abuela ___ el pelo largo.')],
-                 [('tuvo', 'i', 'Tuvo подає це як подію. Для опису, якою була людина, — імперфект: tenía.'),
+                 [P('Оберіть форму, яка підходить за змістом. Мовець описує, якою була бабуся тоді.'), PE('Cuando yo era pequeña, mi abuela ___ el pelo largo.')],
+                 [('tuvo', 'i', 'Tuvo підсумовує стан як завершене ціле. Для опису, якою була людина тоді, — імперфект: tenía.'),
                   ('tenía', 'c', None),
                   ('tiene', 'i', 'Tiene — теперішній час, а cuando yo era pequeña вказує на минуле.')],
                  [rule([UD_X], R_UD)],
@@ -361,7 +365,7 @@ def l5():
     x(t, 'delayed', 'work-arrival', H3, 'Cuando llegué, no ___ nadie en la oficina.', None, 'había',
       [('habia', 'cci', acc_missing('había')),
        ('hay', 'iiu', 'Hay — теперішній час. У минулому: no había nadie.'),
-       ('estaba', 'uiu', 'Нікого не було — no había nadie (haber), а не estar.')],
+       ('estaba', 'uiu', 'Тут потрібна форма haber: no había nadie — «нікого не було».')],
       rH3, instr=INSTR_HAY)
     x(t, 'delayed', 'morning', [ST_C], 'Cuando me levanté, ___ las siete.', 'ser', 'eran',
       [('era', 'i', 'З годинами, крім la una, — множина: eran las siete.'),
@@ -410,11 +414,11 @@ def l5():
     t.choice('transfer', 'message', [UD_X],
              [P('Оберіть форму, яка підходить за змістом повідомлення.'),
               PE('Hola, Sara: Ayer vi nuestro antiguo colegio. Ahora es muy moderno, pero antes ___ viejo y pequeño.')],
-             [('fue', 'i', 'Fue подає це як подію. Для опису того, яким був колегіо раніше, — імперфект: era.'),
+             [('fue', 'i', 'Fue підсумовує стан як завершене ціле. Для опису того, якою була школа раніше (у протиставленні antes … ahora), — імперфект: era.'),
               ('es', 'i', 'Es — теперішній час; antes вказує на минуле.'),
               ('era', 'c', None)],
              [rule([UD_X], R_UD)],
-             ('Правильно: antes era viejo y pequeño — опис у минулому.', 'Ні. Опис того, яким був колегіо раніше, — era.'))
+             ('Правильно: antes era viejo y pequeño — опис у минулому.', 'Ні. Опис того, якою була школа раніше, — era.'))
     t.choice('delayed', 'seasons', [WE_R],
              [PE('En verano hacía mucho calor y en invierno hacía mucho viento.'), P('Якою була погода взимку?')],
              [('було дуже вітряно', 'c', None),
@@ -458,7 +462,8 @@ def l5():
                 P('Погода: безособово, у 3-й особі однини: hacía calor, llovía, nevaba, estaba nublado. Не плутайте з '
                   'tener calor / tener frío — це відчуття людини: Tenía frío — «Мені було холодно».'),
                 P('Наявність: había — одна форма для однини й множини: había un río, había muchos árboles. Форма habían '
-                  'тут ненормативна. Про наявність не кажемо estar: не *estaba una farmacia, а había una farmacia.'),
+                  'тут ненормативна. Коли повідомляємо, що щось було (існувало), кажемо había: Antes había una farmacia cerca de '
+                  'mi casa. Estar кажуть про розташування вже відомого: La farmacia estaba cerca de mi casa.'),
                 P('Година: з la una — era, з іншими годинами — eran: Era la una. Eran las diez. Так само era de noche, era tarde, era temprano.'),
                 P('Місце і стан: estaba en casa, estaba cansada, la tienda estaba cerrada — прикметник узгоджується з підметом.'),
             ]),
