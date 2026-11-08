@@ -10,5 +10,6 @@ import a104c1 from './A1-04-C1.ts';
 import a105l1 from './A1-05-L1.ts';
 import a105l2 from './A1-05-L2.ts';
 import a105l3 from './A1-05-L3.ts';
+import a105l4 from './A1-05-L4.ts';
 
-export const MODULES: LessonModule[] = [a104l1, a104l2, a104l3, a104l4, a104l5, a104l6, a104c1, a105l1, a105l2, a105l3];
+export const MODULES: LessonModule[] = [a104l1, a104l2, a104l3, a104l4, a104l5, a104l6, a104c1, a105l1, a105l2, a105l3, a105l4];

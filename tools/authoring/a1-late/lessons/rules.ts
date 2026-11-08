@@ -98,4 +98,20 @@ export const RULES: Record<string, string> = {
   'reading.opening-hours':
     'Horario — «години роботи». L–V — «з понеділка до п’ятниці». Багато закладів в Іспанії працюють із перервою: 9:00–14:00 y 17:00–20:30. Festivos — святкові дні, cerrado — зачинено.',
   'listening.times': 'Послухай і визнач час. Звертай увагу на y і menos: las cuatro menos cuarto — це 3:45, а не 4:15.',
+  // A1-05-L4
+  'date.days-of-week':
+    'Дні тижня: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Вони чоловічого роду (el lunes) і пишуться з малої літери. Знак наголосу мають miércoles і sábado.',
+  'date.el-lunes':
+    '«У понеділок» — el lunes, без прийменника: El sábado voy al cine. «Щопонеділка» — los lunes: Los lunes trabajo en casa. Після hoy es артикля немає: Hoy es martes.',
+  'date.months':
+    'Місяці: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre (або setiembre), octubre, noviembre, diciembre — з малої літери. «У травні» — en mayo, «влітку» — en verano: з місяцями й порами року вживаємо en.',
+  'date.full-date':
+    'Дата: el + число + de + місяць: el cinco de mayo. Перше число — el uno або el primero. Після дня тижня артикль можна не ставити: Hoy es martes, seis de noviembre. У цифровому записі спочатку день, потім місяць: 5/3 — п’яте березня.',
+  'question.word.cuando':
+    'Cuándo — «коли?»: питає про день, дату чи загальний час. ¿Cuándo es el examen? — El lunes. У питанні cuándo пишеться зі знаком наголосу. Про точну годину частіше питають ¿A qué hora…?',
+  'date.appointment':
+    'Cita — «запис, домовлена зустріч»: Tengo una cita con el dentista. Час зустрічі: день + a las + година: La cita es el martes a las diez. Питання: ¿Cuándo es la cita? ¿A qué hora es?',
+  'reading.calendar-appointment':
+    'Знайди в записі, що відбувається, коли й о котрій: день тижня, число, місяць і годину. 17:00 у розмові — las cinco de la tarde.',
+  'listening.dates': 'Послухай і визнач день, дату чи годину. Спершу звертай увагу на день тижня й число, потім — на місяць і час.',
 };
