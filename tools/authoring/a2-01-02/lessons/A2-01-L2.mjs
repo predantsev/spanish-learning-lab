@@ -32,6 +32,7 @@ const R = {
 };
 const yog = (f) => `У формі yo це дієслово закінчується на -go: ${f}.`;
 const zco = (f) => `У формі yo дієслів conocer, conducir, traducir пишемо -zco: ${f}.`;
+const num = (wrong, right, who) => `${wrong} — форма однини. Для «${who}» потрібна форма множини: ${right}.`;
 const person = (wrong, right, who) => `${wrong} — форма іншої особи. Для «${who}» потрібна форма ${right}.`;
 const venS = (f) => `Під наголосом e змінюється на ie, як у tener: ${f}.`;
 const decS = (f) => `Під наголосом e змінюється на i: ${f}.`;
@@ -61,7 +62,7 @@ export const tasks = [
   gap(L, { id: 'T06', role: 'independent', family: 'work-study', t: YOG, ask: ASK, es: 'Mañana ___ (traer, yo) el ordenador a clase.', uk: 'Завтра я принесу комп’ютер на заняття.', a: 'traigo', err: [['trao', yog('traigo')]], rule: R.yog }),
   gap(L, { id: 'T07', role: 'delayed', family: 'routine', t: YOG, ask: ASK, es: 'Los viernes ___ (salir, yo) con mis amigos.', uk: 'По п’ятницях я ходжу кудись із друзями.', a: 'salgo', err: [['salo', yog('salgo')]], rule: R.yog }),
   gap(L, { id: 'T08', role: 'delayed', family: 'family-home', t: YOG, ask: ASK, es: 'Hoy yo ___ (hacer) la comida.', uk: 'Сьогодні обід готую я.', a: 'hago', err: [['haco', yog('hago')]], rule: R.yog }),
-  gap(L, { id: 'T09', role: 'transfer', family: 'messages', t: YOG, ask: ASK_MSG, es: 'Hola, Ana: ___ (salir, yo) ahora de casa. Llego a las diez.', uk: 'Привіт, Ано! Я вже виходжу з дому. Буду о десятій.', a: 'salgo', err: [['salo', yog('salgo')]], rule: R.yog }),
+  gap(L, { id: 'T09', role: 'transfer', family: 'messages', t: YOG, ask: ASK_MSG, es: '¡Hola, Ana! ___ (salir, yo) ahora de casa. Llego a las diez.', uk: 'Привіт, Ано! Я вже виходжу з дому. Буду о десятій.', a: 'salgo', err: [['salo', yog('salgo')]], rule: R.yog }),
   gap(L, { id: 'T10', role: 'transfer', family: 'travel', t: YOG, ask: ASK, es: 'En la playa siempre ___ (poner, yo) las llaves en la mochila.', uk: 'На пляжі я завжди кладу ключі в рюкзак.', a: 'pongo', err: [['pono', yog('pongo')]], rule: R.yog }),
 
   // yo -zco
@@ -73,7 +74,7 @@ export const tasks = [
   gap(L, { id: 'T16', role: 'independent', family: 'family-home', t: ZCO, ask: ASK, es: 'No ___ (conocer, yo) a los padres de Pablo.', uk: 'Я не знайомий із батьками Пабло.', a: 'conozco', err: [['conoco', zco('conozco')]], rule: R.zco }),
   gap(L, { id: 'T17', role: 'delayed', family: 'travel', t: ZCO, ask: ASK, es: '___ (conocer, yo) un bar muy bonito cerca de la plaza.', uk: 'Я знаю дуже гарний бар біля площі.', a: 'conozco', err: [['conoco', zco('conozco')]], rule: R.zco }),
   gap(L, { id: 'T18', role: 'delayed', family: 'transport', t: ZCO, ask: ASK, es: 'Los sábados no ___ (conducir, yo): voy en bicicleta.', uk: 'По суботах я не їжджу машиною: їжджу велосипедом.', a: 'conduzco', err: [['conduco', zco('conduzco')]], rule: R.zco }),
-  gap(L, { id: 'T19', role: 'transfer', family: 'messages', t: ZCO, ask: ASK_MSG, es: 'Hola, Marta: ___ (conocer, yo) un bar nuevo en el centro. ¿Vamos el sábado?', uk: 'Привіт, Марто! Я знаю новий бар у центрі. Підемо в суботу?', a: 'conozco', err: [['conoco', zco('conozco')]], rule: R.zco }),
+  gap(L, { id: 'T19', role: 'transfer', family: 'messages', t: ZCO, ask: ASK_MSG, es: '¡Hola, Marta! ___ (conocer, yo) un bar nuevo en el centro. ¿Vamos el sábado?', uk: 'Привіт, Марто! Я знаю новий бар у центрі. Підемо в суботу?', a: 'conozco', err: [['conoco', zco('conozco')]], rule: R.zco }),
   gap(L, { id: 'T20', role: 'transfer', family: 'shop', t: ZCO, ask: ASK, es: 'En la tienda de mis padres, yo ___ (traducir) los avisos al inglés.', uk: 'У крамниці моїх батьків я перекладаю оголошення англійською.', a: 'traduzco', err: [['traduco', zco('traduzco')]], rule: R.zco }),
 
   // venir
@@ -85,7 +86,7 @@ export const tasks = [
   gap(L, { id: 'T26', role: 'independent', family: 'routine', t: VEN, ask: ASK, es: 'Nosotros ___ (venir) a la oficina a las nueve.', uk: 'Ми приходимо в офіс о дев’ятій.', a: 'venimos', err: [['vienimos', noChange('venimos')], ['venemos', 'Venir — дієслово на -ir: venimos.']], rule: R.ven }),
   gap(L, { id: 'T27', role: 'delayed', family: 'family-home', t: VEN, ask: ASK, es: 'Ana y Pablo ___ (venir) a casa el sábado.', uk: 'Ана й Пабло приходять до нас у суботу.', a: 'vienen', err: [['venen', venS('vienen')]], rule: R.ven }),
   gap(L, { id: 'T28', role: 'delayed', family: 'work-study', t: VEN, ask: ASK, es: 'Mañana no ___ (venir, yo): tengo una cita con el médico.', uk: 'Завтра я не прийду: у мене запис до лікаря.', a: 'vengo', err: [['veno', 'Форма yo — vengo, з -go, як tengo.']], rule: R.ven }),
-  gap(L, { id: 'T29', role: 'transfer', family: 'messages', t: VEN, ask: ASK_MSG, es: 'Hola, Ana: ¿___ (venir, tú) a mi cumpleaños el viernes?', uk: 'Привіт, Ано! Прийдеш на мій день народження в п’ятницю?', a: 'vienes', err: [['venes', venS('vienes')]], rule: R.ven }),
+  gap(L, { id: 'T29', role: 'transfer', family: 'messages', t: VEN, ask: ASK_MSG, es: '¡Hola, Ana! ¿___ (venir, tú) a mi cumpleaños el viernes?', uk: 'Привіт, Ано! Прийдеш на мій день народження в п’ятницю?', a: 'vienes', err: [['venes', venS('vienes')]], rule: R.ven }),
   gap(L, { id: 'T30', role: 'transfer', family: 'travel', t: VEN, ask: ASK, es: 'Mis amigos ___ (venir) de Kiev en julio.', uk: 'Мої друзі приїжджають із Києва в липні.', a: 'vienen', err: [['venen', venS('vienen')]], rule: R.ven }),
 
   // decir
@@ -97,19 +98,19 @@ export const tasks = [
   gap(L, { id: 'T36', role: 'independent', family: 'free-time', t: DEC, ask: ASK, es: '¿Vosotros qué ___ (decir)? ¿Vamos al cine o a la playa?', uk: 'А ви що скажете? Ідемо в кіно чи на пляж?', a: 'decís', err: [['decis', accent('decís')], ['dicís', noChange('decís')]], rule: R.dec }),
   gap(L, { id: 'T37', role: 'delayed', family: 'food-cafe', t: DEC, ask: ASK, es: 'Yo nunca ___ (decir) «no» a un café.', uk: 'Я ніколи не відмовляюся від кави.', a: 'digo', err: [['dico', 'Форма yo — digo, з -go.']], rule: R.dec }),
   gap(L, { id: 'T38', role: 'delayed', family: 'family-home', t: DEC, ask: ASK, es: 'Mi madre siempre ___ (decir) «hasta mañana».', uk: 'Моя мама завжди каже «до завтра».', a: 'dice', err: [['dece', decS('dice')]], rule: R.dec }),
-  gap(L, { id: 'T39', role: 'transfer', family: 'messages', t: DEC, ask: ASK_MSG, es: 'Hola, Ana: ¿qué ___ (decir) tus padres? ¿Vienen el domingo?', uk: 'Привіт, Ано! Що кажуть твої батьки? Приїдуть у неділю?', a: 'dicen', err: [['decen', decS('dicen')]], rule: R.dec }),
+  gap(L, { id: 'T39', role: 'transfer', family: 'messages', t: DEC, ask: ASK_MSG, es: '¡Hola, Ana! ¿qué ___ (decir) tus padres? ¿Vienen el domingo?', uk: 'Привіт, Ано! Що кажуть твої батьки? Приїдуть у неділю?', a: 'dicen', err: [['decen', decS('dicen')]], rule: R.dec }),
   gap(L, { id: 'T40', role: 'transfer', family: 'shop', t: DEC, ask: ASK, es: 'En la tienda, el señor ___ (decir) el precio.', uk: 'У крамниці пан називає ціну.', a: 'dice', err: [['dece', decS('dice')]], rule: R.dec }),
 
   // saber (+ sé/se)
   sabYo('T41', 'supported', 'routine', 'No ___ (saber, yo) dónde está la farmacia.', 'Я не знаю, де аптека.', { ask: ASK_S, model: [['¿Sabes dónde está el banco?', 'Ти знаєш, де банк?']] }),
   gap(L, { id: 'T42', role: 'supported', family: 'family-home', t: SAB, ask: ASK_S, model: [['Mi hermano sabe mi número.', 'Мій брат знає мій номер.']], es: '¿___ (saber, tú) el número de Ana?', uk: 'Ти знаєш номер Ани?', a: 'sabes', err: [['sabe', person('Sabe', 'sabes', 'tú')]], rule: R.sab }),
   sabYo('T43', 'independent', 'work-study', '—¿A qué hora empieza la reunión? —No ___ (saber, yo).', '— О котрій починається нарада? — Не знаю.'),
-  gap(L, { id: 'T44', role: 'independent', family: 'family-home', t: SAB, ask: ASK, es: 'Mis padres no ___ (saber) mi dirección nueva.', uk: 'Мої батьки не знають моєї нової адреси.', a: 'saben', err: [['sabe', person('Sabe', 'saben', 'mis padres')]], rule: R.sab }),
+  gap(L, { id: 'T44', role: 'independent', family: 'family-home', t: SAB, ask: ASK, es: 'Mis padres no ___ (saber) mi dirección nueva.', uk: 'Мої батьки не знають моєї нової адреси.', a: 'saben', err: [['sabe', num('Sabe', 'saben', 'mis padres')]], rule: R.sab }),
   gap(L, { id: 'T45', role: 'independent', family: 'free-time', t: SAB, ask: ASK, es: '¿___ (saber, vosotros) a qué hora empieza el concierto?', uk: 'Ви знаєте, о котрій починається концерт?', a: 'sabéis', err: [['sabeis', accent('sabéis')]], rule: R.sab }),
   sabYo('T46', 'independent', 'routine', 'Yo ___ (saber) su nombre, pero no recuerdo su apellido.', 'Я знаю його ім’я, але не пам’ятаю прізвища.'),
   gap(L, { id: 'T47', role: 'delayed', family: 'family-home', t: SAB, ask: ASK, es: 'Nosotros ___ (saber) dónde vive Pablo.', uk: 'Ми знаємо, де живе Пабло.', a: 'sabemos', err: [['sabimos', 'Saber — дієслово на -er: sabemos.']], rule: R.sab }),
   sabYo('T48', 'delayed', 'work-study', '—¿Quién es el profesor nuevo? —No ___ (saber, yo).', '— Хто новий викладач? — Не знаю.'),
-  sabYo('T49', 'transfer', 'messages', 'Hola, Pablo: ___ (saber, yo) dónde está tu móvil: en mi coche.', 'Привіт, Пабло! Я знаю, де твій мобільний: у моїй машині.', { ask: ASK_MSG }),
+  sabYo('T49', 'transfer', 'messages', '¡Hola, Pablo! ___ (saber, yo) dónde está tu móvil: en mi coche.', 'Привіт, Пабло! Я знаю, де твій мобільний: у моїй машині.', { ask: ASK_MSG }),
   gap(L, { id: 'T50', role: 'transfer', family: 'shop', t: SAB, ask: ASK, es: 'La chica de la tienda no ___ (saber) el precio del queso.', uk: 'Дівчина в крамниці не знає ціни сиру.', a: 'sabe', err: [['sabes', person('Sabes', 'sabe', 'la chica')]], rule: R.sab }),
 
   // sé / se
@@ -117,7 +118,7 @@ export const tasks = [
   gap(L, { id: 'T52', role: 'independent', family: 'family-home', t: SE, ask: ASK_SE, es: 'Mis hijos ___ duchan por la noche.', uk: 'Мої діти приймають душ увечері.', a: 'se', err: [['sé', 'Тут займенник дієслова ducharse — пишемо без знака: se.']], rule: R.se, why: 'Займенник se пишемо без знака наголосу.' }),
   gap(L, { id: 'T53', role: 'independent', family: 'routine', t: SE, ask: ASK_SE, es: 'No ___ a qué hora se levanta Marta.', uk: 'Я не знаю, о котрій встає Марта.', a: 'sé', err: [['se', 'Тут форма yo дієслова saber — пишемо зі знаком наголосу: sé.']], rule: R.se, why: 'Форма yo дієслова saber має знак наголосу.' }),
   gap(L, { id: 'T54', role: 'delayed', family: 'routine', t: SE, ask: ASK_SE, es: 'El niño ___ lava los dientes.', uk: 'Хлопчик чистить зуби.', a: 'se', err: [['sé', 'Тут займенник дієслова lavarse — пишемо без знака: se.']], rule: R.se, why: 'Займенник se пишемо без знака наголосу.' }),
-  gap(L, { id: 'T55', role: 'transfer', family: 'messages', t: SE, ask: ASK_SE, es: 'Hola, Ana: no ___ dónde están mis llaves. ¿Están en tu bolso?', uk: 'Привіт, Ано! Я не знаю, де мої ключі. Вони в твоїй сумці?', a: 'sé', err: [['se', 'Тут форма yo дієслова saber — пишемо зі знаком наголосу: sé.']], rule: R.se, why: 'Форма yo дієслова saber має знак наголосу.' }),
+  gap(L, { id: 'T55', role: 'transfer', family: 'messages', t: SE, ask: ASK_SE, es: '¡Hola, Ana! No ___ dónde están mis llaves. ¿Están en tu bolso?', uk: 'Привіт, Ано! Я не знаю, де мої ключі. Вони в твоїй сумці?', a: 'sé', err: [['se', 'Тут форма yo дієслова saber — пишемо зі знаком наголосу: sé.']], rule: R.se, why: 'Форма yo дієслова saber має знак наголосу.' }),
   choice(L, { id: 'T56', role: 'independent', family: 'family-home', ts: [SE_C], ask: 'Оберіть правильне написання.', es: 'Mi padre ___ peina por la mañana.', opts: [['se', 'c'], ['sé', 'x', 'Тут займенник дієслова peinarse, тому без знака: se.']], rule: R.se, ok: 'Правильно: se — займенник, без знака наголосу.', no: 'Тут потрібен займенник se без знака наголосу.' }),
   choice(L, { id: 'T57', role: 'delayed', family: 'shop', ts: [SE_C], ask: 'Оберіть правильне написання.', es: 'No ___ cuánto cuesta el billete.', opts: [['sé', 'c'], ['se', 'x', 'Тут «я не знаю» — форма yo дієслова saber, зі знаком наголосу: sé.']], rule: R.se, ok: 'Правильно: sé — форма yo дієслова saber.', no: 'Тут потрібна форма saber зі знаком наголосу: sé.' }),
 
@@ -130,7 +131,7 @@ export const tasks = [
   gap(L, { id: 'T66', role: 'independent', family: 'free-time', t: DAR, ask: ASK, es: 'Los sábados ___ (dar, ellos) conciertos en la plaza.', uk: 'По суботах на площі влаштовують концерти.', a: 'dan', rule: R.dar }),
   gap(L, { id: 'T67', role: 'delayed', family: 'work-study', t: DAR, ask: ASK, es: '¿Tú ___ (dar) clases de música?', uk: 'Ти викладаєш музику?', a: 'das', err: [['dás', oneSyl('Das')]], rule: R.dar }),
   gap(L, { id: 'T68', role: 'delayed', family: 'work-study', t: DAR, ask: ASK, es: 'Los lunes ___ (dar, yo) clase de nueve a dos.', uk: 'По понеділках я викладаю з дев’ятої до другої.', a: 'doy', err: [['do', 'Форма yo дієслова dar — doy, як voy від ir.']], rule: R.dar }),
-  gap(L, { id: 'T69', role: 'transfer', family: 'messages', t: DAR, ask: ASK_MSG, es: 'Hola, Ana: el sábado ___ (dar, ellos) un concierto en el parque. ¿Vamos?', uk: 'Привіт, Ано! У суботу в парку буде концерт. Підемо?', a: 'dan', rule: R.dar }),
+  gap(L, { id: 'T69', role: 'transfer', family: 'messages', t: DAR, ask: ASK_MSG, es: '¡Hola, Ana! El sábado ___ (dar, ellos) un concierto en el parque. ¿Vamos?', uk: 'Привіт, Ано! У суботу в парку буде концерт. Підемо?', a: 'dan', rule: R.dar }),
   gap(L, { id: 'T70', role: 'transfer', family: 'travel', t: DAR, ask: ASK, es: 'En el hotel ___ (dar, ellos) el desayuno de ocho a diez.', uk: 'У готелі сніданок дають з восьмої до десятої.', a: 'dan', rule: R.dar }),
 
   // ver
@@ -140,9 +141,9 @@ export const tasks = [
   gap(L, { id: 'T74', role: 'independent', family: 'routine', t: VER, ask: ASK, es: 'Desde mi ventana ___ (ver, yo) el parque.', uk: 'Зі свого вікна я бачу парк.', a: 'veo', rule: R.ver }),
   gap(L, { id: 'T75', role: 'independent', family: 'transport', t: VER, ask: ASK, es: '¿___ (ver, tú) el autobús?', uk: 'Ти бачиш автобус?', a: 'ves', rule: R.ver }),
   gap(L, { id: 'T76', role: 'independent', family: 'free-time', t: VER, ask: ASK, es: 'Nosotros ___ (ver) muchas películas.', uk: 'Ми дивимося багато фільмів.', a: 'vemos', rule: R.ver }),
-  gap(L, { id: 'T77', role: 'delayed', family: 'free-time', t: VER, ask: ASK, es: 'Mis amigos ___ (ver) una película de terror.', uk: 'Мої друзі дивляться фільм жахів.', a: 'ven', err: [['ve', person('Ve', 'ven', 'mis amigos')]], rule: R.ver }),
+  gap(L, { id: 'T77', role: 'delayed', family: 'free-time', t: VER, ask: ASK, es: 'Mis amigos ___ (ver) una película de terror.', uk: 'Мої друзі дивляться фільм жахів.', a: 'ven', err: [['ve', num('Ve', 'ven', 'mis amigos')]], rule: R.ver }),
   gap(L, { id: 'T78', role: 'delayed', family: 'routine', t: VER, ask: ASK, es: 'Por la noche ___ (ver, nosotros) una película.', uk: 'Увечері ми дивимося фільм.', a: 'vemos', rule: R.ver }),
-  gap(L, { id: 'T79', role: 'transfer', family: 'messages', t: VER, ask: ASK_MSG, es: 'Hola, Pablo: ___ (ver, yo) a tus padres en el parque.', uk: 'Привіт, Пабло! Я бачу твоїх батьків у парку.', a: 'veo', rule: R.ver }),
+  gap(L, { id: 'T79', role: 'transfer', family: 'messages', t: VER, ask: ASK_MSG, es: '¡Hola, Pablo! ___ (ver, yo) a tus padres en el parque.', uk: 'Привіт, Пабло! Я бачу твоїх батьків у парку.', a: 'veo', rule: R.ver }),
   gap(L, { id: 'T80', role: 'transfer', family: 'travel', t: VER, ask: ASK, es: 'Desde el hotel ___ (ver, nosotros) la playa.', uk: 'З готелю ми бачимо пляж.', a: 'vemos', rule: R.ver }),
 
   // g → j
@@ -154,7 +155,7 @@ export const tasks = [
   gap(L, { id: 'T86', role: 'independent', family: 'food-cafe', t: GJ, ask: ASK, es: 'En el bar, yo ___ (escoger) la mesa.', uk: 'У барі столик обираю я.', a: 'escojo', err: [['escogo', gj('escojo')]], rule: R.gj }),
   gap(L, { id: 'T87', role: 'delayed', family: 'transport', t: GJ, ask: ASK, es: 'Normalmente ___ (coger, yo) la bicicleta.', uk: 'Зазвичай я беру велосипед.', a: 'cojo', err: [['cogo', gj('cojo')]], rule: R.gj }),
   gap(L, { id: 'T88', role: 'delayed', family: 'shop', t: GJ, ask: ASK, es: '¿Qué ___ (escoger, yo)? ¿El bolso rojo o el negro?', uk: 'Що мені обрати? Червону сумку чи чорну?', a: 'escojo', err: [['escogo', gj('escojo')]], rule: R.gj }),
-  gap(L, { id: 'T89', role: 'transfer', family: 'messages', t: GJ, ask: ASK_MSG, es: 'Hola, Ana: hoy ___ (recoger, yo) a los niños. Tú descansas.', uk: 'Привіт, Ано! Сьогодні дітей забираю я. А ти відпочиваєш.', a: 'recojo', err: [['recogo', gj('recojo')]], rule: R.gj }),
+  gap(L, { id: 'T89', role: 'transfer', family: 'messages', t: GJ, ask: ASK_MSG, es: '¡Hola, Ana! Hoy ___ (recoger, yo) a los niños. Tú descansas.', uk: 'Привіт, Ано! Сьогодні дітей забираю я. А ти відпочиваєш.', a: 'recojo', err: [['recogo', gj('recojo')]], rule: R.gj }),
   gap(L, { id: 'T90', role: 'transfer', family: 'travel', t: GJ, ask: ASK, es: 'En el hotel ___ (coger, yo) un mapa de la ciudad.', uk: 'У готелі я беру мапу міста.', a: 'cojo', err: [['cogo', gj('cojo')]], rule: R.gj }),
 
   // personal a
@@ -166,18 +167,18 @@ export const tasks = [
   gap(L, { id: 'T96', role: 'independent', family: 'family-home', t: PA, ask: ASK_PA, es: '¿Ves ___ niño de la foto?', uk: 'Ти бачиш хлопчика на фото?', a: 'al', err: [['a el', 'A + el зливаються в одне слово: al.'], ['el', 'Перед людиною у ролі прямого додатка потрібне a: a + el = al.']], rule: R.pa, why: 'Перед людиною — a; a + el = al.' }),
   gap(L, { id: 'T97', role: 'delayed', family: 'family-home', t: PA, ask: ASK_PA, es: 'No encuentro ___ mi hermana.', uk: 'Не можу знайти сестру.', a: 'a', err: [['al', 'Перед mi артикля немає, тому просто a.']], rule: R.pa, why: 'Перед людиною у ролі прямого додатка ставимо a.' }),
   gap(L, { id: 'T98', role: 'delayed', family: 'work-study', t: PA, ask: ASK_PA, es: '¿Conoces ___ médico de tu padre?', uk: 'Ти знаєш лікаря свого тата?', a: 'al', err: [['a el', 'A + el зливаються в одне слово: al.'], ['el', 'Перед людиною у ролі прямого додатка потрібне a: a + el = al.']], rule: R.pa, why: 'Перед людиною — a; a + el = al.' }),
-  gap(L, { id: 'T99', role: 'transfer', family: 'messages', t: PA, ask: ASK_PA, es: 'Hola, Marta: mañana recojo ___ tus padres en la estación.', uk: 'Привіт, Марто! Завтра я зустріну твоїх батьків на вокзалі.', a: 'a', err: [['al', 'Перед tus артикля немає, тому просто a.']], rule: R.pa, why: 'Перед людьми у ролі прямого додатка ставимо a.' }),
+  gap(L, { id: 'T99', role: 'transfer', family: 'messages', t: PA, ask: ASK_PA, es: '¡Hola, Marta! Mañana recojo ___ tus padres en la estación.', uk: 'Привіт, Марто! Завтра я зустріну твоїх батьків на вокзалі.', a: 'a', err: [['al', 'Перед tus артикля немає, тому просто a.']], rule: R.pa, why: 'Перед людьми у ролі прямого додатка ставимо a.' }),
   gap(L, { id: 'T100', role: 'transfer', family: 'shop', t: PA, ask: ASK_PA, es: 'En la tienda veo ___ camarero del bar de mi calle.', uk: 'У крамниці я бачу офіціанта з бару на моїй вулиці.', a: 'al', err: [['a el', 'A + el зливаються в одне слово: al.'], ['el', 'Перед людиною у ролі прямого додатка потрібне a: a + el = al.']], rule: R.pa, why: 'Перед людиною — a; a + el = al.' }),
   choice(L, { id: 'T101', role: 'independent', family: 'travel', ts: [PA_C], ask: 'Чи потрібне тут a? Оберіть варіант.', es: 'Conozco ___ Valencia muy bien.', opts: [['a', 'x', 'Valencia — місто, а не людина, тому a не потрібне.'], ['без a', 'c']], rule: R.pa, ref: 'Conozco Valencia muy bien.', ok: 'Правильно: перед назвою міста a не ставимо — Conozco Valencia.', no: 'Перед назвою міста a не ставимо: Conozco Valencia.' }),
   choice(L, { id: 'T102', role: 'delayed', family: 'family-home', ts: [PA_C], ask: 'Чи потрібне тут a? Оберіть варіант.', es: 'Veo ___ mi madre los sábados.', opts: [['a', 'c'], ['без a', 'x', 'Mi madre — людина у ролі прямого додатка, тому потрібне a.']], rule: R.pa, ok: 'Правильно: Veo a mi madre — перед людиною ставимо a.', no: 'Перед людиною у ролі прямого додатка потрібне a: Veo a mi madre.' }),
-  choice(L, { id: 'T103', role: 'transfer', family: 'messages', ts: [PA_C], ask: 'Чи потрібне тут a? Оберіть варіант.', es: 'Hola, Ana: tengo ___ dos hermanos y una hermana.', opts: [['a', 'x', 'Після tener a зазвичай не ставимо: Tengo dos hermanos.'], ['без a', 'c']], rule: R.pa, ref: 'Hola, Ana: tengo dos hermanos y una hermana.', ok: 'Правильно: після tener a зазвичай не ставимо.', no: 'Після tener a зазвичай не ставимо: Tengo dos hermanos.' }),
+  choice(L, { id: 'T103', role: 'transfer', family: 'messages', ts: [PA_C], ask: 'Чи потрібне тут a? Оберіть варіант.', es: '¡Hola, Ana! Tengo ___ dos hermanos y una hermana.', opts: [['a', 'x', 'Після tener a зазвичай не ставимо: Tengo dos hermanos.'], ['без a', 'c']], rule: R.pa, ref: '¡Hola, Ana! Tengo dos hermanos y una hermana.', ok: 'Правильно: після tener a зазвичай не ставимо.', no: 'Після tener a зазвичай не ставимо: Tengo dos hermanos.' }),
 
   // saber vs conocer
   choice(L, { id: 'T104', role: 'supported', family: 'family-home', ts: [SC_C], ask: 'Оберіть дієслово. Підказка: saber — знати факт, conocer — бути знайомим.', es: 'Yo no ___ dónde vive Pablo.', opts: [['sé', 'c'], ['conozco', 'x', 'Де живе Пабло — це інформація, тому saber: No sé dónde vive.']], rule: R.sc, ok: 'Правильно: про інформацію (де, коли, скільки) кажемо saber.', no: 'Про інформацію (де, коли, скільки) кажемо saber: No sé dónde vive Pablo.' }),
   choice(L, { id: 'T105', role: 'independent', family: 'family-home', ts: [SC_C], ask: 'Оберіть дієслово.', es: '¿___ a mi hermana?', opts: [['Conoces', 'c'], ['Sabes', 'x', 'Про знайомство з людиною кажемо conocer: ¿Conoces a mi hermana?']], rule: R.sc, ok: 'Правильно: про знайомство з людиною — conocer.', no: 'Про знайомство з людиною — conocer: ¿Conoces a mi hermana?' }),
   choice(L, { id: 'T106', role: 'independent', family: 'shop', ts: [SC_C], ask: 'Оберіть дієслово.', es: 'No ___ cuánto cuesta el billete.', opts: [['sé', 'c'], ['conozco', 'x', 'Скільки коштує — це інформація, тому saber.']], rule: R.sc, ok: 'Правильно: перед питальним словом (cuánto, dónde, qué) уживаємо saber.', no: 'Перед питальним словом (cuánto, dónde, qué) уживаємо saber: No sé cuánto cuesta.' }),
   choice(L, { id: 'T107', role: 'delayed', family: 'travel', ts: [SC_C], ask: 'Оберіть дієслово.', es: '___ Barcelona muy bien: vivo allí.', opts: [['Conozco', 'c'], ['Sé', 'x', 'Про місто, яке ви знаєте з досвіду, кажемо conocer.']], rule: R.sc, ok: 'Правильно: місто, яке знаємо з досвіду, — conocer.', no: 'Про місто, яке знаємо з досвіду, кажемо conocer: Conozco Barcelona.' }),
-  choice(L, { id: 'T108', role: 'transfer', family: 'messages', ts: [SC_C], ask: 'Оберіть дієслово.', es: 'Hola, Ana: ¿___ a qué hora sale el tren?', opts: [['sabes', 'c'], ['conoces', 'x', 'Перед питанням «о котрій» уживаємо saber.']], rule: R.sc, ok: 'Правильно: перед непрямим питанням — saber.', no: 'Перед непрямим питанням (a qué hora…) — saber: ¿Sabes a qué hora sale el tren?' }),
+  choice(L, { id: 'T108', role: 'transfer', family: 'messages', ts: [SC_C], ask: 'Оберіть дієслово.', es: '¡Hola, Ana! ¿___ a qué hora sale el tren?', opts: [['sabes', 'c'], ['conoces', 'x', 'Перед питанням «о котрій» уживаємо saber.']], rule: R.sc, ok: 'Правильно: перед непрямим питанням — saber.', no: 'Перед непрямим питанням (a qué hora…) — saber: ¿Sabes a qué hora sale el tren?' }),
   choice(L, { id: 'T109', role: 'independent', family: 'work-study', ts: [SC_R], ask: 'Прочитайте речення. Що воно означає?', es: 'Conozco a la profesora de mi hijo.', opts: [['Я знайомий (знайома) з учителькою свого сина.', 'c'], ['Я знаю, де працює вчителька мого сина.', 'x', 'Про місце роботи було б Sé dónde trabaja…'], ['Я шукаю вчительку свого сина.', 'x', 'У реченні дієслово conocer — «бути знайомим».']], rule: R.sc, ok: 'Правильно: conocer a + людина — бути з нею знайомим.', no: 'Conocer a + людина означає «бути знайомим з нею».' }),
   choice(L, { id: 'T110', role: 'delayed', family: 'routine', ts: [SC_R], ask: 'Прочитайте речення. Що воно означає?', es: 'Sé dónde está el banco.', opts: [['Я знаю, де банк.', 'c'], ['Я знайомий з працівниками банку.', 'x', 'Тут дієслово saber і питання dónde — це знання факту.'], ['Я часто буваю в цьому банку.', 'x', 'Тут ідеться лише про те, що людина знає, де банк.']], rule: R.sc, ok: 'Правильно: saber + dónde — знати, де щось є.', no: 'Saber + dónde означає «знати, де щось є»: Я знаю, де банк.' }),
 ];
@@ -217,7 +218,7 @@ export const lesson = mkLesson({
   steps: [
     s('s1', 'explanation', 'Форма yo на -go, -zco і -jo', true, {
       blocks: [
-        UK('У деяких дієсловах неправильна лише форма yo, а інші особи відмінюються регулярно.'),
+        UK('У деяких дієсловах неправильна лише форма yo, а інші особи змінюються регулярно.'),
         UK('poner, salir, traer, hacer → pongo, salgo, traigo, hago (-go). conocer, conducir, traducir → conozco, conduzco, traduzco (-zco). coger, recoger, escoger → cojo, recojo, escojo: тут змінюється лише написання — перед -o пишемо j, щоб зберегти звук [х].'),
         T_YO,
         EX('Salgo de casa a las ocho y cojo el autobús.', 'Я виходжу з дому о восьмій і сідаю на автобус.'),
