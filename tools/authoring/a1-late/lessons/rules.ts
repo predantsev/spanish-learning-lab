@@ -8,7 +8,7 @@ export const RULES: Record<string, string> = {
     'Дієслова на -ar у множині: nosotros -amos (hablamos), vosotros -áis зі знаком наголосу (habláis), ellos / ellas / ustedes -an (hablan).',
   'prep.con.company': '«Разом із кимось» — con + людина: Ceno con mi familia. Hablo con Ana. Після con іменник чи ім’я не змінюється.',
   'listening.daily-actions':
-    'Закінчення дієслова підказує, хто виконує дію: -o — «я», -amos / -emos / -imos — «ми», -an / -en — «вони» або ustedes (ввічливе «Ви» до кількох людей): хто саме, підкаже підмет чи контекст. Спершу знайди дію, потім — хто її виконує.',
+    'Закінчення дієслова підказує, хто виконує дію: -o — «я», -amos / -emos / -imos — «ми», -an / -en — «вони» або ustedes (формальне «ви» до кількох людей): хто саме, підкаже підмет чи контекст. Спершу знайди дію, потім — хто її виконує.',
   // A1-04-L2
   'present.regular-er':
     'Дієслова на -er в однині: відкинь -er і додай закінчення особи — yo -o (como), tú -es (comes), él / ella / usted -e (come).',
@@ -22,15 +22,15 @@ export const RULES: Record<string, string> = {
     'Дієслова на -er і на -ir відрізняються лише у формах nosotros і vosotros: comemos — vivimos, coméis — vivís. Голосна інфінітива підказує закінчення: -er → -emos, -éis; -ir → -imos, -ís.',
   // A1-04-L3
   'present.ir': 'Ir («іти, їхати») має особливі форми, їх треба запам’ятати: voy, vas, va, vamos, vais, van. Форма vais пишеться без знака наголосу.',
-  'present.hacer': 'Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago. Решта форм: haces, hace, hacemos, hacéis, hacen.',
+  'present.hacer': 'Hacer змінюється за особами як правильне дієслово на -er, крім форми yo: hago. Решта форм: haces, hace, hacemos, hacéis, hacen.',
   'prep.a.destination': 'Куди рухаємося — ir a + місце: Voy a Madrid. Vamos a casa. Де перебуваємо — estar en: Estoy en casa.',
   'article.contraction-al':
-    'Прийменник a й артикль el зливаються в al: Voy al cine (el cine). З la, los, las злиття немає: Voy a la playa. Перед назвою міста артикля немає — просто a: Voy a Madrid.',
+    'Прийменник a й артикль el зливаються в al: Voy al cine (el cine). З la, los, las злиття немає: Voy a la playa. Перед назвою міста зазвичай артикля немає — просто a: Voy a Madrid.',
   // A1-04-L4
   'reflexive.pronouns':
     'Займенник відповідає підмету: yo — me, tú — te, él / ella / usted — se, nosotros — nos, vosotros — os, ellos / ellas / ustedes — se.',
   'reflexive.placement':
-    'Займенник стоїть окремим словом перед відмінюваним дієсловом: Me levanto temprano. У запереченні no стоїть перед займенником: No me levanto tarde. У словнику таке дієслово має -se в кінці: levantarse.',
+    'Займенник стоїть окремим словом перед дієсловом в особовій формі: Me levanto temprano. У запереченні no стоїть перед займенником: No me levanto tarde. У словнику таке дієслово має -se в кінці: levantarse.',
   // A1-04-L5
   'time.parts-of-day':
     'Без точного часу частину доби називаємо з por і артиклем la: por la mañana — «зранку», por la tarde — «удень, після обіду», por la noche — «увечері, вночі».',
@@ -154,4 +154,14 @@ export const RULES: Record<string, string> = {
   'gustar.responses':
     'Погодитися: на ствердження — A mí también («мені теж»), на заперечення — A mí tampoco («мені теж ні»). Не погодитися: на ствердження — A mí no, на заперечення — A mí sí. З gustar кажемо a mí (зі знаком наголосу), а не yo.',
   'listening.preferences': 'Послухай і визнач, що людині подобається, а що ні. Звертай увагу на no, mucho, nada і на те, про кого йдеться (me, le, a mi hermano).',
+  // A1-06-L2
+  'present.preferir':
+    'Preferir («воліти, вибирати») змінює e на ie в основі: prefiero, prefieres, prefiere, prefieren. У формах nosotros і vosotros зміни немає: preferimos, preferís.',
+  'preferir.choice':
+    'Щоб запитати про вибір: ¿Qué prefieres, té o café? Відповідь: Prefiero el té (артикль можна не ставити: Prefiero té). Після preferir може стояти й інфінітив: Prefiero comer en casa.',
+  // A1-06-L3
+  'necesitar.noun':
+    'Українське «мені потрібно щось» — necesito + іменник: Necesito un paraguas. Necesitamos leche. Людина тут — підмет, тому дієслово змінюється за особою: necesito, necesitas, necesita…',
+  'necesitar.infinitive':
+    'Що треба зробити — necesito + інфінітив: Necesito comprar pan. Necesitamos estudiar. Друге дієслово стоїть в інфінітиві й не змінюється.',
 };

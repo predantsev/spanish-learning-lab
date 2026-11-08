@@ -365,7 +365,7 @@ export default k.build({
           ],
         ),
         uk('У формі vosotros завжди пишемо знак наголосу: habláis, trabajáis. В Іспанії до кількох знайомих людей звертаються vosotros: ¿Habláis inglés?'),
-        uk('Ustedes — ввічливе «Ви» до кількох людей — уживає форму на -an, як ellos: ¿Ustedes cenan en casa?'),
+        uk('Ustedes — формальне «ви» до кількох людей — уживає форму на -an, як ellos: ¿Ustedes cenan en casa?'),
         ex('Cenamos en casa.', 'Ми вечеряємо вдома.'),
         ex('¿Trabajáis en Madrid?', 'Ви працюєте в Мадриді?'),
         ex('Mis padres hablan ucraniano.', 'Мої батьки розмовляють українською.'),
