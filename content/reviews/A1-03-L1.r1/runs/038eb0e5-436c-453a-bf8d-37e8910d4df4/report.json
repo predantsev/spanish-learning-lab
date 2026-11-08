@@ -1,0 +1,2139 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L1.r1",
+  "packetHash": "e4a10d8637aa3a00a70295b7f82c6ffb5c8a040b13865292039663329602933c",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "45f010fbb40c4680c87b04419470a55c7c136f92a1ff25ae38487ac06099ca0c",
+    "reviewerPacketSha256": "818690813d8dfaf427d82b7242088a118f05f7ae5f541d4c02ff03684f2d169a",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-YAuxdw/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-YAuxdw/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-YAuxdw/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-YAuxdw/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-YAuxdw/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc95-7986-7b13-a767-2d96db7a5d78",
+        "version": "v0.166.0",
+        "tokens used": "115,747"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:ortho.accent-pair.el",
+        "reviewerAnswer": "él means 'he'; el is the masculine singular definite article.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:ortho.accent-pair.tu",
+        "reviewerAnswer": "tú means 'you' in familiar singular address; tu means 'your' before a singular noun.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:present.ser",
+        "reviewerAnswer": "yo soy; tú eres; él/ella/usted es; nosotros/nosotras somos; vosotros/vosotras sois; ellos/ellas/ustedes son.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:pron.person-mapping",
+        "reviewerAnswer": "Ana → es; mi amigo → es; Ana y yo → somos; tú y yo → somos; Pablo y tú → sois; Ana y Pablo → son.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: \"Ти і ще хтось — vosotros: Pablo y tú sois.\"",
+        "defect": "The generalization omits first-person precedence. 'Someone else' can include the speaker, but tú y yo requires somos, not sois.",
+        "correction": "Specify that vosotros applies when the group includes the addressee and excludes the speaker; any group including the speaker takes first-person plural agreement.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», agreement with coordinated subjects of different grammatical persons (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:pron.subject",
+        "reviewerAnswer": "yo = 'I'; tú = familiar singular 'you'; él = 'he'; ella = 'she'; usted = formal singular 'you', with third-person verb agreement.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:pron.subject-omission",
+        "reviewerAnswer": "Soy Ana and Yo soy Ana can express the same identification. Subject pronouns may be omitted when their referents are recoverable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:pron.subject.plural",
+        "reviewerAnswer": "nosotros/nosotras = 'we'; vosotros/vosotras = familiar plural 'you'; ellos/ellas = 'they'; ustedes = formal plural 'you' in the course's Peninsular model.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:pron.tu-usted",
+        "reviewerAnswer": "tú normally expresses familiar singular address; usted expresses formal or socially distant singular address and takes third-person agreement.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The social examples are useful defaults, rather than automatic rules determined solely by age or occupation."
+      },
+      {
+        "caseId": "skill:pron.vosotros-ustedes",
+        "reviewerAnswer": "In the course's Peninsular model, familiar plural address uses vosotros/vosotras with sois; formal plural address uses ustedes with son.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:writing.short-statement",
+        "reviewerAnswer": "Ana es mi amiga. Soy Ana. Somos estudiantes. These complete statements require the verb; an explicit subject pronoun is optional when recoverable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.ser",
+        "reviewerAnswer": "ser means 'to be'; its present indicative forms are soy, eres, es, somos, sois, son.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-03-L1",
+        "reviewerAnswer": "Appropriate model statements include Soy Ana, Ana es mi amiga and Somos estudiantes. Agreement must give first-person plural precedence whenever the speaker belongs to a coordinated subject.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s2].blocks[2].text: \"Ти і ще хтось — vosotros: Pablo y tú sois amigos.\"",
+        "defect": "The unrestricted mapping also covers tú y yo, which requires somos. The following first-person example does not explicitly resolve the overlapping rules.",
+        "correction": "State that groups containing the speaker take somos, and that sois applies to groups containing the familiar addressee but excluding the speaker.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», agreement with coordinated subjects of different grammatical persons (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T01",
+        "reviewerAnswer": "Él. Complete sentence: Él es Pablo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "The hint explicitly explains the written accent on él but does not attribute support to ortho.accent-pair.el/written-form.",
+        "correction": "Add ortho.accent-pair.el/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6: hint targets must list exactly the targets actually explained."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T02",
+        "reviewerAnswer": "Él. Complete sentence: Él es mi hermano.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "The explicit accent explanation also supports ortho.accent-pair.el/written-form, which is missing from the attribution.",
+        "correction": "Add ortho.accent-pair.el/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T03",
+        "reviewerAnswer": "él",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "The hint teaches the accent required by ortho.accent-pair.el/written-form without recording support for that target.",
+        "correction": "Add ortho.accent-pair.el/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T04",
+        "reviewerAnswer": "Él. Complete sentence: Él es profesor.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "Support for the explicitly explained accent target is omitted.",
+        "correction": "Add ortho.accent-pair.el/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T05",
+        "reviewerAnswer": "Él es Pablo y ella es Ana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "The hint explicitly supports the assessed accent target but attributes support only to the pronoun target.",
+        "correction": "Add ortho.accent-pair.el/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": "The key is open, so other natural translations are not automatically rejected."
+      },
+      {
+        "caseId": "task:A1-03-L1-T06",
+        "reviewerAnswer": "el. Complete sentence: Es el libro de Ana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T07",
+        "reviewerAnswer": "el. Complete sentence: Es el coche de Pablo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T08",
+        "reviewerAnswer": "Él es el profesor.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T09",
+        "reviewerAnswer": "el. Complete sentence: Es el piso de mi hermano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T10",
+        "reviewerAnswer": "Él y el perro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T11",
+        "reviewerAnswer": "Tú. Complete sentence: Tú eres Ana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "The hint explicitly explains the accent on tú but omits support attribution for ortho.accent-pair.tu/written-form.",
+        "correction": "Add ortho.accent-pair.tu/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T12",
+        "reviewerAnswer": "Tú. Complete sentence: Tú eres mi amigo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "The explicit accent explanation supports ortho.accent-pair.tu/written-form, which is missing from the attribution.",
+        "correction": "Add ortho.accent-pair.tu/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T13",
+        "reviewerAnswer": "tú",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "The hint teaches the assessed written accent without attributing support to its target.",
+        "correction": "Add ortho.accent-pair.tu/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T14",
+        "reviewerAnswer": "Tú. Complete sentence: Tú eres estudiante.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+        "defect": "Support for ortho.accent-pair.tu/written-form is omitted despite an explicit explanation of the accent on tú.",
+        "correction": "Add ortho.accent-pair.tu/written-form to this hint's targets.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T15",
+        "reviewerAnswer": "Tú eres mi amiga.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[id=a2]: \"Eres mi amiga.\" with noteUk \"Займенник можна пропустити.\"; task.prompt[0]: \"Напиши іспанською з займенником\"; task.hints[0].targets: [\"pron.subject/written-form\"].",
+        "defect": "The key accepts omission despite the explicit requirement to include a pronoun, bypassing both assessed written forms. The first hint also explains the accent on tú without attributing support to the accent target.",
+        "correction": "Remove a2 for this pronoun-writing task, and add ortho.accent-pair.tu/written-form to the first hint's targets.",
+        "sources": [
+          "Course contract rule 3: exact-variants answer-key correctness.",
+          "Course contract rule 6: accurate hint support attribution."
+        ],
+        "notes": "Eres mi amiga is grammatical Spanish, but it does not fulfill this task's explicit constraint."
+      },
+      {
+        "caseId": "task:A1-03-L1-T16",
+        "reviewerAnswer": "tu. Complete sentence: Es tu libro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T17",
+        "reviewerAnswer": "tu. Complete sentence: Es tu hermana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T18",
+        "reviewerAnswer": "Tú eres Ana y tu hermano es Pablo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T19",
+        "reviewerAnswer": "tu. Complete sentence: Es tu perro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T20",
+        "reviewerAnswer": "Tú y tu hermano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T21",
+        "reviewerAnswer": "Nosotras somos amigas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T22",
+        "reviewerAnswer": "Vosotros sois estudiantes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T23",
+        "reviewerAnswer": "Ellos son mis amigos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T24",
+        "reviewerAnswer": "Ellas son estudiantes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T25",
+        "reviewerAnswer": "Vosotras sois mis amigas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T26",
+        "reviewerAnswer": "nosotros",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T27",
+        "reviewerAnswer": "ellas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T28",
+        "reviewerAnswer": "ustedes",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T29",
+        "reviewerAnswer": "vosotras",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T30",
+        "reviewerAnswer": "nosotros; the group includes a man regardless of the speaker's gender.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[id=e1].feedbackUk: \"Пара змішана, тому nosotros.\"; task.prompt[0]: \"хто ви з чоловіком\".",
+        "defect": "The prompt does not specify the speaker's gender. A woman and her husband form a mixed group; a man and his husband do not. The feedback is true only under the first reading.",
+        "correction": "Clarify the speaker's gender or make the feedback independent of that unstated detail.",
+        "sources": [
+          "Packet task.prompt[0]: the companion is identified as a man, but the speaker's gender is unstated.",
+          "Review verdict instructions: use uncertain when an element would be wrong under only one of several possible readings."
+        ],
+        "notes": "The accepted answer nosotros is correct under both readings; the uncertainty concerns the feedback."
+      },
+      {
+        "caseId": "task:A1-03-L1-T31",
+        "reviewerAnswer": "Ana es mi amiga.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T32",
+        "reviewerAnswer": "Pablo es mi hermano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T33",
+        "reviewerAnswer": "Sois mis amigos. Also: Vosotros sois mis amigos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T34",
+        "reviewerAnswer": "Mi padre es profesor. Mi papá es profesor is also natural.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is open, so the unlisted papá variant is not automatically graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L1-T35",
+        "reviewerAnswer": "Somos estudiantes. Nosotros somos estudiantes and Nosotras somos estudiantes also fit, depending on the group.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T36",
+        "reviewerAnswer": "Soy Pablo. Also: Yo soy Pablo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T37",
+        "reviewerAnswer": "Soy estudiante. Also: Yo soy estudiante.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T38",
+        "reviewerAnswer": "Somos hermanos. Also: Nosotros somos hermanos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T39",
+        "reviewerAnswer": "Soy Ana. Also: Yo soy Ana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T40",
+        "reviewerAnswer": "Soy estudiante. Also: Yo soy estudiante.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T41",
+        "reviewerAnswer": "Somos amigos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T42",
+        "reviewerAnswer": "Eres mi amiga.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T43",
+        "reviewerAnswer": "Sois estudiantes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T44",
+        "reviewerAnswer": "Soy profesora.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T45",
+        "reviewerAnswer": "Yo soy estudiante y él es profesor. Soy estudiante y él es profesor is also natural Spanish.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0]: \"Тут займенники потрібні.\"; task.accepted[id=a2]: \"Soy estudiante y él es profesor.\"; task.errors[id=e1].feedbackUk: \"для протиставлення додаємо yo і él\".",
+        "defect": "The prompt and feedback present both pronouns as necessary, while a2 omits yo. Contrast does not categorically require an explicit first-person pronoun: soy already identifies the speaker.",
+        "correction": "Remove the claim that both pronouns are necessary, retain both accepted variants, and explain that yo may remain implicit while él identifies the other participant here.",
+        "sources": [
+          "Course contract rule 3: consistency between task constraints and accepted answers.",
+          "RAE/ASALE, Nueva gramática de la lengua española, subject-pronoun expression and omission, including contrastive uses (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T46",
+        "reviewerAnswer": "soy. Complete sentence: Yo soy Ana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T47",
+        "reviewerAnswer": "son. Complete sentence: Ellos son mis padres.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T48",
+        "reviewerAnswer": "es. Complete sentence: Usted es la profesora.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T49",
+        "reviewerAnswer": "eres. Complete sentence: Tú eres mi hermano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T50",
+        "reviewerAnswer": "son. Complete sentence: Ustedes son los profesores.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T51",
+        "reviewerAnswer": "a: somos.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0]: \"ти і хтось — vosotros\".",
+        "defect": "The supporting generalization lacks the exception for a group including the speaker. Tú y yo takes somos, not sois.",
+        "correction": "Specify that the vosotros mapping applies only when the speaker is excluded.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», coordinated subjects of different grammatical persons (from memory)."
+        ],
+        "notes": "The actual answer key for Ana y yo is correct."
+      },
+      {
+        "caseId": "task:A1-03-L1-T52",
+        "reviewerAnswer": "a: sois, following the course's Peninsular model.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Ти і ще хтось = vosotros → sois.\"",
+        "defect": "The unrestricted hint also includes tú y yo, whose agreement is somos. It omits first-person precedence.",
+        "correction": "Qualify the rule: use vosotros/sois when the group contains the familiar addressee but excludes the speaker.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», coordinated subjects of different grammatical persons (from memory)."
+        ],
+        "notes": "The selected answer sois is correct for Pablo y tú in the course's model."
+      },
+      {
+        "caseId": "task:A1-03-L1-T53",
+        "reviewerAnswer": "a: es.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T54",
+        "reviewerAnswer": "a: usted is the expected respectful default. b: tú can also fit if this interaction uses familiar address.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0]: \"Ти питаєш літню незнайому пані в банку\"; task.options[id=b].outcomes: {\"pron.tu-usted/context-choice\":\"incorrect\"}.",
+        "defect": "Age, unfamiliarity and location suggest usted but do not uniquely establish the address convention. The prompt does not explicitly require formal address; ordinary tuteo is another possible reading.",
+        "correction": "Specify that formal address is required, or allow both options with feedback explaining the respectful default and the familiar alternative.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «usted», socially conditioned use as a form of address (from memory).",
+          "Review verdict instructions: use uncertain when acceptability depends on an unspecified register or context."
+        ],
+        "notes": "The bank location does not establish whether the woman is staff or another customer, or her preferred form of address."
+      },
+      {
+        "caseId": "task:A1-03-L1-T55",
+        "reviewerAnswer": "a: vosotros.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The options test second-person versus third-person reference more directly than the vosotros/ustedes contrast."
+      },
+      {
+        "caseId": "task:A1-03-L1-T56",
+        "reviewerAnswer": "a: somos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T57",
+        "reviewerAnswer": "a: Tu.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T58",
+        "reviewerAnswer": "a: Él.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T59",
+        "reviewerAnswer": "a: Ми з Києва.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T60",
+        "reviewerAnswer": "a: вона.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T61",
+        "reviewerAnswer": "a: ви (кільком жінкам, на «ти»).",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T62",
+        "reviewerAnswer": "a: Ella.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T63",
+        "reviewerAnswer": "a: Ellas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T64",
+        "reviewerAnswer": "a: tú.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T65",
+        "reviewerAnswer": "a: ustedes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "ortho.accent-pair.el",
+      "contentHash": "f2f86687bf3edc7d35a78e177b1273544fd45579bda1c76722ae51a786b5e6ef",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.accent-pair.el",
+      "verdict": "valid",
+      "reviewerAnswer": "él means 'he'; el is the masculine singular definite article.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ortho.accent-pair.tu",
+      "contentHash": "a7be54dcb359ea2b307e96b8871d41428cbb7a90930f91d00d4138a0c25a127c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.accent-pair.tu",
+      "verdict": "valid",
+      "reviewerAnswer": "tú means 'you' in familiar singular address; tu means 'your' before a singular noun.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "present.ser",
+      "contentHash": "b63ff7bac59f766d565eff677b52e19394028d8553d6449420acc8ddb951afc0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:present.ser",
+      "verdict": "valid",
+      "reviewerAnswer": "yo soy; tú eres; él/ella/usted es; nosotros/nosotras somos; vosotros/vosotras sois; ellos/ellas/ustedes son.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "pron.person-mapping",
+      "contentHash": "ad2470313af06279336b763d7dcbc62d33824e57dd4a06a1628ffba216c28323",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"Ти і ще хтось — vosotros: Pablo y tú sois.\"",
+          "description": "The generalization omits first-person precedence. 'Someone else' can include the speaker, but tú y yo requires somos, not sois.",
+          "suggestion": "Specify that vosotros applies when the group includes the addressee and excludes the speaker; any group including the speaker takes first-person plural agreement."
+        }
+      ],
+      "caseId": "skill:pron.person-mapping",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ana → es; mi amigo → es; Ana y yo → somos; tú y yo → somos; Pablo y tú → sois; Ana y Pablo → son.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», agreement with coordinated subjects of different grammatical persons (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "pron.subject",
+      "contentHash": "d4bf6baff20af3fa0c86c9d8cafb3ea094d5e38b26061fe3083857aa36aa39ae",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:pron.subject",
+      "verdict": "valid",
+      "reviewerAnswer": "yo = 'I'; tú = familiar singular 'you'; él = 'he'; ella = 'she'; usted = formal singular 'you', with third-person verb agreement.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "pron.subject-omission",
+      "contentHash": "ffd2ce98ba4c809789e1698256efbe2f29c994695d4d1edc39f8d8809ad85d33",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:pron.subject-omission",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy Ana and Yo soy Ana can express the same identification. Subject pronouns may be omitted when their referents are recoverable.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "pron.subject.plural",
+      "contentHash": "48cc522b2757a0d1ac3e364c8095fdd507480aba58c2f1b0a0db5075d10a6e91",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:pron.subject.plural",
+      "verdict": "valid",
+      "reviewerAnswer": "nosotros/nosotras = 'we'; vosotros/vosotras = familiar plural 'you'; ellos/ellas = 'they'; ustedes = formal plural 'you' in the course's Peninsular model.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "pron.tu-usted",
+      "contentHash": "b377d7a34ceea63316c9dfd1df1a4c024aed707b3f2d205408f40953ff90a96e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:pron.tu-usted",
+      "verdict": "valid",
+      "reviewerAnswer": "tú normally expresses familiar singular address; usted expresses formal or socially distant singular address and takes third-person agreement.",
+      "notes": "The social examples are useful defaults, rather than automatic rules determined solely by age or occupation.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "pron.vosotros-ustedes",
+      "contentHash": "a67568032ce38832604cacf79a09c75516484e511f42c64f738be576cd325989",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:pron.vosotros-ustedes",
+      "verdict": "valid",
+      "reviewerAnswer": "In the course's Peninsular model, familiar plural address uses vosotros/vosotras with sois; formal plural address uses ustedes with son.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "writing.short-statement",
+      "contentHash": "55da309cc80a62ddc842567dddd784a2cf1b418037492dd9356a4548180315a4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:writing.short-statement",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es mi amiga. Soy Ana. Somos estudiantes. These complete statements require the verb; an explicit subject pronoun is optional when recoverable.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ser",
+      "contentHash": "b3fb9f21b3f3734d15567f67ed31d18efdba2b2d262672f1d45c8f21caac5d07",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ser",
+      "verdict": "valid",
+      "reviewerAnswer": "ser means 'to be'; its present indicative forms are soy, eres, es, somos, sois, son.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L1",
+      "contentHash": "898b083417f84b32238abd6fee7ebded1323a3517e93e3bc2fd7a0fc53b2bbcc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s2].blocks[2].text: \"Ти і ще хтось — vosotros: Pablo y tú sois amigos.\"",
+          "description": "The unrestricted mapping also covers tú y yo, which requires somos. The following first-person example does not explicitly resolve the overlapping rules.",
+          "suggestion": "State that groups containing the speaker take somos, and that sois applies to groups containing the familiar addressee but excluding the speaker."
+        }
+      ],
+      "caseId": "lesson:A1-03-L1",
+      "verdict": "flawed",
+      "reviewerAnswer": "Appropriate model statements include Soy Ana, Ana es mi amiga and Somos estudiantes. Agreement must give first-person plural precedence whenever the speaker belongs to a coordinated subject.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», agreement with coordinated subjects of different grammatical persons (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T01",
+      "contentHash": "9a25bf90294a163991d19d12009af765e821eeaa9a2419d964759991f7ada550",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "The hint explicitly explains the written accent on él but does not attribute support to ortho.accent-pair.el/written-form.",
+          "suggestion": "Add ortho.accent-pair.el/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T01",
+      "verdict": "flawed",
+      "reviewerAnswer": "Él. Complete sentence: Él es Pablo.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6: hint targets must list exactly the targets actually explained."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T02",
+      "contentHash": "eaa28ae2dd9f7a5cca974401584aa61de4192e10abbc202421cfd67fca24e141",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "The explicit accent explanation also supports ortho.accent-pair.el/written-form, which is missing from the attribution.",
+          "suggestion": "Add ortho.accent-pair.el/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "Él. Complete sentence: Él es mi hermano.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T03",
+      "contentHash": "450c6d0a463b99fd490a94385f129e21ab6fdf4ef2a34ec4258f66ad51fb8522",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "The hint teaches the accent required by ortho.accent-pair.el/written-form without recording support for that target.",
+          "suggestion": "Add ortho.accent-pair.el/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "él",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T04",
+      "contentHash": "c08d2d08c7134092855142afd429bb6b31ffee9e82f6fe72f023fd37f1be4b2b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "Support for the explicitly explained accent target is omitted.",
+          "suggestion": "Add ortho.accent-pair.el/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "Él. Complete sentence: Él es profesor.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T05",
+      "contentHash": "ee984a6e4463dd8d50721a1e9dd56df5411c24d5a2048c27a81814734dbe4fca",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "The hint explicitly supports the assessed accent target but attributes support only to the pronoun target.",
+          "suggestion": "Add ortho.accent-pair.el/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "Él es Pablo y ella es Ana.",
+      "notes": "The key is open, so other natural translations are not automatically rejected.",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T06",
+      "contentHash": "672fd067881093875b510c343dece21af406b60f83cc7fd0f901bef4afd3c633",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "el. Complete sentence: Es el libro de Ana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T07",
+      "contentHash": "d61fc81751c0554976201fa22b335fb7e24d0b44054616ab4c2aa6f969ea9136",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "el. Complete sentence: Es el coche de Pablo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T08",
+      "contentHash": "a18835f201372ec2b429e28754099c96bc0b4a490fd331458858dabfebf68bc8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "Él es el profesor.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T09",
+      "contentHash": "e1dc63a07505a827145bfaade0a8a1f0150de2710fdde4661d4b3833e4a470fc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "el. Complete sentence: Es el piso de mi hermano.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T10",
+      "contentHash": "ff98eddd7d4fd61d82c52eda7c6b767eaaae9e81f6cda13a1ca6c3b3c6c1d502",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "Él y el perro.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T11",
+      "contentHash": "21739448c6e206a7f12687bff6feb75aa31a9fd20cab94458008fa98685ad3b7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "The hint explicitly explains the accent on tú but omits support attribution for ortho.accent-pair.tu/written-form.",
+          "suggestion": "Add ortho.accent-pair.tu/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tú. Complete sentence: Tú eres Ana.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T12",
+      "contentHash": "cf5aeba73ed98ca72cd0fc7ce23ae6adb17711b3792b9a9481c33be1568dfef8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "The explicit accent explanation supports ortho.accent-pair.tu/written-form, which is missing from the attribution.",
+          "suggestion": "Add ortho.accent-pair.tu/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tú. Complete sentence: Tú eres mi amigo.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T13",
+      "contentHash": "05406386c8093f9e433ba154079b7d833fcc517976f7fd37a4e07d4a05e21bf5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "The hint teaches the assessed written accent without attributing support to its target.",
+          "suggestion": "Add ortho.accent-pair.tu/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "tú",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T14",
+      "contentHash": "03fa84215e8adc7b03d02299e71d30f984ab1a8d2afbd681ad7cf5e3f395d880",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"pron.subject/written-form\"]; hint text: \"Tú і él пишуться зі знаком наголосу.\"",
+          "description": "Support for ortho.accent-pair.tu/written-form is omitted despite an explicit explanation of the accent on tú.",
+          "suggestion": "Add ortho.accent-pair.tu/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tú. Complete sentence: Tú eres estudiante.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T15",
+      "contentHash": "f979c7681145639fffb13e84953bbebe86abcbfe71d769a1b689ece9c64c13ba",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2]: \"Eres mi amiga.\" with noteUk \"Займенник можна пропустити.\"; task.prompt[0]: \"Напиши іспанською з займенником\"; task.hints[0].targets: [\"pron.subject/written-form\"].",
+          "description": "The key accepts omission despite the explicit requirement to include a pronoun, bypassing both assessed written forms. The first hint also explains the accent on tú without attributing support to the accent target.",
+          "suggestion": "Remove a2 for this pronoun-writing task, and add ortho.accent-pair.tu/written-form to the first hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T15",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tú eres mi amiga.",
+      "notes": "Eres mi amiga is grammatical Spanish, but it does not fulfill this task's explicit constraint.",
+      "sources": [
+        "Course contract rule 3: exact-variants answer-key correctness.",
+        "Course contract rule 6: accurate hint support attribution."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T16",
+      "contentHash": "08147cdf72aca9507df75a5eef0912bc86ab9801b2dc82001f77ccf368371fac",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "tu. Complete sentence: Es tu libro.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T17",
+      "contentHash": "ff65adcb2967373cc76b144747d1c735cd0adf7a175a157f5b77644ab9679120",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "tu. Complete sentence: Es tu hermana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T18",
+      "contentHash": "7f5095e01d3170ec64502ba17a3d416147ab53c554054d52dab01215266b97a3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "Tú eres Ana y tu hermano es Pablo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T19",
+      "contentHash": "947e51fb16ef6327d35aed6979c3826a5ccfdd2dbb32279c7c535bab3f89f71a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T19",
+      "verdict": "valid",
+      "reviewerAnswer": "tu. Complete sentence: Es tu perro.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T20",
+      "contentHash": "259a3c27e157fc0a725277ed4cd98bfe91b697a7617e88fa8043b009713fff6d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "Tú y tu hermano.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T21",
+      "contentHash": "4e7149c735a90ecf8f91efc462536f43c8214d6635183d84115e98fc21cd3d93",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "Nosotras somos amigas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T22",
+      "contentHash": "e90d23c0fd33756f7ffbcd7be16bd01f053b1eb7ec2c1cb4531242d8bca67aec",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "Vosotros sois estudiantes.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T23",
+      "contentHash": "aa3a3a76dafa9b68e304b1c80c5f05f860063a76c1e583437bc48c82a5ae8fd2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "Ellos son mis amigos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T24",
+      "contentHash": "5ae2db7a91a4e25dbb2a5041315d93fe69511f4506d4c4c9f92a192bf0b00f7f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "Ellas son estudiantes.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T25",
+      "contentHash": "c96b280213a23bf4a1c38ec0d4b135a51a89be7931be9274f2ea480e08c98103",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "Vosotras sois mis amigas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T26",
+      "contentHash": "35acfe958227698b2afe3b0b4d79d702cf1062d4faff18cc575461639a6b6000",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "nosotros",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T27",
+      "contentHash": "7b36cbdbdef384ae20bda20095bd086459ef3bedc1d6c89d390c0cc7ff1f6479",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "ellas",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T28",
+      "contentHash": "36676210b572212a46997bd5e2a26fde147d5036a69487a036fb3fd99c88e17b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "ustedes",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T29",
+      "contentHash": "19b33fc3497417d1b4465ded3638163bf0a2b48a8fdf18d7ba557610f4d5fc28",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "vosotras",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T30",
+      "contentHash": "d2fb989a6ed6e49bf617cc144524937a76b7c1e94eda62f39813a13de8b50a2a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e1].feedbackUk: \"Пара змішана, тому nosotros.\"; task.prompt[0]: \"хто ви з чоловіком\".",
+          "description": "The prompt does not specify the speaker's gender. A woman and her husband form a mixed group; a man and his husband do not. The feedback is true only under the first reading.",
+          "suggestion": "Clarify the speaker's gender or make the feedback independent of that unstated detail."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T30",
+      "verdict": "uncertain",
+      "reviewerAnswer": "nosotros; the group includes a man regardless of the speaker's gender.",
+      "notes": "The accepted answer nosotros is correct under both readings; the uncertainty concerns the feedback.",
+      "sources": [
+        "Packet task.prompt[0]: the companion is identified as a man, but the speaker's gender is unstated.",
+        "Review verdict instructions: use uncertain when an element would be wrong under only one of several possible readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T31",
+      "contentHash": "b84db03f6d140381527a38c595365d9a1f1bcaa02667cc3ef7a16da4dc961787",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es mi amiga.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T32",
+      "contentHash": "3155a848313f81dc2dc6ffa139f6320155c58040b7218bbfeef7a9f9335a704d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo es mi hermano.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T33",
+      "contentHash": "3104a8194ecaa56616664f7d9a62c2ca28383f2989bf42ff7627d9a66e8a3015",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "Sois mis amigos. Also: Vosotros sois mis amigos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T34",
+      "contentHash": "ac4001872700b5f2a7807e9030a59fdfb1c879c005249468c5a8d7c813ffc61f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi padre es profesor. Mi papá es profesor is also natural.",
+      "notes": "The key is open, so the unlisted papá variant is not automatically graded incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T35",
+      "contentHash": "306d44ce9abb3316f49d8c0911cde6f70f896ba1975cfa2bb3823e75995f7468",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "Somos estudiantes. Nosotros somos estudiantes and Nosotras somos estudiantes also fit, depending on the group.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T36",
+      "contentHash": "4d983f524364bb6571bc447e628fea2350e2328c54257f15538dc25e8f8c648b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T36",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy Pablo. Also: Yo soy Pablo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T37",
+      "contentHash": "d2b5c25f81f9276fec2d12cc8b28ddd9e7e05ded9b3d05dc38b77718374e132c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T37",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy estudiante. Also: Yo soy estudiante.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T38",
+      "contentHash": "ba0dcfcfedb537933c9fd150adfffac2250c742cee57e36756c4d58d4a5788aa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T38",
+      "verdict": "valid",
+      "reviewerAnswer": "Somos hermanos. Also: Nosotros somos hermanos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T39",
+      "contentHash": "2a8daed661dd4a8e4409f5252181b0534a5132d56351c5394bb8f5cb32d0e27b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T39",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy Ana. Also: Yo soy Ana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T40",
+      "contentHash": "60965ee7c8462f7381516f22b924e1156c01707124f29802dcb448b526b4df23",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T40",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy estudiante. Also: Yo soy estudiante.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T41",
+      "contentHash": "11fb4a9f3facd1ceed347d08ba3618991a2c810a6ec3d3c4fda5d5bea33ce355",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T41",
+      "verdict": "valid",
+      "reviewerAnswer": "Somos amigos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T42",
+      "contentHash": "2dd5b5c31cdf0187d31e7628967d0ceba3458559786eb171260c47e98c911fd8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T42",
+      "verdict": "valid",
+      "reviewerAnswer": "Eres mi amiga.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T43",
+      "contentHash": "60bfadc6699fc2ef1fb14cb4b6f4f7dca877454f92fccff60dccb80b2d41e8e4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T43",
+      "verdict": "valid",
+      "reviewerAnswer": "Sois estudiantes.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T44",
+      "contentHash": "41d842f9f722017430b5d25ce64149cda3dee248c4215a74985e118a63fc2ad4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T44",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy profesora.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T45",
+      "contentHash": "20de187f705903e394995c759e33b4b10bd6d747559e67832106692b4c9e102b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0]: \"Тут займенники потрібні.\"; task.accepted[id=a2]: \"Soy estudiante y él es profesor.\"; task.errors[id=e1].feedbackUk: \"для протиставлення додаємо yo і él\".",
+          "description": "The prompt and feedback present both pronouns as necessary, while a2 omits yo. Contrast does not categorically require an explicit first-person pronoun: soy already identifies the speaker.",
+          "suggestion": "Remove the claim that both pronouns are necessary, retain both accepted variants, and explain that yo may remain implicit while él identifies the other participant here."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T45",
+      "verdict": "flawed",
+      "reviewerAnswer": "Yo soy estudiante y él es profesor. Soy estudiante y él es profesor is also natural Spanish.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3: consistency between task constraints and accepted answers.",
+        "RAE/ASALE, Nueva gramática de la lengua española, subject-pronoun expression and omission, including contrastive uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T46",
+      "contentHash": "b6315abf0a4683bd0bc796c15e6f3989dab2d42bb16dd93a03ece2be3015bde1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T46",
+      "verdict": "valid",
+      "reviewerAnswer": "soy. Complete sentence: Yo soy Ana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T47",
+      "contentHash": "af780e92167b6e3c3d00ec4ccfe684e3b2c0b30d41cce455112e9a069b721fa6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T47",
+      "verdict": "valid",
+      "reviewerAnswer": "son. Complete sentence: Ellos son mis padres.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T48",
+      "contentHash": "d8092054b4dfc3f6427d35146807d12426319a4604962fd9ed2e70572ed7d592",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T48",
+      "verdict": "valid",
+      "reviewerAnswer": "es. Complete sentence: Usted es la profesora.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T49",
+      "contentHash": "89d327993a670b12129bd4f8dcdc88924c49a7e9487698695ed2f2f12192dc7c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T49",
+      "verdict": "valid",
+      "reviewerAnswer": "eres. Complete sentence: Tú eres mi hermano.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T50",
+      "contentHash": "03ba7faa955bdc799b4e9be227906c6eaf0a7fb9840198896371a208cc8c17c2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T50",
+      "verdict": "valid",
+      "reviewerAnswer": "son. Complete sentence: Ustedes son los profesores.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T51",
+      "contentHash": "436ee660ba02e95d6605c1a3f8bdfa60775ac72a7e5eb96b18f9973418378c4d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0]: \"ти і хтось — vosotros\".",
+          "description": "The supporting generalization lacks the exception for a group including the speaker. Tú y yo takes somos, not sois.",
+          "suggestion": "Specify that the vosotros mapping applies only when the speaker is excluded."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T51",
+      "verdict": "flawed",
+      "reviewerAnswer": "a: somos.",
+      "notes": "The actual answer key for Ana y yo is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», coordinated subjects of different grammatical persons (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T52",
+      "contentHash": "c357e7e794a2f36326e3998597e18a45c33a9759ce0de2aad23d01397523246c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Ти і ще хтось = vosotros → sois.\"",
+          "description": "The unrestricted hint also includes tú y yo, whose agreement is somos. It omits first-person precedence.",
+          "suggestion": "Qualify the rule: use vosotros/sois when the group contains the familiar addressee but excludes the speaker."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T52",
+      "verdict": "flawed",
+      "reviewerAnswer": "a: sois, following the course's Peninsular model.",
+      "notes": "The selected answer sois is correct for Pablo y tú in the course's model.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «concordancia», coordinated subjects of different grammatical persons (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T53",
+      "contentHash": "e6873add3843d452c9d9d538ecdb13d452a0c4f54835809b835047eca112458f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T53",
+      "verdict": "valid",
+      "reviewerAnswer": "a: es.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T54",
+      "contentHash": "0537ec4b9a3623b7a8e4cc40c0aca68fda2b65f1dab4d8b0413e4ca1135786af",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0]: \"Ти питаєш літню незнайому пані в банку\"; task.options[id=b].outcomes: {\"pron.tu-usted/context-choice\":\"incorrect\"}.",
+          "description": "Age, unfamiliarity and location suggest usted but do not uniquely establish the address convention. The prompt does not explicitly require formal address; ordinary tuteo is another possible reading.",
+          "suggestion": "Specify that formal address is required, or allow both options with feedback explaining the respectful default and the familiar alternative."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T54",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a: usted is the expected respectful default. b: tú can also fit if this interaction uses familiar address.",
+      "notes": "The bank location does not establish whether the woman is staff or another customer, or her preferred form of address.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «usted», socially conditioned use as a form of address (from memory).",
+        "Review verdict instructions: use uncertain when acceptability depends on an unspecified register or context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T55",
+      "contentHash": "9f3300866f92e7de0f1a2b65b5f80944c6ff76e84ac1e856819ad3a12fed6b56",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T55",
+      "verdict": "valid",
+      "reviewerAnswer": "a: vosotros.",
+      "notes": "The options test second-person versus third-person reference more directly than the vosotros/ustedes contrast.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T56",
+      "contentHash": "001ecc6b6fb3b0b5e19382bd10e80a486d2db3420ff616321d3ed73d2423b7d9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T56",
+      "verdict": "valid",
+      "reviewerAnswer": "a: somos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T57",
+      "contentHash": "035d0b5b4446ca962f42b58a428f5909dd1303e48f60073c7758bfd448b24135",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T57",
+      "verdict": "valid",
+      "reviewerAnswer": "a: Tu.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T58",
+      "contentHash": "8a1e7d70a6ff17ee47438ff34f13f6b41242df8e50098d93f06c435dd65a9bdb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T58",
+      "verdict": "valid",
+      "reviewerAnswer": "a: Él.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T59",
+      "contentHash": "a318100cb98cc048bad8582486d8b105c9d5c56923c8c00a0d8a258e3f0d5cef",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T59",
+      "verdict": "valid",
+      "reviewerAnswer": "a: Ми з Києва.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T60",
+      "contentHash": "a1496e782cb9f7a911e0969783435d4e0a7ce11fc182ea00036d87d7cf5ac8c2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T60",
+      "verdict": "valid",
+      "reviewerAnswer": "a: вона.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T61",
+      "contentHash": "0e234e0bceb39731327eef5b8f8a5c3309800d92d1d365ba77226d2d70822edd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T61",
+      "verdict": "valid",
+      "reviewerAnswer": "a: ви (кільком жінкам, на «ти»).",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T62",
+      "contentHash": "e64470f9b0ac10602b71884491441d5ea967038a24c4f903f3632c2155bc4618",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T62",
+      "verdict": "valid",
+      "reviewerAnswer": "a: Ella.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T63",
+      "contentHash": "2e575919e2bcb3cb1db159126d38563ec13d96876694c0672e9e144f3b43a1d7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T63",
+      "verdict": "valid",
+      "reviewerAnswer": "a: Ellas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T64",
+      "contentHash": "ef2973d204ef19d3493687806206a88e621cc618771748819792cd8ef5ae9e83",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T64",
+      "verdict": "valid",
+      "reviewerAnswer": "a: tú.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T65",
+      "contentHash": "523e1961cee4ad3322b6d493e901597c0ff9ee047f138a9fc65d03dfba0c53e2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T65",
+      "verdict": "valid",
+      "reviewerAnswer": "a: ustedes.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

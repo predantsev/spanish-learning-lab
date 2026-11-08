@@ -143,8 +143,9 @@ export const unit: Unit = {
     {
       n: 6, role: 'transfer', family: 'c1-dictation', mode: 'exact-variants', targets: ['formula.please-thanks/dictation', 'formula.leave-taking/dictation'], clips: ['clip.a1-01.gracias-hasta-manana'], policy: LOOSE,
       prompt: [uk('Послухай і запиши почуте іспанською.')],
-      accepted: ['Gracias, Ana. ¡Hasta mañana!', 'Gracias, Ana. Hasta mañana.', 'Gracias Ana. ¡Hasta mañana!', 'Gracias, Ana, hasta mañana.'],
+      accepted: ['Gracias, Ana. ¡Hasta mañana!', 'Gracias, Ana. Hasta mañana.', 'Gracias, Ana, hasta mañana.'],
       errors: [
+        ['Gracias Ana. ¡Hasta mañana!', 'u', 'Слова записані правильно, але звертання відокремлюємо комою: Gracias, Ana.'],
         ['Gracias, Ana. ¡Hasta manana!', { 'formula.please-thanks/dictation': 'c', 'formula.leave-taking/dictation': 'x' }, 'У mañana потрібна літера ñ.'],
         ['Gracias, Ana. Hasta manana.', { 'formula.please-thanks/dictation': 'c', 'formula.leave-taking/dictation': 'x' }, 'У mañana потрібна літера ñ.'],
         ['Gracias, Ana. ¡Asta mañana!', { 'formula.please-thanks/dictation': 'c', 'formula.leave-taking/dictation': 'x' }, 'Hasta пишеться з h, хоча h не читається.'],

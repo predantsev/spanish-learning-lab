@@ -25,7 +25,7 @@ const AEL_W = 'ortho.accent-pair.el/written-form';
 const ST_U = 'writing.short-statement/construction-use';
 
 const R: Record<string, string> = {
-  [PS_W]: 'Yo — «я», tú — «ти», él — «він», ella — «вона», usted — ввічливе «Ви» до однієї людини. Tú і él пишуться зі знаком наголосу.',
+  [PS_W]: 'Yo — «я», tú — «ти», él — «він», ella — «вона», usted — ввічливе «Ви» до однієї людини.',
   [PP_W]: 'Nosotros — «ми», vosotros — «ви» (кільком людям на «ти»), ellos — «вони», ustedes — ввічливе «Ви» до кількох. Якщо в групі лише жінки: nosotras, vosotras, ellas.',
   [SER_W]: 'Форми дієслова ser: yo soy, tú eres, él/ella/usted es, nosotros somos, vosotros sois, ellos/ellas/ustedes son.',
   [OM_U]: 'Форма дієслова вже показує особу, тому займенник часто пропускають: Soy Ana. Займенник додають для наголосу чи протиставлення.',
@@ -75,7 +75,7 @@ export const unit: Unit = {
         blocks: [
           uk('Ser («бути») — перше дієслово курсу, його форми треба запам’ятати. В українській «є» часто пропускають («Я — Ана»), а в іспанській дієслово потрібне: Soy Ana.'),
           tableEs(),
-          uk('Ім’я чи іменник в однині — це «він/вона»: Ana es mi amiga. Ти і ще хтось — vosotros: Pablo y tú sois amigos. Хтось і я — nosotros: Ana y yo somos amigas.'),
+          uk('Ім’я чи іменник в однині — це «він/вона»: Ana es mi amiga. Якщо в групі є я — завжди «ми»: Ana y yo somos amigas, tú y yo somos amigos. Ти і ще хтось, але без мене, — vosotros: Pablo y tú sois amigos.'),
         ],
       },
       {
@@ -180,7 +180,8 @@ export const unit: Unit = {
     ], 'Ти — tú', { shown: '___ eres estudiante.', also: ['Tú.'] }),
     t(15, 'transfer', 'chat', [PS_W, ATU_W], 'Ти пишеш подрузі листівку. Напиши іспанською з займенником: «Ти — моя подруга».', 'Tú eres mi amiga.', [
       ['Tu eres mi amiga.', { [ATU_W]: 'x', [PS_W]: 'c' }, 'Займенник «ти» пишеться зі знаком наголосу: tú.'],
-    ], 'Tú eres mi amiga', { also: [['Eres mi amiga.', 'Займенник можна пропустити.']] }),
+      ['Eres mi amiga.', { [PS_W]: 'u', [ATU_W]: 'u' }, 'Речення правильне, і займенник справді можна пропустити, але тут завдання — написати його: Tú eres mi amiga.'],
+    ], 'Tú eres mi amiga'),
     // C: tu possessive
     t(16, 'supported', 'fill', [ATU_W], 'Допиши tu або tú.', 'Es tu libro.', [
       ['Es tú libro.', 'x', 'Перед іменником — присвійне tu без знака.'],
@@ -238,7 +239,7 @@ export const unit: Unit = {
       ['vosotros.', 'x', 'Усі — жінки, тому vosotras.'],
       ['ustedes.', 'u', 'Ustedes — ввічливе «Ви»; до подруг на «ти» в Іспанії кажуть vosotras.'],
     ], 'Подругам — vosotras'),
-    t(30, 'transfer', 'form', [PP_W], 'В анкеті на курси треба написати, хто ви з чоловіком, одним займенником «ми». Напиши його.', 'nosotros', [
+    t(30, 'transfer', 'form', [PP_W], 'Ти — жінка. В анкеті на курси треба написати, хто ви з чоловіком, одним займенником «ми». Напиши його.', 'nosotros', [
       ['nosotras.', 'x', 'Пара змішана, тому nosotros.'],
     ], 'Змішана група — nosotros'),
     // G: statement + ser
@@ -293,8 +294,8 @@ export const unit: Unit = {
     t(44, 'delayed', 'rewrite', [OM_U], 'Перепиши речення без займенника.', 'Soy profesora.', [
       ['Yo soy profesora.', 'x', 'Займенник лишився; форма soy уже показує «я».'],
     ], 'Soy profesora', { shown: 'Yo soy profesora.' }),
-    t(45, 'transfer', 'contrast', [OM_U], 'Ти протиставляєш: «Я — студентка, а він — викладач». Тут займенники потрібні. Напиши іспанською (а — y).', 'Yo soy estudiante y él es profesor.', [
-      ['Soy estudiante y es profesor.', 'x', 'Без займенників незрозуміло, хто викладач; для протиставлення додаємо yo і él.'],
+    t(45, 'transfer', 'contrast', [OM_U], 'Ти протиставляєш: «Я — студентка, а він — викладач». Займенник él тут потрібен, щоб було зрозуміло, хто викладач; yo можна написати або пропустити. Напиши іспанською (а — y).', 'Yo soy estudiante y él es profesor.', [
+      ['Soy estudiante y es profesor.', 'x', 'Без él незрозуміло, хто викладач: es може означати «він», «вона» чи «Ви». Додай él; yo можна залишити або пропустити.'],
       ['Yo soy estudiante y el es profesor.', 'u', 'Займенники на місці, але «він» — él зі знаком наголосу.'],
     ], 'Yo soy estudiante y él es profesor', { also: ['Soy estudiante y él es profesor.'] }),
     // ser forms
@@ -316,10 +317,10 @@ export const unit: Unit = {
       ['Ustedes sois los profesores.', 'x', 'Ustedes поєднується з формою 3-ї особи множини: son.'],
     ], 'Ustedes son', { shown: 'Ustedes ___ los profesores.', also: ['son.'] }),
     // choices
-    pick({ n: 51, role: 'supported', family: 'choose', targets: [MAP_C], prompt: [uk('Пам’ятай: хтось і я — «ми»; ти і хтось — vosotros; кілька інших людей — «вони».'), es('Ana y yo ___ amigas.')], options: [['somos', 'c'], ['son', 'x', 'Ana y yo — це «ми»: somos.'], ['es', 'x', 'Підмет — дві людини разом зі мною: somos.']], rules: [[[MAP_C], 'Ана і я — це «ми» (nosotras), тому somos.']], ok: 'Так: Ana y yo somos amigas.', bad: 'Ні. Ana y yo = «ми» → somos.' }),
-    pick({ n: 52, role: 'independent', family: 'choose', targets: [MAP_C], prompt: [es('Pablo y tú ___ hermanos.')], options: [['sois', 'c'], ['son', 'x', 'Pablo y tú — це «ви» (vosotros): sois.'], ['somos', 'x', '«Ми» — якщо серед них є я; тут ти і Пабло.']], rules: [[[MAP_C], 'Ти і ще хтось = vosotros → sois.']], ok: 'Так: Pablo y tú sois hermanos.', bad: 'Ні. Pablo y tú = vosotros → sois.' }),
+    pick({ n: 51, role: 'supported', family: 'choose', targets: [MAP_C], prompt: [uk('Пам’ятай: якщо в групі є я — «ми»; ти і хтось, але без мене, — vosotros; кілька інших людей — «вони».'), es('Ana y yo ___ amigas.')], options: [['somos', 'c'], ['son', 'x', 'Ana y yo — це «ми»: somos.'], ['es', 'x', 'Підмет — дві людини разом зі мною: somos.']], rules: [[[MAP_C], 'Ана і я — це «ми» (nosotras), тому somos.']], ok: 'Так: Ana y yo somos amigas.', bad: 'Ні. Ana y yo = «ми» → somos.' }),
+    pick({ n: 52, role: 'independent', family: 'choose', targets: [MAP_C], prompt: [es('Pablo y tú ___ hermanos.')], options: [['sois', 'c'], ['son', 'x', 'Pablo y tú — це «ви» (vosotros): sois.'], ['somos', 'x', '«Ми» — якщо серед них є я; тут ти і Пабло.']], rules: [[[MAP_C], 'Ти і ще хтось, але без мене, = vosotros → sois. Якщо в групі є я — «ми»: somos.']], ok: 'Так: Pablo y tú sois hermanos.', bad: 'Ні. Pablo y tú = vosotros → sois.' }),
     pick({ n: 53, role: 'independent', family: 'choose', targets: [MAP_C], prompt: [es('Mi amigo ___ estudiante.')], options: [['es', 'c'], ['soy', 'x', 'Mi amigo — «він»: es.'], ['son', 'x', 'Підмет в однині: es.']], rules: [[[MAP_C], 'Іменник в однині — «він/вона» → es.']], ok: 'Так: Mi amigo es estudiante.', bad: 'Ні. Mi amigo — «він» → es.' }),
-    pick({ n: 54, role: 'independent', family: 'choose', targets: [TU_C], prompt: [uk('Ти питаєш літню незнайому пані в банку, чи вона — пані Гарсія. Як до неї звернутися?')], options: [['usted', 'c'], ['tú', 'x', 'До незнайомої старшої людини в офіційній ситуації — usted.']], rules: [[[TU_C], 'Usted — ввічливо до незнайомої старшої людини чи в офіційній ситуації; tú — до друзів, родичів, колег.']], ok: 'Так: тут доречне usted.', bad: 'Ні. Тут доречне ввічливе usted.' }),
+    pick({ n: 54, role: 'independent', family: 'choose', targets: [TU_C], prompt: [uk('У банку ти офіційно, ввічливо звертаєшся до літньої незнайомої пані й питаєш, чи вона — пані Гарсія. Як до неї звернутися?')], options: [['usted', 'c'], ['tú', 'x', 'До незнайомої старшої людини в офіційній ситуації — usted.']], rules: [[[TU_C], 'Usted — ввічливо до незнайомої старшої людини чи в офіційній ситуації; tú — до друзів, родичів, колег.']], ok: 'Так: тут доречне usted.', bad: 'Ні. Тут доречне ввічливе usted.' }),
     pick({ n: 55, role: 'independent', family: 'choose', targets: [VO_C], prompt: [uk('Ти звертаєшся до двох однокурсників у кав’ярні в Мадриді. Як сказати «ви»?')], options: [['vosotros', 'c'], ['ellos', 'x', 'Ellos — «вони», а не «ви».']], rules: [[[VO_C], 'До кількох людей на «ти» в Іспанії — vosotros; ввічливо — ustedes.']], ok: 'Так: vosotros.', bad: 'Ні. До однокурсників на «ти» — vosotros.' }),
     pick({ n: 56, role: 'independent', family: 'choose', targets: [SER_C], prompt: [es('Nosotros ___ profesores.')], options: [['somos', 'c'], ['sois', 'x', 'Sois — з vosotros.'], ['son', 'x', 'Son — з ellos.']], rules: [[[SER_C], R[SER_W] as string]], ok: 'Так: somos.', bad: 'Ні. З nosotros — somos.' }),
     pick({ n: 57, role: 'supported', family: 'choose', targets: [ATU_C], prompt: [uk('Пам’ятай: tú — «ти», tu — «твій».'), es('___ casa es grande.'), uk('Яке слово тут — «твій»?')], options: [['Tu', 'c'], ['Tú', 'x', 'Перед іменником — присвійне tu без знака.']], rules: [[[ATU_C], R[ATU_W] as string]], ok: 'Так: Tu casa — «твій дім».', bad: 'Ні. Перед іменником — tu.' }),

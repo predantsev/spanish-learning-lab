@@ -535,8 +535,9 @@ export const unit: Unit = {
     {
       n: 27, role: 'independent', family: 'dictation', mode: 'exact-variants', targets: [G_D], clips: ['clip.a1-01.hola-pablo-que-tal'], policy: LOOSE,
       prompt: [uk('Послухай ще раз і запиши почуте іспанською.')],
-      accepted: ['Hola, Pablo, ¿qué tal?', 'Hola Pablo, ¿qué tal?', 'Hola, Pablo. ¿Qué tal?', '¡Hola, Pablo! ¿Qué tal?'],
+      accepted: ['Hola, Pablo, ¿qué tal?', 'Hola, Pablo. ¿Qué tal?', '¡Hola, Pablo! ¿Qué tal?'],
       errors: [
+        ['Hola Pablo, ¿qué tal?', 'u', 'Слова записані правильно, але звертання відокремлюємо комою: Hola, Pablo, ¿qué tal?'],
         ['Hola, Pablo, ¿que tal?', 'x', 'У qué є знак наголосу: ¿qué tal?'],
         ['Ola, Pablo, ¿qué tal?', 'x', 'Hola пишеться з h, хоча h не читається.'],
       ],
@@ -699,8 +700,9 @@ export const unit: Unit = {
     {
       n: 40, role: 'independent', family: 'dictation', mode: 'exact-variants', targets: [L_D], clips: ['clip.a1-01.hasta-luego-pablo'], policy: LOOSE,
       prompt: [uk('Послухай ще раз і запиши почуте іспанською.')],
-      accepted: ['¡Hasta luego, Pablo!', 'Hasta luego, Pablo.', 'Hasta luego Pablo.'],
+      accepted: ['¡Hasta luego, Pablo!', 'Hasta luego, Pablo.'],
       errors: [
+        ['Hasta luego Pablo.', 'u', 'Слова записані правильно, але звертання відокремлюємо комою: Hasta luego, Pablo.'],
         ['¡Asta luego, Pablo!', 'x', 'Hasta пишеться з h, хоча h не читається.'],
         ['Asta luego, Pablo.', 'x', 'Hasta пишеться з h, хоча h не читається.'],
       ],
@@ -787,8 +789,9 @@ export const unit: Unit = {
     {
       n: 47, role: 'independent', family: 'dictation', mode: 'exact-variants', targets: [PT_D], clips: ['clip.a1-01.muchas-gracias-garcia'], policy: LOOSE,
       prompt: [uk('Послухай ще раз і запиши почуте іспанською.')],
-      accepted: ['Muchas gracias, señor García.', 'Muchas gracias señor García.', '¡Muchas gracias, señor García!'],
+      accepted: ['Muchas gracias, señor García.', '¡Muchas gracias, señor García!'],
       errors: [
+        ['Muchas gracias señor García.', 'u', 'Слова записані правильно, але звертання відокремлюємо комою: Muchas gracias, señor García.'],
         ['Muchas gracias, senor García.', 'x', 'У señor потрібна літера ñ.'],
         ['Muchas gracias, señor Garcia.', 'x', 'У прізвищі García є знак наголосу над í.'],
       ],
@@ -875,8 +878,8 @@ export const unit: Unit = {
     {
       n: 54, role: 'independent', family: 'dictation', mode: 'exact-variants', targets: [A_D], clips: ['clip.a1-01.lo-siento-pablo'], policy: LOOSE,
       prompt: [uk('Послухай ще раз і запиши почуте іспанською.')],
-      accepted: ['Lo siento, Pablo.', 'Lo siento Pablo.'],
-      errors: [['Lo sento, Pablo.', 'x', 'У siento після s пишемо ie: lo siento.']],
+      accepted: ['Lo siento, Pablo.'],
+      errors: [['Lo sento, Pablo.', 'x', 'У siento після s пишемо ie: lo siento.'], ['Lo siento Pablo.', 'u', 'Слова записані правильно, але звертання відокремлюємо комою: Lo siento, Pablo.']],
       hints: [transcript([A_D], 'Lo siento, Pablo.')],
       ref: 'Lo siento, Pablo.',
       ok: 'Правильно: Lo siento, Pablo.',
@@ -898,7 +901,7 @@ export const unit: Unit = {
   ],
   clips: [
     clip({ id: 'clip.a1-01.buenos-dias-garcia', lessonId: 'A1-01-L3', kind: 'phrase', family: 'greeting-formal', transcript: 'Buenos días, señora García.', translationUk: 'Добрий день, пані Гарсія.', targets: [G_L] }),
-    clip({ id: 'clip.a1-01.hola-pablo-que-tal', lessonId: 'A1-01-L3', kind: 'phrase', family: 'greeting-friend', transcript: 'Hola, Pablo, ¿qué tal?', translationUk: 'Привіт, Пабло, як справи?', targets: [G_L, G_D], pronunciationNoteUk: 'Наприкінці питання голос підвищується.' }),
+    clip({ id: 'clip.a1-01.hola-pablo-que-tal', lessonId: 'A1-01-L3', kind: 'phrase', family: 'greeting-friend', transcript: 'Hola, Pablo, ¿qué tal?', translationUk: 'Привіт, Пабло, як справи?', targets: [G_L, G_D] }),
     clip({ id: 'clip.a1-01.buenas-tardes-ana', lessonId: 'A1-01-L3', kind: 'phrase', family: 'greeting-afternoon', transcript: 'Buenas tardes, Ana.', translationUk: 'Добрий день, Ано (після обіду).', targets: [G_L] }),
     clip({ id: 'clip.a1-01.hasta-luego-pablo', lessonId: 'A1-01-L3', kind: 'phrase', family: 'farewell-friend', transcript: '¡Hasta luego, Pablo!', translationUk: 'Бувай, Пабло!', targets: [L_L, L_D], pronunciationNoteUk: 'H у hasta не читається.' }),
     clip({ id: 'clip.a1-01.hasta-manana-garcia', lessonId: 'A1-01-L3', kind: 'phrase', family: 'farewell-formal', transcript: 'Hasta mañana, señora García.', translationUk: 'До завтра, пані Гарсія.', targets: [L_L] }),
