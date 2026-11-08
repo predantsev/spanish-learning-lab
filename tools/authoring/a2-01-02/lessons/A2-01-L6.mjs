@@ -217,6 +217,7 @@ export const lesson = mkLesson({
         UK('Tener que + інфінітив — особистий обов’язок: Tengo que trabajar — «мені треба працювати». Que обов’язкове, змінюється лише tener: tengo, tienes, tiene, tenemos, tenéis, tienen.'),
         T_MM,
         EX('Quiero ir al concierto, pero no puedo: tengo que trabajar.', 'Я хочу піти на концерт, але не можу: мені треба працювати.'),
+        EX('Ahora no puedo hablar: tengo que trabajar. Te llamo luego.', 'Зараз не можу говорити: мені треба працювати. Я тобі подзвоню пізніше (llamar — дзвонити).'),
       ],
     }),
     s('s4', 'supported-practice', 'Крок 2. Обов’язок і значення', true, { tasks: ['T41', 'T53'] }),
