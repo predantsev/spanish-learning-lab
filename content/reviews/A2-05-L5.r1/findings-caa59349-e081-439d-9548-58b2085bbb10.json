@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-05-L5.r1",
+  "jobId": "caa59349-e081-439d-9548-58b2085bbb10",
+  "receiptId": "3b442083-f18c-4f12-81ab-903206e2e1da",
+  "recordedAt": "2026-11-08T19:47:52.971Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A2-05-L5",
+      "contentHash": "1fbd3abcec1cfe13e9cbeb855c789b786543621f5e359013c6b421e1b57fe169",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s2].blocks[3].text: \"Про наявність не кажемо estar: не *estaba una farmacia, а había una farmacia.\"",
+          "description": "The asterisk presents estar with an indefinite pharmacy as categorically ungrammatical. Locative estar can take indefinite subjects; the distinction concerns existential introduction versus location, not an absolute prohibition on this string.",
+          "suggestion": "Explain the intended existential reading with había and contrast it with a contextualized locative example such as La farmacia estaba cerca de mi casa. Remove the unconditional ungrammaticality claim."
+        }
+      ],
+      "caseId": "lesson:A2-05-L5",
+      "verdict": "flawed",
+      "reviewerAnswer": "No task to solve. Expected background-description patterns include era, tenía, hacía, estaba and había.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of existential haber, locative estar and indefinite subjects (from memory).",
+        "Course contract, rule 8."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T02",
+      "contentHash": "d713fbbb7958630df93f5cda528bd769d834c8d12e9e602d285a70a00e685e13",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.slots[id=gap-b].accepted: \"había\"; task.slots[id=gap-b].errors[text=hizo].",
+          "description": "Había does not satisfy the instruction to supply a form of hacer, even though había mucho calor can be grammatical. Separately, the sentence does not clearly exclude hizo as a perfective summary of the summer.",
+          "suggestion": "Remove había from this slot unless the prompt permits alternative verbs. Specify a background reading before rejecting hizo, or allow that seasonal-summary reading."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "Aquel verano yo tenía diez años y hacía mucho calor en el pueblo. Hizo is also possible as a summary of that summer's weather.",
+      "notes": "",
+      "sources": [
+        "Packet: task.prompt requests forms of \"(tener, hacer)\".",
+        "Course contract, rule 4.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, imperfective versus perfective presentation of past situations (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T03",
+      "contentHash": "07901e28000b1323c702007cbc6436929676e5cf31d337c3cef0223d6a97d7c2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"En el pueblo, en verano, siempre ___ mucho calor. (hacer)\"; task.errors[id=e2]: \"hace\".",
+          "description": "The sentence contains no past-time anchor. The model illustrates a past transformation, but the instruction asks learners to infer tense from meaning; the actual sentence also naturally supports present habitual hace.",
+          "suggestion": "Clarify whether the description concerns former summers or the present climate, then align the accepted answers and feedback."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T03",
+      "verdict": "uncertain",
+      "reviewerAnswer": "hacía for past summers; hace for a present habitual description.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, habitual present and imperfecto (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T06",
+      "contentHash": "f0091c4387248bbaf7d74ed49be642d72ddd8ca26123afe330ae63d24c7054cb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e4]: \"hubo\"; feedbackUk: \"Для опису того, що було в місці, вживаємо había.\"",
+          "description": "Antes does not determine grammatical aspect. The sentence can introduce background existence or summarize establishments that existed during a completed period. The latter reading can use hubo.",
+          "suggestion": "Clarify the intended background-versus-summary reading before grading hubo as incorrect."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T06",
+      "verdict": "uncertain",
+      "reviewerAnswer": "había for background existence; hubo can summarize a completed period of the street's history.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective and imperfective aspect with states (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T07",
+      "contentHash": "b722417949575d96fdc5bb25c16b9f5f00f04415a2b3eaa20a7941b0d18f2594",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e4]: \"estaban\"; feedbackUk: \"Про наявність чогось у місці кажемо haber (había), а не estar.\"",
+          "description": "The intended existential reading is clear from the model, but the explanation excludes locative estar categorically. An enumeration locating a river and trees is a different possible reading; the packet does not establish the discourse needed to settle it.",
+          "suggestion": "Explicitly require existential haber, or distinguish existential introduction from locative estar in the instructions and feedback."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T07",
+      "verdict": "uncertain",
+      "reviewerAnswer": "había for existential introduction; estaban would require a locative enumeration reading.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of locative estar, existential haber and indefinite subjects (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T08",
+      "contentHash": "5b415aad6ad7959b9c0bc24afbd76b78388fec15a05378d09352210719152aff",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando terminamos la cena, ___ las once. (ser)\"; task.errors[id=e2]: \"son\".",
+          "description": "Terminamos is identical in present and pretérito perfecto simple. The sentence can describe either a past dinner or a habitual present finishing time, so son cannot be rejected without a temporal clarification.",
+          "suggestion": "Specify whether this is a particular past dinner or a current routine, then align the key."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T08",
+      "verdict": "uncertain",
+      "reviewerAnswer": "eran for a past dinner; son for a recurring present routine.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, terminar conjugation (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T09",
+      "contentHash": "14e6076a650a9cac8cc11f965218c5dd77fb19c1d37ede9037d286042087461a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.slots[id=gap-b].errors[text=tuvo]: \"Для опису зовнішності в минулому — імперфект: tenía.\"",
+          "description": "The key assumes a background description. A past appearance can also be presented as a state holding over a completed period; the prompt does not explicitly distinguish that reading from a descriptive snapshot.",
+          "suggestion": "Specify the intended background perspective before rejecting perfective alternatives, and avoid presenting appearance descriptions as obligatorily imperfective."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T09",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Cuando yo era pequeño, mi abuelo era muy alto y tenía el pelo negro. Tuvo can instead present the hair colour over a completed interval.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective presentation of states (from memory).",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T11",
+      "contentHash": "3b5d861aea5a63e8660f108c44d3d47d0c787a8b63f2e0893ad1216d20ba23af",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e4]: \"llovió\"; feedbackUk: \"Тут описано, якою зазвичай була погода (siempre necesitábamos): llovía.\"",
+          "description": "Siempre necesitábamos establishes a repeated need for an umbrella, but it does not force the preceding rainfall clause to be imperfective. Llovió can summarize a completed winter while the second clause describes the recurring need.",
+          "suggestion": "Clarify whether the rainfall is habitual background across winters or a summary of one completed winter before excluding llovió."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T11",
+      "verdict": "uncertain",
+      "reviewerAnswer": "llovía for habitual background weather; llovió can summarize rainfall during a completed winter.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, aspect and the combination of perfective summaries with imperfective background (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T13",
+      "contentHash": "aaf82344cc7a89ea3edca6f6f81455db362f79517a57818b22d87927c054cd79",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e4]: \"estaban\"; feedbackUk: \"Про наявність кажемо haber (había), а не estar.\"",
+          "description": "The prompt does not distinguish existential quantity from the location or presence of cars. Locative estar is possible with quantified indefinite subjects, so the categorical rejection depends on an unstated discourse distinction.",
+          "suggestion": "Specify existential haber or supply enough context to distinguish existence from the location of cars, then revise the feedback accordingly."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T13",
+      "verdict": "uncertain",
+      "reviewerAnswer": "había for an existential description; estaban is possible for the presence or absence of cars in a locative reading.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of locative estar and indefinite or quantified subjects (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T15",
+      "contentHash": "254af480c3cefa5fd7bd895ce999507e080b0a8be39b3e6daba0871af02d8b3c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.options[id=a]: \"Antes estaba una farmacia cerca de mi casa.\"; feedbackUk: \"Про наявність чогось у місці кажемо hay / había, а не estar.\"",
+          "description": "The Ukrainian sentence does not establish whether the pharmacy is being introduced existentially or located in a discourse. Indefinite subjects are not categorically excluded with locative estar, so the intended distinction needs clarification.",
+          "suggestion": "Specify an existential introduction, or revise the distractor and feedback so they do not rely on an unconditional ban on indefinite subjects with estar."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T15",
+      "verdict": "uncertain",
+      "reviewerAnswer": "b for existential introduction; a can fit a locative reading in an appropriate discourse.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of existential haber and locative estar with indefinite subjects (from memory).",
+        "Course contract, rule 2; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T21",
+      "contentHash": "ed91a2310dd2d7b6c82e782503188f37c61ca1e2557c3f74fb37ddf74f8973dd",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando llegamos a Madrid, nosotros ___ veinte años. (tener)\"; task.errors[id=e4]: \"tenemos\".",
+          "description": "Llegamos can be present or pretérito perfecto simple. The sentence lacks another temporal anchor, so a present reading is not excluded by its wording.",
+          "suggestion": "Clarify whether the arrival is past or part of a present narrative or routine before rejecting tenemos."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T21",
+      "verdict": "uncertain",
+      "reviewerAnswer": "teníamos for a past arrival; tenemos for a present habitual reading.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, llegar conjugation (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T23",
+      "contentHash": "a9ff565cc038c3a59768a33c4905b24a1e3a65908de6ea646b01e3a26bf0c8cb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.slots[id=gap-b].errors[text=estuve]: \"Тут описано стан у той період: estaba.\"",
+          "description": "The prompt does not establish whether happiness is background at the start of work or a completed response to starting work. Estuve muy contento is possible under the second reading.",
+          "suggestion": "Clarify the temporal relationship of the emotional state before excluding estuve."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T23",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Cuando empecé a trabajar, yo tenía veinte años y estaba muy contento. Estuve is also possible for a completed emotional response.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, aspectual interpretations of states with estar (from memory).",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T24",
+      "contentHash": "b815f25a248c49165f9a770bd5f1c9ce2f97cae3c712f3d7d2f2127e6cb3dabc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando salimos del cine, ___ mucho viento. (hacer)\"; task.errors[id=e2]: \"hace\".",
+          "description": "Salimos is identical in present and pretérito perfecto simple. No other element fixes the sentence in the past.",
+          "suggestion": "Specify a past departure or a present routine before grading hace as incorrect."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T24",
+      "verdict": "uncertain",
+      "reviewerAnswer": "hacía for a past departure; hace for a recurring present situation.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, salir conjugation (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T25",
+      "contentHash": "966131f4a060cfbc12487311955f85d7cd3b7215133bf46cfb88c563235ea678",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Погоду в минулому описуємо безособово\" applied to task.prompt[1]: \"el cielo ___ nublado\".",
+          "description": "The sentence being assessed has the explicit subject el cielo. Its estar clause is personal, whereas the hint explains weather expression as impersonal without distinguishing this construction.",
+          "suggestion": "Explain that el cielo is the subject and estaba nublado describes its state. Contrast this with subjectless weather constructions such as hacía frío and llovía."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "estaba",
+      "notes": "The Spanish sentence and the accepted answer are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of subjects, impersonal weather constructions and copular predication with estar (from memory).",
+        "Course contract, rule 8."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T26",
+      "contentHash": "efb5ccb3661606a72a42a65fc68b9d794005f5a7b4df277532dccd1c790f11b5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando llegamos al pueblo, ___ de noche y ___ mucho frío. (ser, hacer)\"; task.slots[id=gap-a].errors[text=es].",
+          "description": "Llegamos does not distinguish present from past. Both a past arrival and a recurring present arrival are possible, but the key rejects es.",
+          "suggestion": "Clarify the temporal setting, then align both slots and their feedback."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T26",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Cuando llegamos al pueblo, era de noche y hacía mucho frío. A present reading permits es and hace.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, llegar conjugation (from memory).",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T29",
+      "contentHash": "386c9857225676da5ccb9e985bb51cbe99f66b3db49c0990b0de3014b4074ab7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e4]: \"estaban\"; feedbackUk: \"Про наявність кажемо haber (había), а не estar.\"",
+          "description": "En la clase estaban veinte estudiantes y una profesora muy simpática is a grammatical description of the people present. The prompt supplies no infinitive or other constraint requiring haber, so this acceptable answer is explicitly rejected.",
+          "suggestion": "Accept estaban for the presence reading, or explicitly require a form of haber and explain the existential-versus-locative distinction accurately."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T29",
+      "verdict": "flawed",
+      "reviewerAnswer": "había or estaban: both can describe the people present in the classroom.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, locative estar with quantified indefinite subjects (from memory).",
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T30",
+      "contentHash": "0435db3f8a9fab0d1a22ff07bb908167045ac0fe05f7e35744bb0c59bafdeab7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando salimos del concierto, ___ muy tarde. (ser)\"; task.errors[id=e3]: \"es\".",
+          "description": "Salimos can be present or pretérito perfecto simple. The sentence can describe a past concert or a present routine, so the rejection of es depends on an unstated temporal setting.",
+          "suggestion": "Clarify whether the departure is past or habitual present, then align the key."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T30",
+      "verdict": "uncertain",
+      "reviewerAnswer": "era for a past concert; es for a recurring present situation.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, salir conjugation (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T31",
+      "contentHash": "3cd4e74c1c23d06810666e17ceb83421e21c24dbc2daee2a76957e13f3c66f3d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.slots[id=gap-a].errors[text=fue] and task.slots[id=gap-b].errors[text=tuvo]: categorical rejection of perfective descriptions.",
+          "description": "The imperfecto is the natural background reading. However, the residence can also be construed as a completed period whose house characteristics are summarized. The instruction does not explicitly require the background perspective used by the key.",
+          "suggestion": "Specify a descriptive snapshot or background perspective before excluding perfective summaries, and qualify the explanations accordingly."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T31",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Cuando vivíamos en Toledo, nuestra casa era pequeña, pero tenía una terraza muy bonita. Perfective forms can instead summarize a completed period.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective presentation of states and characteristics (from memory).",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T32",
+      "contentHash": "270af41cd5c64c23d737cf98b2145d67f934e38c34e85cabcc460fe4e072f2cc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=a].feedbackUk: \"Tuvo подає це як подію.\"",
+          "description": "Tuvo el pelo largo need not describe an event. It can present a state as a bounded whole. The explanation confuses perfective aspect with event meaning; the prompt also leaves the background-versus-bounded-state perspective insufficiently specified.",
+          "suggestion": "Explain that tenía presents the appearance as background, whereas tuvo can summarize a bounded state. Specify the required perspective before rejecting a."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "b for a background description; a can present long hair as a state over a completed period.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, grammatical aspect versus lexical situation type (from memory).",
+        "Course contract, rule 2."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T38",
+      "contentHash": "1e64b88d795ba30577f85f71df1b887602302c1def35e28260a729c90b91e0ef",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"En mi primera clase de español ___ veinte estudiantes y yo ___ treinta años. (haber, tener)\"; task.slots accepted values \"había\" and \"tenía\".",
+          "description": "Primera does not establish past time: the first class could be current. The prompt supports both a past recollection and a present description, while the key and feedback assume only the former.",
+          "suggestion": "Specify whether the first class is past or current, then align both slots and feedback."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T38",
+      "verdict": "uncertain",
+      "reviewerAnswer": "En mi primera clase de español había veinte estudiantes y yo tenía treinta años. Hay and tengo fit a current first-class reading.",
+      "notes": "Both slots are open, so unlisted present forms are not demonstrably auto-rejected; the intended temporal reading remains unresolved.",
+      "sources": [
+        "Packet: task.prompt[1] contains no explicit past-time anchor.",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T39",
+      "contentHash": "c9a43ad9fba9203961fc107a96c65941b066b8846dadc08d00191b3650c41dae",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"En el pueblo de mis abuelos, en invierno, siempre ___. (nevar)\"; task.errors[id=e1]: \"nieva\".",
+          "description": "Neither the grandparents' village nor en invierno and siempre locates the habit in the past. A present climate description with nieva is equally available.",
+          "suggestion": "Clarify whether the sentence concerns former winters or the current climate before rejecting nieva."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T39",
+      "verdict": "uncertain",
+      "reviewerAnswer": "nevaba for former winters; nieva for a current habitual description.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, habitual present and imperfecto (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T41",
+      "contentHash": "61ef315802edb44e7b222dba5d44ba119127f3b4cd15b4bc2729b5c632e2016e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e2]: \"hizo\"; feedbackUk: \"Тут описано, якою зазвичай була погода в серпні: hacía calor.\"",
+          "description": "Repeated situations can be presented imperfectively as background or perfectively as a completed series. Siempre does not itself prohibit hizo, and the prompt does not fix the intended aspectual perspective.",
+          "suggestion": "Clarify that the learner must provide habitual background rather than a completed-period summary before rejecting hizo."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T41",
+      "verdict": "uncertain",
+      "reviewerAnswer": "hacía for habitual background; hizo can summarize the repeated August weather over a completed residence.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, habitual or repeated situations under perfective and imperfective aspect (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T42",
+      "contentHash": "d092098ef865b046fd73b93162e199492815e9a5b7209107a48c58d62c819e79",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"En la playa ___ mucha gente porque ___ muy buen tiempo. (haber, hacer)\"; task.slots accepted values \"había\" and \"hacía\".",
+          "description": "The sentence has no temporal anchor. It can describe a present scene or a past scene; a completed past episode also allows a different aspectual presentation. The intended reading cannot be inferred from the sentence alone.",
+          "suggestion": "Specify the temporal setting and whether the clauses provide background or summarize an episode, then align the key and feedback."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T42",
+      "verdict": "uncertain",
+      "reviewerAnswer": "En la playa había mucha gente porque hacía muy buen tiempo. Hay and hace fit a present description.",
+      "notes": "The open slots prevent assuming that every unlisted alternative is automatically incorrect.",
+      "sources": [
+        "Packet: task.prompt[1] contains no time expression or already-inflected temporal anchor.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, tense and aspect (from memory).",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T46",
+      "contentHash": "92915ad8327d85c7c055b18550696976f8939f9b8e7bc6603b48820e5d45981c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando llegamos al museo, ___ cerrado. (estar)\"; task.errors[id=e3]: \"está\".",
+          "description": "Llegamos is compatible with both present and past. The sentence can naturally describe finding the museum closed on recurring present arrivals.",
+          "suggestion": "Clarify whether this is a particular past arrival or a current recurring situation before rejecting está."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T46",
+      "verdict": "uncertain",
+      "reviewerAnswer": "estaba for a past arrival; está for a present recurring situation.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, llegar conjugation (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T47",
+      "contentHash": "bfc6818a955b422974ab4071f270f99db23e2d56c7da911165c80d6a7f852121",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando llegamos a la estación, el tren ___ allí y ___ mucho frío. (estar, hacer)\"; task.slots accepted values \"estaba\" and \"hacía\".",
+          "description": "The only potential temporal anchor, llegamos, is identical in present and pretérito perfecto simple. The packet does not distinguish a past scene from a present recurring scene.",
+          "suggestion": "Clarify the temporal setting, then align both slots and feedback."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T47",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Cuando llegamos a la estación, el tren estaba allí y hacía mucho frío. Está and hace fit a present recurring reading.",
+      "notes": "The slots are open; the issue is unresolved prompt interpretation rather than a proven automatic rejection of all present answers.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, llegar conjugation (from memory).",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T48",
+      "contentHash": "7b97b0d0fcdd1b1aa5252a8b33b274b55cec66ba2f522c91453c67c97c06b479",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e2]: \"hubo\"; feedbackUk: \"Для опису того, що було в місці, вживаємо había.\"",
+          "description": "Antes en esta calle hubo un cine is possible when summarizing the cinema's completed existence. Antes does not force the background perspective assumed by the key.",
+          "suggestion": "Clarify the intended aspectual perspective before excluding hubo."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T48",
+      "verdict": "uncertain",
+      "reviewerAnswer": "había for background existence; hubo for a completed former existence.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, existential states under perfective and imperfective aspect (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T49",
+      "contentHash": "90a89e4c9a386b59e8635a429a916f59c30d487b41b6be0a290a02d2b0cd0a7d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e3]: \"estaba\"; feedbackUk: \"Нікого не було — no había nadie (haber), а не estar.\"",
+          "description": "No estaba nadie en la oficina is grammatical and naturally expresses that nobody was present. The prompt provides no verb constraint, so this acceptable answer is explicitly rejected.",
+          "suggestion": "Accept estaba, or explicitly require haber. Replace the false prohibition with an explanation of existential haber and locative estar."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T49",
+      "verdict": "flawed",
+      "reviewerAnswer": "había or estaba: Cuando llegué, no había/estaba nadie en la oficina.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of locative estar and negative indefinite subjects (from memory).",
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T51",
+      "contentHash": "9e6e2180483930d857d9388adce5e82b7e295d3197b8368e71ad87aa0a918d8e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Cuando llegamos a la playa, todavía ___ temprano. (ser)\"; task.errors[id=e3]: \"es\".",
+          "description": "Llegamos does not distinguish present from past, and todavía does not resolve that ambiguity. Es fits a recurring present situation.",
+          "suggestion": "Specify the temporal setting before rejecting es."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T51",
+      "verdict": "uncertain",
+      "reviewerAnswer": "era for a past arrival; es for a present recurring arrival.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, llegar conjugation (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T54",
+      "contentHash": "2264b1ab9e1a15e7a689d7b60f1f3284702ebfc6afe7991f5f16e46b41c17dd1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.slots[id=gap-a].errors[text=fue]: \"Для опису району в минулому — імперфект: era.\"",
+          "description": "En aquella época establishes past time but does not uniquely determine aspect. The neighbourhood's noisiness can be background or an overall assessment of a completed period.",
+          "suggestion": "Clarify the intended background perspective before excluding fue, and avoid treating every past description as obligatorily imperfective."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T54",
+      "verdict": "uncertain",
+      "reviewerAnswer": "En aquella época, mi barrio era muy ruidoso y no había parques. Fue can instead summarize a completed period's character.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective and imperfective presentation of characteristics (from memory).",
+        "Course contract, rule 4; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T55",
+      "contentHash": "32a917c57840deed526e273c90a4708d2bbe8315d290c151412a5825eb86334e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Mi primera profesora de inglés ___ muy joven y simpática. (ser)\"; task.errors[id=e1]: \"fue\" and task.errors[id=e2]: \"es\".",
+          "description": "Primera does not establish that the teacher or her characteristics belong only to the past. Even with past reference, the prompt does not distinguish background from a retrospective summary.",
+          "suggestion": "State the relevant time and descriptive perspective before excluding es or fue."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T55",
+      "verdict": "uncertain",
+      "reviewerAnswer": "era for a past background description; es if the description remains current; fue can provide a retrospective summary.",
+      "notes": "",
+      "sources": [
+        "Packet: task.prompt[1] contains no explicit temporal anchor beyond \"primera\".",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, tense and aspect with stative predicates (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T56",
+      "contentHash": "e4b208d0632a12e271d44ea842c7ddd86fc598276a1d82d072279b72a9d0a8e3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e2].feedbackUk: \"«мій перший автомобіль» — у минулому\"; task.errors[id=e1]: \"fue\".",
+          "description": "A person's first car can still be their current car. Primer does not determine past time; a past reading also permits different aspectual perspectives.",
+          "suggestion": "Clarify whether ownership and the description are current or past, and whether the past description is background or a completed-period summary."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T56",
+      "verdict": "uncertain",
+      "reviewerAnswer": "era for a past background description; es if the first car is still current; fue for a retrospective summary.",
+      "notes": "",
+      "sources": [
+        "Packet: task.prompt[1] supplies \"Mi primer coche\" but no explicit past-time anchor.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, tense and aspect with characteristics (from memory).",
+        "Course contract, rule 3; verdict definition \"uncertain\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L5-T58",
+      "contentHash": "6276343904b253f4d69dc8a8c4d9ee1ae93aa4d1b2c65c1a458ee129b2635386",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=a].feedbackUk: \"Fue подає це як подію\" and \"яким був колегіо\"; task.feedback.incorrectUk: \"яким був колегіо\".",
+          "description": "Fue does not inherently turn a characteristic into an event; it can present a state as a bounded whole. Additionally, колегіо is an unexplained transliteration where natural Ukrainian requires школа or the explicitly quoted Spanish word colegio.",
+          "suggestion": "Explain that era supplies background in the antes/ahora contrast. Replace the Ukrainian references with \"якою була школа раніше\" or an appropriately quoted reference to colegio."
+        }
+      ],
+      "caseId": "task:A2-05-L5-T58",
+      "verdict": "flawed",
+      "reviewerAnswer": "c is the natural background-description answer in the contrast with ahora.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, grammatical aspect versus lexical situation type (from memory).",
+        "Packet: context.taughtBefore glosses \"colegio — школа (для дітей)\".",
+        "Course contract, rules 2 and 8."
+      ]
+    }
+  ]
+}
