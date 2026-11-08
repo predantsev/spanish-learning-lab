@@ -13,7 +13,8 @@ R_HF = ('De pequeño / de niño («у дитинстві») узгоджують
         'про кількох — de pequeños, de pequeñas. Antes — «раніше»; entonces, en aquella época — «тоді, у той час».')
 R_UH = ('Імперфект описує звичку певного періоду минулого (antes, de pequeño, en aquella época): що людина зазвичай '
         'робила тоді. Одну завершену подію передає pretérito indefinido, а теперішню звичку — presente.')
-INSTR_USE = 'Доповніть речення правильною формою дієслова в дужках. Час не підказано: вирішіть за змістом.'
+INSTR_USE = ('Доповніть речення правильною формою дієслова в дужках. Мовець описує, як зазвичай бувало в той період '
+             'минулого. Час не підказано: вирішіть за змістом.')
 
 CLIP_A = clip(
     'clip.a2-05.habits-summer', 'A2-05-L4', 'text',
@@ -68,46 +69,46 @@ def l4():
     uc = [UH_C]
     sup_uc = [
         gap(t, 'supported', 'routine-then-now', uc, 'Antes ___ en un banco, pero ahora trabajo en casa.', 'trabajar, yo', ['trabajaba'],
-            [('trabajé', 'i', 'Trabajé подає роботу як завершену подію. Antes … pero ahora протиставляє колишню звичку теперішній: trabajaba.'),
+            [('trabajé', 'i', 'Trabajé подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період: trabajaba.'),
              ('trabajo', 'i', 'Trabajo — теперішній час, а antes вказує на минуле: trabajaba.'),
              ('he trabajado', 'i', 'He trabajado — pretérito perfecto. Для того, що було звичним раніше, вживаємо імперфект: trabajaba.')],
             R_UH, INSTR_USE, model='Зразок: Antes iba al trabajo en coche, pero ahora voy en bicicleta.'),
         gap(t, 'supported', 'childhood', uc, 'De pequeña, Lucía ___ al parque todos los días.', 'ir', ['iba'],
-            [('fue', 'i', 'Для звички певного періоду (de pequeña, todos los días) вживаємо імперфект: iba. Fue подає дію як одну завершену подію.'),
+            [('fue', 'i', 'Fue подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період (de pequeña, todos los días): iba.'),
              ('va', 'i', 'Va — теперішній час, а de pequeña вказує на минуле: iba.'),
              ('ha ido', 'i', 'Ha ido — pretérito perfecto. Для звички дитинства вживаємо імперфект: iba.')],
             R_UH, INSTR_USE, model='Зразок: De pequeño, Pablo jugaba en la calle todos los días.'),
     ]
     ind_uc = [
         gap(t, 'independent', 'routine-then-now', uc, 'Antes mis padres ___ muy tarde, pero ahora cenan a las ocho.', 'cenar', ['cenaban'],
-            [('cenaron', 'i', 'Cenaron — одна завершена подія. Тут ідеться про колишню звичку (antes … pero ahora): cenaban.'),
+            [('cenaron', 'i', 'Cenaron подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період: cenaban.'),
              ('cenan', 'i', 'Cenan — теперішній час, а antes вказує на минуле: cenaban.'),
              ('han cenado', 'i', 'Han cenado — pretérito perfecto. Для колишньої звички: cenaban.')],
             R_UH, INSTR_USE),
         gap(t, 'independent', 'childhood', uc, 'De niño, mi hermano siempre ___ con su perro.', 'jugar', ['jugaba'],
-            [('jugó', 'i', 'Для звички дитинства (de niño, siempre) вживаємо імперфект: jugaba.'),
+            [('jugó', 'i', 'Jugó подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період (de niño, siempre): jugaba.'),
              ('juega', 'i', 'Juega — теперішній час, а de niño вказує на минуле: jugaba.'),
              ('ha jugado', 'i', 'Ha jugado — pretérito perfecto. Для звички дитинства: jugaba.')],
             R_UH, INSTR_USE),
         gap(t, 'independent', 'routine-then-now', uc, 'Antes nosotros ___ mucho, pero ahora no tenemos tiempo.', 'leer', ['leíamos'],
-            [('leímos', 'i', 'Leímos — завершена подія. Тут ідеться про колишню звичку (antes … pero ahora): leíamos.'),
+            [('leímos', 'i', 'Leímos подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період: leíamos.'),
              ('leemos', 'i', 'Leemos — теперішній час, а antes вказує на минуле: leíamos.'),
              ('hemos leído', 'i', 'Hemos leído — pretérito perfecto. Для колишньої звички: leíamos.')],
             R_UH, INSTR_USE),
     ]
     held_uc = [
         gap(t, 'delayed', 'childhood', uc, 'De pequeño, yo ___ a casa de mis abuelos todos los veranos.', 'ir', ['iba'],
-            [('fui', 'i', 'Для звички дитинства (de pequeño, todos los veranos) вживаємо імперфект: iba.'),
+            [('fui', 'i', 'Fui подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період (de pequeño, todos los veranos): iba.'),
              ('voy', 'i', 'Voy — теперішній час, а de pequeño вказує на минуле: iba.'),
              ('he ido', 'i', 'He ido — pretérito perfecto. Для звички дитинства: iba.')],
             R_UH, INSTR_USE),
         gap(t, 'delayed', 'routine-then-now', uc, 'Antes tú ___ mucho café y ahora no tomas nada.', 'tomar', ['tomabas'],
-            [('tomaste', 'i', 'Tomaste — завершена подія. Тут ідеться про колишню звичку (antes … y ahora): tomabas.'),
+            [('tomaste', 'i', 'Tomaste подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період: tomabas.'),
              ('tomas', 'i', 'Tomas — теперішній час, а antes вказує на минуле: tomabas.'),
              ('has tomado', 'i', 'Has tomado — pretérito perfecto. Для колишньої звички: tomabas.')],
             R_UH, INSTR_USE),
         gap(t, 'transfer', 'work-life', uc, 'En mi antiguo trabajo, ___ a las ocho y salía a las tres.', 'empezar, yo', ['empezaba'],
-            [('empecé', 'i', 'Empecé — одна подія. Тут описано звичайний розклад тієї роботи (salía a las tres): empezaba.'),
+            [('empecé', 'i', 'Empecé подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період — звичайний розклад тієї роботи: empezaba.'),
              ('empiezo', 'i', 'Empiezo — теперішній час, а en mi antiguo trabajo вказує на минуле: empezaba.'),
              ('he empezado', 'i', 'He empezado — pretérito perfecto. Для звичного розкладу в минулому: empezaba.')],
             R_UH, INSTR_USE),
@@ -124,9 +125,9 @@ def l4():
                        [rule(ux, R_UH)], fbx)]
     ind_ux = [
         t.choice('independent', 'routine-then-now', ux,
-                 [P('Оберіть форму, яка підходить за змістом.'),
+                 [P('Оберіть форму, яка підходить за змістом. Мовець описує, як зазвичай бувало раніше.'),
                   PE('Antes mi hermano ___ al fútbol los sábados, pero ahora prefiere nadar.')],
-                 [('jugó', 'i', 'Jugó — одна завершена подія. Antes … pero ahora протиставляє колишню звичку теперішній: jugaba.'),
+                 [('jugó', 'i', 'Jugó подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період: jugaba.'),
                   ('jugaba', 'c', None),
                   ('juega', 'i', 'Juega — теперішній час, а antes вказує на минуле.')],
                  [rule(ux, R_UH)], fbx),
@@ -139,15 +140,16 @@ def l4():
     ]
     held_ux = [
         t.choice('delayed', 'routine-then-now', ux,
-                 [P('Оберіть форму, яка підходить за змістом.'), PE('Antes nosotros ___ en coche al trabajo y ahora vamos en tren.')],
+                 [P('Оберіть форму, яка підходить за змістом. Мовець описує, як зазвичай бувало раніше.'),
+                  PE('Antes nosotros ___ en coche al trabajo y ahora vamos en tren.')],
                  [('íbamos', 'c', None),
-                  ('fuimos', 'i', 'Fuimos — одна поїздка. Antes … y ahora протиставляє колишню звичку теперішній: íbamos.'),
+                  ('fuimos', 'i', 'Fuimos подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період: íbamos.'),
                   ('vamos', 'i', 'Vamos — теперішній час, а antes вказує на минуле.')],
                  [rule(ux, R_UH)], fbx),
         t.choice('transfer', 'message', ux,
-                 [P('Оберіть форму, яка підходить за змістом повідомлення.'),
+                 [P('Оберіть форму, яка підходить за змістом повідомлення. Авторка описує, як зазвичай бувало раніше.'),
                   PE('Hola, Luis: Ahora no trabajo en el hotel. Antes ___ todos los fines de semana y estaba muy cansada.')],
-                 [('trabajé', 'i', 'Trabajé подає роботу як одну завершену подію. Тут описано, як було заведено раніше: trabajaba.'),
+                 [('trabajé', 'i', 'Trabajé подає дію (або серію дій) як завершене ціле. Тут мовець описує, як зазвичай бувало в той період: trabajaba.'),
                   ('trabajo', 'i', 'Trabajo — теперішній час, а antes вказує на минуле.'),
                   ('trabajaba', 'c', None)],
                  [rule(ux, R_UH)], fbx),
@@ -280,8 +282,9 @@ def l4():
                 P('Порівняйте: Los domingos íbamos al pueblo — звичка (так бувало щонеділі). El domingo fuimos al pueblo — '
                   'одна поїздка (pretérito indefinido).'),
                 P('Cuando з минулим часом теж задає період: Cuando era pequeño, vivía en un pueblo — «Коли я був малим, я жив '
-                  'у містечку». Такі речення поки що треба лише розуміти. Cuando без знака наголосу — «коли» в розповіді; '
-                  'у питанні пишемо ¿cuándo?'),
+                  'у містечку». Такі речення поки що треба лише розуміти. Знак наголосу залежить від ролі слова, а не від типу '
+                  'речення: cuando, що вводить час («коли … , то …»), пишемо без знака (¿Qué hacías cuando eras pequeño?); '
+                  'питальне cuándo («коли?») — зі знаком і в питанні, і в розповіді (No sé cuándo llegó).'),
             ]),
             step('s2', 'examples', 'Приклади', True, blocks=[
                 EX('Antes trabajaba en un banco, pero ahora trabajo en casa.', 'Раніше я працював (працювала) в банку, а тепер працюю вдома.'),
@@ -326,3 +329,13 @@ def CLIPS():
 
 
 LESSONS = [l4]
+
+SKILL_PATCHES = {
+    'imperfecto.use-habit': {'prerequisites': [
+        'imperfecto.regular-ar.singular', 'imperfecto.regular-ar.plural', 'imperfecto.regular-er-ir.singular',
+        'imperfecto.regular-er-ir.plural', 'imperfecto.present-irregulars-regular', 'imperfecto.ser', 'imperfecto.ir',
+        'imperfecto.ver', 'time.past-habit-frames', 'indefinido.use-completed-event']},
+    'listening.past-habits-settings': {'prerequisites': [
+        'imperfecto.regular-ar.singular', 'imperfecto.regular-ar.plural', 'imperfecto.regular-er-ir.singular',
+        'imperfecto.regular-er-ir.plural', 'imperfecto.ser', 'imperfecto.ir', 'imperfecto.ver', 'imperfecto.eramos-ibamos-accent']},
+}
