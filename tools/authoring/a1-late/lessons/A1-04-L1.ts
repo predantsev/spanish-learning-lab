@@ -189,7 +189,7 @@ k.exact({
   t: [CONU],
   ins: 'Переклади іспанською: «Ми гуляємо з нашим собакою».',
   acc: ['Paseamos con nuestro perro.', 'Nosotros paseamos con nuestro perro.', 'Nosotras paseamos con nuestro perro.'],
-  hints: [hTr('Слова: nuestro perro — «наш собака» (nuestro — «наш», тема A1-02).')],
+  hints: [hTr('Слова: paseamos — «ми гуляємо» (форма nosotros: закінчення -amos, див. крок «Множина»); nuestro perro — «наш собака» (nuestro — «наш», тема A1-02).')],
 });
 k.exact({
   n: 26,
@@ -235,7 +235,7 @@ k.exact({
     'Nosotras tomamos café con nuestros amigos.',
   ],
   err: [['Tomamos un café nuestros amigos.', 'Бракує con: «з кимось» — con + людина.']],
-  hints: [hTr('Слова: nuestros amigos — «наші друзі» (nuestro — «наш», у множині nuestros; тема A1-02).')],
+  hints: [hTr('Слова: tomamos — «ми п’ємо» (форма nosotros: закінчення -amos, див. крок «Множина»); nuestros amigos — «наші друзі» (nuestro — «наш», у множині nuestros; тема A1-02).')],
 });
 
 // ---- listening: daily actions (≥2 distinct clips, a meaning task per clip, optional dictation)
@@ -281,7 +281,7 @@ k.choice({
     ['Батьки з братом.', false],
     ['Батьки із сестрою.', true],
   ],
-  hints: [hTranscript([LM], 'Mis padres cenan en casa con mi hermana.')],
+  hints: [hTr('Слово: con — «з, разом із» (див. крок «З ким: con»).'), hTranscript([LM], 'Mis padres cenan en casa con mi hermana.')],
 });
 k.exact({
   n: 32,
