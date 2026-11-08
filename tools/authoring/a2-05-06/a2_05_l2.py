@@ -84,7 +84,7 @@ def l2():
                                     ('viví', 'Viví — pretérito indefinido. Тут потрібна форма імперфекту: vivía.')]),
            'b': (ER_S, ['corría'], [('corre', 'Corre — теперішній час. В імперфекті: corría.'),
                                      ('corrió', 'Corrió — pretérito indefinido. Тут потрібна форма імперфекту: corría.')])},
-          [((ER_S,), R_ER_S + ' Не забудьте знак наголосу на í.')])
+          [((ER_S,), R_ER_S)])
     ftask(t, 'delayed', 'home-before', S2, 'Antes tú ___ mucha leche.', 'beber', 'bebías',
           [('bebias', 'ci', acc_missing('bebías')),
            ('bebes', 'iu', 'Bebes — теперішній час. В імперфекті: bebías.'),
@@ -106,7 +106,7 @@ def l2():
                                    ('leyó', 'Leyó — pretérito indefinido. Тут потрібна форма імперфекту: leía.')]),
            'b': (ER_S, ['escribía'], [('escribo', 'Escribo — теперішній час. В імперфекті: escribía.'),
                                        ('escribí', 'Escribí — pretérito indefinido. Тут потрібна форма імперфекту: escribía.')])},
-          [((ER_S,), R_ER_S + ' Не забудьте знак наголосу на í.')])
+          [((ER_S,), R_ER_S)])
 
     # --- imperfecto.regular-er-ir.plural (+ ia-accent) -------------------------------------
     ftask(t, 'supported', 'home-before', P2, 'Antes nosotros ___ en casa de mis padres los domingos.', 'comer', 'comíamos',
@@ -144,7 +144,7 @@ def l2():
            'b': (ER_P, ['abrían'], [('abren', 'Abren — теперішній час. В імперфекті: abrían.'),
                                      ('abrieron', 'Abrieron — pretérito indefinido. Тут потрібна форма імперфекту: abrían.'),
                                      ('abría', 'Abría — форма однини. Vuestros padres — множина: abrían.')])},
-          [((ER_P,), R_ER_P + ' Не забудьте знак наголосу на í.')])
+          [((ER_P,), R_ER_P)])
     ftask(t, 'delayed', 'home-before', P2, 'Antes nosotros ___ mensajes muy largos.', 'escribir', 'escribíamos',
           [('escribiamos', 'ci', acc_missing('escribíamos')),
            ('escribimos', 'iu', 'Escribimos — теперішній час (або pretérito indefinido). В імперфекті: escribíamos.'),
@@ -165,7 +165,7 @@ def l2():
                                       ('leímos', 'Leímos — pretérito indefinido. Тут потрібна форма імперфекту: leíamos.')]),
            'b': (ER_P, ['escribíais'], [('escribís', 'Escribís — теперішній час. В імперфекті: escribíais.'),
                                          ('escribisteis', 'Escribisteis — pretérito indefinido. Тут потрібна форма імперфекту: escribíais.')])},
-          [((ER_P,), R_ER_P + ' Не забудьте знак наголосу на í.')])
+          [((ER_P,), R_ER_P)])
 
     # --- imperfecto.present-irregulars-regular (+ ia-accent on -er/-ir verbs) --------------
     PI2 = [PIR, IA]
@@ -195,13 +195,13 @@ def l2():
           rpi)
     ftask(t, 'independent', 'home-before', PI2, 'Antes, los domingos, mi madre ___ la comida.', 'hacer', 'hacía',
           [('hacia', 'ci', 'Форму утворено правильно, але бракує знака наголосу: hacía. (Hacia без знака — інше слово, прийменник «до, у напрямку».)'),
-           ('hagía', 'iu', 'Форма на -g- (hago) буває лише в теперішньому часі. В імперфекті: hacía.'),
+           ('hagía', 'iu', 'Основа hag- з теперішнього часу (hago) в імперфект не переходить: hacía.'),
            ('hace', 'iu', 'Hace — теперішній час. В імперфекті: hacía.'),
            ('hizo', 'iu', 'Hizo — pretérito indefinido. Тут потрібна форма імперфекту: hacía.')],
           rpi)
     t.choice('independent', 'work-before', [PIR],
              [P('Яка форма імперфекту дієслова tener правильна?')],
-             [('tengía', 'i', 'Форма на -g- (tengo) буває лише в теперішньому часі. В імперфекті: tenía.'),
+             [('tengía', 'i', 'Основа teng- з теперішнього часу (tengo) в імперфект не переходить: tenía.'),
               ('tenía', 'c', None),
               ('tienía', 'i', 'Чергування e → ie (tienes) в імперфект не переходить: tenía.')],
              [rule([PIR], R_PIR)],
@@ -219,7 +219,7 @@ def l2():
           [((PIR,), R_PIR)])
     ftask(t, 'transfer', 'message', PI2, 'Hola, Pablo: ¡Qué bien! Antes nunca ___ tiempo para nada y ahora tienes vacaciones.', 'tener, tú', 'tenías',
           [('tenias', 'ci', acc_missing('tenías')),
-           ('tengías', 'iu', 'Форма на -g- (tengo) буває лише в теперішньому часі. В імперфекті: tenías.'),
+           ('tengías', 'iu', 'Основа teng- з теперішнього часу (tengo) в імперфект не переходить: tenías.'),
            ('tienías', 'iu', 'Чергування e → ie (tienes) в імперфект не переходить: tenías.'),
            ('tienes', 'iu', 'Tienes — теперішній час. В імперфекті: tenías.'),
            ('tuviste', 'iu', 'Tuviste — pretérito indefinido. Тут потрібна форма імперфекту: tenías.')],
@@ -234,12 +234,12 @@ def l2():
 
     # --- person-1s-3s revisited ----------------------------------------------------------
     t.choice('independent', 'story', [P13],
-             [P('Прочитайте і визначте, про кого йдеться.'),
+             [P('Прочитайте і визначте, як найприродніше зрозуміти текст.'),
               PE('Mi hermana vivía en Valencia. Tenía un piso pequeño en el centro.'),
-              P('Хто мав маленьку квартиру в центрі?')],
-             [('той, хто розповідає (я)', 'i', 'Підмет першого речення — mi hermana, і друге речення продовжує розповідь про неї.'),
+              P('Хто, найпевніше, мав маленьку квартиру в центрі?')],
+             [('той, хто розповідає (я)', 'i', 'Формально tenía може означати і «я мав (мала)», але без нового підмета друге речення природно продовжує розповідь про mi hermana.'),
               ('сестра', 'c', None),
-              ('з тексту неможливо визначити', 'i', 'Контекст тут достатній: друге речення без підмета продовжує розповідь про сестру.')],
+              ('батьки сестри', 'i', 'Про батьків у тексті не йдеться, а tenía — форма однини.')],
              [rule([P13], R_P13)],
              ('Правильно: tenía тут продовжує розповідь про сестру.', 'Ні. Tenía продовжує розповідь про mi hermana.'))
     t.choice('delayed', 'dialogue', [P13],
@@ -260,7 +260,7 @@ def l2():
         'Імперфект дієслів на -er та -ir: comía, vivíamos',
         'pretérito imperfecto: verbos en -er/-ir',
         'Утворюємо імперфект дієслів на -er та -ir (закінчення -ía, -ías, -ía, -íamos, -íais, -ían), пишемо знак '
-        'наголосу на í і бачимо, що дієслова, неправильні в теперішньому часі (puedo, quiero, tengo), в імперфекті правильні.',
+        'наголосу на í і бачимо, що зміни основи теперішнього часу (puedo, quiero, tengo) в імперфект не переходять.',
         ['A2-05-O2', 'A2-05-O4'], [], ['routine-study-leisure', 'people-family-home'], 18,
         ['imperfecto.regular-er-ir.singular', 'imperfecto.regular-er-ir.plural', 'imperfecto.ia-accent',
          'imperfecto.present-irregulars-regular'],
@@ -311,7 +311,7 @@ def MATERIALS():
         material('material.a2-05.er-ir-paradigm', 'A2-05-L2', 'Імперфект дієслів на -er та -ir: таблиця форм', [
             P('Дієслова на -er та -ir в імперфекті: основа + -ía, -ías, -ía, -íamos, -íais, -ían. Знак наголосу на í — в усіх особах.'),
             ER_TABLE,
-            P('Дієслова, неправильні в теперішньому часі, в імперфекті правильні: основа з інфінітива.'),
+            P('Зміни основи теперішнього часу (puedo, quiero, tengo, hago) в імперфект не переходять: основа з інфінітива — podía, quería, tenía, hacía. Винятки — ser, ir, ver (era, iba, veía) — мають особливі форми.'),
             PIR_TABLE,
             LINK('Потренувати форми на -er та -ir', [ER_S, ER_P, IA, PIR], 'written', 10),
         ], [ER_S, ER_P, IA, PIR]),
@@ -321,6 +321,14 @@ def MATERIALS():
 LESSONS = [l2]
 
 SKILL_PATCHES = {
+    'imperfecto.present-irregulars-regular': {
+        'titleUk': 'Зміни основи теперішнього часу в імперфект не переходять',
+        'ruleUk': 'Зміни основи, які дієслово має в теперішньому часі (puedo, quiero, tengo, hago), в імперфекті не '
+                  'відбуваються: основа береться з інфінітива. Poder → podía, querer → quería, tener → tenía, hacer → '
+                  'hacía. Винятки — ser, ir, ver (era, iba, veía) — мають особливі форми й вивчаються окремо.',
+        'prerequisites': ['imperfecto.regular-ar.singular', 'imperfecto.regular-ar.plural', 'imperfecto.regular-er-ir.singular',
+                          'imperfecto.regular-er-ir.plural', 'present.stem-e-ie', 'present.stem-o-ue', 'present.yo-g'],
+    },
     'imperfecto.ia-accent': {
         'bankJustificationUk': 'Знак наголосу на í перевіряється в кожному завданні з формою на -ía (правильні дієслова на -er '
                                'та -ir, ver, había) окремою ціллю, тому банк навмисно більший за 12 завдань; окремі завдання '
