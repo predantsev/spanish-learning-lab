@@ -31,18 +31,18 @@ WA = 'writing.connected-account-reply/construction-use'
 R_PP = ('Спершу визначте, про який час ідеться: теперішнє (ahora, normalmente) — presente; колишня звичка чи стан '
         '(antes, de pequeño) — imperfecto; окрема подія в минулому — perfecto або indefinido залежно від періоду.')
 R_TF = ('Якщо період для мовця ще не закінчився (hoy, esta semana, este año), в Іспанії зазвичай вживають perfecto: '
-        'he trabajado. Якщо період уже завершився (ayer, la semana pasada, en 2019) — indefinido: trabajé. Вирішує '
+        'he estudiado. Якщо період уже завершився (ayer, la semana pasada, en 2019) — indefinido: estudié. Вирішує '
         'період у ситуації, а не одне слово.')
-R_EO = ('Досвід до цього моменту без указівки, коли саме (alguna vez, nunca, ya, todavía no), — perfecto: He estado '
-        'en Sevilla. Щойно називаємо конкретний випадок чи час — indefinido: Estuve allí en 2019.')
-R_HE = ('Звичка певного періоду без підрахунку — imperfecto: De pequeño, iba al pueblo cada verano. Окрема подія — '
-        'indefinido: El verano pasado fui al pueblo. Повторення, подане як завершене ціле (dos veces, durante tres '
+R_EO = ('Досвід до цього моменту без указівки, коли саме (alguna vez, nunca, ya, todavía no), — perfecto: Ya he '
+        'hablado con Marta. Щойно називаємо конкретний випадок чи час — indefinido: Hablé con ella el lunes.')
+R_HE = ('Звичка певного періоду без підрахунку — imperfecto: De pequeño, comía en casa de mis abuelos cada domingo. '
+        'Окрема подія — indefinido: El domingo pasado comí en un restaurante. Повторення, подане як завершене ціле (dos veces, durante tres '
         'años), теж може бути в indefinido.')
-R_FI = ('Порівнюйте закінчення й основу: -aba / -ía — imperfecto (hablaba, comía); -é, -ó, -í, -ió — indefinido '
-        '(hablé, habló, comí, comió); haber + дієприкметник — perfecto (ha hablado, ha hecho). Fue — indefinido і від '
-        'ser, і від ir; era — імперфект від ser, iba — від ir.')
+R_FI = ('Порівнюйте закінчення й основу: -aba / -ía — imperfecto (hablaba, vivía); наголошені -é, -ó, -í, -ió — '
+        'indefinido (hablé, habló, viví, vivió); haber + дієприкметник — perfecto (ha hablado, ha vivido). Згадайте й '
+        'особливі форми ser, ir, ver та особливі дієприкметники. Fue буває і від ser, і від ir — дивіться на зміст.')
 R_NP = ('Для дієслів на -ar та -ir форма nosotros однакова в теперішньому часі й в indefinido (hablamos, vivimos): час '
-        'визначає контекст. У дієсловах на -er форми різні: comemos — comimos.')
+        'визначає контекст. У дієсловах на -er форми різні: bebemos — bebimos.')
 R_MX = ('Спершу зрозумійте ситуацію: теперішнє чи минуле? Якщо минуле — досвід або подія в періоді, що ще триває '
         '(perfecto), окрема завершена подія (indefinido) чи звичка або обставина (imperfecto)? Обирайте за змістом.')
 R_RT = 'Читаючи, позначайте: що відбувається тепер, що було звичкою чи обставиною, що сталося як подія і в якому порядку.'
@@ -383,8 +383,8 @@ def l3():
                             'pueblo cada verano. Якщо розповідаємо про окрему подію — indefinido: El verano pasado fui al pueblo.'),
                           P('Повторення, подане як завершене ціле (dos veces, durante tres años), теж буває в indefinido: Fui al pueblo '
                             'dos veces. Тому вирішує спосіб подачі, а не слова todos los чи cada.'),
-                          EX('Cuando vivía en Madrid, iba al cine todos los domingos.', 'Коли я жив (жила) в Мадриді, я щонеділі ходив (ходила) в кіно.'),
-                          EX('El domingo pasado fui al cine con Ana.', 'Минулої неділі я ходив (ходила) в кіно з Аною.'),
+                          EX('Cuando trabajaba en Toledo, comía en un bar todos los días.', 'Коли я працював (працювала) в Толедо, я щодня обідав (обідала) в барі.'),
+                          EX('Ayer comí en casa de mis padres.', 'Учора я обідав (обідала) в батьків.'),
                       ]),
                       step('s2', 'supported-practice', 'Практика зі зразком', True, tasks=ids(t, 'supported')),
                       step('s3', 'independent-practice', 'Самостійна практика', True, tasks=ids(t, 'independent')),
