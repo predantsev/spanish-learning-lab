@@ -164,4 +164,20 @@ export const RULES: Record<string, string> = {
     'Українське «мені потрібно щось» — necesito + іменник: Necesito un paraguas. Necesitamos leche. Людина тут — підмет, тому дієслово змінюється за особою: necesito, necesitas, necesita…',
   'necesitar.infinitive':
     'Що треба зробити — necesito + інфінітив: Necesito comprar pan. Necesitamos estudiar. Друге дієслово стоїть в інфінітиві й не змінюється.',
+  // A1-06-L4
+  'present.querer':
+    'Querer («хотіти») змінює e на ie в основі: quiero, quieres, quiere, quieren. У формах nosotros і vosotros зміни немає: queremos, queréis.',
+  'querer.noun': 'Чого хочемо — quiero + іменник: Quiero un café. ¿Quieres agua? У кафе чи магазині ввічливіше сказати ¿Me pone un café, por favor?',
+  'querer.infinitive':
+    'Що хочемо зробити — quiero + інфінітив: Quiero aprender español. Друге дієслово стоїть в інфінітиві. Питання ¿Quieres + інфінітив? часто є запрошенням: ¿Quieres ir al cine?',
+  'time.future-expressions':
+    'Слова майбутнього: mañana — «завтра», pasado mañana — «післязавтра», esta tarde — «сьогодні після обіду», esta noche — «сьогодні ввечері», este fin de semana — «на цих вихідних», el sábado — «у суботу», la semana que viene — «наступного тижня», el próximo lunes — «наступного понеділка».',
+  'time.plan.present-for-future':
+    'Про певний, уже вирішений план можна говорити теперішнім часом, додавши слово майбутнього: Mañana trabajo en casa. El sábado voy a la playa. Саме слово часу показує, що йдеться про майбутнє.',
+  'contrast.like-need-want':
+    'Me gusta — «мені подобається» (загалом). Necesito — «мені потрібно» (без цього важко). Quiero — «я хочу» (бажання). Me gusta el café — каву люблю; Necesito un café — без кави не обійдуся; Quiero un café — хочу кави.',
+  'contrast.wish-plan':
+    'Quiero ir a la playa — лише бажання: «хочу піти на пляж». El sábado voy a la playa — план: «у суботу йду на пляж». План має конкретний час і звучить як уже вирішене.',
+  'formula.invitation':
+    'Запросити: ¿Quieres ir al cine el sábado? Погодитися: ¡Vale! («гаразд, домовились»), ¡Claro! — «звісно», ¡Genial! — «чудово». Відмовитися ввічливо: Lo siento + причина: Lo siento, el sábado trabajo. Запропонувати інший день: Otro día, ¿vale?',
 };
