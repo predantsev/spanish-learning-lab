@@ -181,6 +181,12 @@ Paused 2026-11-06 ~09:30 CET by owner decision (save daytime token budget; resum
 - Not started: A1-03-L2…C1, A1-05-L4…C1, A1-06, A2-01-C1, A2-02, A2-04-L6…C1, A2-06, A2-07-C1, A2-08; corpus audio; release build; release report; iPhone gate.
 - Spend: ~$536 list-equivalent Claude usage on 2026-11-06 00:07–02:20 hit the account's 5-hour spend limit at ~02:20 (reset 05:00); workers resumed 09:00 and paused ~09:30.
 
+Resumed 2026-11-08 ~20:00 CET (new integrator session; owner instruction "продовжуй"):
+
+- Merged the six authoring worker branches into this branch without conflicts (merge commits 5a4e231…dbc7b18). On the merged tree: `npm run typecheck` exit 0; `npx vitest run` 41 files / 320 tests passed; `node tools/content/validate.ts --allow-incomplete` reported 2 errors (`lex.mama` defined in A2-01, A2-03 and A2-07 lexicons), fixed in 8203957 (kept in A2-01; added draft `lex.llamar` to A2-01 because A2-01/A2-02 skills use it) → 0 errors, 498 warnings (untested targets of not-yet-authored lessons). Pushed; remote head verified with `git ls-remote`.
+- Relaunched six authoring agents (one per range, continuing from each report's "Paused at") and one agent for the four UI/e2e defects. Spend is watched against the owner's limits rule (stop at ≈80% of the 5-hour/weekly windows).
+- D1–D3 remain parked by owner decision 2026-11-08 (no purchase, no Gemini/ElevenLabs calls, iPhone check later).
+
 Blockers and owner decisions (registered 2026-11-06):
 
 1. Resolved: between 00:20 and 00:34 CET GitHub rejected pushes of new commits (`remote: fatal error in commit_refs`, also over HTTPS and the blob API) while githubstatus.com reported no incident; a retry at 00:34 succeeded. Recorded as a transient remote failure (cause unconfirmed).
