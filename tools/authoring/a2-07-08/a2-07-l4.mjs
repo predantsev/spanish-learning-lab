@@ -20,9 +20,9 @@ const VERBS = [
       ['dí', 'Di пишеться без знака наголосу.'],
     ],
     S: ['___ tu nombre, por favor.', 'Скажи своє ім’я, будь ласка.'],
-    I: [['___ a Ana que la cena es a las nueve.', 'Скажи Ані, що вечеря о дев’ятій.', 'fam.home'], ['___ algo en español.', 'Скажи щось іспанською.', 'fam.class']],
+    I: [['___ a Ana que la cena es a las nueve.', 'Скажи Ані, що вечеря о дев’ятій.', 'fam.home', [{ text: 'dile', noteUk: 'Dile = di + le (їй): займенник le тут дублює a Ana, це теж природно.' }]], ['___ algo en español.', 'Скажи щось іспанською.', 'fam.class']],
     X: ['¿Puedes decir tu nombre otra vez?', 'Di tu nombre otra vez.', 'Скажи своє ім’я ще раз.', 'fam.class'],
-    Dl: [['___ a tus padres que vamos a llegar tarde.', 'Скажи батькам, що ми запізнимося.', 'fam.home'], ['___ «gracias» a la profesora.', 'Скажи «дякую» вчительці.', 'fam.class']],
+    Dl: [['___ a tus padres que vamos a llegar tarde.', 'Скажи батькам, що ми запізнимося.', 'fam.home', [{ text: 'diles', noteUk: 'Diles = di + les (їм): займенник les тут дублює a tus padres, це теж природно.' }]], ['___ «gracias» a la profesora.', 'Скажи «дякую» вчительці.', 'fam.class', [{ text: 'dile', noteUk: 'Dile = di + le (їй): займенник le тут дублює a la profesora, це теж природно.' }]]],
     T: ['Por teléfono: ___ tu nombre y tu dirección.', 'Телефоном: скажи своє ім’я та адресу.', 'fam.phone'],
   },
   {
@@ -145,7 +145,7 @@ const k = kit(L, D);
 function bank(n0, v) {
   const key = `${v.skill}/written-form`;
   const gapErr = v.errs.map(([t, fb]) => [t, fb]);
-  const gap = (n, role, fam, [esText, tr]) => k.ev(n, role, fam, key, { instr: ONE, es: `${esText} (${v.inf})`, acc: [v.form], closed: true, err: gapErr, tr, ref: esText.replace('___', esText.startsWith('___') ? cap(v.form) : v.form) });
+  const gap = (n, role, fam, [esText, tr, , extra = []]) => k.ev(n, role, fam, key, { instr: ONE, es: `${esText} (${v.inf})`, acc: [v.form, ...extra], closed: true, err: gapErr, tr, ref: esText.replace('___', esText.startsWith('___') ? cap(v.form) : v.form) });
   const [q, answer, xtr, xfam] = v.X;
   const first = answer.split(' ')[0];
   const sentenceErr = v.errs.map(([t, fb]) => [answer.replace(first, cap(t)), fb]);
@@ -224,7 +224,7 @@ const lesson = {
       titleUk: 'Як запам’ятати',
       required: true,
       blocks: [
-        uk('Підказка для запам’ятовування: у poner, salir, tener і venir наказ дорівнює формі yo без -go: pongo → pon, salgo → sal, tengo → ten, vengo → ven. Для hacer, decir та ir це не діє: haz, di, ve — їх просто запам’ятайте.'),
+        uk('Підказка для запам’ятовування: у poner, salir, tener і venir наказ дорівнює формі yo без -go: pongo → pon, salgo → sal, tengo → ten, vengo → ven. У decir це теж працює: digo → di. Для hacer та ir це не діє: haz, ve — їх просто запам’ятайте.'),
         ex('Tengo cuidado. → Ten cuidado.', 'Я обережний. → Будь обережний.'),
         ex('Vengo mañana. → Ven mañana.', 'Я прийду завтра. → Приходь завтра.'),
       ],
