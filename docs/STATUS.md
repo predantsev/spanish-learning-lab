@@ -187,6 +187,13 @@ Resumed 2026-11-08 ~20:00 CET (new integrator session; owner instruction "про
 - Relaunched six authoring agents (one per range, continuing from each report's "Paused at") and one agent for the four UI/e2e defects. Spend is watched against the owner's limits rule (stop at ≈80% of the 5-hour/weekly windows).
 - D1–D3 remain parked by owner decision 2026-11-08 (no purchase, no Gemini/ElevenLabs calls, iPhone check later).
 
+Authoring complete 2026-11-08 ~20:55 CET: all six ranges finished and were merged (last merge c5328a2); 103 lesson/check files, 3,798 tasks. On the merged tree `content:validate --allow-incomplete` 0 errors / 324 warnings, typecheck exit 0, vitest 320/320. UI/e2e defects fixed in 7f72fc2 (worker-reported Playwright 228 passed / 0 failed / 12 skipped; not re-run by the integrator).
+
+- Review state (counted from `reviewStatus` in content/source/tasks): 944 reviewed, 2,847 draft, 6 needs-review, 1 quarantined (A1-04-L1-T31, two repair cycles used). 11 of 103 task files fully reviewed. Lesson/skill/lexicon verdicts are uncalibrated (only task cases were calibrated).
+- Blocker: the shared Codex account hit its usage limit at ~20:40 ("try again at Nov 9th, 2026 1:09 AM"); several runs were recorded as failed and nothing was applied from them. Reviews resume after the reset through `tools/authoring/review-queue.py` (sequential, one codex job at a time, stops and commits the failed record on a usage limit). 91 lessons still have draft entities; at the observed rate the remaining review likely needs several quota windows (inferred from one window ≈ 25 min of six parallel workers).
+- Integrator decisions (C-084 authority): new Ukrainian text uses «форма gerundio (на -ando / -iendo)» instead of «герундій» (the reviewer accepted the latter once and rejected it once; reviewed text is unchanged); bank-size warnings caused by later revisits are accepted as warnings; mixed C1 conventions (practice links only, held-out tasks in steps, or own independent tasks) are all kept because each validates and none teaches new content; A1-04-L1-T31 stays quarantined.
+- Incident: workers shared one scratchpad helper; one worker's review packet landed in another worktree and was committed there; resolved at merge by keeping the owning range's `content/reviews/A2-03-L2.r2/packet.json`.
+
 Blockers and owner decisions (registered 2026-11-06):
 
 1. Resolved: between 00:20 and 00:34 CET GitHub rejected pushes of new commits (`remote: fatal error in commit_refs`, also over HTTPS and the blob API) while githubstatus.com reported no incident; a retry at 00:34 succeeded. Recorded as a transient remote failure (cause unconfirmed).
