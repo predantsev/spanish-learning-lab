@@ -54,7 +54,7 @@ export const tasks = [
   demAlone('T06', 'independent', 'shop', '—¿Qué bolso quieres? —___ (este), el negro.', '— Яку сумку ти хочеш? — Оцю, чорну.', 'Este', [['Esta', 'Bolso — чоловічого роду: este.']], '—¿Qué bolso quieres? —Este, el negro.'),
   demAlone('T07', 'delayed', 'travel', '—¿Cuál es tu maleta? —___ (aquel), la roja.', '— Котра твоя валіза? — Он та, червона.', 'Aquella', [['Aquel', 'Maleta — жіночого роду: aquella.']], '—¿Cuál es tu maleta? —Aquella, la roja.'),
   demAlone('T08', 'delayed', 'shop', 'No quiero estas manzanas: quiero ___ (ese).', 'Я не хочу цих яблук: я хочу ті (біля вас).', 'esas', [['esos', 'Manzanas — жіночого роду: esas.']], 'No quiero estas manzanas: quiero esas.'),
-  demAlone('T09', 'transfer', 'messages', '¡Hola, Pablo! ¿qué gafas compro, estas o ___ (ese)?', 'Привіт, Пабло! Які окуляри купити — ці чи ті?', 'esas', [['esos', 'Gafas — жіночого роду: esas.'], ['esa', 'Gafas — множина: esas.']], '¡Hola, Pablo! ¿qué gafas compro, estas o esas?'),
+  demAlone('T09', 'transfer', 'messages', '¡Hola, Pablo! ¿Qué gafas compro, estas o ___ (ese)?', 'Привіт, Пабло! Які окуляри купити — ці чи ті?', 'esas', [['esos', 'Gafas — жіночого роду: esas.'], ['esa', 'Gafas — множина: esas.']], '¡Hola, Pablo! ¿Qué gafas compro, estas o esas?'),
   demAlone('T10', 'transfer', 'food-cafe', '—¿Qué café quieres? —___ (este), con leche.', '— Яку каву хочеш? — Оцю, з молоком.', 'Este', [['Esta', 'Café — чоловічого роду: este.']], '—¿Qué café quieres? —Este, con leche.'),
 
   // distance
@@ -69,7 +69,7 @@ export const tasks = [
   neu('T22', 'independent', 'family-home', 'Співрозмовник щось сказав. Ви відповідаєте: «Це правда». Впишіть вказівне слово.', '___ es verdad.', 'Це правда.', 'Eso', [['Ese', 'Ідеться про сказане, а не про предмет чоловічого роду: eso.']], 'Eso es verdad.'),
   neu('T23', 'independent', 'shop', 'Співрозмовник тримає незнайомий предмет. Ви питаєте, що це. Впишіть вказівне слово.', '¿Qué es ___?', 'Що це (у тебе)?', 'eso', [['ese', 'Предмет ще не названо, тому eso.']], '¿Qué es eso?'),
   neu('T24', 'delayed', 'travel', 'Ви бачите щось дуже далеко й не знаєте, що це. Впишіть вказівне слово.', '¿Qué es ___ de allí?', 'Що он там таке?', 'aquello', [['aquel', 'Предмет ще не названо, тому aquello.']], '¿Qué es aquello de allí?'),
-  neu('T25', 'transfer', 'messages', 'Друг пише про план. Ви відповідаєте: «Це чудова ідея!» — тут: «Це дуже цікаво!». Впишіть вказівне слово.', '¡Hola, Ana! ¡___ es muy interesante!', 'Привіт, Ано! Це дуже цікаво!', 'eso', [['ese', 'Ідеться про сказане, тому eso.']], '¡Hola, Ana! ¡eso es muy interesante!'),
+  neu('T25', 'transfer', 'messages', 'Подруга пише вам про свій план. Ви відповідаєте, що це дуже цікаво. Впишіть вказівне слово.', '¡Hola, Ana! ¡___ es muy interesante!', 'Привіт, Ано! Це дуже цікаво!', 'eso', [['ese', 'Ідеться про сказане, тому eso.']], '¡Hola, Ana! ¡Eso es muy interesante!'),
   choice(L, { id: 'T26', role: 'independent', family: 'family-home', ts: [NEU_C], ask: 'Оберіть варіант.', es: '—Mañana no hay clase. —¡___ es genial!', opts: [['Eso', 'c'], ['Ese', 'x', 'Ідеться про ситуацію (немає заняття), а не про іменник: eso.']], rule: R.neu, ref: '—Mañana no hay clase. —¡Eso es genial!', ok: 'Правильно: про ситуацію — eso.', no: 'Про ситуацію — eso: ¡Eso es genial!' }),
   choice(L, { id: 'T27', role: 'delayed', family: 'shop', ts: [NEU_C], ask: 'Оберіть варіант.', es: 'Quiero ___ libro, por favor.', opts: [['este', 'c'], ['esto', 'x', 'Перед іменником — este; esto без іменника.']], rule: R.neu, ref: 'Quiero este libro, por favor.', ok: 'Правильно: перед іменником — este.', no: 'Перед іменником — este: Quiero este libro.' }),
 
@@ -84,7 +84,7 @@ export const tasks = [
   ton('T33', 'independent', 'family-home', 'Estos libros son ___ (yo).', 'Ці книжки мої.', 'míos', [MI('mis', 'míos'), NOTILDE('míos'), GENDER('mías', 'míos', 'libros')], 'Estos libros son míos.'),
   ton('T34', 'independent', 'travel', '¿Es ___ (usted) este paraguas?', 'Це ваша парасолька?', 'suyo', [MI('su', 'suyo'), GENDER('suya', 'suyo', 'paraguas')], '¿Es suyo este paraguas?'),
   ton('T35', 'delayed', 'family-home', 'Esa casa es ___ (nosotros).', 'Той будинок — наш.', 'nuestra', [GENDER('nuestro', 'nuestra', 'casa')], 'Esa casa es nuestra.'),
-  ton('T36', 'transfer', 'messages', '¡Hola, chicos! ¿estas gafas son ___ (vosotros)?', 'Привіт, хлопці! Ці окуляри ваші?', 'vuestras', [GENDER('vuestros', 'vuestras', 'gafas')], '¡Hola, chicos! ¿estas gafas son vuestras?'),
+  ton('T36', 'transfer', 'messages', '¡Hola, chicos! ¿Estas gafas son ___ (vosotros)?', 'Привіт, хлопці! Ці окуляри ваші?', 'vuestras', [GENDER('vuestros', 'vuestras', 'gafas')], '¡Hola, chicos! ¿Estas gafas son vuestras?'),
 
   // article + tonic form (standalone)
   stand('T41', 'supported', 'family-home', 'Mi coche es rojo y ___ (tú) es azul.', 'Моя машина червона, а твоя — синя.', 'el tuyo', [['tuyo', { [STAND]: 'incorrect' }, 'Щоб замінити іменник, потрібен артикль: el tuyo.'], ['el tu', { [STAND]: 'incorrect' }, 'Tu стоїть лише перед іменником; без іменника — el tuyo.']], 'Mi coche es rojo y el tuyo es azul.', { model: [['Mi casa es grande y la tuya es pequeña.', 'Мій будинок великий, а твій — маленький.']] }),
@@ -106,10 +106,10 @@ export const tasks = [
   mm('T63', 'independent', 'family-home', '___ (tú) padres son muy simpáticos.', 'Твої батьки дуже приємні.', 'Tus', [['Tuyos', 'Перед іменником — tus: tus padres.']], 'Tus padres son muy simpáticos.'),
   mm('T64', 'delayed', 'shop', 'Ese paraguas no es ___ (yo): es de Pablo.', 'Та парасолька не моя: вона Пабло.', 'mío', [['mi', 'Без іменника після ser — mío.'], ['mio', 'Mío пишемо зі знаком наголосу.']], 'Ese paraguas no es mío: es de Pablo.'),
   choice(L, { id: 'T65', role: 'independent', family: 'family-home', ts: [MM_C], ask: 'Оберіть правильний варіант.', es: 'Esta habitación es ___.', opts: [['mía', 'c'], ['mi', 'x', 'Без іменника — mía.']], rule: R.mm, ref: 'Esta habitación es mía.', ok: 'Правильно: без іменника — mía.', no: 'Без іменника — mía.' }),
-  choice(L, { id: 'T66', role: 'transfer', family: 'messages', ts: [MM_C], ask: 'Допишіть повідомлення: оберіть правильний варіант.', es: '¡Hola, Ana! ¿___ número de teléfono es nuevo?', opts: [['tu', 'c'], ['tuyo', 'x', 'Перед іменником — tu: tu número.']], rule: R.mm, ref: '¡Hola, Ana! ¿tu número de teléfono es nuevo?', ok: 'Правильно: перед іменником — tu.', no: 'Перед іменником — tu: tu número.' }),
+  choice(L, { id: 'T66', role: 'transfer', family: 'messages', ts: [MM_C], ask: 'Допишіть повідомлення: оберіть правильний варіант.', es: '¡Hola, Ana! ¿___ número de teléfono es nuevo?', opts: [['tu', 'c'], ['tuyo', 'x', 'Перед іменником — tu: tu número.']], rule: R.mm, ref: '¡Hola, Ana! ¿Tu número de teléfono es nuevo?', ok: 'Правильно: перед іменником — tu.', no: 'Перед іменником — tu: tu número.' }),
 ];
 
-const T_DEM = TABLE_ES(['', 'masculino', 'femenino', 'neutro'], [
+const T_DEM = TABLE_ES(['distancia', 'masculino', 'femenino', 'neutro'], [
   ['aquí (cerca de mí)', 'este / estos', 'esta / estas', 'esto'],
   ['ahí (cerca de ti)', 'ese / esos', 'esa / esas', 'eso'],
   ['allí (lejos)', 'aquel / aquellos', 'aquella / aquellas', 'aquello'],

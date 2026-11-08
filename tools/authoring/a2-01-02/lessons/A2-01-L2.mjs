@@ -98,7 +98,7 @@ export const tasks = [
   gap(L, { id: 'T36', role: 'independent', family: 'free-time', t: DEC, ask: ASK, es: '¿Vosotros qué ___ (decir)? ¿Vamos al cine o a la playa?', uk: 'А ви що скажете? Ідемо в кіно чи на пляж?', a: 'decís', err: [['decis', accent('decís')], ['dicís', noChange('decís')]], rule: R.dec }),
   gap(L, { id: 'T37', role: 'delayed', family: 'food-cafe', t: DEC, ask: ASK, es: 'Yo nunca ___ (decir) «no» a un café.', uk: 'Я ніколи не відмовляюся від кави.', a: 'digo', err: [['dico', 'Форма yo — digo, з -go.']], rule: R.dec }),
   gap(L, { id: 'T38', role: 'delayed', family: 'family-home', t: DEC, ask: ASK, es: 'Mi madre siempre ___ (decir) «hasta mañana».', uk: 'Моя мама завжди каже «до завтра».', a: 'dice', err: [['dece', decS('dice')]], rule: R.dec }),
-  gap(L, { id: 'T39', role: 'transfer', family: 'messages', t: DEC, ask: ASK_MSG, es: '¡Hola, Ana! ¿qué ___ (decir) tus padres? ¿Vienen el domingo?', uk: 'Привіт, Ано! Що кажуть твої батьки? Приїдуть у неділю?', a: 'dicen', err: [['decen', decS('dicen')]], rule: R.dec }),
+  gap(L, { id: 'T39', role: 'transfer', family: 'messages', t: DEC, ask: ASK_MSG, es: '¡Hola, Ana! ¿Qué ___ (decir) tus padres? ¿Vienen el domingo?', uk: 'Привіт, Ано! Що кажуть твої батьки? Приїдуть у неділю?', a: 'dicen', err: [['decen', decS('dicen')]], rule: R.dec }),
   gap(L, { id: 'T40', role: 'transfer', family: 'shop', t: DEC, ask: ASK, es: 'En la tienda, el señor ___ (decir) el precio.', uk: 'У крамниці пан називає ціну.', a: 'dice', err: [['dece', decS('dice')]], rule: R.dec }),
 
   // saber (+ sé/se)
