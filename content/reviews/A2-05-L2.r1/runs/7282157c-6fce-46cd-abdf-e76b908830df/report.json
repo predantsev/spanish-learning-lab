@@ -1,0 +1,1151 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-05-L2.r1",
+  "packetHash": "fb208977eaa6e9a8a99919232f17762659f038930c7563bf9c4d70aca9c9a94f",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "512b04475757bf4c70f085d5d8ea388eac47ba34237efdde035a3adecdbd223d",
+    "reviewerPacketSha256": "a506ddb77716e6e47b5d50903380bbcd49f728a0b09669fdf1a0daea4c949f1f",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-UTPtAp/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-UTPtAp/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-UTPtAp/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-UTPtAp/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-UTPtAp/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc90-9595-70f0-9b45-9db37606eadf",
+        "version": "v0.166.0",
+        "tokens used": "16,962"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:imperfecto.ia-accent",
+        "reviewerAnswer": "The endings -ía, -ías, -íamos, -íais and -ían retain the written accent on í.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:imperfecto.present-irregulars-regular",
+        "reviewerAnswer": "podía, quería, pensaba, jugaba, volvía, pedía, tenía, hacía, salía, decía. Present irregularity does not generally carry into the imperfect, but ser, ir and ver are exceptions.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.titleUk: \"Дієслова, неправильні в теперішньому часі, в імперфекті правильні\"; content.body.ruleUk: \"Зміни, які дієслово має в теперішньому часі (puedo, quiero, tengo, hago), в імперфекті не відбуваються: основа береться з інфінітива.\"",
+        "defect": "The unqualified generalization also includes ser, ir and ver, which are irregular in both tenses. The listed examples are correct, but the statement needs an explicit restriction.",
+        "correction": "Restrict the statement to the listed verb patterns and explicitly exclude ser, ir and ver.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for ser, ir and ver: present and imperfect indicative (from memory)."
+        ],
+        "notes": "All imperfect forms listed in scope are correct."
+      },
+      {
+        "caseId": "skill:imperfecto.regular-er-ir.plural",
+        "reviewerAnswer": "nosotros: -íamos; vosotros: -íais; ellos, ellas, ustedes: -ían.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:imperfecto.regular-er-ir.singular",
+        "reviewerAnswer": "yo: -ía; tú: -ías; él, ella, usted: -ía. For example: comía, comías, comía.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.deberes",
+        "reviewerAnswer": "deberes: masculine plural, meaning \"домашнє завдання\"; hacer los deberes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A2-05-L2",
+        "reviewerAnswer": "Regular imperfect endings: -ía, -ías, -ía, -íamos, -íais, -ían. The listed present stem changes disappear in the imperfect; ser, ir and ver require separate treatment.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "\"Por la noche\" can include the evening, so the example translation \"ввечері\" is acceptable."
+      },
+      {
+        "caseId": "task:A2-05-L2-T01",
+        "reviewerAnswer": "comía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T02",
+        "reviewerAnswer": "vivía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T03",
+        "reviewerAnswer": "leías",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T04",
+        "reviewerAnswer": "vivía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T05",
+        "reviewerAnswer": "leía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T06",
+        "reviewerAnswer": "Antes yo vivía cerca del parque y mi hermana corría allí todos los días.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.singular/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+        "defect": "The hint explicitly supports the separately defined accent target but attributes support only to verb formation.",
+        "correction": "Remove the accent reminder from this morphology-only hint, or add the accent target consistently to the task, prerequisite mapping and hint.",
+        "sources": [
+          "Course contract rule 6: hint targets must match exactly the targets the help explains."
+        ],
+        "notes": "The accepted forms and reference sentence are correct."
+      },
+      {
+        "caseId": "task:A2-05-L2-T07",
+        "reviewerAnswer": "bebías",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T08",
+        "reviewerAnswer": "escribía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T09",
+        "reviewerAnswer": "aprendía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T10",
+        "reviewerAnswer": "Antes, en la universidad, mi amiga leía mucho y yo escribía muy poco.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.singular/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+        "defect": "The explicit accent reminder supports the accent target, which is missing from the hint attribution.",
+        "correction": "Remove the accent reminder, or add the accent target consistently to the task, prerequisite mapping and hint.",
+        "sources": [
+          "Course contract rule 6: hint targets must match exactly the targets the help explains."
+        ],
+        "notes": "The accepted forms and reference sentence are correct."
+      },
+      {
+        "caseId": "task:A2-05-L2-T11",
+        "reviewerAnswer": "comíamos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T12",
+        "reviewerAnswer": "vivían",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T13",
+        "reviewerAnswer": "leíais",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T14",
+        "reviewerAnswer": "vivíamos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T15",
+        "reviewerAnswer": "corrían",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T16",
+        "reviewerAnswer": "Antes vosotros vivíais encima de la tienda y vuestros padres la abrían a las nueve.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.plural/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+        "defect": "The hint explicitly supports accent placement without attributing support to the accent target.",
+        "correction": "Remove the accent reminder, or add the accent target consistently to the task, prerequisite mapping and hint.",
+        "sources": [
+          "Course contract rule 6: hint targets must match exactly the targets the help explains."
+        ],
+        "notes": "The accepted forms and reference sentence are correct."
+      },
+      {
+        "caseId": "task:A2-05-L2-T17",
+        "reviewerAnswer": "escribíamos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T18",
+        "reviewerAnswer": "vivían",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T19",
+        "reviewerAnswer": "aprendían",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T20",
+        "reviewerAnswer": "Antes, en la universidad, nosotros leíamos muchos libros y vosotros escribíais mucho.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.plural/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+        "defect": "The explicit accent reminder supports a target absent from the hint attribution.",
+        "correction": "Remove the accent reminder, or add the accent target consistently to the task, prerequisite mapping and hint.",
+        "sources": [
+          "Course contract rule 6: hint targets must match exactly the targets the help explains."
+        ],
+        "notes": "The accepted forms and reference sentence are correct."
+      },
+      {
+        "caseId": "task:A2-05-L2-T21",
+        "reviewerAnswer": "podía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T22",
+        "reviewerAnswer": "quería",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T23",
+        "reviewerAnswer": "jugaban",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: \"Antes mis hijos ___ en el parque por la tarde. (jugar)\"; context.taughtBefore maps \"imperfecto.regular-ar.singular\" and \"jugaba\", but no plural -ar imperfect formation.",
+        "defect": "Producing jugaban requires the third-person plural ending -aban. This recently introduced imperfect formation is not documented in the prerequisite mapping or supplied in a hint.",
+        "correction": "Document prior teaching of imperfecto.regular-ar.plural, including -aban, or teach that ending before this independent task.",
+        "sources": [
+          "Course contract rule 1: the prerequisite mapping must establish the forms and constructions required to answer."
+        ],
+        "notes": "This identifies a gap in this case's prerequisite evidence; it does not establish that the actual earlier lesson omitted plural forms."
+      },
+      {
+        "caseId": "task:A2-05-L2-T24",
+        "reviewerAnswer": "volvías",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T25",
+        "reviewerAnswer": "hacía",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[1].feedbackUk: \"Форма на -g- (hago) буває лише в теперішньому часі. В імперфекті: hacía.\"",
+        "defect": "The unqualified restriction of the g-form to the present tense is misleading: the hag- stem also occurs in formal imperatives such as haga and hagan. The relevant rule is that this stem does not carry into the imperfect.",
+        "correction": "Explain specifically that the present stem hag- is not used in the imperfect: hacer → hacía.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, hacer conjugation table: present subjunctive and imperative forms haga, hagan (from memory)."
+        ],
+        "notes": "The answer key itself is correct."
+      },
+      {
+        "caseId": "task:A2-05-L2-T26",
+        "reviewerAnswer": "b",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.options[0].feedbackUk: \"Форма на -g- (tengo) буває лише в теперішньому часі. В імперфекті: tenía.\"",
+        "defect": "The explanation overgeneralizes: the teng- stem also occurs in formal imperatives such as tenga and tengan. Its absence from the imperfect does not mean it occurs only in present-tense forms.",
+        "correction": "Limit the explanation to the contrast being taught: the present stem teng- does not carry into the imperfect; tener → tenía.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, tener conjugation table: present subjunctive and imperative forms tenga, tengan (from memory)."
+        ],
+        "notes": "Option b is correctly keyed."
+      },
+      {
+        "caseId": "task:A2-05-L2-T27",
+        "reviewerAnswer": "dormía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T28",
+        "reviewerAnswer": "empezaba",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T29",
+        "reviewerAnswer": "tenías",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[1].feedbackUk: \"Форма на -g- (tengo) буває лише в теперішньому часі. В імперфекті: tenías.\"",
+        "defect": "The statement incorrectly generalizes the g-stem's distribution. Formal imperative forms such as tenga and tengan also contain teng-. Only its transfer into the imperfect should be ruled out.",
+        "correction": "Explain that the present teng- stem is not retained in the imperfect: tener → tenías.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, tener conjugation table: present subjunctive and imperative forms tenga, tengan (from memory)."
+        ],
+        "notes": "The accepted answer is correct."
+      },
+      {
+        "caseId": "task:A2-05-L2-T30",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly requests an imperfect form. A possible bounded-past reading of option c therefore does not make it a correct answer."
+      },
+      {
+        "caseId": "task:A2-05-L2-T31",
+        "reviewerAnswer": "b is the natural continuation reading; c is defensible if the question requires a uniquely established referent, since tenía can also mean yo tenía.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: \"Mi hermana vivía en Valencia. Tenía un piso pequeño en el centro.\"; task.options[2].feedbackUk: \"Контекст тут достатній: друге речення без підмета продовжує розповідь про сестру.\"",
+        "defect": "Subject continuity strongly favors the sister, but the omitted subject of tenía is not explicitly fixed. A first-person narrator reading remains possible. The task does not distinguish the most natural interpretation from a uniquely determined interpretation.",
+        "correction": "Clarify whether the question asks for the most natural reading, or supply context that explicitly establishes the second sentence's subject before finalizing the key.",
+        "sources": [
+          "Packet verdict definition for uncertain: unresolved alternative readings, including an underdetermined referent.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 33, subject omission and contextual interpretation of omitted subjects (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, tener conjugation table: tenía is both first- and third-person singular imperfect indicative (from memory)."
+        ],
+        "notes": "The Spanish sentences are correct; the uncertainty concerns how categorical the interpretation should be."
+      },
+      {
+        "caseId": "task:A2-05-L2-T32",
+        "reviewerAnswer": "c",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The direct question to tú supplies sufficient context for the respondent's first-person answer."
+      },
+      {
+        "caseId": "material:material.a2-05.er-ir-paradigm",
+        "reviewerAnswer": "comía, comías, comía, comíamos, comíais, comían; corresponding vivir and tener forms use the same endings. The listed present-irregular verbs have regular imperfect forms.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.blocks[2].text: \"Дієслова, неправильні в теперішньому часі, в імперфекті правильні: основа з інфінітива.\"",
+        "defect": "As a standalone reference statement, this generalizes beyond the correct examples: ser, ir and ver are irregular in the present and also irregular in the imperfect.",
+        "correction": "Restrict the statement to the listed verbs or explicitly state the exceptions ser, ir and ver.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for ser, ir and ver: present and imperfect indicative (from memory)."
+        ],
+        "notes": "Both conjugation tables are correct."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "imperfecto.ia-accent",
+      "contentHash": "6114a1fad237bd5da368cb00c1a2368f28a49c410b82af2605e995146b6ccee2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:imperfecto.ia-accent",
+      "verdict": "valid",
+      "reviewerAnswer": "The endings -ía, -ías, -íamos, -íais and -ían retain the written accent on í.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "imperfecto.present-irregulars-regular",
+      "contentHash": "02f788f1794bc4ee05ffd1032afce347dd481c65f1fab684eac7343443c8467f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.titleUk: \"Дієслова, неправильні в теперішньому часі, в імперфекті правильні\"; content.body.ruleUk: \"Зміни, які дієслово має в теперішньому часі (puedo, quiero, tengo, hago), в імперфекті не відбуваються: основа береться з інфінітива.\"",
+          "description": "The unqualified generalization also includes ser, ir and ver, which are irregular in both tenses. The listed examples are correct, but the statement needs an explicit restriction.",
+          "suggestion": "Restrict the statement to the listed verb patterns and explicitly exclude ser, ir and ver."
+        }
+      ],
+      "caseId": "skill:imperfecto.present-irregulars-regular",
+      "verdict": "flawed",
+      "reviewerAnswer": "podía, quería, pensaba, jugaba, volvía, pedía, tenía, hacía, salía, decía. Present irregularity does not generally carry into the imperfect, but ser, ir and ver are exceptions.",
+      "notes": "All imperfect forms listed in scope are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for ser, ir and ver: present and imperfect indicative (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "imperfecto.regular-er-ir.plural",
+      "contentHash": "8970fc75ac228326cd7c2b98ae376c14dc21695f36e58e73e7258c691f68979b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:imperfecto.regular-er-ir.plural",
+      "verdict": "valid",
+      "reviewerAnswer": "nosotros: -íamos; vosotros: -íais; ellos, ellas, ustedes: -ían.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "imperfecto.regular-er-ir.singular",
+      "contentHash": "7678ae4e8fd69b3ca369ee06c8e6fba2693f8fe366bd8f0c248bb9c524621e68",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:imperfecto.regular-er-ir.singular",
+      "verdict": "valid",
+      "reviewerAnswer": "yo: -ía; tú: -ías; él, ella, usted: -ía. For example: comía, comías, comía.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.deberes",
+      "contentHash": "e8dae48ca26ddbaf92e830015c0d7a92226648771efa760c7e56bb480e140c49",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.deberes",
+      "verdict": "valid",
+      "reviewerAnswer": "deberes: masculine plural, meaning \"домашнє завдання\"; hacer los deberes.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A2-05-L2",
+      "contentHash": "1b08ba433ed67cba615b3c780d75d3ab06f10adda0b034fe5e2bf49ac814c702",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A2-05-L2",
+      "verdict": "valid",
+      "reviewerAnswer": "Regular imperfect endings: -ía, -ías, -ía, -íamos, -íais, -ían. The listed present stem changes disappear in the imperfect; ser, ir and ver require separate treatment.",
+      "notes": "\"Por la noche\" can include the evening, so the example translation \"ввечері\" is acceptable.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T01",
+      "contentHash": "fc01b98d6580c973a15018830c34a12abfef86fbdc28f7529b0d644c463d8d3d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "comía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T02",
+      "contentHash": "5de8f9249d7bcaf093f6adde4e446d0b91d5438ff38663eb267f5b37704f3f2a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "vivía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T03",
+      "contentHash": "9452cbb2c63df346dfd6a8704429349b13f2b9a4bbf24a1d1147724bd019c704",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "leías",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T04",
+      "contentHash": "35eec8c47d22c5463db52b745f06aa460075d235bfd1b5e95c9302b08192cbc5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "vivía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T05",
+      "contentHash": "6157b5edc33540212b39780ad1e2e14a5edb298d3b89ebadddf59c7dd06dd033",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "leía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T06",
+      "contentHash": "ebb2c9f67388d7a1d7ec63984f47a5666516446adc1e1294c769f6e82cfdd664",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.singular/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+          "description": "The hint explicitly supports the separately defined accent target but attributes support only to verb formation.",
+          "suggestion": "Remove the accent reminder from this morphology-only hint, or add the accent target consistently to the task, prerequisite mapping and hint."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes yo vivía cerca del parque y mi hermana corría allí todos los días.",
+      "notes": "The accepted forms and reference sentence are correct.",
+      "sources": [
+        "Course contract rule 6: hint targets must match exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T07",
+      "contentHash": "acfd4ed59ef0279b989b866fa0ddb1b02f5aa27b1bca7c150063d8e4faf929bd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "bebías",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T08",
+      "contentHash": "1140659c638cfcec771cb8b89db7bc7299e6fbccc1fd5e1355ff3ec0ffe05cd4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "escribía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T09",
+      "contentHash": "c13dc90b4d72585b8ba789df72ba7a9c92e4d65f9e2f3e3e9de5537859c3672f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "aprendía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T10",
+      "contentHash": "666b31e696b41630396f5343fdbf3fe1c817e0eab2469ae3f57f96782a3e7b87",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.singular/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+          "description": "The explicit accent reminder supports the accent target, which is missing from the hint attribution.",
+          "suggestion": "Remove the accent reminder, or add the accent target consistently to the task, prerequisite mapping and hint."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes, en la universidad, mi amiga leía mucho y yo escribía muy poco.",
+      "notes": "The accepted forms and reference sentence are correct.",
+      "sources": [
+        "Course contract rule 6: hint targets must match exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T11",
+      "contentHash": "29b11843c835f60a85c743330bbe265c8b7804bf68a86105f345592fca96b9f3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "comíamos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T12",
+      "contentHash": "0f9bc9013189a7735fbe5acde16d9b12b03de0816fb3145d7023378130b72e6a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "vivían",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T13",
+      "contentHash": "612e7cbd3a1645070c81fb3315f0b2dc7285804552ad7a6441ae09594ea62cc6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "leíais",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T14",
+      "contentHash": "a3edf9fcc218ec034faabc7bb59063f36031776c91ed2fcedcd2311431d6eeaf",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "vivíamos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T15",
+      "contentHash": "718f915315fb51682844a86260cbc3ced8b9d83b2650010efc3fccc6e5daca03",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "corrían",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T16",
+      "contentHash": "4ec22ee08d1b2230ef7f1758db4566f699848d824093856142397a486b4d92b8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.plural/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+          "description": "The hint explicitly supports accent placement without attributing support to the accent target.",
+          "suggestion": "Remove the accent reminder, or add the accent target consistently to the task, prerequisite mapping and hint."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T16",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes vosotros vivíais encima de la tienda y vuestros padres la abrían a las nueve.",
+      "notes": "The accepted forms and reference sentence are correct.",
+      "sources": [
+        "Course contract rule 6: hint targets must match exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T17",
+      "contentHash": "8bfb3ba84ff10f0e22868afe3d8d13df216166af315478312fb6103fc1153514",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "escribíamos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T18",
+      "contentHash": "f169a321219174608f9c9dd3697bb51491f9da97d078eb7d1c7a54bdf3ec9724",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "vivían",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T19",
+      "contentHash": "05e0970fcfef726967a7229ec31a07f9267ea929f2da3fbc4013acfe6f413e3a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T19",
+      "verdict": "valid",
+      "reviewerAnswer": "aprendían",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T20",
+      "contentHash": "7f28a58abfffeef57f24c413d913ab7d639132fee1fdfc5f4b6e85ff56d6d424",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets lists only \"imperfecto.regular-er-ir.plural/written-form\", while task.hints[0].blocks[0].text includes \"Не забудьте знак наголосу на í.\"",
+          "description": "The explicit accent reminder supports a target absent from the hint attribution.",
+          "suggestion": "Remove the accent reminder, or add the accent target consistently to the task, prerequisite mapping and hint."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes, en la universidad, nosotros leíamos muchos libros y vosotros escribíais mucho.",
+      "notes": "The accepted forms and reference sentence are correct.",
+      "sources": [
+        "Course contract rule 6: hint targets must match exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T21",
+      "contentHash": "e93d59e0889064c6799d5a4030763a51cd3c308fd7b6095f573c1c9c8551c807",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "podía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T22",
+      "contentHash": "36a4e4927818876814dbd92bc49251f98ad91bcdf10a1d641d2e957c9868b20e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "quería",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T23",
+      "contentHash": "7d1fd58c51b32be50cae0f1254dff492c47bc2ee2d1ab87d9ff2a8664ee31e32",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[1].text: \"Antes mis hijos ___ en el parque por la tarde. (jugar)\"; context.taughtBefore maps \"imperfecto.regular-ar.singular\" and \"jugaba\", but no plural -ar imperfect formation.",
+          "description": "Producing jugaban requires the third-person plural ending -aban. This recently introduced imperfect formation is not documented in the prerequisite mapping or supplied in a hint.",
+          "suggestion": "Document prior teaching of imperfecto.regular-ar.plural, including -aban, or teach that ending before this independent task."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T23",
+      "verdict": "flawed",
+      "reviewerAnswer": "jugaban",
+      "notes": "This identifies a gap in this case's prerequisite evidence; it does not establish that the actual earlier lesson omitted plural forms.",
+      "sources": [
+        "Course contract rule 1: the prerequisite mapping must establish the forms and constructions required to answer."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T24",
+      "contentHash": "f1b2c84aaa2d373a05cb2c64383be521aa3aa3e6b86c78ec0ef0d97eaec042fa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "volvías",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T25",
+      "contentHash": "3556d441989ca9293efe3b21c58056889cdb701f19e99c84d5baf08e9b75acdc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[1].feedbackUk: \"Форма на -g- (hago) буває лише в теперішньому часі. В імперфекті: hacía.\"",
+          "description": "The unqualified restriction of the g-form to the present tense is misleading: the hag- stem also occurs in formal imperatives such as haga and hagan. The relevant rule is that this stem does not carry into the imperfect.",
+          "suggestion": "Explain specifically that the present stem hag- is not used in the imperfect: hacer → hacía."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "hacía",
+      "notes": "The answer key itself is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, hacer conjugation table: present subjunctive and imperative forms haga, hagan (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T26",
+      "contentHash": "72f998bc5689c57d430c7f4a7ba097ab1422d8b6057e597092a895918663a7e9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[0].feedbackUk: \"Форма на -g- (tengo) буває лише в теперішньому часі. В імперфекті: tenía.\"",
+          "description": "The explanation overgeneralizes: the teng- stem also occurs in formal imperatives such as tenga and tengan. Its absence from the imperfect does not mean it occurs only in present-tense forms.",
+          "suggestion": "Limit the explanation to the contrast being taught: the present stem teng- does not carry into the imperfect; tener → tenía."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T26",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "Option b is correctly keyed.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, tener conjugation table: present subjunctive and imperative forms tenga, tengan (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T27",
+      "contentHash": "921f9fa434a4d946bc2268c6eced3e4bb892caeb0cac4d9eee725670d34e0b7f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "dormía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T28",
+      "contentHash": "b7b6b9eb2cfbbb7a71442e37aac6714526ec93fc74866da9ab5d19b28892bf6c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "empezaba",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T29",
+      "contentHash": "07b89357a7ae8f7cd6478d4aa7791c235d1556edfa0de15e05b7accbeede2429",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[1].feedbackUk: \"Форма на -g- (tengo) буває лише в теперішньому часі. В імперфекті: tenías.\"",
+          "description": "The statement incorrectly generalizes the g-stem's distribution. Formal imperative forms such as tenga and tengan also contain teng-. Only its transfer into the imperfect should be ruled out.",
+          "suggestion": "Explain that the present teng- stem is not retained in the imperfect: tener → tenías."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T29",
+      "verdict": "flawed",
+      "reviewerAnswer": "tenías",
+      "notes": "The accepted answer is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, tener conjugation table: present subjunctive and imperative forms tenga, tengan (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T30",
+      "contentHash": "1226f86a6f274b855b3649d464bea5abde2f18ecb9eb8db9911524890c4bcadb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "The prompt explicitly requests an imperfect form. A possible bounded-past reading of option c therefore does not make it a correct answer.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T31",
+      "contentHash": "d9daeeafce63da277789bef8284af839c1c642500fbd8474f4947aae884cbfc6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Mi hermana vivía en Valencia. Tenía un piso pequeño en el centro.\"; task.options[2].feedbackUk: \"Контекст тут достатній: друге речення без підмета продовжує розповідь про сестру.\"",
+          "description": "Subject continuity strongly favors the sister, but the omitted subject of tenía is not explicitly fixed. A first-person narrator reading remains possible. The task does not distinguish the most natural interpretation from a uniquely determined interpretation.",
+          "suggestion": "Clarify whether the question asks for the most natural reading, or supply context that explicitly establishes the second sentence's subject before finalizing the key."
+        }
+      ],
+      "caseId": "task:A2-05-L2-T31",
+      "verdict": "uncertain",
+      "reviewerAnswer": "b is the natural continuation reading; c is defensible if the question requires a uniquely established referent, since tenía can also mean yo tenía.",
+      "notes": "The Spanish sentences are correct; the uncertainty concerns how categorical the interpretation should be.",
+      "sources": [
+        "Packet verdict definition for uncertain: unresolved alternative readings, including an underdetermined referent.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 33, subject omission and contextual interpretation of omitted subjects (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, tener conjugation table: tenía is both first- and third-person singular imperfect indicative (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T32",
+      "contentHash": "b8ffefb02d871bfd3f38f67dd688c699c61ae029a40f0d120df63f7324551bf8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "c",
+      "notes": "The direct question to tú supplies sufficient context for the respondent's first-person answer.",
+      "sources": []
+    },
+    {
+      "kind": "material",
+      "logicalId": "material.a2-05.er-ir-paradigm",
+      "contentHash": "6a8db93d2f0257812fbc70b754191b2976238be3abf394bee0288a89a96bbb69",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.blocks[2].text: \"Дієслова, неправильні в теперішньому часі, в імперфекті правильні: основа з інфінітива.\"",
+          "description": "As a standalone reference statement, this generalizes beyond the correct examples: ser, ir and ver are irregular in the present and also irregular in the imperfect.",
+          "suggestion": "Restrict the statement to the listed verbs or explicitly state the exceptions ser, ir and ver."
+        }
+      ],
+      "caseId": "material:material.a2-05.er-ir-paradigm",
+      "verdict": "flawed",
+      "reviewerAnswer": "comía, comías, comía, comíamos, comíais, comían; corresponding vivir and tener forms use the same endings. The listed present-irregular verbs have regular imperfect forms.",
+      "notes": "Both conjugation tables are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for ser, ir and ver: present and imperfect indicative (from memory)."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
