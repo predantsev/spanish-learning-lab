@@ -40,7 +40,7 @@ const D = {
   [TV]: form('Наказ для vosotros: замість -r інфінітива ставимо -d: escuchar → escuchad, comer → comed, abrir → abrid.'),
   [SAL]: form('Salir — неправильний наказ для tú: sal.'),
   [UR]: form('Наказ для usted: -ar → -e (firmar → firme), -er/-ir → -a (escribir → escriba).'),
-  [UG]: form('Дієслова з -go в «я» утворюють наказ для usted від цієї форми: traigo → traiga, pongo → ponga, digo → diga.'),
+  [UG]: form('Дієслова на -er / -ir з неправильною формою yo на -go утворюють наказ для usted від цієї форми: traigo → traiga, pongo → ponga, digo → diga.'),
   [PL]: { rule: 'У ствердному наказі займенник стоїть після дієслова й пишеться разом із ним: Abre la puerta → Ábrela.', ok: 'Правильно! Займенник приєднано, знак наголосу на місці.', bad: 'Ще ні. Займенник пишемо після наказу разом із ним і перевіряємо знак наголосу.', unres },
   [RO]: { rule: 'Шукайте дієслова дії і слова порядку: primero, luego, después, a continuación, por último.', ...read },
   [HR]: { rule: 'Hay que — «треба»; no hay que — «не потрібно».', ...read },

@@ -1,0 +1,807 @@
+{
+  "cases": [
+    {
+      "caseId": "skill:imperative.usted.ir",
+      "reviewerAnswer": "Usted: vaya; ustedes: vayan.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "skill:imperative.usted.regular",
+      "reviewerAnswer": "Usted: hable, coma, escriba; ustedes: hablen, coman, escriban.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "skill:imperative.usted.spelling",
+      "reviewerAnswer": "Usted: busque, llegue, pague, cruce, coja.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "skill:imperative.usted.stem-change",
+      "reviewerAnswer": "Usted: cierre, vuelva, siga, pida; ustedes: cierren, vuelvan, sigan, pidan.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "skill:imperative.usted.yo-g",
+      "reviewerAnswer": "Usted: diga, haga, ponga, salga, tenga, venga; ustedes: digan, hagan, pongan, salgan, tengan, vengan.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "content.body.ruleUk: «Якщо форма yo теперішнього часу неправильна» and «відкидаємо -o і додаємо -a».",
+      "defect": "The condition incorrectly covers every irregular present-tense yo form. Forms such as sé and estoy do not follow this procedure: the commands are sea and esté.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form ending in -go, then specify -a for usted and -an for ustedes.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for ser and estar (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "lexeme:lex.dni",
+      "reviewerAnswer": "DNI: a masculine noun meaning Spain's national identity document; written plural DNI.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "lexeme:lex.firmar",
+      "reviewerAnswer": "Firmar: to sign; Ukrainian «підписувати».",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "lexeme:lex.formulario",
+      "reviewerAnswer": "Formulario: a form; masculine, plural formularios.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "lexeme:lex.rellenar",
+      "reviewerAnswer": "Rellenar: to fill in a form; Ukrainian «заповнювати».",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "lexeme:lex.turno",
+      "reviewerAnswer": "Turno: one's turn, including a turn to be served; masculine, plural turnos.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "lexeme:lex.ventanilla",
+      "reviewerAnswer": "Ventanilla: a service or ticket window; feminine, plural ventanillas.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "lesson:A2-07-L5",
+      "reviewerAnswer": "Representative usted/ustedes pairs: espere/esperen, diga/digan, cierre/cierren, busque/busquen, vaya/vayan.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "content.body.steps[1].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "Ending in -go alone does not license this rule. Pago and llego also end in -go, but the usted commands are pague and llegue; the stated procedure produces paga and llega.",
+      "correction": "Limit this procedure to -er/-ir verbs with an irregular yo form in -go. Retain -a for usted and -an for ustedes.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T01",
+      "reviewerAnswer": "c",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T02",
+      "reviewerAnswer": "Rellene",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T03",
+      "reviewerAnswer": "Firme",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T04",
+      "reviewerAnswer": "Escriba",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T05",
+      "reviewerAnswer": "esperen",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T06",
+      "reviewerAnswer": "Abra la ventana, por favor.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T07",
+      "reviewerAnswer": "Pregunte",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T08",
+      "reviewerAnswer": "Beba",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T09",
+      "reviewerAnswer": "escriba",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T10",
+      "reviewerAnswer": "esperen",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The prompt explicitly requires ustedes. Feedback for esperad would be more precise if it cited that requirement instead of presenting the hotel setting as determining the register."
+    },
+    {
+      "caseId": "task:A2-07-L5-T11",
+      "reviewerAnswer": "b",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "The hint overgeneralizes from the intended irregular verbs to any yo form ending in -go. For example, pago requires pague, not paga.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T12",
+      "reviewerAnswer": "Diga",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "Ending in -go alone is insufficient: pago and llego require pague and llegue, whereas the stated procedure produces paga and llega.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T13",
+      "reviewerAnswer": "Ponga",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "The condition also covers pago and llego, whose usted commands are pague and llegue, not paga and llega.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T14",
+      "reviewerAnswer": "Venga",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "The hint incorrectly treats any yo form ending in -go as sufficient. Pago, for example, forms pague rather than paga for usted.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T15",
+      "reviewerAnswer": "Salga",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "The condition is too broad: pago and llego also end in -go, but require pague and llegue for usted.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T16",
+      "reviewerAnswer": "Haga la compra hoy.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "Ending in -go alone does not establish this formation pattern. Pago and llego form pague and llegue, not paga and llega.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T17",
+      "reviewerAnswer": "tenga",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "The condition also includes pago and llego, but their usted commands require -e: pague and llegue.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T18",
+      "reviewerAnswer": "pongan",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go»; task.feedback.incorrectUk: «відкиньте -o і додайте -a».",
+      "defect": "The hint's condition incorrectly includes -ar forms such as pago, which requires pague. Additionally, the generic incorrect feedback tells the learner to add -a, producing ponga, although this task requires ustedes and explicitly rejects ponga.",
+      "correction": "Restrict the hint to -er/-ir verbs with an irregular yo form in -go. For this plural task, instruct the learner to add -an: pongo → pongan.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and poner (from memory).",
+        "task.prompt[0], task.errors[0], and task.feedback.incorrectUk in this case."
+      ],
+      "notes": "The accepted answer is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T19",
+      "reviewerAnswer": "vengan",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go»; task.feedback.incorrectUk: «відкиньте -o і додайте -a».",
+      "defect": "The hint overgeneralizes to -ar forms such as pago, whose command is pague. The generic incorrect feedback also prescribes -a, yielding venga, although the task requires ustedes and explicitly rejects venga.",
+      "correction": "Restrict the hint to -er/-ir verbs with an irregular yo form in -go. For this task, specify -an: vengo → vengan.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and venir (from memory).",
+        "task.prompt[0], task.errors[0], and task.feedback.incorrectUk in this case."
+      ],
+      "notes": "The accepted answer is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T20",
+      "reviewerAnswer": "Diga",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: «Якщо форма yo теперішнього часу закінчується на -go» and «відкидаємо -o і додаємо -a».",
+      "defect": "The condition incorrectly includes pago and llego. Their usted commands are pague and llegue, not the paga and llega produced by this procedure.",
+      "correction": "Restrict the rule to -er/-ir verbs with an irregular yo form in -go.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, conjugation tables for pagar and llegar (from memory)."
+      ],
+      "notes": "The answer key is correct."
+    },
+    {
+      "caseId": "task:A2-07-L5-T21",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T22",
+      "reviewerAnswer": "Repita",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T23",
+      "reviewerAnswer": "Pida",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T24",
+      "reviewerAnswer": "Siga",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T25",
+      "reviewerAnswer": "Vuelva",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T26",
+      "reviewerAnswer": "Cierre la ventana, por favor.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T27",
+      "reviewerAnswer": "Encienda",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T28",
+      "reviewerAnswer": "cierren",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T29",
+      "reviewerAnswer": "sigan",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T30",
+      "reviewerAnswer": "Pida",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T31",
+      "reviewerAnswer": "c",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T32",
+      "reviewerAnswer": "Llegue",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T33",
+      "reviewerAnswer": "Cruce",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T34",
+      "reviewerAnswer": "Coja",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T35",
+      "reviewerAnswer": "Pague",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T36",
+      "reviewerAnswer": "Busque la farmacia en la plaza.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T37",
+      "reviewerAnswer": "Cruce",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T38",
+      "reviewerAnswer": "Coja",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T39",
+      "reviewerAnswer": "cojan",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T40",
+      "reviewerAnswer": "lleguen",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T41",
+      "reviewerAnswer": "b",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T42",
+      "reviewerAnswer": "Vaya",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T43",
+      "reviewerAnswer": "Vaya",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T44",
+      "reviewerAnswer": "vayan",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T45",
+      "reviewerAnswer": "Vaya",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T46",
+      "reviewerAnswer": "Vaya al banco, está cerca.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T47",
+      "reviewerAnswer": "Vaya",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T48",
+      "reviewerAnswer": "vayan",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T49",
+      "reviewerAnswer": "vayan",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T50",
+      "reviewerAnswer": "Vaya",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-07-L5-T51",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[1].text and task.feedback.incorrectUk: «-e / -a — usted».",
+      "defect": "These endings alone do not identify usted. Habla is a tú imperative ending in -a, and come and escribe are tú imperatives ending in -e. The reminder contradicts the task's own rule hint.",
+      "correction": "Condition the distinction on the infinitive class: -ar uses -a for tú and -e for usted; -er/-ir uses -e for tú and -a for usted.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, imperative conjugation tables for hablar, comer and escribir (from memory).",
+        "task.hints[0].blocks[0].text: «Habla — tú» and «come — tú»."
+      ],
+      "notes": "The correct option is correctly keyed."
+    },
+    {
+      "caseId": "task:A2-07-L5-T52",
+      "reviewerAnswer": "c",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.feedback.incorrectUk: «-e / -a — usted».",
+      "defect": "The feedback falsely identifies any imperative ending in -e or -a as usted. Tú forms include habla, come and escribe, as the supplied rule hint itself demonstrates.",
+      "correction": "State the endings by infinitive class: -ar has tú -a versus usted -e; -er/-ir has tú -e versus usted -a. Retain -en/-an for ustedes.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, imperative conjugation tables for hablar, comer and escribir (from memory).",
+        "task.hints[0].blocks[0].text."
+      ],
+      "notes": "The correct option is correctly keyed; su nombre permits a distributive reading with ustedes."
+    },
+    {
+      "caseId": "task:A2-07-L5-T53",
+      "reviewerAnswer": "b",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.feedback.incorrectUk: «-e / -a — usted».",
+      "defect": "The ending alone is insufficient: habla and come are tú imperatives despite ending in -a and -e. This blanket rule conflicts with the supplied examples.",
+      "correction": "Explain the tú/usted vowel contrast separately for -ar and -er/-ir verbs.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, imperative conjugation tables for hablar and comer (from memory).",
+        "task.hints[0].blocks[0].text."
+      ],
+      "notes": "The correct option is correctly keyed."
+    },
+    {
+      "caseId": "task:A2-07-L5-T54",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.feedback.incorrectUk: «-e / -a — usted».",
+      "defect": "The statement incorrectly classifies tú imperatives such as habla and come as usted forms. Identifying the singular addressee requires the infinitive class as well as the ending.",
+      "correction": "Replace the blanket singular rule with -ar: tú -a, usted -e; -er/-ir: tú -e, usted -a. Keep the plural distinction.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, imperative conjugation tables for hablar and comer (from memory).",
+        "task.hints[0].blocks[0].text."
+      ],
+      "notes": "The correct option is correctly keyed."
+    },
+    {
+      "caseId": "task:A2-07-L5-T55",
+      "reviewerAnswer": "b",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "context.taughtBefore lacks the imperative-form distinction required by task.options[0].label «Espera aquí, por favor.» and task.options[1].label «Espere aquí, por favor.».",
+      "defect": "Selecting the appropriate register also requires recognizing which imperative expresses tú and which expresses usted. The supplied prerequisite map establishes register choice and subject pronouns, but does not establish this imperative distinction. The rule hint gives register guidance without identifying the forms.",
+      "correction": "Map the earlier teaching of espera/espere in taughtBefore, or change the options to tú and usted so the task assesses only register choice.",
+      "sources": [
+        "Course contract rule 1.",
+        "This case's context.taughtBefore, task.options and task.hints[0]."
+      ],
+      "notes": "Usted is the conventional default intended by the stated situation; the key itself is consistent with that intention."
+    },
+    {
+      "caseId": "task:A2-07-L5-T56",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "context.taughtBefore lacks the imperative-form distinction required by task.options[0].label «Espera aquí.» and task.options[1].label «Espere aquí.».",
+      "defect": "The learner must distinguish the tú and usted imperatives to answer, but the supplied prerequisite map lists only register choice and subject pronouns. Neither the register rule hint nor another explanatory hint establishes which Spanish option expresses each register.",
+      "correction": "Include the earlier teaching of espera/espere in taughtBefore, or use tú and usted as the options.",
+      "sources": [
+        "Course contract rule 1.",
+        "This case's context.taughtBefore, task.options and task.hints[0]."
+      ],
+      "notes": "The intended tú answer is appropriate for the ordinary mother–son situation in Spain."
+    },
+    {
+      "caseId": "material:material.a2-07.imperative-usted",
+      "reviewerAnswer": "Expected pairs include espere/esperen, escriba/escriban, diga/digan, ponga/pongan, cierre/cierren, siga/sigan, pague/paguen and vaya/vayan.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    }
+  ]
+}
