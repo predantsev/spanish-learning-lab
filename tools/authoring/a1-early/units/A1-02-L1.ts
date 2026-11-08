@@ -128,7 +128,7 @@ export const unit: Unit = {
             ['el día', 'день'],
             ['el mapa', 'мапа'],
             ['el problema', 'проблема'],
-            ['el idioma', 'мова (іноземна)'],
+            ['el idioma', 'мова'],
             ['el sofá', 'диван'],
             ['la mano', 'рука (кисть)'],
             ['la foto', 'фото (скорочено від la fotografía)'],
@@ -141,7 +141,7 @@ export const unit: Unit = {
         kind: 'explanation',
         title: 'Люди: чоловічий і жіночий рід',
         blocks: [
-          uk('Для людей граматичний рід зазвичай відповідає статі. Пари на -o / -a: el chico — la chica, el amigo — la amiga. Якщо слово закінчується на приголосну, жіноча форма додає -a: el profesor — la profesora. Слова на -e часто мають одну форму, а рід видно лише з артикля: el estudiante — la estudiante.'),
+          uk('Для людей граматичний рід зазвичай відповідає статі. Пари на -o / -a: el chico — la chica, el amigo — la amiga. Деякі назви людей на приголосну утворюють жіночу форму додаванням -a: el profesor — la profesora. Слова на -e часто мають одну форму, а рід видно лише з артикля: el estudiante — la estudiante.'),
           uk('El hombre — «чоловік», la mujer — «жінка»: тут рід визначає значення, а не закінчення.'),
         ],
       },
@@ -184,8 +184,8 @@ export const unit: Unit = {
     noun({ n: 6, role: 'independent', family: 'recall', skill: OA_W, ask: 'Напиши іспанською з означеним артиклем: «ліжко».', answer: 'la cama', wrong: [['el cama', 'Cama — жіночого роду']], why: 'Cama — жіночого роду' }),
     noun({ n: 7, role: 'delayed', family: 'recall', skill: OA_W, withAD: true, ask: 'Напиши іспанською з означеним артиклем: «двері» (в іспанській це слово в однині).', answer: 'la puerta', wrong: [['el puerta', 'Puerta — жіночого роду']], why: 'Puerta — жіночого роду' }),
     noun({ n: 8, role: 'delayed', family: 'fix', skill: OA_W, ask: 'Виправ помилку в артиклі.', shown: 'el silla', answer: 'la silla', wrong: [['el silla', 'Артикль не змінено. Silla — жіночого роду']], why: 'Silla — жіночого роду' }),
-    noun({ n: 9, role: 'transfer', family: 'label', skill: OA_W, ask: 'Ти підписуєш фото для власного словника. Напиши з означеним артиклем: «телефон».', answer: 'el teléfono', wrong: [['la teléfono', 'Teléfono — чоловічого роду']], extra: [['el telefono.', 'u', 'Рід правильний, але teléfono пишеться зі знаком наголосу.']], why: 'Teléfono — чоловічого роду' }),
-    noun({ n: 10, role: 'transfer', family: 'label', skill: OA_W, ask: 'Ти підписуєш фото для власного словника. Напиши з означеним артиклем: «гітара».', answer: 'la guitarra', wrong: [['el guitarra', 'Guitarra — жіночого роду']], why: 'Guitarra — жіночого роду' }),
+    noun({ n: 9, role: 'transfer', family: 'label', skill: OA_W, ask: 'Ти підписуєш фото для власного словника. Напиши з означеним артиклем слово teléfono («телефон»).', answer: 'el teléfono', wrong: [['la teléfono', 'Teléfono — чоловічого роду']], extra: [['el telefono.', 'u', 'Рід правильний, але teléfono пишеться зі знаком наголосу.']], why: 'Teléfono — чоловічого роду' }),
+    noun({ n: 10, role: 'transfer', family: 'label', skill: OA_W, ask: 'Ти підписуєш фото для власного словника. Напиши з означеним артиклем слово guitarra («гітара»).', answer: 'la guitarra', wrong: [['el guitarra', 'Guitarra — жіночого роду']], why: 'Guitarra — жіночого роду' }),
     pick(11, 'independent', 'choose-article', OA_C, 'Вибери правильний варіант: «дім».', 'la casa', [['el casa', 'Casa закінчується на -a — жіночий рід.']], RULE[OA_W] ?? '', 'Так: la casa.'),
     // ---------- -e / consonant ----------
     noun({ n: 12, role: 'supported', family: 'with-article', skill: EC_W, support: 'Підказка: el coche, la calle, la noche, la llave; el hotel, el móvil, la flor.', ask: `${ADD} Значення: «ніч».`, shown: 'noche', answer: 'la noche', wrong: [['el noche', 'Noche — жіночого роду']], why: 'Noche — жіночого роду' }),
@@ -197,7 +197,7 @@ export const unit: Unit = {
     noun({ n: 18, role: 'delayed', family: 'recall', skill: EC_W, withAD: true, ask: 'Напиши іспанською з означеним артиклем: «готель».', answer: 'el hotel', wrong: [['la hotel', 'Hotel — чоловічого роду']], why: 'Hotel — чоловічого роду' }),
     noun({ n: 19, role: 'delayed', family: 'fix', skill: EC_W, ask: 'Виправ помилку в артиклі.', shown: 'la coche', answer: 'el coche', wrong: [['la coche', 'Артикль не змінено. Coche — чоловічого роду']], why: 'Coche — чоловічого роду' }),
     noun({ n: 20, role: 'transfer', family: 'label', skill: EC_W, ask: 'Ти підписуєш фото для власного словника. Напиши з означеним артиклем: «квітка».', answer: 'la flor', wrong: [['el flor', 'Flor — жіночого роду']], why: 'Flor — жіночого роду' }),
-    noun({ n: 21, role: 'transfer', family: 'label', skill: EC_W, ask: 'Ти підписуєш фото для власного словника. Напиши з означеним артиклем: «кава».', answer: 'el café', wrong: [['la café', 'Café — чоловічого роду, хоча «кава» жіночого']], extra: [['el cafe.', 'u', 'Рід правильний, але café пишеться зі знаком наголосу.']], why: 'Café — чоловічого роду' }),
+    noun({ n: 21, role: 'transfer', family: 'label', skill: EC_W, ask: 'Ти підписуєш фото для власного словника. Напиши з означеним артиклем слово café («кава»).', answer: 'el café', wrong: [['la café', 'Café — чоловічого роду, хоча «кава» жіночого']], extra: [['el cafe.', 'u', 'Рід правильний, але café пишеться зі знаком наголосу.']], why: 'Café — чоловічого роду' }),
     pick(22, 'independent', 'choose-article', EC_C, 'Вибери правильний варіант: «ніч».', 'la noche', [['el noche', 'Noche — жіночого роду; рід слів на -e запам’ятовуємо.']], RULE[EC_W] ?? '', 'Так: la noche.'),
     // ---------- -ción / -dad ----------
     noun({ n: 23, role: 'supported', family: 'with-article', skill: CD_W, support: 'Пам’ятай: слова на -ción і -dad — жіночого роду.', ask: `${ADD} Значення: «станція».`, shown: 'estación', answer: 'la estación', wrong: [['el estación', 'Слова на -ción — жіночого роду']], extra: [['la estacion.', 'u', 'Рід правильний, але estación пишеться зі знаком наголосу.']], why: 'Estación — жіночого роду' }),
@@ -214,7 +214,7 @@ export const unit: Unit = {
     // ---------- people ----------
     noun({ n: 34, role: 'supported', family: 'person', skill: PE_W, support: 'Підказка: el chico — la chica, el amigo — la amiga, el profesor — la profesora, el / la estudiante.', ask: 'Напиши іспанською з означеним артиклем: «подруга».', answer: 'la amiga', wrong: [['el amiga', 'Подруга — жінка: la amiga'], ['la amigo', 'Для жінки — форма на -a: la amiga'], ['el amigo', 'El amigo — «друг» (чоловік); подруга — la amiga']], why: 'Подруга — la amiga' }),
     noun({ n: 35, role: 'supported', family: 'person', skill: PE_W, withAD: true, support: 'Підказка: el profesor — la profesora.', ask: 'Напиши іспанською з означеним артиклем: «викладачка».', answer: 'la profesora', wrong: [['el profesora', 'Викладачка — жінка, тому la'], ['la profesor', 'Жіноча форма додає -a: la profesora']], why: 'Викладачка — la profesora' }),
-    noun({ n: 36, role: 'independent', family: 'person', skill: PE_W, ask: 'Напиши іспанською з означеним артиклем: «студентка».', answer: 'la estudiante', wrong: [['la estudianta', 'Estudiante має одну форму; рід показує артикль'], ['el estudiante', 'Студентка — жінка, тому la']], why: 'Студентка — la estudiante' }),
+    noun({ n: 36, role: 'independent', family: 'person', skill: PE_W, ask: 'Напиши іспанською з означеним артиклем: «студентка». Використай вивчене слово estudiante.', answer: 'la estudiante', wrong: [['el estudiante', 'Студентка — жінка, тому la']], extra: [['la estudianta.', 'u', 'Estudianta трапляється лише в розмовній мові; у нейтральному стилі estudiante має одну форму, рід показує артикль: la estudiante.']], why: 'Студентка — la estudiante' }),
     noun({ n: 37, role: 'independent', family: 'person', skill: PE_W, ask: 'Напиши іспанською з означеним артиклем: «хлопець».', answer: 'el chico', wrong: [['la chico', 'Хлопець — чоловічий рід: el chico'], ['el chica', 'Chica — «дівчина»; хлопець — el chico']], why: 'Хлопець — el chico' }),
     noun({ n: 38, role: 'independent', family: 'person', skill: PE_W, withAD: true, ask: 'Напиши іспанською з означеним артиклем: «викладач» (чоловік).', answer: 'el profesor', wrong: [['la profesor', 'Викладач-чоловік — el profesor'], ['el profesora', 'Profesora — жіноча форма; для чоловіка — el profesor']], why: 'Викладач — el profesor' }),
     noun({ n: 39, role: 'independent', family: 'fix', skill: PE_W, ask: 'Виправ помилку в артиклі.', shown: 'el chica', answer: 'la chica', wrong: [['el chica', 'Артикль не змінено. Chica — дівчина, жіночий рід']], why: 'Chica — жіночого роду' }),
@@ -228,7 +228,7 @@ export const unit: Unit = {
     noun({ n: 46, role: 'independent', family: 'recall', skill: MA_W, ask: 'Напиши іспанською з означеним артиклем: «мапа».', answer: 'el mapa', wrong: [['la mapa', 'Mapa — виняток: чоловічого роду']], why: 'Mapa — чоловічого роду' }),
     noun({ n: 47, role: 'independent', family: 'recall', skill: MA_W, ask: 'Напиши іспанською з означеним артиклем: «проблема».', answer: 'el problema', wrong: [['la problema', 'Problema — виняток: чоловічого роду, хоча «проблема» жіночого']], why: 'Problema — чоловічого роду' }),
     noun({ n: 48, role: 'delayed', family: 'recall', skill: MA_W, ask: 'Напиши іспанською з означеним артиклем: «диван».', answer: 'el sofá', wrong: [['la sofá', 'Sofá — чоловічого роду']], extra: [['el sofa.', 'u', 'Рід правильний, але sofá пишеться зі знаком наголосу.']], why: 'Sofá — чоловічого роду' }),
-    noun({ n: 49, role: 'transfer', family: 'schedule', skill: MA_W, ask: 'У розкладі курсів треба написати «іноземна мова» одним іспанським словом з означеним артиклем.', answer: 'el idioma', wrong: [['la idioma', 'Idioma — виняток: чоловічого роду']], why: 'Idioma — чоловічого роду' }),
+    noun({ n: 49, role: 'transfer', family: 'schedule', skill: MA_W, ask: 'У розкладі курсів треба написати слово «мова» (idioma) з означеним артиклем.', answer: 'el idioma', wrong: [['la idioma', 'Idioma — виняток: чоловічого роду']], why: 'Idioma — чоловічого роду' }),
     pick(50, 'independent', 'choose-article', MA_C, 'Вибери правильний варіант: «день».', 'el día', [['la día', 'Día — виняток: чоловічого роду.']], RULE[MA_W] ?? '', 'Так: el día — виняток.'),
     // ---------- feminine -o ----------
     noun({ n: 51, role: 'supported', family: 'with-article', skill: FO_W, support: 'Пам’ятай: la mano, la foto, la moto, la radio — жіночого роду.', ask: `${ADD} Значення: «фото».`, shown: 'foto', answer: 'la foto', wrong: [['el foto', 'Foto — скорочення від la fotografía, тому жіночого роду']], why: 'Foto — жіночого роду' }),
