@@ -180,4 +180,16 @@ export const RULES: Record<string, string> = {
     'Quiero ir a la playa — лише бажання: «хочу піти на пляж». El sábado voy a la playa — план: «у суботу йду на пляж». План має конкретний час і звучить як уже вирішене.',
   'formula.invitation':
     'Запросити: ¿Quieres ir al cine el sábado? Погодитися: ¡Vale! («гаразд, домовились»), ¡Claro! — «звісно», ¡Genial! — «чудово». Відмовитися ввічливо: Lo siento + причина: Lo siento, el sábado trabajo. Запропонувати інший день: Otro día, ¿vale?',
+  // A1-06-L5
+  'link.y': 'Y («і») з’єднує дві схожі або послідовні думки: Me gusta leer y escuchar música. Trabajo en casa y estudio por la tarde.',
+  'link.y-e': 'Перед словом, що починається зі звуку [i] (на i- або hi-), y змінюється на e: español e inglés, padres e hijos. Перед іншими звуками — y: Ana y Pablo.',
+  'link.pero': 'Pero («але») вводить протиставлення: Me gusta el café, pero no me gusta el té. Перед pero зазвичай ставимо кому.',
+  'link.porque': 'Porque («тому що, бо») пояснює причину: No voy al cine porque estoy cansado. Пишеться одним словом і без знака наголосу.',
+  'question.por-que': 'Питання про причину — ¿Por qué…? («чому?»): два слова, qué зі знаком наголосу. ¿Por qué estudias español? Відповідь починається з porque.',
+  'ortho.porque-por-que': 'У питанні — два слова, qué зі знаком: ¿Por qué? У відповіді, коли пояснюємо причину, — одне слово без знака: porque. ¿Por qué no vas? — Porque estoy cansado.',
+  'neg.tambien-tampoco':
+    'Погодитися зі ствердженням — también: —Trabajo en casa. —Yo también. Із запереченням — tampoco («теж ні»): —No tengo coche. —Yo tampoco. Не погодитися: Yo no / Yo sí. З gustar — через a mí: A mí también.',
+  'neg.short-answer.nada-nadie': 'Nada — «нічого», nadie — «ніхто». Коротка відповідь: —¿Necesitas algo? —Nada, gracias. —¿Quién está en casa? —Nadie. Nada más — «більше нічого».',
+  'link.sequence.antes-despues-de':
+    'Antes de — «перед, до», después de — «після». Після них — інфінітив або іменник з артиклем: después de cenar, antes de la clase, después del trabajo (de + el = del). Не «después de ceno».',
 };
