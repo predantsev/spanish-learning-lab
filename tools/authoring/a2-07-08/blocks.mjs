@@ -14,6 +14,7 @@ import a208l2 from './a2-08-l2.mjs';
 import a208l3 from './a2-08-l3.mjs';
 import a208l4 from './a2-08-l4.mjs';
 import a208l5 from './a2-08-l5.mjs';
+import a208l6 from './a2-08-l6.mjs';
 
 const block = (blockId, lessons, extraMaterials = []) => ({
   blockId,
@@ -24,5 +25,5 @@ const block = (blockId, lessons, extraMaterials = []) => ({
 
 export const BLOCKS = [
   block('A2-07', [a207l1, a207l2, a207l3, a207l4, a207l5, a207l6, a207l7, a207l8, a207c1]),
-  block('A2-08', [a208l1, a208l2, a208l3, a208l4, a208l5]),
+  block('A2-08', [a208l1, a208l2, a208l3, a208l4, a208l5, a208l6]),
 ];
