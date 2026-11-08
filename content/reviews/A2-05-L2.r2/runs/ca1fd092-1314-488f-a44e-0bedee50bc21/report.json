@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-05-L2.r2",
+  "packetHash": "99690f00b8cfcd7f0e6ce9263a27e107f22b82a2940ff1afeba3de5cbf5f5a6a",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "f4e17f64e6d90cafc7850afe47e3b81d697bde23392b8dc707fc8921918292f3",
+    "reviewerPacketSha256": "0e8a595401aebe19971ad9065eae368c96618220863dc24e01a4a0b41983ef52",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-wyqJR9/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-wyqJR9/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-wyqJR9/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-wyqJR9/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-wyqJR9/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc9c-d668-7bb2-977c-1a6919ea7273",
+        "version": "v0.166.0",
+        "tokens used": "52,013"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:imperfecto.present-irregulars-regular",
+        "reviewerAnswer": "For the listed verbs: podía, quería, pensaba, jugaba, volvía, pedía, tenía, hacía, salía, decía.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A2-05-L2",
+        "reviewerAnswer": "Regular -er/-ir imperfect endings are -ía, -ías, -ía, -íamos, -íais, -ían. The listed present-tense stem changes disappear. The basic irregular models are ser, ir and ver; derivatives can inherit their irregularity.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s2].blocks[0].text: \"Усі інші дієслова правильні, навіть ті, що змінюються в теперішньому часі: основу беремо з інфінітива.\"",
+        "defect": "This categorical claim extends beyond the three basic irregular models and overlooks derivatives of ver. For example, prever has preveía, whereas removing -er and adding -ía would produce incorrect *prevía. The displayed examples themselves are correct.",
+        "correction": "Describe ser, ir and ver as the three basic irregular models, acknowledge that derivatives can inherit their irregularity, and restrict the infinitive-stem rule to regular imperfect forms. Use the same qualification in the summary.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «prever»: conjugation follows ver (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T06",
+        "reviewerAnswer": "Antes yo vivía cerca del parque y mi hermana corría allí todos los días.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T10",
+        "reviewerAnswer": "Antes, en la universidad, mi amiga leía mucho y yo escribía muy poco.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T16",
+        "reviewerAnswer": "Antes vosotros vivíais encima de la tienda y vuestros padres la abrían a las nueve.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T20",
+        "reviewerAnswer": "Antes, en la universidad, nosotros leíamos muchos libros y vosotros escribíais mucho.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T23",
+        "reviewerAnswer": "jugaban",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T25",
+        "reviewerAnswer": "hacía",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T26",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T29",
+        "reviewerAnswer": "tenías",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-05-L2-T31",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly asks for the most natural reading. Continuing with the sister as subject is the preferred interpretation; grammatical possibility of a narrator reference does not invalidate that question."
+      },
+      {
+        "caseId": "material:material.a2-05.er-ir-paradigm",
+        "reviewerAnswer": "The regular endings are -ía, -ías, -ía, -íamos, -íais, -ían, with a written accent on í throughout. The displayed comer, vivir and tener paradigms and the seven present/imperfect pairs are correct.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "imperfecto.present-irregulars-regular",
+      "contentHash": "037f904bb58e1408f031e6d1effae3e604101ece047db7d3dc65ff3784989769",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:imperfecto.present-irregulars-regular",
+      "verdict": "valid",
+      "reviewerAnswer": "For the listed verbs: podía, quería, pensaba, jugaba, volvía, pedía, tenía, hacía, salía, decía.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A2-05-L2",
+      "contentHash": "d931be642af5f2590c17472ac917d2e8e340af74f6796db4f54219a47a67644b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s2].blocks[0].text: \"Усі інші дієслова правильні, навіть ті, що змінюються в теперішньому часі: основу беремо з інфінітива.\"",
+          "description": "This categorical claim extends beyond the three basic irregular models and overlooks derivatives of ver. For example, prever has preveía, whereas removing -er and adding -ía would produce incorrect *prevía. The displayed examples themselves are correct.",
+          "suggestion": "Describe ser, ir and ver as the three basic irregular models, acknowledge that derivatives can inherit their irregularity, and restrict the infinitive-stem rule to regular imperfect forms. Use the same qualification in the summary."
+        }
+      ],
+      "caseId": "lesson:A2-05-L2",
+      "verdict": "flawed",
+      "reviewerAnswer": "Regular -er/-ir imperfect endings are -ía, -ías, -ía, -íamos, -íais, -ían. The listed present-tense stem changes disappear. The basic irregular models are ser, ir and ver; derivatives can inherit their irregularity.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «prever»: conjugation follows ver (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T06",
+      "contentHash": "f96d1f19378d75386179e76e052242207f43504219703586ef54aba32a0a16ea",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "Antes yo vivía cerca del parque y mi hermana corría allí todos los días.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T10",
+      "contentHash": "5d7aa7f51cccbf1f589117e352fa62e8d7aec507b6cdc060b988c24188a4eae2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "Antes, en la universidad, mi amiga leía mucho y yo escribía muy poco.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T16",
+      "contentHash": "008949580ab7901eef5b4ced95a883588498d3f47ea4d00518a02330f5e598f4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "Antes vosotros vivíais encima de la tienda y vuestros padres la abrían a las nueve.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T20",
+      "contentHash": "3065585f5e4a5fbdcb15fbbc535caac9287fe34c3225e0d2861ecee4d58ceecb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "Antes, en la universidad, nosotros leíamos muchos libros y vosotros escribíais mucho.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T23",
+      "contentHash": "7d1fd58c51b32be50cae0f1254dff492c47bc2ee2d1ab87d9ff2a8664ee31e32",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "jugaban",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T25",
+      "contentHash": "08a0aff5156cbd784d99f2bbbd8165586e3c69be4e6be8605bd8054090bb0489",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "hacía",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T26",
+      "contentHash": "fc277360961d4387d1fb8c57bcfea4d4f0c5387ec92f5fff5bafaf61a4ab656e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T29",
+      "contentHash": "531165df6a52cf400c598bdd53a326f4ae59476da7c76d59da7b3ae2bda3842e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "tenías",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L2-T31",
+      "contentHash": "a49a6c98360016278d66d5bfef2c3a05d239d6369aafb20296a1cb0bc2ff361d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-05-L2-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "The prompt explicitly asks for the most natural reading. Continuing with the sister as subject is the preferred interpretation; grammatical possibility of a narrator reference does not invalidate that question.",
+      "sources": []
+    },
+    {
+      "kind": "material",
+      "logicalId": "material.a2-05.er-ir-paradigm",
+      "contentHash": "df7a7d652cc4a340c4dc4f572932637971eb216843e87c6409deb3da62d6d71d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "material:material.a2-05.er-ir-paradigm",
+      "verdict": "valid",
+      "reviewerAnswer": "The regular endings are -ía, -ías, -ía, -íamos, -íais, -ían, with a written accent on í throughout. The displayed comer, vivir and tener paradigms and the seven present/imperfect pairs are correct.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
