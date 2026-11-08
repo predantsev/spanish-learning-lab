@@ -144,12 +144,12 @@ k.choice({
   fam: 'a104.home',
   t: [LSC],
   ins: 'Це остання дія вечора. Обери слово, яке підходить.',
-  p: ['___ leo un libro.'],
+  p: ['___ escucho música.'],
   o: [
     ['Primero', LSC, '«Primero» — для першої дії.'],
     ['Por último', true],
   ],
-  tr: 'Наостанок я читаю книжку.',
+  tr: 'Наостанок я слухаю музику.',
 });
 k.choice({
   n: 13,

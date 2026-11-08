@@ -8,7 +8,7 @@ export const RULES: Record<string, string> = {
     'Дієслова на -ar у множині: nosotros -amos (hablamos), vosotros -áis зі знаком наголосу (habláis), ellos / ellas / ustedes -an (hablan).',
   'prep.con.company': '«Разом із кимось» — con + людина: Ceno con mi familia. Hablo con Ana. Після con іменник чи ім’я не змінюється.',
   'listening.daily-actions':
-    'Закінчення дієслова підказує, хто виконує дію: -o — «я», -amos / -emos / -imos — «ми», -an / -en — «вони». Спершу знайди дію, потім — хто її виконує.',
+    'Закінчення дієслова підказує, хто виконує дію: -o — «я», -amos / -emos / -imos — «ми», -an / -en — «вони» або ustedes (ввічливе «Ви» до кількох людей): хто саме, підкаже підмет чи контекст. Спершу знайди дію, потім — хто її виконує.',
   // A1-04-L2
   'present.regular-er':
     'Дієслова на -er в однині: відкинь -er і додай закінчення особи — yo -o (como), tú -es (comes), él / ella / usted -e (come).',
