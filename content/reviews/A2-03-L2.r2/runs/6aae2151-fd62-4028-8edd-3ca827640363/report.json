@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-03-L2.r2",
+  "packetHash": "0823e65f5cb2b43e0c9d9b745c3f7bee6935fbb79f01266e9ce3bb19de711180",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "9dbb05c31283921775d24825ff1958ed3dab735d9cde153496a8f28294dbd461",
+    "reviewerPacketSha256": "34905b6bb9ab53d5a8e5d6eafa9b4651760074f28e7dd3dde00dfa5dec834582",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aTzl0i/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aTzl0i/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aTzl0i/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aTzl0i/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aTzl0i/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc99-ba28-7423-85a8-cbc0ac3768f9",
+        "version": "v0.166.0",
+        "tokens used": "25,711"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:contrast.gerund-participle",
+        "reviewerAnswer": "Estoy comiendo uses estar + gerund for an action in progress; He comido uses haber + participle for having eaten.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-03-L2-T23",
+        "reviewerAnswer": "hablando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-03-L2-T27",
+        "reviewerAnswer": "a (comiendo)",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "contrast.gerund-participle",
+      "contentHash": "aa4d57a9092d2e5faed8bc52454a7fac5d3dcbf3c5490f5422183b08a68df486",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:contrast.gerund-participle",
+      "verdict": "valid",
+      "reviewerAnswer": "Estoy comiendo uses estar + gerund for an action in progress; He comido uses haber + participle for having eaten.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-03-L2-T23",
+      "contentHash": "a11b852eefb6397db5ea124e3d3f57151cb01612482dcb18fd51660a8d4a3887",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-03-L2-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "hablando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-03-L2-T27",
+      "contentHash": "f37a636cc64f3a98afc3bc194af6be060bb69b320d809ba447930b33e057b237",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-03-L2-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "a (comiendo)",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
