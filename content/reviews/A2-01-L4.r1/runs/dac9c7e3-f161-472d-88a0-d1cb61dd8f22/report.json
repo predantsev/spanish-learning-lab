@@ -1,0 +1,1153 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-01-L4.r1",
+  "packetHash": "b7d191a22da96d8f210191a0702aa30e728dbc2c5b7eff19068dfae6bc1b632b",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "f136a264de76eba28d75b0c76eaefd21f99fc4cc52c95a8a8cadf89472e537fd",
+    "reviewerPacketSha256": "288fb8f82683dc8420e182e16190538b534f64704bae06b4a833e2831acb0fc9",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-TurQQO/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-TurQQO/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-TurQQO/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-TurQQO/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-TurQQO/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bca6-1fb2-7c73-824a-fc7990e942ae",
+        "version": "v0.166.0",
+        "tokens used": "120,357"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:contrast.present-progressive",
+        "reviewerAnswer": "General habits normally use the simple present. Estar + gerundio presents ongoing activity, including activity during a limited period. The simple present can also describe current actions.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The variant policy should require an unambiguous aspectual context before enforcing a single form; habitual wording alone does not necessarily provide one."
+      },
+      {
+        "caseId": "skill:listening.ongoing-actions",
+        "reviewerAnswer": "Identify current actions and routines from the meaning of the whole utterance.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The parenthetical tense examples are useful prototypes, provided they are not treated as an exclusive tense-to-meaning test."
+      },
+      {
+        "caseId": "skill:progressive.estar-gerund",
+        "reviewerAnswer": "Use the appropriate present form of estar followed by an invariant gerund. In the illustrated sentences, no precedes estar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "For clarity, scope.noteUk could specify unstressed object/reflexive pronouns instead of the unrestricted «Займенники»."
+      },
+      {
+        "caseId": "lexeme:lex.ahora-mismo",
+        "reviewerAnswer": "«Ahora mismo» means right now or at this very moment.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.en-este-momento",
+        "reviewerAnswer": "«En este momento» means at this moment or now.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.mama",
+        "reviewerAnswer": "«Mamá» means mum; the corresponding Ukrainian direct address is «мамо».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The usage label describes the use introduced here; it need not imply that mamá occurs only in direct address."
+      },
+      {
+        "caseId": "lesson:A2-01-L4",
+        "reviewerAnswer": "Estar + gerundio expresses ongoing activity. The simple present commonly expresses general habits, but the progressive can also describe temporary routines or repeated ongoing situations.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s3].blocks[2].text: «А от про звичку estar + герундій не підходить.»; content.body.steps[id=s8].blocks[0].items[3]: «Про «зараз» часто підходять обидві форми; про звичку — лише простий теперішній.»",
+        "defect": "Both passages categorically exclude habitual uses of the progressive. Spanish permits repeated or habitual situations presented as ongoing, especially temporary routines, as in «Últimamente estoy trabajando los sábados».",
+        "correction": "Explain that the simple present is the usual unmarked choice for general habits, while estar + gerundio can highlight the temporary or ongoing character of repeated activity. Remove both categorical exclusions.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, discussion of estar + gerundio and habitual/iterative interpretations (from memory).",
+          "Course contract, rule 8; review duties concerning false rules and misleading simplifications."
+        ],
+        "notes": "The lesson's acknowledgment that both forms can describe current actions is correct."
+      },
+      {
+        "caseId": "task:A2-01-L4-T01",
+        "reviewerAnswer": "está cocinando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T02",
+        "reviewerAnswer": "están durmiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The explicit instruction to produce estar + gerundio justifies treating duermen as noncompliant with this construction exercise."
+      },
+      {
+        "caseId": "task:A2-01-L4-T03",
+        "reviewerAnswer": "estás haciendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T04",
+        "reviewerAnswer": "estoy leyendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The -yendo hint would be clearer if explicitly restricted to the relevant -er/-ir gerund pattern."
+      },
+      {
+        "caseId": "task:A2-01-L4-T05",
+        "reviewerAnswer": "está sirviendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, «comida», senses covering food and the principal midday meal (from memory)."
+        ],
+        "notes": "«Обід» uses an established Peninsular meaning of comida. «Їжу» would preserve the broader reading without selecting a particular meal."
+      },
+      {
+        "caseId": "task:A2-01-L4-T06",
+        "reviewerAnswer": "está escribiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T07",
+        "reviewerAnswer": "estáis oyendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The -yendo hint could explicitly name its -er/-ir scope. «Estáis oyendo» is acceptable Spanish."
+      },
+      {
+        "caseId": "task:A2-01-L4-T08",
+        "reviewerAnswer": "está durmiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The reply is a natural conversational response even though it supplies Pablo's activity rather than a precise location."
+      },
+      {
+        "caseId": "task:A2-01-L4-T09",
+        "reviewerAnswer": "estamos pidiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T10",
+        "reviewerAnswer": "están durmiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T11",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T12",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T21",
+        "reviewerAnswer": "a is the neutral general-habit answer. b can describe a current recurring arrangement or activity underway on Saturdays; both fit different readings.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: «Los sábados ___ al fútbol con mis amigos.»; task.options[id=b].label: «estoy jugando» and feedbackUk: «Los sábados — регулярна дія, звичка: тут потрібен простий теперішній.»",
+        "defect": "Los sábados establishes recurrence but does not determine the aspectual perspective. The packet does not exclude a temporary recurring arrangement or a repeated ongoing situation, under which the progressive is possible.",
+        "correction": "Specify the intended aspectual reading, or accept both forms with explanations of their readings. Do not derive a unique simple-present answer from Los sábados alone.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio with habitual/iterative interpretations (from memory).",
+          "Packet verdict definition: use uncertain when different reasonable readings are not resolved by the context."
+        ],
+        "notes": "This concerns the form-choice key; the supported role permits the visible guidance."
+      },
+      {
+        "caseId": "task:A2-01-L4-T22",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "In this greeting dialogue, a naturally answers the question about the current activity. The distractor changes the message to an everyday routine."
+      },
+      {
+        "caseId": "task:A2-01-L4-T23",
+        "reviewerAnswer": "a for a general statement about his usual employment; b is possible when describing his normally ongoing activity. The intended perspective is not fully fixed.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: «Normalmente mi padre ___ en un banco, pero esta semana está de vacaciones.»; task.options[id=b].label: «está trabajando» and feedbackUk: «Normalmente — звичка: тут потрібен простий теперішній.»",
+        "defect": "Normalmente can modify an ongoing situation as well as an unmarked habitual present. The holiday contrast favors trabaja but does not make está trabajando categorically unacceptable.",
+        "correction": "Clarify that the task asks for the unmarked statement of his usual employment, or allow both readings and revise the feedback.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, habitual/iterative interpretations of estar + gerundio (from memory).",
+          "Packet verdict definition concerning underdetermined readings."
+        ],
+        "notes": "The simple present is the more neutral choice here; preference alone does not establish that the alternative is incorrect."
+      },
+      {
+        "caseId": "task:A2-01-L4-T24",
+        "reviewerAnswer": "a directly describes Pablo's current activity. b can explain his whereabouts through his Sunday routine if today is Sunday.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: «—¿Dónde está Pablo? —En el parque: …»; task.options[id=b].label: «juega con el perro los domingos.» and feedbackUk: «Los domingos — звичка, а питають, де Пабло зараз і що робить.»",
+        "defect": "The question asks where Pablo is, and En el parque already answers it. A habitual clause can then explain that location on a Sunday. The day is unspecified, and the question does not explicitly ask what he is doing.",
+        "correction": "Ask explicitly for Pablo's activity at the moment of speaking and state that the continuation must report that activity, or allow the explanatory routine reading.",
+        "sources": [
+          "Packet, task.prompt[1] and task.options[id=b].",
+          "Packet verdict definition concerning missing context and alternative reasonable readings.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, habitual uses of the present indicative (from memory)."
+        ],
+        "notes": "Option a is the most immediate continuation, but the supplied context does not exclude b's explanatory function."
+      },
+      {
+        "caseId": "task:A2-01-L4-T25",
+        "reviewerAnswer": "a states the usual dinner time; b says dinner is in progress at nine every day. Both readings are possible.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: «En mi casa ___ a las nueve todos los días.»; task.options[id=b].label: «estamos cenando» and feedbackUk: «Todos los días — звичка: тут потрібен простий теперішній.»",
+        "defect": "The combination of a reference time and daily recurrence permits the progressive: dinner can be underway at nine each day. The prompt does not specify whether nine is the usual meal time or a point during the meal.",
+        "correction": "Specify the intended temporal perspective, or accept both forms with feedback distinguishing the two readings.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio, reference-time interpretation and repeated situations (from memory).",
+          "Packet verdict definition concerning underdetermined readings."
+        ],
+        "notes": "Todos los días does not independently exclude a progressive construction."
+      },
+      {
+        "caseId": "task:A2-01-L4-T26",
+        "reviewerAnswer": "a is strongly favored for an action underway while writing. b is possible if ahora mismo refers to the speaker's current routine or arrangements.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: «¡Hola, Marta! Ahora mismo ___ con mis padres. Hablamos más tarde.»; task.options[id=b].label: «ceno los sábados» and its incorrect outcome.",
+        "defect": "Ahora mismo can refer to current circumstances over a broader period. On that reading, the speaker currently has Saturday dinners with their parents. Hablamos más tarde favors the immediate-action interpretation but does not explicitly establish it.",
+        "correction": "State that the message reports a single action underway at the instant of writing, or revise the options and feedback to accommodate the current-routine reading.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, present-time reference extending beyond the instant of speech (from memory).",
+          "Packet verdict definition concerning underdetermined temporal readings."
+        ],
+        "notes": "The intended answer is clear as a preference; the uncertainty concerns categorical rejection of the broader temporal reading."
+      },
+      {
+        "caseId": "task:A2-01-L4-T27",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T28",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T29",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The feminine Ukrainian pronoun in the feedback can agree grammatically with «людина»; it does not establish the Spanish speaker's gender."
+      },
+      {
+        "caseId": "task:A2-01-L4-T31",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt supplies vocabulary glosses without exposing the clip's answer."
+      },
+      {
+        "caseId": "task:A2-01-L4-T32",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T33",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T34",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T35",
+        "reviewerAnswer": "a",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "context.taughtBefore does not document «leer → leyendo»; clips[0].transcript contains the decisive phrase «mi hermana está leyendo en el sofá».",
+        "defect": "The correct answer depends on interpreting leyendo. This case documents regular -iendo gerunds and the present forms leo, lees, lee, but does not confirm prior teaching of the -yendo form needed here.",
+        "correction": "Confirm and record earlier teaching of leer → leyendo. If it has not been taught, introduce it before this listening assessment.",
+        "sources": [
+          "Course contract, rule 1, including its instruction to use uncertain when an unconfirmed prerequisite affects the answer.",
+          "Packet, this case's context.taughtBefore and clips[0].transcript.",
+          "RAE/ASALE, Diccionario de la lengua española, «leer», conjugation table, gerund leyendo (from memory)."
+        ],
+        "notes": "The transcript, translation and answer key are otherwise consistent. The uncertainty concerns the mapped prerequisite."
+      },
+      {
+        "caseId": "task:A2-01-L4-T36",
+        "reviewerAnswer": "En casa todos están ocupados. Mi padre está cocinando, mi hermana está leyendo en el sofá y el perro está durmiendo. Y yo estoy escuchando música.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "context.taughtBefore does not document «leer → leyendo»; task.accepted and clips[0].transcript require the spelling «leyendo».",
+        "defect": "Successful dictation requires the vowel-stem -yendo spelling. The mapped prerequisites show regular -iendo forms but do not confirm this particular gerund pattern.",
+        "correction": "Confirm and map prior instruction in leer → leyendo, or teach that spelling before assigning the dictation.",
+        "sources": [
+          "Course contract, rule 1.",
+          "Packet, this case's context.taughtBefore, task.accepted and clips[0].transcript.",
+          "RAE/ASALE, Diccionario de la lengua española, «leer», conjugation table, gerund leyendo (from memory)."
+        ],
+        "notes": "Both accepted punctuation variants are sound. With closed=false, other reasonable internal punctuation can remain unresolved; the accent feedback uses correct Ukrainian terminology."
+      },
+      {
+        "caseId": "clip:clip.a2-01.l4.home-busy",
+        "reviewerAnswer": "The father is cooking, the sister is reading on the sofa, the dog is sleeping, and the speaker is listening to music.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "content.body.transcript: «mi hermana está leyendo en el sofá»; content.body.targets includes dictation, while context.taughtBefore does not document «leer → leyendo».",
+        "defect": "The Spanish and Ukrainian text are correct, but readiness for the assigned assessment uses is unconfirmed: the mapped prerequisites omit the -yendo form, whose spelling is required for dictation.",
+        "correction": "Confirm that leer → leyendo is taught before the clip's assessed uses and include that prerequisite in the mapping; otherwise teach it first.",
+        "sources": [
+          "Course contract, rule 1.",
+          "Packet, this case's context.taughtBefore, content.body.transcript and content.body.targets.",
+          "RAE/ASALE, Diccionario de la lengua española, «leer», conjugation table, gerund leyendo (from memory)."
+        ],
+        "notes": "No change to the transcript or translation is needed. Audio realization was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a2-01.l4.office-message",
+        "reviewerAnswer": "Marta is working with the new computer in the office. She usually leaves at three, but today she leaves at five.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text-only review; pronunciation and duration were not assessed."
+      },
+      {
+        "caseId": "clip:clip.a2-01.l4.phone-train",
+        "reviewerAnswer": "The speaker is studying on the train, usually studies at home in the afternoon, and works until six today.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text-only review; pronunciation and duration were not assessed."
+      },
+      {
+        "caseId": "phrase:phrase.estoy-trabajando",
+        "reviewerAnswer": "Estoy trabajando.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The phrase and translation agree. No closed rejection policy is supplied for unlisted recall variants."
+      },
+      {
+        "caseId": "material:material.a2-01.estar-gerund",
+        "reviewerAnswer": "The estar forms are estoy, estás, está, estamos, estáis and están. The accompanying gerunds are correctly formed, and the examples distinguish a general habit from ongoing activity.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The paragraph gives useful default associations without explicitly making the lesson's incorrect categorical exclusion of habitual progressive uses."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "contrast.present-progressive",
+      "contentHash": "7a17aee256135452ca36fa6eb068ac5d85f7a4f0ee9bbcfd1d5c2142b8bcc66e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:contrast.present-progressive",
+      "verdict": "valid",
+      "reviewerAnswer": "General habits normally use the simple present. Estar + gerundio presents ongoing activity, including activity during a limited period. The simple present can also describe current actions.",
+      "notes": "The variant policy should require an unambiguous aspectual context before enforcing a single form; habitual wording alone does not necessarily provide one.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "listening.ongoing-actions",
+      "contentHash": "1dd8a7319b02d1d455ec5ef4dbf773013dc609d09902bdf0770a6cf19f3c4a2d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:listening.ongoing-actions",
+      "verdict": "valid",
+      "reviewerAnswer": "Identify current actions and routines from the meaning of the whole utterance.",
+      "notes": "The parenthetical tense examples are useful prototypes, provided they are not treated as an exclusive tense-to-meaning test.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "progressive.estar-gerund",
+      "contentHash": "157278f36a60d485317a4820fa8f50fd93a3b509dd402d6b3fee70b0c531f287",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:progressive.estar-gerund",
+      "verdict": "valid",
+      "reviewerAnswer": "Use the appropriate present form of estar followed by an invariant gerund. In the illustrated sentences, no precedes estar.",
+      "notes": "For clarity, scope.noteUk could specify unstressed object/reflexive pronouns instead of the unrestricted «Займенники».",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ahora-mismo",
+      "contentHash": "f351741b74d184ac72b5b876d5417d6e2a896e8e174d9a30174f209692542e85",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ahora-mismo",
+      "verdict": "valid",
+      "reviewerAnswer": "«Ahora mismo» means right now or at this very moment.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.en-este-momento",
+      "contentHash": "536f4bda6f9432cafd8de88f9c2501b1a3bd151f1150d504d60451018aebf07c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.en-este-momento",
+      "verdict": "valid",
+      "reviewerAnswer": "«En este momento» means at this moment or now.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.mama",
+      "contentHash": "385028448726cf1e8bccae4f7cce519064303285c9b60e00ec080e34754f2484",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.mama",
+      "verdict": "valid",
+      "reviewerAnswer": "«Mamá» means mum; the corresponding Ukrainian direct address is «мамо».",
+      "notes": "The usage label describes the use introduced here; it need not imply that mamá occurs only in direct address.",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A2-01-L4",
+      "contentHash": "4ee77101e74133131ed1fa0a771ed6f7e4fb1464cad2e9abce08af7f5090d710",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[2].text: «А от про звичку estar + герундій не підходить.»; content.body.steps[id=s8].blocks[0].items[3]: «Про «зараз» часто підходять обидві форми; про звичку — лише простий теперішній.»",
+          "description": "Both passages categorically exclude habitual uses of the progressive. Spanish permits repeated or habitual situations presented as ongoing, especially temporary routines, as in «Últimamente estoy trabajando los sábados».",
+          "suggestion": "Explain that the simple present is the usual unmarked choice for general habits, while estar + gerundio can highlight the temporary or ongoing character of repeated activity. Remove both categorical exclusions."
+        }
+      ],
+      "caseId": "lesson:A2-01-L4",
+      "verdict": "flawed",
+      "reviewerAnswer": "Estar + gerundio expresses ongoing activity. The simple present commonly expresses general habits, but the progressive can also describe temporary routines or repeated ongoing situations.",
+      "notes": "The lesson's acknowledgment that both forms can describe current actions is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, discussion of estar + gerundio and habitual/iterative interpretations (from memory).",
+        "Course contract, rule 8; review duties concerning false rules and misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T01",
+      "contentHash": "ce22e0891295e75556b02fb89fb4bf9eee7c655ea3c6bd064965cf670e4f6189",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "está cocinando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T02",
+      "contentHash": "1e60f0db68972398df3c1510f6bf6921d5d51c6555b123d8538733462d6760de",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "están durmiendo",
+      "notes": "The explicit instruction to produce estar + gerundio justifies treating duermen as noncompliant with this construction exercise.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T03",
+      "contentHash": "5fd87811ba2ebc71ff8816f1c8ee8d02d9b97de7a2afdcc8a96a30bbbd7f7a13",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "estás haciendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T04",
+      "contentHash": "50b05b2bc6c4caa58eaf4eeacec687d1d697b9e23a43e51e2651259ab09b145d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "estoy leyendo",
+      "notes": "The -yendo hint would be clearer if explicitly restricted to the relevant -er/-ir gerund pattern.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T05",
+      "contentHash": "132457b00c6ac836d441cf18a197b4c1efd6b4bd27c3d4f1fd091e6c91477df6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "está sirviendo",
+      "notes": "«Обід» uses an established Peninsular meaning of comida. «Їжу» would preserve the broader reading without selecting a particular meal.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, «comida», senses covering food and the principal midday meal (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T06",
+      "contentHash": "d8970461813ffdd7e0f9f53944d1f0676c6601ea4eacfcb2d55310afed46281d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "está escribiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T07",
+      "contentHash": "a15236f54ae95ff7e1d3e64e425caee084dcb93aaa210ce019de1ce6be85d7b5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "estáis oyendo",
+      "notes": "The -yendo hint could explicitly name its -er/-ir scope. «Estáis oyendo» is acceptable Spanish.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T08",
+      "contentHash": "39e44bf2a874e09a333cbdb05cf0a0a1db0335da4caf841d9069e40bc49f470c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "está durmiendo",
+      "notes": "The reply is a natural conversational response even though it supplies Pablo's activity rather than a precise location.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T09",
+      "contentHash": "d199a052fb13c5212c87284fce05b2c75cb15ec3d28586e01612e908b07ae165",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "estamos pidiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T10",
+      "contentHash": "4856635e864538e716a4cda9917afaf2d523397264b38b3865319d4eee45a2ed",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "están durmiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T11",
+      "contentHash": "b98746c76193332823535131cc2c3eb124416bf8d7040150d3c6152f6fa60b7d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T12",
+      "contentHash": "0e5ebdb4ed5c83e1564fa436eef3fd31b140f778e327608f63b7c8b334b254db",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T21",
+      "contentHash": "23d51bbe03794049d414feeb825864ed1541c6b5df3fdf314e5a8b888b03b064",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «Los sábados ___ al fútbol con mis amigos.»; task.options[id=b].label: «estoy jugando» and feedbackUk: «Los sábados — регулярна дія, звичка: тут потрібен простий теперішній.»",
+          "description": "Los sábados establishes recurrence but does not determine the aspectual perspective. The packet does not exclude a temporary recurring arrangement or a repeated ongoing situation, under which the progressive is possible.",
+          "suggestion": "Specify the intended aspectual reading, or accept both forms with explanations of their readings. Do not derive a unique simple-present answer from Los sábados alone."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T21",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the neutral general-habit answer. b can describe a current recurring arrangement or activity underway on Saturdays; both fit different readings.",
+      "notes": "This concerns the form-choice key; the supported role permits the visible guidance.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio with habitual/iterative interpretations (from memory).",
+        "Packet verdict definition: use uncertain when different reasonable readings are not resolved by the context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T22",
+      "contentHash": "5eea2cce5a12f9b07d1639a04308b68c72b0c80028d98096b04ef79493016279",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "In this greeting dialogue, a naturally answers the question about the current activity. The distractor changes the message to an everyday routine.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T23",
+      "contentHash": "1fb975f6c116c811d783e1977c61f60df2eb77d12ac5ea344c7f1dfa92708138",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «Normalmente mi padre ___ en un banco, pero esta semana está de vacaciones.»; task.options[id=b].label: «está trabajando» and feedbackUk: «Normalmente — звичка: тут потрібен простий теперішній.»",
+          "description": "Normalmente can modify an ongoing situation as well as an unmarked habitual present. The holiday contrast favors trabaja but does not make está trabajando categorically unacceptable.",
+          "suggestion": "Clarify that the task asks for the unmarked statement of his usual employment, or allow both readings and revise the feedback."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T23",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a for a general statement about his usual employment; b is possible when describing his normally ongoing activity. The intended perspective is not fully fixed.",
+      "notes": "The simple present is the more neutral choice here; preference alone does not establish that the alternative is incorrect.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, habitual/iterative interpretations of estar + gerundio (from memory).",
+        "Packet verdict definition concerning underdetermined readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T24",
+      "contentHash": "956eaf4ef0c4d545c429f48600004188684e7495b732a5b96594ce7b9a3a6247",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «—¿Dónde está Pablo? —En el parque: …»; task.options[id=b].label: «juega con el perro los domingos.» and feedbackUk: «Los domingos — звичка, а питають, де Пабло зараз і що робить.»",
+          "description": "The question asks where Pablo is, and En el parque already answers it. A habitual clause can then explain that location on a Sunday. The day is unspecified, and the question does not explicitly ask what he is doing.",
+          "suggestion": "Ask explicitly for Pablo's activity at the moment of speaking and state that the continuation must report that activity, or allow the explanatory routine reading."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T24",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a directly describes Pablo's current activity. b can explain his whereabouts through his Sunday routine if today is Sunday.",
+      "notes": "Option a is the most immediate continuation, but the supplied context does not exclude b's explanatory function.",
+      "sources": [
+        "Packet, task.prompt[1] and task.options[id=b].",
+        "Packet verdict definition concerning missing context and alternative reasonable readings.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, habitual uses of the present indicative (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T25",
+      "contentHash": "daf05c321b06c62d39bf28f7705b6efd80515bea5b2e5ebb628ceef302295c23",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «En mi casa ___ a las nueve todos los días.»; task.options[id=b].label: «estamos cenando» and feedbackUk: «Todos los días — звичка: тут потрібен простий теперішній.»",
+          "description": "The combination of a reference time and daily recurrence permits the progressive: dinner can be underway at nine each day. The prompt does not specify whether nine is the usual meal time or a point during the meal.",
+          "suggestion": "Specify the intended temporal perspective, or accept both forms with feedback distinguishing the two readings."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T25",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a states the usual dinner time; b says dinner is in progress at nine every day. Both readings are possible.",
+      "notes": "Todos los días does not independently exclude a progressive construction.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio, reference-time interpretation and repeated situations (from memory).",
+        "Packet verdict definition concerning underdetermined readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T26",
+      "contentHash": "89cebe7cc39fc9111d2c236dd3df6ef37e158d31b93acf5e1d0c5045fae5754d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «¡Hola, Marta! Ahora mismo ___ con mis padres. Hablamos más tarde.»; task.options[id=b].label: «ceno los sábados» and its incorrect outcome.",
+          "description": "Ahora mismo can refer to current circumstances over a broader period. On that reading, the speaker currently has Saturday dinners with their parents. Hablamos más tarde favors the immediate-action interpretation but does not explicitly establish it.",
+          "suggestion": "State that the message reports a single action underway at the instant of writing, or revise the options and feedback to accommodate the current-routine reading."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T26",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is strongly favored for an action underway while writing. b is possible if ahora mismo refers to the speaker's current routine or arrangements.",
+      "notes": "The intended answer is clear as a preference; the uncertainty concerns categorical rejection of the broader temporal reading.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, present-time reference extending beyond the instant of speech (from memory).",
+        "Packet verdict definition concerning underdetermined temporal readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T27",
+      "contentHash": "a282ed0411afbf55f2c619f82ad8ca114fa04fdc9ccb73438cddae586dd54ca5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T28",
+      "contentHash": "db651b6eb514e79a23e19129dec2fc14500344caa95b1bb6ee64f7747cb20af4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T29",
+      "contentHash": "7ce2b0881f69f45970aea58c53900cf986a7e0804ec71b30ee2f3406321d235e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The feminine Ukrainian pronoun in the feedback can agree grammatically with «людина»; it does not establish the Spanish speaker's gender.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T31",
+      "contentHash": "93c48138e3131f67aefc34d59671d40592da9b588aa31f5eceb7e21e2b2286c5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The prompt supplies vocabulary glosses without exposing the clip's answer.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T32",
+      "contentHash": "8a18f4c3b7b8af592ffa8e082fffeb8c2bc9ea618604e8ecfab0aed4e77e0ee3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T33",
+      "contentHash": "ff03021c40602a673d297cb05ba57d19c723423f3acfaa30dc71b9fb37c29f98",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T34",
+      "contentHash": "83f4f5cb05d11d3dee0264fae8a3f6db797c39e58a100a0c5f311de614907bc4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T35",
+      "contentHash": "5e9b1f867867928f1e0ff821b88419afe81c71d5ff48252e401720470780f515",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "context.taughtBefore does not document «leer → leyendo»; clips[0].transcript contains the decisive phrase «mi hermana está leyendo en el sofá».",
+          "description": "The correct answer depends on interpreting leyendo. This case documents regular -iendo gerunds and the present forms leo, lees, lee, but does not confirm prior teaching of the -yendo form needed here.",
+          "suggestion": "Confirm and record earlier teaching of leer → leyendo. If it has not been taught, introduce it before this listening assessment."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T35",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a",
+      "notes": "The transcript, translation and answer key are otherwise consistent. The uncertainty concerns the mapped prerequisite.",
+      "sources": [
+        "Course contract, rule 1, including its instruction to use uncertain when an unconfirmed prerequisite affects the answer.",
+        "Packet, this case's context.taughtBefore and clips[0].transcript.",
+        "RAE/ASALE, Diccionario de la lengua española, «leer», conjugation table, gerund leyendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T36",
+      "contentHash": "42eb33e1110945df24e41bf3337e5650a4713e75b814fcf07b5af57cadfde5ac",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "context.taughtBefore does not document «leer → leyendo»; task.accepted and clips[0].transcript require the spelling «leyendo».",
+          "description": "Successful dictation requires the vowel-stem -yendo spelling. The mapped prerequisites show regular -iendo forms but do not confirm this particular gerund pattern.",
+          "suggestion": "Confirm and map prior instruction in leer → leyendo, or teach that spelling before assigning the dictation."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T36",
+      "verdict": "uncertain",
+      "reviewerAnswer": "En casa todos están ocupados. Mi padre está cocinando, mi hermana está leyendo en el sofá y el perro está durmiendo. Y yo estoy escuchando música.",
+      "notes": "Both accepted punctuation variants are sound. With closed=false, other reasonable internal punctuation can remain unresolved; the accent feedback uses correct Ukrainian terminology.",
+      "sources": [
+        "Course contract, rule 1.",
+        "Packet, this case's context.taughtBefore, task.accepted and clips[0].transcript.",
+        "RAE/ASALE, Diccionario de la lengua española, «leer», conjugation table, gerund leyendo (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a2-01.l4.home-busy",
+      "contentHash": "6fc33b8cbd1bf380d2e3c48d2ab0f2ccdfec3ae46612595ad1ccc2a02d433b6a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "content.body.transcript: «mi hermana está leyendo en el sofá»; content.body.targets includes dictation, while context.taughtBefore does not document «leer → leyendo».",
+          "description": "The Spanish and Ukrainian text are correct, but readiness for the assigned assessment uses is unconfirmed: the mapped prerequisites omit the -yendo form, whose spelling is required for dictation.",
+          "suggestion": "Confirm that leer → leyendo is taught before the clip's assessed uses and include that prerequisite in the mapping; otherwise teach it first."
+        }
+      ],
+      "caseId": "clip:clip.a2-01.l4.home-busy",
+      "verdict": "uncertain",
+      "reviewerAnswer": "The father is cooking, the sister is reading on the sofa, the dog is sleeping, and the speaker is listening to music.",
+      "notes": "No change to the transcript or translation is needed. Audio realization was not assessed.",
+      "sources": [
+        "Course contract, rule 1.",
+        "Packet, this case's context.taughtBefore, content.body.transcript and content.body.targets.",
+        "RAE/ASALE, Diccionario de la lengua española, «leer», conjugation table, gerund leyendo (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a2-01.l4.office-message",
+      "contentHash": "68281cc4dadd2c19ced3d560c0a873738b1a048042e42f9e2a0bf815f4f75b45",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a2-01.l4.office-message",
+      "verdict": "valid",
+      "reviewerAnswer": "Marta is working with the new computer in the office. She usually leaves at three, but today she leaves at five.",
+      "notes": "Text-only review; pronunciation and duration were not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a2-01.l4.phone-train",
+      "contentHash": "0eed7faa76a58055a86f6aad553ce8dddd9a395f5d0088e2ef646644cad8240a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a2-01.l4.phone-train",
+      "verdict": "valid",
+      "reviewerAnswer": "The speaker is studying on the train, usually studies at home in the afternoon, and works until six today.",
+      "notes": "Text-only review; pronunciation and duration were not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.estoy-trabajando",
+      "contentHash": "909a7bd8a21ad6e049e21af0e20a6af5ff44a20d4745281a55e57b6cb183eb98",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.estoy-trabajando",
+      "verdict": "valid",
+      "reviewerAnswer": "Estoy trabajando.",
+      "notes": "The phrase and translation agree. No closed rejection policy is supplied for unlisted recall variants.",
+      "sources": []
+    },
+    {
+      "kind": "material",
+      "logicalId": "material.a2-01.estar-gerund",
+      "contentHash": "497685844fe2b77d986e4c7d8ad70986fab00daa437d860b10c8064b771aa25f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "material:material.a2-01.estar-gerund",
+      "verdict": "valid",
+      "reviewerAnswer": "The estar forms are estoy, estás, está, estamos, estáis and están. The accompanying gerunds are correctly formed, and the examples distinguish a general habit from ongoing activity.",
+      "notes": "The paragraph gives useful default associations without explicitly making the lesson's incorrect categorical exclusion of habitual progressive uses.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

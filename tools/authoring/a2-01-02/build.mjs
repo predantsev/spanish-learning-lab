@@ -52,13 +52,16 @@ for (const id of available) {
   write(taskPath, { schemaVersion: 1, lessonId: id, tasks });
   console.log(`${id}: lesson + ${tasks.length} task(s)`);
 }
+const touched = new Set(ids.map((id) => id.slice(0, 5)));
 for (const [block, clips] of clipsByBlock) {
+  if (!touched.has(block)) continue;
   const path = join(SRC, 'audio', `${block}.json`);
   const old = new Map((readIfExists(path)?.clips ?? []).map((c) => [c.id, c]));
   write(path, { schemaVersion: 1, blockId: block, clips: clips.map((c) => keepStatus(c, old.get(c.id))) });
   console.log(`${block}: ${clips.length} clip(s)`);
 }
 for (const [block, materials] of materialsByBlock) {
+  if (!touched.has(block)) continue;
   const path = join(SRC, 'materials', `${block}.json`);
   const old = new Map((readIfExists(path)?.materials ?? []).map((m) => [m.id, m]));
   write(path, { schemaVersion: 1, blockId: block, materials: materials.map((m) => keepStatus(m, old.get(m.id))) });

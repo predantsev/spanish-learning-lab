@@ -23,6 +23,7 @@ const WHY = {
   unch: 'У формах nosotros і vosotros основа не змінюється.',
 };
 const diph = (form, change) => `Основа тут наголошена, тому потрібне чергування ${change}: ${form}.`;
+const num = (wrong, right, who) => `${wrong} — форма однини. Для «${who}» потрібна форма множини: ${right}.`;
 const person = (wrong, right, who) => `${wrong} — форма іншої особи. Для «${who}» потрібна форма ${right}.`;
 const noChange = (form) => `У формах nosotros і vosotros наголос падає на закінчення, тому основа не змінюється: ${form}.`;
 const accent = (form) => `Цю форму пишемо зі знаком наголосу: ${form}.`;
@@ -51,21 +52,21 @@ export const tasks = [
   // e → ie
   gap(L, { id: 'T01', role: 'supported', family: 'routine', t: EIE, ask: ASK_S, model: [['Mi hermano piensa mucho en sus vacaciones.', 'Мій брат багато думає про свою відпустку.']], es: 'La clase ___ (empezar) a las nueve.', uk: 'Заняття починається о дев’ятій.', a: 'empieza', err: [['empeza', diph('empieza', 'e → ie')], ['empiezo', person('Empiezo', 'empieza', 'la clase')]], rule: R.eie, why: WHY.eie }),
   gap(L, { id: 'T02', role: 'supported', family: 'food-cafe', t: EIE, ask: ASK_S, model: [['Quiero un café con leche.', 'Я хочу каву з молоком.']], es: 'Perdón, no ___ (entender, yo) la cuenta.', uk: 'Перепрошую, я не розумію рахунку.', a: 'entiendo', err: [['entendo', diph('entiendo', 'e → ie')]], rule: R.eie, why: WHY.eie }),
-  gap(L, { id: 'T03', role: 'independent', family: 'family-home', t: EIE, ask: ASK, es: 'Mis padres ___ (cerrar) la tienda a las ocho.', uk: 'Мої батьки зачиняють крамницю о восьмій.', a: 'cierran', err: [['cerran', diph('cierran', 'e → ie')], ['cierra', person('Cierra', 'cierran', 'mis padres')]], rule: R.eie, why: WHY.eie }),
+  gap(L, { id: 'T03', role: 'independent', family: 'family-home', t: EIE, ask: ASK, es: 'Mis padres ___ (cerrar) la tienda a las ocho.', uk: 'Мої батьки зачиняють крамницю о восьмій.', a: 'cierran', err: [['cerran', diph('cierran', 'e → ie')], ['cierra', num('Cierra', 'cierran', 'mis padres')]], rule: R.eie, why: WHY.eie }),
   gap(L, { id: 'T04', role: 'independent', family: 'routine', t: EIE, ask: ASK, es: '¿En qué ___ (pensar, tú)?', uk: 'Про що ти думаєш?', a: 'piensas', err: [['pensas', diph('piensas', 'e → ie')]], rule: R.eie, why: WHY.eie }),
   gap(L, { id: 'T05', role: 'independent', family: 'food-cafe', t: EIE, ask: ASK, es: '¿Usted ___ (preferir) té o café?', uk: 'Ви віддаєте перевагу чаю чи каві?', a: 'prefiere', err: [['prefere', diph('prefiere', 'e → ie')], ['prefieres', person('Prefieres', 'prefiere', 'usted')]], rule: R.eie, why: `${WHY.eie} Usted вживає форму 3-ї особи однини.` }),
-  gap(L, { id: 'T06', role: 'delayed', family: 'routine', t: EIE, ask: ASK, es: 'Las clases ___ (empezar) en septiembre.', uk: 'Заняття починаються у вересні.', a: 'empiezan', err: [['empezan', diph('empiezan', 'e → ie')], ['empieza', person('Empieza', 'empiezan', 'las clases')]], rule: R.eie, why: WHY.eie }),
-  gap(L, { id: 'T07', role: 'transfer', family: 'messages', t: EIE, ask: ASK_MSG, es: 'Hola, Pablo: ¿___ (querer, tú) ir al cine esta noche?', uk: 'Привіт, Пабло! Хочеш сьогодні ввечері піти в кіно?', a: 'quieres', err: [['queres', diph('quieres', 'e → ie')]], rule: R.eie, why: WHY.eie }),
+  gap(L, { id: 'T06', role: 'delayed', family: 'routine', t: EIE, ask: ASK, es: 'Las clases ___ (empezar) en septiembre.', uk: 'Заняття починаються у вересні.', a: 'empiezan', err: [['empezan', diph('empiezan', 'e → ie')], ['empieza', num('Empieza', 'empiezan', 'las clases')]], rule: R.eie, why: WHY.eie }),
+  gap(L, { id: 'T07', role: 'transfer', family: 'messages', t: EIE, ask: ASK_MSG, es: '¡Hola, Pablo! ¿___ (querer, tú) ir al cine esta noche?', uk: 'Привіт, Пабло! Хочеш сьогодні ввечері піти в кіно?', a: 'quieres', err: [['queres', diph('quieres', 'e → ie')]], rule: R.eie, why: WHY.eie }),
   gap(L, { id: 'T08', role: 'transfer', family: 'travel', t: EIE, ask: ASK, es: 'En el hotel siempre ___ (cerrar, yo) la puerta con llave.', uk: 'У готелі я завжди замикаю двері на ключ.', a: 'cierro', err: [['cerro', diph('cierro', 'e → ie')]], rule: R.eie, why: WHY.eie }),
 
   // o → ue
-  gap(L, { id: 'T11', role: 'supported', family: 'routine', t: OUE, ask: ASK_S, model: [['Mi hermano vuelve a casa a las seis.', 'Мій брат повертається додому о шостій.']], es: 'Los niños ___ (dormir) diez horas.', uk: 'Діти сплять десять годин.', a: 'duermen', err: [['dormen', diph('duermen', 'o → ue')], ['duerme', person('Duerme', 'duermen', 'los niños')]], rule: R.oue, why: WHY.oue }),
+  gap(L, { id: 'T11', role: 'supported', family: 'routine', t: OUE, ask: ASK_S, model: [['Mi hermano vuelve a casa a las seis.', 'Мій брат повертається додому о шостій.']], es: 'Los niños ___ (dormir) diez horas.', uk: 'Діти сплять десять годин.', a: 'duermen', err: [['dormen', diph('duermen', 'o → ue')], ['duerme', num('Duerme', 'duermen', 'los niños')]], rule: R.oue, why: WHY.oue }),
   gap(L, { id: 'T12', role: 'supported', family: 'shop', t: OUE, ask: ASK_S, model: [['¿Cuánto cuesta el pan?', 'Скільки коштує хліб?']], es: '¿Cuánto ___ (costar) los tomates?', uk: 'Скільки коштують помідори?', a: 'cuestan', err: [['costan', diph('cuestan', 'o → ue')], ['cuesta', 'Los tomates — множина, тому cuestan.']], rule: R.oue, why: WHY.oue }),
   gap(L, { id: 'T13', role: 'independent', family: 'routine', t: OUE, ask: ASK, es: 'No ___ (encontrar, yo) mis llaves.', uk: 'Не можу знайти свої ключі.', a: 'encuentro', err: [['encontro', diph('encuentro', 'o → ue')]], rule: R.oue, why: WHY.oue }),
   gap(L, { id: 'T14', role: 'independent', family: 'family-home', t: OUE, ask: ASK, es: 'Mi madre no ___ (recordar) mi número de móvil.', uk: 'Моя мама не пам’ятає мого номера мобільного.', a: 'recuerda', err: [['recorda', diph('recuerda', 'o → ue')]], rule: R.oue, why: WHY.oue }),
   gap(L, { id: 'T15', role: 'independent', family: 'free-time', t: OUE, ask: ASK, es: 'Hoy no ___ (poder, yo), lo siento.', uk: 'Сьогодні я не можу, вибач.', a: 'puedo', err: [['podo', diph('puedo', 'o → ue')], ['puede', person('Puede', 'puedo', 'yo')]], rule: R.oue, why: WHY.oue }),
   gap(L, { id: 'T16', role: 'delayed', family: 'routine', t: OUE, ask: ASK, es: '¿___ (dormir, tú) bien?', uk: 'Ти добре спиш?', a: 'duermes', err: [['dormes', diph('duermes', 'o → ue')]], rule: R.oue, why: WHY.oue }),
-  gap(L, { id: 'T17', role: 'transfer', family: 'messages', t: OUE, ask: ASK_MSG, es: 'Hola, Ana: mis padres ___ (volver) el domingo por la noche.', uk: 'Привіт, Ано! Мої батьки повертаються в неділю ввечері.', a: 'vuelven', err: [['volven', diph('vuelven', 'o → ue')], ['vuelve', person('Vuelve', 'vuelven', 'mis padres')]], rule: R.oue, why: WHY.oue }),
+  gap(L, { id: 'T17', role: 'transfer', family: 'messages', t: OUE, ask: ASK_MSG, es: '¡Hola, Ana! Mis padres ___ (volver) el domingo por la noche.', uk: 'Привіт, Ано! Мої батьки повертаються в неділю ввечері.', a: 'vuelven', err: [['volven', diph('vuelven', 'o → ue')], ['vuelve', num('Vuelve', 'vuelven', 'mis padres')]], rule: R.oue, why: WHY.oue }),
   gap(L, { id: 'T18', role: 'transfer', family: 'travel', t: OUE, ask: ASK, es: 'Perdón, no ___ (recordar, yo) el número de mi habitación.', uk: 'Перепрошую, я не пам’ятаю номера своєї кімнати.', a: 'recuerdo', err: [['recordo', diph('recuerdo', 'o → ue')]], rule: R.oue, why: WHY.oue }),
 
   // jugar
@@ -73,9 +74,9 @@ export const tasks = [
   gap(L, { id: 'T22', role: 'supported', family: 'family-home', t: JUG, ask: ASK_S, model: [['Mi hija juega con el gato.', 'Моя донька грається з котом.']], es: 'Los niños ___ (jugar) en el parque.', uk: 'Діти граються в парку.', a: 'juegan', err: [['jugan', diph('juegan', 'u → ue')]], rule: R.jug, why: WHY.jug }),
   gap(L, { id: 'T23', role: 'independent', family: 'free-time', t: JUG, ask: ASK, es: '¿___ (jugar, tú) al fútbol los domingos?', uk: 'Ти граєш у футбол по неділях?', a: 'juegas', err: [['jugas', diph('juegas', 'u → ue')]], rule: R.jug, why: WHY.jug }),
   gap(L, { id: 'T24', role: 'independent', family: 'family-home', t: JUG, ask: ASK, es: 'Mi hijo ___ (jugar) con el perro.', uk: 'Мій син грається із собакою.', a: 'juega', err: [['juga', diph('juega', 'u → ue')]], rule: R.jug, why: WHY.jug }),
-  gap(L, { id: 'T25', role: 'independent', family: 'free-time', t: JUG, ask: ASK, es: 'Mis amigos ___ (jugar) al fútbol en la playa.', uk: 'Мої друзі грають у футбол на пляжі.', a: 'juegan', err: [['jugan', diph('juegan', 'u → ue')], ['juega', person('Juega', 'juegan', 'mis amigos')]], rule: R.jug, why: WHY.jug }),
+  gap(L, { id: 'T25', role: 'independent', family: 'free-time', t: JUG, ask: ASK, es: 'Mis amigos ___ (jugar) al fútbol en la playa.', uk: 'Мої друзі грають у футбол на пляжі.', a: 'juegan', err: [['jugan', diph('juegan', 'u → ue')], ['juega', num('Juega', 'juegan', 'mis amigos')]], rule: R.jug, why: WHY.jug }),
   gap(L, { id: 'T26', role: 'delayed', family: 'free-time', t: JUG, ask: ASK, es: '¿Con quién ___ (jugar, tú) los sábados?', uk: 'З ким ти граєш по суботах?', a: 'juegas', err: [['jugas', diph('juegas', 'u → ue')]], rule: R.jug, why: WHY.jug }),
-  gap(L, { id: 'T27', role: 'transfer', family: 'messages', t: JUG, ask: ASK_MSG, es: 'Hola, Marta: el sábado no ___ (jugar, yo) al fútbol, estoy enfermo.', uk: 'Привіт, Марто! У суботу я не граю у футбол: я хворий.', a: 'juego', err: [['jugo', diph('juego', 'u → ue')]], rule: R.jug, why: WHY.jug }),
+  gap(L, { id: 'T27', role: 'transfer', family: 'messages', t: JUG, ask: ASK_MSG, es: '¡Hola, Marta! El sábado no ___ (jugar, yo) al fútbol, estoy enfermo.', uk: 'Привіт, Марто! У суботу я не граю у футбол: я хворий.', a: 'juego', err: [['jugo', diph('juego', 'u → ue')]], rule: R.jug, why: WHY.jug }),
   gap(L, { id: 'T28', role: 'transfer', family: 'school', t: JUG, ask: ASK, es: 'En la escuela, los niños ___ (jugar) a las once.', uk: 'У школі діти граються об одинадцятій.', a: 'juegan', err: [['jugan', diph('juegan', 'u → ue')]], rule: R.jug, why: WHY.jug }),
 
   // e → i
@@ -83,7 +84,7 @@ export const tasks = [
   gap(L, { id: 'T32', role: 'supported', family: 'work-study', t: EI, ask: ASK_S, model: [['Repito el número de teléfono.', 'Я повторюю номер телефону.']], es: 'Perdón, no entiendo. ¿___ (repetir, usted) el número, por favor?', uk: 'Перепрошую, я не розумію. Повторіть, будь ласка, номер.', a: 'repite', err: [['repete', diph('repite', 'e → i')], ['repites', person('Repites', 'repite', 'usted')]], rule: R.ei, why: `${WHY.ei} Usted вживає форму 3-ї особи однини.` }),
   gap(L, { id: 'T33', role: 'independent', family: 'food-cafe', t: EI, ask: ASK, es: 'El camarero ___ (servir) el café.', uk: 'Офіціант подає каву.', a: 'sirve', err: [['serve', diph('sirve', 'e → i')]], rule: R.ei, why: WHY.ei }),
   gap(L, { id: 'T34', role: 'independent', family: 'work-study', t: EI, ask: ASK, es: 'Mi hijo ___ (repetir) el examen en septiembre.', uk: 'Мій син перескладає іспит у вересні.', a: 'repite', err: [['repete', diph('repite', 'e → i')]], rule: R.ei, why: WHY.ei }),
-  gap(L, { id: 'T35', role: 'independent', family: 'food-cafe', t: EI, ask: ASK, es: 'Mis amigos siempre ___ (pedir) pescado.', uk: 'Мої друзі завжди замовляють рибу.', a: 'piden', err: [['peden', diph('piden', 'e → i')], ['pide', person('Pide', 'piden', 'mis amigos')]], rule: R.ei, why: WHY.ei }),
+  gap(L, { id: 'T35', role: 'independent', family: 'food-cafe', t: EI, ask: ASK, es: 'Mis amigos siempre ___ (pedir) pescado.', uk: 'Мої друзі завжди замовляють рибу.', a: 'piden', err: [['peden', diph('piden', 'e → i')], ['pide', num('Pide', 'piden', 'mis amigos')]], rule: R.ei, why: WHY.ei }),
   gap(L, { id: 'T36', role: 'delayed', family: 'food-cafe', t: EI, ask: ASK, es: 'En el restaurante de mi calle ___ (servir, ellos) un menú del día muy barato.', uk: 'У ресторані на моїй вулиці подають дуже дешевий комплексний обід.', a: 'sirven', err: [['serven', diph('sirven', 'e → i')]], rule: R.ei, why: WHY.ei }),
   gap(L, { id: 'T37', role: 'transfer', family: 'messages', t: EI, ask: ASK_MSG, es: 'Ana, esta noche yo ___ (pedir) la cena y tú compras el pan, ¿vale?', uk: 'Ано, сьогодні ввечері я замовляю вечерю, а ти купуєш хліб, гаразд?', a: 'pido', err: [['pedo', diph('pido', 'e → i')]], rule: R.ei, why: WHY.ei }),
   gap(L, { id: 'T38', role: 'transfer', family: 'family-home', t: EI, ask: ASK, es: 'En casa, mi padre ___ (servir) la comida.', uk: 'Удома обід подає мій тато.', a: 'sirve', err: [['serve', diph('sirve', 'e → i')]], rule: R.ei, why: WHY.ei }),
@@ -137,7 +138,7 @@ export const lesson = mkLesson({
   titleUk: 'Теперішній час: чергування голосних в основі',
   termEs: 'presente: verbos con cambio vocálico',
   summaryUk:
-    'Відмінюємо дієслова, у яких наголошена голосна основи змінюється: e → ie (pienso), o → ue (puedo), u → ue (juego), e → i (pido). Бачимо, чому форми nosotros і vosotros лишаються без змін.',
+    'Змінюємо за особами дієслова, у яких наголошена голосна основи змінюється: e → ie (pienso), o → ue (puedo), u → ue (juego), e → i (pido). Бачимо, чому форми nosotros і vosotros лишаються без змін.',
   objectives: ['A2-01-O1'],
   situations: ['routine-study-leisure', 'food-shopping', 'personal-messages'],
   estimatedMinutes: 20,
@@ -157,7 +158,7 @@ export const lesson = mkLesson({
     s('s2', 'supported-practice', 'Крок 1. e → ie за зразком', true, { tasks: ['T01', 'T02'] }),
     s('s3', 'explanation', 'o → ue і особливе дієслово jugar', true, {
       blocks: [
-        UK('Друга група: наголошене o змінюється на ue. Так відмінюються poder, volver, dormir, encontrar, recordar, а також costar — про ціни вживаємо лише cuesta і cuestan.'),
+        UK('Друга група: наголошене o змінюється на ue. Так змінюються poder, volver, dormir, encontrar, recordar, а також costar — про ціни вживаємо лише cuesta і cuestan.'),
         T_OUE,
         UK('Jugar — особливе дієслово: у ньому під наголосом u змінюється на ue. Гру чи вид спорту приєднуємо через a + артикль: juego al fútbol (a + el = al).'),
         T_JUG,
@@ -169,7 +170,7 @@ export const lesson = mkLesson({
     s('s4', 'supported-practice', 'Крок 2. o → ue і jugar за зразком', true, { tasks: ['T11', 'T12', 'T21', 'T22'] }),
     s('s5', 'explanation', 'e → i: лише дієслова на -ir', true, {
       blocks: [
-        UK('Третя група — лише дієслова на -ir: наголошене e змінюється на i. Так відмінюються pedir, repetir і servir.'),
+        UK('Третя група — лише дієслова на -ir: наголошене e змінюється на i. Так змінюються pedir, repetir і servir.'),
         T_EI,
         UK('Pedir означає «просити, замовляти»: pido un café. «Запитувати» — це інше дієслово.'),
         EX('¿Qué pides?', 'Що ти замовляєш?'),

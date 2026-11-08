@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-01-L2.r1",
+  "jobId": "fa2da8e4-8129-4ee3-bc7f-81392b26d15f",
+  "receiptId": "da9d55eb-3b94-4fcc-a304-88487c388257",
+  "recordedAt": "2026-11-08T19:23:42.625Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "ortho.accent-pair.se",
+      "contentHash": "c9e6791110bd4272def3f8c94e600fc401f58ff629acecb287d3e8dcc03b0775",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: \"Вимова однакова, значення розрізняє лише графічний наголос.\"",
+          "description": "The explanation erases the stress distinction: verbal sé is tonic, while pronominal se is atonic. They share their segmental sounds, but their pronunciation in connected speech is not identical in stress.",
+          "suggestion": "Explain that the sounds are the same but stress differs: \"Sé — наголошена форма дієслова saber, а займенник se — ненаголошений. На письмі їх розрізняємо знаком наголосу: sé / se.\""
+        }
+      ],
+      "caseId": "skill:ortho.accent-pair.se",
+      "verdict": "flawed",
+      "reviewerAnswer": "Sé is the stressed first-person present form of saber; pronominal se is unstressed and has no written accent.",
+      "notes": "The examples and written forms themselves are correct.",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Ortografía de la lengua española (2010), chapter II, treatment of tilde diacrítica in monosyllables, including sé/se and tonic versus atonic words (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L2-T84",
+      "contentHash": "70690316447ea4dceeffdd517f19ebe5483a6a78ebf3dbbebc1f7cc4ced5ca91",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Завтра я сідаю на потяг о дев’ятій.\"",
+          "description": "El tren de las nueve identifies the nine-o'clock train by its scheduled departure. The translation instead attaches nine o'clock to the speaker's boarding action, losing the distinction between de las nueve and a las nueve.",
+          "suggestion": "Preserve the train's departure time: \"Завтра я їду потягом, що відправляється о дев’ятій.\""
+        }
+      ],
+      "caseId": "task:A2-01-L2-T84",
+      "verdict": "flawed",
+      "reviewerAnswer": "cojo",
+      "notes": "The conjugation key, error feedback and Spanish reveal are correct.",
+      "sources": [
+        "Packet task.prompt[1].text: \"Mañana ___ (coger, yo) el tren de las nueve.\"",
+        "Review duties: check wrong meaning and translations.",
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), treatment of prepositional noun modifiers and temporal adjuncts (from memory)."
+      ]
+    }
+  ]
+}
