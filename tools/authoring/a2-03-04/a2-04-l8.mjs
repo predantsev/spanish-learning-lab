@@ -107,7 +107,7 @@ const tasks = [
   // ---------- link.past-sequence: construction ----------
   linkWrite(1, 'supported', 'routine', 'Впишіть дієслово в дужках у правильній формі. Зразок нижче.', 'Después de ___ (comer), dormí un poco.',
     ['comer'],
-    [['comí', 'Після después de ставимо інфінітив: después de comer.'], ['comiendo', 'Після después de ставимо інфінітив, а не герундій: después de comer.']],
+    [['comí', 'Після después de ставимо інфінітив: después de comer.'], ['comiendo', 'Після después de ставимо інфінітив, а не форму на -iendo: después de comer.']],
     'Después de comer, dormí un poco.', 'Після обіду я трохи поспав(-ла).',
     { model: ['Después de cenar, vimos una película.', 'Після вечері ми подивилися фільм.'] }),
   linkWrite(2, 'independent', 'travel', 'Впишіть вираз, що означає «наступного дня».', 'Llegué a Toledo el sábado. ___ vi el museo.',

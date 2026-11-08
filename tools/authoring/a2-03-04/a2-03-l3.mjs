@@ -7,7 +7,7 @@ const L = 'A2-03-L3';
 const INSTR = 'Впишіть дієприкметник дієслова в дужках.';
 
 const AFTER_HABER = (p) => `Після haber дієприкметник не змінюється і завжди закінчується на -o: ${p}.`;
-const GERUND = (g, p) => `${g} — герундій, він іде після estar. Після haber потрібен дієприкметник: ${p}.`;
+const GERUND = (g, p) => `${g} — форма gerundio (на -ando / -iendo), вона йде після estar. Після haber потрібен дієприкметник: ${p}.`;
 
 /**
  * One participle bank. rows: [num, role, family, sentence (with ___ and "(infinitive)" for gaps), fullUk, choice?]

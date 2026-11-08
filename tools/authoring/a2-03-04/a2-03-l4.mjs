@@ -10,7 +10,7 @@ const INSTR = 'Впишіть дієприкметник дієслова в д�
 const RULE = 'Якщо основа дієслова закінчується на a, e або o, у закінченні -ido над i пишемо знак наголосу: leer → leído, traer → traído, oír → oído, creer → creído, caer → caído. Знак показує, що í — окремий склад: le-í-do.';
 const ERIR_RULE = 'Якщо основа закінчується на приголосну, знак наголосу в -ido не потрібен: comer → comido, vivir → vivido. Знак пишемо тільки після a, e, o: leído.';
 const NO_MARK = (p) => `Майже: над i потрібен знак наголосу — ${p}. Інакше голосні злилися б в один склад.`;
-const GERUND = (g, p) => `${g} — герундій, він іде після estar. Після haber потрібен дієприкметник: ${p}.`;
+const GERUND = (g, p) => `${g} — форма gerundio (на -ando / -iendo), вона йде після estar. Після haber потрібен дієприкметник: ${p}.`;
 const AGREE = (p) => `Після haber дієприкметник не змінюється і завжди закінчується на -o: ${p}.`;
 
 function gap(id, role, family, target, rule, sentence, answer, errors, full, fullUk, extra = {}) {

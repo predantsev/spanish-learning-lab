@@ -13,7 +13,7 @@ const CH = ['perfecto.choice-context', 'context-choice'];
 
 const CP_RULE = 'Perfecto описує завершені дії в періоді, який ще триває або включає «зараз»: hoy, esta mañana, esta semana, este año, últimamente. Слово часу — лише підказка: дивіться на весь контекст.';
 const EX_RULE = 'Perfecto описує досвід у житті до цього моменту, без точної дати: ¿Has estado alguna vez en Sevilla? Ya — «вже», todavía no — «ще не», nunca — «ніколи». Ya і todavía no стоять перед haber або після дієприкметника.';
-const CH_RULE = 'Звичка або те, що є зараз, — теперішній час (Normalmente como en casa); дія триває саме зараз — estar + герундій; уже відбулося в періоді, що триває, — perfecto (Hoy he comido en un restaurante); план — ir a + інфінітив (Mañana voy a comer con Ana).';
+const CH_RULE = 'Звичка або те, що є зараз, — теперішній час (Normalmente como en casa); дія триває саме зараз — estar + gerundio; уже відбулося в періоді, що триває, — perfecto (Hoy he comido en un restaurante); план — ir a + інфінітив (Mañana voy a comer con Ana).';
 const UNRES = 'Такого варіанта немає серед перевірених відповідей, тому автоматично ми його не оцінюємо. Порівняйте зі зразком.';
 
 function read(id, role, family, target, rule, instr, text, question, options, revealUk, extra = {}) {
@@ -199,7 +199,7 @@ export default {
           ex('Normalmente como en casa.', 'Зазвичай я обідаю вдома. (звичка — теперішній час)'),
           ex('Hoy he comido en un restaurante.', 'Сьогодні я обідав(-ла) в ресторані. (уже відбулося — perfecto)'),
           ex('Mañana voy a comer con Ana.', 'Завтра я обідатиму з Аною. (план — ir a + інфінітив)'),
-          ex('Ahora mismo estoy comiendo.', 'Просто зараз я їм. (дія триває — estar + герундій)'),
+          ex('Ahora mismo estoy comiendo.', 'Просто зараз я їм. (дія триває — estar + gerundio)'),
           uk('Обираючи форму, дивіться на весь контекст: що вже відбулося, що повторюється, що триває зараз, а що ще попереду.'),
         ],
       }),
@@ -210,7 +210,7 @@ export default {
           ukList([
             'Perfecto: дія вже відбулася в період, що ще триває (hoy, esta semana, este año).',
             'Perfecto: досвід у житті — alguna vez, nunca, ya, todavía no.',
-            'Звичка — теперішній час; план — ir a + інфінітив; дія зараз — estar + герундій.',
+            'Звичка — теперішній час; план — ir a + інфінітив; дія зараз — estar + gerundio.',
             'Одне слово часу не вирішує: дивіться на весь контекст.',
           ]),
         ],
