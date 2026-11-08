@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-07-L4.r1",
+  "jobId": "db3755ba-8e3b-439e-923d-3e1edcc836de",
+  "receiptId": "b67ae442-a4f2-445d-b80d-ceed1c1acb4f",
+  "recordedAt": "2026-11-08T19:31:26.363Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A2-07-L4",
+      "contentHash": "2e7f6acfc06014b084b77ec6b62af8d018330c1a3eef0acab16db4b6b6b5efd6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[1].blocks[0].text: «Для hacer, decir та ir це не діє: haz, di, ve — їх просто запам’ятайте.»",
+          "description": "The statement is false for decir: removing -go from digo produces di, exactly the affirmative tú imperative.",
+          "suggestion": "Include decir: digo → di among the verbs covered by the mnemonic. Remove decir and di from the exceptions, leaving hacer → haz and ir → ve."
+        }
+      ],
+      "caseId": "lesson:A2-07-L4",
+      "verdict": "flawed",
+      "reviewerAnswer": "Affirmative tú: di, haz, pon, sal, ten, ven, ve. Vosotros: decid, haced, poned, salid, tened, venid, id. Removing -go also works for decir: digo → di.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, decir, conjugation table: present indicative yo digo and affirmative imperative tú di (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L4-T02",
+      "contentHash": "b797793165d82cdac41cd1c306afaf287871febbaf6e10f35da55a998d0b06a4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only «di», with task.closed: true.",
+          "description": "The closed key rejects dile, a valid one-word completion. The enclitic le optionally doubles the stated postverbal indirect object a Ana; the prompt does not exclude attached pronouns.",
+          "suggestion": "Accept dile as well, or explicitly require the bare imperative without attached pronouns."
+        }
+      ],
+      "caseId": "task:A2-07-L4-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "di; dile also fits: Dile a Ana que la cena es a las nueve.",
+      "notes": "This variant repeats the existing recipient and introduces no new participant.",
+      "sources": [
+        "Course contract rule 3: a closed key must accept every correct answer for the stated context.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos»: enclisis with affirmative imperatives and doubling of postverbal indirect objects (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L4-T05",
+      "contentHash": "513e297857c208e652e732a6bba183d53769ebf2a3add82c6bede1116806873d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only «di», with task.closed: true.",
+          "description": "The closed key rejects diles, a valid one-word completion. Les optionally doubles the stated postverbal indirect object a tus padres, without changing the requested message.",
+          "suggestion": "Accept diles as well, or explicitly require the bare imperative without attached pronouns."
+        }
+      ],
+      "caseId": "task:A2-07-L4-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "di; diles also fits: Diles a tus padres que vamos a llegar tarde.",
+      "notes": "The plural recipient requires les in this additional standard variant.",
+      "sources": [
+        "Course contract rule 3: a closed key must accept every correct answer for the stated context.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos»: enclisis with affirmative imperatives and doubling of postverbal indirect objects (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L4-T06",
+      "contentHash": "8b8be4f00efa19983630870a59cee1ca1a39588a4f58325d4dc22dc376859c1e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only «di», with task.closed: true.",
+          "description": "The closed key rejects dile, a valid one-word completion. Le optionally doubles the stated postverbal indirect object a la profesora.",
+          "suggestion": "Accept dile as well, or explicitly require the bare imperative without attached pronouns."
+        }
+      ],
+      "caseId": "task:A2-07-L4-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "di; dile also fits: Dile «gracias» a la profesora.",
+      "notes": "This variant repeats the existing recipient and introduces no new participant.",
+      "sources": [
+        "Course contract rule 3: a closed key must accept every correct answer for the stated context.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos»: enclisis with affirmative imperatives and doubling of postverbal indirect objects (from memory)."
+      ]
+    }
+  ]
+}
