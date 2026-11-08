@@ -195,7 +195,7 @@ def l3():
            ('veis', 'iu', 'Veis — теперішній час. В імперфекті: veíais.'),
            ('visteis', 'iu', 'Visteis — pretérito indefinido. Тут потрібен імперфект: veíais.')],
           rver)
-    ftask(t, 'delayed', 'family-before', V2, 'Antes yo ___ a mis abuelos todos los domingos.', 'ver', 'veía',
+    ftask(t, 'delayed', 'family-before', V2, 'Antes yo ___ películas con mi hermana los viernes.', 'ver', 'veía',
           [('veia', 'ci', acc_missing('veía')),
            ('vía', 'iu', 'Ver зберігає e з інфінітива: veía.'),
            ('veo', 'iu', 'Veo — теперішній час. В імперфекті: veía.'),
