@@ -118,7 +118,6 @@ def l1():
          g(t, 'supported', 'home', PP_C, 'Ahora vivo en Madrid, pero de pequeño ___ en un pueblo.', 'vivir, yo', ['vivía'],
            [('vivo', 'i', 'De pequeño вказує на минулий період: vivía.'),
             ('viví', 'i', 'Тут описано, де ви жили в дитинстві (обставина того періоду): vivía.')], R_PP)]
-    s[0]
     g(t, 'independent', 'habits', PP_C, 'Antes mi hermana no ___ café, pero ahora toma mucho.', 'tomar', ['tomaba'],
       [('toma', 'i', 'Antes … pero ahora: перша частина — про минуле: tomaba.'),
        ('tomó', 'i', 'Тут ідеться про колишню звичку, а не про одну подію: tomaba.')], R_PP)
@@ -160,7 +159,7 @@ def l1():
        [('trabajaba', 'i', 'Ahora вказує на теперішнє: trabajo.'), ('trabajé', 'i', 'Ahora вказує на теперішнє: trabajo.'),
         ('trabajo', 'c', None)], R_PP)
     ch(t, 'transfer', 'message', PP_X, [P('Прочитайте повідомлення.'),
-                                         PE('Hola, Ana: Ahora vivo en Toledo y trabajo en un museo. Antes enseñaba inglés en un colegio.'),
+                                         PE('Hola, Pablo: Ahora vivo en Toledo y trabajo en un museo. Antes enseñaba inglés en un colegio. Un beso, Ana.'),
                                          P('Що Ана робить тепер?')],
        [('викладає англійську', 'i', 'Enseñaba — колишня робота (antes).'), ('працює в музеї', 'c', None),
         ('навчається в коледжі', 'i', 'У повідомленні: ahora … trabajo en un museo.')], R_PP)
@@ -200,7 +199,7 @@ def l1():
                             'наголос на першому складі) і habló (минулий, наголос на останньому) звучать по-різному.'),
                           P('Нові слова: mudarse — переїжджати (me mudé — я переїхав, переїхала); hace poco — нещодавно.'),
                       ]),
-                      step('s2', 'supported-practice', 'Практика зі зразком', True, tasks=ids(t, 'supported')[:2] + [ids(t, 'supported')[2]]),
+                      step('s2', 'supported-practice', 'Практика зі зразком', True, tasks=ids(t, 'supported')),
                       step('s3', 'independent-practice', 'Самостійна практика', True,
                            tasks=[x for x in ids(t, 'independent') if x not in (l1a, l1b, l1d)]),
                       step('s4', 'listening', 'Аудіювання: тепер, колись чи один раз?', True, clips=[CT1['id'], CT2['id']], tasks=[l1a, l1b]),
@@ -259,7 +258,7 @@ def l2():
       [('vio', 'u', NORM.format('ya ha visto'))], R_EO)
     g(t, 'independent', 'travel', EO_C, 'Conozco Toledo: ___ allí con mi familia en 2015.', 'estar, yo', ['estuve'],
       [('he estado', 'i', 'Названо конкретний рік (en 2015): estuve.')], R_EO)
-    g(t, 'independent', 'films', EO_C, '—¿Habéis viajado alguna vez a Ucrania? —Sí, ___ allí el verano pasado.', 'viajar, nosotros', ['viajamos'],
+    g(t, 'independent', 'travel', EO_C, '—¿Habéis viajado alguna vez a Ucrania? —Sí, ___ allí el verano pasado.', 'viajar, nosotros', ['viajamos'],
       [('hemos viajado', 'i', 'Названо конкретний час (el verano pasado): viajamos.')], R_EO)
     g(t, 'delayed', 'books', EO_C, '¿___ alguna vez un libro en español?', 'leer, tú', ['Has leído'],
       [('Leíste', 'u', NORM.format('¿Has leído alguna vez…?'))], R_EO)
@@ -281,7 +280,7 @@ def l2():
        [('Esta semana he ido dos veces al gimnasio.', 'c', None),
         ('Ayer he ido al gimnasio.', 'i', 'Учорашній день уже минув: Ayer fui al gimnasio.'),
         ('La semana pasada he ido dos veces al gimnasio.', 'i', 'Минулий тиждень завершився: fui.')], R_TF)
-    ch(t, 'transfer', 'message', TF_X, [PE('Hola, Marta: Este mes he leído tres libros. El mes pasado leí solo uno.'), P('Скільки книжок Марта прочитала минулого місяця?')],
+    ch(t, 'transfer', 'message', TF_X, [PE('Hola, Pablo: Este mes he leído tres libros. El mes pasado leí solo uno. Un abrazo, Marta.'), P('Скільки книжок Марта прочитала минулого місяця?')],
        [('одну', 'c', None), ('три', 'i', 'Три — цього місяця (este mes he leído).'), ('чотири', 'i', 'Минулого місяця — una: leí solo uno.')], R_TF)
     ch(t, 'supported', 'travel', EO_X, [P('Яке питання — про досвід «колись у житті»?')],
        [('¿Has estado alguna vez en Málaga?', 'c', None), ('¿Cuándo estuviste en Málaga?', 'i', 'Це питання про конкретний час.'),
@@ -405,25 +404,25 @@ def l4():
     t = LessonTasks('A2-06-L4')
     f = FI_X
     ch(t, 'supported', 'forms', f, [P('Зразок: hacía — imperfecto, hizo — indefinido, ha hecho — perfecto. Яка форма — pretérito indefinido від hacer?')],
-       [('hacía', 'i', 'Hacía — імперфект.'), ('hizo', 'c', None), ('ha hecho', 'i', 'Ha hecho — perfecto.')], R_FI)
+       [('hacía', 'i', 'Hacía — імперфект.'), ('hizo', 'c', None), ('ha hecho', 'i', 'Ha hecho — це форма perfecto.')], R_FI)
     ch(t, 'supported', 'forms', f, [P('Яка форма — імперфект від ser?')],
        [('fue', 'i', 'Fue — indefinido (від ser і від ir).'), ('era', 'c', None), ('es', 'i', 'Es — теперішній час.')], R_FI)
     ch(t, 'independent', 'forms', f, [P('Оберіть форму, що означає «він ходив (регулярно)»: Antes Luis ___ al gimnasio.')],
-       [('iba', 'c', None), ('fue', 'i', 'Fue — одна подія (indefinido).'), ('ha ido', 'i', 'Ha ido — perfecto.')], R_FI)
+       [('iba', 'c', None), ('fue', 'i', 'Fue — одна подія (indefinido).'), ('ha ido', 'i', 'Ha ido — це форма perfecto.')], R_FI)
     ch(t, 'independent', 'forms', f, [P('Оберіть форму, що означає «він побачив (один раз)»: Ayer Pablo ___ a Ana en el parque.')],
        [('veía', 'i', 'Veía — імперфект.'), ('vio', 'c', None), ('ha visto', 'i', 'Ha visto — perfecto; ayer вимагає indefinido.')], R_FI)
     ch(t, 'independent', 'forms', f, [P('У якому реченні fue — від ir («пішов, поїхав»)?')],
        [('Fue muy bonito.', 'i', 'Тут fue — від ser («було»).'), ('Fue a Madrid en tren.', 'c', None),
         ('Fue profesor muchos años.', 'i', 'Тут fue — від ser («був»).')], R_FI)
     ch(t, 'independent', 'forms', f, [P('Яка форма — perfecto від hacer для tú?')],
-       [('has hecho', 'c', None), ('has hacido', 'i', 'Hacer має особливий дієприкметник: hecho.'), ('hiciste', 'i', 'Hiciste — indefinido.')], R_FI)
+       [('has hecho', 'c', None), ('has hacido', 'i', 'Hacer має особливий дієприкметник: hecho.'), ('hiciste', 'i', 'Hiciste — це форма indefinido.')], R_FI)
     ch(t, 'delayed', 'forms', f, [P('Яка форма — імперфект від comer для él?')],
-       [('comió', 'i', 'Comió — indefinido.'), ('come', 'i', 'Come — теперішній час.'), ('comía', 'c', None)], R_FI)
+       [('comió', 'i', 'Comió — це форма indefinido.'), ('come', 'i', 'Come — теперішній час.'), ('comía', 'c', None)], R_FI)
     ch(t, 'transfer', 'message', f, [PE('Hola, Ana: Ayer fue mi cumpleaños y fue genial. Luego fui a cenar con mis padres.'),
                                      P('Скільки разів у повідомленні fue означає «пішов, поїхав» (від ir)?')],
-       [('жодного разу', 'i', 'Fui a cenar — це ir, але в першому реченні fue — від ser.'),
-        ('двічі', 'i', 'Обидва fue в першому реченні — від ser («був», «було»). Від ir — лише fui a cenar.'),
-        ('жодного: fue тут двічі від ser, а від ir — fui', 'c', None)], R_FI)
+       [('жодного разу', 'c', None),
+        ('один раз', 'i', 'Fui a cenar — це справді ir, але форма тут fui, а не fue.'),
+        ('двічі', 'i', 'Обидва fue в першому реченні — від ser («був», «було»). Від ir — лише fui a cenar.')], R_FI)
     n = NP_X
     ch(t, 'supported', 'nosotros', n, [P('Зразок: Ahora hablamos español (теперішнє) — Ayer hablamos con Luis (минуле). Коли відбувається дія?'),
                                         PE('Ayer hablamos con nuestros vecinos.')],
@@ -621,8 +620,8 @@ def l6():
                   [P('Напишіть коротку розповідь (4–5 речень) про вихідні: куди ви ходили, якою була погода, що ви робили '
                      'спершу і потім.')],
                   CRIT_W, [ex2], [rule(w, R_WA), ('reveal', w, [P('Приклад відповіді (не єдиний можливий):'), PE(ex2)])], FB_W, ex2)
-    ex3 = ('Hola, Pablo: Siento no contestar antes. Esta semana he tenido mucho trabajo. Ayer, cuando volví a casa, eran las '
-           'diez y estaba muy cansada. El sábado puedo quedar contigo. Un beso.')
+    ex3 = ('Hola, Pablo: Perdona, no he contestado porque esta semana he tenido mucho trabajo. Ayer, cuando volví a casa, eran '
+           'las diez y estaba muy cansada. ¿Tomamos un café el sábado? Un beso.')
     t.rubric('delayed', 'reply', w,
              [P('Друг пише: «¿Por qué no contestas mis mensajes?». Напишіть відповідь (3–5 речень): поясніть, що було цього '
                 'тижня і вчора, і запропонуйте зустрітися.')],
@@ -674,7 +673,7 @@ def c1():
     g(t, 'independent', fam, MX_C, 'El año pasado ___ a mis abuelos en Ucrania.', 'visitar, yo', ['visité'],
       [('he visitado', 'i', 'Минулий рік завершився: visité.'), ('visitaba', 'u', 'Visitaba означало б регулярні відвідини; про одну поїздку — visité.')], R_MX)
     ch(t, 'independent', fam, FI_X, [P('Яка форма — імперфект від ir?')],
-       [('fue', 'i', 'Fue — indefinido.'), ('iba', 'c', None), ('ha ido', 'i', 'Ha ido — perfecto.')], R_FI)
+       [('fue', 'i', 'Fue — це форма indefinido.'), ('iba', 'c', None), ('ha ido', 'i', 'Ha ido — це форма perfecto.')], R_FI)
     ch(t, 'independent', fam, NP_X, [P('Коли відбувається дія?'), PE('Anoche cenamos en casa de Luis.')],
        [('учора ввечері', 'c', None), ('щовечора', 'i', 'Anoche — учора ввечері, один раз.'), ('сьогодні ввечері', 'i', 'Anoche — учора ввечері.')], R_NP)
     ch(t, 'independent', fam, HE_X, [P('Оберіть форму, яка підходить за змістом.'), PE('De niño, mi padre ___ mucho al fútbol.')],
