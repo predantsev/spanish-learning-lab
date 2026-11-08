@@ -435,7 +435,7 @@ export const unit: Unit = {
       ['¿Como te llamas?', 'u', 'Фраза правильна, але cómo у питанні пишеться зі знаком наголосу.'],
       ['¿Cómo se llama usted?', 'u', 'Це ввічлива форма; однокурсника на «ти» питають ¿Cómo te llamas?'],
     ], '«Як тебе звати?»'),
-    t(62, 'independent', 'intro', [FI_P], 'Тобі представили нового колегу. Ти — жінка. Напиши іспанською одним словом: «Приємно познайомитися».', 'Encantada.', [
+    t(62, 'independent', 'intro', [FI_P], 'Тобі представили нового колегу. Ти — жінка. Напиши іспанською: «Приємно познайомитися».', 'Encantada.', [
       ['Encantado.', 'x', 'Encantado каже чоловік; жінка каже Encantada.'],
     ], '«Приємно познайомитися» (каже жінка)', { also: [['Mucho gusto.', 'Теж правильно: mucho gusto однакове для всіх.']] }),
     t(63, 'delayed', 'intro', [FI_P], 'Спитай ввічливо іспанською літню пані: «Як Вас звати?»', '¿Cómo se llama usted?', [
@@ -485,7 +485,7 @@ export const unit: Unit = {
     }),
     pick({
       n: 70, role: 'independent', family: 'form-read', targets: [PD_R],
-      prompt: [uk('Прочитай анкету. Яке громадянство в Тараса і в якому місті він живе?'), FORM_TARAS],
+      prompt: [uk('Прочитай анкету. Яке громадянство в Тараса і яке місто вказано в анкеті?'), FORM_TARAS],
       options: [['українське; Мадрид', 'c'], ['іспанське; Мадрид', 'x', 'España — у полі País (країна); громадянство — у полі Nacionalidad: ucraniana.'], ['українське; Київ', 'x', 'У полі Ciudad — Madrid.']],
       rules: [[[PD_R], 'Nombre — ім’я, Apellidos — прізвище, Nacionalidad — громадянство, Ciudad — місто, País — країна, Correo electrónico — електронна пошта.']],
       ok: 'Так: Nacionalidad: ucraniana, Ciudad: Madrid.', bad: 'Ні. Nacionalidad — ucraniana (українське), Ciudad — Madrid.',
