@@ -80,7 +80,7 @@ test('one phrase in three personal collections shares one record; removal can be
   await detail.getByRole('checkbox', { name: `Synthetic ${stamp} 1` }).uncheck();
   expect((commandBody(await removed).payload['remove'] as string[]).length).toBe(1);
   const undone = waitForCommand(page, 'collection.patch');
-  await page.getByRole('button', { name: 'Повернути' }).click();
+  await page.getByRole('button', { name: 'Повернути', exact: true }).click();
   expect((commandBody(await undone).payload['add'] as string[]).length).toBe(1);
 });
 
@@ -88,6 +88,7 @@ test('copying a course collection creates a personal collection with the same ph
   const course = page.locator('[aria-labelledby="collections-title"] h3:has-text("Добірки курсу") + ul [data-testid="collection-item"]').first();
   test.skip((await course.count()) === 0, 'No course collections in this fixture');
   await course.click();
+  await expect(page.getByTestId('copy-collection')).toBeVisible();
   const memberCount = await page.locator('.result-list .result-item').count();
   const created = waitForCommand(page, 'collection.create');
   await page.getByTestId('copy-collection').click();
@@ -107,10 +108,10 @@ test('archiving a phrase asks first and can be undone (phrase.archive true → f
   const dialog = page.locator('dialog[open]');
   await expect(dialog).toContainText('Архівувати фразу?');
   const archived = waitForCommand(page, 'phrase.archive');
-  await dialog.getByRole('button', { name: 'Архівувати фразу' }).click();
+  await dialog.getByRole('button', { name: 'Архівувати фразу', exact: true }).click();
   expect(commandBody(await archived).payload).toEqual({ archived: true });
   const restored = waitForCommand(page, 'phrase.archive');
-  await page.getByRole('button', { name: 'Повернути' }).click();
+  await page.getByRole('button', { name: 'Повернути', exact: true }).click();
   expect(commandBody(await restored).payload).toEqual({ archived: false });
 });
 

@@ -2,7 +2,7 @@
 // searchable but labelled and never used as answer models), three add paths, personal and course
 // collections over the same phrase records (one history), copy of a course collection by
 // references, practice of an explicitly selected ready subset, membership removal with undo.
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useApp } from '../app/context.tsx';
 import { useCommandRunner, useResource, useWideLayout, type Resource } from '../app/hooks.ts';
@@ -64,9 +64,18 @@ export function practiceTargetsOf(phrases: readonly Phrase[]): Target[] {
   return [...byKey.values()].slice(0, 30);
 }
 
+/**
+ * The phrase library view. A reload after a write keeps showing the last loaded view instead of
+ * dropping back to the loading state, so the detail, the open dialogs and a pending undo stay
+ * mounted while the fresh view arrives.
+ */
 function useLibrary(): Resource<PhraseLibraryView> {
   const { api } = useApp();
-  return useResource('phrases', (signal) => api.get<PhraseLibraryView>('/views/phrases', signal).then((envelope) => envelope.data));
+  const resource = useResource('phrases', (signal) => api.get<PhraseLibraryView>('/views/phrases', signal).then((envelope) => envelope.data));
+  const last = useRef<PhraseLibraryView | null>(null);
+  if (resource.state.status === 'ready') last.current = resource.state.data;
+  if (resource.state.status === 'loading' && last.current) return { ...resource, state: { status: 'ready', data: last.current } };
+  return resource;
 }
 
 interface UndoState {
@@ -314,14 +323,46 @@ export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phr
   const courseMemberships = view.collections.filter((collection) => collection.origin === 'course' && collection.phraseIds.includes(phrase.id));
   useDocumentTitle(wide ? null : phrase.spanish);
 
+  // Optimistic membership: the checkbox reflects the learner's click at once, while the patch is
+  // in flight and until the refreshed view agrees; a failed patch drops the optimistic value.
+  const [optimistic, setOptimistic] = useState<Readonly<Record<string, boolean>>>({});
+  const optimisticKey = (collectionId: string) => `${phrase.id}:${collectionId}`;
+  const setOptimisticMember = (collectionId: string, member: boolean | null) =>
+    setOptimistic((previous) => {
+      const next = { ...previous };
+      if (member === null) delete next[optimisticKey(collectionId)];
+      else next[optimisticKey(collectionId)] = member;
+      return next;
+    });
+  const isMember = (collection: Collection) => {
+    const server = collection.phraseIds.includes(phrase.id);
+    return optimistic[optimisticKey(collection.id)] ?? server;
+  };
+  useEffect(() => {
+    const stale = view.collections.filter((collection) => optimistic[optimisticKey(collection.id)] === collection.phraseIds.includes(phrase.id));
+    if (stale.length > 0) {
+      setOptimistic((previous) => {
+        const next = { ...previous };
+        for (const collection of stale) delete next[optimisticKey(collection.id)];
+        return next;
+      });
+    }
+  }, [view.collections, optimistic, phrase.id]);
+
   const toggleMembership = async (collection: Collection, member: boolean) => {
     setUndo(null);
+    setOptimisticMember(collection.id, member);
     const revision = await patch(collection, member ? [phrase.id] : [], member ? [] : [phrase.id]);
-    if (revision !== null && !member) {
+    if (revision === null) {
+      setOptimisticMember(collection.id, null);
+      return;
+    }
+    if (!member) {
       setUndo({
         message: t('phrases.membership.removed', { name: collection.name }),
         undo: async () => {
-          await patch({ id: collection.id, revision }, [phrase.id], []);
+          setOptimisticMember(collection.id, true);
+          if ((await patch({ id: collection.id, revision }, [phrase.id], [])) === null) setOptimisticMember(collection.id, null);
           setUndo(null);
         },
       });
@@ -380,7 +421,7 @@ export function PhraseDetail({ phrase, view, onChanged }: { readonly phrase: Phr
           <label key={collection.id} className="choice">
             <input
               type="checkbox"
-              checked={collection.phraseIds.includes(phrase.id)}
+              checked={isMember(collection)}
               disabled={runner.status === 'pending'}
               onChange={(event) => void toggleMembership(collection, event.target.checked)}
             />
