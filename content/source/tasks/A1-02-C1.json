@@ -1,0 +1,804 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "A1-02-C1",
+  "tasks": [
+    {
+      "id": "A1-02-C1-T01",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-description",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "poss.nuestro-vuestro",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "adj.agreement.o-a",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти описуєш свою кухню в повідомленні. Напиши іспанською: «наші білі стільці»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "nuestras sillas blancas."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "nuestros sillas blancas.",
+          "outcomes": {
+            "poss.nuestro-vuestro/written-form": "incorrect",
+            "adj.agreement.o-a/written-form": "correct"
+          },
+          "feedbackUk": "Sillas — жіночого роду, тому nuestras."
+        },
+        {
+          "id": "e2",
+          "text": "nuestras sillas blancos.",
+          "outcomes": {
+            "adj.agreement.o-a/written-form": "incorrect",
+            "poss.nuestro-vuestro/written-form": "correct"
+          },
+          "feedbackUk": "Sillas — жіночого роду, тому blancas."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "poss.nuestro-vuestro/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Nuestro змінюється за родом і числом того, що належить."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "adj.agreement.o-a/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прикметник на -o узгоджується з іменником у роді та числі."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "poss.nuestro-vuestro/written-form",
+            "adj.agreement.o-a/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "nuestras sillas blancas"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "nuestras sillas blancas",
+      "feedback": {
+        "correctUk": "Правильно: nuestras sillas blancas",
+        "incorrectUk": "Ще ні. Наші білі стільці — nuestras sillas blancas: nuestras sillas blancas",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: nuestras sillas blancas"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-02-C1-T02",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-description",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "poss.mi-tu-su",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "poss.number-agreement",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "adj.agreement.invariable-gender",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти шукаєш свої ключі й пишеш сусідові: «мої зелені ключі». Напиши іспанською."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "mis llaves verdes."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "mi llaves verdes.",
+          "outcomes": {
+            "poss.number-agreement/written-form": "incorrect",
+            "poss.mi-tu-su/written-form": "correct",
+            "adj.agreement.invariable-gender/written-form": "correct"
+          },
+          "feedbackUk": "Ключів кілька, тому mis."
+        },
+        {
+          "id": "e2",
+          "text": "mis llaves verde.",
+          "outcomes": {
+            "adj.agreement.invariable-gender/written-form": "incorrect",
+            "poss.mi-tu-su/written-form": "correct",
+            "poss.number-agreement/written-form": "correct"
+          },
+          "feedbackUk": "Іменник у множині, тому verdes."
+        },
+        {
+          "id": "e3",
+          "text": "tus llaves verdes.",
+          "outcomes": {
+            "poss.mi-tu-su/written-form": "incorrect",
+            "poss.number-agreement/written-form": "correct",
+            "adj.agreement.invariable-gender/written-form": "correct"
+          },
+          "feedbackUk": "Ключі твої — mis, а не tus."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "poss.mi-tu-su/written-form",
+            "poss.number-agreement/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Mi, tu, su перед іменником без артикля; у множині — mis, tus, sus."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "adj.agreement.invariable-gender/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прикметник на -e має одну форму для обох родів, у множині — -s."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "poss.mi-tu-su/written-form",
+            "poss.number-agreement/written-form",
+            "adj.agreement.invariable-gender/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "mis llaves verdes"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "mis llaves verdes",
+      "feedback": {
+        "correctUk": "Правильно: mis llaves verdes",
+        "incorrectUk": "Ще ні. Мої зелені ключі — mis llaves verdes: mis llaves verdes",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: mis llaves verdes"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-02-C1-T03",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-whose",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "prep.de.possession",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "adj.agreement.o-a",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти підписуєш фото: «червоний мотоцикл мого брата». Напиши іспанською з означеним артиклем (коротке слово moto)."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "la moto roja de mi hermano."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "la moto rojo de mi hermano.",
+          "outcomes": {
+            "adj.agreement.o-a/written-form": "incorrect",
+            "prep.de.possession/construction-use": "correct"
+          },
+          "feedbackUk": "Moto — жіночого роду, тому roja."
+        },
+        {
+          "id": "e2",
+          "text": "la moto roja mi hermano.",
+          "outcomes": {
+            "prep.de.possession/construction-use": "incorrect",
+            "adj.agreement.o-a/written-form": "correct"
+          },
+          "feedbackUk": "Між річчю і власником потрібен de."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "prep.de.possession/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу те, що належить, потім de і власник."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "adj.agreement.o-a/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прикметник узгоджується з родом іменника: la moto — жіночий рід."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "prep.de.possession/construction-use",
+            "adj.agreement.o-a/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "la moto roja de mi hermano"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "la moto roja de mi hermano",
+      "feedback": {
+        "correctUk": "Правильно: la moto roja de mi hermano",
+        "incorrectUk": "Ще ні. La moto roja de mi hermano: la moto roja de mi hermano",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: la moto roja de mi hermano"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-02-C1-T04",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-plural",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "article.plural",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "noun.plural.es",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "adj.agreement.invariable-gender",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Напиши у множині разом з артиклем і прикметником."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "el hotel grande"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "los hoteles grandes."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "los hoteles grande.",
+          "outcomes": {
+            "adj.agreement.invariable-gender/written-form": "incorrect",
+            "article.plural/written-form": "correct",
+            "noun.plural.es/written-form": "correct"
+          },
+          "feedbackUk": "Прикметник теж іде в множину: grandes."
+        },
+        {
+          "id": "e2",
+          "text": "los hotels grandes.",
+          "outcomes": {
+            "noun.plural.es/written-form": "incorrect",
+            "article.plural/written-form": "correct",
+            "adj.agreement.invariable-gender/written-form": "correct"
+          },
+          "feedbackUk": "Після приголосної додаємо -es: hoteles."
+        },
+        {
+          "id": "e3",
+          "text": "las hoteles grandes.",
+          "outcomes": {
+            "article.plural/written-form": "incorrect",
+            "noun.plural.es/written-form": "correct",
+            "adj.agreement.invariable-gender/written-form": "correct"
+          },
+          "feedbackUk": "Hotel — чоловічого роду, тому los."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "article.plural/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Артиклі в множині: el → los, la → las."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "noun.plural.es/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Після приголосної в множині додаємо -es."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "adj.agreement.invariable-gender/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Grande має одну форму для обох родів, у множині — grandes."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "article.plural/written-form",
+            "noun.plural.es/written-form",
+            "adj.agreement.invariable-gender/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "los hoteles grandes"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "los hoteles grandes",
+      "feedback": {
+        "correctUk": "Правильно: los hoteles grandes",
+        "incorrectUk": "Ще ні. Множина — los hoteles grandes: los hoteles grandes",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: los hoteles grandes"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-02-C1-T05",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-plural",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "noun.plural.z-ces",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "noun.plural.accent-change",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Напиши множину обох слів без артиклів, через кому: luz, autobús."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "luces, autobuses."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "luzes, autobuses.",
+          "outcomes": {
+            "noun.plural.z-ces/written-form": "incorrect",
+            "noun.plural.accent-change/written-form": "correct"
+          },
+          "feedbackUk": "Перед e пишемо c: luces."
+        },
+        {
+          "id": "e2",
+          "text": "luces, autobúses.",
+          "outcomes": {
+            "noun.plural.accent-change/written-form": "incorrect",
+            "noun.plural.z-ces/written-form": "correct"
+          },
+          "feedbackUk": "У множині знак зникає: autobuses."
+        },
+        {
+          "id": "e3",
+          "text": "luzes, autobúses.",
+          "outcomes": {
+            "noun.plural.z-ces/written-form": "incorrect",
+            "noun.plural.accent-change/written-form": "incorrect"
+          },
+          "feedbackUk": "Luces (z → c) і autobuses (знак зникає)."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "noun.plural.z-ces/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Закінчення -z у множині змінюється на -ces: luz → luces."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "noun.plural.accent-change/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Наголос не переходить, тому знак може зникнути: autobús → autobuses."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "noun.plural.z-ces/written-form",
+            "noun.plural.accent-change/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "luces, autobuses"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "luces, autobuses",
+      "feedback": {
+        "correctUk": "Правильно: luces, autobuses",
+        "incorrectUk": "Ще ні. Luces, autobuses: luces, autobuses",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: luces, autobuses"
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-02-C1-T06",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-listen",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.noun-phrase",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай опис букета. Що описують?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-02.flores-rojas"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "якісь червоні й дуже гарні квіти",
+          "outcomes": {
+            "listening.noun-phrase/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "червона й дуже гарна квітка",
+          "outcomes": {
+            "listening.noun-phrase/listening-meaning": "incorrect"
+          },
+          "feedbackUk": "У записі множина: unas flores."
+        },
+        {
+          "id": "c",
+          "label": "якісь білі квіти",
+          "outcomes": {
+            "listening.noun-phrase/listening-meaning": "incorrect"
+          },
+          "feedbackUk": "У записі rojas — «червоні»."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.noun-phrase/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Закінчення -o/-a та -s допомагають зрозуміти рід і кількість."
+            }
+          ]
+        },
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.noun-phrase/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Unas flores rojas y muy bonitas."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Так: Unas flores rojas y muy bonitas.",
+        "incorrectUk": "Ні. У записі: Unas flores rojas y muy bonitas — «якісь червоні й дуже гарні квіти»."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-02-C1-T07",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-context",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "article.definite-indefinite",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти вперше пишеш у листі про подругу, якої адресат зовсім не знає. Як ти її назвеш?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "una amiga",
+          "outcomes": {
+            "article.definite-indefinite/context-choice": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "la amiga",
+          "outcomes": {
+            "article.definite-indefinite/context-choice": "incorrect"
+          },
+          "feedbackUk": "Адресат не знає цієї подруги — це нова інформація, тому una."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "article.definite-indefinite/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Un/una — нове, «якийсь»; el/la — відоме, «саме той»."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Так: про нову для адресата людину — una amiga.",
+        "incorrectUk": "Ні. Перша згадка, нова інформація — una amiga."
+      },
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "A1-02-C1-T08",
+      "lessonId": "A1-02-C1",
+      "role": "transfer",
+      "family": "c1-caption",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "poss.su-reference",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Підпис під фото Пабло:"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Pablo y su hermana Ana"
+        },
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Хто така Ана?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "сестра Пабло",
+          "outcomes": {
+            "poss.su-reference/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "твоя сестра",
+          "outcomes": {
+            "poss.su-reference/reading-meaning": "incorrect"
+          },
+          "feedbackUk": "«Твоя» — tu."
+        },
+        {
+          "id": "c",
+          "label": "моя сестра",
+          "outcomes": {
+            "poss.su-reference/reading-meaning": "incorrect"
+          },
+          "feedbackUk": "«Моя» — mi."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "poss.su-reference/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Su — «його, її, їхній, Ваш»; власника видно з контексту."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Так: su hermana — сестра Пабло.",
+        "incorrectUk": "Ні. Su тут — «його»: Ана — сестра Пабло."
+      },
+      "reviewStatus": "draft"
+    }
+  ]
+}
