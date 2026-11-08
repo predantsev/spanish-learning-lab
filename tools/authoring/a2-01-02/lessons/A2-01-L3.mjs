@@ -11,9 +11,9 @@ const OU = 'progressive.gerund-o-u/written-form';
 const R = {
   ar: 'Герундій дієслів на -ar: основа інфінітива + -ando: hablar → hablando. Чергування теперішнього часу сюди не переходить: jugar → jugando, pensar → pensando.',
   er: 'Герундій дієслів на -er та -ir: основа + -iendo: comer → comiendo, vivir → viviendo. Дифтонги теперішнього часу (ie, ue) не переходять: volver → volviendo.',
-  ye: 'Якщо основа закінчується на голосну, замість -iendo пишемо -yendo: leer → leyendo, traer → trayendo, oír → oyendo. Від ir — yendo.',
+  ye: 'У leer, traer, oír, caer і creer основа закінчується на голосну, тому замість -iendo пишемо -yendo: leer → leyendo, traer → trayendo, oír → oyendo. Від ir — yendo. Це правило не діє для всіх дієслів (наприклад, reír → riendo), тому вчимо його на цих дієсловах.',
   ei: 'У частини дієслів на -ir голосна e основи в герундії стає i: pedir → pidiendo, decir → diciendo, venir → viniendo.',
-  ou: 'Dormir у герундії змінює o на u: durmiendo. Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.',
+  ou: 'Dormir у герундії змінює o на u: durmiendo. А volver і encontrar мають регулярний герундій: volviendo, encontrando.',
 };
 const ASK = 'Напишіть герундій (форму на -ando / -iendo) дієслова.';
 const ASK_S = 'Подивіться на зразок і напишіть герундій дієслова.';
@@ -21,7 +21,7 @@ const ASK_SENT = 'Впишіть герундій дієслова з дужок
 const noChange = (f) => `Чергування теперішнього часу в герундій не переходить: ${f}.`;
 const endAr = (f) => `Дієслова на -ar мають закінчення -ando: ${f}.`;
 const endEr = (f) => `Дієслова на -er та -ir мають закінчення -iendo: ${f}.`;
-const ye = (f) => `Після голосної основи пишемо -yendo: ${f}.`;
+const ye = (f) => `У цьому дієслові замість -iendo пишемо -yendo: ${f}.`;
 const ei = (f) => `У цьому дієслові на -ir e основи в герундії стає i: ${f}.`;
 
 const single = (id, role, family, t, verb, form, err, rule, extra = {}) =>
@@ -125,8 +125,8 @@ export const lesson = mkLesson({
     s('s2', 'supported-practice', 'Крок 1. -ando та -iendo за зразком', true, { tasks: ['T01', 'T02', 'T11', 'T12'] }),
     s('s3', 'explanation', 'Винятки: -yendo, e → i, durmiendo', true, {
       blocks: [
-        UK('Якщо основа закінчується на голосну, замість -iendo пишемо -yendo: leer → leyendo, traer → trayendo, oír → oyendo, caer → cayendo, creer → creyendo. Від ir — yendo.'),
-        UK('У частини дієслів на -ir e основи стає i: pedir → pidiendo, decir → diciendo, repetir → repitiendo, servir → sirviendo, venir → viniendo, preferir → prefiriendo. Дієслова на -ar та -er з чергуванням мають звичайний герундій: pensando, entendiendo.'),
+        UK('У leer, traer, oír, caer і creer основа закінчується на голосну, тому замість -iendo пишемо -yendo: leer → leyendo, traer → trayendo, oír → oyendo, caer → cayendo, creer → creyendo. Від ir — yendo. Це правило не діє для всіх дієслів (наприклад, reír → riendo), тому запам’ятовуємо ці форми.'),
+        UK('У частини дієслів на -ir e основи стає i: pedir → pidiendo, decir → diciendo, repetir → repitiendo, servir → sirviendo, venir → viniendo, preferir → prefiriendo. Дієслова на -ar та -er з чергуванням e → ie мають звичайний герундій: pensando, entendiendo.'),
         UK('Dormir змінює o на u: durmiendo.'),
         T_GER,
         EX('Pablo está leyendo el periódico.', 'Пабло зараз читає газету.'),
@@ -141,7 +141,7 @@ export const lesson = mkLesson({
         LIST_UK([
           '-ar → -ando: trabajando, jugando, pensando (без чергування).',
           '-er / -ir → -iendo: comiendo, viviendo, volviendo (без чергування).',
-          'Голосна перед закінченням → -yendo: leyendo, trayendo, oyendo; ir → yendo.',
+          'leer, traer, oír → -yendo: leyendo, trayendo, oyendo; ir → yendo.',
           'e → i у дієсловах на -ir: pidiendo, diciendo, viniendo, prefiriendo; dormir → durmiendo.',
         ]),
         LINK('Потренувати герундій', [AR, ER, YE, EI, OU], 'written', 10),
@@ -156,7 +156,7 @@ export const materials = [
     topicId: L,
     titleUk: 'Таблиця: герундій',
     blocks: [
-      UK('-ar → -ando; -er / -ir → -iendo; після голосної → -yendo; e → i у частині дієслів на -ir; dormir → durmiendo.'),
+      UK('-ar → -ando; -er / -ir → -iendo; leer, traer, oír, caer, creer → -yendo (ir → yendo); e → i у частині дієслів на -ir; dormir → durmiendo.'),
       T_GER,
       LINK('Практика: герундій', [AR, ER, YE, EI, OU], 'written', 10),
     ],

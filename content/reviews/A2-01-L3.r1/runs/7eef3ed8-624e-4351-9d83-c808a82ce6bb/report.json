@@ -1,0 +1,1495 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-01-L3.r1",
+  "packetHash": "3b91479cebb1dcea627b59983dc7730bb15e1e8f20da6875486454e5882e9ab7",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "9fd9283774ea46cc22d55fdb67184a2c4d2a92164a4942429398c1b3da892961",
+    "reviewerPacketSha256": "aa3e92356ba192d634567c002bf973de60d56248c49a38c60f077452db131965",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N7je2X/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N7je2X/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N7je2X/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N7je2X/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N7je2X/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc9f-4dd4-7b62-9a30-d37c3cce2d05",
+        "version": "v0.166.0",
+        "tokens used": "120,373"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:progressive.gerund-e-i",
+        "reviewerAnswer": "pedir → pidiendo; decir → diciendo; repetir → repitiendo; servir → sirviendo; venir → viniendo; preferir → prefiriendo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.scope.noteUk: «Дієслова на -ar та -er з чергуванням у теперішньому часі мають регулярний герундій: pensando, entendiendo.»",
+        "defect": "The unrestricted statement includes poder, an already introduced stem-changing -er verb whose gerund is irregular: pudiendo.",
+        "correction": "Limit the comparison explicitly to e → ie alternation: «Дієслова на -ar та -er з чергуванням e → ie мають регулярний герундій: pensando, entendiendo.»",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:progressive.gerund-o-u",
+        "reviewerAnswer": "dormir → durmiendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:progressive.gerund-regular-ar",
+        "reviewerAnswer": "hablar → hablando; trabajar → trabajando; estudiar → estudiando; jugar → jugando; pensar → pensando.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:progressive.gerund-regular-er-ir",
+        "reviewerAnswer": "comer → comiendo; hacer → haciendo; vivir → viviendo; escribir → escribiendo; salir → saliendo; volver → volviendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:progressive.gerund-yendo",
+        "reviewerAnswer": "leer → leyendo; traer → trayendo; oír → oyendo; caer → cayendo; creer → creyendo; ir → yendo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The conditional is stated without exceptions or an explicit restriction to the selected verbs. Vowel-final stems do not invariably produce -yendo: reír → riendo and freír → friendo.",
+        "correction": "State that the pattern applies to the listed verbs, or qualify the generalization and identify its exceptions. The listed forms require no changes.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.caer",
+        "reviewerAnswer": "caer — «падати»; gerund cayendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.creer",
+        "reviewerAnswer": "creer — «вірити; вважати»; gerund creyendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.oir",
+        "reviewerAnswer": "oír — «чути»; gerund oyendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A2-01-L3",
+        "reviewerAnswer": "Regular forms include hablando, trabajando, jugando, comiendo, viviendo and volviendo. The selected exceptions are leyendo, trayendo, oyendo, cayendo, creyendo, yendo, pidiendo, diciendo, repitiendo, sirviendo, viniendo, prefiriendo and durmiendo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s3].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»; steps[id=s3].blocks[1].text: «Дієслова на -ar та -er з чергуванням мають звичайний герундій: pensando, entendiendo.»; steps[id=s7].blocks[0].items[2]: «Голосна перед закінченням → -yendo: leyendo, trayendo, oyendo; ir → yendo.»",
+        "defect": "Two statements overgeneralize. Vowel-final stems have exceptions such as reír → riendo and freír → friendo. The claim about stem-changing -er verbs also includes poder, whose gerund is pudiendo.",
+        "correction": "Restrict the -yendo explanation and summary to the selected verbs, or state the exceptions. Restrict the -ar/-er comparison explicitly to e → ie alternation.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory).",
+          "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T01",
+        "reviewerAnswer": "trabajando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T02",
+        "reviewerAnswer": "estudiando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T03",
+        "reviewerAnswer": "jugando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T04",
+        "reviewerAnswer": "pensando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T05",
+        "reviewerAnswer": "cocinando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T06",
+        "reviewerAnswer": "encontrando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T07",
+        "reviewerAnswer": "trabajando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T08",
+        "reviewerAnswer": "jugando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T11",
+        "reviewerAnswer": "bebiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T12",
+        "reviewerAnswer": "escribiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T13",
+        "reviewerAnswer": "entendiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T14",
+        "reviewerAnswer": "escribiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T15",
+        "reviewerAnswer": "comiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T21",
+        "reviewerAnswer": "trayendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T22",
+        "reviewerAnswer": "oyendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T23",
+        "reviewerAnswer": "leyendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T24",
+        "reviewerAnswer": "yendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions. Retain the separate statement ir → yendo.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T25",
+        "reviewerAnswer": "cayendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T26",
+        "reviewerAnswer": "creyendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T27",
+        "reviewerAnswer": "leyendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T28",
+        "reviewerAnswer": "trayendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T31",
+        "reviewerAnswer": "diciendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T32",
+        "reviewerAnswer": "sirviendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T33",
+        "reviewerAnswer": "prefiriendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T34",
+        "reviewerAnswer": "repitiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T35",
+        "reviewerAnswer": "pidiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T36",
+        "reviewerAnswer": "viniendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T37",
+        "reviewerAnswer": "sirviendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T38",
+        "reviewerAnswer": "diciendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T41",
+        "reviewerAnswer": "durmiendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+        "defect": "«Інші» incorrectly makes dormir the sole exception. Poder is already listed in taughtBefore and has the irregular gerund pudiendo.",
+        "correction": "Replace «Інші дієслова» with «Більшість інших дієслів», matching the qualified wording in the skill definition, or limit the statement to volver and encontrar.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+          "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T42",
+        "reviewerAnswer": "durmiendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+        "defect": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+        "correction": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+          "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T43",
+        "reviewerAnswer": "dormir — durmiendo, encontrar — encontrando.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+        "defect": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+        "correction": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+          "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T44",
+        "reviewerAnswer": "durmiendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+        "defect": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+        "correction": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+          "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T51",
+        "reviewerAnswer": "hablar — hablando, comer — comiendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T52",
+        "reviewerAnswer": "jugar — jugando, volver — volviendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T53",
+        "reviewerAnswer": "leer — leyendo, escribir — escribiendo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T54",
+        "reviewerAnswer": "pedir — pidiendo, beber — bebiendo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T55",
+        "reviewerAnswer": "dormir — durmiendo, volver — volviendo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+        "defect": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+        "correction": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+          "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L3-T56",
+        "reviewerAnswer": "venir — viniendo, ir — yendo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[1].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+        "defect": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+        "correction": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions. Retain the separate statement ir → yendo.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "material:material.a2-01.gerund",
+        "reviewerAnswer": "All displayed infinitive–gerund pairs are correct: hablando, trabajando, jugando, comiendo, viviendo, volviendo, leyendo, trayendo, oyendo, yendo, pidiendo, diciendo, viniendo, prefiriendo and durmiendo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.blocks[0].text: «після голосної → -yendo»",
+        "defect": "The mnemonic presents vowel-final stems as sufficient for -yendo without restricting its scope. Exceptions include reír → riendo and freír → friendo.",
+        "correction": "Replace the unrestricted mnemonic with the selected examples, or state explicitly that the pattern has exceptions.",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "progressive.gerund-e-i",
+      "contentHash": "e1f122c0942788050f3bca24338527ec76a617bba2f3ac19484538aae30daf29",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: «Дієслова на -ar та -er з чергуванням у теперішньому часі мають регулярний герундій: pensando, entendiendo.»",
+          "description": "The unrestricted statement includes poder, an already introduced stem-changing -er verb whose gerund is irregular: pudiendo.",
+          "suggestion": "Limit the comparison explicitly to e → ie alternation: «Дієслова на -ar та -er з чергуванням e → ie мають регулярний герундій: pensando, entendiendo.»"
+        }
+      ],
+      "caseId": "skill:progressive.gerund-e-i",
+      "verdict": "flawed",
+      "reviewerAnswer": "pedir → pidiendo; decir → diciendo; repetir → repitiendo; servir → sirviendo; venir → viniendo; preferir → prefiriendo.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "progressive.gerund-o-u",
+      "contentHash": "7b66ed475b44ca710c0d90d923e1ae808745f08f4bb3a09ac924737efe620198",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:progressive.gerund-o-u",
+      "verdict": "valid",
+      "reviewerAnswer": "dormir → durmiendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "progressive.gerund-regular-ar",
+      "contentHash": "c1c775d6bb10ded0b5225d86efe893b4689b54b9f15ee7ad57a947fdccd44248",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:progressive.gerund-regular-ar",
+      "verdict": "valid",
+      "reviewerAnswer": "hablar → hablando; trabajar → trabajando; estudiar → estudiando; jugar → jugando; pensar → pensando.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "progressive.gerund-regular-er-ir",
+      "contentHash": "4effe94d1ad1198320fcea75d0afd7626dc83dc9a2871c7bdbba64c6185b798c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:progressive.gerund-regular-er-ir",
+      "verdict": "valid",
+      "reviewerAnswer": "comer → comiendo; hacer → haciendo; vivir → viviendo; escribir → escribiendo; salir → saliendo; volver → volviendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "progressive.gerund-yendo",
+      "contentHash": "7636ea3d2ecb563e06b89711406cf1b5ade4c0cf8935b474937c1d53380f2319",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The conditional is stated without exceptions or an explicit restriction to the selected verbs. Vowel-final stems do not invariably produce -yendo: reír → riendo and freír → friendo.",
+          "suggestion": "State that the pattern applies to the listed verbs, or qualify the generalization and identify its exceptions. The listed forms require no changes."
+        }
+      ],
+      "caseId": "skill:progressive.gerund-yendo",
+      "verdict": "flawed",
+      "reviewerAnswer": "leer → leyendo; traer → trayendo; oír → oyendo; caer → cayendo; creer → creyendo; ir → yendo.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.caer",
+      "contentHash": "7f8d74baed926abab17ed53533a5c30aaa181803d11209da562dd1766bc15c80",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.caer",
+      "verdict": "valid",
+      "reviewerAnswer": "caer — «падати»; gerund cayendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.creer",
+      "contentHash": "421339575cad42c63029b4bfa19b448b131d4f0ae430ecceb9bec3cd727a2415",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.creer",
+      "verdict": "valid",
+      "reviewerAnswer": "creer — «вірити; вважати»; gerund creyendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.oir",
+      "contentHash": "21355d9bb8eac47c8e1fab4a52bc6fbfe51e13c82a625a0b6d8fd73733a762ee",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.oir",
+      "verdict": "valid",
+      "reviewerAnswer": "oír — «чути»; gerund oyendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A2-01-L3",
+      "contentHash": "0398fefde64523724c31d193cd766d9034eb6bd809eb2118146fbc79b226a664",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»; steps[id=s3].blocks[1].text: «Дієслова на -ar та -er з чергуванням мають звичайний герундій: pensando, entendiendo.»; steps[id=s7].blocks[0].items[2]: «Голосна перед закінченням → -yendo: leyendo, trayendo, oyendo; ir → yendo.»",
+          "description": "Two statements overgeneralize. Vowel-final stems have exceptions such as reír → riendo and freír → friendo. The claim about stem-changing -er verbs also includes poder, whose gerund is pudiendo.",
+          "suggestion": "Restrict the -yendo explanation and summary to the selected verbs, or state the exceptions. Restrict the -ar/-er comparison explicitly to e → ie alternation."
+        }
+      ],
+      "caseId": "lesson:A2-01-L3",
+      "verdict": "flawed",
+      "reviewerAnswer": "Regular forms include hablando, trabajando, jugando, comiendo, viviendo and volviendo. The selected exceptions are leyendo, trayendo, oyendo, cayendo, creyendo, yendo, pidiendo, diciendo, repitiendo, sirviendo, viniendo, prefiriendo and durmiendo.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory).",
+        "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T01",
+      "contentHash": "0f51c241cea47bf63f5ece3b29eeb8d47ec24364a83876b47c8f91ad2ac47841",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "trabajando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T02",
+      "contentHash": "d5e4ee8663004e1246a408d0b91ce4a1be8b0e762cb831805be89b5eff68770c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "estudiando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T03",
+      "contentHash": "a9bc7fe5d9606eeb003213cc94fdb5603bf0fcb54303bbbbb78d09bafc83a258",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "jugando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T04",
+      "contentHash": "fde6107d8bd2a757c916c17a5a4d81f84affc4377b5fcf2cdc6a15e5ed4b0c83",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "pensando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T05",
+      "contentHash": "e1f1111d75f218d5f1a80efe2fa5222d75eb14f38142feca82d60813d7b8c4fe",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "cocinando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T06",
+      "contentHash": "e70301deb62b2758f7ec428cef3602bfcfc214c26807b46aac047a2e2f137091",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "encontrando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T07",
+      "contentHash": "e77bf5ac66299c5416c29a20c94c90d1f728b66655570806a0dede4d8ad81f5c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "trabajando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T08",
+      "contentHash": "257d68e99c543e9166a7836c96f96b03eb5f114823d29abb766d47c1e3c6a870",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "jugando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T11",
+      "contentHash": "e76ddd15aa79e7bec04def3080ec4949b0cb3a934e992fa0b4bf609c50223224",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "bebiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T12",
+      "contentHash": "7a8ba2e50751dc34f230be6a23c5ad88164f3091db3b86600992659f07338939",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "escribiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T13",
+      "contentHash": "e223fcac5dc9c84a6a2f885b6d35b604bc14785ad7577b53d6a968efb9312b59",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "entendiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T14",
+      "contentHash": "46fe8d2fc7adb0766238195d470007eb0f7d56ec0891da48aa5ecb6aa60ab3c5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "escribiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T15",
+      "contentHash": "a190e9980bd66988528a788957b8195e8213eae20069dbad7af7508535451ac7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "comiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T21",
+      "contentHash": "6cd1b46b6e3951471ca52f8de92c4f4c6d722f5808f138fe0896952331d26c56",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "trayendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T22",
+      "contentHash": "dab2452deea44e4167b219f38a4fc24e2c6e626b34e70c735f316a0f0e4eca07",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "oyendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T23",
+      "contentHash": "8ab5403b07cd69a9f377ea944c88fe0fb53d57bfa83343fff45778e04d03eedb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T23",
+      "verdict": "flawed",
+      "reviewerAnswer": "leyendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T24",
+      "contentHash": "c586d4c063f3a6ddf7211ea867afb6b9cb9c65840e9cf96bdc7448ab22f1c81a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions. Retain the separate statement ir → yendo."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T24",
+      "verdict": "flawed",
+      "reviewerAnswer": "yendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T25",
+      "contentHash": "b6b60433d79abfc23a75f9e4e90fe1e22cf0a6523e8ddc82ee495f147f1e9cb7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "cayendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T26",
+      "contentHash": "e8e36bb32289a97461993299c8b1023039df0e4a44512a1a1ab7f9573d210ce9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T26",
+      "verdict": "flawed",
+      "reviewerAnswer": "creyendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T27",
+      "contentHash": "1cc0b6ebbb704f5df0e60b24b0c0d11db4fedcf837a5a96b9dce547848af13cc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T27",
+      "verdict": "flawed",
+      "reviewerAnswer": "leyendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T28",
+      "contentHash": "45683d43e9db6364015fecda68646acfd7a49b0be74103670dde7ed0a8295915",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T28",
+      "verdict": "flawed",
+      "reviewerAnswer": "trayendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T31",
+      "contentHash": "0fc6231e352fb305cd55520ca05896cf81cc96b8fe18ee1fec70b901884f6d17",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "diciendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T32",
+      "contentHash": "cd2559b3ab8981357f2e36fa1b7e38e23258e4c518bdc9ca80b8b629cc5b0580",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "sirviendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T33",
+      "contentHash": "cfe9457fc8e317fd7c4f181c701e33c0cdb3f80ed925cf7dc5f7f40bdbab4c89",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "prefiriendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T34",
+      "contentHash": "4b40f3365874b5e825bcc31abb29aac1d523cf949850df23f130471afb3ada88",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "repitiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T35",
+      "contentHash": "59b95fe78f94ab4f03f0f2e4ee47e1d1ce2e8581efa683f1f1790064040c4bcb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "pidiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T36",
+      "contentHash": "96b1e4415bc025dce4da280a74e82b08c6c1ea5c667827a289c4b25a4c445b55",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T36",
+      "verdict": "valid",
+      "reviewerAnswer": "viniendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T37",
+      "contentHash": "bec068fcb2a50bb21908479df429bbf8284462e53de3fc98c76e9a31b07b6348",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T37",
+      "verdict": "valid",
+      "reviewerAnswer": "sirviendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T38",
+      "contentHash": "204ff2c32f2ccdae2a352cdea61e5aaed88cf5d9a961653f6a21e1735c3075fa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T38",
+      "verdict": "valid",
+      "reviewerAnswer": "diciendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T41",
+      "contentHash": "efc0b0710323e056940a365f3feb91cf64b97a0ea7f6a7f1da283670cae7e3d7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+          "description": "«Інші» incorrectly makes dormir the sole exception. Poder is already listed in taughtBefore and has the irregular gerund pudiendo.",
+          "suggestion": "Replace «Інші дієслова» with «Більшість інших дієслів», matching the qualified wording in the skill definition, or limit the statement to volver and encontrar."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T41",
+      "verdict": "flawed",
+      "reviewerAnswer": "durmiendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+        "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T42",
+      "contentHash": "784ca08390271d96881cb5dc416fe8e2711402aff5457dac35cedd936ab56d29",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+          "description": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+          "suggestion": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T42",
+      "verdict": "flawed",
+      "reviewerAnswer": "durmiendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+        "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T43",
+      "contentHash": "00a471bab874de20e959f8ca39a20fc5824b3648d8ef7ca5f04189c4faa49cad",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+          "description": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+          "suggestion": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "dormir — durmiendo, encontrar — encontrando.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+        "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T44",
+      "contentHash": "51b8d75b0c7613138f48e9105b59b10c48ab0fbfeea311dcde0375156631370c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+          "description": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+          "suggestion": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T44",
+      "verdict": "flawed",
+      "reviewerAnswer": "durmiendo",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+        "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T51",
+      "contentHash": "bc397cf2a5deb5a2bcf1aa2d7bdb3598a5a62c56d09cb9caa5edb658adbaa8b9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T51",
+      "verdict": "valid",
+      "reviewerAnswer": "hablar — hablando, comer — comiendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T52",
+      "contentHash": "38a315bcf78f12b8441286396c38b5e12dc36c498de2db03e7a9dc5fe25ff2aa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T52",
+      "verdict": "valid",
+      "reviewerAnswer": "jugar — jugando, volver — volviendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T53",
+      "contentHash": "d2b4f1cd3e6a17c0c64b8848569055fa870ba0f18f18c53d7c846aa3db11d8ec",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T53",
+      "verdict": "flawed",
+      "reviewerAnswer": "leer — leyendo, escribir — escribiendo.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T54",
+      "contentHash": "5a73bd184117701916436846beccbaa9661d631bafa5e38e78b33ec432edb4f1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L3-T54",
+      "verdict": "valid",
+      "reviewerAnswer": "pedir — pidiendo, beber — bebiendo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T55",
+      "contentHash": "f6e50383fd532f59259e9b61a390c93925609c141c85ea591fbc21200eae98ca",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Інші дієслова з чергуванням o → ue мають регулярний герундій: volviendo, encontrando.»",
+          "description": "The blanket statement is false: the already introduced poder has the irregular gerund pudiendo.",
+          "suggestion": "Use «Більшість інших дієслів» or restrict the comparison to volver → volviendo and encontrar → encontrando."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T55",
+      "verdict": "flawed",
+      "reviewerAnswer": "dormir — durmiendo, volver — volviendo.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «poder», conjugation table: pudiendo (from memory).",
+        "Packet, skill:progressive.gerund-o-u, content.body.ruleUk: explicitly gives poder → pudiendo."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L3-T56",
+      "contentHash": "a773d81b17541e5aa4691470d3553a6234807798e2ec75d2870eb2f45cc8f605",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[1].text: «Якщо основа закінчується на голосну, замість -iendo пишемо -yendo»",
+          "description": "The hint presents an unrestricted rule, although vowel-final stems also occur in reír → riendo and freír → friendo.",
+          "suggestion": "Restrict the explanation explicitly to the lesson's selected -yendo verbs, or qualify it with exceptions. Retain the separate statement ir → yendo."
+        }
+      ],
+      "caseId": "task:A2-01-L3-T56",
+      "verdict": "flawed",
+      "reviewerAnswer": "venir — viniendo, ir — yendo.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    },
+    {
+      "kind": "material",
+      "logicalId": "material.a2-01.gerund",
+      "contentHash": "0cd9879b7b21ce49e0dd51f66988c6c382d6664943905e79f6f79a8b5fc98e28",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.blocks[0].text: «після голосної → -yendo»",
+          "description": "The mnemonic presents vowel-final stems as sufficient for -yendo without restricting its scope. Exceptions include reír → riendo and freír → friendo.",
+          "suggestion": "Replace the unrestricted mnemonic with the selected examples, or state explicitly that the pattern has exceptions."
+        }
+      ],
+      "caseId": "material:material.a2-01.gerund",
+      "verdict": "flawed",
+      "reviewerAnswer": "All displayed infinitive–gerund pairs are correct: hablando, trabajando, jugando, comiendo, viviendo, volviendo, leyendo, trayendo, oyendo, yendo, pidiendo, diciendo, viniendo, prefiriendo and durmiendo.",
+      "notes": "",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «reír» and «freír», conjugation tables: riendo and friendo (from memory)."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
