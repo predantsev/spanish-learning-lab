@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-01-L1.r2",
+  "packetHash": "2cd96c2df45597738be0302422b884b93f91c0899fb70c4e27da57c7cc074d29",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "5b23721258fbe93995104779b6e0cce6d1aa6e65963fd44ff2c7347270fdd8b8",
+    "reviewerPacketSha256": "68b2e8a1736dac71e8f302d67dbfe973be8d887d425ddb0961336482a01a85ce",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-3rZxuK/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-3rZxuK/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-3rZxuK/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-3rZxuK/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-3rZxuK/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc91-409f-7602-966a-7f9ebcb44f55",
+        "version": "v0.166.0",
+        "tokens used": "33,299"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:ortho.keyboard-entry",
+        "reviewerAnswer": "No learner task is posed. Expected entry methods: long-press letters for their variants; on Mac ABC, Option+1 produces ¡ and Option+Shift+/ produces ¿; on iPhone, long-press ? or ! for the inverted mark.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The packet explicitly records real-device testing as pending. No device testing was performed in this text-only review."
+      },
+      {
+        "caseId": "lesson:A1-01-L1",
+        "reviewerAnswer": "No learner task is posed. Expected spellings include café, sí, adiós, España, niño, señor, señora, año, mañana, pingüino, bilingüe and guitarra. Capitals retain required accent marks.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The ü restriction is appropriate for ordinary modern Spanish spelling at this level. Optionally qualify it as applying to ordinary prose, since poetic diaeresis has additional uses: RAE/ASALE, Diccionario panhispánico de dudas, entry «diéresis» (from memory)."
+      },
+      {
+        "caseId": "task:A1-01-L1-T03",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L1-T17",
+        "reviewerAnswer": "Café de España.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt supplies and glosses de. The policy covers capitalization and optional final punctuation. The key is not declared closed, and unlisted responses receive unresolved feedback."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "ortho.keyboard-entry",
+      "contentHash": "01946c8a3c061b1a2a92b9ab34bac114f14f9b4cb94030e5368ef5e27bc26177",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.keyboard-entry",
+      "verdict": "valid",
+      "reviewerAnswer": "No learner task is posed. Expected entry methods: long-press letters for their variants; on Mac ABC, Option+1 produces ¡ and Option+Shift+/ produces ¿; on iPhone, long-press ? or ! for the inverted mark.",
+      "notes": "The packet explicitly records real-device testing as pending. No device testing was performed in this text-only review.",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-01-L1",
+      "contentHash": "05fdf83dae96ebf72ecc90f54b454dd317961e7c6ccd84390469499903625c6e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-01-L1",
+      "verdict": "valid",
+      "reviewerAnswer": "No learner task is posed. Expected spellings include café, sí, adiós, España, niño, señor, señora, año, mañana, pingüino, bilingüe and guitarra. Capitals retain required accent marks.",
+      "notes": "The ü restriction is appropriate for ordinary modern Spanish spelling at this level. Optionally qualify it as applying to ordinary prose, since poetic diaeresis has additional uses: RAE/ASALE, Diccionario panhispánico de dudas, entry «diéresis» (from memory).",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T03",
+      "contentHash": "b791c5451af99dbe3096c4fcc8c1722e6debbadcf83b3d7e3049e045ab27c503",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L1-T17",
+      "contentHash": "fa09c57b86692a4f17fb21353f980cd947213ba7c1998cf039dfd1af25baa01d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L1-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "Café de España.",
+      "notes": "The prompt supplies and glosses de. The policy covers capitalization and optional final punctuation. The key is not declared closed, and unlisted responses receive unresolved feedback.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
