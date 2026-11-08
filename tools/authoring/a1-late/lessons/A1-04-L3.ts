@@ -115,7 +115,7 @@ k.exact({
   err: [['Vamos en casa.', 'En casa — де ми є. Куди йдемо — a casa.']],
   tr: 'Ми йдемо додому.',
 });
-k.exact({ n: 23, role: 'independent', fam: 'a104.study', t: [ADW], ins: 'Впиши прийменник, якого бракує.', p: ['Ana va ___ la universidad.'], acc: ['a'], err: [enForA], tr: 'Ана йде до університету.' });
+k.exact({ n: 23, role: 'independent', fam: 'a104.study', t: [ADW], ins: 'Впиши прийменник, щоб речення означало «Ана йде до університету».', p: ['Ana va ___ la universidad.'], acc: ['a'], err: [enForA], tr: 'Ана йде до університету.' });
 k.exact({
   n: 24,
   role: 'independent',
@@ -139,7 +139,7 @@ k.slots({
   role: 'independent',
   fam: 'a104.city',
   t: [ADW],
-  ins: 'Перепиши речення повністю, вставивши прийменник, якого бракує.',
+  ins: 'Перепиши речення повністю, вставивши прийменник, щоб воно означало «Мої батьки їдуть до Севільї».',
   p: ['Mis padres van ___ Sevilla.'],
   tpl: ['Mis padres van ', S('s1'), ' Sevilla.'],
   slots: [{ id: 's1', t: ADW, acc: ['a'], err: [enForA] }],
@@ -154,7 +154,7 @@ k.exact({
   acc: ['¿Vas a la playa?', '¿Tú vas a la playa?', '¿Vas tú a la playa?'],
   err: [['¿Vas en la playa?', 'En la playa — де ти є. Куди йдеш — a la playa.']],
 });
-k.exact({ n: 28, role: 'delayed', fam: 'a104.work', t: [ADW], ins: 'Впиши прийменник, якого бракує.', p: ['Vamos ___ la oficina.'], acc: ['a'], err: [enForA], tr: 'Ми йдемо в офіс.' });
+k.exact({ n: 28, role: 'delayed', fam: 'a104.work', t: [ADW], ins: 'Впиши прийменник, щоб речення означало «Ми йдемо в офіс».', p: ['Vamos ___ la oficina.'], acc: ['a'], err: [enForA], tr: 'Ми йдемо в офіс.' });
 k.exact({
   n: 29,
   role: 'transfer',

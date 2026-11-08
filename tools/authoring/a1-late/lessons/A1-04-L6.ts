@@ -232,7 +232,7 @@ k.rubric({
   t: [WR],
   ins: 'Напиши 3–4 речення іспанською про звичайний день свого друга чи подруги (він / вона): що він чи вона робить, як часто і в якій послідовності.',
   crit: [CRITERIA[0] ?? '', 'Дієслова у формі для él / ella (trabaja, se levanta).', CRITERIA[2] ?? '', CRITERIA[3] ?? '', CRITERIA[4] ?? ''],
-  exm: ['Mi amiga Lucía vive en Madrid. Siempre se levanta temprano. Primero desayuna y después va a la universidad. Por la noche lee un libro.'],
+  exm: ['Mi amiga Lucía vive en Madrid. Siempre se ducha por la mañana. Primero desayuna y después va a la universidad. Por la noche lee un libro.'],
 });
 k.rubric({
   n: 28,
