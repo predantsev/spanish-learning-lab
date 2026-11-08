@@ -133,4 +133,25 @@ export const RULES: Record<string, string> = {
     'Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну.',
   'writing.info-answer':
     'Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.',
+  // A1-06-L1
+  'gustar.pronouns':
+    'З gustar людину позначає займенник перед дієсловом: me gusta — «мені подобається», te gusta — «тобі подобається», le gusta — «йому, їй, Вам (одній людині) подобається». Не «yo gusta»: як і в українському «мені подобається».',
+  'gustar.pronouns.plural':
+    'Для кількох людей: nos gusta — «нам подобається», os gusta — «вам подобається» (кільком людям на «ти», vosotros), les gusta — «їм» або формальне «вам» (ustedes).',
+  'gustar.agreement':
+    'Gusta — коли подобається одна річ: Me gusta el café. Gustan — коли кілька: Me gustan los libros. Форма дієслова залежить від того, що подобається, а не від того, кому.',
+  'gustar.infinitive':
+    'Що подобається робити — gusta + інфінітив: Me gusta leer. Навіть із кількома діями дієслово лишається gusta: Me gusta leer y escribir.',
+  'gustar.noun-with-article':
+    'Коли щось подобається загалом, перед іменником ставимо означений артикль: Me gusta el café. Me gustan los perros. Без артикля («me gusta café») так не кажуть.',
+  'gustar.a-noun-le':
+    'Якщо називаємо людину, на початку ставимо a + людина, але займенник le / les усе одно лишається: A Ana le gusta el té. A mis padres les gusta viajar.',
+  'gustar.negation': 'У запереченні no стоїть перед займенником: No me gusta el té. No nos gustan las películas. Неправильно — «Me no gusta».',
+  'gustar.encantar':
+    'Encantar будується так само, як gustar: Me encanta el chocolate. Nos encantan las playas. Le encanta bailar. Воно вже означає «дуже подобається», тому muy з ним не вживають.',
+  'gustar.degree':
+    'Від найсильнішого до найслабшого: Me encanta → Me gusta mucho → Me gusta → No me gusta mucho («не дуже подобається») → No me gusta nada («зовсім не подобається»). Mucho і nada стоять після дієслова й не змінюються; muy тут не вживаємо.',
+  'gustar.responses':
+    'Погодитися: на ствердження — A mí también («мені теж»), на заперечення — A mí tampoco («мені теж ні»). Не погодитися: на ствердження — A mí no, на заперечення — A mí sí. З gustar кажемо a mí (зі знаком наголосу), а не yo.',
+  'listening.preferences': 'Послухай і визнач, що людині подобається, а що ні. Звертай увагу на no, mucho, nada і на те, про кого йдеться (me, le, a mi hermano).',
 };
