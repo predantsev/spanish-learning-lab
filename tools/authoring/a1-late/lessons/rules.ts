@@ -114,4 +114,12 @@ export const RULES: Record<string, string> = {
   'reading.calendar-appointment':
     'Знайди в записі, що відбувається, коли й о котрій: день тижня, число, місяць і годину. 17:00 у розмові — las cinco de la tarde.',
   'listening.dates': 'Послухай і визнач день, дату чи годину. Спершу звертай увагу на день тижня й число, потім — на місяць і час.',
+  // A1-05-L5
+  'prep.spatial.object':
+    'Де предмет: encima de — «на, зверху», debajo de — «під», al lado de — «поруч із», delante de — «перед», detrás de — «за, позаду», entre … y … — «між … і …». Після виразу — іменник з артиклем: debajo de la silla. Про предмет на поверхні часто можна сказати й просто en: en la mesa.',
+  'prep.spatial.place':
+    'Де місце в місті: cerca de — «близько від», lejos de — «далеко від», enfrente de — «навпроти», a la derecha de — «праворуч від», a la izquierda de — «ліворуч від». Aquí — «тут», allí — «там». Дієслово — estar: La farmacia está cerca de la plaza.',
+  'article.contraction-del':
+    'De + el зливаються в del: al lado del banco, cerca del hotel. З la, los, las злиття немає: cerca de la estación, al lado de los coches. Так само в належності: el coche del profesor.',
+  'listening.locations': 'Послухай і визнач, де знаходиться предмет чи місце. Звертай увагу на вирази al lado de, enfrente de, cerca de, encima de, debajo de.',
 };
