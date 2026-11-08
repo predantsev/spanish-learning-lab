@@ -211,6 +211,10 @@ export const unit: Unit = {
     t(19, 'transfer', 'chat-form', [ES_W], 'Ти пишеш подрузі: «Ми з друзями в Мадриді». Допиши форму estar і напиши речення повністю.', 'Mis amigos y yo estamos en Madrid.', [
       ['Mis amigos y yo están en Madrid.', 'x', 'Mis amigos y yo — це «ми»: estamos.'],
     ], 'Mis amigos y yo estamos', { shown: 'Mis amigos y yo ___ en Madrid.', also: ['estamos.'] }),
+    t(20, 'delayed', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Mis hermanas están en Valencia.', [
+      ['Mis hermanas está en Valencia.', 'x', 'Сестер кілька — «вони»: están.'],
+      ['Mis hermanas estan en Valencia.', 'x', 'Están пишеться зі знаком наголосу.'],
+    ], 'Ellas están', { shown: 'Mis hermanas ___ en Valencia.', also: ['están.'] }),
     // ---------- prep.en.location own ----------
     t(21, 'independent', 'fill-en', [EN_W], 'Допиши прийменник і напиши речення повністю: «Мобільний у сумці».', 'El móvil está en el bolso.', [
       ['El móvil está de el bolso.', 'x', 'Місце — en: en el bolso.'],

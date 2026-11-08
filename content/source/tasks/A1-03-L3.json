@@ -1911,6 +1911,99 @@
       "reviewStatus": "draft"
     },
     {
+      "id": "A1-03-L3-T20",
+      "lessonId": "A1-03-L3",
+      "role": "delayed",
+      "family": "fill",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "present.estar",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Допиши форму estar і напиши речення повністю."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Mis hermanas ___ en Valencia."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Mis hermanas están en Valencia."
+        },
+        {
+          "id": "a2",
+          "text": "están."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Mis hermanas está en Valencia.",
+          "outcomes": {
+            "present.estar/written-form": "incorrect"
+          },
+          "feedbackUk": "Сестер кілька — «вони»: están."
+        },
+        {
+          "id": "e2",
+          "text": "Mis hermanas estan en Valencia.",
+          "outcomes": {
+            "present.estar/written-form": "incorrect"
+          },
+          "feedbackUk": "Están пишеться зі знаком наголосу."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "present.estar/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Форми estar: yo estoy, tú estás, él/ella/usted está, nosotros estamos, vosotros estáis, ellos/ellas/ustedes están. Знак наголосу — у estás, está, estáis, están."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "present.estar/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Mis hermanas están en Valencia."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Mis hermanas están en Valencia.",
+      "feedback": {
+        "correctUk": "Правильно: Mis hermanas están en Valencia.",
+        "incorrectUk": "Ще ні. Ellas están: Mis hermanas están en Valencia.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Mis hermanas están en Valencia."
+      },
+      "reviewStatus": "draft"
+    },
+    {
       "id": "A1-03-L3-T21",
       "lessonId": "A1-03-L3",
       "role": "independent",

@@ -2101,6 +2101,99 @@
       "reviewStatus": "draft"
     },
     {
+      "id": "A1-03-L5-T40",
+      "lessonId": "A1-03-L5",
+      "role": "delayed",
+      "family": "fill",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "present.tener",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Допиши форму tener і напиши речення повністю."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Tú y yo ___ hambre."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Tú y yo tenemos hambre."
+        },
+        {
+          "id": "a2",
+          "text": "tenemos."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Tú y yo tenéis hambre.",
+          "outcomes": {
+            "present.tener/written-form": "incorrect"
+          },
+          "feedbackUk": "Якщо в групі є я — «ми»: tenemos."
+        },
+        {
+          "id": "e2",
+          "text": "Tú y yo tienemos hambre.",
+          "outcomes": {
+            "present.tener/written-form": "incorrect"
+          },
+          "feedbackUk": "З nosotros основа ten-: tenemos."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "present.tener/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "present.tener/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Tú y yo tenemos hambre."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Tú y yo tenemos hambre.",
+      "feedback": {
+        "correctUk": "Правильно: Tú y yo tenemos hambre.",
+        "incorrectUk": "Ще ні. Tú y yo = nosotros → tenemos: Tú y yo tenemos hambre.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Tú y yo tenemos hambre."
+      },
+      "reviewStatus": "draft"
+    },
+    {
       "id": "A1-03-L5-T41",
       "lessonId": "A1-03-L5",
       "role": "supported",

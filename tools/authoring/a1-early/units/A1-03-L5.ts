@@ -208,6 +208,10 @@ export const unit: Unit = {
       ['Tengo sueño.', 'c'], ['Tengo sed.', 'x', 'Sed — «спрага»; «хочу спати» — tengo sueño.'], ['Estoy sueño.', 'x', 'У цьому виразі — tener.'],
     ], 'Так: Tengo sueño.', 'Ні. «Хочу спати» — Tengo sueño.'),
     // ---------- present.tener forms ----------
+    t(40, 'delayed', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Tú y yo tenemos hambre.', [
+      ['Tú y yo tenéis hambre.', 'x', 'Якщо в групі є я — «ми»: tenemos.'],
+      ['Tú y yo tienemos hambre.', 'x', 'З nosotros основа ten-: tenemos.'],
+    ], 'Tú y yo = nosotros → tenemos', { shown: 'Tú y yo ___ hambre.', also: ['tenemos.'] }),
     t(41, 'supported', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Yo tengo un perro.', [
       ['Yo tieno un perro.', 'x', 'З yo — tengo.'],
       ['Yo tiene un perro.', 'x', 'Tiene — з él/ella; з yo — tengo.'],
