@@ -122,4 +122,15 @@ export const RULES: Record<string, string> = {
   'article.contraction-del':
     'De + el зливаються в del: al lado del banco, cerca del hotel. З la, los, las злиття немає: cerca de la estación, al lado de los coches. Так само в належності: el coche del profesor.',
   'listening.locations': 'Послухай і визнач, де знаходиться предмет чи місце. Звертай увагу на вирази al lado de, enfrente de, cerca de, encima de, debajo de.',
+  // A1-05-L6
+  'question.word.cual':
+    'Cuál питає про один варіант із кількох або про конкретну інформацію: ¿Cuál es tu dirección? Про кілька — cuáles: ¿Cuáles son tus libros? Обидві форми пишуться зі знаком наголосу. Перед іменником в Іспанії вживають qué: ¿Qué coche?',
+  'contrast.que-cual':
+    'Перед es / son: ¿Qué es…? — коли питаємо, що це таке взагалі (визначення): ¿Qué es un aviso? ¿Cuál es…? — коли потрібна конкретна інформація: ¿Cuál es el horario? Перед іменником — qué: ¿Qué libro?',
+  'question.choice-missing-info':
+    'Спершу визнач, чого бракує: місця (¿Dónde…?), дня (¿Cuándo…?), години (¿A qué hora…?), ціни (¿Cuánto cuesta…?), конкретних даних (¿Cuál es…?), людини (¿Quién…?) чи того, чи щось є (¿Hay…?). Потім постав коротке питання.',
+  'reading.practical-notice':
+    'Прочитай оголошення і знайди, що відбувається, де, коли й о котрій. Не обов’язково розуміти кожне слово: шукай потрібну інформацію — дату, час, адресу, ціну.',
+  'writing.info-answer':
+    'Відповідай коротким реченням із вивченою моделлю: Abre a las nueve. Cuesta tres euros. Está al lado del banco. Повторювати все питання не потрібно.',
 };
