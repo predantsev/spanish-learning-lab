@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-05-L3.r1",
+  "jobId": "22a8c4d4-7f99-42d9-8805-3a784fd46f91",
+  "receiptId": "28975b9f-392f-46c9-9e8c-5f87804716ae",
+  "recordedAt": "2026-11-08T19:21:48.921Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L3-T28",
+      "contentHash": "c14d665c36f0e11f2d2084887c5ce0696166b59dac21333c65f797086764938b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.role: \"delayed\"; task.prompt[1].text: \"Antes yo ___ a mis abuelos todos los domingos. (ver)\".",
+          "description": "This is not a held-out prompt: lesson A2-05-L3, step s2, already presents the complete sentence \"Antes yo veía a mis abuelos todos los domingos.\" The delayed task reproduces that example with only the assessed verb removed.",
+          "suggestion": "Replace it with an unseen sentence, for example \"Antes yo ___ películas con mi hermana los viernes. (ver)\", retaining the key \"veía\"; alternatively, relabel it as ordinary practice."
+        }
+      ],
+      "caseId": "task:A2-05-L3-T28",
+      "verdict": "flawed",
+      "reviewerAnswer": "veía",
+      "notes": "The answer key and linguistic explanations are otherwise correct.",
+      "sources": [
+        "Course contract rule 7, provided in the prompt: delayed and transfer tasks are held-out prompts.",
+        "Packet case lesson:A2-05-L3, content.body.steps[id=s2].blocks[6].spanish: \"Antes yo veía a mis abuelos todos los domingos.\""
+      ]
+    }
+  ]
+}
