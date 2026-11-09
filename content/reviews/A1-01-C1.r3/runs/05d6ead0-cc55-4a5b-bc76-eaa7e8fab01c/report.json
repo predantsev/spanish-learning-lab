@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-01-C1.r3",
+  "packetHash": "20a8607ee236dad64deb94414e807eddb81d05d60590d3cf113d557e35424c18",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "8b29d4ce5d1336d1786bb4df0574536246a01d6797994cb2945e198afedc245a",
+    "reviewerPacketSha256": "6ff86cc0123c7284f04c48a041690442c43a8094488957cb5e15fb1eff0683d5",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-2S8EZH/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-2S8EZH/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-2S8EZH/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-2S8EZH/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-2S8EZH/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bec0-fb52-7461-a648-27b52e910034",
+        "version": "v0.166.0",
+        "tokens used": "16,657"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-01-C1",
+        "reviewerAnswer": "Not applicable: lesson overview with no learner response required.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-C1-T03",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript supports option a. The transcript hint supports both assessed targets."
+      },
+      {
+        "caseId": "task:A1-01-C1-T06",
+        "reviewerAnswer": "Gracias. ¡Hasta mañana! Other acceptable punctuation includes Gracias. Hasta mañana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The accepted variants are correct. Unlisted answers remain ungraded under the stated unresolved-answer handling; the key is not closed."
+      },
+      {
+        "caseId": "clip:clip.a1-01.gracias-hasta-manana",
+        "reviewerAnswer": "Translation: \"Дякую. До завтра!\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish transcript and Ukrainian translation agree. Audio realization is outside this text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-01-C1",
+      "contentHash": "847563b0fde342dbbb16fa8d73dae8b82af216c89c4ae39b6cf0e8bbfd4bc9bc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-01-C1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: lesson overview with no learner response required.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T03",
+      "contentHash": "eb02a19e15e12f3f8d62cbaab6e1b5c2832834238d362cd7cfbbcd9c99e573ae",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-C1-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The transcript supports option a. The transcript hint supports both assessed targets.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T06",
+      "contentHash": "95ae20de9dd02305f12e37293ac9448f2492d98edcfefb5f626f808c346d830d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-C1-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "Gracias. ¡Hasta mañana! Other acceptable punctuation includes Gracias. Hasta mañana.",
+      "notes": "The accepted variants are correct. Unlisted answers remain ungraded under the stated unresolved-answer handling; the key is not closed.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-01.gracias-hasta-manana",
+      "contentHash": "e8ebb9cf496252aa6a485b099d1facae53af9aa06b70e9afe07203ddd4484669",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-01.gracias-hasta-manana",
+      "verdict": "valid",
+      "reviewerAnswer": "Translation: \"Дякую. До завтра!\"",
+      "notes": "The Spanish transcript and Ukrainian translation agree. Audio realization is outside this text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
