@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-02-L2.r2",
+  "packetHash": "490fd81ae4e738b8e3110afaaad7e0d5f5f8a416b07d9ba00dc0dc349c16b5af",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "b815c592063f3a93e131228bb0b12e6420dda475f4db6ffd0590e56f82e192a5",
+    "reviewerPacketSha256": "fb8d35c22d3492155177b1661f11e4d0de73a63c5fe655b96124f5108f41a4c6",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-LsIN65/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-LsIN65/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-LsIN65/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-LsIN65/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-LsIN65/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bec2-c746-7722-ac7e-177746628093",
+        "version": "v0.166.0",
+        "tokens used": "25,436"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-02-L2-T17",
+        "reviewerAnswer": "a is the likely intended answer, but its exclusion of a previously discussed photo is not established by the prompt. The utterance requests a photo without uniquely identifying it.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.options[0].label: \"Якесь фото, а не те, про яке вже йшлося.\"; task.feedback.incorrectUk: \"Ні. Una не вказує на фото, про яке вже говорили: його вводять уперше.\"",
+        "defect": "The preceding discourse is missing. An indefinite article does not establish that the referent has never been mentioned, nor does it necessarily exclude a particular photo—for example, when requesting one print of a selected photograph. The key therefore assumes a discourse history that the prompt does not supply.",
+        "correction": "Specify that no particular photo has been identified and that any photo is wanted. Alternatively, revise the options and feedback to contrast unique identification with an indefinite request, without asserting that the photo must be mentioned for the first time.",
+        "sources": [
+          "Packet verdict definition for \"uncertain\": use it when the key selects one reading but the context does not determine that reading.",
+          "RAE/ASALE, Nueva gramática de la lengua española (2009), chapter 14, discussion of specificity and indefinite noun phrases (from memory)."
+        ],
+        "notes": "The Spanish request is natural. The uncertainty concerns its interpretation and the categorical feedback."
+      },
+      {
+        "caseId": "task:A1-02-L2-T18",
+        "reviewerAnswer": "a — la llave.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly establishes one mutually identifiable key, supporting the definite article. The key, feedback and hint attribution agree."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L2-T17",
+      "contentHash": "c555aa9f2fad1ced975d500cbcc2d41be57dab3ed88cd615f84af96e0b2dd3d7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.options[0].label: \"Якесь фото, а не те, про яке вже йшлося.\"; task.feedback.incorrectUk: \"Ні. Una не вказує на фото, про яке вже говорили: його вводять уперше.\"",
+          "description": "The preceding discourse is missing. An indefinite article does not establish that the referent has never been mentioned, nor does it necessarily exclude a particular photo—for example, when requesting one print of a selected photograph. The key therefore assumes a discourse history that the prompt does not supply.",
+          "suggestion": "Specify that no particular photo has been identified and that any photo is wanted. Alternatively, revise the options and feedback to contrast unique identification with an indefinite request, without asserting that the photo must be mentioned for the first time."
+        }
+      ],
+      "caseId": "task:A1-02-L2-T17",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the likely intended answer, but its exclusion of a previously discussed photo is not established by the prompt. The utterance requests a photo without uniquely identifying it.",
+      "notes": "The Spanish request is natural. The uncertainty concerns its interpretation and the categorical feedback.",
+      "sources": [
+        "Packet verdict definition for \"uncertain\": use it when the key selects one reading but the context does not determine that reading.",
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), chapter 14, discussion of specificity and indefinite noun phrases (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L2-T18",
+      "contentHash": "c173482c9d21f25762bd3d2688d2169e721fa144bf266365d373f2da9f8a2a24",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L2-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "a — la llave.",
+      "notes": "The prompt explicitly establishes one mutually identifiable key, supporting the definite article. The key, feedback and hint attribution agree.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
