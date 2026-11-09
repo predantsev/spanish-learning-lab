@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-06-L6.r3",
+  "packetHash": "f851c5e78c32e9ef3ce47b66b85767a64d2c7818d495891b7a5c6fde439a26ab",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "0ef851235eb05110cff7301de13be840fc871db57cec6df4b4aae7f426d3d237",
+    "reviewerPacketSha256": "791b339dec680cd1ef249c23fa810a6d9b7ff29dea71ca814370113d83a37d33",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ESGZLF/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ESGZLF/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ESGZLF/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ESGZLF/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ESGZLF/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c0fb-e753-7511-bd5a-50e7d729ccae",
+        "version": "v0.166.0",
+        "tokens used": "72,978"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-06-L6",
+        "reviewerAnswer": "Not applicable: this case contains lesson content rather than a task.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[3].blocks[1].text: \"Esta semana no puedo ir al gimnasio porque tengo exámenes.\"",
+        "defect": "Understanding Sergio's stated reason depends on \"exámenes\", which is neither listed in this case's prerequisites nor glossed in the supplied lesson.",
+        "correction": "Teach or gloss \"examen — іспит; exámenes — іспити\" before the reading and record this vocabulary in the prerequisites.",
+        "sources": [
+          "Course contract, rule 1.",
+          "Packet: context.taughtBefore and content.body.steps[3].blocks[1]."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L6-T01",
+        "reviewerAnswer": "¡Hola, Ana! \"Hola, Ana:\" and \"Hola, Ana.\" also fit as message openings.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supported role permits the visible Pablo model. The reviewed errors correctly identify the missing vocative comma."
+      },
+      {
+        "caseId": "task:A1-06-L6-T04",
+        "reviewerAnswer": "Querido Pablo: An expressive \"¡Querido Pablo!\" is also possible.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The colon is appropriate for a conventional Spanish letter salutation. The exclamatory alternative is acceptable as an expressive opening."
+      },
+      {
+        "caseId": "task:A1-06-L6-T13",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: \"porque tengo exámenes\"; task.hints[1].blocks[0].text: \"Слова: no puedo — «я не можу»; contigo — «з тобою».\"",
+        "defect": "Selecting the reason requires understanding \"exámenes\". This word is absent from taughtBefore, and the vocabulary hint glosses other expressions but omits it.",
+        "correction": "Add \"exámenes — «іспити»\" to a vocabulary hint with targets: [], or teach and record the word before this task.",
+        "sources": [
+          "Course contract, rules 1 and 6.",
+          "Packet: context.taughtBefore, task.prompt[1], task.options and task.hints[1]."
+        ],
+        "notes": "Option a correctly represents the Spanish message; the defect concerns prerequisite support."
+      },
+      {
+        "caseId": "task:A1-06-L6-T14",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The answer follows from \"el lunes que viene\". The prerequisites already include \"la semana que viene\". Understanding \"exámenes\" is unnecessary for identifying the day."
+      },
+      {
+        "caseId": "task:A1-06-L6-T15",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L6-T16",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Raquel is included in \"vamos\", so the Ukrainian answer correctly states her own plan."
+      },
+      {
+        "caseId": "task:A1-06-L6-T17",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The vocabulary hint supplies \"podemos\", \"pizza\" and \"tapas\" without attributing grammatical support."
+      },
+      {
+        "caseId": "task:A1-06-L6-T18",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L6-T20",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Prior teaching of \"podemos\", \"pizza\" and \"tapas\" is unconfirmed in this case's taughtBefore, and no gloss is supplied here. Their meanings do not determine the choice: Jorge's stated work schedule conflicts with the proposed cinema visit."
+      },
+      {
+        "caseId": "task:A1-06-L6-T21",
+        "reviewerAnswer": "¡Hola, Carmen! Gracias, pero el sábado no voy porque trabajo. ¡Hasta pronto! Lucía",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Necesito tu ayuda: ¿puedes traer pan?\"",
+        "defect": "The source message asks for help through \"¿puedes traer pan?\", but the request construction and \"traer\" are neither listed in taughtBefore nor glossed. Understanding what Carmen asks the recipient to do is a prerequisite for composing a fully informed reply.",
+        "correction": "Add a vocabulary/phrase hint with targets: [], explaining \"ayuda — «допомога»\" and \"¿puedes traer pan? — «можеш принести хліб?»\", or teach these items beforehand.",
+        "sources": [
+          "Course contract, rules 1 and 6.",
+          "Packet: task.prompt[0], context.taughtBefore and task.hints."
+        ],
+        "notes": "The sample signs \"Ana\" although the incoming message addresses \"Lucía\". The learner's identity is not explicitly assigned; aligning the names would improve continuity."
+      },
+      {
+        "caseId": "task:A1-06-L6-T22",
+        "reviewerAnswer": "¡Hola, Pablo! El sábado voy a la playa porque me gusta nadar. ¿Quieres ir? ¡Hasta pronto!",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "In the exemplar, \"nosotras\" correctly refers to Marta and her sister. Inviting Pablo does not require changing that pronoun."
+      },
+      {
+        "caseId": "task:A1-06-L6-T23",
+        "reviewerAnswer": "¡Hola, Ana! Me gusta vivir aquí porque hay un café cerca de mi piso. Necesito un supermercado. ¿Quieres tomar un café el domingo? Nos vemos.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"що тобі подобається в районі і чому\"; task.rubric.exemplars[0].text, task.hints[1].blocks[0].text and task.referenceAnswer: \"Me gusta mucho mi piso nuevo porque está cerca del centro.\"",
+        "defect": "The prompt requests a preference about the neighborhood, while the model expresses a preference for the flat because of its location. It is unclear whether that indirect location preference is intended to satisfy the neighborhood requirement. The generic rubric does not resolve this scope question.",
+        "correction": "Clarify whether describing the flat's location counts. If a neighborhood preference is required, make the model explicit, for example: \"Me gusta vivir aquí porque hay un café cerca de mi piso.\" Otherwise, broaden the prompt to permit describing the flat or its surroundings.",
+        "sources": [
+          "Packet: task.prompt[0], task.rubric.criteriaUk[1], task.rubric.exemplars[0] and task.referenceAnswer.",
+          "RAE/ASALE, Diccionario de la lengua española, \"piso\", dwelling sense (from memory).",
+          "Review verdict definitions: use uncertain when the intended reading is underdetermined."
+        ],
+        "notes": "The Spanish model is grammatical. The uncertainty concerns fulfillment of the writing prompt."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-06-L6",
+      "contentHash": "76b3fe9586e89377e33732932ccbab05e296ae984b36b28576d2bd142632b483",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[3].blocks[1].text: \"Esta semana no puedo ir al gimnasio porque tengo exámenes.\"",
+          "description": "Understanding Sergio's stated reason depends on \"exámenes\", which is neither listed in this case's prerequisites nor glossed in the supplied lesson.",
+          "suggestion": "Teach or gloss \"examen — іспит; exámenes — іспити\" before the reading and record this vocabulary in the prerequisites."
+        }
+      ],
+      "caseId": "lesson:A1-06-L6",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: this case contains lesson content rather than a task.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 1.",
+        "Packet: context.taughtBefore and content.body.steps[3].blocks[1]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T01",
+      "contentHash": "0e844cfacd433c932ce211b9422fdbb3480b0a7b478cc8ee948eb948d4c15533",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "¡Hola, Ana! \"Hola, Ana:\" and \"Hola, Ana.\" also fit as message openings.",
+      "notes": "The supported role permits the visible Pablo model. The reviewed errors correctly identify the missing vocative comma.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T04",
+      "contentHash": "d7bc00d3970549d0052fb489602447a4a31b2712c0840a95be318e1ee28b5d99",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "Querido Pablo: An expressive \"¡Querido Pablo!\" is also possible.",
+      "notes": "The colon is appropriate for a conventional Spanish letter salutation. The exclamatory alternative is acceptable as an expressive opening.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T13",
+      "contentHash": "037906b83336845bc1adeb759db350e33052efa17acc09d597a9f1a16173c05b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[1].text: \"porque tengo exámenes\"; task.hints[1].blocks[0].text: \"Слова: no puedo — «я не можу»; contigo — «з тобою».\"",
+          "description": "Selecting the reason requires understanding \"exámenes\". This word is absent from taughtBefore, and the vocabulary hint glosses other expressions but omits it.",
+          "suggestion": "Add \"exámenes — «іспити»\" to a vocabulary hint with targets: [], or teach and record the word before this task."
+        }
+      ],
+      "caseId": "task:A1-06-L6-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Option a correctly represents the Spanish message; the defect concerns prerequisite support.",
+      "sources": [
+        "Course contract, rules 1 and 6.",
+        "Packet: context.taughtBefore, task.prompt[1], task.options and task.hints[1]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T14",
+      "contentHash": "e2d470a8b31bfbe001a2845a06b3d359aaae20379a90c50d36b9d7a62161ad64",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The answer follows from \"el lunes que viene\". The prerequisites already include \"la semana que viene\". Understanding \"exámenes\" is unnecessary for identifying the day.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T15",
+      "contentHash": "cbc344e10782418608bd4bcfd14336a7bfee039769a91dea42a2961368b98127",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T16",
+      "contentHash": "4e602142e6a3937abbfa2e39944596e3e44fdfeb9d8016472bd0d7eaf34fc18f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Raquel is included in \"vamos\", so the Ukrainian answer correctly states her own plan.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T17",
+      "contentHash": "46d9276fc53cf11da7b587a6c441290fcbd38753a9be9b05f9bc1f61668e807e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The vocabulary hint supplies \"podemos\", \"pizza\" and \"tapas\" without attributing grammatical support.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T18",
+      "contentHash": "09311f03572d2964524564dbf1653d68468357c3dc20f401c4d9d57a4eda296f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T20",
+      "contentHash": "baee4a7db41b33ab510c2263efd06d15d84125aef12d63422c24f35482933d22",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "Prior teaching of \"podemos\", \"pizza\" and \"tapas\" is unconfirmed in this case's taughtBefore, and no gloss is supplied here. Their meanings do not determine the choice: Jorge's stated work schedule conflicts with the proposed cinema visit.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T21",
+      "contentHash": "8991a4352660d35f6b7a9c82d3d9e2a5b24ba7526f051b709cebb83ff1b1764a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Necesito tu ayuda: ¿puedes traer pan?\"",
+          "description": "The source message asks for help through \"¿puedes traer pan?\", but the request construction and \"traer\" are neither listed in taughtBefore nor glossed. Understanding what Carmen asks the recipient to do is a prerequisite for composing a fully informed reply.",
+          "suggestion": "Add a vocabulary/phrase hint with targets: [], explaining \"ayuda — «допомога»\" and \"¿puedes traer pan? — «можеш принести хліб?»\", or teach these items beforehand."
+        }
+      ],
+      "caseId": "task:A1-06-L6-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "¡Hola, Carmen! Gracias, pero el sábado no voy porque trabajo. ¡Hasta pronto! Lucía",
+      "notes": "The sample signs \"Ana\" although the incoming message addresses \"Lucía\". The learner's identity is not explicitly assigned; aligning the names would improve continuity.",
+      "sources": [
+        "Course contract, rules 1 and 6.",
+        "Packet: task.prompt[0], context.taughtBefore and task.hints."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T22",
+      "contentHash": "c3fa46f24fb9b4ff7853819329067f59a76b256d5e6d44fb7f4ce168d9d8af15",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L6-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "¡Hola, Pablo! El sábado voy a la playa porque me gusta nadar. ¿Quieres ir? ¡Hasta pronto!",
+      "notes": "In the exemplar, \"nosotras\" correctly refers to Marta and her sister. Inviting Pablo does not require changing that pronoun.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L6-T23",
+      "contentHash": "47385971f1ac0217190069143d1fc94fcf4995a12922d959fdf255a95c3d384b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"що тобі подобається в районі і чому\"; task.rubric.exemplars[0].text, task.hints[1].blocks[0].text and task.referenceAnswer: \"Me gusta mucho mi piso nuevo porque está cerca del centro.\"",
+          "description": "The prompt requests a preference about the neighborhood, while the model expresses a preference for the flat because of its location. It is unclear whether that indirect location preference is intended to satisfy the neighborhood requirement. The generic rubric does not resolve this scope question.",
+          "suggestion": "Clarify whether describing the flat's location counts. If a neighborhood preference is required, make the model explicit, for example: \"Me gusta vivir aquí porque hay un café cerca de mi piso.\" Otherwise, broaden the prompt to permit describing the flat or its surroundings."
+        }
+      ],
+      "caseId": "task:A1-06-L6-T23",
+      "verdict": "uncertain",
+      "reviewerAnswer": "¡Hola, Ana! Me gusta vivir aquí porque hay un café cerca de mi piso. Necesito un supermercado. ¿Quieres tomar un café el domingo? Nos vemos.",
+      "notes": "The Spanish model is grammatical. The uncertainty concerns fulfillment of the writing prompt.",
+      "sources": [
+        "Packet: task.prompt[0], task.rubric.criteriaUk[1], task.rubric.exemplars[0] and task.referenceAnswer.",
+        "RAE/ASALE, Diccionario de la lengua española, \"piso\", dwelling sense (from memory).",
+        "Review verdict definitions: use uncertain when the intended reading is underdetermined."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
