@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-04-L3.r3",
+  "jobId": "f7338408-81b6-42d5-8c88-cb72b5072569",
+  "receiptId": "f82efdb8-3f69-4ab3-8f10-80f1995a1e61",
+  "recordedAt": "2026-11-09T01:46:32.862Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T20",
+      "contentHash": "42fd2c2391e2b0f99f513d0762191357230f794d4223595f0afca547642ecaa2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Що ви робите в парку?» (питаєш кількох друзів).\"; task.errors[0]: \"¿Qué hacen en el parque?\" has outcome \"unresolved\".",
+          "description": "The prompt specifies friends but does not fix the regional form of address. The key credits vosotros/hacéis while leaving the explicitly reviewed informal ustedes/hacen reading unresolved. Its own feedback recognizes that reading in parts of Spain. The intended regional grading standard remains unspecified.",
+          "suggestion": "Explicitly require vosotros/vosotras, or accept regional informal ustedes/hacen answers as correct."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T20",
+      "verdict": "uncertain",
+      "reviewerAnswer": "¿Qué hacéis en el parque? Also possible with explicit vosotros/vosotras. ¿Qué hacen en el parque? fits regional informal ustedes usage.",
+      "notes": "The regional explanation is reasonable. The concern is the explicitly reviewed alternative, not an assumption that every unlisted answer is graded incorrect.",
+      "sources": [
+        "Course contract, rule 3: accepted contains every reviewed acceptable answer; verdict instructions concerning unspecified region and multiple readings.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «usted», discussion of regional plural ustedes replacing vosotros (from memory)."
+      ]
+    }
+  ]
+}
