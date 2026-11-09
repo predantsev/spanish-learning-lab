@@ -62,7 +62,7 @@ export const unit: Unit = {
         title: 'Що далі',
         blocks: [
           ulUk(
-            'Результат показується окремо для кожного вміння; нерозв’язані відповіді не вважаються помилками.',
+            'Результат показується окремо для кожного вміння; відповіді, яких немає серед перевірених варіантів, не вважаються помилками.',
             'У блоці A1-03 ці словосполучення стануть частиною речень: Es mi amiga. El libro está en la mesa.',
           ),
         ],
@@ -90,7 +90,7 @@ export const unit: Unit = {
         ['mis llaves verde.', { [AI_W]: 'x', [MTS_W]: 'c', [NUM_W]: 'c' }, 'Іменник у множині, тому verdes.'],
         ['tus llaves verdes.', { [MTS_W]: 'x', [NUM_W]: 'c', [AI_W]: 'c' }, 'Ключі твої — mis, а не tus.'],
       ],
-      rules: [[[MTS_W, NUM_W], 'Mi, tu, su перед іменником без артикля; у множині — mis, tus, sus.'], [[AI_W], 'Прикметник на -e має одну форму для обох родів, у множині — -s.']],
+      rules: [[[MTS_W, NUM_W], 'Mi, tu, su перед іменником без артикля; у множині — mis, tus, sus.'], [[AI_W], 'Grande, verde та інші прикметники на -e з цього блоку мають одну форму для обох родів, у множині — -s.']],
       why: 'Мої зелені ключі — mis llaves verdes',
     }),
     typed({
@@ -110,10 +110,10 @@ export const unit: Unit = {
       answer: 'los hoteles grandes',
       errors: [
         ['los hoteles grande.', { [AI_W]: 'x', [AP_W]: 'c', [PES_W]: 'c' }, 'Прикметник теж іде в множину: grandes.'],
-        ['los hotels grandes.', { [PES_W]: 'x', [AP_W]: 'c', [AI_W]: 'c' }, 'Після приголосної додаємо -es: hoteles.'],
+        ['los hotels grandes.', { [PES_W]: 'x', [AP_W]: 'c', [AI_W]: 'c' }, 'Hotel закінчується на -l — додаємо -es: hoteles.'],
         ['las hoteles grandes.', { [AP_W]: 'x', [PES_W]: 'c', [AI_W]: 'c' }, 'Hotel — чоловічого роду, тому los.'],
       ],
-      rules: [[[AP_W], 'Артиклі в множині: el → los, la → las.'], [[PES_W], 'Після приголосної в множині додаємо -es.'], [[AI_W], 'Grande має одну форму для обох родів, у множині — grandes.']],
+      rules: [[[AP_W], 'Артиклі в множині: el → los, la → las.'], [[PES_W], 'Іменники на -l утворюють множину з -es: hotel → hoteles.'], [[AI_W], 'Grande має одну форму для обох родів, у множині — grandes.']],
       why: 'Множина — los hoteles grandes',
     }),
     typed({
@@ -173,8 +173,8 @@ export const unit: Unit = {
           ['винятки', 'el día, el mapa, el problema, el idioma, el sofá; la mano, la foto, la moto, la radio', 'un día bonito, la mano pequeña'],
           ['артиклі', 'el / la, un / una; у множині los / las, unos / unas', 'unos amigos, las casas'],
           ['el чи un', 'un — нове, «якийсь»; el — відоме, «саме той»', 'una mochila… la mochila'],
-          ['множина', 'голосна + -s, приголосна + -es, -z → -ces; наголос не переходить', 'cafés, hoteles, lápices, estaciones, jóvenes'],
-          ['прикметник', 'після іменника; -o: 4 форми; -e і приголосна: рід не змінюється', 'una casa blanca, unos coches grandes'],
+          ['множина', 'голосна + -s; -d, -l, -r + -es; -z → -ces; у цих словах наголос не переходить', 'cafés, hoteles, lápices, estaciones, jóvenes'],
+          ['прикметник', 'зазвичай після іменника; -o: 4 форми; grande, verde, azul, joven: рід не змінюється', 'una casa blanca, unos coches grandes'],
           ['muy', 'перед прикметником, не змінюється', 'muy bonita, muy grandes'],
           ['належність', 'mi, tu, su (+ -s); nuestro, vuestro за родом і числом; річ + de + власник', 'mis libros, nuestra casa, el libro de Ana'],
         ]),
