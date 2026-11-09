@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-05-L4.r2",
+  "jobId": "62cb05ea-5e45-4c6b-a08e-81f294111b94",
+  "receiptId": "b14625c3-e341-4deb-989e-ba280ed21208",
+  "recordedAt": "2026-11-09T02:43:18.154Z",
+  "items": [
+    {
+      "kind": "situation",
+      "logicalId": "time-appointments-transport",
+      "contentHash": "e16c099bdd63ae5be03ed0808780531af53103a8f8c6a9c207b159c27e065948",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: \"docena — дюжина, десяток (12) (A1-05-L1)\"",
+          "description": "The prerequisite gloss incorrectly equates docena with \"десяток\", which denotes ten items. Adding \"(12)\" does not make that Ukrainian equivalent correct.",
+          "suggestion": "Use \"docena — дюжина (12)\"."
+        }
+      ],
+      "caseId": "situation:time-appointments-transport",
+      "verdict": "flawed",
+      "reviewerAnswer": "No learner task. The situation title is appropriate; docena means twelve items.",
+      "notes": "The defect concerns the supplied prerequisite gloss; the situation metadata itself is acceptable.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «docena» (from memory).",
+        "Словник української мови, entry «десяток» (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "date.el-lunes",
+      "contentHash": "9eeaad496897fa3ddf93a3add902d9b8d6cbac971041b9396fea21d406eef4d4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: \"з днями тижня прийменник не вживається (не «en lunes»)\"",
+          "description": "This categorically prohibits prepositions with weekdays. Standard expressions such as \"de lunes a viernes\", \"hasta el lunes\" and \"caer en lunes\" contain prepositions. The basic el/los construction is correct, but the prohibition is too broad.",
+          "suggestion": "Limit the statement to simple weekday expressions answering when an event happens: \"el lunes\" and \"los lunes\", without en. Acknowledge that other constructions use prepositions."
+        }
+      ],
+      "caseId": "skill:date.el-lunes",
+      "verdict": "flawed",
+      "reviewerAnswer": "Use \"el lunes\" for a particular Monday and \"los lunes\" for recurring Mondays; \"Hoy es lunes\" has no article.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of prepositions (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L4-T60",
+      "contentHash": "31d358f5d30e9ea99950975cbff66d014888985ede74e03fa0e98bc299356e1a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.options[id=b]: \"Піти до лікаря в понеділок о п’ятій.\", marked incorrect",
+          "description": "The distractor depends on an unstated distinction. \"Лікар\" can denote a medical practitioner generally, including a dentist, or be understood more narrowly as a physician contrasted with a dentist. Under the general reading, both a and b describe the required visit.",
+          "suggestion": "Make the distractor unambiguously incompatible with the note, for example by changing its time: \"Піти до стоматолога в понеділок о десятій.\""
+        }
+      ],
+      "caseId": "task:A1-05-L4-T60",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the most precise answer; b also fits if \"лікар\" has its general meaning, which includes a dentist.",
+      "notes": "The packet does not specify the narrower meaning intended for \"лікар\".",
+      "sources": [
+        "Course contract, rule 2.",
+        "Verdict instructions: use uncertain when the intended reading is underdetermined.",
+        "Словник української мови, entries «лікар» and «стоматолог» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L4-T68",
+      "contentHash": "edd53cc5be0857026ccf06ad6f705cfae764fe3773fd6589016dfc6a003e2eca",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"reading.calendar-appointment/reading-meaning\"], attached to \"Знайди в записі, що відбувається, коли й о котрій: день тижня, число, місяць і годину. 17:00 у розмові — las cinco de la tarde.\"",
+          "description": "The question asks where the celebration takes place, but the tagged hint only explains extracting dates and times. It does not support the location comprehension assessed here.",
+          "suggestion": "Replace the hint with guidance about finding the venue, such as \"Знайди в записі місце святкування: зверни увагу на слова після en.\""
+        }
+      ],
+      "caseId": "task:A1-05-L4-T68",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "The correct option and the calendar text are otherwise consistent.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    }
+  ]
+}
