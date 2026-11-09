@@ -1,0 +1,1813 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-02-L4.r1",
+  "packetHash": "0f4be4ce4f37f3659f53de8f0de2cb03203e36d8d40343b8a3358eb2b58ae890",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "554c49148bd4d3da51726a77f889666b90c127dc8a4a39a44b99daaf1fd6c97e",
+    "reviewerPacketSha256": "53132905e3a613a0e361a08d6a8db72c4ec62fdf3c9ff346b4f9d28fc8b0ef6f",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5eUOHh/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5eUOHh/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5eUOHh/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5eUOHh/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5eUOHh/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdb9-a66c-7d41-b8f0-4336501b32ae",
+        "version": "v0.166.0",
+        "tokens used": "127,838"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "situation:people-family-home",
+        "reviewerAnswer": "Not applicable; situation metadata.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:adj.agreement.invariable-gender",
+        "reviewerAnswer": "Grande, verde, azul, fácil and joven have the same masculine and feminine forms, while agreeing in number.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.titleUk: \"Прикметники на -e та на приголосну: одна форма для обох родів\"; content.body.ruleUk: \"Прикметники на -e і більшість прикметників на приголосну мають одну форму для обох родів\".",
+        "defect": "The title presents consonant-ending adjectives as universally invariant in gender. The rule qualifies consonant endings but still generalizes across all -e endings. Counterexamples include trabajador/trabajadora and regordete/regordeta. Nationality adjectives are not the only consonant-ending group with gender variation.",
+        "correction": "Explicitly scope the title and rule to the listed invariant adjectives, or qualify both ending groups. Present nationality adjectives as one example of exceptions.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «trabajador, ra», «regordete, ta» and «español, la» (from memory)."
+        ],
+        "notes": "All the listed example forms are correct."
+      },
+      {
+        "caseId": "skill:adj.agreement.o-a",
+        "reviewerAnswer": "Rojo, roja, rojos and rojas agree with the noun's grammatical gender and number.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:adj.position.after-noun",
+        "reviewerAnswer": "Una casa grande, un coche nuevo and unos amigos simpáticos exemplify usual postnominal descriptive adjectives.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The rule explicitly says 'usually' and acknowledges prenominal alternatives."
+      },
+      {
+        "caseId": "skill:listening.noun-phrase",
+        "reviewerAnswer": "Identify the referent and descriptive meaning of a familiar short noun phrase.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:quant.muy",
+        "reviewerAnswer": "Muy precedes the adjective and remains invariant: muy grande, muy bonita, muy pequeños.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.alto",
+        "reviewerAnswer": "Alto means tall or high; the agreement forms are alta, altos and altas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.azul",
+        "reviewerAnswer": "Azul means blue; its plural is azules, with no gender distinction.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.bajo",
+        "reviewerAnswer": "Bajo means low or short in height; the agreement forms are baja, bajos and bajas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.blanco",
+        "reviewerAnswer": "Blanco means white; the agreement forms are blanca, blancos and blancas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.bonito",
+        "reviewerAnswer": "Bonito means pretty or nice; the agreement forms are bonita, bonitos and bonitas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.grande",
+        "reviewerAnswer": "Grande means big or large; its plural is grandes, with no gender distinction.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.inteligente",
+        "reviewerAnswer": "Inteligente means intelligent; its plural is inteligentes, with no gender distinction.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.interesante",
+        "reviewerAnswer": "Interesante means interesting; its plural is interesantes, with no gender distinction.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.muy",
+        "reviewerAnswer": "Muy means very and is invariant.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.negro",
+        "reviewerAnswer": "Negro means black; the agreement forms are negra, negros and negras.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.nuevo",
+        "reviewerAnswer": "Nuevo means new; the agreement forms are nueva, nuevos and nuevas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.pequeno",
+        "reviewerAnswer": "Pequeño means small; the agreement forms are pequeña, pequeños and pequeñas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.rojo",
+        "reviewerAnswer": "Rojo means red; the agreement forms are roja, rojos and rojas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.simpatico",
+        "reviewerAnswer": "Simpático means pleasant or likable; the agreement forms are simpática, simpáticos and simpáticas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.verde",
+        "reviewerAnswer": "Verde means green; its plural is verdes, with no gender distinction.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.viejo",
+        "reviewerAnswer": "Viejo means old; the agreement forms are vieja, viejos and viejas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-02-L4",
+        "reviewerAnswer": "The lesson should teach gender and number agreement, selected gender-invariant adjectives, usual postnominal position, invariant muy and short-description comprehension.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[1].blocks[0].text: \"Прикметники на -e і більшість прикметників на приголосну мають одну форму для обох родів\"; content.body.steps[8].blocks[0].items[1]: \"Прикметник на -e чи приголосну: одна форма для обох родів, у множині -s або -es.\"",
+        "defect": "The summary removes the qualification on consonant endings and states a false universal rule. The explanation also treats every -e adjective as gender-invariant. Español/española, trabajador/trabajadora and regordete/regordeta demonstrate the limits of these generalizations.",
+        "correction": "Scope both passages to the adjectives introduced here, or qualify both ending groups. Preserve that qualification in the summary.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The examples, use of muy and terminology «знак наголосу» are correct."
+      },
+      {
+        "caseId": "task:A1-02-L4-T01",
+        "reviewerAnswer": "una casa nueva; the adjective form is nueva.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "For clarity, the prompt could explicitly permit the adjective alone, as the key already does."
+      },
+      {
+        "caseId": "task:A1-02-L4-T02",
+        "reviewerAnswer": "unos libros rojos; the adjective form is rojos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "For clarity, the prompt could explicitly permit the adjective alone, as the key already does."
+      },
+      {
+        "caseId": "task:A1-02-L4-T03",
+        "reviewerAnswer": "un coche nuevo. Un nuevo coche can also fit, depending on the intended sense of new.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The open key explicitly leaves the prenominal alternative unresolved rather than marking it incorrect."
+      },
+      {
+        "caseId": "task:A1-02-L4-T04",
+        "reviewerAnswer": "las mesas pequeñas; the adjective form is pequeñas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The ñ error is explicitly identified and is not accepted as a correct written answer."
+      },
+      {
+        "caseId": "task:A1-02-L4-T05",
+        "reviewerAnswer": "las flores blancas. Las blancas flores is also possible in an expressive, nonrestrictive description.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[1].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"las blancas flores.\"",
+        "defect": "The prompt fixes definiteness but does not establish a neutral restrictive description rather than an expressive description. Those readings permit different adjective positions, so the incorrect outcome depends on an unstated register or interpretation.",
+        "correction": "Specify that the learner must use the usual neutral postnominal order, or leave the expressive prenominal alternative unresolved.",
+        "sources": [
+          "Verdict definition: uncertain when acceptability depends on unspecified context or register.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and restrictive versus nonrestrictive interpretation (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T06",
+        "reviewerAnswer": "un día bonito; bonito is the adjective form. Un bonito día is also grammatical.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is open and does not explicitly reject the prenominal alternative."
+      },
+      {
+        "caseId": "task:A1-02-L4-T07",
+        "reviewerAnswer": "la mano pequeña. La pequeña mano is also possible.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prenominal alternative is explicitly unresolved. The misspelling with n is identified and is not accepted."
+      },
+      {
+        "caseId": "task:A1-02-L4-T08",
+        "reviewerAnswer": "unas sillas negras; the adjective form is negras.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T09",
+        "reviewerAnswer": "una moto roja for an ordinary sales listing. Una roja moto would require a stylized, expressive advertising register.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[1].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"una roja moto.\"",
+        "defect": "A neutral classified listing supports the expected order, while expressive advertising can license marked prenominal color adjectives. The prompt identifies an advertisement but does not specify which register is intended.",
+        "correction": "Explicitly request a neutral listing with the color adjective after the noun, or leave the marked alternative unresolved.",
+        "sources": [
+          "Verdict definition: uncertain when acceptability depends on unspecified register.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and expressive prenominal uses (from memory)."
+        ],
+        "notes": "The agreement and the use of feminine moto are correct."
+      },
+      {
+        "caseId": "task:A1-02-L4-T10",
+        "reviewerAnswer": "unos coches viejos. Unos viejos coches can also fit.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The open key explicitly leaves the prenominal alternative unresolved."
+      },
+      {
+        "caseId": "task:A1-02-L4-T11",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T12",
+        "reviewerAnswer": "una casa grande; the adjective form is grande.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Пам’ятай: прикметники на -e і на приголосну мають одну форму для обох родів; змінюється тільки число.\"; task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "Both passages teach gender invariance as a universal property of these endings. Consonant-ending adjectives such as español and trabajador have feminine forms; even -e has exceptions such as regordete/regordeta.",
+        "correction": "State that the listed adjectives, including grande and azul, do not vary by gender, or qualify both ending groups.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The answer key itself is correct."
+      },
+      {
+        "caseId": "task:A1-02-L4-T13",
+        "reviewerAnswer": "unos libros azules; the adjective form is azules.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Пам’ятай: прикметники на -e і на приголосну мають одну форму для обох родів; змінюється тільки число.\"; task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The reminder and hint falsely generalize gender invariance to all adjectives with these endings. Español/española and trabajador/trabajadora contradict the consonant rule; regordete/regordeta contradicts the unrestricted -e rule.",
+        "correction": "Limit the rule to the invariant adjectives introduced here. Keep the correct explanation azul → azules.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T14",
+        "reviewerAnswer": "un coche verde for a neutral description; un verde coche is possible with marked expressive positioning.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The hint states a false universal rule. These endings do not guarantee gender invariance: compare español/española, trabajador/trabajadora and regordete/regordeta.",
+        "correction": "Scope the hint to the listed invariant adjectives, or qualify both ending groups.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory).",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position (from memory)."
+        ],
+        "notes": "A separate register uncertainty affects the rejection of \"un verde coche.\": the prompt does not explicitly require neutral descriptive order."
+      },
+      {
+        "caseId": "task:A1-02-L4-T15",
+        "reviewerAnswer": "las mesas verdes; the adjective form is verdes.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The hint incorrectly makes gender invariance universal for both ending groups. Español/española, trabajador/trabajadora and regordete/regordeta are counterexamples.",
+        "correction": "Explain that verde and the other selected invariant adjectives retain the same form for both genders, while agreeing in number.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The accepted forms and error-specific feedback are correct."
+      },
+      {
+        "caseId": "task:A1-02-L4-T16",
+        "reviewerAnswer": "unos libros interesantes. Unos interesantes libros is also possible.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The hint gives a false universal rule about adjective endings. Gender-changing counterexamples include español/española, trabajador/trabajadora and regordete/regordeta.",
+        "correction": "Limit the rule to the selected invariant adjectives, or qualify both ending groups.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The prenominal answer is appropriately left unresolved rather than marked incorrect."
+      },
+      {
+        "caseId": "task:A1-02-L4-T17",
+        "reviewerAnswer": "unas chicas jóvenes; jóvenes alone also supplies the corrected adjective.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The general hint falsely says that all adjectives ending in -e or a consonant are gender-invariant. Español/española, trabajador/trabajadora and regordete/regordeta show otherwise.",
+        "correction": "Scope the rule to the invariant adjectives introduced here, and state specifically that joven has plural jóvenes for both genders.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The required written accent in jóvenes is correctly identified."
+      },
+      {
+        "caseId": "task:A1-02-L4-T18",
+        "reviewerAnswer": "un hotel grande for physical size. Un gran hotel can express excellence and can also refer to size, depending on context.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\"; task.errors[1].feedbackUk: \"Перед іменником grande скорочується до gran і означає «чудовий, величний»; для «великий» кажемо un hotel grande.\"",
+        "defect": "The hint falsely universalizes gender invariance. The feedback also presents gran as necessarily evaluative and excludes its physical-size meaning. Prenominal gran is not restricted to 'excellent' or 'magnificent'.",
+        "correction": "Scope the invariance rule to the selected adjectives. Explain that gran often has an evaluative meaning but can also describe size; retain unresolved treatment unless the prompt fixes the intended reading.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra», «regordete, ta» and «grande» (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «grande», apocope before singular nouns (from memory).",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and interpretation (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T19",
+        "reviewerAnswer": "las ciudades grandes; grandes is the adjective form. Las grandes ciudades can also describe large cities.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The hint teaches an unrestricted rule that is false for gender-changing adjectives such as español, trabajador and regordete.",
+        "correction": "State that grande and the other selected invariant adjectives do not vary by gender, while agreeing in number.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The open key does not explicitly reject the prenominal alternative."
+      },
+      {
+        "caseId": "task:A1-02-L4-T20",
+        "reviewerAnswer": "unas sillas azules for a neutral listing; unas azules sillas would require marked expressive positioning.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The hint falsely treats both ending groups as universally gender-invariant. Counterexamples include español/española, trabajador/trabajadora and regordete/regordeta.",
+        "correction": "Limit the rule to the selected invariant adjectives, preserving the correct plural azul → azules.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory).",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position (from memory)."
+        ],
+        "notes": "The rejection of \"unas azules sillas.\" additionally depends on interpreting the advertisement as a neutral listing; the prompt does not explicitly fix its register."
+      },
+      {
+        "caseId": "task:A1-02-L4-T21",
+        "reviewerAnswer": "una amiga inteligente. Una inteligente amiga is also possible.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The hint states a false universal rule. Gender variation occurs in adjectives with consonant endings and in some with -e endings, as in trabajador/trabajadora and regordete/regordeta.",
+        "correction": "Scope the explanation to the selected invariant adjectives, including inteligente, or qualify both ending groups.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «trabajador, ra», «español, la» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The key explicitly leaves the prenominal alternative unresolved."
+      },
+      {
+        "caseId": "task:A1-02-L4-T22",
+        "reviewerAnswer": "una casa blanca is the usual neutral order; una blanca casa is possible in expressive language.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[0].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"una blanca casa.\"",
+        "defect": "The reminder says that adjectives usually follow nouns, but the instruction only asks for a phrase assembled from the words. It does not explicitly require the usual neutral order. The prenominal alternative's acceptability therefore depends on an unspecified expressive versus neutral register.",
+        "correction": "Ask explicitly for the usual neutral order or instruct the learner to put the adjective after the noun. Otherwise leave the expressive alternative unresolved.",
+        "sources": [
+          "Verdict definition: uncertain when acceptability depends on unspecified register.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and expressive prenominal uses (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T23",
+        "reviewerAnswer": "un coche rojo is the usual neutral order; un rojo coche is possible in marked expressive language.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[0].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"un rojo coche.\"",
+        "defect": "The task asks the learner to assemble a phrase without explicitly restricting its register or requiring postnominal order. The reminder establishes a usual pattern, not an absolute prohibition on expressive prenominal color adjectives.",
+        "correction": "Explicitly request the usual neutral order or require the adjective after the noun. Otherwise leave the marked alternative unresolved.",
+        "sources": [
+          "Verdict definition: uncertain when acceptability depends on unspecified register.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and expressive prenominal uses (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T24",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+        "defect": "The hint incorrectly generalizes gender invariance to all adjectives with these endings. Español/española, trabajador/trabajadora and regordete/regordeta are counterexamples.",
+        "correction": "State that verde and the other selected invariant adjectives have one form for both genders, or qualify both ending groups.",
+        "sources": [
+          "Course contract, rule 8: Spanish correctness.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+        ],
+        "notes": "The option outcomes and feedback for verde versus verda are correct."
+      },
+      {
+        "caseId": "task:A1-02-L4-T25",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The question explicitly asks for the usual descriptive order."
+      },
+      {
+        "caseId": "task:A1-02-L4-T26",
+        "reviewerAnswer": "un hotel muy grande",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T27",
+        "reviewerAnswer": "una casa muy bonita. Una muy bonita casa is also possible.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is open and does not explicitly reject alternative grammatical adjective positions."
+      },
+      {
+        "caseId": "task:A1-02-L4-T28",
+        "reviewerAnswer": "las habitaciones muy pequeñas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The ñ error is identified and is not accepted. The unresolved target outcome does not normalize it away."
+      },
+      {
+        "caseId": "task:A1-02-L4-T29",
+        "reviewerAnswer": "un sofá muy viejo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The missing accent in sofá is explicitly identified and is not accepted."
+      },
+      {
+        "caseId": "task:A1-02-L4-T30",
+        "reviewerAnswer": "un chico muy simpático",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The taught meaning of simpático supports this translation. Its missing written accent is explicitly identified and is not accepted."
+      },
+      {
+        "caseId": "task:A1-02-L4-T31",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T32",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supplied transcript supports option a. The transcript appears only in its designated hint; actual audio was not assessed."
+      },
+      {
+        "caseId": "task:A1-02-L4-T33",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supplied transcript supports option a. The prompt contains no visible transcript; actual audio was not assessed."
+      },
+      {
+        "caseId": "task:A1-02-L4-T34",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Ukrainian translation naturally omits the conjunction between the two attributes without changing the relevant meaning. Actual audio was not assessed."
+      },
+      {
+        "caseId": "task:A1-02-L4-T35",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt supplies the referent but leaves both assessed descriptive properties to listening. Actual audio was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a1-02.casa-blanca",
+        "reviewerAnswer": "A white and very pretty house.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript and Ukrainian translation agree. Text-only review."
+      },
+      {
+        "caseId": "clip:clip.a1-02.coche-rojo",
+        "reviewerAnswer": "A red and very large car.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript and Ukrainian translation agree. Text-only review."
+      },
+      {
+        "caseId": "clip:clip.a1-02.libros-nuevos",
+        "reviewerAnswer": "Some new books.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript and Ukrainian translation agree. Text-only review."
+      },
+      {
+        "caseId": "clip:clip.a1-02.mesas-pequenas",
+        "reviewerAnswer": "Some small green tables.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Ukrainian translation preserves both attributes and plurality. Text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "situation",
+      "logicalId": "people-family-home",
+      "contentHash": "25143abb41e5b10bbea654fec57fa26c9a5309b2a3eb4d954c2124417b8a4ea4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "situation:people-family-home",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable; situation metadata.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "adj.agreement.invariable-gender",
+      "contentHash": "8a1b27df75deb9e4dd3c2c91115343fba039a45621e3672e5951d1b6039470d1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.titleUk: \"Прикметники на -e та на приголосну: одна форма для обох родів\"; content.body.ruleUk: \"Прикметники на -e і більшість прикметників на приголосну мають одну форму для обох родів\".",
+          "description": "The title presents consonant-ending adjectives as universally invariant in gender. The rule qualifies consonant endings but still generalizes across all -e endings. Counterexamples include trabajador/trabajadora and regordete/regordeta. Nationality adjectives are not the only consonant-ending group with gender variation.",
+          "suggestion": "Explicitly scope the title and rule to the listed invariant adjectives, or qualify both ending groups. Present nationality adjectives as one example of exceptions."
+        }
+      ],
+      "caseId": "skill:adj.agreement.invariable-gender",
+      "verdict": "flawed",
+      "reviewerAnswer": "Grande, verde, azul, fácil and joven have the same masculine and feminine forms, while agreeing in number.",
+      "notes": "All the listed example forms are correct.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «trabajador, ra», «regordete, ta» and «español, la» (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "adj.agreement.o-a",
+      "contentHash": "e5fca918b81be8ce69407ac0871f28448a4511140ad787b6bd1542a77a9aec68",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:adj.agreement.o-a",
+      "verdict": "valid",
+      "reviewerAnswer": "Rojo, roja, rojos and rojas agree with the noun's grammatical gender and number.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "adj.position.after-noun",
+      "contentHash": "9e01f83ec533862421fb5be64a9c31d64f79d353a323f642d6d4e2554fef7203",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:adj.position.after-noun",
+      "verdict": "valid",
+      "reviewerAnswer": "Una casa grande, un coche nuevo and unos amigos simpáticos exemplify usual postnominal descriptive adjectives.",
+      "notes": "The rule explicitly says 'usually' and acknowledges prenominal alternatives.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "listening.noun-phrase",
+      "contentHash": "d891e441ed18548477121edbd9c54ca94f458ab94ba400e23c5c1f0240cea9dd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:listening.noun-phrase",
+      "verdict": "valid",
+      "reviewerAnswer": "Identify the referent and descriptive meaning of a familiar short noun phrase.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "quant.muy",
+      "contentHash": "63b2fb5c68fe9af62614d8ac76ca7253232dfca39425c7fe4dab54897fe15721",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:quant.muy",
+      "verdict": "valid",
+      "reviewerAnswer": "Muy precedes the adjective and remains invariant: muy grande, muy bonita, muy pequeños.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.alto",
+      "contentHash": "1307783986872c86f31300dd803d212c912d3de30cca25ad48be4896ff1f0563",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.alto",
+      "verdict": "valid",
+      "reviewerAnswer": "Alto means tall or high; the agreement forms are alta, altos and altas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.azul",
+      "contentHash": "c549da498d41203a03de32a3759945d6e2bb01dc61f66c4e5640e45f648f7a18",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.azul",
+      "verdict": "valid",
+      "reviewerAnswer": "Azul means blue; its plural is azules, with no gender distinction.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.bajo",
+      "contentHash": "7650054a572024c60dc0087497e1ee16f78b99e4d12c1b85f6a2caaea0d4fb4f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.bajo",
+      "verdict": "valid",
+      "reviewerAnswer": "Bajo means low or short in height; the agreement forms are baja, bajos and bajas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.blanco",
+      "contentHash": "6c985694a44597a6b02b49d74081e8251673ba8b96e11f2676ad4ce52a8df218",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.blanco",
+      "verdict": "valid",
+      "reviewerAnswer": "Blanco means white; the agreement forms are blanca, blancos and blancas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.bonito",
+      "contentHash": "119b45683263fcb14a46342e3285e756e934edc6624da10c5b5fea7b4451e08d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.bonito",
+      "verdict": "valid",
+      "reviewerAnswer": "Bonito means pretty or nice; the agreement forms are bonita, bonitos and bonitas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.grande",
+      "contentHash": "99970976e7043aaf939cd284d9b612ea5c61095dd57a78bd90d072331bc9ac21",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.grande",
+      "verdict": "valid",
+      "reviewerAnswer": "Grande means big or large; its plural is grandes, with no gender distinction.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.inteligente",
+      "contentHash": "71323661956809a0eb573d62b25e09ad26769282348791837b3ef9af7f7865f2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.inteligente",
+      "verdict": "valid",
+      "reviewerAnswer": "Inteligente means intelligent; its plural is inteligentes, with no gender distinction.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.interesante",
+      "contentHash": "8ea3e91690a175bbd702987be69efd466e9730a0fb75b397b0b7fab22db007c0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.interesante",
+      "verdict": "valid",
+      "reviewerAnswer": "Interesante means interesting; its plural is interesantes, with no gender distinction.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.muy",
+      "contentHash": "40e83997fdc8c650942cb7603a5adb0159be98da56aa3d9d7a8909b0aa9d1999",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.muy",
+      "verdict": "valid",
+      "reviewerAnswer": "Muy means very and is invariant.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.negro",
+      "contentHash": "16b5edf97cbdc73f2d9182c3669815d2baa5b8ef421a46c0ccf8caa1fe03ac73",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.negro",
+      "verdict": "valid",
+      "reviewerAnswer": "Negro means black; the agreement forms are negra, negros and negras.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.nuevo",
+      "contentHash": "2bbdb47aa59615b915871efc9005cc79cbf2206be84393fbba72d6c88bc72ef4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.nuevo",
+      "verdict": "valid",
+      "reviewerAnswer": "Nuevo means new; the agreement forms are nueva, nuevos and nuevas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.pequeno",
+      "contentHash": "18ca431c9c8afa202557508bc7652c0ec2b963392cb06953d1c4e9752fa6699e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.pequeno",
+      "verdict": "valid",
+      "reviewerAnswer": "Pequeño means small; the agreement forms are pequeña, pequeños and pequeñas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.rojo",
+      "contentHash": "a142c668b97685429193b9275aa0781c134289d537f5607303999a8ab73b8d26",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.rojo",
+      "verdict": "valid",
+      "reviewerAnswer": "Rojo means red; the agreement forms are roja, rojos and rojas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.simpatico",
+      "contentHash": "0a88952da3bf1a0247e68b8fad3a3e48829f5b720f405c35794fec86a4df18f3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.simpatico",
+      "verdict": "valid",
+      "reviewerAnswer": "Simpático means pleasant or likable; the agreement forms are simpática, simpáticos and simpáticas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.verde",
+      "contentHash": "d5c7d18b34108bc8599338d854b21b4722bee7f4859e98e15be453f814f1fbff",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.verde",
+      "verdict": "valid",
+      "reviewerAnswer": "Verde means green; its plural is verdes, with no gender distinction.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.viejo",
+      "contentHash": "0e0763b1b2f1bbc1ceeb754b38f8c3fc88069f7013ea1722b6a7dc962dc11b8c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.viejo",
+      "verdict": "valid",
+      "reviewerAnswer": "Viejo means old; the agreement forms are vieja, viejos and viejas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-02-L4",
+      "contentHash": "a3001846a0808f3983d939af197d4673f18004655b16803ec80c1da9b9eb835e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[1].blocks[0].text: \"Прикметники на -e і більшість прикметників на приголосну мають одну форму для обох родів\"; content.body.steps[8].blocks[0].items[1]: \"Прикметник на -e чи приголосну: одна форма для обох родів, у множині -s або -es.\"",
+          "description": "The summary removes the qualification on consonant endings and states a false universal rule. The explanation also treats every -e adjective as gender-invariant. Español/española, trabajador/trabajadora and regordete/regordeta demonstrate the limits of these generalizations.",
+          "suggestion": "Scope both passages to the adjectives introduced here, or qualify both ending groups. Preserve that qualification in the summary."
+        }
+      ],
+      "caseId": "lesson:A1-02-L4",
+      "verdict": "flawed",
+      "reviewerAnswer": "The lesson should teach gender and number agreement, selected gender-invariant adjectives, usual postnominal position, invariant muy and short-description comprehension.",
+      "notes": "The examples, use of muy and terminology «знак наголосу» are correct.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T01",
+      "contentHash": "4c7cf8101584712a5a0553f70bc11bf57344b27db8d1951f2943fd0fa32cd5ac",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "una casa nueva; the adjective form is nueva.",
+      "notes": "For clarity, the prompt could explicitly permit the adjective alone, as the key already does.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T02",
+      "contentHash": "f8b49ab89e36d70eb877b7906d58299ec11f869b4c0e51e1d0bcb15e33b53a54",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "unos libros rojos; the adjective form is rojos.",
+      "notes": "For clarity, the prompt could explicitly permit the adjective alone, as the key already does.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T03",
+      "contentHash": "9bc315b20cd2ac354ae18016db6547b625ebf8f9e5f4a6298c8e0fdfc94ed067",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "un coche nuevo. Un nuevo coche can also fit, depending on the intended sense of new.",
+      "notes": "The open key explicitly leaves the prenominal alternative unresolved rather than marking it incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T04",
+      "contentHash": "911d1733a3345124c7834e10492b1261c118af4e22382c16f899750922d5aaf2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "las mesas pequeñas; the adjective form is pequeñas.",
+      "notes": "The ñ error is explicitly identified and is not accepted as a correct written answer.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T05",
+      "contentHash": "785cc2f09d99b0692d56cdc6aa6ff4cdfaa61563fb548ca10fc10579532103be",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[1].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"las blancas flores.\"",
+          "description": "The prompt fixes definiteness but does not establish a neutral restrictive description rather than an expressive description. Those readings permit different adjective positions, so the incorrect outcome depends on an unstated register or interpretation.",
+          "suggestion": "Specify that the learner must use the usual neutral postnominal order, or leave the expressive prenominal alternative unresolved."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T05",
+      "verdict": "uncertain",
+      "reviewerAnswer": "las flores blancas. Las blancas flores is also possible in an expressive, nonrestrictive description.",
+      "notes": "",
+      "sources": [
+        "Verdict definition: uncertain when acceptability depends on unspecified context or register.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and restrictive versus nonrestrictive interpretation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T06",
+      "contentHash": "ea7adcb024b4460e39a9e17ffb5e32edc1c3c5e2ffd123ac0d7e1955d70bbcd2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "un día bonito; bonito is the adjective form. Un bonito día is also grammatical.",
+      "notes": "The key is open and does not explicitly reject the prenominal alternative.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T07",
+      "contentHash": "b29c553c88c38ac9266021d3eaa5616e51a93697fec5d438ed212db5b039c90a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "la mano pequeña. La pequeña mano is also possible.",
+      "notes": "The prenominal alternative is explicitly unresolved. The misspelling with n is identified and is not accepted.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T08",
+      "contentHash": "70e540bb9482f54705d5d493646ebc9e061598d2f4ace58dd313f8e934c56f54",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "unas sillas negras; the adjective form is negras.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T09",
+      "contentHash": "de37a5c51540dda086139aa2af969d9301b61d16e4f5047247b8bd5e1394384c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[1].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"una roja moto.\"",
+          "description": "A neutral classified listing supports the expected order, while expressive advertising can license marked prenominal color adjectives. The prompt identifies an advertisement but does not specify which register is intended.",
+          "suggestion": "Explicitly request a neutral listing with the color adjective after the noun, or leave the marked alternative unresolved."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T09",
+      "verdict": "uncertain",
+      "reviewerAnswer": "una moto roja for an ordinary sales listing. Una roja moto would require a stylized, expressive advertising register.",
+      "notes": "The agreement and the use of feminine moto are correct.",
+      "sources": [
+        "Verdict definition: uncertain when acceptability depends on unspecified register.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and expressive prenominal uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T10",
+      "contentHash": "65cf7cd2be5a9fd259505a1eb93ef1d5733daf96485592894d170dc139b01c5a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "unos coches viejos. Unos viejos coches can also fit.",
+      "notes": "The open key explicitly leaves the prenominal alternative unresolved.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T11",
+      "contentHash": "54a25a6572aaf83174bb8cce7ec0f88cead7d0a7fdf741e0002ad2bfabd3e0e7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T12",
+      "contentHash": "a9dca2b94c82c7354361c427c1e1bd0c463d7d9711965ed31de8587cf9afeff6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Пам’ятай: прикметники на -e і на приголосну мають одну форму для обох родів; змінюється тільки число.\"; task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "Both passages teach gender invariance as a universal property of these endings. Consonant-ending adjectives such as español and trabajador have feminine forms; even -e has exceptions such as regordete/regordeta.",
+          "suggestion": "State that the listed adjectives, including grande and azul, do not vary by gender, or qualify both ending groups."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "una casa grande; the adjective form is grande.",
+      "notes": "The answer key itself is correct.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T13",
+      "contentHash": "51be592fab4ce7571a9dfeeb8f1dce188581f4c246cd8d3a1f03f54ee1698324",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Пам’ятай: прикметники на -e і на приголосну мають одну форму для обох родів; змінюється тільки число.\"; task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The reminder and hint falsely generalize gender invariance to all adjectives with these endings. Español/española and trabajador/trabajadora contradict the consonant rule; regordete/regordeta contradicts the unrestricted -e rule.",
+          "suggestion": "Limit the rule to the invariant adjectives introduced here. Keep the correct explanation azul → azules."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "unos libros azules; the adjective form is azules.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T14",
+      "contentHash": "e21f3f64a938df12c01ec62ac3126e19789a4941f0724d1af00f8bfc5e13b724",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The hint states a false universal rule. These endings do not guarantee gender invariance: compare español/española, trabajador/trabajadora and regordete/regordeta.",
+          "suggestion": "Scope the hint to the listed invariant adjectives, or qualify both ending groups."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "un coche verde for a neutral description; un verde coche is possible with marked expressive positioning.",
+      "notes": "A separate register uncertainty affects the rejection of \"un verde coche.\": the prompt does not explicitly require neutral descriptive order.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T15",
+      "contentHash": "0ad9592cb1f6fab635ccef1eef03161843ab13fc3cc8f905d1639910234cd726",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The hint incorrectly makes gender invariance universal for both ending groups. Español/española, trabajador/trabajadora and regordete/regordeta are counterexamples.",
+          "suggestion": "Explain that verde and the other selected invariant adjectives retain the same form for both genders, while agreeing in number."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T15",
+      "verdict": "flawed",
+      "reviewerAnswer": "las mesas verdes; the adjective form is verdes.",
+      "notes": "The accepted forms and error-specific feedback are correct.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T16",
+      "contentHash": "70998e16feca352c20cc55d9ea9f1b046844d094df7b19ace5be05a10c5a7169",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The hint gives a false universal rule about adjective endings. Gender-changing counterexamples include español/española, trabajador/trabajadora and regordete/regordeta.",
+          "suggestion": "Limit the rule to the selected invariant adjectives, or qualify both ending groups."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T16",
+      "verdict": "flawed",
+      "reviewerAnswer": "unos libros interesantes. Unos interesantes libros is also possible.",
+      "notes": "The prenominal answer is appropriately left unresolved rather than marked incorrect.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T17",
+      "contentHash": "65b25499a8a2460a5df86b62c57a6fce1b6cb3529ac8cf5ec5243033e5b3f0d5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The general hint falsely says that all adjectives ending in -e or a consonant are gender-invariant. Español/española, trabajador/trabajadora and regordete/regordeta show otherwise.",
+          "suggestion": "Scope the rule to the invariant adjectives introduced here, and state specifically that joven has plural jóvenes for both genders."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "unas chicas jóvenes; jóvenes alone also supplies the corrected adjective.",
+      "notes": "The required written accent in jóvenes is correctly identified.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T18",
+      "contentHash": "8a676dbb9a105b453c95b5c20ffbdfe28922053ef97dc5501d5d4a556cca5025",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\"; task.errors[1].feedbackUk: \"Перед іменником grande скорочується до gran і означає «чудовий, величний»; для «великий» кажемо un hotel grande.\"",
+          "description": "The hint falsely universalizes gender invariance. The feedback also presents gran as necessarily evaluative and excludes its physical-size meaning. Prenominal gran is not restricted to 'excellent' or 'magnificent'.",
+          "suggestion": "Scope the invariance rule to the selected adjectives. Explain that gran often has an evaluative meaning but can also describe size; retain unresolved treatment unless the prompt fixes the intended reading."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T18",
+      "verdict": "flawed",
+      "reviewerAnswer": "un hotel grande for physical size. Un gran hotel can express excellence and can also refer to size, depending on context.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra», «regordete, ta» and «grande» (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «grande», apocope before singular nouns (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and interpretation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T19",
+      "contentHash": "faefc009ab5ec69e707f6fcfbd7851eb402a3347c340f01d38ef84f9404e1842",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The hint teaches an unrestricted rule that is false for gender-changing adjectives such as español, trabajador and regordete.",
+          "suggestion": "State that grande and the other selected invariant adjectives do not vary by gender, while agreeing in number."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T19",
+      "verdict": "flawed",
+      "reviewerAnswer": "las ciudades grandes; grandes is the adjective form. Las grandes ciudades can also describe large cities.",
+      "notes": "The open key does not explicitly reject the prenominal alternative.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T20",
+      "contentHash": "c4671dd6e55b421d75351752f98191f976781e85191858bedce977fa35777d65",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The hint falsely treats both ending groups as universally gender-invariant. Counterexamples include español/española, trabajador/trabajadora and regordete/regordeta.",
+          "suggestion": "Limit the rule to the selected invariant adjectives, preserving the correct plural azul → azules."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "unas sillas azules for a neutral listing; unas azules sillas would require marked expressive positioning.",
+      "notes": "The rejection of \"unas azules sillas.\" additionally depends on interpreting the advertisement as a neutral listing; the prompt does not explicitly fix its register.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T21",
+      "contentHash": "0d9d19c9f67718936fb71b06f011d0b8db144b37e994d4c15e1b3098600327b7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The hint states a false universal rule. Gender variation occurs in adjectives with consonant endings and in some with -e endings, as in trabajador/trabajadora and regordete/regordeta.",
+          "suggestion": "Scope the explanation to the selected invariant adjectives, including inteligente, or qualify both ending groups."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "una amiga inteligente. Una inteligente amiga is also possible.",
+      "notes": "The key explicitly leaves the prenominal alternative unresolved.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «trabajador, ra», «español, la» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T22",
+      "contentHash": "0b1a785e9f7ae446306e8b7d60499860a7b4904919326a6ea107fa2e4d1894fb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[0].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"una blanca casa.\"",
+          "description": "The reminder says that adjectives usually follow nouns, but the instruction only asks for a phrase assembled from the words. It does not explicitly require the usual neutral order. The prenominal alternative's acceptability therefore depends on an unspecified expressive versus neutral register.",
+          "suggestion": "Ask explicitly for the usual neutral order or instruct the learner to put the adjective after the noun. Otherwise leave the expressive alternative unresolved."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T22",
+      "verdict": "uncertain",
+      "reviewerAnswer": "una casa blanca is the usual neutral order; una blanca casa is possible in expressive language.",
+      "notes": "",
+      "sources": [
+        "Verdict definition: uncertain when acceptability depends on unspecified register.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and expressive prenominal uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T23",
+      "contentHash": "460063c2d774ff58f058b813095d382107fb643c32504ddf892899ef157d4706",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[0].outcomes[\"adj.position.after-noun/construction-use\"]: \"incorrect\" for \"un rojo coche.\"",
+          "description": "The task asks the learner to assemble a phrase without explicitly restricting its register or requiring postnominal order. The reminder establishes a usual pattern, not an absolute prohibition on expressive prenominal color adjectives.",
+          "suggestion": "Explicitly request the usual neutral order or require the adjective after the noun. Otherwise leave the marked alternative unresolved."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T23",
+      "verdict": "uncertain",
+      "reviewerAnswer": "un coche rojo is the usual neutral order; un rojo coche is possible in marked expressive language.",
+      "notes": "",
+      "sources": [
+        "Verdict definition: uncertain when acceptability depends on unspecified register.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, adjective position and expressive prenominal uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T24",
+      "contentHash": "eb1fb71e01e1f8d5d0993b6770cbe174673ee1540d89ff6fd5b0cf42041c4d9d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Прикметники на -e і на приголосну мають одну форму для обох родів\".",
+          "description": "The hint incorrectly generalizes gender invariance to all adjectives with these endings. Español/española, trabajador/trabajadora and regordete/regordeta are counterexamples.",
+          "suggestion": "State that verde and the other selected invariant adjectives have one form for both genders, or qualify both ending groups."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T24",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The option outcomes and feedback for verde versus verda are correct.",
+      "sources": [
+        "Course contract, rule 8: Spanish correctness.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la», «trabajador, ra» and «regordete, ta» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T25",
+      "contentHash": "1f0c1c3042397ab7a30b49fada9c4a9f73c1ca166d7b656fcff91758bca05567",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The question explicitly asks for the usual descriptive order.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T26",
+      "contentHash": "0b7ae7b6add5a93934e3118c289facd50c23959c9e8fff5dbe25809e4015b1da",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "un hotel muy grande",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T27",
+      "contentHash": "7d7cd0456b7dc1ab9163b68f722653f5a215c0f7916a6532aa7cff4259c6473a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "una casa muy bonita. Una muy bonita casa is also possible.",
+      "notes": "The key is open and does not explicitly reject alternative grammatical adjective positions.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T28",
+      "contentHash": "0c807b562e44865028fb966d0924aab557c6029518c00cd51dbaead66dc2f742",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "las habitaciones muy pequeñas",
+      "notes": "The ñ error is identified and is not accepted. The unresolved target outcome does not normalize it away.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T29",
+      "contentHash": "a3f022ea3c8a78d6f2c3aa30c26612ca49ef29abaf2b5a54382cf8c63cd58b4a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "un sofá muy viejo",
+      "notes": "The missing accent in sofá is explicitly identified and is not accepted.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T30",
+      "contentHash": "792fcb3ce5e3e250475e48988088de376843cd5c9256a870f459e9a7cd6817d0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "un chico muy simpático",
+      "notes": "The taught meaning of simpático supports this translation. Its missing written accent is explicitly identified and is not accepted.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T31",
+      "contentHash": "97cfe5ca0bb54e25cb8426f9c494caec602ee782708ffe625314471835eac7cd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T32",
+      "contentHash": "6792b14229ae6d01cedbdca75ca71aad5e800a3d7f07ce5f8d4820b3f91e83b4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The supplied transcript supports option a. The transcript appears only in its designated hint; actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T33",
+      "contentHash": "f148ac6c9391182ec26e45409766bd2f61bc26f4df985da0536fae3eca12cb86",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The supplied transcript supports option a. The prompt contains no visible transcript; actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T34",
+      "contentHash": "9e20dfa583f3cbc255f6c581337b15d2e23f6f9471a0818e5fc4c1bde3d64bdc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The Ukrainian translation naturally omits the conjunction between the two attributes without changing the relevant meaning. Actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T35",
+      "contentHash": "d0023c76563b02a25791fb7f0f4feeb22a43086dc1acde57df2a672942695c69",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The prompt supplies the referent but leaves both assessed descriptive properties to listening. Actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-02.casa-blanca",
+      "contentHash": "447f360d3839a57dd741d601a50b36fefed712f90db24d2dcb89b8c591dd372e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-02.casa-blanca",
+      "verdict": "valid",
+      "reviewerAnswer": "A white and very pretty house.",
+      "notes": "The transcript and Ukrainian translation agree. Text-only review.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-02.coche-rojo",
+      "contentHash": "a3148e51722e0e127a9f8db362d19dafd82fc51cd6396b471cfdd153a4fe9223",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-02.coche-rojo",
+      "verdict": "valid",
+      "reviewerAnswer": "A red and very large car.",
+      "notes": "The transcript and Ukrainian translation agree. Text-only review.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-02.libros-nuevos",
+      "contentHash": "3cbce86bf0d93c748d0014b0318e2ac5ddc22096cb19f07f269fe04af465338e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-02.libros-nuevos",
+      "verdict": "valid",
+      "reviewerAnswer": "Some new books.",
+      "notes": "The transcript and Ukrainian translation agree. Text-only review.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-02.mesas-pequenas",
+      "contentHash": "52f5f5bcea0681d3bcdcd95e7e5695c51a4469afd88afe7bc6b51e80377cb5c4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-02.mesas-pequenas",
+      "verdict": "valid",
+      "reviewerAnswer": "Some small green tables.",
+      "notes": "The Ukrainian translation preserves both attributes and plurality. Text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
