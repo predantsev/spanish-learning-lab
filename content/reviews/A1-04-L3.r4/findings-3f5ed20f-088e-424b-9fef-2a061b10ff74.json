@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-04-L3.r4",
+  "jobId": "3f5ed20f-088e-424b-9fef-2a061b10ff74",
+  "receiptId": "bd49a4d1-ff1d-4698-badc-7d956fa31ce5",
+  "recordedAt": "2026-11-09T06:27:56.324Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T20",
+      "contentHash": "e5db6b3d26fe89e46552a1b1a8568e9afbd8e6383e120b3e618a1646a44a0caf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].outcomes[\"present.hacer/written-form\"]: \"unresolved\"; task.errors[id=e1].feedbackUk: \"тож тут вона не рахується помилкою\"",
+          "description": "The prompt explicitly requires the vosotros form. The reviewed answer «¿Qué hacen en el parque?» fails that requirement and can therefore be graded conclusively. Regional acceptance of informal ustedes does not justify the unresolved outcome or the claim that this response is not an error in this task.",
+          "suggestion": "Change e1's outcome to \"incorrect\" and explain that this task specifically requires hacéis. Any regional explanation should distinguish valid regional usage from fulfilling the explicit instruction."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Qué hacéis en el parque? Explicit vosotros or vosotras is also acceptable.",
+      "notes": "",
+      "sources": [
+        "Case task:A1-04-L3-T20, task.prompt[0].text: «використай форму vosotros, як в Іспанії».",
+        "Course contract rule 3: errors lists reviewed wrong answers.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «hacer», conjugation table: present indicative hacéis versus hacen (from memory)."
+      ]
+    }
+  ]
+}

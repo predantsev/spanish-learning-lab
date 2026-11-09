@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L3.r4",
+  "packetHash": "194b580b0284eb30c1ddc1f17c8e0b4b6cac0086a48b14ebebf0337672684729",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "30142174bba1c1405c86e0c3e87451a1bb14d9961781c1cf8f81a146aa676a5f",
+    "reviewerPacketSha256": "3c5c103adcf4f74eca05bc169dd5085b3e36e74e33c210b109ce2fe439361083",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Fw2TCS/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Fw2TCS/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Fw2TCS/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Fw2TCS/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Fw2TCS/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1befd-05ae-74b2-a57c-7ad29792b299",
+        "version": "v0.166.0",
+        "tokens used": "9,950"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-04-L3-T20",
+        "reviewerAnswer": "¿Qué hacéis en el parque? Explicit vosotros or vosotras is also acceptable.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[id=e1].outcomes[\"present.hacer/written-form\"]: \"unresolved\"; task.errors[id=e1].feedbackUk: \"тож тут вона не рахується помилкою\"",
+        "defect": "The prompt explicitly requires the vosotros form. The reviewed answer «¿Qué hacen en el parque?» fails that requirement and can therefore be graded conclusively. Regional acceptance of informal ustedes does not justify the unresolved outcome or the claim that this response is not an error in this task.",
+        "correction": "Change e1's outcome to \"incorrect\" and explain that this task specifically requires hacéis. Any regional explanation should distinguish valid regional usage from fulfilling the explicit instruction.",
+        "sources": [
+          "Case task:A1-04-L3-T20, task.prompt[0].text: «використай форму vosotros, як в Іспанії».",
+          "Course contract rule 3: errors lists reviewed wrong answers.",
+          "RAE/ASALE, Diccionario de la lengua española, entry «hacer», conjugation table: present indicative hacéis versus hacen (from memory)."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T20",
+      "contentHash": "e5db6b3d26fe89e46552a1b1a8568e9afbd8e6383e120b3e618a1646a44a0caf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].outcomes[\"present.hacer/written-form\"]: \"unresolved\"; task.errors[id=e1].feedbackUk: \"тож тут вона не рахується помилкою\"",
+          "description": "The prompt explicitly requires the vosotros form. The reviewed answer «¿Qué hacen en el parque?» fails that requirement and can therefore be graded conclusively. Regional acceptance of informal ustedes does not justify the unresolved outcome or the claim that this response is not an error in this task.",
+          "suggestion": "Change e1's outcome to \"incorrect\" and explain that this task specifically requires hacéis. Any regional explanation should distinguish valid regional usage from fulfilling the explicit instruction."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Qué hacéis en el parque? Explicit vosotros or vosotras is also acceptable.",
+      "notes": "",
+      "sources": [
+        "Case task:A1-04-L3-T20, task.prompt[0].text: «використай форму vosotros, як в Іспанії».",
+        "Course contract rule 3: errors lists reviewed wrong answers.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «hacer», conjugation table: present indicative hacéis versus hacen (from memory)."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
