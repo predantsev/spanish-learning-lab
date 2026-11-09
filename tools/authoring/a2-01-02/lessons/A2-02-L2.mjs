@@ -12,13 +12,15 @@ const PFW = 'object-pron.placement-finite/written-form';
 const R = {
   d12: 'Me, te, nos, os означають «мене, тебе, нас, вас», коли дія спрямована на цю людину: Ana me llama. ¿Te ayudo? Os — для vosotros.',
   d3: 'Lo, la, los, las замінюють уже названий прямий додаток і узгоджуються з ним у роді й числі: ¿El pan? Lo compro yo. ¿Las llaves? Las tengo.',
-  le: 'Про одного чоловіка в Іспанії кажуть і lo, і le: ¿Pablo? Lo veo / Le veo mañana. Про предмети і про жінок — лише lo, la.',
+  le: 'Звичайні форми третьої особи — lo, la, los, las: узгоджуємо з іменником у роді й числі. Про одного чоловіка в Іспанії кажуть і lo, і le: ¿Pablo? Lo veo / Le veo mañana. Для предметів le не вживаємо; про жінку в третій особі кажемо la (лише при ввічливому звертанні на usted трапляється й le: ¿Le ayudo, señora?).',
   pf: 'Займенник стоїть перед особовою формою дієслова окремим словом: Lo compro. No стоїть перед займенником: No lo compro.',
   ref: 'Щоб зрозуміти lo, la, los, las, шукаємо раніше названий іменник того самого роду й числа.',
 };
 const ASK3 = 'Замініть названий предмет чи людину займенником lo, la, los або las. Впишіть займенник.';
 const ASKW = 'Складіть речення з поданих слів у правильному порядку.';
 const ASKC = 'Дайте відповідь, замінивши іменник займенником. Впишіть пропущені слова.';
+const ASKC12 = 'Дайте відповідь, уживши потрібний займенник (зверніть увагу, хто говорить і до кого). Впишіть пропущені слова.';
+const ASKWN = 'Складіть із поданих слів одне заперечне речення в правильному порядку.';
 
 // who: the Ukrainian meaning of the pronoun («мене»), given in the instruction (Spanish prompt blocks stay Spanish)
 const d12 = (id, role, family, who, es, uk, a, err, model) =>
@@ -29,14 +31,14 @@ const d3 = (id, role, family, es, uk, a, err, extra = {}) =>
 // one listed order → closed; several natural orders listed → open (an unlisted order stays unresolved)
 const order = (id, role, family, words, uk, a, err) => {
   const acc = Array.isArray(a) ? a : [a];
-  return open(L, { id, role, family, ts: [PFW], ask: ASKW, es: words, uk, a: acc, err: err.map(([t, fb]) => [t, { [PFW]: 'incorrect' }, fb]), rule: R.pf, closed: acc.length === 1, full: acc[0], ok: acc.length === 1 ? `Правильно: ${acc[0]}` : 'Правильно.', no: `Правильна відповідь: ${acc[0]}` });
+  return open(L, { id, role, family, ts: [PFW], ask: words.startsWith('no /') ? ASKWN : ASKW, es: words, uk, a: acc, err: err.map(([t, fb]) => [t, { [PFW]: 'incorrect' }, fb]), rule: R.pf, closed: acc.length === 1, full: acc[0], ok: acc.length === 1 ? `Правильно: ${acc[0]}` : 'Правильно.', no: `Правильна відповідь: ${acc[0]}` });
 };
 // build the answer: choose the pronoun (form target) and place it (construction target)
 const build = (id, role, family, form, es, uk, acc, misplaced, wrongForm, full, extra = {}) => {
   const err = [];
   for (const [t, fb] of misplaced) err.push([t, { [PFC]: 'incorrect', [form]: 'correct' }, fb]);
   for (const [t, fb] of wrongForm) err.push([t, { [PFC]: 'correct', [form]: 'incorrect' }, fb]);
-  return open(L, { id, role, family, ts: [PFC, form], ask: extra.model ? `Подивіться на зразок. ${ASKC}` : ASKC, model: extra.model, es, uk, a: acc, err, rule: [R.pf, form === D3 ? R.d3 : R.d12, ...(extra.person ? [R.le] : [])], full, ok: `Правильно: ${full}`, no: `Можлива відповідь: ${full}` });
+  return open(L, { id, role, family, ts: [PFC, form], ask: `${extra.model ? 'Подивіться на зразок. ' : ''}${extra.who ? `${extra.who} ` : ''}${form === D12 ? ASKC12 : ASKC}`, model: extra.model, es, uk, a: acc, err, rule: [R.pf, form === D3 ? R.d3 : R.d12, ...(extra.person ? [R.le] : [])], full, ok: `Правильно: ${full}`, no: `Можлива відповідь: ${full}` });
 };
 
 export const tasks = [
@@ -72,12 +74,12 @@ export const tasks = [
   build('T32', 'supported', 'family-home', D12, '—¿Me llamas mañana? —Sí, ___ mañana.', '— Подзвониш мені завтра? — Так, подзвоню тобі завтра.', ['te llamo'], [['llamo te', 'Займенник стоїть перед дієсловом: te llamo.']], [['me llamo', 'Me llamo — «мене звати». Тут ви дзвоните співрозмовнику: te llamo.'], ['ti llamo', 'Перед дієсловом — te, не ti.']], '—¿Me llamas mañana? —Sí, te llamo mañana.', { model: [['—¿Me ayudas? —Sí, te ayudo.', '— Допоможеш мені? — Так, допоможу тобі.']] }),
   build('T33', 'independent', 'shop', D3, '—¿Quieres estas manzanas? —No, gracias, no ___.', '— Хочеш ці яблука? — Ні, дякую, не хочу.', ['las quiero'], [['quiero las', 'Займенник стоїть перед дієсловом: no las quiero.'], ['las no quiero', 'No стоїть перед займенником: no las quiero.']], [['los quiero', 'Manzanas — жіночого роду: las.'], ['la quiero', 'Manzanas — множина: las.']], '—¿Quieres estas manzanas? —No, gracias, no las quiero.'),
   build('T34', 'independent', 'family-home', D3, '—¿Ves mucho a tu madre? —Sí, ___ todos los domingos.', '— Ти часто бачишся з мамою? — Так, я бачу її щонеділі.', ['la veo'], [['veo la', 'Займенник стоїть перед дієсловом: la veo.']], [['le veo', 'Про жінку — la, не le.'], ['lo veo', 'Madre — жіночого роду: la.']], '—¿Ves mucho a tu madre? —Sí, la veo todos los domingos.'),
-  build('T35', 'independent', 'free-time', D12, '—¿Nos esperas en el parque? —Sí, ___ allí.', '— Почекаєш нас у парку? — Так, чекаю вас там.', ['os espero', 'os espero yo'], [['espero os', 'Займенник стоїть перед дієсловом: os espero.']], [['nos espero', 'Ви чекаєте співрозмовників (vosotros): os espero.'], ['les espero', 'Для vosotros — os.']], '—¿Nos esperas en el parque? —Sí, os espero allí.'),
+  build('T35', 'independent', 'free-time', D12, '—¿Nos esperas en el parque? —Sí, ___ allí.', '— Почекаєш нас у парку? — Так, чекаю вас там.', ['os espero', 'os espero yo'], [['espero os', 'Займенник стоїть перед дієсловом: os espero.']], [['nos espero', 'Ви чекаєте співрозмовників (vosotros): os espero.'], ['les espero', 'Ви звертаєтеся до друзів на vosotros, тому os.']], '—¿Nos esperas en el parque? —Sí, os espero allí.', { who: 'Вас питають друзі, до яких ви звертаєтеся на vosotros.' }),
   build('T36', 'independent', 'family-home', D12, '—¿Me buscas tú? —Sí, ___. ¿Tienes un momento?', '— Ти мене шукаєш? — Так, тебе. Маєш хвилинку?', ['te busco', 'te busco yo'], [['busco te', 'Займенник стоїть перед дієсловом: te busco.']], [['me busco', 'Ви шукаєте співрозмовника: te busco.'], ['ti busco', 'Перед дієсловом — te, не ti.']], '—¿Me buscas tú? —Sí, te busco. ¿Tienes un momento?'),
   build('T37', 'delayed', 'shop', D3, '—¿Tienes los billetes del cine? —No, no ___. ¿Y tú?', '— Квитки в кіно в тебе? — Ні, не в мене. А в тебе?', ['los tengo'], [['tengo los', 'Займенник стоїть перед дієсловом: no los tengo.'], ['los no tengo', 'No стоїть перед займенником: no los tengo.']], [['las tengo', 'Billetes — чоловічого роду: los.'], ['lo tengo', 'Billetes — множина: los.']], '—¿Tienes los billetes del cine? —No, no los tengo. ¿Y tú?'),
   build('T38', 'delayed', 'family-home', D12, '—¿Nos invitas a cenar? —Claro, ___ el sábado.', '— Запросиш нас на вечерю? — Звісно, запрошую вас у суботу.', ['os invito', 'os invito yo'], [['invito os', 'Займенник стоїть перед дієсловом: os invito.']], [['nos invito', 'Ви запрошуєте співрозмовників (vosotros): os invito.']], '—¿Nos invitas a cenar? —Claro, os invito el sábado.'),
   build('T39', 'transfer', 'travel', D3, '—¿Dónde compramos los billetes de tren? —___ en la estación.', '— Де ми купимо квитки на потяг? — Купимо їх на вокзалі.', ['Los compramos'], [['Compramos los', 'Займенник стоїть перед дієсловом: los compramos.']], [['Las compramos', 'Billetes — чоловічого роду: los.']], '—¿Dónde compramos los billetes de tren? —Los compramos en la estación.'),
-  build('T40', 'transfer', 'work-study', D12, '—Profesora, ¿nos ayuda, por favor? —Sí, ___ ahora mismo.', '— Пані вчителько, допоможете нам, будь ласка? — Так, допоможу вам просто зараз.', ['os ayudo'], [['ayudo os', 'Займенник стоїть перед дієсловом: os ayudo.']], [['nos ayudo', 'Вчителька допомагає учням (vosotros): os ayudo.']], '—Profesora, ¿nos ayuda, por favor? —Sí, os ayudo ahora mismo.'),
+  build('T40', 'transfer', 'work-study', D12, '—Profesora, ¿nos ayuda, por favor? —Sí, ___ ahora mismo.', '— Пані вчителько, допоможете нам, будь ласка? — Так, допоможу вам просто зараз.', ['os ayudo'], [['ayudo os', 'Займенник стоїть перед дієсловом: os ayudo.']], [['nos ayudo', 'Вчителька допомагає учням (vosotros): os ayudo.']], '—Profesora, ¿nos ayuda, por favor? —Sí, os ayudo ahora mismo.', { who: 'Ви — вчителька, яка звертається до учнів на vosotros.' }),
 
   // order only
   order('T41', 'supported', 'shop', 'no / lo / compro', 'Я його не купую.', 'No lo compro.', [['Lo no compro.', 'No стоїть перед займенником: No lo compro.'], ['No compro lo.', 'Займенник стоїть перед дієсловом: No lo compro.']]),
@@ -132,7 +134,7 @@ export const lesson = mkLesson({
         UK('Lo, la, los, las замінюють уже названий предмет чи людину й узгоджуються з ним у роді й числі: el pan → lo, la leche → la, los tomates → los, las llaves → las. Звертаючись на usted чи ustedes, теж уживаємо ці форми: ¿La ayudo, señora?'),
         T_PRON,
         UK('Займенник стоїть перед особовою формою дієслова окремим словом. No стоїть перед займенником: No lo compro. У питанні порядок той самий: ¿Lo conoces?'),
-        UK('Про одного чоловіка в Іспанії кажуть і lo, і le: ¿Pablo? Lo veo / Le veo mañana. Ми вчимо lo; про предмети і про жінок le не вживаємо.'),
+        UK('Про одного чоловіка в Іспанії кажуть і lo, і le: ¿Pablo? Lo veo / Le veo mañana. Ми вчимо lo. Для предметів le не вживаємо; про жінку в третій особі кажемо la (¿Ana? La veo mañana). Лише при ввічливому звертанні на usted до жінки трапляється й le (¿Le ayudo, señora?), але моделлю вчимо la.'),
         EX('—¿Dónde están las llaves? —No sé, no las veo.', '— Де ключі? — Не знаю, я їх не бачу.'),
         EX('—¿Compras tú el pan? —Sí, lo compro yo.', '— Хліб купуєш ти? — Так, я.'),
       ],

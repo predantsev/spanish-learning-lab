@@ -12,7 +12,7 @@ const GA = 'ortho.gerund-pronoun-accent/written-form';
 const R = {
   pi: 'З інфінітивом займенник можна поставити двома способами: перед особовою формою (Lo voy a comprar) або приєднати до інфінітива (Voy a comprarlo). Обидва варіанти правильні. Між a і інфінітивом чи між двома дієсловами займенник не ставимо.',
   pg: 'З estar + gerundio так само два варіанти: Lo estoy leyendo або Estoy leyéndolo. Обидва правильні.',
-  ga: 'Коли займенник приєднано до форми gerundio, ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo. З інфінітивом і одним займенником знака немає: comprarlo, verla.',
+  ga: 'Коли займенник приєднано до форми gerundio, ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo. У формах comprarlo, verla знак наголосу не потрібен.',
 };
 const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
 /** Gerund + attached pronoun with the written accent on the stressed vowel. */
@@ -33,7 +33,7 @@ function forms(f) {
     noAccent: `${pre}${f.conj} ${f.verb}${f.pron}${post}`,
   };
 }
-const sentenceCase = (x) => (/^[¿¡]/u.test(x) ? x.slice(0, 1) + cap(x.slice(1)) : cap(x));
+const sentenceCase = (x) => (/^[¿¡]/u.test(x) ? x.slice(0, 1) + cap(x.slice(1)) : cap(x)).replace(/([!?.] )(\p{Ll})/u, (m, p, c) => p + c.toUpperCase());
 
 /** Rewrite a sentence replacing the noun with a pronoun (written-form: placement only). */
 function rewrite(id, role, family, t, es, uk, f, extra = {}) {
@@ -42,24 +42,25 @@ function rewrite(id, role, family, t, es, uk, f, extra = {}) {
   const err = [[sentenceCase(v.between), { [t]: 'incorrect' }, f.ger ? 'Займенник не ставимо між estar і формою gerundio: перед estar або в кінці форми gerundio.' : 'Займенник не ставимо між дієсловами: перед особовою формою або в кінці інфінітива.']];
   if (f.ger) err.push([sentenceCase(v.noAccent), { [t]: 'unresolved' }, `Розміщення правильне, але з приєднаним займенником потрібен знак наголосу: ${acc[0]}`]);
   const ask = `${extra.model ? 'Подивіться на зразок. ' : ''}Перепишіть речення, замінивши ${extra.what ?? 'виділене'} займенником ${f.pron}. Можна обидва варіанти розміщення.`;
-  return open(L, { id, role, family, ts: [t], ask, model: extra.model, es, uk, a: acc, err, rule: f.ger ? [R.pg, R.ga] : R.pi, full: acc[0], ok: `Правильно. Обидва варіанти можливі: ${acc[0]} / ${acc[1]}`, no: `Правильні варіанти: ${acc[0]} / ${acc[1]}` });
+  return open(L, { id, role, family, ts: [t], ask, model: extra.model, es, uk, a: acc, err, rule: f.ger ? R.pg : R.pi, full: acc[0], ok: `Правильно. Обидва варіанти можливі: ${acc[0]} / ${acc[1]}`, no: `Правильні варіанти: ${acc[0]} / ${acc[1]}` });
 }
 /** Answer in a dialogue: the learner chooses the pronoun and places it (construction-use). */
 function reply(id, role, family, t, es, uk, f, wrongPron, fbWrong, full, extra = {}) {
   const v = forms(f);
   const w = forms({ ...f, pron: wrongPron });
-  const acc = [v.after, v.before];
+  const alt = extra.alsoPron ? forms({ ...f, pron: extra.alsoPron }) : null;
+  const acc = [v.after, v.before, ...(alt ? [alt.after, alt.before] : [])];
   const err = [
     [v.between, { [t]: 'incorrect' }, f.ger ? 'Займенник не ставимо між estar і формою gerundio.' : 'Займенник не ставимо між дієсловами.'],
     [w.after, { [t]: 'incorrect' }, fbWrong],
     [w.before, { [t]: 'incorrect' }, fbWrong],
   ];
   if (f.ger) err.push([v.noAccent, { [t]: 'unresolved' }, `Розміщення правильне, але з приєднаним займенником потрібен знак наголосу: ${v.after}`]);
-  return open(L, { id, role, family, ts: [t], ask: `${extra.model ? 'Подивіться на зразок. ' : ''}Дайте відповідь: замініть названий предмет чи людину займенником. Впишіть пропущені слова.`, model: extra.model, es, uk, a: acc, err, rule: f.ger ? [R.pg, R.ga] : R.pi, full, ok: `Правильно. Можна і так, і так: ${v.after} / ${v.before}`, no: `Можливі відповіді: ${v.after} / ${v.before}` });
+  return open(L, { id, role, family, ts: [t], ask: `${extra.model ? 'Подивіться на зразок. ' : ''}Дайте відповідь: замініть названий предмет чи людину займенником. Впишіть пропущені слова.`, model: extra.model, es, uk, a: acc, err, rule: f.ger ? R.pg : R.pi, full, ok: `Правильно. Можна і так, і так: ${v.after} / ${v.before}`, no: `Можливі відповіді: ${v.after} / ${v.before}` });
 }
 /** Attach the pronoun to the gerund (or to the infinitive, contrast without accent). */
 const accent = (id, role, family, es, uk, a, wrong, full, model) =>
-  gap(L, { id, role, family, t: GA, ask: `${model ? 'Подивіться на зразок. ' : ''}Приєднайте займенник до ${/ndo/u.test(a) ? 'форми gerundio' : 'інфінітива'} і впишіть одним словом.`, model, es, uk, a, err: [[wrong, /ndo/u.test(a) ? `З приєднаним до форми gerundio займенником пишемо знак наголосу: ${a}.` : `З інфінітивом і одним займенником знак наголосу не потрібен: ${a}.`]], rule: R.ga, full });
+  gap(L, { id, role, family, t: GA, ask: `${model ? 'Подивіться на зразок. ' : ''}Приєднайте займенник до ${/ndo/u.test(a) ? 'форми gerundio' : 'інфінітива'} і впишіть одним словом.`, model, es, uk, a, err: [[wrong, /ndo/u.test(a) ? `З приєднаним до форми gerundio займенником пишемо знак наголосу: ${a}.` : `У формі ${a} знак наголосу не потрібен.`]], rule: R.ga, full });
 
 export const tasks = [
   // infinitive — rewrite (written-form)
@@ -71,11 +72,11 @@ export const tasks = [
   rewrite('T06', 'independent', 'school', PIW, 'Tienes que leer las preguntas.', 'Тобі треба прочитати запитання.', { conj: 'tienes que', verb: 'leer', pron: 'las', post: '.' }, { what: 'las preguntas' }),
   rewrite('T07', 'delayed', 'family-home', PIW, '¿Puedes cerrar la ventana?', 'Можеш зачинити вікно?', { pre: '¿', conj: 'puedes', verb: 'cerrar', pron: 'la', post: '?' }, { what: 'la ventana' }),
   rewrite('T08', 'delayed', 'shop', PIW, 'Voy a buscar las llaves.', 'Я пошукаю ключі.', { conj: 'voy a', verb: 'buscar', pron: 'las', post: '.' }, { what: 'las llaves' }),
-  rewrite('T09', 'transfer', 'messages', PIW, '¡Hola, Ana! Esta tarde quiero ver a tus hermanos.', 'Привіт, Ано! Сьогодні ввечері я хочу побачити твоїх братів.', { pre: '¡Hola, Ana! Esta tarde ', conj: 'quiero', verb: 'ver', pron: 'los', post: '.' }, { what: 'a tus hermanos' }),
+  rewrite('T09', 'transfer', 'messages', PIW, '¡Hola, Ana! Esta tarde quiero ver a tus hermanos.', 'Привіт, Ано! Сьогодні по обіді я хочу побачити твоїх братів.', { pre: '¡Hola, Ana! Esta tarde ', conj: 'quiero', verb: 'ver', pron: 'los', post: '.' }, { what: 'a tus hermanos' }),
   rewrite('T10', 'transfer', 'travel', PIW, 'Tenemos que coger el tren de las ocho.', 'Нам треба сісти на потяг о восьмій.', { conj: 'tenemos que', verb: 'coger', pron: 'lo', post: '.' }, { what: 'el tren de las ocho' }),
 
   // infinitive — reply (construction-use)
-  reply('T11', 'supported', 'family-home', PIC, '—¿Vas a llamar a Ana? —Sí, ___ (ir a + llamar) esta tarde.', '— Ти подзвониш Ані? — Так, сьогодні ввечері.', { conj: 'voy a', verb: 'llamar', pron: 'la' }, 'lo', 'Ana — жінка: la.', '—¿Vas a llamar a Ana? —Sí, voy a llamarla esta tarde.', { model: [['—¿Quieres este libro? —Sí, quiero leerlo. / Sí, lo quiero leer.', '— Хочеш цю книжку? — Так, хочу її прочитати.']] }),
+  reply('T11', 'supported', 'family-home', PIC, '—¿Vas a llamar a Ana? —Sí, ___ (ir a + llamar) esta tarde.', '— Ти подзвониш Ані? — Так, сьогодні по обіді.', { conj: 'voy a', verb: 'llamar', pron: 'la' }, 'lo', 'Ana — жінка: la.', '—¿Vas a llamar a Ana? —Sí, voy a llamarla esta tarde.', { model: [['—¿Quieres este libro? —Sí, quiero leerlo. / Sí, lo quiero leer.', '— Хочеш цю книжку? — Так, хочу її прочитати.']] }),
   reply('T12', 'supported', 'shop', PIC, '—¿Compramos las manzanas aquí? —Sí, ___ (poder + comprar, nosotros) aquí.', '— Купимо яблука тут? — Так, можемо купити їх тут.', { conj: 'podemos', verb: 'comprar', pron: 'las' }, 'los', 'Manzanas — жіночого роду: las.', '—¿Compramos las manzanas aquí? —Sí, podemos comprarlas aquí.', { model: [['—¿Tienes que hacer la cena? —Sí, tengo que hacerla.', '— Тобі треба готувати вечерю? — Так, треба.']] }),
   reply('T13', 'independent', 'free-time', PIC, '—¿Vas a ver el concierto en la tele? —No, no ___ (ir a + ver). Prefiero leer.', '— Будеш дивитися концерт по телевізору? — Ні, не буду. Я краще почитаю.', { conj: 'voy a', verb: 'ver', pron: 'lo' }, 'la', 'Concierto — чоловічого роду: lo.', '—¿Vas a ver el concierto en la tele? —No, no voy a verlo. Prefiero leer.'),
   reply('T14', 'independent', 'family-home', PIC, '—¿Me ayudas con la maleta? —Claro, ___ (poder + ayudar, yo) ahora.', '— Допоможеш мені з валізою? — Звісно, зараз допоможу тобі.', { conj: 'puedo', verb: 'ayudar', pron: 'te' }, 'me', 'Допомагаєте співрозмовнику: te.', '—¿Me ayudas con la maleta? —Claro, puedo ayudarte ahora.'),
@@ -106,7 +107,7 @@ export const tasks = [
   reply('T35', 'independent', 'shop', PGC, '—¿Tienes las fotos? —No, ___ (estar + buscar, yo) en el móvil.', '— Фото в тебе? — Ні, я зараз шукаю їх у телефоні.', { conj: 'estoy', verb: 'buscando', pron: 'las', ger: true }, 'los', 'Fotos — жіночого роду: las.', '—¿Tienes las fotos? —No, estoy buscándolas en el móvil.'),
   reply('T36', 'independent', 'family-home', PGC, '—¿Me estás escuchando? —Sí, ___ (estar + escuchar, yo).', '— Ти мене слухаєш? — Так, слухаю тебе.', { conj: 'estoy', verb: 'escuchando', pron: 'te', ger: true }, 'me', 'Ви слухаєте співрозмовника: te.', '—¿Me estás escuchando? —Sí, estoy escuchándote.'),
   reply('T37', 'delayed', 'school', PGC, '—¿Y los ejercicios? —Los alumnos ___ (estar + hacer) ahora.', '— А вправи? — Учні зараз їх роблять.', { conj: 'están', verb: 'haciendo', pron: 'los', ger: true }, 'las', 'Ejercicios — чоловічого роду: los.', '—¿Y los ejercicios? —Los alumnos están haciéndolos ahora.'),
-  reply('T38', 'delayed', 'family-home', PGC, '—¿Dónde está Ana? —En la cocina. Su hermano ___ (estar + ayudar) con la cena.', '— Де Ана? — На кухні. Брат допомагає їй із вечерею.', { conj: 'está', verb: 'ayudando', pron: 'la', ger: true }, 'le', 'Ayudar — кого?: Ana → la.', '—¿Dónde está Ana? —En la cocina. Su hermano está ayudándola con la cena.'),
+  reply('T38', 'delayed', 'family-home', PGC, '—¿Dónde está Ana? —En la cocina. Su hermano ___ (estar + ayudar) con la cena.', '— Де Ана? — На кухні. Брат допомагає їй із вечерею.', { conj: 'está', verb: 'ayudando', pron: 'la', ger: true }, 'lo', 'Ana — жінка: la (або le, бо з ayudar в Іспанії вживають і le).', '—¿Dónde está Ana? —En la cocina. Su hermano está ayudándola con la cena.', { alsoPron: 'le' }),
   reply('T39', 'transfer', 'messages', PGC, '—¿Y el mensaje para Luis? —___ (estar + escribir, yo) ahora mismo.', '— А повідомлення для Луїса? — Якраз зараз його пишу.', { conj: 'estoy', verb: 'escribiendo', pron: 'lo', ger: true }, 'la', 'Mensaje — чоловічого роду: lo.', '—¿Y el mensaje para Luis? —Estoy escribiéndolo ahora mismo.'),
   reply('T40', 'transfer', 'travel', PGC, '—¿Y los billetes de tren? —Pablo ___ (estar + comprar) en la estación.', '— А квитки на потяг? — Пабло зараз купує їх на вокзалі.', { conj: 'está', verb: 'comprando', pron: 'los', ger: true }, 'las', 'Billetes — чоловічого роду: los.', '—¿Y los billetes de tren? —Pablo está comprándolos en la estación.'),
 
@@ -114,13 +115,13 @@ export const tasks = [
   accent('T41', 'supported', 'free-time', 'La estoy leyendo. → Estoy ___.', 'Я зараз її читаю.', 'leyéndola', 'leyendola', 'Estoy leyéndola.', [['Lo estoy comprando. → Estoy comprándolo.', 'Я зараз його купую.']]),
   accent('T42', 'supported', 'family-home', 'Los estoy esperando. → Estoy ___.', 'Я зараз їх чекаю.', 'esperándolos', 'esperandolos', 'Estoy esperándolos.', [['Te estoy llamando. → Estoy llamándote.', 'Я зараз тобі дзвоню.']]),
   accent('T43', 'independent', 'shop', 'Lo estamos comprando. → Estamos ___.', 'Ми зараз його купуємо.', 'comprándolo', 'comprandolo', 'Estamos comprándolo.'),
-  accent('T44', 'independent', 'school', 'La está escribiendo. → Está ___.', 'Він зараз її пише.', 'escribiéndola', 'escribiendola', 'Está escribiéndola.'),
+  accent('T44', 'independent', 'school', 'Pablo la está escribiendo. → Pablo está ___.', 'Пабло зараз її пише.', 'escribiéndola', 'escribiendola', 'Pablo está escribiéndola.'),
   accent('T45', 'independent', 'free-time', 'La voy a ver. → Voy a ___.', 'Я подивлюся його (фільм).', 'verla', 'vérla', 'Voy a verla.'),
   accent('T46', 'independent', 'family-home', 'Te estoy buscando. → Estoy ___.', 'Я тебе шукаю.', 'buscándote', 'buscandote', 'Estoy buscándote.'),
   accent('T47', 'delayed', 'family-home', 'Lo están haciendo. → Están ___.', 'Вони зараз це роблять.', 'haciéndolo', 'haciendolo', 'Están haciéndolo.'),
   accent('T48', 'delayed', 'shop', 'Las quiero comprar. → Quiero ___.', 'Я хочу їх купити.', 'comprarlas', 'comprárlas', 'Quiero comprarlas.'),
   accent('T49', 'transfer', 'messages', '¡Hola, Pablo! Os estoy esperando en el bar. → ¡Hola, Pablo! Estoy ___ en el bar.', 'Привіт, Пабло! Я чекаю вас у барі.', 'esperándoos', 'esperandoos', '¡Hola, Pablo! Estoy esperándoos en el bar.'),
-  accent('T50', 'transfer', 'work-study', 'Nos está ayudando. → Está ___.', 'Він зараз нам допомагає.', 'ayudándonos', 'ayudandonos', 'Está ayudándonos.'),
+  accent('T50', 'transfer', 'work-study', 'Luis nos está ayudando. → Luis está ___.', 'Луїс зараз нам допомагає.', 'ayudándonos', 'ayudandonos', 'Luis está ayudándonos.'),
 ];
 
 const T_PLACE = TABLE_UK(['конструкція', 'займенник перед дієсловом', 'займенник у кінці'], [
@@ -144,8 +145,8 @@ export const lesson = mkLesson({
   steps: [
     s('s1', 'explanation', 'Займенник з інфінітивом', true, {
       blocks: [
-        UK('Якщо в реченні є особова форма й інфінітив (voy a comprar, quiero ver, tengo que llamar, puedo ayudar), займенник можна поставити двома способами: перед особовою формою — Lo voy a comprar, або в кінці інфінітива, разом в одне слово — Voy a comprarlo. Обидва варіанти правильні й однаково вживані.'),
-        UK('Між двома дієсловами займенник не ставимо: не *Voy a lo comprar, не *Quiero la ver. З інфінітивом і одним займенником знак наголосу не потрібен: comprarlo, verla, llamarte.'),
+        UK('У конструкціях цього уроку — ir a, querer, poder, tener que + інфінітив (voy a comprar, quiero ver, tengo que llamar, puedo ayudar) — займенник можна поставити двома способами: перед особовою формою — Lo voy a comprar, або в кінці інфінітива, разом в одне слово — Voy a comprarlo. Обидва варіанти правильні й однаково вживані.'),
+        UK('Між двома дієсловами займенник не ставимо: не *Voy a lo comprar, не *Quiero la ver. У формах comprarlo, verla, llamarte знак наголосу не потрібен.'),
         T_PLACE,
         EX('—¿Vas a llamar a Ana? —Sí, voy a llamarla. / Sí, la voy a llamar.', '— Подзвониш Ані? — Так, подзвоню їй.'),
         EX('Tengo que hacer la cena. → Tengo que hacerla.', 'Мені треба приготувати вечерю.'),
@@ -154,7 +155,7 @@ export const lesson = mkLesson({
     s('s2', 'supported-practice', 'Крок 1. З інфінітивом за зразком', true, { tasks: ['T01', 'T02', 'T11', 'T12'] }),
     s('s3', 'explanation', 'Займенник з формою gerundio і знак наголосу', true, {
       blocks: [
-        UK('З estar + gerundio (форма на -ando / -iendo) так само: Lo estoy leyendo або Estoy leyéndolo. Коли займенник приєднано до форми gerundio, слово стає довшим, і ми ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo, escribiendo → escribiéndola.'),
+        UK('З estar + форма gerundio так само: Lo estoy leyendo або Estoy leyéndolo. Коли займенник приєднано до форми gerundio, слово стає довшим, і ми ставимо знак наголосу на тому складі, що був наголошений: leyendo → leyéndolo, comprando → comprándolo, escribiendo → escribiéndola.'),
         EX('Estoy viendo la película. → La estoy viendo. / Estoy viéndola.', 'Я зараз дивлюся фільм.'),
         EX('Mi madre está esperando a los niños. → Mi madre está esperándolos.', 'Мама зараз чекає дітей.'),
       ],
