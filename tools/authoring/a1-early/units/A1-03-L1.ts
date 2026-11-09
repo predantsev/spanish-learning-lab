@@ -39,7 +39,10 @@ const rulesOf = (targets: string[]): Array<[string[], string]> =>
 
 // Flagged in three review batches (A1-03-L1.r1, .r2, .r3): repair cap reached (brief 13, round 2),
 // so these tasks are quarantined instead of being repaired a third time.
-const QUARANTINED = new Set([1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 45]);
+// Integrator decision 2026-11-09: T01–T05 and T11–T15 were flagged only for the shared categorical hint
+// («Після артикля / tu йде іменник»), which is now fixed at the source; they get ONE final review and are
+// quarantined for good if flagged again. T45's own content is unchanged, so it stays quarantined.
+const QUARANTINED = new Set([45]);
 
 function t(n: number, role: TaskRole, family: string, targets: string[], prompt: string, answer: string, errors: Array<[string, OutcomeSpec, string]>, why: string, opts: { also?: Array<string | [string, string]>; support?: string; shown?: string } = {}): TaskSpec {
   return typed({
