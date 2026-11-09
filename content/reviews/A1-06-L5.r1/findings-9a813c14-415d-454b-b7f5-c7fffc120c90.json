@@ -1,0 +1,687 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-06-L5.r1",
+  "jobId": "9a813c14-415d-454b-b7f5-c7fffc120c90",
+  "receiptId": "45669502-4541-4508-a951-ccab01fc4a08",
+  "recordedAt": "2026-11-09T07:54:41.981Z",
+  "items": [
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.e",
+      "contentHash": "5eed38213fc64b4f8f1f2b370fbda9b6924beb1773a311c3d60a0c9195b04e3c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.meaningUk: \"і (перед i-, hi-)\"",
+          "description": "The spelling-based condition is overbroad. Initial hi- does not always represent the vowel [i]: agua y hielo retains y.",
+          "suggestion": "Use \"і (варіант y перед голосним звуком [i])\"."
+        }
+      ],
+      "caseId": "lexeme:lex.e",
+      "verdict": "flawed",
+      "reviewerAnswer": "e = and, replacing unstressed copulative y before the vowel sound [i].",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «y», alternation with e and the hielo exception (from memory)."
+      ]
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.y",
+      "contentHash": "bc31c90e25322f5b7cce1a86184908f918e16f34a4df5cc98a06e1881101bb99",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.noteUk: \"Перед i-/hi- змінюється на e.\"",
+          "description": "The unconditional letter-based rule incorrectly includes words such as hielo and hierba, before which y remains.",
+          "suggestion": "Replace with \"Перед голосним звуком [i] змінюється на e: español e inglés. Перед [j] залишається y: agua y hielo.\""
+        }
+      ],
+      "caseId": "lexeme:lex.y",
+      "verdict": "flawed",
+      "reviewerAnswer": "y = and; it becomes e before the vowel sound [i].",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «y», phonetic conditions for y/e (from memory)."
+      ]
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-06-L5",
+      "contentHash": "66350991ff909b4c537549779d0c7ad831a7b94e8af26973bae187042c9a80ff",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s7].blocks[2].text: \"Після них — інфінітив або іменник з артиклем\"; steps[id=s11].blocks[0].items[0]: \"e перед i-, hi-\"",
+          "description": "The temporal explanation wrongly makes an article compulsory: antes de clase, después de clase and antes de mi clase are valid. The summary also replaces the sound-based y/e condition with an overbroad spelling rule.",
+          "suggestion": "Explain that a noun phrase or infinitive follows, with article use depending on the phrase. In the summary, specify e before the vowel sound [i]."
+        }
+      ],
+      "caseId": "lesson:A1-06-L5",
+      "verdict": "flawed",
+      "reviewerAnswer": "The lesson should teach addition, contrast, reasons, why-questions, polarity responses, nada/nadie, and temporal phrases with antes de/después de.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of article omission and temporal complements, including antes/después de clase (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «y», alternation with e (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T02",
+      "contentHash": "87ed0ab2cd4ca448a1b6be53b7d9c4c2e634e1c14ef115a67cf8c6899dde8db1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[0].outcomes: \"link.y/construction-use\": \"incorrect\" for \"Me gustan leer y cocinar.\"",
+          "description": "The answer uses y correctly. Its agreement error is attributed to the sole coordination target, although the feedback diagnoses gusta/gustan.",
+          "suggestion": "Separate the agreement diagnostic from the coordination outcome. Assess agreement under its own prerequisite-backed target if it is to affect mastery."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "Me gusta leer y cocinar. Also acceptable: Me gusta leer y me gusta cocinar.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 1: assessment scope.",
+        "context.targets[0] and task.errors[0].feedbackUk: coordination is assessed, but agreement is diagnosed."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T29",
+      "contentHash": "26d8528ba2c3a1f70a1f84479ed9e860d456803c8608a29d74e4d9c06997770b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Обери слово.\"; task.options[id=b] marks \"y\" incorrect in \"Me gusta el té, ___ no me gusta el café.\"",
+          "description": "The prompt does not specify whether to express contrast or simply combine two facts. Both readings are reasonable; opposite polarity does not require pero.",
+          "suggestion": "Specify the intended relation, for example \"Передай протиставлення словом «але».\", or accept both a and b."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T29",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a or b: pero expresses contrast; y can coordinate the two preferences.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2 and the verdict instruction for underdetermined readings.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 31, copulative and adversative coordination (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T30",
+      "contentHash": "8ad952c845fa26a295ffe818242c2826ca6a369a4204a22dcfc384972c6955b1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Quiero descansar, ___ tengo mucho trabajo.\"; task.options[id=a] marks \"porque\" incorrect.",
+          "description": "The workload can be an obstacle to resting or a reason for wanting rest. The prompt does not establish which relation is intended.",
+          "suggestion": "Add context establishing that work prevents the speaker from resting, or allow the causal reading."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T30",
+      "verdict": "uncertain",
+      "reviewerAnswer": "b for an obstacle to resting; a is also possible if the workload motivates the desire to rest.",
+      "notes": "",
+      "sources": [
+        "The packet's verdict instruction for underdetermined readings.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «pero» and «porque», adversative and causal meanings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T31",
+      "contentHash": "76a11709e364811099e64948fe84e0a59a12206ae8635a21369b0cfde03687dd",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=v2].text: \"No voy al cine porque estoy cansada.\"",
+          "description": "This transformation supplies \"Estoy cansado.\" explicitly. The accepted variant changes its gender instead of merely joining the supplied sentences.",
+          "suggestion": "Remove v2, or explicitly permit adapting the speaker's gender in the instructions."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "No voy al cine porque estoy cansado.",
+      "notes": "",
+      "sources": [
+        "task.prompt[0] requests joining the supplied sentences; task.prompt[1] explicitly supplies \"Estoy cansado.\"",
+        "Course contract rule 3: accepted answers must be acceptable for the stated task."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T41",
+      "contentHash": "5aab16759026261dcd908164df902197d22c1999c1a4e653cb84a795d5b6b80b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Обери слово.\"; task.options[id=c] marks \"y\" incorrect in \"No voy al cine ___ estoy cansado.\"",
+          "description": "Both a causal connection and simple coordination are natural. The prompt does not require the second clause to explain the first.",
+          "suggestion": "State that tiredness is the reason for not going, or accept both b and c."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T41",
+      "verdict": "uncertain",
+      "reviewerAnswer": "b or c: porque gives a reason; y simply adds the fact that the speaker is tired.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2 and the verdict instruction for underdetermined readings.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «y» and «porque», copulative and causal meanings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T43",
+      "contentHash": "7aabb24450f808b4984e5be2b0a31aa25530e33b057ba341994dca3d5970456e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Зразок: ¿Por qué no vas al cine?.\"",
+          "description": "The Spanish example places a full stop immediately after the closing question mark.",
+          "suggestion": "Use \"Зразок: ¿Por qué no vas al cine?\"."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "Por qué",
+      "notes": "The answer key itself is correct.",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «interrogación y exclamación (signos de)», combination with other punctuation: no full stop after a closing question mark (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T44",
+      "contentHash": "8cab26bda219827c19c92d943c6c6dc5db31d69d3a10422b9049ca42eebbfd90",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Зразок: ¿Por qué estudias español?.\"",
+          "description": "The Spanish example incorrectly adds a full stop after the closing question mark.",
+          "suggestion": "Use \"Зразок: ¿Por qué estudias español?\"."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T44",
+      "verdict": "flawed",
+      "reviewerAnswer": "Por qué",
+      "notes": "The answer key itself is correct.",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «interrogación y exclamación (signos de)», combination with other punctuation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T48",
+      "contentHash": "7ba51781a55f097d224e83a0fb567185cb3c19f7fdd5a4388149adbd97eab288",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"друзів (vosotros)\" requires os gusta; context.taughtBefore and task.hints do not establish prior teaching of os with gustar.",
+          "description": "Producing the answer depends on the vosotros indirect-object form os. Its prior teaching is unconfirmed from this case; knowing the subject pronoun vosotros does not establish knowledge of os.",
+          "suggestion": "Confirm and record prior teaching of os gusta, or introduce that form before this assessment."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T48",
+      "verdict": "uncertain",
+      "reviewerAnswer": "¿Por qué os gusta Madrid?",
+      "notes": "The Spanish answers are correct. The uncertainty concerns prerequisite coverage.",
+      "sources": [
+        "Course contract rule 1, including its instruction concerning uncertain prior teaching.",
+        "context.taughtBefore and task.hints: no explicit os/gustar prerequisite."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T61",
+      "contentHash": "1878ee4a271fb0d00947b9b6abe59d0ab8f64fe5292b37d4c47a3a52348e4dc9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].feedbackUk: \"A mí також / tampoco — для gustar.\"",
+          "description": "The Spanish construction has been corrupted by replacing también with Ukrainian також, producing the malformed model \"A mí також\".",
+          "suggestion": "Use \"A mí también / A mí tampoco — для gustar.\"."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T61",
+      "verdict": "flawed",
+      "reviewerAnswer": "Yo también.",
+      "notes": "The answer key and the rejection of A mí también in this dialogue are correct.",
+      "sources": [
+        "Course contract rule 8: Spanish must be correct."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T62",
+      "contentHash": "8f5284feaf122358b3cc9a8f41ec6dbdc998b8d5508e9796babf92ccea3619d0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e2].feedbackUk: \"A mí також / tampoco — для gustar.\"",
+          "description": "The feedback presents the malformed Spanish model \"A mí також\" instead of A mí también.",
+          "suggestion": "Use \"A mí también / A mí tampoco — для gustar.\"."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T62",
+      "verdict": "flawed",
+      "reviewerAnswer": "Yo tampoco.",
+      "notes": "The keyed response is correct.",
+      "sources": [
+        "Course contract rule 8: Spanish must be correct."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T65",
+      "contentHash": "651b66d068d4d6b791dd2aba4bb10fea9aaf98df21c8da6efeeedd875764deca",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].feedbackUk: \"A mí також / tampoco — для gustar.\"",
+          "description": "The Spanish model contains Ukrainian також in place of también.",
+          "suggestion": "Use \"A mí también / A mí tampoco — для gustar.\"."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T65",
+      "verdict": "flawed",
+      "reviewerAnswer": "Yo también.",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract rule 8: Spanish must be correct."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T67",
+      "contentHash": "21c0ea143b1a9834e0bfc1880db012e761b9d45d9198fe6c74792ed5f6c10301",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].feedbackUk: \"A mí також / tampoco — для gustar.\"",
+          "description": "The feedback gives the malformed mixed-language construction \"A mí також\".",
+          "suggestion": "Use \"A mí también / A mí tampoco — для gustar.\"."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T67",
+      "verdict": "flawed",
+      "reviewerAnswer": "Yo también.",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract rule 8: Spanish must be correct."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T71",
+      "contentHash": "c01b1a6664f86f27a9d959dc14fe3e36d298e4f1691cc2be1422142496a4db82",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=b].feedbackUk: \"A mí також / tampoco — для gustar.\"",
+          "description": "The feedback substitutes Ukrainian також for Spanish también inside a Spanish construction.",
+          "suggestion": "Use \"A mí también / A mí tampoco — для gustar.\"."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T71",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The option outcomes are correct.",
+      "sources": [
+        "Course contract rule 8: Spanish must be correct."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T78",
+      "contentHash": "dda5ecb5e81618f8b33496dd8fb523e427e6365932dbb3825a8c3e707bc90bad",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"Після них — інфінітив або іменник з артиклем\"; task.errors[0].feedbackUk: \"Після de — інфінітив або іменник з артиклем\"",
+          "description": "The explanation incorrectly makes an article obligatory with every noun after antes de/después de. Valid phrases include antes de clase and después de mi clase.",
+          "suggestion": "Say that these expressions take an infinitive or noun phrase, with article use depending on the phrase. Keep the correction from ceno to cenar."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T78",
+      "verdict": "flawed",
+      "reviewerAnswer": "Después de cenar, leo. Also acceptable: Después de la cena, leo; Leo después de cenar.",
+      "notes": "The listed accepted answers are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of article omission and temporal complements with antes/después de (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T79",
+      "contentHash": "0cd8505f6000235a76b086967f17080e896b4183071732aa8416e5708753f4ec",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"іменник з артиклем\"; task.slots[0].errors[text=de].feedbackUk: \"Перед іменником потрібен артикль\"",
+          "description": "Del trabajo is correct here, but the feedback turns this phrase-specific requirement into a false universal rule. Antes de/después de also occur with articleless nouns and possessive determiners.",
+          "suggestion": "Explain \"У цьому реченні: después del trabajo; de + el = del.\" Replace the general article requirement with a context-dependent explanation."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T79",
+      "verdict": "flawed",
+      "reviewerAnswer": "Después del trabajo voy al gimnasio.",
+      "notes": "The slot's accepted value del is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, article omission and temporal noun phrases (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T80",
+      "contentHash": "0cccf7e7cda0e2166aaf3eedb6e925bd05e822c1c185072a913a40f508cea7be",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"Після них — інфінітив або іменник з артиклем\"",
+          "description": "The explanation excludes the natural Spain Spanish phrase antes de clase by claiming that the noun must have an article.",
+          "suggestion": "Allow noun phrases with context-appropriate determiners or no article. Include antes de clase as a useful reviewed variant."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T80",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes de clase tomo café. Also acceptable: Antes de la clase, tomo un café.",
+      "notes": "The key is not closed; omission of antes de clase from accepted is not itself a demonstrated rejection.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, omission of the article in institutional expressions such as antes de clase (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T81",
+      "contentHash": "f07f7da8f39afae1c4dc575726ab6a5635992b63f2c6ae05f00a4858f70c782c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text, task.feedback.incorrectUk and task.errors[0].feedbackUk: \"інфінітив або іменник з артиклем\"",
+          "description": "The explanation overgeneralizes article use. In addition, desayuno in the reviewed error can be read as a noun, so the feedback should distinguish a missing article in this phrase from use of a finite verb.",
+          "suggestion": "Explain the two repairs specifically: después de desayunar or después del desayuno. Remove the blanket requirement that every noun after these expressions take an article."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T81",
+      "verdict": "flawed",
+      "reviewerAnswer": "Después de desayunar voy al trabajo. Also acceptable: Después del desayuno voy al trabajo.",
+      "notes": "The accepted answers are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, article use and omission in temporal noun phrases (from memory).",
+        "context.taughtBefore explicitly lists \"desayuno — сніданок\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T82",
+      "contentHash": "9a1cb04a30a0658a06c3d8940498988e89b4481e75abaa9315d705dd70a42122",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text, task.feedback.incorrectUk and task.errors[0].feedbackUk: \"інфінітив або іменник з артиклем\"",
+          "description": "The help falsely makes an article compulsory for noun complements. Before/after expressions also allow phrases such as antes de clase and después de mi clase.",
+          "suggestion": "Describe an infinitive or noun phrase, with article use determined by the particular phrase. Retain the valid correction of cenamos to cenar."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T82",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes de cenar paseamos. Also acceptable: Antes de la cena paseamos.",
+      "notes": "The accepted Spanish sentences are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, article omission and temporal complements (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T83",
+      "contentHash": "7671f848804ba95436188a5dc2f17a13f237f5cb754129a6f4a4cc3990e3fdf3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"Після них — інфінітив або іменник з артиклем\"",
+          "description": "The article requirement is false and directly conflicts with the valid completion después de clase.",
+          "suggestion": "Remove the universal article requirement and add de as a reviewed accepted slot value alongside de la."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T83",
+      "verdict": "flawed",
+      "reviewerAnswer": "Después de clase voy a casa. Also acceptable: Después de la clase voy a casa.",
+      "notes": "The slot has closed=false, so the missing de variant is not demonstrably graded incorrect.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, articleless institutional expressions such as después de clase (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T84",
+      "contentHash": "4892bfef9141f9dd75ba9e2deba38cb107d3136fc5be55eb720a37d5a3e5bbfa",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"Після них — інфінітив або іменник з артиклем\"",
+          "description": "The help overgeneralizes from del trabajo to a compulsory article after all antes de/después de noun complements.",
+          "suggestion": "Teach an infinitive or noun phrase with context-appropriate article use. Keep the specific de + el = del correction."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T84",
+      "verdict": "flawed",
+      "reviewerAnswer": "Después del trabajo descanso. Also acceptable: Descanso después de trabajar.",
+      "notes": "The accepted answers and the contraction diagnostic are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, article use and omission in temporal complements (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T85",
+      "contentHash": "320e7ca999101317b2c6500dc46a75a8d083c3a18a41b42aa80d15b21a6c7911",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"Після них — інфінітив або іменник з артиклем\"",
+          "description": "The general explanation wrongly requires an article with every noun complement, although articleless and possessive noun phrases are possible.",
+          "suggestion": "Make article use phrase-dependent, while retaining del examen and the de + el contraction explanation."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T85",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes del examen estudio mucho.",
+      "notes": "The key itself is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, article omission and temporal noun phrases (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T86",
+      "contentHash": "b1fe228871bf24379c3fac9438a8e52d3edf8ee685b258549b9d8d80233acf1d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"Після них — інфінітив або іменник з артиклем\"",
+          "description": "The explanation falsely excludes articleless después de clase, which is natural in this classroom context.",
+          "suggestion": "Remove the universal article requirement and include después de clase among reviewed acceptable variants."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T86",
+      "verdict": "flawed",
+      "reviewerAnswer": "Después de clase vamos a un bar. Also acceptable: Después de la clase vamos al bar.",
+      "notes": "The open key does not establish that unlisted valid variants are rejected.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, omission of the article in institutional expressions such as después de clase (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T87",
+      "contentHash": "4f80f7f84c72a7e7bc57dfb7f631626ef1e6a9e4b505c0a5b3d8da1041935b65",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"«перед поїздкою» = antes de viajar\" with task.role=\"transfer\"; task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"іменник з артиклем\"",
+          "description": "The transfer prompt supplies the exact assessed temporal construction, making it supported production. Its help also falsely requires an article with every noun complement.",
+          "suggestion": "Remove the construction model from the held-out prompt or change the role to supported. Replace the universal article requirement with context-dependent noun-phrase guidance."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T87",
+      "verdict": "flawed",
+      "reviewerAnswer": "Antes de viajar compro un billete. Also acceptable: Compro un billete antes de viajar.",
+      "notes": "A gloss of viajar alone would support vocabulary without supplying the assessed construction.",
+      "sources": [
+        "Course contract rule 7: transfer prompts are held out.",
+        "RAE/ASALE, Nueva gramática de la lengua española, article omission in temporal complements (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T88",
+      "contentHash": "1159ff7716d8992d189fcee2da34c4f6d9e6192dc7749b6a592f93de66ab5e96",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=a].feedbackUk, task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"інфінітив або іменник з артиклем\"",
+          "description": "The answer cenar is correct, but the accompanying rule incorrectly makes an article obligatory whenever the complement is a noun.",
+          "suggestion": "Explain that a verb directly following de takes the infinitive here. Describe noun complements without imposing a universal article requirement."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T88",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "The option outcomes are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, infinitival and nominal temporal complements and article omission (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T89",
+      "contentHash": "3b2e1be4c9a11f18cac0bcf4838185a8e04a5388417ba25452a5e5f0f8cae19f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: \"Після них — інфінітив або іменник з артиклем\"",
+          "description": "The help incorrectly generalizes the article in del trabajo to all nouns following antes de/después de.",
+          "suggestion": "Make article use context-dependent. Keep the correct explanation that trabajo is masculine and de + el contracts to del."
+        }
+      ],
+      "caseId": "task:A1-06-L5-T89",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The answer key and the option-specific contraction feedback are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, article use and omission in temporal complements (from memory)."
+      ]
+    },
+    {
+      "kind": "material",
+      "logicalId": "material.a1-06.links",
+      "contentHash": "92208181b67b2111bff825bb7d149fdee185a4844181d332cbc3da0727d18c57",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.blocks[0].items[0]: \"y — «і» (e перед i-, hi-: español e inglés)\"",
+          "description": "The unqualified spelling-based rule includes words such as hielo and hierba, before which y remains. The alternation depends on the initial vowel sound [i].",
+          "suggestion": "Use \"y — «і» (e перед голосним звуком [i]: español e inglés)\"."
+        }
+      ],
+      "caseId": "material:material.a1-06.links",
+      "verdict": "flawed",
+      "reviewerAnswer": "Reference material should distinguish addition, contrast, reasons, why-questions, polarity responses and temporal constructions.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «y», phonetic conditions and exceptions for alternation with e (from memory)."
+      ]
+    }
+  ]
+}
