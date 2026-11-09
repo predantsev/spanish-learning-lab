@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-02-L3.r4",
+  "packetHash": "a078462221e9e79113da4c06988682248e623ac3d29ca502cf03d18d89b3be83",
+  "reviewReport": null,
+  "reviewReportNote": "0 targets; the contract ReviewReport holds 1–30 verdicts",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "1dac97c5bfcc52a7dc804b3d7d575ce72a77d9ebf603261854076198c403b7bb",
+    "reviewerPacketSha256": "d7304fe20f2c632b7bcda796c205f92f1fdd1c12b9499c8d5a3c0bafef8b5b6d",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-bD8T3H/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-bD8T3H/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-bD8T3H/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-bD8T3H/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-bD8T3H/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c0f0-e78d-7f21-b8fa-f66401d54134",
+        "version": "v0.166.0",
+        "tokens used": "27,488"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-02-L3",
+        "reviewerAnswer": "Expected plurals: libros, casas, coches, cafés; ciudades, hoteles, profesores, mujeres; lápices, luces, veces; estaciones, autobuses, jóvenes, exámenes. Article changes: el → los, la → las, un → unos, una → unas. Also: las manos, los días, las aguas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-02-L3",
+      "contentHash": "0546dbdae8f863709ec67d791da0ada306cf73d5f1ac2dfcc8bc7e2ab2444cdb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-02-L3",
+      "verdict": "valid",
+      "reviewerAnswer": "Expected plurals: libros, casas, coches, cafés; ciudades, hoteles, profesores, mujeres; lápices, luces, veces; estaciones, autobuses, jóvenes, exámenes. Article changes: el → los, la → las, un → unos, una → unas. Also: las manos, los días, las aguas.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
