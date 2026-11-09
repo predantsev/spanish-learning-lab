@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-03-L4.r2",
+  "jobId": "5bbda120-8020-4ecc-8a69-8322de4e8414",
+  "receiptId": "9cbdcc19-4ccc-4e63-9a96-096500b5ae94",
+  "recordedAt": "2026-11-09T06:04:15.435Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T31",
+      "contentHash": "7d338979f06c1c62e39c91848040eca8d64333b71dc894ec52fabea439c57ae7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[1].feedbackUk: \"Після hay не ставимо el; про відому книжку — El libro está en la mesa.\"",
+          "description": "The categorical ban on el after hay is false. Standard Spanish permits expressions such as Hay el doble de sillas. Rejecting Hay el libro en la mesa in this context is appropriate, but the explanation turns a contextual restriction into an absolute rule.",
+          "suggestion": "Replace the prohibition with a contextual explanation, for example: \"Тут говоримо про місце відомої книжки: El libro está en la mesa.\""
+        }
+      ],
+      "caseId": "task:A1-03-L4-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "El libro está en la mesa. En la mesa está el libro also fits.",
+      "notes": "The schematic prompt can function as a beginner pattern; the explicit prohibition in the feedback needs qualification. No closed flag is supplied, so the unlisted alternative word order is not established as a rejected answer.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, discussion of existential haber, the definiteness effect and quantitative expressions such as el doble (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T35",
+      "contentHash": "12fd96a6c2e8152a0612dac0d5c7a4230e33add93d96ca85fae5ed79619ab994",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Ти залишаєш записку гостеві: «Ключ на столі».\"; task.accepted accepts only the definite-key reading, while task.errors[1] treats \"Hay una llave en la mesa.\" as unresolved.",
+          "description": "The note suggests a particular key, but the prompt does not establish whether the guest already knows which key is meant or is being told that a key is available. Those readings support different Spanish constructions.",
+          "suggestion": "Specify whether the key is already identifiable to the guest. Then align the accepted answer and feedback with that reading, or explicitly accommodate both readings."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T35",
+      "verdict": "uncertain",
+      "reviewerAnswer": "La llave está en la mesa is the likely answer. Hay una llave en la mesa is also possible if the note introduces an available key to the guest.",
+      "notes": "The existential response is marked unresolved, not incorrect. The unresolved issue is the intended referential context.",
+      "sources": [
+        "Verdicts: uncertain — a key selecting one of several reasonable readings requires clarification when the intended context is underdetermined.",
+        "Course contract rule 3: exact-variants answer handling."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T40",
+      "contentHash": "e01e7686b3044f02d5b518c50c1f59e864a440ac83365f9502ac227129b0503b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[1].feedbackUk: \"Після hay не ставимо la.\"",
+          "description": "This states an absolute prohibition that Spanish does not have. Quantitative expressions such as Ahora hay la mitad de gente are standard. The reviewed answer is unsuitable here, but that does not justify banning la after hay generally.",
+          "suggestion": "Explain the intended existential reading instead: \"Тут повідомляємо, що на кухні є стіл: En la cocina hay una mesa.\""
+        }
+      ],
+      "caseId": "task:A1-03-L4-T40",
+      "verdict": "flawed",
+      "reviewerAnswer": "En la cocina hay una mesa. Hay una mesa en la cocina also fits.",
+      "notes": "The accepted sentences and the rejection of the specific reviewed answer are otherwise appropriate.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, discussion of existential haber, the definiteness effect and quantitative expressions such as la mitad (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    }
+  ]
+}
