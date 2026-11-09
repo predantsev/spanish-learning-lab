@@ -13,14 +13,15 @@ const R = {
   er: 'Форма gerundio дієслів на -er та -ir: основа + -iendo: comer → comiendo, vivir → viviendo. Дифтонги теперішнього часу (ie, ue) не переходять: volver → volviendo.',
   ye: 'У leer, traer, oír, caer і creer основа закінчується на голосну, тому замість -iendo пишемо -yendo: leer → leyendo, traer → trayendo, oír → oyendo. Від ir — yendo. Це правило не діє для всіх дієслів (наприклад, reír → riendo), тому вчимо його на цих дієсловах.',
   ei: 'У частини дієслів на -ir голосна e основи у формі gerundio стає i: pedir → pidiendo, decir → diciendo, venir → viniendo.',
-  ou: 'Dormir у формі gerundio змінює o на u: durmiendo. А volver і encontrar мають регулярну форму gerundio: volviendo, encontrando.',
+  ou: 'Dormir у формі gerundio змінює o на u: durmiendo.',
 };
 const ASK = 'Напишіть форму gerundio (на -ando / -iendo) дієслова.';
+const ASK_Y = 'Напишіть форму gerundio дієслова.';
 const ASK_S = 'Подивіться на зразок і напишіть форму gerundio дієслова.';
 const ASK_SENT = 'Впишіть форму gerundio дієслова з дужок (estar + форма gerundio — дія, що відбувається зараз).';
 const noChange = (f) => `Чергування теперішнього часу у форму gerundio не переходить: ${f}.`;
-const endAr = (f) => `Дієслова на -ar мають закінчення -ando: ${f}.`;
-const endEr = (f) => `Дієслова на -er та -ir мають закінчення -iendo: ${f}.`;
+const endAr = (f) => `Форма gerundio дієслів на -ar закінчується на -ando: ${f}.`;
+const endEr = (f) => `До основи ${f.replace(/iendo$/u, '')}- додаємо -iendo: ${f}.`;
 const ye = (f) => `У цьому дієслові замість -iendo пишемо -yendo: ${f}.`;
 const ei = (f) => `У цьому дієслові на -ir e основи у формі gerundio стає i: ${f}.`;
 
@@ -60,10 +61,10 @@ export const tasks = [
   // -yendo
   single('T21', 'supported', 'verb-list', YE, 'traer', 'trayendo', [['traiendo', ye('trayendo')]], R.ye, { ask: ASK_S, model: [['leer → leyendo', 'читати → читаючи']] }),
   single('T22', 'supported', 'verb-list', YE, 'oír', 'oyendo', [['oiendo', ye('oyendo')]], R.ye, { ask: ASK_S, model: [['creer → creyendo', 'вірити → вірячи']] }),
-  single('T23', 'independent', 'verb-list', YE, 'leer', 'leyendo', [['leiendo', ye('leyendo')]], R.ye),
-  single('T24', 'independent', 'verb-list', YE, 'ir', 'yendo', [['iendo', 'Від ir форма gerundio — yendo.'], ['iyendo', 'Від ir форма gerundio — yendo.']], R.ye),
-  single('T25', 'independent', 'verb-list', YE, 'caer', 'cayendo', [['caiendo', ye('cayendo')]], R.ye),
-  single('T26', 'delayed', 'verb-list', YE, 'creer', 'creyendo', [['creiendo', ye('creyendo')]], R.ye),
+  single('T23', 'independent', 'verb-list', YE, 'leer', 'leyendo', [['leiendo', ye('leyendo')]], R.ye, { ask: ASK_Y }),
+  single('T24', 'independent', 'verb-list', YE, 'ir', 'yendo', [['iendo', 'Від ir форма gerundio — yendo.'], ['iyendo', 'Від ir форма gerundio — yendo.']], R.ye, { ask: ASK_Y }),
+  single('T25', 'independent', 'verb-list', YE, 'caer', 'cayendo', [['caiendo', ye('cayendo')]], R.ye, { ask: ASK_Y }),
+  single('T26', 'delayed', 'verb-list', YE, 'creer', 'creyendo', [['creiendo', ye('creyendo')]], R.ye, { ask: ASK_Y }),
   sentence('T27', 'transfer', YE, 'Pablo está ___ (leer) el periódico en el sofá.', 'Пабло зараз читає газету на дивані.', 'leyendo', [['leiendo', ye('leyendo')]], R.ye),
   sentence('T28', 'transfer', YE, 'Mis padres están ___ (traer) la comida.', 'Мої батьки зараз несуть їжу.', 'trayendo', [['traiendo', ye('trayendo')]], R.ye),
 
@@ -106,7 +107,7 @@ export const lesson = mkLesson({
   id: L,
   titleUk: 'Форма gerundio: основне правило й кілька винятків',
   termEs: 'el gerundio',
-  summaryUk: 'Утворюємо форму gerundio (на -ando / -iendo): hablando, comiendo, а також винятки leyendo, yendo, pidiendo, diciendo, viniendo і durmiendo.',
+  summaryUk: 'Утворюємо форму gerundio: регулярні форми на -ando / -iendo (hablando, comiendo), а також leyendo, yendo, pidiendo, diciendo, viniendo і durmiendo.',
   objectives: ['A2-01-O3'],
   situations: ['routine-study-leisure', 'people-family-home'],
   estimatedMinutes: 12,
@@ -115,7 +116,7 @@ export const lesson = mkLesson({
   steps: [
     s('s1', 'explanation', 'Що таке форма gerundio і як її утворити', true, {
       blocks: [
-        UK('Форма gerundio (el gerundio) закінчується на -ando або -iendo. Вона не змінюється ні за особою, ні за родом, ні за числом.'),
+        UK('Регулярну форму gerundio (el gerundio) утворюємо за допомогою -ando або -iendo. Далі розглянемо також форми на -yendo та зміни в основі. Форма gerundio не змінюється ні за особою, ні за родом, ні за числом.'),
         UK('Дієслова на -ar: основа + -ando (hablar → hablando). Дієслова на -er та -ir: основа + -iendo (comer → comiendo, vivir → viviendo).'),
         UK('Чергування теперішнього часу (juego, pienso, vuelvo) у форму gerundio не переходить: jugando, pensando, volviendo.'),
         UK('Найчастіше форму gerundio вживаємо з estar, щоб сказати, що відбувається зараз. Детально цю конструкцію розберемо в наступному уроці.'),

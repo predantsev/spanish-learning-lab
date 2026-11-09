@@ -17,12 +17,12 @@ const cap = (x) => (/^[¿¡]/u.test(x) ? x.slice(0, 1) + x.charAt(1).toUpperCase
 /** Put the given words in order (written-form of the order). */
 function order(id, role, family, words, uk, a, err) {
   const acc = Array.isArray(a) ? a : [a];
-  return open(L, { id, role, family, ts: [COW], ask: 'Складіть речення з поданих слів у правильному порядку.', es: words, uk, a: acc, err: err.map(([t, fb]) => [t, { [COW]: 'incorrect' }, fb]), rule: R.co, closed: acc.length === 1, full: acc[0], ok: `Правильно: ${acc[0]}`, no: `Правильна відповідь: ${acc[0]}` });
+  return open(L, { id, role, family, ts: [COW], ask: words.startsWith('no /') ? 'Складіть із поданих слів одне заперечне речення в правильному порядку.' : 'Складіть речення з поданих слів у правильному порядку.', es: words, uk, a: acc, err: err.map(([t, fb]) => [t, { [COW]: 'incorrect' }, fb]), rule: R.co, closed: acc.length === 1, full: acc[0], ok: `Правильно: ${acc[0]}`, no: `Правильна відповідь: ${acc[0]}` });
 }
 /** Reply with two pronouns (construction-use): choose both and order them. t = COC or SEC. */
 function reply(id, role, family, t, es, uk, a, err, full, extra = {}) {
   const acc = Array.isArray(a) ? a : [a];
-  return open(L, { id, role, family, ts: [t], ask: `${extra.model ? 'Подивіться на зразок. ' : ''}Дайте відповідь: замініть обидва додатки займенниками. Впишіть пропущені слова.`, model: extra.model, es, uk, a: acc, err: err.map(([x, fb]) => [x, { [t]: 'incorrect' }, fb]), rule: t === SEC ? [R.co, R.se] : R.co, full, ok: `Правильно: ${full}`, no: `Можлива відповідь: ${full}` });
+  return open(L, { id, role, family, ts: [t], ask: `${extra.model ? 'Подивіться на зразок. ' : ''}${/^os /u.test(acc[0]) ? 'Ви звертаєтеся до кількох людей на vosotros. ' : ''}Дайте відповідь двома займенниками — «кому?» і «що?»; зверніть увагу, хто говорить. Впишіть пропущені слова.`, model: extra.model, es, uk, a: acc, err: err.map(([x, fb]) => [x, { [t]: 'incorrect' }, fb]), rule: t === SEC ? [R.co, R.se] : R.co, full, ok: `Правильно: ${full}`, no: `Можлива відповідь: ${full}` });
 }
 /** Replace le/les + noun by se + lo/la/los/las (written-form of the replacement). */
 function swap(id, role, family, es, uk, a, err, full, model) {
@@ -40,7 +40,7 @@ export const tasks = [
   order('T05', 'independent', 'shop', 'nos / los / traen / mañana', 'Їх нам принесуть завтра.', ['Nos los traen mañana.', 'Mañana nos los traen.'], [['Los nos traen mañana.', 'Спершу «кому?» (nos), потім «що?» (los).']]),
   order('T06', 'independent', 'free-time', '¿ / me / las / prestas / ?', 'Позичиш їх мені?', '¿Me las prestas?', [['¿Las me prestas?', 'Спершу «кому?» (me), потім «що?» (las).']]),
   order('T07', 'delayed', 'family-home', 'mi / madre / nos / la / enseña', 'Мама нам її показує.', ['Mi madre nos la enseña.', 'Nos la enseña mi madre.'], [['Mi madre la nos enseña.', 'Спершу «кому?» (nos), потім «що?» (la).']]),
-  order('T08', 'delayed', 'shop', 'no / me / los / da', 'Він мені їх не дає.', 'No me los da.', [['Me los no da.', 'No стоїть перед обома займенниками.'], ['No los me da.', 'Спершу «кому?» (me), потім «що?» (los).']]),
+  order('T08', 'delayed', 'shop', 'no / me / los / da', 'Він (вона) мені їх не дає.', 'No me los da.', [['Me los no da.', 'No стоїть перед обома займенниками.'], ['No los me da.', 'Спершу «кому?» (me), потім «що?» (los).']]),
   order('T09', 'transfer', 'messages', 'te / la / mando / esta / noche', 'Я надішлю тобі її сьогодні ввечері.', ['Te la mando esta noche.', 'Esta noche te la mando.'], [['La te mando esta noche.', 'Спершу «кому?» (te), потім «що?» (la).']]),
   order('T10', 'transfer', 'travel', '¿ / nos / las / enseña / usted / ?', 'Ви нам їх покажете?', ['¿Nos las enseña usted?', '¿Usted nos las enseña?'], [['¿Las nos enseña usted?', 'Спершу «кому?» (nos), потім «що?» (las).']]),
 
