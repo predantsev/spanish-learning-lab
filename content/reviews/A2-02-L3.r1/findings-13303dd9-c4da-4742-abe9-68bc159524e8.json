@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-02-L3.r1",
+  "jobId": "13303dd9-c4da-4742-abe9-68bc159524e8",
+  "receiptId": "32071f55-f246-49cf-b8a3-8879ed2d54ed",
+  "recordedAt": "2026-11-09T13:02:29.420Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "object-pron.indirect-doubling",
+      "contentHash": "b62958e4de6c8971723b036ff62d1509ae4c111770c69479fb580bd798d0aed2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: «Якщо отримувача названо через a + ім'я чи займенник, le або les зазвичай теж ставимо»",
+          "description": "Including pronouns in this statement incorrectly recommends le or les for recipients such as a mí and a ti. The following sentence gives a correct example but does not repair the generalization.",
+          "suggestion": "Separate noun recipients from tonic pronouns. Explain that tonic pronouns require the corresponding clitic: me, te, le, nos, os or les."
+        }
+      ],
+      "caseId": "skill:object-pron.indirect-doubling",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tonic indirect-object pronouns require matching clitics: a mí me, a ti te, a él le, a nosotros nos.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», discussion of doubling with tonic personal pronouns (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T07",
+      "contentHash": "cb5de3e30a3c83ceb2c50a138e158757534db7b015310e79861a38dc3dac3cda",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e2]: «nos enseñas», with object-pron.indirect-forms/written-form marked «incorrect»",
+          "description": "The pronoun nos is correct. The error is the verb ending required by usted, yet the outcome attributes it to the written form of the indirect-object pronoun.",
+          "suggestion": "Keep the pronoun-form outcome correct and assess the verb-agreement error separately, adding the relevant conjugation target if needed."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T07",
+      "verdict": "flawed",
+      "reviewerAnswer": "nos enseña",
+      "notes": "",
+      "sources": [
+        "Packet context.targets: object-pron.indirect-forms/written-form assesses «me, te, le, nos, os, les».",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «usted», third-person verbal agreement (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T13",
+      "contentHash": "020634256cff10b0d66154e371f8322808dcfe715fdb276b6e20fb270ac4d3eb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.options[id=a].label: «друзям, яким вона пише»; task.feedback.incorrectUk: «фото отримають друзі»",
+          "description": "Os identifies the addressees, while «¡Hola, chicos!» does not establish that they are friends. The key adds a relationship that the message leaves unspecified.",
+          "suggestion": "Label the answer «адресатам повідомлення», or explicitly establish that Marta is writing to friends."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T13",
+      "verdict": "uncertain",
+      "reviewerAnswer": "The message's addressees. Option a fits if they are friends, but that relationship is not established.",
+      "notes": "",
+      "sources": [
+        "Packet verdict instructions: use uncertain when the intended reading requires unspecified context.",
+        "RAE/ASALE, Diccionario de la lengua española, «chico, ca», familiar forms of address (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T21",
+      "contentHash": "4dec485c07da6c55360ef0c1d621146391b682aaefb3d2be0d1b3c3055d0789b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a3].text: «Doy el libro a Marta.»; prompt requires «і займенником, і через a»",
+          "description": "The accepted sentence omits the pronoun explicitly required by the task.",
+          "suggestion": "Remove a3 from accepted answers, explaining that it is grammatical but does not fulfill this exercise's doubling instruction; alternatively relax the prompt."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "Le doy el libro a Marta. Also: A Marta le doy el libro.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3: accepted answers must be acceptable for the stated context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T22",
+      "contentHash": "22ca2e0b0258cb51b919860af9c9e01e16004a96e4e5d42405806ad885cf6f73",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «La profesora explica la tarea a los alumnos.»; prompt requires «і займенником, і через a»",
+          "description": "The key accepts an answer without the required clitic.",
+          "suggestion": "Require les for this doubling exercise, while distinguishing failure to follow the instruction from grammatical unacceptability."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "La profesora les explica la tarea a los alumnos.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T23",
+      "contentHash": "1804dd1dade57b5b5763ceefb6b5938a0fb8633384d6fa99862a91e367e588f5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «Ana me escribe a mí todos los días.»; prompt requires «почніть з a mí»",
+          "description": "This accepted answer does not begin with a mí as instructed.",
+          "suggestion": "Remove a2 or remove the required starting phrase from the prompt."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T23",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mí me escribe Ana todos los días. Also: A mí Ana me escribe todos los días.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T24",
+      "contentHash": "def2587793de292031cc04da95c674c0870edcef06a971393a75b82c663b07ee",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a3].text: «Regalo unas gafas de sol a mi hermana.»; prompt requires «і займенником, і через a»",
+          "description": "The accepted answer omits the required pronoun.",
+          "suggestion": "Require le in this exercise or relax the doubling instruction."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T24",
+      "verdict": "flawed",
+      "reviewerAnswer": "Le regalo unas gafas de sol a mi hermana. Also: A mi hermana le regalo unas gafas de sol.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T25",
+      "contentHash": "673ce11b7ae8dbf0658b78d754ac8e5e03b0cb61fe6382b99cb916dc4791d34b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a3].text: «Preguntamos la hora al camarero.»; prompt requires «і займенником, і через a»",
+          "description": "The accepted sentence does not provide the requested doubling.",
+          "suggestion": "Remove a3 or change the prompt to permit an undoubled recipient."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "Le preguntamos la hora al camarero. Also: Al camarero le preguntamos la hora.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T26",
+      "contentHash": "18ba5125577d53339c62316e59606d23a8204f291d49a89c4f4ed3c80d7f8c4c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «Mi madre dice la verdad a mis hermanos.»; prompt requires «і займенником, і через a»",
+          "description": "The key accepts a sentence missing the required clitic.",
+          "suggestion": "Require les for this task or relax the instruction."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T26",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi madre les dice la verdad a mis hermanos.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T27",
+      "contentHash": "57a5585d8813db3719e9613decc264974233542012c7503ea76dcec7f8e7c4eb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a3].text: «Enseño el piso nuevo a mis padres.»; prompt requires «і займенником, і через a»",
+          "description": "The accepted answer omits the pronoun required by the prompt.",
+          "suggestion": "Require les or revise the prompt to allow either construction."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T27",
+      "verdict": "flawed",
+      "reviewerAnswer": "Les enseño el piso nuevo a mis padres. Also: A mis padres les enseño el piso nuevo.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T28",
+      "contentHash": "1e2b0cf5878d4575f576710450b0abe11b4167154c9a952e9a6de1469e1eaa9a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «Pablo te presta el coche a ti.»; prompt requires «почніть з a ti»",
+          "description": "The key accepts an answer that violates the required starting phrase.",
+          "suggestion": "Remove a2 or drop the requirement to begin with a ti."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T28",
+      "verdict": "flawed",
+      "reviewerAnswer": "A ti te presta el coche Pablo. Also: A ti Pablo te presta el coche.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T29",
+      "contentHash": "8fc85be95333f762499d43839230a8b5cb02f17f9f6db6d10229af79d6c638c8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a3].text: «Mando la dirección a Luis.»; prompt requires «і займенником, і через a»",
+          "description": "The accepted answer lacks the explicitly required pronoun.",
+          "suggestion": "Require le for this doubling exercise or relax the prompt."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T29",
+      "verdict": "flawed",
+      "reviewerAnswer": "Le mando la dirección a Luis. Also: A Luis le mando la dirección.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T30",
+      "contentHash": "42a91ec3bcfad2577f1d104e7fad27fcd39bb8a9d3e5dc112ddf6cd1d6267354",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «Luis nos explica el problema a nosotros.»; prompt requires «почніть з a nosotros»",
+          "description": "The accepted answer does not follow the required word-order instruction.",
+          "suggestion": "Remove a2 or remove the requirement to begin with a nosotros."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T30",
+      "verdict": "flawed",
+      "reviewerAnswer": "A nosotros nos explica el problema Luis. Also: A nosotros Luis nos explica el problema.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T53",
+      "contentHash": "7f76d05b3d8870095e7a023fb32b58e64ea840e270262e718250da94a476fa1a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Ви кажете про квартиру Пабло. Уточніть su.»; task.closed: true; task.accepted contains only «El piso de él está en el centro.»",
+          "description": "The prompt asks for clarification without requiring a personal pronoun. The closed key rejects the correct clarification «El piso de Pablo está en el centro.»",
+          "suggestion": "Accept the named-possessor answer or explicitly require replacing the possessive phrase with article + noun + de + personal pronoun, keeping the rest unchanged."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T53",
+      "verdict": "flawed",
+      "reviewerAnswer": "El piso de él está en el centro. Also: El piso de Pablo está en el centro.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T54",
+      "contentHash": "da3382a407329e48bef37ac9cea9bb8ac5caa424e51051d00b2f3dbb2774fd72",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Ви кажете про книжки вчительки. Уточніть sus.»; task.closed: true; task.accepted contains only «Los libros de ella están en la mesa.»",
+          "description": "The closed key rejects «Los libros de la profesora están en la mesa.», which fulfills the stated clarification request.",
+          "suggestion": "Accept this alternative or explicitly require de + personal pronoun and preservation of the remaining sentence."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T54",
+      "verdict": "flawed",
+      "reviewerAnswer": "Los libros de ella están en la mesa. Also: Los libros de la profesora están en la mesa.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T55",
+      "contentHash": "a8495d99b4e5daa5b23024e535798b127bbe6fe7f9b2fc9b41cd7ef22f296cf8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Ви кажете про будинок братів. Уточніть su.»; task.closed: true; task.accepted contains only «La casa de ellos es muy bonita.»",
+          "description": "The instructions do not require a pronoun, so «La casa de los hermanos es muy bonita.» is a correct clarification rejected by the closed key.",
+          "suggestion": "Accept the noun-phrase alternative or explicitly constrain the transformation to de + personal pronoun."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T55",
+      "verdict": "flawed",
+      "reviewerAnswer": "La casa de ellos es muy bonita. Also: La casa de los hermanos es muy bonita.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T56",
+      "contentHash": "03c316775ff303b73622d10d091853b1d25652ba00b8d68b7aab370be97f7c29",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Уточніть su.»; task.closed: true; task.accepted contains only «¿Es el bolso de usted?»",
+          "description": "The closed key rejects the natural clarification «¿El bolso es de usted?». The prompt does not require preserving the original sentence structure.",
+          "suggestion": "Accept equivalent possessive questions or explicitly require replacing only the original possessive noun phrase while preserving word order."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T56",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Es el bolso de usted? Also: ¿El bolso es de usted?",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T57",
+      "contentHash": "35602056d2cffb479e799b0e51d9d5c175dd3d13afe6e82117c90b9b8a333b86",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Ви кажете про велосипед Ани. Уточніть su.»; task.closed: true; task.accepted contains only «La bicicleta de ella es nueva.»",
+          "description": "The correct named clarification «La bicicleta de Ana es nueva.» is rejected, although the prompt does not require a pronoun.",
+          "suggestion": "Accept the named alternative or explicitly require de + personal pronoun."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T57",
+      "verdict": "flawed",
+      "reviewerAnswer": "La bicicleta de ella es nueva. Also: La bicicleta de Ana es nueva.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T58",
+      "contentHash": "5b047c9707d3a661ed2423b8a24a059e9a1aec8499c3cb6c19c73b5eb944972e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Ви кажете про ручку вчителя. Уточніть su.»; task.closed: true; task.accepted contains only «El bolígrafo de él es azul.»",
+          "description": "The closed key rejects «El bolígrafo del profesor es azul.», which correctly clarifies the possessor under the stated instructions.",
+          "suggestion": "Accept this alternative or explicitly require a personal pronoun and an otherwise unchanged sentence."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T58",
+      "verdict": "flawed",
+      "reviewerAnswer": "El bolígrafo de él es azul. Also: El bolígrafo del profesor es azul.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T59",
+      "contentHash": "d4aee95719466384ee5529044a147aa6c93070ff9d872a0d903c679f635dd2f8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Ви кажете про номер Кармен. Уточніть su.»; task.closed: true; task.accepted contains only «La habitación de ella está en el segundo piso.»",
+          "description": "The prompt permits identifying Carmen by name, but the closed key rejects that correct clarification.",
+          "suggestion": "Accept «La habitación de Carmen está en el segundo piso.» or explicitly require de + personal pronoun."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T59",
+      "verdict": "flawed",
+      "reviewerAnswer": "La habitación de ella está en el segundo piso. Also: La habitación de Carmen está en el segundo piso.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T60",
+      "contentHash": "a5c72e034218cdcfee0c98b5eb59a2becc1309bd2d89b9f88668ca1cbc9ac556",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Ви кажете про кабінет Луїса. Уточніть su.»; task.closed: true; task.accepted contains only «La oficina de él es pequeña.»",
+          "description": "The closed key rejects the correct clarification «La oficina de Luis es pequeña.», despite no instruction requiring a pronoun.",
+          "suggestion": "Accept the named alternative or explicitly constrain the transformation to de + personal pronoun."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T60",
+      "verdict": "flawed",
+      "reviewerAnswer": "La oficina de él es pequeña. Also: La oficina de Luis es pequeña.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T61",
+      "contentHash": "3db7345fb0c5fda8a4768556108617b741f8259912d4cb973df49e05a9dcb957",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «No, es el coche de ella, de su hermana.»; task.options[id=a].label: «сестри Пабло»",
+          "description": "Ella identifies a female owner, but su does not uniquely establish whose sister she is. Pablo's sister is the most salient reading; an interlocutor's sister is also possible with formal address.",
+          "suggestion": "Specify whose sister is meant, or ask only about information that the dialogue fixes."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T61",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a on the natural reading that su refers to Pablo. If su refers to usted, the owner is the interlocutor's sister, which is not an option.",
+      "notes": "",
+      "sources": [
+        "Packet verdict instructions: unresolved pronoun reference requires an uncertain verdict.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «su», ambiguity of third-person possessives (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T62",
+      "contentHash": "16ffc7c87ade1fbed37b7af8cab724637b9137c35f096bb477cc6f08708f358e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[1].text: «pero el de ella es muy grande»",
+          "description": "Interpreting el de ella requires the article + de-phrase construction with an omitted noun. The mapped prerequisites and hints teach only full-noun patterns such as la casa de ella; they neither teach nor gloss this additional construction.",
+          "suggestion": "Use «pero el piso de ella es muy grande», or teach and map the omitted-noun construction before assessing it."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T62",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 1.",
+        "Packet context.taughtBefore and task.hints[0]: the supplied possessive patterns retain the noun."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T70",
+      "contentHash": "9fe9847317510504ccbbb8f0ce6086161d9a4cb36ec35389d18442f7b5a52ce3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt: «Mi чи mí?» and «___ padres viven cerca de ___.»; task.accepted[0].text and task.referenceAnswer: «Mis»",
+          "description": "There are two blanks, but the key supplies only one answer. The first blank requires mis, outside the stated mi/mí choice; the second requires mí. The error feedback also incorrectly recommends singular mi before padres.",
+          "suggestion": "Change the sentence to «Mis padres viven cerca de ___.» and key mí, updating feedback and referenceAnswer accordingly."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T70",
+      "verdict": "flawed",
+      "reviewerAnswer": "The two blanks require Mis and mí: Mis padres viven cerca de mí. Neither offered form fits the first blank.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3: a closed key must correctly cover the stated task.",
+        "RAE/ASALE, Nueva gramática de la lengua española, «Los posesivos», number agreement of prenominal possessives (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L3-T82",
+      "contentHash": "6e8c6dc0d08eaacc78e4a204a8b42592ca7af6a526171822191403c8948e6f08",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: «Що означає las у «Vale, las compro»?»",
+          "description": "The listening-meaning prompt visibly reproduces an utterance from the transcript, contrary to the explicit restriction on transcript text appearing in prompts.",
+          "suggestion": "Ask about the pronoun in the buyer's statement without quoting the recording; keep the wording in the transcript hint."
+        }
+      ],
+      "caseId": "task:A2-02-L3-T82",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 7: transcript text may appear only in a transcript hint."
+      ]
+    }
+  ]
+}
