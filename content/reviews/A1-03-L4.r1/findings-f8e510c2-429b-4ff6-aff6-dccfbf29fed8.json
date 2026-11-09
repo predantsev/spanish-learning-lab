@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-03-L4.r1",
+  "jobId": "f8e510c2-429b-4ff6-aff6-dccfbf29fed8",
+  "receiptId": "ea5aca4a-735a-4fff-bc49-c756252bab01",
+  "recordedAt": "2026-11-09T01:17:31.188Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T11",
+      "contentHash": "037f1b6a189917d387e259cdde01926aa77294da81eafbda94d0e85a13fc9fdc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[a2].text: \"Hay.\" conflicts with task.prompt[1].text: \"Допиши пропущене слово й напиши речення повністю: «На площі є банк».\"",
+          "description": "The key accepts only the missing word even though the instruction explicitly requires the complete sentence. Correct spelling of the target word does not satisfy that stated response requirement.",
+          "suggestion": "Remove the bare-word accepted answer, or revise the instruction to explicitly allow either the missing word or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "Hay un banco en la plaza.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3; packet fields task.prompt[1] and task.accepted[a2]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T12",
+      "contentHash": "eba9923ac1ca92c04a5c85b903a008bd3f8d52e0249b89dbc9571201b480d51f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[a2].text: \"Hay.\" conflicts with task.prompt[0].text: \"Допиши пропущене слово й напиши речення повністю: «На столі є квіти».\"",
+          "description": "The bare-word answer is accepted despite the explicit requirement to write the whole sentence.",
+          "suggestion": "Remove the bare-word accepted answer, or explicitly allow a word-only response in the prompt."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "Hay unas flores en la mesa.",
+      "notes": "The supplied sentence frame and Ukrainian meaning make knowledge of flores unnecessary for producing the missing word.",
+      "sources": [
+        "Course contract, rule 3; packet fields task.prompt[0] and task.accepted[a2]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T13",
+      "contentHash": "c738a674ff054cae3967c897db169d92057c7af13d8cc1c146d92bc1305143d6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[a2].text: \"hay.\" conflicts with task.prompt[0].text: \"Допиши пропущене слово й напиши речення повністю: «На вулиці є машини».\"",
+          "description": "The key accepts a single word although the prompt requires the completed sentence.",
+          "suggestion": "Remove the bare-word accepted answer, or change the instruction to permit either response format."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "En la calle hay unos coches.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3; packet fields task.prompt[0] and task.accepted[a2]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T21",
+      "contentHash": "1155bb980d841fc76351b78484335436ed6ff062c81d7a46fd6435f9f2b86668",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"En la calle ___ un banco.\"; task.options[b].outcomes marks está incorrect; task.options[b].feedbackUk: \"Після пропуску un banco — нова річ: hay.\"",
+          "description": "The prompt supplies an article mnemonic instead of a discourse context. An indefinite article does not by itself exclude locative estar or establish that the speaker is merely introducing existence. The intended existential versus specific locative reading is missing.",
+          "suggestion": "Add a scenario explicitly asking the learner to introduce the existence of a bank. Otherwise accommodate both readings and avoid determining the key solely from un banco."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T21",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the neutral existential answer. b can fit a specific locative reading; the sentence alone does not establish that reading or exclude it.",
+      "notes": "Hay is the natural default. This finding does not mean that both options are equally natural without supporting discourse.",
+      "sources": [
+        "Course contract, rule 2 and the definition of an uncertain verdict.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 15 and 37: indefinite noun phrases and locative uses of estar (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T26",
+      "contentHash": "2ec00afd2a07e4f6bedf7fc035cd8c8406f830cde0be61fabd82b542b3b6847a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"En la mesa ___ unas llaves.\"; task.options[b].outcomes marks están incorrect; task.options[b].feedbackUk: \"Unas llaves — нові, невідомі ключі: hay.\"",
+          "description": "Nothing establishes whether the speaker is introducing existence or locating a particular set of keys. Unas does not necessarily mean that its referent is nonspecific or unknown, and it does not prohibit estar.",
+          "suggestion": "Specify the intended discourse situation. For an existential introduction, establish that the speaker is reporting what is present; otherwise accommodate the specific locative reading and revise the article-only explanation."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T26",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a for introducing the presence of some keys; b can fit locating particular keys described indefinitely. More than one reading is possible.",
+      "notes": "Hay is the neutral presentational answer, but that preference alone does not justify categorically rejecting están.",
+      "sources": [
+        "Course contract, rule 2 and the definition of an uncertain verdict.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 15 and 37: specific indefinite noun phrases and locative estar (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T52",
+      "contentHash": "f14213cc2c0dbfa1adf1634a62674a80a2676f756b593f1861f0fc84333a5171",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Питання з питальним словом (¿Dónde…?) починається з цього слова.\"",
+          "description": "This states an unrestricted word-order rule that is false. A Spanish question can place a subject or topic before the interrogative word, as in ¿Tú dónde estás?, or begin with a preposition, as in ¿De dónde eres? The provided clip follows one common pattern, not a universal rule.",
+          "suggestion": "Limit the hint to this recording: explain that dónde means «де» and identifies a question about location. Remove the claim that every question with an interrogative word begins with that word."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T52",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The answer key, transcript and Ukrainian translation otherwise agree. Audio realization was not assessed.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, treatment of interrogative constructions, interrogative phrases and preceding topics (from memory)."
+      ]
+    }
+  ]
+}
