@@ -40,7 +40,7 @@ function x(n: number, role: TaskRole, fam: string, t: string, ins: string, acc: 
 /** Construction clues for full-sentence tasks whose sentence needs a construction taught in another step. */
 const ART = (t: string): Hint[] => [hClue([t], 'Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.')];
 const INF = (t: string): Hint[] => [hClue([t], 'Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.')];
-const ANL = (t: string): Hint[] => [hClue([t], 'Про конкретну людину — a + людина + le: A Ana le gusta el té. A mi padre le encanta leer.')];
+const ANL = (t: string): Hint[] => [hClue([t], 'Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.')];
 
 /** Single-slot rewrite task: the learner retypes the whole sentence with the gap filled. */
 function one(n: number, role: TaskRole, fam: string, t: string, ins: string, before: string, after: string, acc: string[], err: E = [], tr?: string): string {

@@ -321,7 +321,7 @@ k.exact({
   fam: 'a104.food',
   t: [NUU],
   ins: 'Переклади іспанською: «Я ніколи не п’ю каву ввечері».',
-  hints: [hTr('«Ввечері» — por la noche (частини доби — з A1-04-L5: por la mañana, por la tarde, por la noche).')],
+  hints: [hTr('«Ввечері» — por la noche; частини доби: por la mañana, por la tarde, por la noche.')],
   acc: [
     'Nunca bebo café por la noche.',
     'Yo nunca bebo café por la noche.',
