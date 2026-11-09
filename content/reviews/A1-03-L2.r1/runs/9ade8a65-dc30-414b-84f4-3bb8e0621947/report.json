@@ -1,0 +1,3235 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L2.r1",
+  "packetHash": "ca653635a91f84bc6ad937450fefd695f230e499b484b8ab9d6eb4177c23661d",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "e8e5d0a9839a3794a5455cddae1a8680b942a222071faf5a4039755d0a01e58d",
+    "reviewerPacketSha256": "f290faf14c9ba2747ba89d82f1540e762f59428ab758bb4babde9b9267852026",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ul68Ak/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ul68Ak/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ul68Ak/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ul68Ak/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ul68Ak/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdcc-606a-7453-a5d0-0ba5788aa296",
+        "version": "v0.166.0",
+        "tokens used": "28,195"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "situation:greetings-introductions",
+        "reviewerAnswer": "Not applicable: situation metadata, with no learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:adj.agreement.nationality",
+        "reviewerAnswer": "español/española/españoles/españolas; inglés/inglesa/ingleses/inglesas; francés/francesa/franceses/francesas; alemán/alemana/alemanes/alemanas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The rules are correct within the explicitly bounded four-adjective scope. They should not be extended to every consonant-ending gentilic."
+      },
+      {
+        "caseId": "skill:formula.introduction",
+        "reviewerAnswer": "Me llamo Ana. ¿Cómo te llamas? ¿Cómo se llama usted? Encantado/Encantada, according to the speaker; Mucho gusto. Este es Pablo. Esta es Ana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:listening.short-sentences",
+        "reviewerAnswer": "Identify the statement or question, its participants and meaning, and any negation; dictation is a separate activity.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The context explicitly includes the four sentence models. Actual audio and its intonation cannot be evaluated in this text review."
+      },
+      {
+        "caseId": "skill:ser.description",
+        "reviewerAnswer": "Ana es alta. El piso es pequeño. Mis amigos son simpáticos. The adjective agrees with the subject.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:ser.identity",
+        "reviewerAnswer": "Soy Ana. Es mi hermano. Son mis amigos. Es un libro. ¿Quién es?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:ser.nationality",
+        "reviewerAnswer": "Soy ucraniano/ucraniana. Ana es española. Somos ucranianos/ucranianas, according to the group.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:ser.origin",
+        "reviewerAnswer": "Soy de Kiev. Ana es de Madrid. Somos de Ucrania. ¿De dónde eres?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:ser.profession",
+        "reviewerAnswer": "Neutral occupation statements normally use a bare noun: Soy profesora. Ana es estudiante. Pablo es médico. Classifying modifiers can also occur without an article: Es médico rural.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.scope.noteUk: «З прикметником артикль з’являється (Es un médico muy bueno)»; content.body.ruleUk: «ким людина працює чи навчається».",
+        "defect": "An adjective does not automatically require an article: classifying combinations such as médico rural can remain bare. The Ukrainian wording also incorrectly extends «ким» to «навчається».",
+        "correction": "Distinguish classifying modifiers from evaluative noun phrases with un/una. Replace the Ukrainian opening with wording about naming a profession or occupation, such as «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, nominal attributes with profession nouns and the indefinite article (from memory).",
+          "Словник української мови в 11 томах, entry «навчатися», constructions for studying a profession (from memory).",
+          "Course contract rule 8."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:text.personal-data-form",
+        "reviewerAnswer": "Match each field to the requested personal datum and enter a short value, for example Nombre: Ana; Nacionalidad: ucraniana; País: Ucrania.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.aleman",
+        "reviewerAnswer": "alemán — German; feminine alemana, plural alemanes/alemanas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.apellido",
+        "reviewerAnswer": "apellido — surname; masculine, plural apellidos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.camarero",
+        "reviewerAnswer": "camarero — waiter; feminine camarera, plural camareros/camareras.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "«Слово Іспанії» identifies the course's regional vocabulary choice; it need not imply exclusive use in Spain."
+      },
+      {
+        "caseId": "lexeme:lex.correo-electronico",
+        "reviewerAnswer": "correo electrónico — email; masculine, plural correos electrónicos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.encantado",
+        "reviewerAnswer": "Encantado/Encantada — pleased to meet you, agreeing with the speaker.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.espanol",
+        "reviewerAnswer": "español — Spanish; feminine española, plural españoles/españolas; also a Spanish person or the Spanish language.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.frances",
+        "reviewerAnswer": "francés — French; feminine francesa, plural franceses/francesas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.guapo",
+        "reviewerAnswer": "guapo — good-looking; forms guapa, guapos, guapas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.ingeniero",
+        "reviewerAnswer": "ingeniero — engineer; feminine ingeniera, plural ingenieros/ingenieras.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.ingles",
+        "reviewerAnswer": "inglés — English; feminine inglesa, plural ingleses/inglesas, without the written accent.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.llamarse",
+        "reviewerAnswer": "llamarse — to be called; introductory chunks include Me llamo… and ¿Cómo te llamas?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.medico",
+        "reviewerAnswer": "médico — doctor; feminine médica, plural médicos/médicas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.moreno",
+        "reviewerAnswer": "moreno — dark-haired or dark-complexioned; forms morena, morenos, morenas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.mucho-gusto",
+        "reviewerAnswer": "Mucho gusto — pleased to meet you.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.nacionalidad",
+        "reviewerAnswer": "nacionalidad — nationality or citizenship; feminine, plural nacionalidades.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.nombre",
+        "reviewerAnswer": "nombre — name; masculine, plural nombres.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.pais",
+        "reviewerAnswer": "país — country; masculine, plural países.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.programador",
+        "reviewerAnswer": "programador — programmer; feminine programadora, plural programadores/programadoras.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.rubio",
+        "reviewerAnswer": "rubio — blond or fair-haired; forms rubia, rubios, rubias.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.ucrania",
+        "reviewerAnswer": "Ucrania — Ukraine; a capitalized country name.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.ucraniano",
+        "reviewerAnswer": "ucraniano — Ukrainian; feminine ucraniana, plural ucranianos/ucranianas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-03-L2",
+        "reviewerAnswer": "Use ser for identification, origin, nationality, occupation and description; practise nationality agreement, introduction formulas, form fields and short listening comprehension.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s6].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The wording incorrectly coordinates «працює» and «навчається» under «ким». Standard Ukrainian expresses studying for a profession with a construction such as «навчається на лікаря».",
+        "correction": "Rewrite the opening as «Коли називаємо професію чи рід занять…» and retain the occupation examples.",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», constructions for studying a profession (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T01",
+        "reviewerAnswer": "Es mi hermano. Este es mi hermano. Él es mi hermano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T02",
+        "reviewerAnswer": "Es Pablo. Este es Pablo. Él es Pablo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T03",
+        "reviewerAnswer": "Es mi hermana. Esta es mi hermana. Ella es mi hermana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T04",
+        "reviewerAnswer": "Es un libro. Esto es un libro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Accepting an additional correct construction does not require the learner to have studied it."
+      },
+      {
+        "caseId": "task:A1-03-L2-T05",
+        "reviewerAnswer": "Son mis amigos. Estos son mis amigos. Ellos son mis amigos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T06",
+        "reviewerAnswer": "Es mi madre. Esta es mi madre. Ella es mi madre. Es mi mamá.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is open, so omitted combinations such as Ella es mi mamá are not automatically graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L2-T07",
+        "reviewerAnswer": "Es mi gato. Este es mi gato.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T08",
+        "reviewerAnswer": "Son mis padres. Estos son mis padres. Ellos son mis padres.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T09",
+        "reviewerAnswer": "Es mi hermano Pablo. Este es mi hermano Pablo. Él es mi hermano Pablo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T10",
+        "reviewerAnswer": "¿Quién es?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T11",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T12",
+        "reviewerAnswer": "a and c. Both Son mis amigos. and Mis amigos. work as photo captions.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.options[id=c]: label «Mis amigos.», outcome «incorrect»; feedbackUk: «Без дієслова це лише «мої друзі»; «це мої друзі» — Son mis amigos.»",
+        "defect": "A nominal phrase is a natural photo caption. The prompt asks what to write under the photo and does not require a complete sentence, so lacking a verb does not make c incorrect.",
+        "correction": "Accept c, or explicitly ask the learner to choose a complete sentence containing ser.",
+        "sources": [
+          "Course contract rule 2.",
+          "RAE/ASALE, Nueva gramática de la lengua española, nonverbal utterances and nominal expressions used as captions or titles (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T13",
+        "reviewerAnswer": "Soy de Kiev.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[id=a2].text: «de.»; task.prompt[1].text requires «напиши речення повністю».",
+        "defect": "The key accepts a single preposition although the prompt explicitly requires the complete sentence.",
+        "correction": "Remove the fragment from accepted, or change the instruction to allow either the missing word or the full sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T14",
+        "reviewerAnswer": "Ana es de Madrid.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T15",
+        "reviewerAnswer": "Soy de Ucrania. Yo soy de Ucrania.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T16",
+        "reviewerAnswer": "Somos de Kiev. Nosotros somos de Kiev. Nosotras somos de Kiev.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T17",
+        "reviewerAnswer": "Pablo y Ana son de Sevilla.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T18",
+        "reviewerAnswer": "¿De dónde eres?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T19",
+        "reviewerAnswer": "Mi padre es de Odesa. Mi papá es de Odesa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The open key does not automatically reject the alternative family term papá."
+      },
+      {
+        "caseId": "task:A1-03-L2-T20",
+        "reviewerAnswer": "Mis amigos son de Barcelona.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[id=a2].text: «de.»; task.prompt[0].text requires «напиши речення повністю».",
+        "defect": "The accepted fragment does not satisfy the explicit requirement to write the complete sentence.",
+        "correction": "Remove the fragment from accepted, or explicitly permit a missing-word response.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T21",
+        "reviewerAnswer": "Soy de Lviv. Yo soy de Lviv. Soy de Leópolis.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T22",
+        "reviewerAnswer": "Mis amigos son de España. A nominal caption is also possible: Mis amigos de España.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: «Ти підписуєш фото з друзями: «Мої друзі з Іспанії».»",
+        "defect": "The Ukrainian text permits either a statement that the friends are from Spain or a nominal caption identifying the friends from Spain. The reviewed key covers only the statement, and the prompt does not specify a complete sentence.",
+        "correction": "Specify whether the learner must write a complete statement of origin or a nominal photo caption, then align the reviewed answers.",
+        "sources": [
+          "Review verdict definition: underdetermined intended readings require uncertain.",
+          "RAE/ASALE, Nueva gramática de la lengua española, nominal utterances and the distinction between noun modification and predication (from memory)."
+        ],
+        "notes": "The key is open; this is an unresolved prompt interpretation, not a claim that every unlisted caption is graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L2-T23",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T24",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T25",
+        "reviewerAnswer": "Soy ucraniana. Yo soy ucraniana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T26",
+        "reviewerAnswer": "Ana es española.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T27",
+        "reviewerAnswer": "Somos ucranianos. Nosotros somos ucranianos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T28",
+        "reviewerAnswer": "Pablo es español.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T29",
+        "reviewerAnswer": "Mis amigas son inglesas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T30",
+        "reviewerAnswer": "Soy francesa. Yo soy francesa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T31",
+        "reviewerAnswer": "Ella es ucraniana. Es ucraniana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T32",
+        "reviewerAnswer": "Mis padres son alemanes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T33",
+        "reviewerAnswer": "Soy ucraniano. Yo soy ucraniano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T34",
+        "reviewerAnswer": "Ana y Lucía son españolas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T35",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T36",
+        "reviewerAnswer": "Ella es alemana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[id=a2].text: «alemana.»; task.prompt[0].text requires «напиши речення повністю».",
+        "defect": "The key accepts only the missing adjective although the instruction requires the complete sentence.",
+        "correction": "Remove the fragment from accepted, or explicitly permit either the adjective or the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T37",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T38",
+        "reviewerAnswer": "Soy profesora. Yo soy profesora.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T39",
+        "reviewerAnswer": "Pablo es médico.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T40",
+        "reviewerAnswer": "Ana es ingeniera.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T41",
+        "reviewerAnswer": "Soy programador. Yo soy programador.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T42",
+        "reviewerAnswer": "Mis hermanos son camareros.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T43",
+        "reviewerAnswer": "Eres estudiante. Tú eres estudiante.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T44",
+        "reviewerAnswer": "Mi madre es médica.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T45",
+        "reviewerAnswer": "Somos programadores. Nosotros somos programadores.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T46",
+        "reviewerAnswer": "Soy ingeniero. Yo soy ingeniero.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T47",
+        "reviewerAnswer": "Mi hermano es camarero y mi hermana es profesora.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T48",
+        "reviewerAnswer": "a, for the neutral statement of occupation.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+        "defect": "The shared «ким» produces the nonstandard construction «ким навчається».",
+        "correction": "Replace the opening with «Коли називаємо професію чи рід занять…».",
+        "sources": [
+          "Course contract rule 8.",
+          "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T49",
+        "reviewerAnswer": "Ana es alta.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T50",
+        "reviewerAnswer": "El piso es pequeño.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T51",
+        "reviewerAnswer": "Mis amigos son simpáticos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Ukrainian «симпатичні» can describe people who are pleasant or likeable, so this translation is legitimate."
+      },
+      {
+        "caseId": "task:A1-03-L2-T52",
+        "reviewerAnswer": "Pablo es moreno y alto. Pablo es alto y moreno.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T53",
+        "reviewerAnswer": "Mi casa es grande y bonita. Mi casa es bonita y grande.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T54",
+        "reviewerAnswer": "Sois muy inteligentes. Vosotros sois muy inteligentes. Informal ustedes can also license Son muy inteligentes in parts of Andalusia.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[id=e2].feedbackUk: «Son — для ellos або ввічливого ustedes; друзям на «ти» в Іспанії — sois.»",
+        "defect": "The explanation makes a Spain-wide claim that ustedes is formal. Informal ustedes with third-person plural agreement also occurs in parts of peninsular Spain, notably Andalusia.",
+        "correction": "Describe vosotros/sois as the usual informal plural in most of Spain. If this task specifically requires vosotros, state that explicitly instead of treating the regional alternative as exclusively formal.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «usted», plural address and informal use in parts of Andalusia (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T55",
+        "reviewerAnswer": "Mi hermana es rubia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T56",
+        "reviewerAnswer": "Los libros son interesantes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T57",
+        "reviewerAnswer": "Es muy simpático. Él es muy simpático.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The translation uses the legitimate Ukrainian sense of «симпатичний» meaning pleasant or likeable."
+      },
+      {
+        "caseId": "task:A1-03-L2-T58",
+        "reviewerAnswer": "El piso es nuevo y muy bonito. El piso es muy bonito y nuevo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T59",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T60",
+        "reviewerAnswer": "Me llamo Ana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T61",
+        "reviewerAnswer": "¿Cómo te llamas?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T62",
+        "reviewerAnswer": "Encantada. Mucho gusto.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T63",
+        "reviewerAnswer": "¿Cómo se llama usted? ¿Cómo se llama?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T64",
+        "reviewerAnswer": "Esta es Ana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The task practises the introduction formula. Es Ana is acknowledged as grammatical and is not graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L2-T65",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T66",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T67",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated."
+      },
+      {
+        "caseId": "task:A1-03-L2-T68",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated."
+      },
+      {
+        "caseId": "task:A1-03-L2-T69",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T70",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The feminine entry ucraniana can agree with the feminine field label nacionalidad, including for a male applicant."
+      },
+      {
+        "caseId": "task:A1-03-L2-T71",
+        "reviewerAnswer": "ucraniana",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The answer also agrees with the field label nacionalidad. The duplicated value in incorrectUk is an editorial cleanup."
+      },
+      {
+        "caseId": "task:A1-03-L2-T72",
+        "reviewerAnswer": "España",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The duplicated value in incorrectUk is an editorial cleanup."
+      },
+      {
+        "caseId": "task:A1-03-L2-T73",
+        "reviewerAnswer": "española, agreeing with the field label nacionalidad.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[id=e1]: text «española.», outcome «incorrect»; feedbackUk: «Хав’єр — чоловік: español.»",
+        "defect": "A nationality field can use an adjective agreeing with the feminine noun nacionalidad. Therefore española is a standard acceptable entry for Javier and cannot be rejected because he is male.",
+        "correction": "Accept española and explain agreement with nacionalidad. Distinguish a nationality-field entry from a personal statement such as Soy español.",
+        "sources": [
+          "Course contract rule 3.",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «concordancia», nominal gender agreement (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, entry «nacionalidad», feminine noun (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T74",
+        "reviewerAnswer": "alemana",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: «Ти заповнюєш анкету на мовні курси за свою подругу Ганну — вона німкеня. Що вписати в поле?»; context.taughtBefore lists «alemán» but not «alemana» or the consonant-ending nationality agreement rule.",
+        "defect": "Producing alemana requires this lesson's exceptional consonant-ending nationality pattern. The case maps regular -o/-a agreement and alemán, but does not establish that prerequisite or gloss the required feminine form.",
+        "correction": "Add the earlier teaching of alemán → alemana and consonant-ending nationality agreement to taughtBefore, ensuring it precedes this task, or provide an appropriate lexical gloss.",
+        "sources": [
+          "Course contract rule 1."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T75",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated."
+      },
+      {
+        "caseId": "task:A1-03-L2-T76",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated."
+      },
+      {
+        "caseId": "task:A1-03-L2-T77",
+        "reviewerAnswer": "Hola, soy Marta y soy de Valencia. Other defensible sentence boundaries include Hola. Soy Marta y soy de Valencia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is open. The comma before y in a2 is unnecessary in the neutral reading; prefer a1 as the model. Actual audio delivery was not evaluated."
+      },
+      {
+        "caseId": "task:A1-03-L2-T78",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «Питання з питальним словом (¿De dónde…?) починається з цього слова.»",
+        "defect": "This is an absolute word-order rule that Spanish does not have. An interrogative group can include a preceding preposition, and other material can precede it, as in ¿Tú de dónde eres?",
+        "correction": "Describe the specific cue de dónde as meaning «звідки», without claiming that every question containing an interrogative word starts with that word.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, direct interrogatives, interrogative prepositional groups and their position (from memory)."
+        ],
+        "notes": "The transcript and answer key otherwise agree."
+      },
+      {
+        "caseId": "clip:clip.a1-03.ana-es-medica",
+        "reviewerAnswer": "Ana is a doctor and is very pleasant or likeable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Ukrainian translation is legitimate. This verdict concerns the transcript and translation, not the unheard recording."
+      },
+      {
+        "caseId": "clip:clip.a1-03.de-donde-eres",
+        "reviewerAnswer": "The speaker greets Pablo and asks where he is from.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text review only; the recording was not evaluated."
+      },
+      {
+        "caseId": "clip:clip.a1-03.esta-es-lucia",
+        "reviewerAnswer": "The speaker introduces Lucía as their sister.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text review only; the recording was not evaluated."
+      },
+      {
+        "caseId": "clip:clip.a1-03.me-llamo-pablo",
+        "reviewerAnswer": "The speaker says hello, gives his name as Pablo and says he is pleased to meet the listener.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text review only; the recording was not evaluated."
+      },
+      {
+        "caseId": "clip:clip.a1-03.soy-de-valencia",
+        "reviewerAnswer": "The speaker says hello, identifies herself as Marta and says she is from Valencia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text review only; the recording was not evaluated."
+      },
+      {
+        "caseId": "phrase:phrase.como-te-llamas",
+        "reviewerAnswer": "¿Cómo te llamas?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "phrase:phrase.el-piso-es-pequeno",
+        "reviewerAnswer": "El piso es pequeño.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "phrase:phrase.encantado",
+        "reviewerAnswer": "Encantado or Encantada, according to the speaker; Mucho gusto is also a suitable introduction response.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The recall key is not declared closed, so omission of Mucho gusto does not establish an incorrect rejection."
+      },
+      {
+        "caseId": "phrase:phrase.mucho-gusto",
+        "reviewerAnswer": "Mucho gusto. Encantado or Encantada is also suitable in the stated introduction context.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The recall key is not declared closed."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "situation",
+      "logicalId": "greetings-introductions",
+      "contentHash": "c6fb700e38f1772014ba55daaa7b91dbdcbc6b6fc5b7bf58460fa1a2d0c2a57c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "situation:greetings-introductions",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: situation metadata, with no learner task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "adj.agreement.nationality",
+      "contentHash": "09bd87912ee2778df9f88bc5c1eb180103379c8857d21634961b8fc9e7eb6af7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:adj.agreement.nationality",
+      "verdict": "valid",
+      "reviewerAnswer": "español/española/españoles/españolas; inglés/inglesa/ingleses/inglesas; francés/francesa/franceses/francesas; alemán/alemana/alemanes/alemanas.",
+      "notes": "The rules are correct within the explicitly bounded four-adjective scope. They should not be extended to every consonant-ending gentilic.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "formula.introduction",
+      "contentHash": "f0a24c5ec36c286cc6918d796fd647655e1a4d8dcb4450c3abf4f9be425675aa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:formula.introduction",
+      "verdict": "valid",
+      "reviewerAnswer": "Me llamo Ana. ¿Cómo te llamas? ¿Cómo se llama usted? Encantado/Encantada, according to the speaker; Mucho gusto. Este es Pablo. Esta es Ana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "listening.short-sentences",
+      "contentHash": "a57e32190fbe26da829e9b786b368f6bdfb4ff634d661a60f9a280ad333e0453",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:listening.short-sentences",
+      "verdict": "valid",
+      "reviewerAnswer": "Identify the statement or question, its participants and meaning, and any negation; dictation is a separate activity.",
+      "notes": "The context explicitly includes the four sentence models. Actual audio and its intonation cannot be evaluated in this text review.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ser.description",
+      "contentHash": "e19bda848ded5c6657edee7952449a63f50d30a4b68626de136bc5261b741313",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ser.description",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es alta. El piso es pequeño. Mis amigos son simpáticos. The adjective agrees with the subject.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ser.identity",
+      "contentHash": "dca5875dba8af118b8c0e044450b1cfc41a26c7c40a6c71efdd0b8e6e24fc464",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ser.identity",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy Ana. Es mi hermano. Son mis amigos. Es un libro. ¿Quién es?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ser.nationality",
+      "contentHash": "5297e3123fd5106bcd269ddb046c1da1062c0a0a85d8bf4d389d81bf65d18c20",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ser.nationality",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy ucraniano/ucraniana. Ana es española. Somos ucranianos/ucranianas, according to the group.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ser.origin",
+      "contentHash": "8c137a41d0f204f02068565a4488619e2092cf484bf828bdbea5960235e6766e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ser.origin",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy de Kiev. Ana es de Madrid. Somos de Ucrania. ¿De dónde eres?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ser.profession",
+      "contentHash": "ed92fe3be2604e5336ae7abc712ea14d5b1231dda65ea8e4bc60c99cc6d87f41",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: «З прикметником артикль з’являється (Es un médico muy bueno)»; content.body.ruleUk: «ким людина працює чи навчається».",
+          "description": "An adjective does not automatically require an article: classifying combinations such as médico rural can remain bare. The Ukrainian wording also incorrectly extends «ким» to «навчається».",
+          "suggestion": "Distinguish classifying modifiers from evaluative noun phrases with un/una. Replace the Ukrainian opening with wording about naming a profession or occupation, such as «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "skill:ser.profession",
+      "verdict": "flawed",
+      "reviewerAnswer": "Neutral occupation statements normally use a bare noun: Soy profesora. Ana es estudiante. Pablo es médico. Classifying modifiers can also occur without an article: Es médico rural.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, nominal attributes with profession nouns and the indefinite article (from memory).",
+        "Словник української мови в 11 томах, entry «навчатися», constructions for studying a profession (from memory).",
+        "Course contract rule 8."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "text.personal-data-form",
+      "contentHash": "91b0aadd84cc3c8ad9f2d2a6e4d565e93c33dac5319b49502adc741db39d1cf8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:text.personal-data-form",
+      "verdict": "valid",
+      "reviewerAnswer": "Match each field to the requested personal datum and enter a short value, for example Nombre: Ana; Nacionalidad: ucraniana; País: Ucrania.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.aleman",
+      "contentHash": "0006f94d5090156b310f000c9a74e027ee050f461789d74bec06a6fdef03327d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.aleman",
+      "verdict": "valid",
+      "reviewerAnswer": "alemán — German; feminine alemana, plural alemanes/alemanas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.apellido",
+      "contentHash": "f5b81668beaef4fbda9db0931a5a81a0dc8da084f4a72bc055db09e792d24e39",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.apellido",
+      "verdict": "valid",
+      "reviewerAnswer": "apellido — surname; masculine, plural apellidos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.camarero",
+      "contentHash": "869756296cfbbd1ef0583d7a29f14ffeab77df3e76e86e6be34d445564680044",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.camarero",
+      "verdict": "valid",
+      "reviewerAnswer": "camarero — waiter; feminine camarera, plural camareros/camareras.",
+      "notes": "«Слово Іспанії» identifies the course's regional vocabulary choice; it need not imply exclusive use in Spain.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.correo-electronico",
+      "contentHash": "540d8720d3b97d2bd957bd3a7b81a15d630a43a6bcc4871a6aea72712f88af24",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.correo-electronico",
+      "verdict": "valid",
+      "reviewerAnswer": "correo electrónico — email; masculine, plural correos electrónicos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.encantado",
+      "contentHash": "4784d45894de85087a799e9cd98937778e74977c436d0896ebc085addf0dff48",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.encantado",
+      "verdict": "valid",
+      "reviewerAnswer": "Encantado/Encantada — pleased to meet you, agreeing with the speaker.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.espanol",
+      "contentHash": "bed9253ffd04233ba7bae7180b1dce09d632a378550073c9501bfc6ef6bb031b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.espanol",
+      "verdict": "valid",
+      "reviewerAnswer": "español — Spanish; feminine española, plural españoles/españolas; also a Spanish person or the Spanish language.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.frances",
+      "contentHash": "fd8da66841075d3bf5afdd917962412799c669b169086a9148460a0f3591fcbb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.frances",
+      "verdict": "valid",
+      "reviewerAnswer": "francés — French; feminine francesa, plural franceses/francesas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.guapo",
+      "contentHash": "29882e9e75662c19af738c1597806afbfc0e7f1c462d7c93a56272963e02906b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.guapo",
+      "verdict": "valid",
+      "reviewerAnswer": "guapo — good-looking; forms guapa, guapos, guapas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ingeniero",
+      "contentHash": "59339b4ffc84134bc392654d30012230b3230ab722ad8d8391043c6cb7362172",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ingeniero",
+      "verdict": "valid",
+      "reviewerAnswer": "ingeniero — engineer; feminine ingeniera, plural ingenieros/ingenieras.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ingles",
+      "contentHash": "576283013233393564856b9724f8f56e1016be9bd71f5f3ad4f0d99f7ea53a14",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ingles",
+      "verdict": "valid",
+      "reviewerAnswer": "inglés — English; feminine inglesa, plural ingleses/inglesas, without the written accent.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.llamarse",
+      "contentHash": "408c8b3bf2dca85e731aaa558c669140689f9ec0841175b89247e259c503be59",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.llamarse",
+      "verdict": "valid",
+      "reviewerAnswer": "llamarse — to be called; introductory chunks include Me llamo… and ¿Cómo te llamas?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.medico",
+      "contentHash": "e7d670a13f6621451f9c45506ae515f264c79408c09e6bca0ea7ef1a76851da6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.medico",
+      "verdict": "valid",
+      "reviewerAnswer": "médico — doctor; feminine médica, plural médicos/médicas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.moreno",
+      "contentHash": "13fdc84d0ce88f8179b71e7a26a3770bb57c8b084650b4fea65e8ee4d236fefc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.moreno",
+      "verdict": "valid",
+      "reviewerAnswer": "moreno — dark-haired or dark-complexioned; forms morena, morenos, morenas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.mucho-gusto",
+      "contentHash": "0e4b3e56cfb9e7d065d12931800e287f9a128c081489e46c955b44e4fb59310f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.mucho-gusto",
+      "verdict": "valid",
+      "reviewerAnswer": "Mucho gusto — pleased to meet you.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.nacionalidad",
+      "contentHash": "e01c1497d9916a515f0a15627bafcc9605b9076876fae3e846aeefb957241c9f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.nacionalidad",
+      "verdict": "valid",
+      "reviewerAnswer": "nacionalidad — nationality or citizenship; feminine, plural nacionalidades.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.nombre",
+      "contentHash": "3687f11e6a7000e904f59523efa2671a1151dcf332a9e061acf64510721b505b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.nombre",
+      "verdict": "valid",
+      "reviewerAnswer": "nombre — name; masculine, plural nombres.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.pais",
+      "contentHash": "e20acb34775b37d9608fe992d28b1ab2baf2022d730d42b2cf8a9e97843ceeb3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.pais",
+      "verdict": "valid",
+      "reviewerAnswer": "país — country; masculine, plural países.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.programador",
+      "contentHash": "c02cd1af526ab9c76b365e4c05ace1a51f7429dda4806ea1bc4639428c16bf83",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.programador",
+      "verdict": "valid",
+      "reviewerAnswer": "programador — programmer; feminine programadora, plural programadores/programadoras.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.rubio",
+      "contentHash": "ae677b00f9a0195abd1e6679dbe647f6c990a0ee5ee931ea7225c00eec499226",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.rubio",
+      "verdict": "valid",
+      "reviewerAnswer": "rubio — blond or fair-haired; forms rubia, rubios, rubias.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ucrania",
+      "contentHash": "74428055e1c8d1fd0ea059009e193b2a5732416d69a187426328bcea3c845984",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ucrania",
+      "verdict": "valid",
+      "reviewerAnswer": "Ucrania — Ukraine; a capitalized country name.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ucraniano",
+      "contentHash": "dcaa1f03196888d4f3d0afc8fe07f02cf696f21eabb16dda020041c89b301ec9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ucraniano",
+      "verdict": "valid",
+      "reviewerAnswer": "ucraniano — Ukrainian; feminine ucraniana, plural ucranianos/ucranianas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L2",
+      "contentHash": "b67644fa1f8603b82ce1a8bde3a30241edc0f7153a430e771686069b6a3913c6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s6].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The wording incorrectly coordinates «працює» and «навчається» under «ким». Standard Ukrainian expresses studying for a profession with a construction such as «навчається на лікаря».",
+          "suggestion": "Rewrite the opening as «Коли називаємо професію чи рід занять…» and retain the occupation examples."
+        }
+      ],
+      "caseId": "lesson:A1-03-L2",
+      "verdict": "flawed",
+      "reviewerAnswer": "Use ser for identification, origin, nationality, occupation and description; practise nationality agreement, introduction formulas, form fields and short listening comprehension.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», constructions for studying a profession (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T01",
+      "contentHash": "5b166d15b0935a3015bbd3d8531b82e7fbd7a2384373869307cda38b7f1e24d9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "Es mi hermano. Este es mi hermano. Él es mi hermano.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T02",
+      "contentHash": "5d6105ff411721168d25f882f3abda0202d56c8cf666a0451512840781d6eb1e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Es Pablo. Este es Pablo. Él es Pablo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T03",
+      "contentHash": "cc1f014f6007d20c58b1988762009acd06d59e35d26eef38115ea7897fda2710",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "Es mi hermana. Esta es mi hermana. Ella es mi hermana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T04",
+      "contentHash": "e68edd5326a3b3451d0c1a987af2694ebe664f43001597da89f5566320dcdcf9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "Es un libro. Esto es un libro.",
+      "notes": "Accepting an additional correct construction does not require the learner to have studied it.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T05",
+      "contentHash": "1e1d3d340c501a1343725c22bae703c4569f435f9bd7f90e5b3ea96640916b8c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "Son mis amigos. Estos son mis amigos. Ellos son mis amigos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T06",
+      "contentHash": "12a1d80742b9a3b316030fc509fa41d0d9f9bcd0b0bc5605392bebed71655454",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "Es mi madre. Esta es mi madre. Ella es mi madre. Es mi mamá.",
+      "notes": "The key is open, so omitted combinations such as Ella es mi mamá are not automatically graded incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T07",
+      "contentHash": "e52103ca2cfa8282d29e2acaeeabe5dd7b8f88fa954930340a21c44f4707308c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "Es mi gato. Este es mi gato.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T08",
+      "contentHash": "cec84f01743ad7db867e85af710eeabf0e09da20ae41b983037a0e763995f070",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "Son mis padres. Estos son mis padres. Ellos son mis padres.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T09",
+      "contentHash": "f5615bff660beead3feaaff1b3cc5215a6da201298da63a7b730f8d097865abe",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "Es mi hermano Pablo. Este es mi hermano Pablo. Él es mi hermano Pablo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T10",
+      "contentHash": "138cb41d81325ad527aec974bc91e3576ee41afe94d35d41bea82e72cd04ebef",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Quién es?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T11",
+      "contentHash": "25a2de164a0ec1e03626af1e7051a2d6ca276e73a8564f41c276ce65c82dc2eb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T12",
+      "contentHash": "6c2a2a61034fc67fd6a91f671f4c378a7e68a63190ea92543ad229b039b0f542",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=c]: label «Mis amigos.», outcome «incorrect»; feedbackUk: «Без дієслова це лише «мої друзі»; «це мої друзі» — Son mis amigos.»",
+          "description": "A nominal phrase is a natural photo caption. The prompt asks what to write under the photo and does not require a complete sentence, so lacking a verb does not make c incorrect.",
+          "suggestion": "Accept c, or explicitly ask the learner to choose a complete sentence containing ser."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "a and c. Both Son mis amigos. and Mis amigos. work as photo captions.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2.",
+        "RAE/ASALE, Nueva gramática de la lengua española, nonverbal utterances and nominal expressions used as captions or titles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T13",
+      "contentHash": "2799c48089648bbdd7606909852fea8b50ea24b06207c91277ebb931d7cefbd9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «de.»; task.prompt[1].text requires «напиши речення повністю».",
+          "description": "The key accepts a single preposition although the prompt explicitly requires the complete sentence.",
+          "suggestion": "Remove the fragment from accepted, or change the instruction to allow either the missing word or the full sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "Soy de Kiev.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T14",
+      "contentHash": "bb19f84b214d2f1af585b8ba00e1eef7d4777222d5df65ac2ed05060c15b3906",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es de Madrid.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T15",
+      "contentHash": "f50488aa141eac0f5f3217a8cf49c14cc6d86cee2f2c97f3572e1d25e862dbd3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy de Ucrania. Yo soy de Ucrania.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T16",
+      "contentHash": "faff2170f91ce8c87e07544547b15cb05a7170ca0246723cae152a5b92b1688a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "Somos de Kiev. Nosotros somos de Kiev. Nosotras somos de Kiev.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T17",
+      "contentHash": "f8b8128943b3746f2a61c5f3452cfb3b7261743c868dae604ad261aedbc08a53",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo y Ana son de Sevilla.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T18",
+      "contentHash": "915181b7c1c50a985e59315309dfe7e12e6abe6351ffc40fbb31f0263e8bf45d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "¿De dónde eres?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T19",
+      "contentHash": "82459ab7929a4d4c9d9a60e375c1ed0f928a192a157c99702e72f694f96d22e7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T19",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi padre es de Odesa. Mi papá es de Odesa.",
+      "notes": "The open key does not automatically reject the alternative family term papá.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T20",
+      "contentHash": "bbc3d51476c585843c92c48dc86e0d8bb94b3d0e99682eacf79f789e560ce28d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «de.»; task.prompt[0].text requires «напиши речення повністю».",
+          "description": "The accepted fragment does not satisfy the explicit requirement to write the complete sentence.",
+          "suggestion": "Remove the fragment from accepted, or explicitly permit a missing-word response."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis amigos son de Barcelona.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T21",
+      "contentHash": "3e38ee461208a5ae5ecc49ae90b674807130f48e126eb4ce2f62c414404722e5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy de Lviv. Yo soy de Lviv. Soy de Leópolis.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T22",
+      "contentHash": "95cb4e370bd3103bcf11002685ac2bfc553d919aefd47f494b408d308c3e7d44",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «Ти підписуєш фото з друзями: «Мої друзі з Іспанії».»",
+          "description": "The Ukrainian text permits either a statement that the friends are from Spain or a nominal caption identifying the friends from Spain. The reviewed key covers only the statement, and the prompt does not specify a complete sentence.",
+          "suggestion": "Specify whether the learner must write a complete statement of origin or a nominal photo caption, then align the reviewed answers."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T22",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Mis amigos son de España. A nominal caption is also possible: Mis amigos de España.",
+      "notes": "The key is open; this is an unresolved prompt interpretation, not a claim that every unlisted caption is graded incorrect.",
+      "sources": [
+        "Review verdict definition: underdetermined intended readings require uncertain.",
+        "RAE/ASALE, Nueva gramática de la lengua española, nominal utterances and the distinction between noun modification and predication (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T23",
+      "contentHash": "7f3419b9249952350dae5c8b002f3b53b3de6c8e275c898b10c62a1f1cc5e4c6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T24",
+      "contentHash": "878a4b709f595b27fac084be0d415b6c7c90561d2277b4565bcc39511f1683b0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T25",
+      "contentHash": "aaa4992ae89475ca969a40ba03054d78bbffc79f5f4aeb5d1418de1678e6e330",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy ucraniana. Yo soy ucraniana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T26",
+      "contentHash": "4ae0fd41a51b0534046c27fdda0e0dd698bdbed58524bd1d4cd429acbe5fd708",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es española.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T27",
+      "contentHash": "b2180a6b284b88584d67942e1c5462c6ca6e3ce1146a42917d00f38b34e2abe1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "Somos ucranianos. Nosotros somos ucranianos.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T28",
+      "contentHash": "f245ca09efec5517473f771f79d0bbc7310ce2d5b7f8b85db3ae7733b773fd81",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo es español.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T29",
+      "contentHash": "0fac6ff8f7026f044542fc3a197350be0215f948dd5274f5bcc304d44e1191bb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis amigas son inglesas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T30",
+      "contentHash": "04215fa0ae14ee40ba710bff6cf1d1fd353b00923333a11b193d39be8f63d350",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy francesa. Yo soy francesa.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T31",
+      "contentHash": "b648c2d65690f6d5d09ca0bfe75647843f32c18b3db2ffc6da41e9cf1fc21076",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "Ella es ucraniana. Es ucraniana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T32",
+      "contentHash": "544ba52fc6a13e2a709828693c59d8d1a1d1d698f1050043d242cd705b916685",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis padres son alemanes.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T33",
+      "contentHash": "8e0c1f7067685d81f054baf61e6fd468e11bca33350deda0a44f04db7c2fc147",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy ucraniano. Yo soy ucraniano.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T34",
+      "contentHash": "0dfe3b38fa8031605dc88fe7e9b5ace0de941e8bf96f8236713a4b0d21bbe69b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana y Lucía son españolas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T35",
+      "contentHash": "1224870dd575d151f3dff10c46fe1514911f9e3d2dbf2686c0c8207581366016",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T36",
+      "contentHash": "1bf75da0004fcf9253c02ed5e725a012d334158d53d85c2764318f9b5e296ff0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a2].text: «alemana.»; task.prompt[0].text requires «напиши речення повністю».",
+          "description": "The key accepts only the missing adjective although the instruction requires the complete sentence.",
+          "suggestion": "Remove the fragment from accepted, or explicitly permit either the adjective or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ella es alemana.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T37",
+      "contentHash": "5d33f2fdf3dc8f11172b18c59f1d7c8606faea1defe887a7822eeaf4b6c8f076",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T37",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T38",
+      "contentHash": "c77e01216ab63bc118aab9b870232a0869bf3f1fcab9dce52268b025ee617f99",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T38",
+      "verdict": "flawed",
+      "reviewerAnswer": "Soy profesora. Yo soy profesora.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T39",
+      "contentHash": "7b3d875bbdb262fd10261b0b8e8a69f51231b8b68fd64c4f9709f024ce9670b5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T39",
+      "verdict": "flawed",
+      "reviewerAnswer": "Pablo es médico.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T40",
+      "contentHash": "3efb3f8a017b5298dfac44443f740427ad2172ca86a8e8802c88804f91411b5b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T40",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ana es ingeniera.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T41",
+      "contentHash": "9d356808e0fde1671cbb98352fd785a0c002891db216de69062ae95280ca97c8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T41",
+      "verdict": "flawed",
+      "reviewerAnswer": "Soy programador. Yo soy programador.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T42",
+      "contentHash": "3ec9170af3c8a46d01a1db8c132bc496ff338abd6957acf07e01a5025eca0cf9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T42",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis hermanos son camareros.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T43",
+      "contentHash": "09d2a771e2edd0733d140ed159369a87d2652f25861ff8cbfdbbc5fb21b0d6f1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "Eres estudiante. Tú eres estudiante.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T44",
+      "contentHash": "a32d371f2202b0745c3a360dfadc5b4fd1ed2ca30271126d364ecc78b119d11a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T44",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi madre es médica.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T45",
+      "contentHash": "c1fff2109355060fa1da454010d5d6ba3a7f07dbc7b5678fb5d8ccf0b25a5599",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T45",
+      "verdict": "flawed",
+      "reviewerAnswer": "Somos programadores. Nosotros somos programadores.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T46",
+      "contentHash": "4141ab26ab49d79af258dc2cbb186faea80998b0bb0a67aa852193bd0c23d01a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T46",
+      "verdict": "flawed",
+      "reviewerAnswer": "Soy ingeniero. Yo soy ingeniero.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T47",
+      "contentHash": "c2220a6abc000d24c47ee3d46a71ab6d10da4125e310a8fb81b3ee2d7887cb6f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T47",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi hermano es camarero y mi hermana es profesora.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T48",
+      "contentHash": "de3b3c255513ae06fa01f41e80e3ab1236a13220c3764a8c9a1b18ffefc775a8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Коли кажемо, ким людина працює чи навчається».",
+          "description": "The shared «ким» produces the nonstandard construction «ким навчається».",
+          "suggestion": "Replace the opening with «Коли називаємо професію чи рід занять…»."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T48",
+      "verdict": "flawed",
+      "reviewerAnswer": "a, for the neutral statement of occupation.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "Словник української мови в 11 томах, entry «навчатися», verb government (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T49",
+      "contentHash": "d483d8b6a7c118a1fb266e9fe7d21eee7afb211facf85f7afdef0177fff340eb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T49",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es alta.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T50",
+      "contentHash": "692abc1a2310659ad7c56da141a1d102823ba17ec6eb521f294b06dfd45c4cd4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T50",
+      "verdict": "valid",
+      "reviewerAnswer": "El piso es pequeño.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T51",
+      "contentHash": "d36ab6fd774ed6fb1deb5a29bc9b1e74b305f518182e02e3a0868f0341dcb5a5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T51",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis amigos son simpáticos.",
+      "notes": "Ukrainian «симпатичні» can describe people who are pleasant or likeable, so this translation is legitimate.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T52",
+      "contentHash": "c634c34558ff958a2992f6d912a0e5da7b00606c32219336f59354e5eb4d2496",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T52",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo es moreno y alto. Pablo es alto y moreno.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T53",
+      "contentHash": "83f569db86837b82e189095dce498750d55888c31cd1429f978221d2904faa89",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T53",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi casa es grande y bonita. Mi casa es bonita y grande.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T54",
+      "contentHash": "b202f8716f42bd4ee1ecec7a7fcda4293613f04a3e97fe2d144b28956632b1fa",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e2].feedbackUk: «Son — для ellos або ввічливого ustedes; друзям на «ти» в Іспанії — sois.»",
+          "description": "The explanation makes a Spain-wide claim that ustedes is formal. Informal ustedes with third-person plural agreement also occurs in parts of peninsular Spain, notably Andalusia.",
+          "suggestion": "Describe vosotros/sois as the usual informal plural in most of Spain. If this task specifically requires vosotros, state that explicitly instead of treating the regional alternative as exclusively formal."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T54",
+      "verdict": "flawed",
+      "reviewerAnswer": "Sois muy inteligentes. Vosotros sois muy inteligentes. Informal ustedes can also license Son muy inteligentes in parts of Andalusia.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «usted», plural address and informal use in parts of Andalusia (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T55",
+      "contentHash": "f9866aad9e74d79afe768543a3e72ab73d64024e72a5dd022523aeba2087664b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T55",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi hermana es rubia.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T56",
+      "contentHash": "3f299a892452755b0b3989a46464b195afdd66a401d880319ef51ae4fb39f179",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T56",
+      "verdict": "valid",
+      "reviewerAnswer": "Los libros son interesantes.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T57",
+      "contentHash": "77ad80e658519ca601c712dbecc3dcb7a9becf3ecd40ece94711a4ab6866f28d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T57",
+      "verdict": "valid",
+      "reviewerAnswer": "Es muy simpático. Él es muy simpático.",
+      "notes": "The translation uses the legitimate Ukrainian sense of «симпатичний» meaning pleasant or likeable.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T58",
+      "contentHash": "d9352423a3cf1596dbe71ce14084765aa26292bccd962639f3e0f5f37956bfa2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T58",
+      "verdict": "valid",
+      "reviewerAnswer": "El piso es nuevo y muy bonito. El piso es muy bonito y nuevo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T59",
+      "contentHash": "96bb920c46d195eb7a2b8765cba1a906fcd60beb172b7ad19ffcb213f12f62f7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T59",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T60",
+      "contentHash": "94c51f4d7db6cc7693e2c04f7c7d28230d16c58598a186fe8382b12559629cf4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T60",
+      "verdict": "valid",
+      "reviewerAnswer": "Me llamo Ana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T61",
+      "contentHash": "3dc56413df200b811e4b6625b5e095c9befc03bedc41f35a606e1e1efea92450",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T61",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo te llamas?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T62",
+      "contentHash": "681894d12ac5b286526405c9b32e6ad9c49683041b6edf23c2e30a3d7b363ecf",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T62",
+      "verdict": "valid",
+      "reviewerAnswer": "Encantada. Mucho gusto.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T63",
+      "contentHash": "fb9b7618091406b2bb0cc42bc3b9614a0a44ff82320d7b671690c451d18b82a0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T63",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo se llama usted? ¿Cómo se llama?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T64",
+      "contentHash": "595d9c0c3072defb37ae10fc1b4e6229a85359bb215252b45456fb3fdfe506ba",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T64",
+      "verdict": "valid",
+      "reviewerAnswer": "Esta es Ana.",
+      "notes": "The task practises the introduction formula. Es Ana is acknowledged as grammatical and is not graded incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T65",
+      "contentHash": "e797adbfde39a2f200fbf53d0beba99261d80a1a1b0797663a221db764a314ab",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T65",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T66",
+      "contentHash": "b0f42e0946c10755d2fe168881d1c42a507dbefd97d42f604f36c41500847cec",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T66",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T67",
+      "contentHash": "6c60b71c6c1713ebdbc644f12dd0fa47d366ad58cf3ed5709d3958f4934d3579",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T67",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T68",
+      "contentHash": "4272bf2c6cf753088808e09d85f9dd7bc87f91db98f034773387503a1a0d31d9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T68",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T69",
+      "contentHash": "38331ff4181bc8a2ffad56fb5249403393f3ea2cd7aac78abdd95cf93e0b75ac",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T69",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T70",
+      "contentHash": "a8420eeddfd4833b55ff3289602bda829e42b2623f9f6a83e06077ef3b22b1b8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T70",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The feminine entry ucraniana can agree with the feminine field label nacionalidad, including for a male applicant.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T71",
+      "contentHash": "adb7a11a47a39819b9e0493c7ce59d3a03dc9631144db81c18c0e64bb30ec40a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T71",
+      "verdict": "valid",
+      "reviewerAnswer": "ucraniana",
+      "notes": "The answer also agrees with the field label nacionalidad. The duplicated value in incorrectUk is an editorial cleanup.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T72",
+      "contentHash": "e59b3e2bae7fa423355b4616a05a9cb391ee142582d1301b5ae5d0398df0ddfc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T72",
+      "verdict": "valid",
+      "reviewerAnswer": "España",
+      "notes": "The duplicated value in incorrectUk is an editorial cleanup.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T73",
+      "contentHash": "c3be514a5b2d00b9bf61b50dd87be1ace87f8a7d9a16db3ee4a33703b4e1b844",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text «española.», outcome «incorrect»; feedbackUk: «Хав’єр — чоловік: español.»",
+          "description": "A nationality field can use an adjective agreeing with the feminine noun nacionalidad. Therefore española is a standard acceptable entry for Javier and cannot be rejected because he is male.",
+          "suggestion": "Accept española and explain agreement with nacionalidad. Distinguish a nationality-field entry from a personal statement such as Soy español."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T73",
+      "verdict": "flawed",
+      "reviewerAnswer": "española, agreeing with the field label nacionalidad.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «concordancia», nominal gender agreement (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, entry «nacionalidad», feminine noun (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T74",
+      "contentHash": "0b361b838aee4cae687b6e0345ab729817d24787968117098d7bdbd973721500",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: «Ти заповнюєш анкету на мовні курси за свою подругу Ганну — вона німкеня. Що вписати в поле?»; context.taughtBefore lists «alemán» but not «alemana» or the consonant-ending nationality agreement rule.",
+          "description": "Producing alemana requires this lesson's exceptional consonant-ending nationality pattern. The case maps regular -o/-a agreement and alemán, but does not establish that prerequisite or gloss the required feminine form.",
+          "suggestion": "Add the earlier teaching of alemán → alemana and consonant-ending nationality agreement to taughtBefore, ensuring it precedes this task, or provide an appropriate lexical gloss."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T74",
+      "verdict": "flawed",
+      "reviewerAnswer": "alemana",
+      "notes": "",
+      "sources": [
+        "Course contract rule 1."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T75",
+      "contentHash": "09bd52d266a8ba4f468442295d2edc5f223c652037c07b7b80c55101a10c43fb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T75",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T76",
+      "contentHash": "a0f3ce5120b92a91705bd0df084cf2606878dca7450be719d22e2a8b377b56d3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T76",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Judged from the supplied transcript; actual audio delivery was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T77",
+      "contentHash": "28225dfe3666ca622d364eea99af82e1e37c40c6563fa4a086701a7647f56af7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T77",
+      "verdict": "valid",
+      "reviewerAnswer": "Hola, soy Marta y soy de Valencia. Other defensible sentence boundaries include Hola. Soy Marta y soy de Valencia.",
+      "notes": "The key is open. The comma before y in a2 is unnecessary in the neutral reading; prefer a1 as the model. Actual audio delivery was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T78",
+      "contentHash": "c1c0d23fb119be0b8788e17f5d0a9d33eefa91958f7c432ceb48de9da4ae2780",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «Питання з питальним словом (¿De dónde…?) починається з цього слова.»",
+          "description": "This is an absolute word-order rule that Spanish does not have. An interrogative group can include a preceding preposition, and other material can precede it, as in ¿Tú de dónde eres?",
+          "suggestion": "Describe the specific cue de dónde as meaning «звідки», without claiming that every question containing an interrogative word starts with that word."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T78",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The transcript and answer key otherwise agree.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, direct interrogatives, interrogative prepositional groups and their position (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.ana-es-medica",
+      "contentHash": "ba3c827e2748dfd71c68497457d8fb5646e3efb30e25c1ec78093ae78adbc5a6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.ana-es-medica",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana is a doctor and is very pleasant or likeable.",
+      "notes": "The Ukrainian translation is legitimate. This verdict concerns the transcript and translation, not the unheard recording.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.de-donde-eres",
+      "contentHash": "999810ed076ea401f17679bc39a1bd163300ba5252c1ee004a90bc4f7e53b808",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.de-donde-eres",
+      "verdict": "valid",
+      "reviewerAnswer": "The speaker greets Pablo and asks where he is from.",
+      "notes": "Text review only; the recording was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.esta-es-lucia",
+      "contentHash": "9a5be552f8a27604820f5c9ffa1d670c882d069163678c96faeb0482e202c479",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.esta-es-lucia",
+      "verdict": "valid",
+      "reviewerAnswer": "The speaker introduces Lucía as their sister.",
+      "notes": "Text review only; the recording was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.me-llamo-pablo",
+      "contentHash": "bce9e8b1eef9671500786fd1c0f222c83565596edf11bdb3a7deef51acdad67a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.me-llamo-pablo",
+      "verdict": "valid",
+      "reviewerAnswer": "The speaker says hello, gives his name as Pablo and says he is pleased to meet the listener.",
+      "notes": "Text review only; the recording was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.soy-de-valencia",
+      "contentHash": "56be4fe672bd51c549e1b9f9b9dc80bf39225bd56eaa310b7852b2cdd854bb0a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.soy-de-valencia",
+      "verdict": "valid",
+      "reviewerAnswer": "The speaker says hello, identifies herself as Marta and says she is from Valencia.",
+      "notes": "Text review only; the recording was not evaluated.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.como-te-llamas",
+      "contentHash": "eaf28a4bd1ddaf6b6b3f0ad477fd9839ac25615666196308986fa0ba0636dc31",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.como-te-llamas",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo te llamas?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.el-piso-es-pequeno",
+      "contentHash": "86abf743908e445da8f4db9479c988f4499c24b435c1325d6c853ec9f25fbbc2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.el-piso-es-pequeno",
+      "verdict": "valid",
+      "reviewerAnswer": "El piso es pequeño.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.encantado",
+      "contentHash": "419feaeea0c05e8797b831ce38b664f35247159655daa4cf6f0e53ed3d63c192",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.encantado",
+      "verdict": "valid",
+      "reviewerAnswer": "Encantado or Encantada, according to the speaker; Mucho gusto is also a suitable introduction response.",
+      "notes": "The recall key is not declared closed, so omission of Mucho gusto does not establish an incorrect rejection.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.mucho-gusto",
+      "contentHash": "d2b87ed8f45583e403b12c24da3d97894500f7cacee866241f43d6cda95716c0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.mucho-gusto",
+      "verdict": "valid",
+      "reviewerAnswer": "Mucho gusto. Encantado or Encantada is also suitable in the stated introduction context.",
+      "notes": "The recall key is not declared closed.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
