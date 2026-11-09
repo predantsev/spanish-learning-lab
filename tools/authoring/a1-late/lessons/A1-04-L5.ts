@@ -93,12 +93,12 @@ k.choice({
   role: 'independent',
   fam: 'a104.home',
   t: [PDC],
-  ins: 'Обери частину доби, яка підходить за змістом.',
+  ins: 'Ти снідаєш зранку. Обери, як сказати «зранку».',
   p: ['Desayuno ___.'],
   o: [
-    ['por la noche', PDC, 'Сніданок буває зранку: por la mañana.'],
+    ['por la noche', PDC, 'Por la noche — «увечері, вночі». «Зранку» — por la mañana.'],
     ['por la mañana', true],
-    ['por la tarde', PDC, 'Сніданок буває зранку: por la mañana.'],
+    ['por la tarde', PDC, 'Por la tarde — «удень, після обіду». «Зранку» — por la mañana.'],
   ],
   tr: 'Я снідаю …',
 });
@@ -107,11 +107,11 @@ k.choice({
   role: 'delayed',
   fam: 'a104.work',
   t: [PDC],
-  ins: 'Обери частину доби, яка підходить за змістом.',
+  ins: 'Ти встаєш рано і йдеш на роботу зранку. Обери, як сказати «зранку».',
   p: ['Me levanto temprano y voy al trabajo ___.'],
   o: [
     ['por la mañana', true],
-    ['por la noche', PDC, 'Встаєш рано й одразу йдеш на роботу — отже, зранку: por la mañana.'],
+    ['por la noche', PDC, 'Por la noche — «увечері, вночі». «Зранку» — por la mañana.'],
   ],
   tr: 'Я встаю рано й іду на роботу …',
 });
@@ -328,6 +328,12 @@ k.exact({
     'Yo nunca tomo café por la noche.',
     'No bebo nunca café por la noche.',
     'No tomo nunca café por la noche.',
+    'Nunca bebo café por la tarde.',
+    'Yo nunca bebo café por la tarde.',
+    'Nunca tomo café por la tarde.',
+    'Yo nunca tomo café por la tarde.',
+    'No bebo nunca café por la tarde.',
+    'No tomo nunca café por la tarde.',
   ],
   err: [
     ['Nunca no bebo café por la noche.', nuncaNo],
@@ -435,7 +441,7 @@ k.slots({
   tpl: [S('s1'), ' trabajo en la oficina y ', S('s2'), ' descanso.'],
   slots: [
     { id: 's1', t: FEU, acc: ['todos los días', 'cada día'], err: [['todo el día', '«Todo el día» — «увесь день». «Щодня» — todos los días або cada día.']] },
-    { id: 's2', t: FEU, acc: ['los fines de semana'], err: [['el fin de semana', 'El fin de semana — «на цих (одних) вихідних». Регулярно — los fines de semana.']] },
+    { id: 's2', t: FEU, acc: ['los fines de semana', 'el fin de semana'] },
   ],
   tr: 'Щодня я працюю в офісі, а на вихідних відпочиваю.',
 });
@@ -566,7 +572,7 @@ export default k.build({
         ex('Estudio por la mañana.', 'Я вчуся зранку.'),
         ex('Trabajo por la tarde.', 'Я працюю вдень, після обіду.'),
         ex('Ceno por la noche.', 'Я вечеряю ввечері.'),
-        uk('В Іспанії la tarde триває довше, ніж українське «після обіду»: приблизно до восьмої-дев’ятої вечора. Без por la слово mañana означає «завтра».'),
+        uk('В Іспанії la tarde триває довше, ніж українське «після обіду»: приблизно до восьмої-дев’ятої вечора. Саме слово mañana без артикля означає «завтра»: Mañana trabajo. «Зранку» — por la mañana.'),
       ],
     },
     {

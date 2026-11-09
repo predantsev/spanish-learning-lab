@@ -205,7 +205,7 @@ const listenQ = (n: number, clip: string, script: string, fam: string, q: string
   k.choice({ n, role: 'independent', fam, t: [LR], clips: [clip], ins: `Послухай запис. ${q}`, o, hints: [hTranscript([LR], script)] });
 listenQ(22, r1, SCRIPT_1, 'a104.l6.carmen', 'Про що розповідає Кармен?', [['Про свій звичайний день.', true], ['Про свої вихідні.', false], ['Про роботу брата.', false]]);
 listenQ(23, r1, SCRIPT_1, 'a104.l6.carmen', 'Що Кармен робить після обіду?', [['Іде в офіс.', false], ['Займається спортом.', true], ['Снідає.', false]]);
-listenQ(24, r2, SCRIPT_2, 'a104.l6.saturday', 'Коли брат і сестра встають пізно?', [['Щодня.', false], ['Щонеділі.', false], ['Щосуботи.', true]]);
+listenQ(24, r2, SCRIPT_2, 'a104.l6.saturday', 'Коли людина із запису та її брат встають пізно?', [['Щодня.', false], ['Щонеділі.', false], ['Щосуботи.', true]]);
 listenQ(25, r2, SCRIPT_2, 'a104.l6.saturday', 'Що вони роблять увечері?', [['Вечеряють із батьками.', true], ['Ідуть у парк.', false], ['Снідають удома.', false]]);
 
 // ======================= writing (rubric review)
@@ -231,7 +231,8 @@ k.rubric({
   fam: 'a104.write-friend',
   t: [WR],
   ins: 'Напиши 3–4 речення іспанською про звичайний день свого друга чи подруги (він / вона): що він чи вона робить, як часто і в якій послідовності.',
-  crit: [CRITERIA[0] ?? '', 'Дієслова у формі для él / ella (trabaja, se levanta).', CRITERIA[2] ?? '', CRITERIA[3] ?? '', CRITERIA[4] ?? ''],
+  crit: ['Є 3–4 речення на тему завдання.', 'Дієслова у формі для él / ella (trabaja, se levanta).', CRITERIA[2] ?? '', CRITERIA[3] ?? '', CRITERIA[4] ?? ''],
+  rule: 'Напиши кілька коротких речень про день друга чи подруги: що він чи вона робить, як часто і в якій послідовності. Дієслова — у формі для él / ella (se levanta, trabaja); використовуй слова частотності (siempre, a veces) і порядку (primero, después).',
   exm: ['Mi amiga Lucía vive en Madrid. Siempre se ducha por la mañana. Primero desayuna y después va a la universidad. Por la noche lee un libro.'],
 });
 k.rubric({
@@ -240,7 +241,7 @@ k.rubric({
   fam: 'a104.write-weekend',
   t: [WR],
   ins: 'Напиши 3–4 речення іспанською про свої звичайні вихідні: що ти робиш, як часто і в якій послідовності.',
-  crit: CRITERIA,
+  crit: ['Є 3–4 речення на тему завдання.', ...CRITERIA.slice(1)],
   exm: ['Los sábados me levanto tarde. Primero desayuno con mi familia y luego voy al parque. A veces voy al cine con mis amigos. Los domingos descanso en casa.'],
 });
 
