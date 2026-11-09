@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-05-C1.r3",
+  "packetHash": "2961d249301e79b7802eb87a29108cf1481a37e35256185f609f9e1f36cf9969",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "9297ae19f91f45aef97aecf7b30e5f4b83ffbc1098182e7f05b1e235c1bd99f5",
+    "reviewerPacketSha256": "c32847e71f397c11d93488f6a2cda56796139e6283b847e69150885d33f02fcc",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-mUrRUe/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-mUrRUe/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-mUrRUe/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-mUrRUe/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-mUrRUe/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c004-6b79-7c41-8523-83e36a7a6093",
+        "version": "v0.166.0",
+        "tokens used": "31,258"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-05-C1-T01",
+        "reviewerAnswer": "¿Dónde es el concierto?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The event-location use of ser is explained in hints[0]. The key is not declared closed, so omitted acceptable variants do not establish a grading defect."
+      },
+      {
+        "caseId": "task:A1-05-C1-T02",
+        "reviewerAnswer": "El museo está cerca del hotel y abre a las diez.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T01",
+      "contentHash": "59af406a974b5535ef063a66a5c8aa668c3656859b9001fba8b908dee56f0616",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-C1-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde es el concierto?",
+      "notes": "The event-location use of ser is explained in hints[0]. The key is not declared closed, so omitted acceptable variants do not establish a grading defect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T02",
+      "contentHash": "7b964470bb983e9205d16afbbeb4072de241baee406b2c497398eb5fbe1932e2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-C1-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "El museo está cerca del hotel y abre a las diez.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
