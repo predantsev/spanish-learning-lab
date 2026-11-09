@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L6.r3",
+  "packetHash": "96ab02ba5d5a7d9d57a1dd9c93c37bf72944844d2a9e1bb75c35981b70487d9b",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "7790425df6a8e6b3bc1e8a00c41a8a923f55adf818883a7f4856e71c36da0e36",
+    "reviewerPacketSha256": "3dae8a178fe11461c331f375cb069610c308d857edabacd4e003645091a9620c",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-h7AESj/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-h7AESj/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-h7AESj/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-h7AESj/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-h7AESj/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bf01-b483-7132-9a33-cae0a5743c42",
+        "version": "v0.166.0",
+        "tokens used": "46,350"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-04-L6-T01",
+        "reviewerAnswer": "Primero me ducho y después desayuno. Alternatively, use luego in the second blank.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L6-T02",
+        "reviewerAnswer": "Primero trabajo, después como y por último descanso. Luego also fits the second blank; al final also fits the third.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L6-T03",
+        "reviewerAnswer": "Primero hago la compra y después cocino. Alternatively, use luego in the second blank.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L6-T07",
+        "reviewerAnswer": "Primero me levanto, después me ducho y por último desayuno. Luego also fits the second blank; al final also fits the third.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L6-T24",
+        "reviewerAnswer": "c — «Щосуботи.»",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "clips[0].transcript: «Los sábados»; context.taughtBefore does not document sábado or los sábados.",
+        "defect": "Understanding the answer-bearing expression «Los sábados» is essential. It is absent from the prerequisite map and has no vocabulary gloss in the prompt or hints. As ordinary A1 vocabulary, it may have been taught earlier, but the packet does not confirm this.",
+        "correction": "Confirm and document prior teaching of sábado and habitual los sábados, or teach/gloss the expression before assessment.",
+        "sources": [
+          "Course contract rule 1: prerequisite coverage and uncertainty about unlisted vocabulary when answering depends on it.",
+          "context.taughtBefore; clips[0].transcript; task.prompt[0]; task.hints."
+        ],
+        "notes": "The supplied transcript, Ukrainian translation and option c agree. Prior teaching of the essential expression is unconfirmed."
+      },
+      {
+        "caseId": "task:A1-04-L6-T27",
+        "reviewerAnswer": "Mi amiga siempre se levanta temprano. Primero desayuna y después trabaja. Por último, descansa.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.feedback.incorrectUk: «Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності.»",
+        "defect": "The feedback redirects the learner to their own actions through «що робиш», while the prompt and rubric require describing a friend using él/ella forms.",
+        "correction": "Specify the friend's day and replace «що робиш» with «що він чи вона робить», retaining the él/ella requirement.",
+        "sources": [
+          "Review duties: identify conflicting feedback.",
+          "task.prompt[0]: «про звичайний день свого друга чи подруги (він / вона)».",
+          "task.rubric.criteriaUk[1]: «Дієслова у формі для él / ella (trabaja, se levanta).»"
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L6-T28",
+        "reviewerAnswer": "Los fines de semana normalmente me levanto tarde. Primero desayuno y luego hago la compra. Después cocino y descanso.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Prior teaching of «sábado», used in the exemplar, is unconfirmed in context.taughtBefore. Answering does not depend on it: the listed «fin de semana» supports a complete response."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L6-T01",
+      "contentHash": "817c79673ec00d6ebea546dfbe1302923d91b703f36be9db41595b498b998bd8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L6-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "Primero me ducho y después desayuno. Alternatively, use luego in the second blank.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L6-T02",
+      "contentHash": "5e305088ba2ee3d869bdb1a02b84e68a095d0ab8de0323b5dc90502368e81a8e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L6-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Primero trabajo, después como y por último descanso. Luego also fits the second blank; al final also fits the third.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L6-T03",
+      "contentHash": "9c4771fc46c55c60486bd99c8cacc858bb07ced95110be1df10de81d752b7bfb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L6-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "Primero hago la compra y después cocino. Alternatively, use luego in the second blank.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L6-T07",
+      "contentHash": "7ac148a0c960f6275f95c9842c417219e74f6aeb958930419498c1875d64e52f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L6-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "Primero me levanto, después me ducho y por último desayuno. Luego also fits the second blank; al final also fits the third.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L6-T24",
+      "contentHash": "ac0502bc0294f3c28865461ac1f4e9b675b2775761c980910d82e2a3ef36a2fe",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "clips[0].transcript: «Los sábados»; context.taughtBefore does not document sábado or los sábados.",
+          "description": "Understanding the answer-bearing expression «Los sábados» is essential. It is absent from the prerequisite map and has no vocabulary gloss in the prompt or hints. As ordinary A1 vocabulary, it may have been taught earlier, but the packet does not confirm this.",
+          "suggestion": "Confirm and document prior teaching of sábado and habitual los sábados, or teach/gloss the expression before assessment."
+        }
+      ],
+      "caseId": "task:A1-04-L6-T24",
+      "verdict": "uncertain",
+      "reviewerAnswer": "c — «Щосуботи.»",
+      "notes": "The supplied transcript, Ukrainian translation and option c agree. Prior teaching of the essential expression is unconfirmed.",
+      "sources": [
+        "Course contract rule 1: prerequisite coverage and uncertainty about unlisted vocabulary when answering depends on it.",
+        "context.taughtBefore; clips[0].transcript; task.prompt[0]; task.hints."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L6-T27",
+      "contentHash": "130b78c4ff29990fd719c3bcd3d55e6a2fa9e8c0da730b146837a9729a121daa",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.feedback.incorrectUk: «Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності.»",
+          "description": "The feedback redirects the learner to their own actions through «що робиш», while the prompt and rubric require describing a friend using él/ella forms.",
+          "suggestion": "Specify the friend's day and replace «що робиш» with «що він чи вона робить», retaining the él/ella requirement."
+        }
+      ],
+      "caseId": "task:A1-04-L6-T27",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi amiga siempre se levanta temprano. Primero desayuna y después trabaja. Por último, descansa.",
+      "notes": "",
+      "sources": [
+        "Review duties: identify conflicting feedback.",
+        "task.prompt[0]: «про звичайний день свого друга чи подруги (він / вона)».",
+        "task.rubric.criteriaUk[1]: «Дієслова у формі для él / ella (trabaja, se levanta).»"
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L6-T28",
+      "contentHash": "875827bf526ae273cca4d88b974e83a846928461b3e839e093f547b80aa67ea4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L6-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "Los fines de semana normalmente me levanto tarde. Primero desayuno y luego hago la compra. Después cocino y descanso.",
+      "notes": "Prior teaching of «sábado», used in the exemplar, is unconfirmed in context.taughtBefore. Answering does not depend on it: the listed «fin de semana» supports a complete response.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
