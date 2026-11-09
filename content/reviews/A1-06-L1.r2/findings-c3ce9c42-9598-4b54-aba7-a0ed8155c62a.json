@@ -1,0 +1,444 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-06-L1.r2",
+  "jobId": "c3ce9c42-9598-4b54-aba7-a0ed8155c62a",
+  "receiptId": "6fef6ac7-69b5-4b20-aafc-06c26c16cb19",
+  "recordedAt": "2026-11-09T07:25:08.310Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "gustar.pronouns.plural",
+      "contentHash": "3a14083f126e6218b43eda19582e4ea40d84ff880c0c1b7cc364291006d2ff76",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"ввічливе «Вам» (кільком людям)\"",
+          "description": "Ukrainian honorific capitalization of Вам applies when addressing one specific person. Here the explanation explicitly refers to several people, and the quoted word is not sentence-initial.",
+          "suggestion": "Write \"ввічливе «вам» (кільком людям)\"."
+        }
+      ],
+      "caseId": "skill:gustar.pronouns.plural",
+      "verdict": "flawed",
+      "reviewerAnswer": "Nos gusta; os gusta; les gusta.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 8.",
+        "Ukrainian Orthography (2019), rules on honorific capitalization of Ви and Ваш when addressing one specific person (from memory)."
+      ]
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.tampoco",
+      "contentHash": "fcf6eec17fd2454b49a2b3a04ce2d62914facc74e43711f156d922f0361fc0ea",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.noteUk: \"Yo tampoco (з іншими дієсловами)\"",
+          "description": "The blanket distinction between gustar and all other verbs is false. Encantar, already included in this lesson, also takes A mí tampoco in the equivalent exchange.",
+          "suggestion": "Restrict Yo tampoco to constructions where the corresponding person is the subject, and explicitly include encantar with the gustar pattern."
+        }
+      ],
+      "caseId": "lexeme:lex.tampoco",
+      "verdict": "flawed",
+      "reviewerAnswer": "tampoco expresses negative addition. Replies include A mí tampoco with gustar or encantar, and Yo tampoco with appropriate subject-based constructions.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 35, indirect objects and dative experiencers (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, encantar, the sense expressing strong liking (from memory)."
+      ]
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-06-L1",
+      "contentHash": "7bf40bbfa5976d2c58b9b6014d4414a63a8a23361c5087e13e38a1a283a94bf3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].taskIds: \"A1-06-L1-T16\", before the infinitive explanation in steps[id=s4].blocks: \"Що подобається робити — gusta + інфінітив.\"",
+          "description": "Required task T16 asks learners to translate a complete preference sentence with viajar before step s4 introduces gustar + infinitive. Step s1 teaches pronouns using noun complements and does not teach this construction.",
+          "suggestion": "Move T16 after the infinitive explanation, or teach gustar + infinitive before s3."
+        }
+      ],
+      "caseId": "lesson:A1-06-L1",
+      "verdict": "flawed",
+      "reviewerAnswer": "Teach the pronoun system, then noun agreement and infinitive constructions, before requiring full-sentence production with those constructions.",
+      "notes": "The summary also mentions four steps, while the teaching sections are numbered only 1–3; clarify whether listening is intended as the fourth.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, content.body.steps s1, s3, and s4; packet task:A1-06-L1-T16, task.prompt."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T04",
+      "contentHash": "a22a69b4a5a72c7b4d48e0af2a8551a25544ac4a6f0769b0f894a8f7f333b4c3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Мені подобається шоколад».\"; context.taughtBefore",
+          "description": "Full-sentence production requires the generic common-noun pattern with an article. The prerequisite map gives only bare me/te/le gusta forms and vocabulary; it does not establish the gustar.noun-with-article construction introduced in this lesson.",
+          "suggestion": "Map gustar.noun-with-article as previously taught, or supply the noun phrase and assess only the pronoun."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "Me gusta el chocolate.",
+      "notes": "The Spanish key is correct. The defect concerns the prerequisite map.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore; packet skill:gustar.noun-with-article, content.body.firstLesson and ruleUk."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T08",
+      "contentHash": "df0a1f9a242894286c75cc1dc96c8b7cc36b7f66fb447c62cae906769f80485f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Тобі подобається пляж?»\"; context.taughtBefore",
+          "description": "The task requires producing the article-bearing common-noun construction, but taughtBefore establishes only the pronoun forms. The lesson's separate gustar.noun-with-article prerequisite is missing.",
+          "suggestion": "Establish and map gustar.noun-with-article before this task, or provide the sentence frame."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Te gusta la playa?",
+      "notes": "The accepted Spanish answers are correct.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore; packet skill:gustar.noun-with-article, content.body.firstLesson and ruleUk."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T109",
+      "contentHash": "509c28de2582493f2f63d08f862184dc901a062a3913528ef3176b62a08e64af",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[1].text: \"—Me encanta bailar.\"; context.taughtBefore",
+          "description": "The task transfers the reply construction to encantar without mapping its gustar-like syntax as taught. TaughtBefore includes encantar only as a vocabulary gloss; its response examples all use gustar.",
+          "suggestion": "Add prior teaching of gustar.encantar, including its dative construction, to taughtBefore."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T109",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mí también.",
+      "notes": "The answer key is correct. The error feedback would also be clearer if it referred to encantar or the gustar family.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore: \"encantar — дуже подобатися\" and the gustar.responses examples."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T115",
+      "contentHash": "0b0475497a06eaaf0600f1f64ce0d080c4c47897f7c7645347daf7054e57bd2c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "clips[0].transcript: \"no me gusta nada el teatro\"; context.taughtBefore",
+          "description": "The assessed recording introduces nada in the negative-degree construction without prior teaching or an accessible gloss. TaughtBefore models no me gusta without nada; the packet identifies this construction as new in gustar.degree.",
+          "suggestion": "Add prior teaching of gustar.degree, specifically no me gusta nada, to the prerequisite map, or remove nada from this recording."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T115",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "The key and Ukrainian translation agree with the transcript. Audio was not assessed.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore and clips[0].transcript.",
+        "Packet skill:gustar.degree, content.body.scope.noteUk."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T116",
+      "contentHash": "a49641412801e16c2b2690a8d7d10a840bc850f80b80a7ee11a0351be51549a8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "clips[0].transcript: \"A mi hermano le encanta nadar, y a mí también.\"; context.taughtBefore",
+          "description": "The listening item depends on the named dative experiencer construction and gustar-like encantar syntax. Neither construction is established in taughtBefore; encantar appears only as a vocabulary gloss.",
+          "suggestion": "Map prior teaching of gustar.a-noun-le and gustar.encantar, including their use together, before assessing this recording."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T116",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "The meaning key and translation are correct. Audio was not assessed.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore and clips[0].transcript."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T117",
+      "contentHash": "72e3196c32c37c134b2728ceeaaafc0e851493d42bda14d5f1e14c94e164143f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "clips[0].transcript and task.accepted[0].text: \"Me gusta mucho el cine y no me gusta nada el teatro.\"; context.taughtBefore",
+          "description": "The dictation includes the newly introduced nada construction without establishing it in taughtBefore or providing a vocabulary gloss. Optional status does not remove the prerequisite requirement.",
+          "suggestion": "Map prior teaching of no me gusta nada under gustar.degree, or use a recording containing only established forms."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T117",
+      "verdict": "flawed",
+      "reviewerAnswer": "Me gusta mucho el cine y no me gusta nada el teatro.",
+      "notes": "The written key matches the supplied transcript. Audio was not assessed.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore and clips[0].transcript.",
+        "Packet skill:gustar.degree, content.body.scope.noteUk."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T16",
+      "contentHash": "2e0e3834f098d710234e4d7d2d0f5e7e0653eb24962c9c32fa9ef5e841656670",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Нам подобається подорожувати».\"; context.taughtBefore",
+          "description": "The task requires producing gustar + infinitive, but taughtBefore establishes only the pronoun forms and the word viajar. It does not establish this new construction. The lesson also schedules T16 before its infinitive explanation.",
+          "suggestion": "Teach and map gustar.infinitive first, and move T16 after that explanation."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T16",
+      "verdict": "flawed",
+      "reviewerAnswer": "Nos gusta viajar.",
+      "notes": "The accepted answers are correct.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore.",
+        "Packet lesson:A1-06-L1, content.body.steps s3 and s4."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T20",
+      "contentHash": "f1bfe915990d964443d843006f232576712ca00c5c675e8b0d2a062de81b760b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Їм подобається танцювати».\"; context.taughtBefore",
+          "description": "Producing the complete sentence requires gustar + infinitive. TaughtBefore supplies the pronouns and the lexical infinitive bailar but does not establish their construction.",
+          "suggestion": "Add prior teaching of gustar.infinitive to the prerequisite map, or provide the infinitive frame and assess only Les."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "Les gusta bailar.",
+      "notes": "The Spanish key is correct.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T43",
+      "contentHash": "79ad9767599268574f327aec799536b15537ffa1463455b3c6639d0fa41929a1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Їм подобається бігати в парку».\"; context.taughtBefore",
+          "description": "The required plural experiencer pronoun les is not established in taughtBefore. The listed pronoun target covers me, te, and le; the infinitive examples add nos but not les.",
+          "suggestion": "Add gustar.pronouns.plural as a taught prerequisite before requiring this translation."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "Les gusta correr en el parque.",
+      "notes": "The accepted Spanish sentence is correct.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore: gustar.pronouns and gustar.infinitive examples."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T56",
+      "contentHash": "ce5300e2dd8adb83f3bdf18f5b68561d5d1f07ffd24002323e7b5e975e3f50a4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Перепиши речення повністю, вставивши артиклі: «Мені подобається чай і подобаються яблука».\"; task.slots[id=s2].errors: \"unas\"",
+          "description": "The prompt does not specify generic liking or require definite articles. Unas manzanas can refer to some particular apples, a reading the Ukrainian sentence does not exclude. The error feedback assumes a generic interpretation that the prompt leaves unstated.",
+          "suggestion": "Specify that the preferences concern tea and apples in general and explicitly request definite articles, or provide a context that determines the intended articles."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T56",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Me gusta el té y me gustan las manzanas. An indefinite reading of the apples is also possible without further context.",
+      "notes": "The reference answer is correct under the intended generic reading.",
+      "sources": [
+        "Course contract, rules 3 and 4, and the definition of uncertain.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 15, indefinite articles, genericity, and specificity (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T58",
+      "contentHash": "fad8d3c9de32b4caf49235eb27555129b185fd363f683fc6de0f8e1ed9f9ae2c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Обери правильне речення.\"; task.options[id=c]: \"Me gustan unos perros.\" marked incorrect",
+          "description": "The prompt asks for a correct sentence without specifying general preferences. Option c is grammatical with a particular, indefinite group of dogs. Only its feedback introduces the generic interpretation needed to exclude it.",
+          "suggestion": "Ask which sentence expresses liking dogs in general, or accept both grammatical options for the current wording."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T58",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a and c are grammatical: a can express a general liking for dogs; c expresses liking for some particular dogs.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 2 and the definition of uncertain.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 15, indefinite articles and specificity (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T77",
+      "contentHash": "2a233683850c5c2bd0565a995982b48641f4003492c3ce60413cbeaae009e0f0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Моїм друзям не подобається футбол».\"; context.taughtBefore",
+          "description": "Full-sentence production requires a + named experiencer with the accompanying clitic. TaughtBefore establishes negation and pronouns but does not establish gustar.a-noun-le.",
+          "suggestion": "Map prior teaching of gustar.a-noun-le, including the plural named experiencer pattern, before this task."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T77",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mis amigos no les gusta el fútbol.",
+      "notes": "The Spanish key is correct.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T78",
+      "contentHash": "38a37b9e8b87b8305125d4d03056f991b757412bad56a2dc8ed9adef013cbd06",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Друг пропонує приготувати вечерю разом. Скажи іспанською: «Мені не подобається готувати».\"; context.taughtBefore",
+          "description": "The task requires producing gustar + infinitive. Its prerequisite map contains noun-based negation examples and the vocabulary cocinar, but no teaching of the infinitive construction.",
+          "suggestion": "Add prior teaching of gustar.infinitive to taughtBefore, or supply the infinitive frame."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T78",
+      "verdict": "flawed",
+      "reviewerAnswer": "No me gusta cocinar.",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T87",
+      "contentHash": "3f25dee5fe61a19f50b8b63e1e9a8da180fd6f33a94acb0e77691a4fb1ef0303",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Розкажи іспанською про брата з encantar: «Мій брат обожнює футбол».\"; context.taughtBefore",
+          "description": "The task requires producing a + named experiencer with le. The mapped encantar examples contain only clitic experiencers, and gustar.a-noun-le is absent from taughtBefore.",
+          "suggestion": "Establish and map the named experiencer construction and its extension to encantar before this task."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T87",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mi hermano le encanta el fútbol.",
+      "notes": "The accepted Spanish sentence is correct.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T99",
+      "contentHash": "57dad2fea697436fda6b0adba1b9b4fd45127efde3373e0ae533198886de5e98",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Розкажи іспанською про маму (з mucho): «Моїй мамі дуже подобається танцювати».\"; context.taughtBefore",
+          "description": "Producing the sentence requires a + named experiencer and its clitic. The prerequisite map covers degree, negation, agreement, infinitives, and clitic pronouns, but omits gustar.a-noun-le.",
+          "suggestion": "Add prior teaching of gustar.a-noun-le to taughtBefore."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T99",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mi madre le gusta mucho bailar. Also: A mi mamá le gusta mucho bailar.",
+      "notes": "The reference answer is correct. The key is not declared closed, so the unlisted mamá variant is not demonstrably rejected.",
+      "sources": [
+        "Course contract, rule 1.",
+        "This case, context.taughtBefore."
+      ]
+    }
+  ]
+}
