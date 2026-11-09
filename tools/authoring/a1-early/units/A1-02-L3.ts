@@ -38,8 +38,6 @@ function plArt(n: number, role: 'supported' | 'independent' | 'delayed' | 'trans
 
 export const unit: Unit = {
   lesson: {
-    // Repair cap (brief 13, round 3): flagged in A1-02-L3.r1, .r2 and .r3 — quarantined, not repaired a third time.
-    status: 'quarantined',
     id: 'A1-02-L3',
     titleUk: 'Однина і множина',
     termEs: 'singular y plural',
@@ -62,7 +60,7 @@ export const unit: Unit = {
             ['-z', 'z → c і додаємо -es', 'lápiz → lápices, luz → luces, vez → veces'],
           ]),
           uk('Перед e в іспанському письмі зазвичай пишуть c, а не z, тому lápices, а не lápizes.'),
-          uk('Інші кінцеві приголосні мають свої правила; у цьому уроці тренуємо лише -d, -l, -r і -z.'),
+          uk('Слова на -s і -n розберемо окремо далі в цьому уроці (autobús, joven, examen); інші кінцеві приголосні мають свої правила.'),
         ],
       },
       {
