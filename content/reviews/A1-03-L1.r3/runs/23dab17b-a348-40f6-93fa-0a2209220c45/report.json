@@ -1,0 +1,855 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L1.r3",
+  "packetHash": "bfe0f2795442cae1442b6f51259b2dd57564c3c610056d22743f1be48e0223dd",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "35c07a5039953080d8e44e754522dc1cd39a71337b276085732d8d1d0e4943d7",
+    "reviewerPacketSha256": "f2c664740889cf4a9ffe9935fb993fafae74a1f3bd7178aa0b1657b13c5c6fcb",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-vhbuES/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-vhbuES/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-vhbuES/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-vhbuES/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-vhbuES/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1becf-c393-7000-a363-7d9d04827ccc",
+        "version": "v0.166.0",
+        "tokens used": "52,943"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-03-L1",
+        "reviewerAnswer": "Expected paradigm: yo soy; tú eres; él/ella/usted es; nosotros/nosotras somos; vosotros/vosotras sois; ellos/ellas/ustedes son. Distinguish tú/tu and él/el; omit subject pronouns when their referents are recoverable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T01",
+        "reviewerAnswer": "él; alternatively, the full sentence: Él es Pablo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+        "defect": "This categorical wording gives a misleading next-word diagnostic. An article can be followed by an adjective before the noun: el nuevo libro.",
+        "correction": "Explain that the article introduces a noun phrase and that an adjective may intervene, as lesson step s6 already explains.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T02",
+        "reviewerAnswer": "él; alternatively, the full sentence: Él es mi hermano.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+        "defect": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+        "correction": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T03",
+        "reviewerAnswer": "él",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+        "defect": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+        "correction": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T04",
+        "reviewerAnswer": "él; alternatively, the full sentence: Él es profesor.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+        "defect": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+        "correction": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T05",
+        "reviewerAnswer": "Él es Pablo y ella es Ana. A comma before y is also possible to mark the contrasting subjects.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+        "defect": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+        "correction": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": "No closed key is declared; unlisted acceptable translations are not automatically graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L1-T11",
+        "reviewerAnswer": "tú; alternatively, the full sentence: Tú eres Ana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+        "defect": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro. The qualified statement about tú is acceptable.",
+        "correction": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T12",
+        "reviewerAnswer": "tú; alternatively, the full sentence: Tú eres mi amigo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+        "defect": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+        "correction": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T13",
+        "reviewerAnswer": "tú",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+        "defect": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+        "correction": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T14",
+        "reviewerAnswer": "tú; alternatively, the full sentence: Tú eres estudiante.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+        "defect": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+        "correction": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T15",
+        "reviewerAnswer": "Tú eres mi amiga.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+        "defect": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+        "correction": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+          "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": "The prompt explicitly requires a pronoun; leaving the pronoun-free response unscored is consistent with that requirement."
+      },
+      {
+        "caseId": "task:A1-03-L1-T21",
+        "reviewerAnswer": "Nosotras somos; alternatively, the full sentence: Nosotras somos amigas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Adding the two-word completion would improve coverage. No closed key is declared."
+      },
+      {
+        "caseId": "task:A1-03-L1-T22",
+        "reviewerAnswer": "Vosotros sois; alternatively, the full sentence: Vosotros sois estudiantes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Adding the two-word completion would improve coverage. No closed key is declared; the ustedes response is explicitly left unscored."
+      },
+      {
+        "caseId": "task:A1-03-L1-T23",
+        "reviewerAnswer": "Ellos son; alternatively, the full sentence: Ellos son mis amigos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Adding the two-word completion would improve coverage. No closed key is declared."
+      },
+      {
+        "caseId": "task:A1-03-L1-T24",
+        "reviewerAnswer": "Ellas son; alternatively, the full sentence: Ellas son estudiantes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Adding the two-word completion would improve coverage. No closed key is declared."
+      },
+      {
+        "caseId": "task:A1-03-L1-T25",
+        "reviewerAnswer": "Vosotras sois mis amigas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T26",
+        "reviewerAnswer": "nosotros",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T27",
+        "reviewerAnswer": "ellas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T28",
+        "reviewerAnswer": "ustedes",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T29",
+        "reviewerAnswer": "vosotras",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T30",
+        "reviewerAnswer": "nosotros",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T45",
+        "reviewerAnswer": "Yo soy estudiante y él es profesor. Also: Soy estudiante y él es profesor. Whether Soy estudiante y es profesor is acceptable depends on the preceding discourse.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"про себе й колегу, якого він ще не бачив\"; task.errors[id=e1]: \"Soy estudiante y es profesor.\" marked incorrect; feedbackUk: \"Без él незрозуміло, хто викладач\".",
+        "defect": "Not having seen the colleague does not establish whether he has already been introduced in the exchange. If he is a salient antecedent, the tacit subject of es may be recoverable; if he has not been introduced, reference is insufficiently established. The packet does not supply the discourse needed to justify categorical rejection.",
+        "correction": "Supply the preceding exchange and specify whether the colleague has already been introduced. Review the omitted-subject answer against that discourse; alternatively, explicitly require an overt pronoun for contrast.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 33, tacit subjects and contextual recoverability (from memory).",
+          "Packet, task:A1-03-L1-T45, task.prompt[0]: the colleague has not been seen; no preceding exchange is supplied.",
+          "Verdict instructions: use uncertain when acceptability depends on missing context."
+        ],
+        "notes": "The distinction between an unseen colleague and an unmentioned colleague is inferred from the prompt wording; the latter condition is not stated."
+      },
+      {
+        "caseId": "task:A1-03-L1-T61",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T63",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L1-T65",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L1",
+      "contentHash": "3888e4ea79a61846521f93d4a62e910901eb894f922bf0a178ef750fe8c7de27",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-03-L1",
+      "verdict": "valid",
+      "reviewerAnswer": "Expected paradigm: yo soy; tú eres; él/ella/usted es; nosotros/nosotras somos; vosotros/vosotras sois; ellos/ellas/ustedes son. Distinguish tú/tu and él/el; omit subject pronouns when their referents are recoverable.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T01",
+      "contentHash": "24992163b5b079bd9201f49d1975cedb53e6a21ddbe45029fcc91d153e465495",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+          "description": "This categorical wording gives a misleading next-word diagnostic. An article can be followed by an adjective before the noun: el nuevo libro.",
+          "suggestion": "Explain that the article introduces a noun phrase and that an adjective may intervene, as lesson step s6 already explains."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T01",
+      "verdict": "flawed",
+      "reviewerAnswer": "él; alternatively, the full sentence: Él es Pablo.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T02",
+      "contentHash": "662eb5851f34099d1634aa39ba85ab59a17bf540744171a69bb37b4683040df8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+          "description": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+          "suggestion": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "él; alternatively, the full sentence: Él es mi hermano.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T03",
+      "contentHash": "7322b9559e73245293e4212a1f3f680ea7174410796979fa2989e2491b482d57",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+          "description": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+          "suggestion": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "él",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T04",
+      "contentHash": "53e9ad4a5fb0a8efc21711373185dc3bf320d5f879343e88cd0dc2515996a946",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+          "description": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+          "suggestion": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "él; alternatively, the full sentence: Él es profesor.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T05",
+      "contentHash": "a744587f70e4ddab83c0a68e0d355b6ebbd4d156372f5d8187eb05119e295256",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після артикля йде іменник.\"",
+          "description": "The categorical next-word diagnostic overlooks ordinary prenominal adjectives: el nuevo libro is correct.",
+          "suggestion": "Describe the article as introducing a noun phrase and explicitly allow an intervening adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "Él es Pablo y ella es Ana. A comma before y is also possible to mark the contrasting subjects.",
+      "notes": "No closed key is declared; unlisted acceptable translations are not automatically graded incorrect.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 14, article placement within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"між ними може бути прикметник\" and \"el nuevo libro\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T11",
+      "contentHash": "a1c2c1de98b927ec1aef522310638ac966fce74aacd24239ede9b79d8fd1c057",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+          "description": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro. The qualified statement about tú is acceptable.",
+          "suggestion": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "tú; alternatively, the full sentence: Tú eres Ana.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T12",
+      "contentHash": "7496a7dee670678ed7e32da7e3e6944bae5b1ee6802d676a4e408ecdc4819f50",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+          "description": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+          "suggestion": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "tú; alternatively, the full sentence: Tú eres mi amigo.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T13",
+      "contentHash": "d81943ac1c3b0f331ec656458d4252b493e5c653bd42e37e2ca9e615d36c3501",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+          "description": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+          "suggestion": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "tú",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T14",
+      "contentHash": "e3e0fd8e6e7d55ac898870971f43b266dd876795880147b5f832e2f0d0520a2c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+          "description": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+          "suggestion": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "tú; alternatively, the full sentence: Tú eres estudiante.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T15",
+      "contentHash": "6bb18e7ebce719320220f16805a00dfd9db21ef24692c665f66f64c7a4daa912",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Після tu йде іменник, після tú — зазвичай дієслово.\"",
+          "description": "The first clause gives a categorical noun-next diagnostic for tu. A prenominal adjective can intervene: tu nuevo libro.",
+          "suggestion": "Explain that tu introduces a noun phrase and may be separated from its noun by an adjective."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T15",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tú eres mi amiga.",
+      "notes": "The prompt explicitly requires a pronoun; leaving the pronoun-free response unscored is consistent with that requirement.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 18, prenominal possessives within noun phrases (from memory).",
+        "Packet, lesson:A1-03-L1, content.body.steps[id=s6].blocks[1]: \"tu та el стоять перед іменником або групою з іменником — між ними може бути прикметник\".",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T21",
+      "contentHash": "ed7cd7eb92b08885579e0af30bce5009477c7981cd1727c0a5fbf37a295d8465",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "Nosotras somos; alternatively, the full sentence: Nosotras somos amigas.",
+      "notes": "Adding the two-word completion would improve coverage. No closed key is declared.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T22",
+      "contentHash": "9870d41a9c28cbbf00534b0c13cc196790240376757e09470de34fccf3f002c5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "Vosotros sois; alternatively, the full sentence: Vosotros sois estudiantes.",
+      "notes": "Adding the two-word completion would improve coverage. No closed key is declared; the ustedes response is explicitly left unscored.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T23",
+      "contentHash": "16dc64261b937112ad824421a83d7e9109d9e7610e15750c28edd6291ea313c7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "Ellos son; alternatively, the full sentence: Ellos son mis amigos.",
+      "notes": "Adding the two-word completion would improve coverage. No closed key is declared.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T24",
+      "contentHash": "4b4bd253e0a0ed228ced5c2a75fddccb23a33cb839a1e034dda232d8e9e42b04",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "Ellas son; alternatively, the full sentence: Ellas son estudiantes.",
+      "notes": "Adding the two-word completion would improve coverage. No closed key is declared.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T25",
+      "contentHash": "4c75fa365ca169425580d0bc7e1e12a8f377792e01e84360ec2a24550271c64a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "Vosotras sois mis amigas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T26",
+      "contentHash": "9da981c663e4ca07fc92098c2965e41db0c9bfa14937010759731ca6f8a6ec3e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "nosotros",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T27",
+      "contentHash": "6a66faac3fbb44b4c625ec788c46719c26f9aec3af4ce1c9ce04fda6ee180e89",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "ellas",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T28",
+      "contentHash": "05403133614a8ed813bbf93abc103bbfef39da4e1227e108214aab5bc68a14a9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "ustedes",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T29",
+      "contentHash": "c1f6ab6fd9f38e255e3c57a9b7d62affe51a726411f8e7e4c2e703b531a005fe",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "vosotras",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T30",
+      "contentHash": "5ccef9e7237332e90cf85cb3340a6dc0232935b5d64d6c2ae0f50327f8a0fde8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "nosotros",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T45",
+      "contentHash": "3aec4b0799f1b8fdcb486c1f9b92578ad98259f0adbcc2b57ece5d2a5f1428fa",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"про себе й колегу, якого він ще не бачив\"; task.errors[id=e1]: \"Soy estudiante y es profesor.\" marked incorrect; feedbackUk: \"Без él незрозуміло, хто викладач\".",
+          "description": "Not having seen the colleague does not establish whether he has already been introduced in the exchange. If he is a salient antecedent, the tacit subject of es may be recoverable; if he has not been introduced, reference is insufficiently established. The packet does not supply the discourse needed to justify categorical rejection.",
+          "suggestion": "Supply the preceding exchange and specify whether the colleague has already been introduced. Review the omitted-subject answer against that discourse; alternatively, explicitly require an overt pronoun for contrast."
+        }
+      ],
+      "caseId": "task:A1-03-L1-T45",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Yo soy estudiante y él es profesor. Also: Soy estudiante y él es profesor. Whether Soy estudiante y es profesor is acceptable depends on the preceding discourse.",
+      "notes": "The distinction between an unseen colleague and an unmentioned colleague is inferred from the prompt wording; the latter condition is not stated.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 33, tacit subjects and contextual recoverability (from memory).",
+        "Packet, task:A1-03-L1-T45, task.prompt[0]: the colleague has not been seen; no preceding exchange is supplied.",
+        "Verdict instructions: use uncertain when acceptability depends on missing context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T61",
+      "contentHash": "b417f5b22d81d44a82aa0e58083df852552427c3fcbab7e4b8351802bba87e0d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T61",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T63",
+      "contentHash": "b6e3691497c310fea57655d2cbcdb380fe578eaf7847e647974194e6aa909c72",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T63",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L1-T65",
+      "contentHash": "0c1a2d8e862b6ceb83bfadecfe18a7bf841fba9faa754bf0e236c599ae0455a2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L1-T65",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
