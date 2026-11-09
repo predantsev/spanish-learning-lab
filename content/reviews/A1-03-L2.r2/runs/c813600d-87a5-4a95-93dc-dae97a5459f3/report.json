@@ -1,0 +1,631 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L2.r2",
+  "packetHash": "434b98e13458b90d8a1a905c357fc715805e8032977468f8dc46b2de06962a3e",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "c5c1a12eaf582613c41374c0e50dd76d8c67765773e091a5a74ac822dabe9664",
+    "reviewerPacketSha256": "e29f451c13286a4412f64b7b732d25940b876254c30da0bdb75a16d18d9ea759",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Kwkj2R/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Kwkj2R/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Kwkj2R/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Kwkj2R/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-Kwkj2R/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bed6-2060-79d2-a8fa-4dcd76cc2de2",
+        "version": "v0.166.0",
+        "tokens used": "57,460"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-03-L2",
+        "reviewerAnswer": "Not applicable: this case contains lesson explanations rather than a learner task.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s2].blocks[1].text: \"Прикметники національності на приголосну — виняток: вони мають жіночу форму на -a. Знак наголосу в жіночому роді й у множині зникає.\"",
+        "defect": "The explanation generalizes beyond the adjectives shown. Consonant-final demonyms are not universally variable in gender: kosovar is gender-invariable. Accent deletion is also not universal: bóer retains its accent in bóeres. The table itself is correct.",
+        "correction": "Restrict the explanation to español, inglés, francés and alemán. State that these adjectives add -a in the feminine and that the written accents in inglés, francés and alemán disappear in their feminine and plural forms.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «kosovar» (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «bóer», including plural bóeres (from memory).",
+          "Review duties: false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T12",
+        "reviewerAnswer": "a: Son mis amigos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly requires a complete sentence with ser, so the otherwise possible caption Mis amigos. does not satisfy it."
+      },
+      {
+        "caseId": "task:A1-03-L2-T13",
+        "reviewerAnswer": "de; or Soy de Kiev.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T20",
+        "reviewerAnswer": "de; or Mis amigos son de Barcelona.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T22",
+        "reviewerAnswer": "Mis amigos son de España.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not closed; unlisted acceptable formulations are not automatically graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L2-T36",
+        "reviewerAnswer": "alemana; or Ella es alemana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Національності на приголосну мають жіночу форму на -a\" and \"У жіночому роді й у множині знак наголосу зникає\".",
+        "defect": "The answer is correct, but the hint presents the illustrated pattern as universal. Kosovar is gender-invariable, and bóer retains its accent in the plural bóeres.",
+        "correction": "Limit both statements to the adjectives practised here: español, inglés, francés and alemán. Explain accent deletion specifically for the displayed forms of inglés, francés and alemán.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «kosovar» (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «bóer», including plural bóeres (from memory).",
+          "Review duties: false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T38",
+        "reviewerAnswer": "Soy profesora. / Yo soy profesora.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly requests the bare profession construction. The article guidance is appropriate within this plain occupational use."
+      },
+      {
+        "caseId": "task:A1-03-L2-T39",
+        "reviewerAnswer": "Pablo es médico.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T40",
+        "reviewerAnswer": "Ana es ingeniera.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T41",
+        "reviewerAnswer": "Soy programador. / Yo soy programador.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T42",
+        "reviewerAnswer": "Mis hermanos son camareros.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T43",
+        "reviewerAnswer": "Eres estudiante. / Tú eres estudiante.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T44",
+        "reviewerAnswer": "Mi madre es médica.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T45",
+        "reviewerAnswer": "Somos programadores. / Nosotros somos programadores.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T46",
+        "reviewerAnswer": "Soy ingeniero. / Yo soy ingeniero.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T47",
+        "reviewerAnswer": "Mi hermano es camarero y mi hermana es profesora.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The vocabulary translation for y correctly has no grammar targets."
+      },
+      {
+        "caseId": "task:A1-03-L2-T48",
+        "reviewerAnswer": "a: Soy médico., for the plain statement of occupation requested.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The article feedback should be understood within the neutral occupational construction being practised, rather than as a universal prohibition on articles with profession nouns."
+      },
+      {
+        "caseId": "task:A1-03-L2-T54",
+        "reviewerAnswer": "Sois muy inteligentes. / Vosotros sois muy inteligentes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The feedback qualifies the geographical claim and explicitly identifies the course's vosotros convention. The key is not closed."
+      },
+      {
+        "caseId": "task:A1-03-L2-T73",
+        "reviewerAnswer": "español or española: agreement with Javier or with nacionalidad, respectively.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Both agreement possibilities are accepted and explained."
+      },
+      {
+        "caseId": "task:A1-03-L2-T74",
+        "reviewerAnswer": "alemana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Національності на приголосну мають жіночу форму на -a\" and \"У жіночому роді й у множині знак наголосу зникає\".",
+        "defect": "The required answer is correct, but the hint overgeneralizes the morphology and accent behavior of the examples. Kosovar is gender-invariable, and bóer retains its written accent in bóeres.",
+        "correction": "Explicitly restrict the rule to español, inglés, francés and alemán, and describe accent deletion only for the illustrated forms of inglés, francés and alemán.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «kosovar» (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «bóer», including plural bóeres (from memory).",
+          "Review duties: false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T78",
+        "reviewerAnswer": "a: звідки він.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript is confined to a transcript hint. The vocabulary gloss supports the listening-meaning target, which is not a grammar target. Actual audio quality and correspondence with the transcript were outside this text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L2",
+      "contentHash": "e5d909ebf52b11c4a128fce163f579f61d04535a6d3c29c267905de00a2adb41",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s2].blocks[1].text: \"Прикметники національності на приголосну — виняток: вони мають жіночу форму на -a. Знак наголосу в жіночому роді й у множині зникає.\"",
+          "description": "The explanation generalizes beyond the adjectives shown. Consonant-final demonyms are not universally variable in gender: kosovar is gender-invariable. Accent deletion is also not universal: bóer retains its accent in bóeres. The table itself is correct.",
+          "suggestion": "Restrict the explanation to español, inglés, francés and alemán. State that these adjectives add -a in the feminine and that the written accents in inglés, francés and alemán disappear in their feminine and plural forms."
+        }
+      ],
+      "caseId": "lesson:A1-03-L2",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: this case contains lesson explanations rather than a learner task.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «kosovar» (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «bóer», including plural bóeres (from memory).",
+        "Review duties: false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T12",
+      "contentHash": "8f1d38f4821f66d8776e8314a443ff8a25ae01931cdf0f7d868a459d65cc6636",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "a: Son mis amigos.",
+      "notes": "The prompt explicitly requires a complete sentence with ser, so the otherwise possible caption Mis amigos. does not satisfy it.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T13",
+      "contentHash": "18c81bf6b21ae9afed98f54e05b3d48dc3332e03f05faa38f84908dc6213400c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "de; or Soy de Kiev.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T20",
+      "contentHash": "e2b20ecaeaf88c3b5a05cf8edda2f7dc63ba876e795e97e1ef06b501bfbe624f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "de; or Mis amigos son de Barcelona.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T22",
+      "contentHash": "9c8cb93ed13d5f618c47a3b0846167769d66ddaeaffe710b79311dcfac16bca4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis amigos son de España.",
+      "notes": "The key is not closed; unlisted acceptable formulations are not automatically graded incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T36",
+      "contentHash": "ce2095b025abf19fa89db295a43ba02c7a42cd22243fbd73ce69c2f8b148dace",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Національності на приголосну мають жіночу форму на -a\" and \"У жіночому роді й у множині знак наголосу зникає\".",
+          "description": "The answer is correct, but the hint presents the illustrated pattern as universal. Kosovar is gender-invariable, and bóer retains its accent in the plural bóeres.",
+          "suggestion": "Limit both statements to the adjectives practised here: español, inglés, francés and alemán. Explain accent deletion specifically for the displayed forms of inglés, francés and alemán."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "alemana; or Ella es alemana.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «kosovar» (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «bóer», including plural bóeres (from memory).",
+        "Review duties: false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T38",
+      "contentHash": "0c7244a8c9489fc62cbd8466970def959025555f1179cb356b6e7874a2b0f613",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T38",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy profesora. / Yo soy profesora.",
+      "notes": "The prompt explicitly requests the bare profession construction. The article guidance is appropriate within this plain occupational use.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T39",
+      "contentHash": "7b9e6ff590a049a9a341cf871ce8e53ee9cd7cebcea1141b1fc9ff17ba0474b6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T39",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo es médico.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T40",
+      "contentHash": "7e85c940fffd8fb9d1275d48c36cf9d3ffea399e20813bcdc103be37322cffbb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T40",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es ingeniera.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T41",
+      "contentHash": "a2f54611a5f5e95742b13b8644823c848c8134fcb0de115a3d6972a8ac232111",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T41",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy programador. / Yo soy programador.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T42",
+      "contentHash": "9bad5ba741f06d0148a23dbd9a0371ef6f3837f40b70a8dff77a0164c73e2f9b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T42",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis hermanos son camareros.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T43",
+      "contentHash": "aef0746051a8dc300cba983f811f91ee0b404edc847ac22981718866395da619",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T43",
+      "verdict": "valid",
+      "reviewerAnswer": "Eres estudiante. / Tú eres estudiante.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T44",
+      "contentHash": "21d6ee0bbcf6469304353176c6a6c6e55bbf740a0d3c6006643732be17098546",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T44",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi madre es médica.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T45",
+      "contentHash": "89939ec92f7c8ea8be51df8c46a7b1842a53b6a0c3de690cea5abacc9e082c48",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T45",
+      "verdict": "valid",
+      "reviewerAnswer": "Somos programadores. / Nosotros somos programadores.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T46",
+      "contentHash": "ab6f8a875174c1625e3ab5ff0f22237a1cfebd6ed78c8f2be269e36af9493ce6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T46",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy ingeniero. / Yo soy ingeniero.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T47",
+      "contentHash": "424741e2c8399723a1fde92b55830cac6fcb3ac927d073ac674340249b43a841",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T47",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi hermano es camarero y mi hermana es profesora.",
+      "notes": "The vocabulary translation for y correctly has no grammar targets.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T48",
+      "contentHash": "6578b64e87b2c2924ba02c5b64771e0eb994b5d166e6a0a656a5392312191585",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T48",
+      "verdict": "valid",
+      "reviewerAnswer": "a: Soy médico., for the plain statement of occupation requested.",
+      "notes": "The article feedback should be understood within the neutral occupational construction being practised, rather than as a universal prohibition on articles with profession nouns.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T54",
+      "contentHash": "472d5b3129dd13ed2305a59ef3f23586e4725f2b65477dc8e1fd88bc7ba7c1b5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T54",
+      "verdict": "valid",
+      "reviewerAnswer": "Sois muy inteligentes. / Vosotros sois muy inteligentes.",
+      "notes": "The feedback qualifies the geographical claim and explicitly identifies the course's vosotros convention. The key is not closed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T73",
+      "contentHash": "a12f2c7987fd5282b5820a70a1a824ef9bbce1f75760fc9898435019495a6a68",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T73",
+      "verdict": "valid",
+      "reviewerAnswer": "español or española: agreement with Javier or with nacionalidad, respectively.",
+      "notes": "Both agreement possibilities are accepted and explained.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T74",
+      "contentHash": "4ad1e1c28ba1021090a0f0a9f51f57bd98e22ae7eefbc8c9955648154d516def",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Національності на приголосну мають жіночу форму на -a\" and \"У жіночому роді й у множині знак наголосу зникає\".",
+          "description": "The required answer is correct, but the hint overgeneralizes the morphology and accent behavior of the examples. Kosovar is gender-invariable, and bóer retains its written accent in bóeres.",
+          "suggestion": "Explicitly restrict the rule to español, inglés, francés and alemán, and describe accent deletion only for the illustrated forms of inglés, francés and alemán."
+        }
+      ],
+      "caseId": "task:A1-03-L2-T74",
+      "verdict": "flawed",
+      "reviewerAnswer": "alemana.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «kosovar» (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «bóer», including plural bóeres (from memory).",
+        "Review duties: false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T78",
+      "contentHash": "393e932a911c53943f4a907aea3bd4289306f9020f901a0ad39e8c4ee2e0395d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T78",
+      "verdict": "valid",
+      "reviewerAnswer": "a: звідки він.",
+      "notes": "The transcript is confined to a transcript hint. The vocabulary gloss supports the listening-meaning target, which is not a grammar target. Actual audio quality and correspondence with the transcript were outside this text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
