@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-05-L4.r3",
+  "packetHash": "0649f4dbf1a8a9e0c4b4d526d986632a0982da2fa70de0f67db42e71330a6161",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "8190ee02b72c3fb2223d90b84517ccc47386cfe021f4d038975d15b61afa1997",
+    "reviewerPacketSha256": "2000507224d76a8a43881481d42d7b6bfffd0c3c1163966749226df3ecf27523",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N3riOa/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N3riOa/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N3riOa/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N3riOa/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-N3riOa/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bf14-a1c8-7293-9f09-f702dda85dfb",
+        "version": "v0.166.0",
+        "tokens used": "29,205"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-05-L4-T60",
+        "reviewerAnswer": "a — Go to the dentist on Monday at five.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L4-T68",
+        "reviewerAnswer": "b — The celebration is in the park.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.feedback.incorrectUk: \"Поки що ні. Знайди в записі, що відбувається, коли й о котрій: день тижня, число, місяць і годину. 17:00 у розмові — las cinco de la tarde.\"",
+        "defect": "The remedial feedback addresses a different question: it directs learners to identify the date and time, whereas the prompt asks for the location. Its example of 17:00 is also unrelated to this note, which gives six in the afternoon.",
+        "correction": "Replace with location-focused feedback, for example: \"Поки що ні. Знайди, де відбувається подія: en el parque — «у парку».\"",
+        "sources": [
+          "Packet, task:A1-05-L4-T68, task.prompt[0]: \"Прочитай запис. Де святкують?\"; task.prompt[1]: \"Cumpleaños de Lucía: sábado 24 de mayo, a las seis de la tarde, en el parque.\"",
+          "Review duties: check for misleading explanations and conflicting feedback."
+        ],
+        "notes": "The answer key and the location-focused hint are correct. The conversion of 17:00 is correct in isolation."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L4-T60",
+      "contentHash": "27238be486f72f2be91de05095fee2bd3af8f062dd25fe8308b9420fe5ca8e11",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-L4-T60",
+      "verdict": "valid",
+      "reviewerAnswer": "a — Go to the dentist on Monday at five.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L4-T68",
+      "contentHash": "bf4c5a3318884d0a241287bf68e7468a57d0ce457c6fd27af588862602f54390",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.feedback.incorrectUk: \"Поки що ні. Знайди в записі, що відбувається, коли й о котрій: день тижня, число, місяць і годину. 17:00 у розмові — las cinco de la tarde.\"",
+          "description": "The remedial feedback addresses a different question: it directs learners to identify the date and time, whereas the prompt asks for the location. Its example of 17:00 is also unrelated to this note, which gives six in the afternoon.",
+          "suggestion": "Replace with location-focused feedback, for example: \"Поки що ні. Знайди, де відбувається подія: en el parque — «у парку».\""
+        }
+      ],
+      "caseId": "task:A1-05-L4-T68",
+      "verdict": "flawed",
+      "reviewerAnswer": "b — The celebration is in the park.",
+      "notes": "The answer key and the location-focused hint are correct. The conversion of 17:00 is correct in isolation.",
+      "sources": [
+        "Packet, task:A1-05-L4-T68, task.prompt[0]: \"Прочитай запис. Де святкують?\"; task.prompt[1]: \"Cumpleaños de Lucía: sábado 24 de mayo, a las seis de la tarde, en el parque.\"",
+        "Review duties: check for misleading explanations and conflicting feedback."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
