@@ -38,6 +38,8 @@ function plArt(n: number, role: 'supported' | 'independent' | 'delayed' | 'trans
 
 export const unit: Unit = {
   lesson: {
+    // Repair cap (brief 13, round 3): flagged in A1-02-L3.r1, .r2 and .r3 — quarantined, not repaired a third time.
+    status: 'quarantined',
     id: 'A1-02-L3',
     titleUk: 'Однина і множина',
     termEs: 'singular y plural',

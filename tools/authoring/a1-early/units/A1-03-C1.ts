@@ -1,7 +1,7 @@
 // A1-03-C1 — optional mixed check: practice links over the block's targets (held-out bank) plus new
 // mixed-context transfer prompts that join that bank. No new teaching, no lock.
 import { CI, clip, ex, link, material, tableUk, transcript, uk, ulUk } from '../lib.ts';
-import type { Unit } from '../lib.ts';
+import type { TaskSpec, Unit } from '../lib.ts';
 import { pick, typed } from '../common.ts';
 
 const SER_TARGETS = [
@@ -70,6 +70,10 @@ const ALSO: Record<string, string> = { [YN_U]: YN_W, [NA_U]: AN_W };
 const rulesOf = (targets: string[]): Array<[string[], string]> =>
   targets.filter((t) => R[t]).map((t) => [ALSO[t] && targets.includes(ALSO[t] as string) ? [t, ALSO[t] as string] : [t], R[t] as string]);
 
+// Repair cap (brief 13, round 3): T06 was flagged in A1-03-C1.r1, .r2 and .r3, so it is quarantined
+// instead of being repaired a third time.
+const QUARANTINED = new Set([6]);
+
 export const unit: Unit = {
   lesson: {
     id: 'A1-03-C1',
@@ -112,7 +116,7 @@ export const unit: Unit = {
       },
     ],
   },
-  tasks: [
+  tasks: ([
     typed({
       n: 1, role: 'transfer', family: 'c1-chat-intro', targets: [OR_U, NA_U],
       prompt: [uk('Ти (жінка) знайомишся в чаті. Напиши: «Я з Києва, я українка».')],
@@ -250,7 +254,7 @@ export const unit: Unit = {
       extraHints: [transcript([LS_L], 'Ana no está en casa. Está en el parque.')],
       ok: 'Так: Ana no está en casa. Está en el parque.', bad: 'Ні. У записі: Ana no está en casa. Está en el parque.',
     }),
-  ],
+  ] as TaskSpec[]).map((spec) => (QUARANTINED.has(spec.n) ? { ...spec, status: 'quarantined' as const } : spec)),
   clips: [
     clip({ id: 'clip.a1-03.ana-no-esta', lessonId: 'A1-03-C1', kind: 'sentence', family: 'negation-location', transcript: 'Ana no está en casa. Está en el parque.', translationUk: 'Ани немає вдома. Вона в парку.', targets: [LS_L] }),
   ],
