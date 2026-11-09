@@ -521,7 +521,7 @@ k.choice({
   p: ['Marta: tienes cita con el dentista el lunes a las cinco.'],
   o: [
     ['Піти до стоматолога в понеділок о п’ятій.', true],
-    ['Піти до лікаря в понеділок о п’ятій.', false],
+    ['Піти до стоматолога в неділю о п’ятій.', false],
     ['Піти до стоматолога в п’ятницю.', false],
   ],
 });
@@ -685,8 +685,8 @@ const R1 = 'Dentista – martes 3 de marzo, 17:00';
 const R2 = 'Lunes 9: clase de inglés, 18:00 · Miércoles 11: reunión, 10:00 · Viernes 13: cine con Ana, 20:30';
 const R3 = '¡Hola, Marta! La cita con el médico es el jueves a las nueve y media, no a las diez. ¡Hasta luego! Pablo';
 const R4 = 'Cumpleaños de Lucía: sábado 24 de mayo, a las seis de la tarde, en el parque.';
-const rd = (n: number, role: 'independent' | 'delayed', fam: string, text: string, q: string, o: Array<[string, boolean]>): string =>
-  k.choice({ n, role, fam, t: [RC], ins: `Прочитай запис. ${q}`, p: [text], o });
+const rd = (n: number, role: 'independent' | 'delayed', fam: string, text: string, q: string, o: Array<[string, boolean]>, rule?: string): string =>
+  k.choice({ n, role, fam, t: [RC], ins: `Прочитай запис. ${q}`, p: [text], o, ...(rule ? { rule } : {}) });
 rd(61, 'independent', 'a105.r-dentist', R1, 'Коли візит до стоматолога?', [['У вівторок, 3 березня, о 17:00.', true], ['У вівторок, 3 травня, о 17:00.', false], ['У середу, 3 березня, о 7:00.', false]]);
 rd(62, 'independent', 'a105.r-dentist', R1, 'О котрій візит, якщо сказати по-розмовному?', [['О п’ятій вечора (las cinco de la tarde).', true], ['О сьомій вечора.', false], ['О п’ятій ранку.', false]]);
 rd(63, 'independent', 'a105.r-week', R2, 'Коли нарада?', [['У понеділок, 9-го, о 18:00.', false], ['У середу, 11-го, о 10:00.', true], ['У п’ятницю, 13-го, о 20:30.', false]]);
@@ -694,7 +694,7 @@ rd(64, 'independent', 'a105.r-week', R2, 'Що заплановано на п’
 rd(65, 'independent', 'a105.r-note', R3, 'О котрій запис до лікаря?', [['О 10:00.', false], ['О 9:30.', true], ['О 9:00.', false]]);
 rd(66, 'independent', 'a105.r-note', R3, 'У який день запис?', [['У четвер.', true], ['У вівторок.', false], ['У п’ятницю.', false]]);
 rd(67, 'delayed', 'a105.r-birthday', R4, 'Коли день народження Лусії?', [['У суботу, 24 травня, о 18:00.', true], ['У неділю, 24 травня, о 16:00.', false], ['У суботу, 4 травня, о 18:00.', false]]);
-rd(68, 'delayed', 'a105.r-birthday', R4, 'Де святкують?', [['У кафе.', false], ['У парку.', true], ['Удома в Лусії.', false]]);
+rd(68, 'delayed', 'a105.r-birthday', R4, 'Де святкують?', [['У кафе.', false], ['У парку.', true], ['Удома в Лусії.', false]], 'Знайди в записі, де відбувається подія: місце зазвичай стоїть після прийменника en.');
 
 // ======================= listening: dates and appointments
 const L1 = 'La cita es el miércoles a las once.';

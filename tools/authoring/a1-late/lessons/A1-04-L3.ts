@@ -89,7 +89,7 @@ k.exact({
   role: 'transfer',
   fam: 'a104.park',
   t: [HA],
-  ins: 'Переклади іспанською: «Що ви робите в парку?» (питаєш кількох друзів).',
+  ins: 'Переклади іспанською: «Що ви робите в парку?» (питаєш кількох друзів; використай форму vosotros, як в Іспанії).',
   acc: ['¿Qué hacéis en el parque?', '¿Qué hacéis vosotros en el parque?', '¿Qué hacéis vosotras en el parque?'],
   err: [
     [

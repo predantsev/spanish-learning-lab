@@ -303,7 +303,11 @@ export class Kit {
       return { id: slot.id, target: slot.target, accepted: slot.accepted, ...(slot.errors ? { errors: slot.errors } : {}), closed: slot.closed };
     });
     const values = new Map(b.slots.map((s) => [s.id, s.acc[0] ?? '']));
-    const reference = b.ref ?? b.tpl.map((p) => (typeof p === 'string' ? p : (values.get(p.slot) ?? ''))).join('');
+    const joined = b.tpl.map((p) => (typeof p === 'string' ? p : (values.get(p.slot) ?? ''))).join('');
+    // A displayed complete sentence starts with a capital even when the first slot value is lowercase
+    // (checking is case-insensitive, so only the shown model changes).
+    const sentence = /[.!?]$/.test(joined) ? joined.replace(/^(¿|¡)?(\p{Ll})/u, (_m, mark: string | undefined, ch: string) => `${mark ?? ''}${ch.toUpperCase()}`) : joined;
+    const reference = b.ref ?? sentence;
     return this.finish(task, b, b.t, reference, true);
   }
 
