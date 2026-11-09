@@ -324,7 +324,7 @@ export default k.build({
       title: 'Крок 2. О котрій? ¿A qué hora…?',
       blocks: [
         uk('¿Qué hora es? — «Котра година зараз?». ¿A qué hora…? — «О котрій відбувається подія?». Відповідь про подію — a las + година (a la una).'),
-        uk('З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. У розмові правильно й a las ocho por la mañana. Без точного часу кажемо тільки por: Trabajo por la mañana.'),
+        uk('З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. У розмові правильно й a las ocho por la mañana. Без точного часу частину доби найчастіше називаємо з por la: Trabajo por la mañana.'),
         ex('¿A qué hora es la clase? — A las nueve.', 'О котрій заняття? — О дев’ятій.'),
         ex('El concierto es a las nueve de la noche.', 'Концерт о дев’ятій вечора.'),
       ],
