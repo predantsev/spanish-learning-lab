@@ -2,7 +2,7 @@
 // prices, clock time, dates, places, questions). It samples held-out (delayed/transfer) tasks of
 // A1-05-L1…L6 by reference and adds a small integrated practical situation of its own; no new
 // teaching, no locks, no whole-block pass/fail.
-import { Kit, S, es, hTranscript, uk } from '../lib.ts';
+import { Kit, S, es, hClue, hTranscript, uk } from '../lib.ts';
 import { RULES } from './rules.ts';
 
 const k = new Kit('A1-05-C1', RULES);
@@ -20,6 +20,7 @@ k.exact({
   fam: 'a105c.concert-question',
   t: [MU],
   ins: 'Ти знаєш, що концерт у суботу і квиток коштує 8 €, але не знаєш, де він. Запитай іспанською.',
+  hints: [hClue([MU], 'Про місце події (концерт, свято, заняття) питаємо з ser: ¿Dónde es la fiesta? — «Де свято?». Про місце предмета чи будівлі — estar: ¿Dónde está el banco?')],
   acc: ['¿Dónde es el concierto?', '¿Dónde es el concierto el sábado?'],
   err: [['¿Cuándo es el concierto?', 'День ти вже знаєш. Бракує місця: ¿Dónde…?']],
 });
@@ -32,7 +33,7 @@ k.slots({
   p: ['El museo está cerca ___ hotel y abre ___ diez.'],
   tpl: ['El museo está cerca ', S('s1'), ' hotel y abre ', S('s2'), ' diez.'],
   slots: [
-    { id: 's1', t: DL, acc: ['del'], err: [['de el', 'De + el завжди зливаються: del hotel.'], ['de la', 'Hotel — чоловічого роду: el hotel → del hotel.']] },
+    { id: 's1', t: DL, acc: ['del'], err: [['de el', 'De + el зливаються: del hotel.'], ['de la', 'Hotel — чоловічого роду: el hotel → del hotel.']] },
     { id: 's2', t: EAW, acc: ['a las'], err: [['las', 'Година події — з a: a las diez.']] },
   ],
 });

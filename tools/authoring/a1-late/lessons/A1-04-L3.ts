@@ -176,7 +176,7 @@ k.exact({
 
 // ======================= a + el = al
 const alErr: Array<[string, string]> = [
-  ['a el', 'A + el завжди зливаються в одне слово: al.'],
+  ['a el', 'A + el зливаються в одне слово: al.'],
   ['a', 'Тут перед іменником стоїть артикль el, тож потрібне злиття a + el = al.'],
   ['a la', 'Цей іменник чоловічого роду (el …), тож a + el = al.'],
 ];
@@ -210,8 +210,8 @@ k.exact({
   ins: 'Переклади іспанською: «Я йду в парк».',
   acc: ['Voy al parque.', 'Yo voy al parque.'],
   err: [
-    ['Voy a el parque.', 'A + el завжди зливаються: al parque.'],
-    ['Yo voy a el parque.', 'A + el завжди зливаються: al parque.'],
+    ['Voy a el parque.', 'A + el зливаються: al parque.'],
+    ['Yo voy a el parque.', 'A + el зливаються: al parque.'],
   ],
 });
 k.exact({ n: 37, role: 'delayed', fam: 'a104.leisure', t: [AL], ins: 'Впиши a з потрібним артиклем (злиття, якщо воно потрібне).', p: ['Mis padres van ___ restaurante.'], acc: ['al'], err: alErr, tr: 'Мої батьки йдуть у ресторан.' });
@@ -222,7 +222,7 @@ k.exact({
   t: [AL],
   ins: 'Переклади іспанською: «Ти йдеш на роботу?» (мається на увазі місце роботи — el trabajo).',
   acc: ['¿Vas al trabajo?', '¿Tú vas al trabajo?', '¿Vas tú al trabajo?'],
-  err: [['¿Vas a el trabajo?', 'A + el завжди зливаються: al trabajo.']],
+  err: [['¿Vas a el trabajo?', 'A + el зливаються: al trabajo.']],
 });
 k.slots({
   n: 39,
@@ -245,7 +245,7 @@ k.exact({
   t: [AL],
   ins: 'Переклади іспанською: «Мій тато йде в банк».',
   acc: ['Mi padre va al banco.'],
-  err: [['Mi padre va a el banco.', 'A + el завжди зливаються: al banco.']],
+  err: [['Mi padre va a el banco.', 'A + el зливаються: al banco.']],
 });
 
 // ======================= context-choice
@@ -339,7 +339,7 @@ k.choice({
   ins: 'Обери правильний варіант.',
   p: ['Voy ___ museo.'],
   o: [
-    ['a el', ALC, 'A + el завжди зливаються: al.'],
+    ['a el', ALC, 'A + el зливаються: al.'],
     ['al', true],
     ['a la', ALC, 'Museo — чоловічого роду: el museo, тож al.'],
   ],
@@ -367,7 +367,7 @@ k.choice({
   p: ['¿Vais ___ parque?'],
   o: [
     ['al', true],
-    ['a el', ALC, 'A + el завжди зливаються: al.'],
+    ['a el', ALC, 'A + el зливаються: al.'],
     ['a la', ALC, 'Parque — чоловічого роду: el parque, тож al.'],
   ],
   tr: 'Ви йдете в парк?',

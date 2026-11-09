@@ -31,14 +31,15 @@ function x(n: number, role: TaskRole, fam: string, t: string, ins: string, acc: 
 }
 /** «A, pero B» with and without the comma (punctuation is not assessed in these tasks). */
 const comma = (a: string, b: string): string[] => [`${a}, ${b}`, `${a} ${b}`];
-const joinIns = (word: string, model?: string): string => `З’єднай два речення в одне словом ${word}.${model ? ` Зразок: ${model}.` : ''}`;
+const dot = (s: string): string => (/[.?!]$/.test(s) ? s : `${s}.`);
+const joinIns = (word: string, model?: string): string => `З’єднай два речення в одне словом ${word}.${model ? ` Зразок: ${dot(model)}` : ''}`;
 const porqueAcc = (s: string): [string, string] => [s, 'У відповіді, коли пояснюємо причину, — одне слово без знака: porque.'];
 const porQueErr = (wrong: string): [string, string] => [wrong, 'У питанні «чому?» — два слова, qué зі знаком наголосу: Por qué.'];
-const infAfterDe = (s: string): [string, string] => [s, 'Після de — інфінітив або іменник з артиклем, а не особова форма дієслова.'];
+const infAfterDe = (s: string): [string, string] => [s, 'Після antes de / después de — інфінітив або іменник, а не особова форма дієслова.'];
 
 // ======================= y
 x(1, 'supported', 'a106.routine', Y, joinIns('y', 'Leo. Escucho música. → Leo y escucho música'), ['Trabajo en casa y estudio por la tarde.'], [], 'Trabajo en casa. Estudio por la tarde.');
-x(2, 'supported', 'a106.hobbies', Y, joinIns('y', 'Me gusta nadar. Me gusta correr. → Me gusta nadar y correr'), ['Me gusta leer y cocinar.', 'Me gusta leer y me gusta cocinar.'], [['Me gustan leer y cocinar.', 'З інфінітивами — gusta, навіть із двома діями.']], 'Me gusta leer. Me gusta cocinar.');
+x(2, 'supported', 'a106.hobbies', Y, joinIns('y', 'Me gusta nadar. Me gusta correr. → Me gusta nadar y correr'), ['Me gusta leer y cocinar.', 'Me gusta leer y me gusta cocinar.'], [['Me gustan leer y cocinar.', 'Y тут ужито правильно. Але з інфінітивами — gusta, навіть із двома діями: Me gusta leer y cocinar.', { [Y]: 'unresolved' }]], 'Me gusta leer. Me gusta cocinar.');
 x(3, 'independent', 'a106.routine', Y, 'Переклади іспанською: «Я снідаю і йду на роботу».', ['Desayuno y voy al trabajo.', 'Yo desayuno y voy al trabajo.']);
 x(4, 'independent', 'a106.study', Y, joinIns('y'), ['Ana estudia y trabaja.'], [], 'Ana estudia. Ana trabaja.');
 x(5, 'independent', 'a106.shopping', Y, 'Переклади іспанською: «Мені потрібні хліб і молоко».', ['Necesito pan y leche.', 'Yo necesito pan y leche.']);
@@ -70,11 +71,11 @@ x(25, 'delayed', 'a106.work', PE, 'Переклади іспанською: «Я
 x(26, 'delayed', 'a106.car', PE, joinIns('pero'), comma('Necesito un coche', 'pero no tengo dinero.'), [], 'Necesito un coche. No tengo dinero.');
 x(27, 'transfer', 'a106.invite-reply-t', PE, 'Друг кличе тебе на вечірку в суботу. Відповідай іспанською: «Я хочу, але в суботу я працюю».', [...comma('Quiero', 'pero el sábado trabajo.'), ...comma('Quiero ir', 'pero el sábado trabajo.')]);
 x(28, 'transfer', 'a106.flat-t', PE, 'Опиши квартиру іспанською: «Квартира маленька, але вона в центрі».', [...comma('El piso es pequeño', 'pero está en el centro.'), ...comma('Mi piso es pequeño', 'pero está en el centro.')]);
-k.choice({ n: 29, role: 'independent', fam: 'a106.drinks', t: [PEC], ins: 'Обери слово.', p: ['Me gusta el té, ___ no me gusta el café.'], o: [['pero', true], ['y', PEC, 'Тут протиставлення (подобається — не подобається): pero.'], ['porque', PEC, 'Porque — «бо», для причини.']] });
-k.choice({ n: 30, role: 'delayed', fam: 'a106.work', t: [PEC], ins: 'Обери слово.', p: ['Quiero descansar, ___ tengo mucho trabajo.'], o: [['porque', PEC, 'Тут протиставлення (хочу — але маю роботу): pero.'], ['pero', true]] });
+k.choice({ n: 29, role: 'independent', fam: 'a106.drinks', t: [PEC], ins: 'Протистав дві думки: обери слово.', p: ['Me gusta el té, ___ no me gusta el café.'], o: [['pero', true], ['y', PEC, 'Тут протиставлення (подобається — не подобається): pero.'], ['porque', PEC, 'Porque — «бо», для причини.']] });
+k.choice({ n: 30, role: 'delayed', fam: 'a106.work', t: [PEC], ins: 'Обери слово.', p: ['Quiero ir al cine, ___ no tengo tiempo.'], o: [['porque', PEC, 'Тут протиставлення (хочу — але не маю часу): pero.'], ['pero', true]] });
 
 // ======================= porque
-x(31, 'supported', 'a106.cinema', PQ, joinIns('porque', 'Estudio español. Quiero vivir en Madrid. → Estudio español porque quiero vivir en Madrid'), ['No voy al cine porque estoy cansado.', 'No voy al cine porque estoy cansada.'], [porqueAcc('No voy al cine por qué estoy cansado.')], 'No voy al cine. Estoy cansado.');
+x(31, 'supported', 'a106.cinema', PQ, joinIns('porque', 'Estudio español. Quiero vivir en Madrid. → Estudio español porque quiero vivir en Madrid'), ['No voy al cine porque estoy cansado.'], [porqueAcc('No voy al cine por qué estoy cansado.')], 'No voy al cine. Estoy cansado.');
 x(32, 'supported', 'a106.study', PQ, joinIns('porque', 'No voy al cine. Estoy cansado. → No voy al cine porque estoy cansado'), ['Estudio español porque quiero vivir en Madrid.'], [porqueAcc('Estudio español por qué quiero vivir en Madrid.')], 'Estudio español. Quiero vivir en Madrid.');
 x(33, 'independent', 'a106.cafe', PQ, 'Переклади іспанською: «Я п’ю каву, бо я втомлений».', ['Tomo un café porque estoy cansado.', 'Tomo café porque estoy cansado.', 'Bebo café porque estoy cansado.', 'Tomo un café porque estoy cansada.', 'Tomo café porque estoy cansada.'], [porqueAcc('Tomo un café por qué estoy cansado.')]);
 x(34, 'independent', 'a106.dinner', PQ, 'Переклади іспанською: «Ми вечеряємо вдома, бо ресторан зачинений».', ['Cenamos en casa porque el restaurante está cerrado.'], [porqueAcc('Cenamos en casa por qué el restaurante está cerrado.')]);
@@ -84,18 +85,18 @@ x(37, 'delayed', 'a106.beach', PQ, 'Переклади іспанською: «�
 x(38, 'delayed', 'a106.sport', PQ, joinIns('porque'), ['Voy al gimnasio porque me gusta el deporte.'], [], 'Voy al gimnasio. Me gusta el deporte.');
 x(39, 'transfer', 'a106.party-t', PQ, 'Друг кличе тебе в кіно сьогодні ввечері. Відповідай іспанською: «Я не йду, бо маю іспит».', ['No voy porque tengo un examen.', 'No voy porque tengo examen.', 'Lo siento, no voy porque tengo un examen.'], [porqueAcc('No voy por qué tengo un examen.')]);
 x(40, 'transfer', 'a106.errand-t', PQ, 'Напиши сусідці іспанською: «Я йду в супермаркет, бо мені потрібне молоко».', ['Voy al supermercado porque necesito leche.'], [porqueAcc('Voy al supermercado por qué necesito leche.')]);
-k.choice({ n: 41, role: 'independent', fam: 'a106.cinema', t: [PQC], ins: 'Обери слово.', p: ['No voy al cine ___ estoy cansado.'], o: [['pero', PQC, 'Тут причина: porque.'], ['porque', true], ['y', PQC, 'Тут причина: porque.']] });
+k.choice({ n: 41, role: 'independent', fam: 'a106.cinema', t: [PQC], ins: 'Поясни причину: обери слово.', p: ['No voy al cine ___ estoy cansado.'], o: [['pero', PQC, 'Тут причина: porque.'], ['porque', true], ['y', PQC, 'Тут причина: porque.']] });
 k.choice({ n: 42, role: 'delayed', fam: 'a106.study', t: [PQC], ins: 'Обери слово.', p: ['Estudio mucho ___ tengo un examen.'], o: [['porque', true], ['pero', PQC, 'Тут причина: porque.']] });
 
 // ======================= ¿por qué?
-const pqIns = (model?: string): string => `Впиши питальне слово «чому».${model ? ` Зразок: ${model}.` : ''}`;
+const pqIns = (model?: string): string => `Впиши питальне слово «чому».${model ? ` Зразок: ${dot(model)}` : ''}`;
 const pqErrs: E = [porQueErr('Porque'), porQueErr('Por que'), porQueErr('Porqué')];
 x(43, 'supported', 'a106.study', QW, pqIns('¿Por qué no vas al cine?'), ['Por qué'], pqErrs, '¿___ estudias español?');
 x(44, 'supported', 'a106.work', QW, pqIns('¿Por qué estudias español?'), ['Por qué'], pqErrs, '¿___ estás cansado?');
 x(45, 'independent', 'a106.food', QW, 'Запитай іспанською: «Чому ти не їси м’ясо?»', ['¿Por qué no comes carne?'], [porQueErr('¿Porque no comes carne?'), porQueErr('¿Por que no comes carne?')]);
 x(46, 'independent', 'a106.city', QW, 'Запитай іспанською: «Чому Ана в Мадриді?»', ['¿Por qué está Ana en Madrid?', '¿Por qué Ana está en Madrid?'], [porQueErr('¿Porque está Ana en Madrid?')]);
 k.slots({ n: 47, role: 'independent', fam: 'a106.sport', t: [QW], ins: 'Перепиши питання повністю, вставивши «чому».', p: ['¿___ vas al gimnasio?'], tpl: ['¿', S('s1'), ' vas al gimnasio?'], slots: [{ id: 's1', t: QW, acc: ['Por qué'], err: [porQueErr('Porque'), porQueErr('Por que')] }] });
-x(48, 'independent', 'a106.city', QW, 'Запитай друзів (vosotros) іспанською: «Чому вам подобається Мадрид?»', ['¿Por qué os gusta Madrid?', '¿A vosotros por qué os gusta Madrid?'], [porQueErr('¿Porque os gusta Madrid?')]);
+x(48, 'independent', 'a106.city', QW, 'Запитай друга іспанською: «Чому тобі подобається Мадрид?»', ['¿Por qué te gusta Madrid?', '¿A ti por qué te gusta Madrid?'], [porQueErr('¿Porque te gusta Madrid?')]);
 x(49, 'delayed', 'a106.beach', QW, 'Запитай іспанською: «Чому ти не йдеш на пляж?»', ['¿Por qué no vas a la playa?'], [porQueErr('¿Porque no vas a la playa?')]);
 x(50, 'delayed', 'a106.work', QW, pqIns(), ['Por qué'], pqErrs, '¿___ trabajas el sábado?');
 x(51, 'transfer', 'a106.shop-closed-t', QW, 'Ти бачиш зачинену крамницю. Запитай перехожого іспанською: «Чому крамниця зачинена?»', ['¿Por qué está cerrada la tienda?', '¿Por qué la tienda está cerrada?'], [porQueErr('¿Porque está cerrada la tienda?')]);
@@ -136,8 +137,8 @@ x(59, 'delayed', 'a106.food', OP, 'Впиши porque або por qué.', ['porque
 k.choice({ n: 60, role: 'independent', fam: 'a106.qa', t: [OPC], ins: 'Обери правильне написання відповіді.', p: ['—¿Por qué no comes? —___ no tengo hambre.'], o: [['Por qué', OPC, porqueAcc('')[1]], ['Porque', true]] });
 
 // ======================= yo también / yo tampoco
-const aMi = (s: string): [string, string] => [s, 'A mí також / tampoco — для gustar. Зі звичайним дієсловом відповідаємо через yo.'];
-const tIns = (what: string, model?: string): string => `Відповідай іспанською коротко: ${what}.${model ? ` Зразок: ${model}.` : ''}`;
+const aMi = (s: string): [string, string] => [s, 'A mí también / A mí tampoco — для gustar, encantar. Зі звичайним дієсловом відповідаємо через yo.'];
+const tIns = (what: string, model?: string): string => `Відповідай іспанською коротко: ${what}.${model ? ` Зразок: ${dot(model)}` : ''}`;
 x(61, 'supported', 'a106.work', TT, tIns('ти теж', '—Hablo inglés. —Yo también'), ['Yo también.'], [aMi('A mí también.')], '—Trabajo en casa.');
 x(62, 'supported', 'a106.car', TT, tIns('у тебе теж немає', '—No como carne. —Yo tampoco'), ['Yo tampoco.'], [['Yo también.', 'На заперечення погоджуємося через tampoco: Yo tampoco.'], aMi('A mí tampoco.')], '—No tengo coche.');
 x(63, 'independent', 'a106.work', TT, tIns('ти не втомлений'), ['Yo no.'], [['Yo tampoco.', 'Tampoco — щоб погодитися із запереченням. Тут ти не погоджуєшся зі ствердженням: Yo no.']], '—Estoy cansado.');
@@ -168,10 +169,10 @@ k.slots({
   ins: 'Перепиши речення повністю, щоб воно означало «Після роботи я йду в спортзал». Зразок: Después del desayuno leo.',
   p: ['Después ___ trabajo voy al gimnasio.'],
   tpl: ['Después ', S('s1'), ' trabajo voy al gimnasio.'],
-  slots: [{ id: 's1', t: AD, acc: ['del'], err: [['de el', 'De + el зливаються: del trabajo.'], ['de', 'Перед іменником потрібен артикль: del trabajo (de + el).']] }],
+  slots: [{ id: 's1', t: AD, acc: ['del'], err: [['de el', 'De + el зливаються: del trabajo.'], ['de', 'У цьому реченні кажемо з артиклем: después del trabajo (de + el = del).']] }],
 });
 x(80, 'independent', 'a106.class', AD, 'Переклади іспанською: «Перед заняттям я п’ю каву».', [...combos(['Antes de la clase'], [', tomo un café.', ' tomo un café.', ', tomo café.', ' tomo café.']), 'Tomo un café antes de la clase.', 'Tomo café antes de la clase.']);
-x(81, 'independent', 'a106.morning', AD, 'Переклади іспанською: «Після сніданку я йду на роботу».', [...combos(['Después de desayunar', 'Después del desayuno'], [', voy al trabajo.', ' voy al trabajo.']), 'Voy al trabajo después de desayunar.', 'Voy al trabajo después del desayuno.'], [infAfterDe('Después de desayuno voy al trabajo.')]);
+x(81, 'independent', 'a106.morning', AD, 'Переклади іспанською: «Після сніданку я йду на роботу».', [...combos(['Después de desayunar', 'Después del desayuno'], [', voy al trabajo.', ' voy al trabajo.']), 'Voy al trabajo después de desayunar.', 'Voy al trabajo después del desayuno.'], [['Después de desayuno voy al trabajo.', 'Тут або інфінітив — después de desayunar, або іменник з артиклем — después del desayuno.']]);
 x(82, 'independent', 'a106.evening', AD, 'Переклади іспанською: «Перед вечерею ми гуляємо».', [...combos(['Antes de cenar', 'Antes de la cena'], [', paseamos.', ' paseamos.']), 'Paseamos antes de cenar.', 'Paseamos antes de la cena.'], [infAfterDe('Antes de cenamos, paseamos.')]);
 k.slots({
   n: 83,
@@ -186,7 +187,7 @@ k.slots({
 x(84, 'delayed', 'a106.after-work', AD, 'Переклади іспанською: «Після роботи я відпочиваю».', [...combos(['Después del trabajo', 'Después de trabajar'], [', descanso.', ' descanso.']), 'Descanso después del trabajo.', 'Descanso después de trabajar.'], [['Después de el trabajo descanso.', 'De + el зливаються: del trabajo.']]);
 x(85, 'delayed', 'a106.exam', AD, 'Переклади іспанською: «Перед іспитом я багато вчуся».', [...combos(['Antes del examen'], [', estudio mucho.', ' estudio mucho.']), 'Estudio mucho antes del examen.'], [['Antes de el examen estudio mucho.', 'De + el зливаються: del examen.']]);
 x(86, 'transfer', 'a106.after-class-t', AD, 'Напиши одногрупникам іспанською: «Після заняття ми йдемо в бар».', [...combos(['Después de la clase'], [', vamos al bar.', ' vamos al bar.', ', vamos a un bar.', ' vamos a un bar.']), 'Vamos al bar después de la clase.'], [['Después del clase vamos al bar.', 'Clase — жіночого роду: de la clase.']]);
-x(87, 'transfer', 'a106.trip-t', AD, 'Напиши іспанською: «Перед поїздкою я купую квиток» — «перед поїздкою» = antes de viajar.', [...combos(['Antes de viajar'], [', compro un billete.', ' compro un billete.', ', compro el billete.', ' compro el billete.']), 'Compro un billete antes de viajar.', 'Compro el billete antes de viajar.'], [infAfterDe('Antes de viajo, compro un billete.')]);
+x(87, 'transfer', 'a106.trip-t', AD, 'Напиши іспанською: «Перед тим як подорожувати, я купую квиток».', [...combos(['Antes de viajar'], [', compro un billete.', ' compro un billete.', ', compro el billete.', ' compro el billete.']), 'Compro un billete antes de viajar.', 'Compro el billete antes de viajar.'], [infAfterDe('Antes de viajo, compro un billete.')]);
 k.choice({ n: 88, role: 'independent', fam: 'a106.evening', t: [ADC], ins: 'Обери правильний варіант.', p: ['Después de ___, leo.'], o: [['ceno', ADC, infAfterDe('')[1]], ['cenar', true]] });
 k.choice({ n: 89, role: 'delayed', fam: 'a106.after-work', t: [ADC], ins: 'Обери правильний варіант.', p: ['Antes ___ trabajo, desayuno.'], o: [['del', true], ['de el', ADC, 'De + el зливаються: del.'], ['de la', ADC, 'Trabajo — чоловічого роду: del trabajo.']] });
 
@@ -196,7 +197,7 @@ k.material({
   title: 'Зв’язки: y, pero, porque; ¿por qué?; también / tampoco',
   blocks: [
     ul(
-      'y — «і» (e перед i-, hi-: español e inglés)',
+      'y — «і» (e перед голосним звуком [i]: español e inglés; але agua y hielo)',
       'pero — «але» (зазвичай з комою перед ним)',
       'porque — «бо» (одне слово, без знака); ¿por qué? — «чому?»',
       'Yo también / Yo tampoco / Yo no / Yo sí',
@@ -234,7 +235,7 @@ export default k.build({
       kind: 'explanation',
       title: 'Крок 1. Y, e, pero',
       blocks: [
-        uk('Y — «і»: з’єднує схожі або послідовні думки. Перед словом на i- або hi- (звук [i]) y змінюється на e: español e inglés, padres e hijos.'),
+        uk('Y — «і»: з’єднує схожі або послідовні думки. Перед словом, що починається з голосного звуку [i] (i-, hi-), y змінюється на e: español e inglés, padres e hijos. Перед hie-, hia- (там звук [j]) лишається y: agua y hielo («вода й лід»).'),
         uk('Pero — «але»: протиставлення. Перед pero зазвичай ставимо кому.'),
         ex('Me gusta nadar y correr.', 'Мені подобається плавати й бігати.'),
         ex('Hablo francés e inglés.', 'Я говорю французькою й англійською.'),
@@ -249,7 +250,7 @@ export default k.build({
       blocks: [
         uk('Porque — «бо, тому що»: пояснює причину. Одне слово, без знака наголосу.'),
         uk('¿Por qué? — «чому?»: два слова, qué зі знаком наголосу. На ¿Por qué…? відповідаємо Porque…'),
-        ex('—¿Por qué no vas al cine? —Porque tengo un examen.', '—Чому ти не йдеш у кіно? —Бо в мене іспит.'),
+        ex('—¿Por qué no vas al cine? —Porque tengo un examen.', '— Чому ти не йдеш у кіно? — Бо в мене іспит.'),
         ex('Aprendo español porque me gusta.', 'Я вчу іспанську, бо мені подобається.'),
       ],
     },
@@ -261,9 +262,9 @@ export default k.build({
       blocks: [
         uk('Погодитися: зі ствердженням — Yo también, із запереченням — Yo tampoco («я теж ні»). Не погодитися: Yo no / Yo sí. З gustar — через a mí: A mí también.'),
         uk('Короткі відповіді: nada — «нічого», nadie — «ніхто». У магазині: Nada más, gracias.'),
-        uk('Antes de — «перед», después de — «після». Після них — інфінітив або іменник з артиклем (de + el = del).'),
-        ex('—Hablo inglés. —Yo también.', '—Я говорю англійською. —Я теж.'),
-        ex('—No como carne. —Yo tampoco.', '—Я не їм м’яса. —Я теж ні.'),
+        uk('Antes de — «перед», después de — «після». Після них — інфінітив (antes de cenar) або іменник: часто з артиклем (después del trabajo, de + el = del), але буває й без нього або з присвійним словом (antes de clase, después de mi clase).'),
+        ex('—Hablo inglés. —Yo también.', '— Я говорю англійською. — Я теж.'),
+        ex('—No como carne. —Yo tampoco.', '— Я не їм м’яса. — Я теж ні.'),
         ex('Después del desayuno leo el periódico.', 'Після сніданку я читаю газету.'),
       ],
     },
@@ -280,11 +281,11 @@ export default k.build({
       title: 'Підсумок',
       blocks: [
         ul(
-          'Y — «і» (e перед i-, hi-); pero — «але»; porque — «бо».',
+          'Y — «і» (e перед голосним звуком [i]); pero — «але»; porque — «бо».',
           '¿Por qué? — питання; porque — відповідь.',
           'Yo también / Yo tampoco; з gustar — a mí también.',
           'Nada — нічого, nadie — ніхто.',
-          'Antes de / después de + інфінітив або іменник.',
+          'Antes de / después de + інфінітив або іменник (з артиклем чи без).',
         ),
       ],
     },

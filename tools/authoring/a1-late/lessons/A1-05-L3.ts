@@ -108,15 +108,14 @@ k.choice({ n: 31, role: 'independent', fam: 'a105.clock', t: [MIR], ins: 'Про
 
 // ======================= de la mañana (with exact time)
 const dmErr = (part: 'mañana' | 'tarde' | 'noche'): Array<[string, string, Record<string, 'incorrect' | 'unresolved'>?]> => [
-  [`por la ${part}`, `З точним часом в Іспанії зазвичай кажуть de la ${part}; por la ${part} поряд із годиною теж трапляється в розмові, тож тут не рахується помилкою, але очікувана відповідь — de la ${part}.`, { [DM]: 'unresolved' }],
   [`en la ${part}`, `В Іспанії з точним часом кажуть de la ${part}; en la ${part} поширене в Латинській Америці, тож тут не рахується помилкою, але очікувана відповідь — de la ${part}.`, { [DM]: 'unresolved' }],
 ];
 const dmIns = (when: string, model?: string): string => `Впиши іспанською частину доби до точного часу (${when}).${model ? ` Зразок: a las cinco de la tarde.` : ''}`;
-k.exact({ n: 32, role: 'supported', fam: 'a105.morning-time', t: [DM], ins: dmIns('зранку', 'y'), p: ['a las ocho ___'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'о восьмій ранку' });
-k.exact({ n: 33, role: 'supported', fam: 'a105.afternoon-time', t: [DM], ins: dmIns('після обіду', 'y'), p: ['a las cinco ___'], acc: ['de la tarde'], err: dmErr('tarde'), tr: 'о п’ятій після обіду' });
-k.exact({ n: 34, role: 'independent', fam: 'a105.night-time', t: [DM], ins: dmIns('уночі'), p: ['a las once ___'], acc: ['de la noche'], err: dmErr('noche'), tr: 'об одинадцятій вечора' });
-k.exact({ n: 35, role: 'independent', fam: 'a105.morning-time', t: [DM], ins: dmIns('зранку'), p: ['Trabajo a las nueve ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Я працюю о дев’ятій ранку.' });
-k.exact({ n: 36, role: 'independent', fam: 'a105.night-time', t: [DM], ins: dmIns('увечері, 22:00'), p: ['Ceno a las diez ___.'], acc: ['de la noche'], err: dmErr('noche'), tr: 'Я вечеряю о десятій вечора.' });
+k.exact({ n: 32, role: 'supported', fam: 'a105.morning-time', t: [DM], ins: dmIns('зранку', 'y'), p: ['a las ocho ___'], acc: ['de la mañana', 'por la mañana'], err: dmErr('mañana'), tr: 'о восьмій ранку' });
+k.exact({ n: 33, role: 'supported', fam: 'a105.afternoon-time', t: [DM], ins: dmIns('після обіду', 'y'), p: ['a las cinco ___'], acc: ['de la tarde', 'por la tarde'], err: dmErr('tarde'), tr: 'о п’ятій після обіду' });
+k.exact({ n: 34, role: 'independent', fam: 'a105.night-time', t: [DM], ins: dmIns('уночі'), p: ['a las once ___'], acc: ['de la noche', 'por la noche'], err: dmErr('noche'), tr: 'об одинадцятій вечора' });
+k.exact({ n: 35, role: 'independent', fam: 'a105.morning-time', t: [DM], ins: dmIns('зранку'), p: ['Trabajo a las nueve ___.'], acc: ['de la mañana', 'por la mañana'], err: dmErr('mañana'), tr: 'Я працюю о дев’ятій ранку.' });
+k.exact({ n: 36, role: 'independent', fam: 'a105.night-time', t: [DM], ins: dmIns('увечері, 22:00'), p: ['Ceno a las diez ___.'], acc: ['de la noche', 'por la noche'], err: dmErr('noche'), tr: 'Я вечеряю о десятій вечора.' });
 k.slots({
   n: 37,
   role: 'independent',
@@ -126,15 +125,15 @@ k.slots({
   p: ['La tienda abre a las nueve ___ y cierra a las ocho ___.'],
   tpl: ['La tienda abre a las nueve ', S('s1'), ' y cierra a las ocho ', S('s2'), '.'],
   slots: [
-    { id: 's1', t: DM, acc: ['de la mañana'] },
-    { id: 's2', t: DM, acc: ['de la tarde', 'de la noche'] },
+    { id: 's1', t: DM, acc: ['de la mañana', 'por la mañana'] },
+    { id: 's2', t: DM, acc: ['de la tarde', 'de la noche', 'por la tarde', 'por la noche'] },
   ],
   tr: 'Крамниця відчиняється о дев’ятій ранку й зачиняється о восьмій вечора.',
 });
-k.exact({ n: 38, role: 'delayed', fam: 'a105.afternoon-time', t: [DM], ins: dmIns('після обіду'), p: ['a las cuatro ___'], acc: ['de la tarde'], err: dmErr('tarde'), tr: 'о четвертій після обіду' });
-k.exact({ n: 39, role: 'delayed', fam: 'a105.class-time', t: [DM], ins: dmIns('зранку'), p: ['La clase es a las diez ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Заняття о десятій ранку.' });
-k.exact({ n: 40, role: 'transfer', fam: 'a105.train', t: [DM], ins: dmIns('зранку'), p: ['El tren sale a las seis ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Потяг відправляється о шостій ранку.' });
-k.exact({ n: 41, role: 'transfer', fam: 'a105.concert', t: [DM], ins: dmIns('увечері, 22:00'), p: ['La cena es a las diez ___.'], acc: ['de la noche'], err: dmErr('noche'), tr: 'Вечеря о десятій вечора.' });
+k.exact({ n: 38, role: 'delayed', fam: 'a105.afternoon-time', t: [DM], ins: dmIns('після обіду'), p: ['a las cuatro ___'], acc: ['de la tarde', 'por la tarde'], err: dmErr('tarde'), tr: 'о четвертій після обіду' });
+k.exact({ n: 39, role: 'delayed', fam: 'a105.class-time', t: [DM], ins: dmIns('зранку'), p: ['La clase es a las diez ___.'], acc: ['de la mañana', 'por la mañana'], err: dmErr('mañana'), tr: 'Заняття о десятій ранку.' });
+k.exact({ n: 40, role: 'transfer', fam: 'a105.train', t: [DM], ins: dmIns('зранку'), p: ['El tren sale a las seis ___.'], acc: ['de la mañana', 'por la mañana'], err: dmErr('mañana'), tr: 'Потяг відправляється о шостій ранку.' });
+k.exact({ n: 41, role: 'transfer', fam: 'a105.concert', t: [DM], ins: dmIns('увечері, 22:00'), p: ['La cena es a las diez ___.'], acc: ['de la noche', 'por la noche'], err: dmErr('noche'), tr: 'Вечеря о десятій вечора.' });
 k.choice({ n: 42, role: 'independent', fam: 'a105.morning-time', t: [DMC], ins: 'Обери правильний варіант.', p: ['Me levanto a las siete ___.'], o: [['en mañana', DMC, 'Частину доби з точним часом додаємо через de і артикль: de la mañana.'], ['de la mañana', true], ['la mañana', DMC, 'Перед la mañana потрібен прийменник de: de la mañana.']], tr: 'Я встаю о сьомій ранку.' });
 
 // ======================= ¿A qué hora…? — a las …
@@ -325,7 +324,7 @@ export default k.build({
       title: 'Крок 2. О котрій? ¿A qué hora…?',
       blocks: [
         uk('¿Qué hora es? — «Котра година зараз?». ¿A qué hora…? — «О котрій відбувається подія?». Відповідь про подію — a las + година (a la una).'),
-        uk('З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. Без точного часу кажемо por: Trabajo por la mañana.'),
+        uk('З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. У розмові правильно й a las ocho por la mañana. Без точного часу кажемо тільки por: Trabajo por la mañana.'),
         ex('¿A qué hora es la clase? — A las nueve.', 'О котрій заняття? — О дев’ятій.'),
         ex('El concierto es a las nueve de la noche.', 'Концерт о дев’ятій вечора.'),
       ],

@@ -1,5 +1,5 @@
 // A1-04-L5 — how often: parts of the day (CV-03), frequency adverbs, nunca, frequency expressions (O6).
-import { Kit, S, ex, hTranscript, plink, ul, uk } from '../lib.ts';
+import { Kit, S, ex, hTr, hTranscript, plink, ul, uk } from '../lib.ts';
 import type { SlotSpec } from '../lib.ts';
 import { RULES } from './rules.ts';
 
@@ -321,6 +321,7 @@ k.exact({
   fam: 'a104.food',
   t: [NUU],
   ins: 'Переклади іспанською: «Я ніколи не п’ю каву ввечері».',
+  hints: [hTr('«Ввечері» — por la noche; частини доби: por la mañana, por la tarde, por la noche.')],
   acc: [
     'Nunca bebo café por la noche.',
     'Yo nunca bebo café por la noche.',
@@ -590,7 +591,7 @@ export default k.build({
       title: 'Щодня, на вихідних, раз на тиждень',
       blocks: [
         uk('Todos los días або cada día — «щодня». Los fines de semana — «на вихідних». Una vez a la semana — «раз на тиждень».'),
-        uk('Los + день тижня означає повтор: los sábados — «щосуботи», los domingos — «щонеділі». El sábado — «у суботу» (один раз).'),
+        uk('Los + день тижня означає повтор: los sábados — «щосуботи», los domingos — «щонеділі». El sábado — зазвичай «у суботу» (цієї суботи); в описі розкладу може означати й звичку: El sábado descanso y el domingo trabajo.'),
         ex('Leo el periódico todos los días.', 'Я щодня читаю газету.'),
         ex('Los sábados voy al cine.', 'Щосуботи я ходжу в кіно.'),
       ],

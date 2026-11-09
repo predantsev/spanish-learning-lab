@@ -241,7 +241,7 @@ export class Kit {
     if (reference !== undefined && !CYR.test(reference)) task.referenceAnswer = reference;
     task.feedback = {
       correctUk: b.ok ?? 'Правильно!',
-      incorrectUk: b.bad ?? `Поки що ні. ${this.ruleText(targets)}`,
+      incorrectUk: b.bad ?? `Поки що ні. ${b.rule ?? this.ruleText(targets)}`,
       ...(canBeUnresolved ? { unresolvedUk: b.unres ?? UNRESOLVED_UK } : {}),
     };
     // Keep key order stable: feedback and reviewStatus last.

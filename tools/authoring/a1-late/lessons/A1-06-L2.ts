@@ -173,7 +173,7 @@ k.choice({
   ins: 'Яке питання підходить, щоб дізнатися, що друг вибирає?',
   o: [
     ['¿Qué prefieres, el cine o el teatro?', true],
-    ['¿Te prefiere el cine o el teatro?', CHC, meErr('')[1]],
+    ['¿Te prefiere el cine o el teatro?', CHC, 'Preferir — звичайне дієслово з підметом: питаємо друга — prefieres, без займенника te: ¿Qué prefieres…?'],
     ['¿Qué prefieres, el cine y el teatro?', CHC, 'Між варіантами вибору — o («чи, або»).'],
   ],
 });

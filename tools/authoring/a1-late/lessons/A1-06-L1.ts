@@ -1,8 +1,8 @@
 // A1-06-L1 — likes and dislikes with gustar: pronouns (me/te/le, nos/os/les), gusta/gustan,
 // infinitive, article with nouns, a + person + le, negation, encantar, degree, short responses,
 // listening to preferences (O1, CV-02, CV-05).
-import { Kit, S, ex, hRule, hTranscript, plink, tableEs, tableUk, ul, uk, DICTATION } from '../lib.ts';
-import type { TaskRole } from '../../../content/types.ts';
+import { Kit, S, ex, hClue, hRule, hTranscript, plink, tableEs, tableUk, ul, uk, DICTATION } from '../lib.ts';
+import type { Hint, TaskRole } from '../../../content/types.ts';
 import { RULES } from './rules.ts';
 
 const k = new Kit('A1-06-L1', RULES);
@@ -34,9 +34,14 @@ const LPD = 'listening.preferences/dictation';
 type E = Array<[string, string]>;
 
 /** Exact-variants task with an optional Spanish prompt line and Ukrainian translation hint. */
-function x(n: number, role: TaskRole, fam: string, t: string, ins: string, acc: string[], err: E = [], p?: string, tr?: string): string {
-  return k.exact({ n, role, fam, t: [t], ins, acc, ...(err.length > 0 ? { err } : {}), ...(p ? { p: [p] } : {}), ...(tr ? { tr } : {}) });
+function x(n: number, role: TaskRole, fam: string, t: string, ins: string, acc: string[], err: E = [], p?: string, tr?: string, hints?: Hint[]): string {
+  return k.exact({ n, role, fam, t: [t], ins, acc, ...(err.length > 0 ? { err } : {}), ...(p ? { p: [p] } : {}), ...(tr ? { tr } : {}), ...(hints ? { hints } : {}) });
 }
+/** Construction clues for full-sentence tasks whose sentence needs a construction taught in another step. */
+const ART = (t: string): Hint[] => [hClue([t], 'Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.')];
+const INF = (t: string): Hint[] => [hClue([t], 'Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.')];
+const ANL = (t: string): Hint[] => [hClue([t], 'Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.')];
+
 /** Single-slot rewrite task: the learner retypes the whole sentence with the gap filled. */
 function one(n: number, role: TaskRole, fam: string, t: string, ins: string, before: string, after: string, acc: string[], err: E = [], tr?: string): string {
   return k.slots({
@@ -62,11 +67,11 @@ const manyThings = (v: string): [string, string] => [v.slice(0, -1), `Подоб
 x(1, 'supported', 'a106.music', P, pronIns('«Мені подобається музика»', 'Te gusta el café — «Тобі подобається кава»'), ['Me'], [yoErr('Yo'), ['Te', 'Te — «тобі». «Мені» — me.'], ['Le', 'Le — «йому, їй, Вам». «Мені» — me.']], '___ gusta la música.');
 x(2, 'supported', 'a106.drinks', P, pronIns('«Тобі подобається чай?»', 'Me gusta el café — «Мені подобається кава»'), ['Te'], [yoErr('Tú'), ['Me', 'Me — «мені». «Тобі» — te.']], '¿___ gusta el té?');
 x(3, 'independent', 'a106.sport', P, pronIns('«Йому подобається футбол»'), ['Le'], [yoErr('Él'), ['Se', 'З gustar для «йому, їй» — le.'], ['Me', 'Me — «мені». «Йому» — le.']], '___ gusta el fútbol.');
-x(4, 'independent', 'a106.sweets', P, 'Переклади іспанською: «Мені подобається шоколад».', ['Me gusta el chocolate.', 'A mí me gusta el chocolate.'], [['Yo gusta el chocolate.', yoErr('Yo')[1]]]);
+x(4, 'independent', 'a106.sweets', P, 'Переклади іспанською: «Мені подобається шоколад».', ['Me gusta el chocolate.', 'A mí me gusta el chocolate.'], [['Yo gusta el chocolate.', yoErr('Yo')[1]]], undefined, undefined, ART(P));
 x(5, 'independent', 'a106.city', P, 'Запитай іспанською ввічливо одну людину: «Вам подобається Мадрид?»', ['¿Le gusta Madrid?', '¿A usted le gusta Madrid?', '¿Le gusta a usted Madrid?'], [['¿Usted gusta Madrid?', 'Людину позначає займенник: ¿Le gusta…? (le — також для usted).'], ['¿Te gusta Madrid?', 'Te — на «ти». Ввічливо одній людині — le.']]);
 one(6, 'independent', 'a106.reading', P, 'Перепиши питання повністю, вставивши займенник, щоб воно означало «Тобі подобається читати?»', '¿', ' gusta leer?', ['Te'], [yoErr('Tú')]);
 x(7, 'delayed', 'a106.cinema', P, pronIns('«Їй подобається кіно»'), ['Le'], [yoErr('Ella'), ['La', 'З gustar для «їй» — le (так само, як для «йому»).']], '___ gusta el cine.');
-x(8, 'delayed', 'a106.beach', P, 'Переклади іспанською: «Тобі подобається пляж?»', ['¿Te gusta la playa?', '¿A ti te gusta la playa?'], [['¿Tú gustas la playa?', yoErr('Tú')[1]]]);
+x(8, 'delayed', 'a106.beach', P, 'Переклади іспанською: «Тобі подобається пляж?»', ['¿Te gusta la playa?', '¿A ti te gusta la playa?'], [['¿Tú gustas la playa?', yoErr('Tú')[1]]], undefined, undefined, ART(P));
 x(9, 'transfer', 'a106.travel-chat', P, 'Друг питає, як тобі Валенсія. Напиши іспанською: «Мені подобається Валенсія».', ['Me gusta Valencia.', 'A mí me gusta Valencia.'], [['Yo gusto Valencia.', yoErr('Yo')[1]]]);
 one(10, 'transfer', 'a106.kitchen-t', P, 'Перепиши речення повністю, вставивши займенник, щоб воно означало «Йому подобається готувати».', '', ' gusta cocinar.', ['Le'], [yoErr('Él')]);
 k.choice({ n: 11, role: 'independent', fam: 'a106.music', t: [PC], ins: 'Обери речення зі значенням «Мені подобається музика».', o: [['Yo gusta la música.', PC, yoErr('Yo')[1]], ['Me gusta la música.', true], ['Le gusta la música.', PC, 'Le — «йому, їй». «Мені» — me.']] });
@@ -76,11 +81,11 @@ k.choice({ n: 12, role: 'delayed', fam: 'a106.sport', t: [PC], ins: 'Обери 
 x(13, 'supported', 'a106.cinema', PP, pronIns('«Нам подобається кіно»', 'Me gusta el cine → Nos gusta el cine'), ['Nos'], [yoErr('Nosotros'), ['Les', 'Les — «їм». «Нам» — nos.']], '___ gusta el cine.');
 x(14, 'supported', 'a106.music', PP, pronIns('«Вам (кільком друзям, на «ти») подобається музика?»', 'Nos gusta la música'), ['Os'], [yoErr('Vosotros'), ['Les', 'Les — «їм» або формальне «вам». Друзям на «ти» в Іспанії — os.']], '¿___ gusta la música?');
 x(15, 'independent', 'a106.beach', PP, pronIns('«Їм подобається пляж»'), ['Les'], [yoErr('Ellos'), ['Se', 'З gustar для «їм» — les.'], ['Nos', 'Nos — «нам». «Їм» — les.']], '___ gusta la playa.');
-x(16, 'independent', 'a106.travel', PP, 'Переклади іспанською: «Нам подобається подорожувати».', ['Nos gusta viajar.', 'A nosotros nos gusta viajar.', 'A nosotras nos gusta viajar.'], [['Nosotros gustamos viajar.', yoErr('Nosotros')[1]]]);
+x(16, 'independent', 'a106.travel', PP, 'Переклади іспанською: «Нам подобається подорожувати».', ['Nos gusta viajar.', 'A nosotros nos gusta viajar.', 'A nosotras nos gusta viajar.'], [['Nosotros gustamos viajar.', yoErr('Nosotros')[1]]], undefined, undefined, INF(PP));
 x(17, 'independent', 'a106.hotel', PP, pronIns('«Вам (кільком людям, формально) подобається готель?»'), ['Les'], [['Os', 'Os — кільком людям на «ти». Формально (ustedes) — les.'], yoErr('Ustedes')], '¿___ gusta el hotel?');
 one(18, 'independent', 'a106.kitchen', PP, 'Перепиши питання повністю, вставивши займенник, щоб воно означало «Вам (друзі, на «ти») подобається готувати?»', '¿', ' gusta cocinar?', ['Os'], [yoErr('Vosotros')]);
 x(19, 'delayed', 'a106.sport', PP, pronIns('«Нам подобається футбол»'), ['Nos'], [yoErr('Nosotros')], '___ gusta el fútbol.');
-x(20, 'delayed', 'a106.dance', PP, 'Переклади іспанською: «Їм подобається танцювати».', ['Les gusta bailar.', 'A ellos les gusta bailar.', 'A ellas les gusta bailar.'], [['Ellos gustan bailar.', yoErr('Ellos')[1]]]);
+x(20, 'delayed', 'a106.dance', PP, 'Переклади іспанською: «Їм подобається танцювати».', ['Les gusta bailar.', 'A ellos les gusta bailar.', 'A ellas les gusta bailar.'], [['Ellos gustan bailar.', yoErr('Ellos')[1]]], undefined, undefined, INF(PP));
 x(21, 'transfer', 'a106.visit-t', PP, 'Друзі (vosotros) приїхали до тебе в Мадрид. Запитай іспанською: «Вам подобається Мадрид?»', ['¿Os gusta Madrid?', '¿A vosotros os gusta Madrid?', '¿A vosotras os gusta Madrid?'], [['¿Les gusta Madrid?', 'Les — формально (ustedes). Друзям на «ти» — os.']]);
 one(22, 'transfer', 'a106.park-t', PP, 'Перепиши речення повністю, вставивши займенник, щоб воно означало «Нам подобається гуляти в парку».', '', ' gusta pasear por el parque.', ['Nos'], [yoErr('Nosotros')]);
 k.choice({ n: 23, role: 'independent', fam: 'a106.travel', t: [PPC], ins: 'Обери займенник зі значенням «їм».', p: ['___ gusta viajar.'], o: [['Nos', PPC, 'Nos — «нам».'], ['Les', true], ['Os', PPC, 'Os — «вам» (vosotros).']] });
@@ -120,7 +125,7 @@ x(39, 'independent', 'a106.dance', INW, 'Впиши дієслово bailar у �
 x(40, 'independent', 'a106.swim', IN, 'Переклади іспанською: «Мені подобається плавати».', ['Me gusta nadar.', 'A mí me gusta nadar.'], [['Me gusta nado.', infErr('nado', 'nadar')[1]]]);
 x(41, 'independent', 'a106.travel', IN, 'Переклади іспанською: «Тобі подобається подорожувати?»', ['¿Te gusta viajar?', '¿A ti te gusta viajar?'], [['¿Te gustan viajar?', 'З інфінітивом — завжди gusta: ¿Te gusta viajar?'], ['¿Te gusta viajas?', infErr('viajas', 'viajar')[1]]]);
 one(42, 'independent', 'a106.reading', INW, 'Перепиши речення повністю, вставивши gusta або gustan: «Мені подобається читати й писати».', 'Me ', ' leer y escribir.', ['gusta'], [['gustan', 'З інфінітивом — завжди gusta, навіть із кількома діями.']]);
-x(43, 'delayed', 'a106.run', IN, 'Переклади іспанською: «Їм подобається бігати в парку».', ['Les gusta correr en el parque.', 'A ellos les gusta correr en el parque.', 'A ellas les gusta correr en el parque.'], [['Les gusta corren en el parque.', infErr('corren', 'correr')[1]]]);
+x(43, 'delayed', 'a106.run', IN, 'Переклади іспанською: «Їм подобається бігати в парку».', ['Les gusta correr en el parque.', 'A ellos les gusta correr en el parque.', 'A ellas les gusta correr en el parque.'], [['Les gusta corren en el parque.', infErr('corren', 'correr')[1]]], undefined, undefined, [hClue([IN], 'Кільком людям (ellos, ellas) — les: Les gusta leer. Нам — nos: Nos gusta nadar.')]);
 x(44, 'delayed', 'a106.kitchen', INW, 'Впиши дієслово cocinar у потрібній формі: «Тобі подобається готувати?»', ['cocinar'], [infErr('cocinas', 'cocinar')], '¿Te gusta ___?');
 x(45, 'transfer', 'a106.dog-t', IN, 'Переклади іспанською: «Мені подобається гуляти зі своїм собакою».', ['Me gusta pasear con mi perro.', 'A mí me gusta pasear con mi perro.'], [['Me gusta paseo con mi perro.', infErr('paseo', 'pasear')[1]]]);
 x(46, 'transfer', 'a106.sport-t', IN, 'Переклади іспанською: «Нам подобається плавати й бігати».', ['Nos gusta nadar y correr.', 'A nosotros nos gusta nadar y correr.', 'A nosotras nos gusta nadar y correr.'], [['Nos gustan nadar y correr.', 'З інфінітивами — завжди gusta, навіть із кількома діями.']]);
@@ -142,7 +147,7 @@ k.slots({
   role: 'transfer',
   fam: 'a106.breakfast-t',
   t: [NA],
-  ins: 'Перепиши речення повністю, вставивши артиклі: «Мені подобається чай і подобаються яблука».',
+  ins: 'Перепиши речення повністю, вставивши артиклі. Йдеться про те, що тобі подобається загалом: «Мені подобається чай і подобаються яблука».',
   p: ['Me gusta ___ té y me gustan ___ manzanas.'],
   tpl: ['Me gusta ', S('s1'), ' té y me gustan ', S('s2'), ' manzanas.'],
   slots: [
@@ -151,7 +156,7 @@ k.slots({
   ],
 });
 k.choice({ n: 57, role: 'independent', fam: 'a106.drinks', t: [NAC], ins: 'Обери правильне речення.', o: [['Me gusta té.', NAC, 'Перед іменником потрібен артикль: el té.'], ['Me gusta el té.', true]] });
-k.choice({ n: 58, role: 'delayed', fam: 'a106.pets', t: [NAC], ins: 'Обери правильне речення.', o: [['Me gustan los perros.', true], ['Me gustan perros.', NAC, 'Перед іменником потрібен артикль: los perros.'], ['Me gustan unos perros.', NAC, 'Про те, що подобається загалом, — означений артикль: los perros.']] });
+k.choice({ n: 58, role: 'delayed', fam: 'a106.pets', t: [NAC], ins: 'Обери правильне речення про те, що тобі подобаються собаки загалом.', o: [['Me gustan los perros.', true], ['Me gustan perros.', NAC, 'Перед іменником потрібен артикль: los perros.'], ['Me gustan unos perros.', NAC, 'Про те, що подобається загалом, — означений артикль: los perros.']] });
 
 // ======================= 6. a + person + le / les
 const noLe = (s: string, pron: string): [string, string] => [s, `Бракує займенника: навіть коли людину названо, ${pron} лишається.`];
@@ -176,8 +181,8 @@ x(73, 'independent', 'a106.drinks', NGU, 'Запитай іспанською: �
 x(74, 'independent', 'a106.dance', NG, 'Перепиши речення із запереченням.', ['No le gusta bailar.'], [meNo('Le no gusta bailar.')], 'Le gusta bailar.');
 x(75, 'delayed', 'a106.beach', NGU, 'Переклади іспанською: «Нам не подобається пляж».', ['No nos gusta la playa.', 'A nosotros no nos gusta la playa.', 'A nosotras no nos gusta la playa.'], [meNo('Nos no gusta la playa.')]);
 x(76, 'delayed', 'a106.pets', NG, 'Перепиши речення із запереченням.', ['No me gustan los gatos.'], [meNo('Me no gustan los gatos.')], 'Me gustan los gatos.');
-x(77, 'transfer', 'a106.friends-t', NGU, 'Переклади іспанською: «Моїм друзям не подобається футбол».', ['A mis amigos no les gusta el fútbol.'], [['A mis amigos les no gusta el fútbol.', 'No стоїть перед займенником: no les gusta.']]);
-x(78, 'transfer', 'a106.kitchen-t', NGU, 'Друг пропонує приготувати вечерю разом. Скажи іспанською: «Мені не подобається готувати».', ['No me gusta cocinar.', 'A mí no me gusta cocinar.'], [meNo('Me no gusta cocinar.')]);
+x(77, 'transfer', 'a106.friends-t', NGU, 'Переклади іспанською: «Моїм друзям не подобається футбол».', ['A mis amigos no les gusta el fútbol.'], [['A mis amigos les no gusta el fútbol.', 'No стоїть перед займенником: no les gusta.']], undefined, undefined, ANL(NGU));
+x(78, 'transfer', 'a106.kitchen-t', NGU, 'Друг пропонує приготувати вечерю разом. Скажи іспанською: «Мені не подобається готувати».', ['No me gusta cocinar.', 'A mí no me gusta cocinar.'], [meNo('Me no gusta cocinar.')], undefined, undefined, INF(NGU));
 
 // ======================= 8. encantar
 const muyErr = (s: string): [string, string] => [s, 'Encantar уже означає «дуже подобається», тому muy з ним не вживають.'];
@@ -189,7 +194,7 @@ x(83, 'independent', 'a106.music', ENU, 'Переклади іспанською
 x(84, 'independent', 'a106.pets', ENU, 'Переклади іспанською з encantar: «Ми обожнюємо котів».', ['Nos encantan los gatos.', 'A nosotros nos encantan los gatos.', 'A nosotras nos encantan los gatos.'], [['Nos encanta los gatos.', 'Gatos — множина, тож encantan.']]);
 x(85, 'delayed', 'a106.cinema', EN, 'Впиши encanta або encantan.', ['encanta'], [['encantan', 'Cine — одна річ, тож encanta (форма не залежить від mis padres).']], 'A mis padres les ___ el cine.', 'Мої батьки обожнюють кіно.');
 x(86, 'delayed', 'a106.city', ENU, 'Переклади іспанською з encantar: «Я обожнюю Мадрид».', ['Me encanta Madrid.', 'A mí me encanta Madrid.'], [muyErr('Me encanta muy Madrid.')]);
-x(87, 'transfer', 'a106.brother-t', ENU, 'Розкажи іспанською про брата з encantar: «Мій брат обожнює футбол».', ['A mi hermano le encanta el fútbol.'], [['A mi hermano encanta el fútbol.', 'Бракує займенника: a mi hermano le encanta.']]);
+x(87, 'transfer', 'a106.brother-t', ENU, 'Розкажи іспанською про брата з encantar: «Мій брат обожнює футбол».', ['A mi hermano le encanta el fútbol.'], [['A mi hermano encanta el fútbol.', 'Бракує займенника: a mi hermano le encanta.']], undefined, undefined, ANL(ENU));
 k.slots({
   n: 88,
   role: 'transfer',
@@ -216,7 +221,7 @@ x(95, 'independent', 'a106.kitchen', DG, 'Переклади іспансько�
 x(96, 'independent', 'a106.pets', DG, 'Переклади іспанською з mucho: «Мені дуже подобаються коти».', ['Me gustan mucho los gatos.', 'Los gatos me gustan mucho.', 'A mí me gustan mucho los gatos.'], [['Me gustan muchos los gatos.', 'Mucho після дієслова не змінюється: me gustan mucho.']]);
 x(97, 'delayed', 'a106.drinks', DG, 'Запитай іспанською: «Тобі не дуже подобається чай?»', ['¿No te gusta mucho el té?', '¿A ti no te gusta mucho el té?'], [['¿No te gusta muy el té?', muyMucho('')[1]]]);
 x(98, 'delayed', 'a106.run', DG, 'Переклади іспанською: «Мені зовсім не подобається бігати».', ['No me gusta nada correr.', 'A mí no me gusta nada correr.'], [['Me gusta nada correr.', 'Перед займенником потрібне no: No me gusta nada.']]);
-x(99, 'transfer', 'a106.mother-t', DG, 'Розкажи іспанською про маму (з mucho): «Моїй мамі дуже подобається танцювати».', ['A mi madre le gusta mucho bailar.'], [muyMucho('A mi madre le gusta muy bailar.')]);
+x(99, 'transfer', 'a106.mother-t', DG, 'Розкажи іспанською про маму (з mucho): «Моїй мамі дуже подобається танцювати».', ['A mi madre le gusta mucho bailar.'], [muyMucho('A mi madre le gusta muy bailar.')], undefined, undefined, ANL(DG));
 x(100, 'transfer', 'a106.holiday-t', DG, 'Друг кличе тебе на пляж. Скажи іспанською: «Нам зовсім не подобається пляж».', ['No nos gusta nada la playa.', 'A nosotros no nos gusta nada la playa.', 'A nosotras no nos gusta nada la playa.'], [['Nos gusta nada la playa.', 'Перед займенником потрібне no: No nos gusta nada.']]);
 k.choice({ n: 101, role: 'independent', fam: 'a106.scale', t: [DGC], ins: 'Яке речення означає найсильніше вподобання?', o: [['Me gusta.', DGC, 'Це просто «подобається».'], ['Me gusta mucho.', DGC, 'Сильно, але encanta — ще сильніше.'], ['Me encanta.', true]] });
 k.choice({ n: 102, role: 'delayed', fam: 'a106.scale', t: [DGC], ins: 'Яке речення означає «зовсім не подобається»?', o: [['No me gusta mucho.', DGC, 'Це «не дуже подобається».'], ['No me gusta nada.', true], ['Me gusta.', DGC, 'Це «подобається».']] });
@@ -325,7 +330,7 @@ export default k.build({
       ],
     },
     { kind: 'supported-practice', title: 'Крок 1: практика зі зразком', tasks: [k.id(1), k.id(2), k.id(13), k.id(14)] },
-    { kind: 'independent-practice', title: 'Крок 1: самостійно', tasks: [k.id(11), k.id(3), k.id(5), k.id(23), k.id(15), k.id(16), k.id(17)] },
+    { kind: 'independent-practice', title: 'Крок 1: самостійно', tasks: [k.id(11), k.id(3), k.id(5), k.id(23), k.id(15), k.id(17)] },
     {
       kind: 'explanation',
       title: 'Крок 2. Gusta чи gustan; артикль та інфінітив',
@@ -339,7 +344,7 @@ export default k.build({
       ],
     },
     { kind: 'supported-practice', title: 'Крок 2: практика зі зразком', tasks: [k.id(25), k.id(26), k.id(47), k.id(48), k.id(37), k.id(38)] },
-    { kind: 'independent-practice', title: 'Крок 2: самостійно', tasks: [k.id(35), k.id(27), k.id(28), k.id(57), k.id(49), k.id(51), k.id(39), k.id(40), k.id(41)] },
+    { kind: 'independent-practice', title: 'Крок 2: самостійно', tasks: [k.id(35), k.id(27), k.id(28), k.id(57), k.id(49), k.id(51), k.id(39), k.id(40), k.id(41), k.id(16)] },
     {
       kind: 'explanation',
       title: 'Крок 3. A Ana le gusta; заперечення; encantar, mucho / nada, короткі відповіді',
@@ -354,8 +359,8 @@ export default k.build({
         uk('Короткі відповіді: погодитися — A mí también (на ствердження), A mí tampoco (на заперечення); не погодитися — A mí no, A mí sí. З gustar кажемо a mí, не yo.'),
         ex('Le encanta nadar.', 'Він обожнює плавати.'),
         ex('Me gusta mucho el té.', 'Мені дуже подобається чай.'),
-        ex('—Me gusta el teatro. —A mí también.', '—Мені подобається театр. —Мені теж.'),
-        ex('—No me gusta el café. —A mí tampoco.', '—Мені не подобається кава. —Мені теж ні.'),
+        ex('—Me gusta el teatro. —A mí también.', '— Мені подобається театр. — Мені теж.'),
+        ex('—No me gusta el café. —A mí tampoco.', '— Мені не подобається кава. — Мені теж ні.'),
       ],
     },
     { kind: 'supported-practice', title: 'Крок 3: практика зі зразком', tasks: [k.id(59), k.id(60), k.id(69), k.id(70)] },

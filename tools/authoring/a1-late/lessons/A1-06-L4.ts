@@ -90,12 +90,12 @@ k.slots({
 x(31, 'delayed', 'a106.dance', QI, 'Переклади іспанською: «Ана хоче танцювати».', ['Ana quiere bailar.'], [infErr('Ana quiere baila.', 'bailar')]);
 x(32, 'delayed', 'a106.swim', QIW, 'Впиши дієслово nadar у потрібній формі: «Хочете поплавати?» (vosotros)', ['nadar'], [infErr('nadáis', 'nadar')], '¿Queréis ___?');
 x(33, 'transfer', 'a106.course-t', QI, 'Напиши в анкеті мовної школи іспанською: «Я хочу говорити іспанською з друзями».', ['Quiero hablar español con mis amigos.', 'Yo quiero hablar español con mis amigos.'], [infErr('Quiero hablo español con mis amigos.', 'hablar')]);
-x(34, 'transfer', 'a106.weekend-wish-t', QI, 'Напиши другові іспанською: «На вихідних я хочу відпочити».', ['El fin de semana quiero descansar.', 'Quiero descansar el fin de semana.', 'Este fin de semana quiero descansar.', 'Quiero descansar este fin de semana.'], [infErr('El fin de semana quiero descanso.', 'descansar')]);
+x(34, 'transfer', 'a106.weekend-wish-t', QI, 'Напиши другові іспанською: «На вихідних я хочу відпочити».', ['El fin de semana quiero descansar.', 'Quiero descansar el fin de semana.', 'Este fin de semana quiero descansar.', 'Quiero descansar este fin de semana.'], [['El fin de semana quiero descanso.', 'Descanso тут можна прочитати як іменник («відпочинок»), тож це не помилка. Але очікувана модель — quiero + інфінітив: quiero descansar.', { [QI]: 'unresolved' }]]);
 
 // ======================= future expressions (recognition)
 k.choice({ n: 35, role: 'independent', fam: 'a106.time-words', t: [FE], ins: 'Що означає «pasado mañana»?', o: [['Учора.', false], ['Післязавтра.', true], ['Сьогодні вранці.', false]] });
 k.choice({ n: 36, role: 'independent', fam: 'a106.time-words', t: [FE], ins: 'Що означає «la semana que viene»?', o: [['Наступного тижня.', true], ['Минулого тижня.', false], ['Щотижня.', false]] });
-k.choice({ n: 37, role: 'independent', fam: 'a106.time-words', t: [FEC], ins: 'Сьогодні понеділок. Ти йдеш у кіно сьогодні ввечері. Обери вираз.', p: ['___ voy al cine.'], o: [['Esta noche', true], ['Por la noche', FEC, 'Por la noche — «увечері» загалом (часто про звичку). «Сьогодні ввечері» — esta noche.'], ['Mañana', FEC, 'Mañana — «завтра».']] });
+k.choice({ n: 37, role: 'independent', fam: 'a106.time-words', t: [FEC], ins: 'Сьогодні понеділок. Ти йдеш у кіно сьогодні ввечері. Обери вираз, який сам по собі означає «сьогодні ввечері».', p: ['___ voy al cine.'], o: [['Esta noche', true], ['Por la noche', FEC, 'Por la noche — «увечері»: саме по собі не каже, що це сьогодні. «Сьогодні ввечері» — esta noche.'], ['Mañana', FEC, 'Mañana — «завтра».']] });
 k.choice({ n: 38, role: 'delayed', fam: 'a106.time-words', t: [FE], ins: 'Що означає «este fin de semana»?', o: [['На цих вихідних.', true], ['Щовихідних.', false], ['Наприкінці місяця.', false]] });
 k.choice({ n: 39, role: 'delayed', fam: 'a106.time-words', t: [FEC], ins: 'Сьогодні середа. Зустріч — у четвер. Обери слово.', p: ['La reunión es ___.'], o: [['mañana', true], ['pasado mañana', FEC, 'Pasado mañana — «післязавтра» (у п’ятницю).'], ['hoy', FEC, 'Hoy — «сьогодні».']] });
 
@@ -116,7 +116,7 @@ k.slots({
   slots: [{ id: 's1', t: PL, acc: ['Este fin de semana'], err: [['Los fines de semana', 'Los fines de semana — «щовихідних» (звичка). Про план на ці вихідні — este fin de semana.']] }],
 });
 x(46, 'delayed', 'a106.cinema', PL, 'Напиши план іспанською: «У п’ятницю ввечері я йду в кіно».', ['El viernes por la noche voy al cine.', 'Voy al cine el viernes por la noche.', 'El viernes voy al cine por la noche.'], [goingTo('El viernes por la noche voy a ir al cine.')]);
-x(47, 'delayed', 'a106.work', PL, 'Напиши план іспанською: «Сьогодні після обіду Пабло працює».', ['Esta tarde Pablo trabaja.', 'Pablo trabaja esta tarde.'], [['Por la tarde Pablo trabaja.', 'Por la tarde — «удень» загалом. «Сьогодні після обіду» — esta tarde.']]);
+x(47, 'delayed', 'a106.work', PL, 'Напиши план іспанською так, щоб саме речення показувало, що це сьогодні: «Сьогодні після обіду Пабло працює».', ['Esta tarde Pablo trabaja.', 'Pablo trabaja esta tarde.'], [['Por la tarde Pablo trabaja.', 'Por la tarde саме по собі не каже, що це сьогодні. «Сьогодні після обіду» — esta tarde.']]);
 x(48, 'transfer', 'a106.message-plan-t', PL, 'Напиши другові в чаті іспанською: «Завтра я їду в Мадрид».', ['Mañana voy a Madrid.', 'Voy a Madrid mañana.', 'Mañana yo voy a Madrid.'], [goingTo('Mañana voy a ir a Madrid.')]);
 x(49, 'transfer', 'a106.next-monday-t', PL, 'Напиши колегам іспанською: «Наступного понеділка ми починаємо о дев’ятій» — починати: empezar (empezamos).', ['El próximo lunes empezamos a las nueve.', 'Empezamos a las nueve el próximo lunes.', 'El lunes que viene empezamos a las nueve.']);
 k.choice({ n: 50, role: 'independent', fam: 'a106.beach', t: [PLC], ins: 'Яке речення — план на конкретний день?', o: [['Los sábados voy a la playa.', PLC, 'Los sábados — «щосуботи»: це звичка, а не план.'], ['El sábado voy a la playa.', true]] });
@@ -130,7 +130,7 @@ k.choice({ n: 55, role: 'delayed', fam: 'a106.lnw-read', t: [LNWR], ins: 'Про
 k.choice({ n: 56, role: 'independent', fam: 'a106.lnw-read', t: [LNWR], ins: 'Прочитай. Що означає речення?', p: ['Quiero un helado.'], o: [['Я хочу морозиво.', true], ['Мені потрібне морозиво.', false], ['Я люблю морозиво загалом.', false]], tr: 'helado — морозиво' });
 k.choice({ n: 57, role: 'independent', fam: 'a106.wp', t: [WP], ins: 'Ти вже купив квитки на суботу. Обери речення, яке це передає.', o: [['Quiero ir a Toledo.', WP, 'Quiero ir — лише бажання.'], ['El sábado voy a Toledo.', true]] });
 k.choice({ n: 58, role: 'delayed', fam: 'a106.wp', t: [WP], ins: 'Ти мрієш про Італію, але нічого не плануєш. Обери речення.', o: [['Quiero viajar a Italia.', true], ['El lunes viajo a Italia.', WP, 'Це вже план із конкретним днем.']] });
-k.choice({ n: 59, role: 'independent', fam: 'a106.wp-read', t: [WPR], ins: 'Прочитай. Це план чи лише бажання?', p: ['Quiero aprender a bailar.'], o: [['Лише бажання.', true], ['План на конкретний день.', false]] });
+k.choice({ n: 59, role: 'independent', fam: 'a106.wp-read', t: [WPR], ins: 'Прочитай. Це план чи лише бажання?', p: ['Quiero viajar a Madrid.'], o: [['Лише бажання.', true], ['План на конкретний день.', false]] });
 k.choice({ n: 60, role: 'delayed', fam: 'a106.wp-read', t: [WPR], ins: 'Прочитай. Це план чи лише бажання?', p: ['Esta tarde ceno con Ana.'], o: [['Лише бажання.', false], ['План: сьогодні після обіду / ввечері вечеря з Аною.', true]] });
 
 // ======================= invitations
@@ -142,8 +142,8 @@ k.choice({ n: 65, role: 'independent', fam: 'a106.r-invite', t: [IVR], ins: 'П�
 k.choice({ n: 66, role: 'delayed', fam: 'a106.r-invite', t: [IVR], ins: 'Прочитай відповідь. Пабло погоджується?', p: ['Pablo: Lo siento, mañana trabajo. Otro día, ¿vale?'], o: [['Так, погоджується.', false], ['Ні, він працює й пропонує інший день.', true]] });
 const L1 = '¿Quieres ir al cine el sábado? —¡Claro! ¡Genial!';
 const L2 = '¿Queréis cenar en casa esta noche? —Lo siento, esta noche trabajo.';
-const l1 = k.clip({ id: 'clip.a1-06.invitation.cine', kind: 'text', es: L1, uk: '—Хочеш піти в кіно в суботу? —Звісно! Чудово!', t: [IVL], fam: 'a106.l-invite-yes' });
-const l2 = k.clip({ id: 'clip.a1-06.invitation.cena', kind: 'text', es: L2, uk: '—Хочете повечеряти вдома сьогодні ввечері? —Шкода, сьогодні ввечері я працюю.', t: [IVL], fam: 'a106.l-invite-no' });
+const l1 = k.clip({ id: 'clip.a1-06.invitation.cine', kind: 'text', es: L1, uk: '— Хочеш піти в кіно в суботу? — Звісно! Чудово!', t: [IVL], fam: 'a106.l-invite-yes' });
+const l2 = k.clip({ id: 'clip.a1-06.invitation.cena', kind: 'text', es: L2, uk: '— Хочете повечеряти вдома сьогодні ввечері? — Шкода, сьогодні ввечері я працюю.', t: [IVL], fam: 'a106.l-invite-no' });
 k.choice({ n: 67, role: 'independent', fam: 'a106.l-invite-yes', t: [IVL], clips: [l1], ins: 'Послухай. Друг погоджується піти в кіно?', o: [['Так.', true], ['Ні.', false], ['Пропонує інший день.', false]], hints: [hTranscript([IVL], L1)] });
 k.choice({ n: 68, role: 'independent', fam: 'a106.l-invite-no', t: [IVL], clips: [l2], ins: 'Послухай. Чому людина відмовляється?', o: [['Вона працює сьогодні ввечері.', true], ['Вона не любить вечеряти вдома.', false], ['Вона вже повечеряла.', false]], hints: [hTranscript([IVL], L2)] });
 

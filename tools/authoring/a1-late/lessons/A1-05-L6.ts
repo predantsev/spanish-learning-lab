@@ -150,7 +150,7 @@ k.choice({
   ins: 'Ти хочеш дізнатися конкретний номер. Обери питальне слово. Зразок: ¿Cuál es tu dirección?',
   p: ['¿___ es tu número de teléfono?'],
   o: [
-    ['Qué', QC, 'Qué es…? питає, що це таке взагалі. Конкретний номер — ¿Cuál es…?'],
+    ['Qué', QC, '¿Qué es…? питає, що це таке взагалі. Конкретний номер — ¿Cuál es…?'],
     ['Cuál', true],
   ],
 });
@@ -171,11 +171,11 @@ k.choice({
   role: 'independent',
   fam: 'a105.car',
   t: [QC],
-  ins: 'Обери питальне слово (перед іменником).',
+  ins: 'Обери питальне слово, як зазвичай кажуть в Іспанії перед іменником.',
   p: ['¿___ coche es de Ana?'],
   o: [
     ['Qué', true],
-    ['Cuál', QC, 'Перед іменником в Іспанії вживають qué: ¿Qué coche…?'],
+    ['Cuál', QC, 'Перед іменником в Іспанії зазвичай вживають qué: ¿Qué coche…? «¿Cuál coche…?» частіше чути в Латинській Америці.'],
   ],
   tr: 'Яка машина — Анина?',
 });
@@ -223,7 +223,7 @@ k.exact({
   t: [MU],
   ins: 'Ти знаєш, що аптека відчиняється о дев’ятій, але не знаєш, де вона. Запитай іспанською. Зразок: ¿Dónde está el banco?',
   acc: ['¿Dónde está la farmacia?'],
-  err: [['¿Donde está la farmacia?', 'У питанні dónde пишеться зі знаком наголосу.'], ['¿A qué hora abre la farmacia?', 'Годину ти вже знаєш. Бракує місця: ¿Dónde…?', { [MU]: 'incorrect' }]],
+  err: [['¿Donde está la farmacia?', 'Питання ти обрав правильно — про місце. Але в питанні dónde пишеться зі знаком наголосу: ¿Dónde…?', { [MU]: 'unresolved' }], ['¿A qué hora abre la farmacia?', 'Годину ти вже знаєш. Бракує місця: ¿Dónde…?', { [MU]: 'incorrect' }]],
 });
 k.choice({
   n: 23,
@@ -253,7 +253,7 @@ k.exact({
   t: [MU],
   ins: 'На першому занятті ти бачиш жінку біля дошки й не знаєш, хто вона. Запитай одногрупника іспанською: «Хто викладачка?»',
   acc: ['¿Quién es la profesora?'],
-  err: [['¿Quien es la profesora?', 'У питанні quién пишеться зі знаком наголосу.']],
+  err: [['¿Quien es la profesora?', 'Питання ти обрав правильно — про людину. Але в питанні quién пишеться зі знаком наголосу: ¿Quién…?', { [MU]: 'unresolved' }]],
 });
 k.choice({
   n: 26,
@@ -304,7 +304,7 @@ k.exact({
   t: [MU],
   ins: 'Ти знаєш, коли й де заняття з іспанської, але не знаєш ціни. Запитай іспанською.',
   acc: ['¿Cuánto cuesta la clase?', '¿Cuánto cuesta la clase de español?', '¿Cuánto cuestan las clases?', '¿Cuánto cuestan las clases de español?'],
-  err: [['¿Cuánto cuestan la clase?', 'Clase — одна, тож cuesta: ¿Cuánto cuesta la clase?']],
+  err: [['¿Cuánto cuestan la clase?', 'Питання ти обрав правильно — про ціну. Але clase — одна, тож cuesta: ¿Cuánto cuesta la clase?', { [MU]: 'unresolved' }]],
 });
 
 // ======================= reading: practical notices (CV-06)

@@ -53,7 +53,7 @@ function gap(n: number, role: TaskRole, fam: string, t: string, table: Record<st
 }
 
 const delErr = (noun: string): E => [
-  ['de el', `De + el завжди зливаються: del ${noun}.`],
+  ['de el', `De + el зливаються: del ${noun}.`],
   ['de la', `${noun} — чоловічого роду (el ${noun}), тож de + el = del.`],
 ];
 const deLaErr = (noun: string): E => [['del', `${noun} — жіночого роду (la ${noun}). Злиття буває лише з el, тож тут de la.`]];
@@ -195,8 +195,7 @@ k.exact({
   fam: 'a105.square',
   t: [PL],
   ins: 'Переклади іспанською: «Аптека навпроти площі».',
-  acc: ['La farmacia está enfrente de la plaza.'],
-  err: [['La farmacia está en frente de la plaza.', 'Пишемо разом: enfrente de.']],
+  acc: ['La farmacia está enfrente de la plaza.', 'La farmacia está en frente de la plaza.'],
 });
 k.exact({
   n: 29,
@@ -269,7 +268,7 @@ k.exact({
   t: [DL],
   ins: 'Переклади іспанською: «Ключі поруч із диваном».',
   acc: ['Las llaves están al lado del sofá.'],
-  err: [['Las llaves están al lado de el sofá.', 'De + el завжди зливаються: al lado del sofá.']],
+  err: [['Las llaves están al lado de el sofá.', 'De + el зливаються: al lado del sofá.']],
 });
 delGap(47, 'delayed', 'a105.shops', 'El parque está a la derecha ___ supermercado.', 'supermercado', 'Парк праворуч від супермаркету.');
 k.slots({
@@ -289,7 +288,7 @@ k.exact({
   t: [DL],
   ins: 'Переклади іспанською: «Ресторан навпроти готелю».',
   acc: ['El restaurante está enfrente del hotel.'],
-  err: [['El restaurante está enfrente de el hotel.', 'De + el завжди зливаються: enfrente del hotel.']],
+  err: [['El restaurante está enfrente de el hotel.', 'De + el зливаються: enfrente del hotel.']],
 });
 k.exact({
   n: 50,
@@ -298,7 +297,7 @@ k.exact({
   t: [DL],
   ins: 'Переклади іспанською: «Банк ліворуч від ресторану».',
   acc: ['El banco está a la izquierda del restaurante.'],
-  err: [['El banco está a la izquierda de el restaurante.', 'De + el завжди зливаються: a la izquierda del restaurante.']],
+  err: [['El banco está a la izquierda de el restaurante.', 'De + el зливаються: a la izquierda del restaurante.']],
 });
 k.choice({
   n: 51,
@@ -308,7 +307,7 @@ k.choice({
   ins: 'Обери правильний варіант.',
   p: ['El banco está cerca ___ hotel.'],
   o: [
-    ['de el', DLC, 'De + el завжди зливаються: del.'],
+    ['de el', DLC, 'De + el зливаються: del.'],
     ['del', true],
     ['de la', DLC, 'Hotel — чоловічого роду: el hotel → del hotel.'],
   ],
@@ -373,7 +372,7 @@ export default k.build({
       kind: 'explanation',
       title: 'Крок 1. Де предмет?',
       blocks: [
-        uk('Де щось знаходиться — estar. Щоб сказати точніше, після estar ставимо вираз місця з de: encima de — «на, зверху», debajo de — «під», al lado de — «поруч із», delante de — «перед», detrás de — «за, позаду», entre … y … — «між … і …».'),
+        uk('Де щось знаходиться — estar. Щоб сказати точніше, після estar ставимо вираз місця з de: encima de — «на, зверху», debajo de — «під», al lado de — «поруч із», delante de — «перед», detrás de — «за, позаду». Без de: entre … y … — «між … і …».'),
         ex('El libro está encima de la mesa.', 'Книжка на столі.'),
         ex('La mochila está debajo de la silla.', 'Рюкзак під стільцем.'),
         ex('La cama está entre la puerta y la ventana.', 'Ліжко між дверима й вікном.'),
@@ -387,7 +386,7 @@ export default k.build({
       kind: 'explanation',
       title: 'Крок 2. Де місце в місті? De + el = del',
       blocks: [
-        uk('У місті: cerca de — «близько від», lejos de — «далеко від», enfrente de — «навпроти», a la derecha de — «праворуч від», a la izquierda de — «ліворуч від». Aquí — «тут», allí — «там».'),
+        uk('У місті: cerca de — «близько від», lejos de — «далеко від», enfrente de — «навпроти» (можна й окремо: en frente de, але частіше разом), a la derecha de — «праворуч від», a la izquierda de — «ліворуч від». Aquí — «тут», allí — «там».'),
         uk('Прийменник de і артикль el зливаються в del, як a + el = al. З la, los, las злиття немає.'),
         ex('El hotel está lejos de la playa.', 'Готель далеко від пляжу.'),
         ex('La farmacia está cerca del hotel.', 'Аптека близько від готелю.'),
