@@ -21,15 +21,15 @@ const C3 = 'clip.a2-01.l4.home-busy';
 const LEYENDO = 'Leyendo — форма gerundio від leer (урок A2-01-L3): основа закінчується на голосну, тому -yendo. Durmiendo — від dormir (o → u).';
 
 const R = {
-  prog: 'Estar у теперішньому часі + герундій описує дію, що відбувається саме зараз: Estoy trabajando. Особу показує estar; герундій не змінюється. No ставимо перед estar: No estoy trabajando.',
-  cpp: 'Простий теперішній — для звичок, розкладу і загальних фактів: Los sábados juego al fútbol. Estar + герундій — для дії, що відбувається зараз або в цей обмежений період: Ahora estoy jugando. Про «зараз» часто можна сказати обома способами.',
+  prog: 'Estar у теперішньому часі + форма gerundio описує дію, що відбувається саме зараз: Estoy trabajando. Особу показує estar; форма gerundio не змінюється. No ставимо перед estar: No estoy trabajando.',
+  cpp: 'Простий теперішній — для звичок, розкладу і загальних фактів: Los sábados juego al fútbol. Estar + форма gerundio — для дії, що відбувається зараз або в цей обмежений період: Ahora estoy jugando. Про «зараз» часто можна сказати обома способами.',
 };
 const GER_RULE = {
-  [AR]: 'Герундій дієслів на -ar: -ando (cocinar → cocinando).',
-  [ER]: 'Герундій дієслів на -er та -ir: -iendo (hacer → haciendo, escribir → escribiendo).',
+  [AR]: 'Форма gerundio дієслів на -ar: -ando (cocinar → cocinando).',
+  [ER]: 'Форма gerundio дієслів на -er та -ir: -iendo (hacer → haciendo, escribir → escribiendo).',
   [YE]: 'Після голосної основи — -yendo: leer → leyendo, oír → oyendo.',
   [EI]: 'У частині дієслів на -ir e → i: servir → sirviendo, pedir → pidiendo.',
-  [OU]: 'Герундій від dormir — durmiendo.',
+  [OU]: 'Форма gerundio від dormir — durmiendo.',
 };
 
 /**
@@ -41,16 +41,16 @@ function prog(id, role, family, ger, es, uk, estar, gerund, wrongGerund, extra =
   const err = [];
   const plain = estar.normalize('NFD').replace(/\p{M}/gu, '');
   if (plain !== estar) err.push([`${plain} ${gerund}`, { [PROG]: 'correct', [EST]: 'incorrect', [ger]: 'correct' }, `Форму ${estar} пишемо зі знаком наголосу.`]);
-  if (wrongGerund) err.push([`${estar} ${wrongGerund}`, { [PROG]: 'correct', [EST]: 'correct', [ger]: 'incorrect' }, `Конструкцію побудовано правильно, але герундій — ${gerund}.`]);
-  if (extra.inf) err.push([`${estar} ${extra.inf}`, { [PROG]: 'incorrect', [EST]: 'correct', [ger]: 'unresolved' }, `Після estar потрібен герундій, а не інфінітив: ${answer}.`]);
-  if (extra.simple) err.push([extra.simple, { [PROG]: 'incorrect', [EST]: 'unresolved', [ger]: 'unresolved' }, `Тут треба побудувати estar + герундій: ${answer}.`]);
+  if (wrongGerund) err.push([`${estar} ${wrongGerund}`, { [PROG]: 'correct', [EST]: 'correct', [ger]: 'incorrect' }, `Конструкцію побудовано правильно, але форма gerundio — ${gerund}.`]);
+  if (extra.inf) err.push([`${estar} ${extra.inf}`, { [PROG]: 'incorrect', [EST]: 'correct', [ger]: 'unresolved' }, `Після estar потрібна форма gerundio, а не інфінітив: ${answer}.`]);
+  if (extra.simple) err.push([extra.simple, { [PROG]: 'incorrect', [EST]: 'unresolved', [ger]: 'unresolved' }, `Тут треба побудувати estar + форму gerundio: ${answer}.`]);
   if (extra.person) err.push([`${extra.person} ${gerund}`, { [PROG]: 'correct', [EST]: 'incorrect', [ger]: 'correct' }, `${extra.person} — форма іншої особи; тут потрібно ${estar}.`]);
   return open(L, {
     id,
     role,
     family,
     ts: [PROG, EST, ger],
-    ask: extra.ask ?? 'Утворіть estar + герундій і впишіть обидва слова.',
+    ask: extra.ask ?? 'Утворіть estar + форму gerundio і впишіть обидва слова.',
     model: extra.model,
     es,
     uk,
@@ -64,21 +64,21 @@ function prog(id, role, family, ger, es, uk, estar, gerund, wrongGerund, extra =
 }
 
 export const tasks = [
-  prog('T01', 'supported', 'routine', AR, 'Mi padre ___ (estar + cocinar) ahora.', 'Мій тато зараз готує їжу.', 'está', 'cocinando', 'cociniendo', { ask: 'Подивіться на зразок, утворіть estar + герундій і впишіть обидва слова.', model: [['Estoy trabajando.', 'Я зараз працюю.']], inf: 'cocinar', full: 'Mi padre está cocinando ahora.' }),
-  prog('T02', 'supported', 'family-home', OU, 'Los niños ___ (estar + dormir) en su habitación.', 'Діти зараз сплять у своїй кімнаті.', 'están', 'durmiendo', 'dormiendo', { ask: 'Подивіться на зразок, утворіть estar + герундій і впишіть обидва слова.', model: [['Estamos comiendo.', 'Ми зараз їмо.']], simple: 'duermen', full: 'Los niños están durmiendo en su habitación.' }),
+  prog('T01', 'supported', 'routine', AR, 'Mi padre ___ (estar + cocinar) ahora.', 'Мій тато зараз готує їжу.', 'está', 'cocinando', 'cociniendo', { ask: 'Подивіться на зразок, утворіть estar + форму gerundio і впишіть обидва слова.', model: [['Estoy trabajando.', 'Я зараз працюю.']], inf: 'cocinar', full: 'Mi padre está cocinando ahora.' }),
+  prog('T02', 'supported', 'family-home', OU, 'Los niños ___ (estar + dormir) en su habitación.', 'Діти зараз сплять у своїй кімнаті.', 'están', 'durmiendo', 'dormiendo', { ask: 'Подивіться на зразок, утворіть estar + форму gerundio і впишіть обидва слова.', model: [['Estamos comiendo.', 'Ми зараз їмо.']], simple: 'duermen', full: 'Los niños están durmiendo en su habitación.' }),
   prog('T03', 'independent', 'free-time', ER, '¿Qué ___ (estar + hacer, tú)?', 'Що ти зараз робиш?', 'estás', 'haciendo', 'hacendo', { simple: 'haces', full: '¿Qué estás haciendo?' }),
   prog('T04', 'independent', 'routine', YE, 'Ahora mismo ___ (estar + leer, yo) el periódico.', 'Просто зараз я читаю газету.', 'estoy', 'leyendo', 'leiendo', { inf: 'leer', full: 'Ahora mismo estoy leyendo el periódico.' }),
   prog('T05', 'independent', 'food-cafe', EI, 'El camarero ___ (estar + servir) la comida.', 'Офіціант зараз подає обід.', 'está', 'sirviendo', 'serviendo', { simple: 'sirve', full: 'El camarero está sirviendo la comida.' }),
   prog('T06', 'independent', 'family-home', ER, 'Mi hermana ___ (estar + escribir) un mensaje.', 'Моя сестра зараз пише повідомлення.', 'está', 'escribiendo', 'escribendo', { person: 'estoy', full: 'Mi hermana está escribiendo un mensaje.' }),
   prog('T07', 'delayed', 'free-time', YE, '¿___ (estar + oír, vosotros) la música?', 'Ви чуєте музику?', 'estáis', 'oyendo', 'oiendo', { full: '¿Estáis oyendo la música?' }),
   prog('T08', 'delayed', 'family-home', OU, '—¿Dónde está Pablo? —___ (estar + dormir).', '— Де Пабло? — Він спить.', 'está', 'durmiendo', 'dormiendo', { simple: 'duerme', full: '—¿Dónde está Pablo? —Está durmiendo.' }),
-  prog('T09', 'transfer', 'messages', EI, '¡Hola, Ana! Ahora ___ (estar + pedir, nosotros) la cena. ¿Vienes?', 'Привіт, Ано! Ми зараз замовляємо вечерю. Прийдеш?', 'estamos', 'pidiendo', 'pediendo', { ask: 'Допишіть повідомлення: утворіть estar + герундій і впишіть обидва слова.', full: '¡Hola, Ana! Ahora estamos pidiendo la cena. ¿Vienes?' }),
+  prog('T09', 'transfer', 'messages', EI, '¡Hola, Ana! Ahora ___ (estar + pedir, nosotros) la cena. ¿Vienes?', 'Привіт, Ано! Ми зараз замовляємо вечерю. Прийдеш?', 'estamos', 'pidiendo', 'pediendo', { ask: 'Допишіть повідомлення: утворіть estar + форму gerundio і впишіть обидва слова.', full: '¡Hola, Ana! Ahora estamos pidiendo la cena. ¿Vienes?' }),
   prog('T10', 'transfer', 'travel', OU, 'En el hotel, mis hijos ___ (estar + dormir) y yo estoy en el bar.', 'У готелі мої діти зараз сплять, а я в барі.', 'están', 'durmiendo', 'dormiendo', { full: 'En el hotel, mis hijos están durmiendo y yo estoy en el bar.' }),
 
-  choice(L, { id: 'T11', role: 'independent', family: 'family-home', ts: [PROG_R], ask: 'Прочитайте речення. Що воно означає?', es: 'Mi madre está hablando por teléfono.', opts: [['Моя мама зараз розмовляє по телефону.', 'c'], ['Моя мама часто розмовляє по телефону.', 'x', 'Estar + герундій: дія відбувається зараз, а не «часто».'], ['Моя мама подзвонить пізніше.', 'x', 'У реченні немає плану на майбутнє.']], rule: R.prog, ok: 'Правильно: estar + герундій — дія відбувається зараз.', no: 'Estar + герундій означає, що дія відбувається зараз: мама зараз розмовляє по телефону.' }),
-  choice(L, { id: 'T12', role: 'delayed', family: 'free-time', ts: [PROG_R], ask: 'Прочитайте речення. Що воно означає?', es: 'Los chicos no están estudiando: están jugando al fútbol.', opts: [['Хлопці зараз не вчаться, а грають у футбол.', 'c'], ['Хлопці ніколи не вчаться.', 'x', 'У реченні йдеться про «зараз», а не про «ніколи».'], ['Хлопці грають у футбол по суботах.', 'x', 'Про суботи в реченні нічого не сказано.']], rule: R.prog, ok: 'Правильно: no + estar + герундій — зараз цього не роблять.', no: 'Речення означає: хлопці зараз не вчаться, а грають у футбол.' }),
+  choice(L, { id: 'T11', role: 'independent', family: 'family-home', ts: [PROG_R], ask: 'Прочитайте речення. Що воно означає?', es: 'Mi madre está hablando por teléfono.', opts: [['Моя мама зараз розмовляє по телефону.', 'c'], ['Моя мама часто розмовляє по телефону.', 'x', 'Estar + форма gerundio: дія відбувається зараз, а не «часто».'], ['Моя мама подзвонить пізніше.', 'x', 'У реченні немає плану на майбутнє.']], rule: R.prog, ok: 'Правильно: estar + форма gerundio — дія відбувається зараз.', no: 'Estar + форма gerundio означає, що дія відбувається зараз: мама зараз розмовляє по телефону.' }),
+  choice(L, { id: 'T12', role: 'delayed', family: 'free-time', ts: [PROG_R], ask: 'Прочитайте речення. Що воно означає?', es: 'Los chicos no están estudiando: están jugando al fútbol.', opts: [['Хлопці зараз не вчаться, а грають у футбол.', 'c'], ['Хлопці ніколи не вчаться.', 'x', 'У реченні йдеться про «зараз», а не про «ніколи».'], ['Хлопці грають у футбол по суботах.', 'x', 'Про суботи в реченні нічого не сказано.']], rule: R.prog, ok: 'Правильно: no + estar + форма gerundio — зараз цього не роблять.', no: 'Речення означає: хлопці зараз не вчаться, а грають у футбол.' }),
 
-  choice(L, { id: 'T21', role: 'supported', family: 'free-time', ts: [CPP_C], ask: 'Ідеться про постійну звичку (без наголосу на тимчасовості). Оберіть форму. Підказка: звичка — простий теперішній, дія зараз — estar + герундій.', es: 'Los sábados ___ al fútbol con mis amigos.', opts: [['juego', 'c'], ['estoy jugando', 'x', 'Для постійної звички нейтральний вибір — простий теперішній; estar + gerundio підкреслив би тимчасову ситуацію.']], rule: R.cpp, ref: 'Los sábados juego al fútbol con mis amigos.', ok: 'Правильно: про звичку кажемо простим теперішнім часом.', no: 'Los sábados — звичка, тому простий теперішній: juego.' }),
+  choice(L, { id: 'T21', role: 'supported', family: 'free-time', ts: [CPP_C], ask: 'Ідеться про постійну звичку (без наголосу на тимчасовості). Оберіть форму. Підказка: звичка — простий теперішній, дія зараз — estar + форма gerundio.', es: 'Los sábados ___ al fútbol con mis amigos.', opts: [['juego', 'c'], ['estoy jugando', 'x', 'Для постійної звички нейтральний вибір — простий теперішній; конструкція estar + форма gerundio підкреслила б тимчасову ситуацію.']], rule: R.cpp, ref: 'Los sábados juego al fútbol con mis amigos.', ok: 'Правильно: про звичку кажемо простим теперішнім часом.', no: 'Los sábados — звичка, тому простий теперішній: juego.' }),
   choice(L, { id: 'T22', role: 'supported', family: 'messages-chat', ts: [CPP_C], ask: 'Оберіть відповідь, яка підходить за змістом.', es: '—Hola, ¿qué haces? —…', opts: [['Ahora mismo estoy escribiendo un mensaje.', 'c'], ['Escribo mensajes todos los días.', 'x', 'Це про звичку, а питають, що ви робите зараз.']], rule: R.cpp, ok: 'Правильно: питають про «зараз», і відповідь описує дію, що відбувається.', no: 'Питають, що ви робите зараз, тому підходить: Ahora mismo estoy escribiendo un mensaje.' }),
   choice(L, { id: 'T23', role: 'independent', family: 'work-study', ts: [CPP_C], ask: 'Ідеться про постійне місце роботи тата. Оберіть форму.', es: 'Normalmente mi padre ___ en un banco, pero esta semana está de vacaciones.', opts: [['trabaja', 'c'], ['está trabajando', 'x', 'Про постійну роботу нейтрально кажемо простим теперішнім: trabaja.']], rule: R.cpp, ref: 'Normalmente mi padre trabaja en un banco, pero esta semana está de vacaciones.', ok: 'Правильно: про звичну роботу — простий теперішній.', no: 'Normalmente — звичка: trabaja.' }),
   choice(L, { id: 'T24', role: 'independent', family: 'family-home', ts: [CPP_C], ask: 'Відповідь має сказати, що Пабло робить саме зараз. Оберіть продовження.', es: '—¿Dónde está Pablo? —En el parque: …', opts: [['está jugando con el perro.', 'c'], ['juega con el perro los domingos.', 'x', 'Це про звичку, а треба сказати, що Пабло робить саме зараз.']], rule: R.cpp, ok: 'Правильно: дія відбувається зараз.', no: 'Питають, що відбувається зараз: está jugando con el perro.' }),
@@ -111,29 +111,29 @@ const s = (id, kind, title, required, opts = {}) => step(id, kind, title, requir
 
 export const lesson = mkLesson({
   id: L,
-  titleUk: 'Дія в процесі: estar + герундій',
+  titleUk: 'Дія в процесі: estar + форма gerundio',
   termEs: 'estar + gerundio',
-  summaryUk: 'Будуємо estar + герундій (estoy trabajando), щоб сказати, що відбувається зараз, і відрізняємо цю конструкцію від простого теперішнього часу для звичок.',
+  summaryUk: 'Будуємо estar + форму gerundio (estoy trabajando), щоб сказати, що відбувається зараз, і відрізняємо цю конструкцію від простого теперішнього часу для звичок.',
   objectives: ['A2-01-O4', 'A2-01-O5'],
   situations: ['routine-study-leisure', 'people-family-home'],
   estimatedMinutes: 16,
   introduces: ['progressive.estar-gerund', 'contrast.present-progressive', 'listening.ongoing-actions'],
   revisits: ['present.estar', 'progressive.gerund-regular-ar', 'progressive.gerund-regular-er-ir', 'progressive.gerund-yendo', 'progressive.gerund-e-i', 'progressive.gerund-o-u', 'neg.no-before-verb', 'time.frequency.adverbs', 'present.hacer', 'present.ver'],
   steps: [
-    s('s1', 'explanation', 'estar + герундій: що відбувається зараз', true, {
+    s('s1', 'explanation', 'estar + форма gerundio: що відбувається зараз', true, {
       blocks: [
-        UK('Щоб сказати, що дія відбувається саме зараз, уживаємо estar у теперішньому часі + герундій. Особу показує estar, а герундій не змінюється.'),
+        UK('Щоб сказати, що дія відбувається саме зараз, уживаємо estar у теперішньому часі + форму gerundio (на -ando / -iendo). Особу показує estar, а форма gerundio не змінюється.'),
         T_PROG,
         UK('Заперечення no ставимо перед estar: No estoy trabajando. Питання: ¿Qué estás haciendo?'),
         EX('—¿Qué estás haciendo? —Estoy leyendo el periódico.', '— Що ти зараз робиш? — Читаю газету.'),
         EX('En este momento mis padres están cenando.', 'Цієї миті мої батьки вечеряють.'),
       ],
     }),
-    s('s2', 'supported-practice', 'Крок 1. Побудуйте estar + герундій', true, { tasks: ['T01', 'T02'] }),
+    s('s2', 'supported-practice', 'Крок 1. Побудуйте estar + форму gerundio', true, { tasks: ['T01', 'T02'] }),
     s('s3', 'explanation', 'Звичка чи дія зараз?', true, {
       blocks: [
         UK('Простий теперішній час описує звички, розклад і загальні факти: Los sábados juego al fútbol. Trabajo en un banco.'),
-        UK('Estar + герундій описує дію, що відбувається зараз або в цей обмежений період: Ahora estoy jugando. Esta semana estoy trabajando en casa.'),
+        UK('Estar + форма gerundio описує дію, що відбувається зараз або в цей обмежений період: Ahora estoy jugando. Esta semana estoy trabajando en casa.'),
         UK('Про «зараз» іспанці часто кажуть і простим теперішнім: ¿Qué haces? — Leo un libro / Estoy leyendo un libro. Про постійні звички нейтрально кажемо простим теперішнім (Los sábados juego al fútbol); estar + gerundio (форма на -ando / -iendo) зі звичною дією підкреслює, що ситуація тимчасова: Últimamente estoy trabajando los sábados. Нагадаємо форму gerundio з уроку A2-01-L3: leer → leyendo. Одне слово на кшталт ahora не вирішує все: дивіться на зміст усього речення.'),
         EX('Normalmente trabajo en una oficina, pero esta semana estoy trabajando en casa.', 'Зазвичай я працюю в офісі, але цього тижня працюю вдома.'),
       ],
@@ -145,12 +145,12 @@ export const lesson = mkLesson({
     s('s8', 'summary', 'Підсумок', true, {
       blocks: [
         LIST_UK([
-          'estar (estoy, estás, está, estamos, estáis, están) + герундій — дія зараз: Estoy trabajando.',
+          'estar (estoy, estás, está, estamos, estáis, están) + форма gerundio — дія зараз: Estoy trabajando.',
           'No стоїть перед estar: No estoy trabajando.',
           'Звичка, розклад, загальний факт — простий теперішній: Los sábados juego al fútbol.',
           'Про «зараз» часто підходять обидві форми; про постійну звичку зазвичай — простий теперішній.',
         ]),
-        LINK('Потренувати estar + герундій', [PROG, PROG_R, CPP_C, CPP_R], 'written', 8),
+        LINK('Потренувати estar + форму gerundio', [PROG, PROG_R, CPP_C, CPP_R], 'written', 8),
         LINK('Послухати ще', [LIS], 'listening', 3),
       ],
     }),
@@ -161,12 +161,12 @@ export const materials = [
   material({
     id: 'material.a2-01.estar-gerund',
     topicId: L,
-    titleUk: 'estar + герундій і простий теперішній',
+    titleUk: 'estar + форма gerundio і простий теперішній',
     blocks: [
       T_PROG,
-      UK('Звичка, розклад, загальний факт — простий теперішній. Дія зараз або в обмежений період — estar + герундій. Про «зараз» часто підходять обидві форми.'),
+      UK('Звичка, розклад, загальний факт — простий теперішній. Дія зараз або в обмежений період — estar + форма gerundio. Про «зараз» часто підходять обидві форми.'),
       EX('Los sábados juego al fútbol. Ahora estoy jugando.', 'По суботах я граю у футбол. Зараз я граю.'),
-      LINK('Практика: estar + герундій', [PROG, CPP_C], 'written', 8),
+      LINK('Практика: estar + форма gerundio', [PROG, CPP_C], 'written', 8),
     ],
     linkedTargets: [PROG, PROG_R, CPP_C, CPP_R],
   }),
