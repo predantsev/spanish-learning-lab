@@ -28,7 +28,7 @@ x(6, 'independent', 'a106.money', NN, 'Переклади іспанською: 
 x(7, 'delayed', 'a106.car', NN, 'Переклади іспанською: «Моїм батькам потрібна машина».', ['Mis padres necesitan un coche.'], [['A mis padres les necesita un coche.', 'Necesitar — не як gustar: mis padres necesitan.']]);
 x(8, 'delayed', 'a106.help', NN, 'Продавець питає ввічливо (usted). Як він скаже: «Вам щось потрібно?»', ['¿Necesita algo?', '¿Usted necesita algo?', '¿Necesita usted algo?'], [meNec('¿Le necesita algo?', 'necesita', 'вам потрібно' + ' (usted)', 'le')]);
 x(9, 'transfer', 'a106.market-t', NN, 'Продавець на ринку питає: «¿Qué necesita?» Скажи іспанською: «Мені потрібен кілограм помідорів».', ['Necesito un kilo de tomates.', 'Yo necesito un kilo de tomates.'], [meNec('Me necesita un kilo de tomates.', 'necesito')]);
-x(10, 'transfer', 'a106.station-t', NN, 'На вокзалі. Скажи іспанською: «Нам потрібні два квитки».', ['Necesitamos dos billetes.', 'Nosotros necesitamos dos billetes.', 'Nosotras necesitamos dos billetes.'], [meNec('Nos necesita dos billetes.', 'necesitamos', 'нам потрібно', 'nos')]);
+x(10, 'transfer', 'a106.station-t', NN, 'На вокзалі. Скажи іспанською: «Нам потрібні два квитки».', ['Necesitamos dos billetes.', 'Nosotros necesitamos dos billetes.', 'Nosotras necesitamos dos billetes.'], [meNec('Nos necesita dos billetes.', 'necesitamos', 'нам потрібно', 'nos')], undefined, 'квиток — el billete (мн. los billetes)');
 k.choice({
   n: 11,
   role: 'independent',
