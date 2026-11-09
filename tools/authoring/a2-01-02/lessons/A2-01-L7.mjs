@@ -25,7 +25,7 @@ const TR_B = 'Este fin de semana mi familia está muy ocupada. Mi hermano tiene 
 const TR_C = 'Hoy hace mucho calor en Sevilla. Ahora estoy en un bar de la plaza y estoy tomando un café. Esta tarde voy a pasear por el centro, pero mañana va a llover.';
 
 const R = {
-  rnp: 'Звичка — простий теперішній (Normalmente trabajo en una oficina). Дія зараз — estar + герундій (Ahora estoy trabajando en casa). План — ir a + інфінітив (Mañana voy a ir al médico). Одне слово не завжди вирішує вибір: дивіться на зміст.',
+  rnp: 'Звичка — простий теперішній (Normalmente trabajo en una oficina). Дія зараз — estar + gerundio (Ahora estoy trabajando en casa). План — ir a + інфінітив (Mañana voy a ir al médico). Одне слово не завжди вирішує вибір: дивіться на зміст.',
   wh: 'Про погоду кажемо безособово: hace + іменник (hace calor, hace frío, hace sol, hace viento, hace buen / mal tiempo). Ступінь — mucho перед іменником: hace mucho calor (не *muy calor). Питання: ¿Qué tiempo hace?',
   ln: 'Дощ і сніг: llover → llueve (o → ue), nevar → nieva (e → ie), лише в 3-й особі однини. Те, що відбувається зараз, — está lloviendo, está nevando.',
   ew: 'Стан неба описуємо через estar + прикметник: está nublado, está despejado. Не *hace nublado.',
@@ -50,14 +50,14 @@ export const tasks = [
 
   // llover / nevar
   gap(L, { id: 'T21', role: 'supported', family: 'seasons', t: LN, ask: 'Подивіться на зразок і впишіть правильну форму дієслова.', model: [['En invierno nieva en Kiev.', 'Узимку в Києві йде сніг.']], es: 'En otoño ___ (llover) mucho en Galicia.', uk: 'Восени в Галісії часто йде дощ.', a: 'llueve', err: [['llove', 'Під наголосом o змінюється на ue: llueve.']], rule: R.ln }),
-  gap(L, { id: 'T22', role: 'supported', family: 'now', t: LN, ask: 'Подивіться на зразок і впишіть estar + герундій.', model: [['Ahora está lloviendo.', 'Зараз іде дощ.']], es: 'Ahora mismo ___ (nevar).', uk: 'Просто зараз іде сніг.', a: 'está nevando', err: [['esta nevando', 'Está пишемо зі знаком наголосу.'], ['está nievando', 'Герундій від nevar — nevando, без чергування.'], ['nieva', 'Тут ідеться про «просто зараз», потрібна форма está nevando.']], rule: R.ln }),
+  gap(L, { id: 'T22', role: 'supported', family: 'now', t: LN, ask: 'Подивіться на зразок і впишіть estar + gerundio.', model: [['Ahora está lloviendo.', 'Зараз іде дощ.']], es: 'Ahora mismo ___ (nevar).', uk: 'Просто зараз іде сніг.', a: 'está nevando', err: [['esta nevando', 'Está пишемо зі знаком наголосу.'], ['está nievando', 'Форма gerundio від nevar — nevando, без чергування.'], ['nieva', 'Тут ідеться про «просто зараз», потрібна форма está nevando.']], rule: R.ln }),
   gap(L, { id: 'T23', role: 'independent', family: 'seasons', t: LN, ask: 'Впишіть правильну форму дієслова.', es: 'En invierno ___ (nevar) mucho en Kiev.', uk: 'Узимку в Києві часто йде сніг.', a: 'nieva', err: [['neva', 'Під наголосом e змінюється на ie: nieva.']], rule: R.ln }),
-  gap(L, { id: 'T24', role: 'independent', family: 'now', t: LN, ask: 'Впишіть estar + герундій.', es: 'Hoy no vamos al parque: ___ (llover).', uk: 'Сьогодні ми не йдемо в парк: іде дощ.', a: 'está lloviendo', err: [['esta lloviendo', 'Está пишемо зі знаком наголосу.'], ['está llovendo', 'Герундій дієслів на -er — -iendo: lloviendo.']], rule: R.ln }),
+  gap(L, { id: 'T24', role: 'independent', family: 'now', t: LN, ask: 'Впишіть estar + gerundio.', es: 'Hoy no vamos al parque: ___ (llover).', uk: 'Сьогодні ми не йдемо в парк: іде дощ.', a: 'está lloviendo', err: [['esta lloviendo', 'Está пишемо зі знаком наголосу.'], ['está llovendo', 'Форма gerundio дієслів на -er — -iendo: lloviendo.']], rule: R.ln }),
   gap(L, { id: 'T25', role: 'independent', family: 'seasons', t: LN, ask: 'Впишіть правильну форму дієслова.', es: 'En primavera ___ (llover) a menudo.', uk: 'Навесні часто йде дощ.', a: 'llueve', err: [['llove', 'Під наголосом o змінюється на ue: llueve.']], rule: R.ln }),
   gap(L, { id: 'T26', role: 'independent', family: 'places', t: LN, ask: 'Впишіть правильну форму дієслова.', es: '¿___ (nevar) en tu ciudad en invierno?', uk: 'У твоєму місті взимку йде сніг?', a: 'nieva', err: [['neva', 'Під наголосом e змінюється на ie: nieva.']], rule: R.ln }),
-  gap(L, { id: 'T27', role: 'delayed', family: 'now', t: LN, ask: 'Впишіть estar + герундій.', es: 'Necesito el paraguas: ___ (llover).', uk: 'Мені потрібна парасолька: іде дощ.', a: 'está lloviendo', err: [['esta lloviendo', 'Está пишемо зі знаком наголосу.']], rule: R.ln }),
+  gap(L, { id: 'T27', role: 'delayed', family: 'now', t: LN, ask: 'Впишіть estar + gerundio.', es: 'Necesito el paraguas: ___ (llover).', uk: 'Мені потрібна парасолька: іде дощ.', a: 'está lloviendo', err: [['esta lloviendo', 'Está пишемо зі знаком наголосу.']], rule: R.ln }),
   gap(L, { id: 'T28', role: 'delayed', family: 'seasons', t: LN, ask: 'Впишіть правильну форму дієслова.', es: 'En enero, en Madrid a veces ___ (nevar).', uk: 'У січні в Мадриді іноді йде сніг.', a: 'nieva', err: [['neva', 'Під наголосом e змінюється на ie: nieva.']], rule: R.ln }),
-  gap(L, { id: 'T29', role: 'transfer', family: 'messages', t: LN, ask: 'Допишіть повідомлення: впишіть estar + герундій.', es: '¡Hola, Pablo! Aquí ___ (llover) y no podemos ir a la playa.', uk: 'Привіт, Пабло! Тут іде дощ, і ми не можемо піти на пляж.', a: 'está lloviendo', err: [['esta lloviendo', 'Está пишемо зі знаком наголосу.']], rule: R.ln }),
+  gap(L, { id: 'T29', role: 'transfer', family: 'messages', t: LN, ask: 'Допишіть повідомлення: впишіть estar + gerundio.', es: '¡Hola, Pablo! Aquí ___ (llover) y no podemos ir a la playa.', uk: 'Привіт, Пабло! Тут іде дощ, і ми не можемо піти на пляж.', a: 'está lloviendo', err: [['esta lloviendo', 'Está пишемо зі знаком наголосу.']], rule: R.ln }),
   gap(L, { id: 'T30', role: 'transfer', family: 'travel', t: LN, ask: 'Впишіть правильну форму дієслова.', es: 'En el hotel nos dicen: «En diciembre aquí ___ (nevar) mucho».', uk: 'У готелі нам кажуть: «У грудні тут часто йде сніг».', a: 'nieva', err: [['neva', 'Під наголосом e змінюється на ie: nieva.']], rule: R.ln }),
   choice(L, { id: 'T31', role: 'independent', family: 'now', ts: [LN_R], ask: 'Прочитайте речення. Що воно означає?', es: 'Hoy está nublado, pero no llueve.', opts: [['Сьогодні хмарно, але дощу немає.', 'c'], ['Сьогодні йде дощ.', 'x', 'No llueve — дощу немає.'], ['Сьогодні ясно й сонячно.', 'x', 'Está nublado — хмарно.']], rule: R.ln, ok: 'Правильно: está nublado, pero no llueve.', no: 'Está nublado, pero no llueve — хмарно, але дощу немає.' }),
   choice(L, { id: 'T32', role: 'delayed', family: 'seasons', ts: [LN_R], ask: 'Прочитайте речення. Що воно означає?', es: 'En mi ciudad nieva en diciembre.', opts: [['У моєму місті в грудні йде сніг.', 'c'], ['У моєму місті зараз іде сніг.', 'x', 'Про «зараз» сказали б está nevando.'], ['У моєму місті в грудні часто дощить.', 'x', 'Nieva — іде сніг.']], rule: R.ln, ok: 'Правильно: nieva en diciembre — у грудні йде сніг.', no: 'Nieva en diciembre — у грудні йде сніг.' }),
@@ -79,11 +79,11 @@ export const tasks = [
 
   // routine / now / plan
   choice(L, { id: 'T61', role: 'supported', family: 'free-time', ts: [RNP], ask: 'Пабло розповідає про свою ЗВИЧКУ (що він робить щосуботи). Оберіть речення. Підказка: звичка — простий теперішній.', opts: [['Los sábados juego al fútbol.', 'c'], ['Este sábado voy a jugar al fútbol.', 'x', 'Це план на одну суботу, а не звичка.'], ['Ahora estoy jugando al fútbol.', 'x', 'Це дія зараз, а не звичка.']], rule: R.rnp, ok: 'Правильно: звичка — простий теперішній.', no: 'Звичка — простий теперішній: Los sábados juego al fútbol.' }),
-  choice(L, { id: 'T62', role: 'independent', family: 'family-home', ts: [RNP], ask: 'Ана пише подрузі, що вона робить ПРОСТО ЗАРАЗ. Оберіть речення.', opts: [['Ahora mismo estoy cocinando.', 'c'], ['Cocino todos los días.', 'x', 'Це звичка.'], ['Mañana voy a cocinar.', 'x', 'Це план на завтра.']], rule: R.rnp, ok: 'Правильно: дія зараз — estar + герундій.', no: 'Дія зараз: Ahora mismo estoy cocinando.' }),
+  choice(L, { id: 'T62', role: 'independent', family: 'family-home', ts: [RNP], ask: 'Ана пише подрузі, що вона робить ПРОСТО ЗАРАЗ. Оберіть речення.', opts: [['Ahora mismo estoy cocinando.', 'c'], ['Cocino todos los días.', 'x', 'Це звичка.'], ['Mañana voy a cocinar.', 'x', 'Це план на завтра.']], rule: R.rnp, ok: 'Правильно: дія зараз — estar + gerundio.', no: 'Дія зараз: Ahora mismo estoy cocinando.' }),
   choice(L, { id: 'T63', role: 'independent', family: 'plans', ts: [RNP], ask: 'Луїс розповідає про ПЛАН на цю неділю. Оберіть речення.', opts: [['El domingo voy a ir a la playa.', 'c'], ['Los domingos voy a la playa.', 'x', 'Los domingos — щонеділі, тобто звичка.'], ['Estoy en la playa.', 'x', 'Це про «зараз».']], rule: R.rnp, ok: 'Правильно: план — ir a + інфінітив з вказівкою часу.', no: 'План: El domingo voy a ir a la playa.' }),
-  choice(L, { id: 'T64', role: 'delayed', family: 'work-study', ts: [RNP], ask: 'Оберіть варіант, який підходить до тексту.', es: 'Normalmente Marta trabaja en una oficina, pero hoy está en casa: ___. Mañana vuelve a la oficina.', opts: [['está trabajando en casa', 'c'], ['trabaja en casa todos los días', 'x', 'Це суперечить тексту: зазвичай вона працює в офісі.'], ['va a trabajar en la oficina hoy', 'x', 'Сьогодні Марта вдома.']], rule: R.rnp, ref: 'Normalmente Marta trabaja en una oficina, pero hoy está en casa: está trabajando en casa. Mañana vuelve a la oficina.', ok: 'Правильно: сьогодні, тимчасово — estar + герундій.', no: 'Підходить: está trabajando en casa — сьогодні, тимчасово.' }),
-  choice(L, { id: 'T65', role: 'delayed', family: 'routine', ts: [RNP], ask: 'Оберіть варіант, який підходить до тексту.', es: 'Hoy es lunes. Los lunes Ana tiene clase de inglés, pero hoy está enferma: ___.', opts: [['ahora está durmiendo', 'c'], ['los lunes duerme mucho', 'x', 'Це звичка, а текст про сьогодні.'], ['mañana va a dormir', 'x', 'Текст про сьогодні, а не про завтра.']], rule: R.rnp, ref: 'Hoy es lunes. Los lunes Ana tiene clase de inglés, pero hoy está enferma: ahora está durmiendo.', ok: 'Правильно: що відбувається зараз — estar + герундій.', no: 'Підходить: ahora está durmiendo.' }),
-  choice(L, { id: 'T66', role: 'transfer', family: 'messages', ts: [RNP], ask: 'Допишіть повідомлення: оберіть варіант, який підходить.', es: '¡Hola, Pablo! Estoy en el tren. ___ y llego a las diez. Mañana vamos al cine, ¿vale?', opts: [['Ahora estoy leyendo un libro', 'c'], ['Mañana voy a leer un libro', 'x', 'У повідомленні йдеться про те, що людина робить зараз у потязі.'], ['Los domingos leo un libro', 'x', 'Це звичка, а не те, що відбувається зараз.']], rule: R.rnp, ref: '¡Hola, Pablo! Estoy en el tren. Ahora estoy leyendo un libro y llego a las diez. Mañana vamos al cine, ¿vale?', ok: 'Правильно: зараз у потязі — estar + герундій.', no: 'Підходить: Ahora estoy leyendo un libro.' }),
+  choice(L, { id: 'T64', role: 'delayed', family: 'work-study', ts: [RNP], ask: 'Оберіть варіант, який підходить до тексту.', es: 'Normalmente Marta trabaja en una oficina, pero hoy está en casa: ___. Mañana vuelve a la oficina.', opts: [['está trabajando en casa', 'c'], ['trabaja en casa todos los días', 'x', 'Це суперечить тексту: зазвичай вона працює в офісі.'], ['va a trabajar en la oficina hoy', 'x', 'Сьогодні Марта вдома.']], rule: R.rnp, ref: 'Normalmente Marta trabaja en una oficina, pero hoy está en casa: está trabajando en casa. Mañana vuelve a la oficina.', ok: 'Правильно: сьогодні, тимчасово — estar + gerundio.', no: 'Підходить: está trabajando en casa — сьогодні, тимчасово.' }),
+  choice(L, { id: 'T65', role: 'delayed', family: 'routine', ts: [RNP], ask: 'Оберіть варіант, який підходить до тексту.', es: 'Hoy es lunes. Los lunes Ana tiene clase de inglés, pero hoy está enferma: ___.', opts: [['ahora está durmiendo', 'c'], ['los lunes duerme mucho', 'x', 'Це звичка, а текст про сьогодні.'], ['mañana va a dormir', 'x', 'Текст про сьогодні, а не про завтра.']], rule: R.rnp, ref: 'Hoy es lunes. Los lunes Ana tiene clase de inglés, pero hoy está enferma: ahora está durmiendo.', ok: 'Правильно: що відбувається зараз — estar + gerundio.', no: 'Підходить: ahora está durmiendo.' }),
+  choice(L, { id: 'T66', role: 'transfer', family: 'messages', ts: [RNP], ask: 'Допишіть повідомлення: оберіть варіант, який підходить.', es: '¡Hola, Pablo! Estoy en el tren. ___ y llego a las diez. Mañana vamos al cine, ¿vale?', opts: [['Ahora estoy leyendo un libro', 'c'], ['Mañana voy a leer un libro', 'x', 'У повідомленні йдеться про те, що людина робить зараз у потязі.'], ['Los domingos leo un libro', 'x', 'Це звичка, а не те, що відбувається зараз.']], rule: R.rnp, ref: '¡Hola, Pablo! Estoy en el tren. Ahora estoy leyendo un libro y llego a las diez. Mañana vamos al cine, ¿vale?', ok: 'Правильно: зараз у потязі — estar + gerundio.', no: 'Підходить: Ahora estoy leyendo un libro.' }),
 
   // reading
   choice(L, { id: 'T71', role: 'supported', family: 'messages-chat', ts: [RD], ask: 'Прочитайте повідомлення Ани. Що вона зазвичай робить по суботах? Корисні слова: un beso — цілую.', es: TXT_A, opts: [['Працює в крамниці батьків.', 'c'], ['Готує вдома.', 'x', 'Це вона робить зараз.'], ['Вечеряє з друзями.', 'x', 'Це план на сьогоднішній вечір.']], rule: R.rnp, ok: 'Правильно: normalmente los sábados trabajo en la tienda de mis padres.', no: 'Ана пише: normalmente los sábados trabajo en la tienda de mis padres.' }),
@@ -100,7 +100,7 @@ export const tasks = [
     es: [EX('Normalmente trabajo en una oficina. Hoy es sábado y no trabajo: ahora estoy leyendo en casa. Esta noche voy a cenar con mis amigos.', 'Зазвичай я працюю в офісі. Сьогодні субота, і я не працюю: зараз я читаю вдома. Сьогодні ввечері я збираюся вечеряти з друзями.')],
     criteria: [
       'Є речення про звичку: простий теперішній час і слово на кшталт normalmente, siempre, los lunes.',
-      'Є речення про те, що відбувається зараз: estar + герундій.',
+      'Є речення про те, що відбувається зараз: estar + gerundio.',
       'Є план із вказівкою часу: ir a + інфінітив або теперішній час + mañana, esta noche.',
       'Форми дієслів відповідають особі; poder чи tener que — лише там, де цього вимагає зміст.',
     ],
@@ -114,7 +114,7 @@ export const tasks = [
     id: 'T82', role: 'independent', family: 'messages-chat', ts: [WR],
     ask: 'Ви в потязі. Напишіть другові повідомлення (3–5 речень): що ви зазвичай робите в цей час, що робите зараз і що плануєте на вихідні.',
     criteria: [
-      'Є звичка (простий теперішній), дія зараз (estar + герундій) і план (ir a + інфінітив) з вказівкою часу.',
+      'Є звичка (простий теперішній), дія зараз (estar + gerundio) і план (ir a + інфінітив) з вказівкою часу.',
       'Повідомлення має привітання й прощання.',
       'Форми дієслів відповідають особі.',
     ],
@@ -125,7 +125,7 @@ export const tasks = [
     id: 'T83', role: 'transfer', family: 'invitation', ts: [WR],
     ask: 'Подруга запрошує вас у кіно в суботу. Напишіть відповідь (3–5 речень): що ви робите зараз, чому в суботу не можете (tener que) і що пропонуєте натомість.',
     criteria: [
-      'Є дія зараз (estar + герундій).',
+      'Є дія зараз (estar + gerundio).',
       'Пояснено, чому не можете: no puedo… tengo que + інфінітив.',
       'Є пропозиція чи план на інший день (ir a + інфінітив або теперішній час + вказівка часу).',
       'Форми дієслів відповідають особі.',
@@ -176,7 +176,7 @@ export const lesson = mkLesson({
   steps: [
     s('s1', 'explanation', 'Звичка, дія зараз і план', true, {
       blocks: [
-        UK('У розповіді про день часто поєднуються три значення. Звичка — простий теперішній: Normalmente trabajo en una oficina. Дія зараз — estar + герундій: Ahora estoy trabajando en casa. План — ir a + інфінітив: Mañana voy a ir al médico.'),
+        UK('У розповіді про день часто поєднуються три значення. Звичка — простий теперішній: Normalmente trabajo en una oficina. Дія зараз — estar + gerundio: Ahora estoy trabajando en casa. План — ir a + інфінітив: Mañana voy a ir al médico.'),
         UK('Форму обираємо за змістом усього речення, а не за одним словом: «сьогодні» може бути і звичкою (Hoy es lunes: los lunes tengo clase), і планом (Hoy voy a cenar con Ana).'),
         EX('Normalmente trabajo en una oficina, pero hoy estoy trabajando en casa y mañana voy a ir al médico.', 'Зазвичай я працюю в офісі, але сьогодні працюю вдома, а завтра збираюся до лікаря.'),
       ],
@@ -202,7 +202,7 @@ export const lesson = mkLesson({
     s('s11', 'summary', 'Підсумок', true, {
       blocks: [
         LIST_UK([
-          'Звичка — простий теперішній; дія зараз — estar + герундій; план — ir a + інфінітив.',
+          'Звичка — простий теперішній; дія зараз — estar + gerundio; план — ir a + інфінітив.',
           'Погода: hace calor / frío / sol / viento / buen tiempo; llueve, nieva; está nublado, está despejado.',
           'Hace frío (погода) — tengo frío (відчуття) — el café está frío (предмет).',
         ]),
