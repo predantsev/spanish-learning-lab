@@ -108,6 +108,9 @@ def main():
                 break
             continue
         rc, out = sh(base + ['run-codex', '--batch', batch])
+        for f in glob.glob(f'{REVIEWS}/{batch}/runs/*/stderr.txt'):
+            with open(f, encoding='utf-8', errors='replace') as fh:
+                out += fh.read()[-4000:]
         if LIMIT_RE.search(out):
             commit(f'chore(content): #111 record {batch} review run stopped by reviewer usage limit')
             print(f'!! USAGE LIMIT at {batch}', flush=True)
