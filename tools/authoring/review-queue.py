@@ -59,6 +59,28 @@ def draft_scope(lesson_id):
     return items
 
 
+RESIDUAL = [  # (kind, file glob, list key, id key) — entities a lesson packet does not grade by itself
+    ('skill', 'skills/*.json', 'skills', 'skillId'),
+    ('lexeme', 'lexicon/*.json', 'items', 'id'),
+    ('material', 'materials/*.json', 'materials', 'id'),
+    ('situation', 'situations.json', 'situations', 'id'),
+    ('phrase', 'phrases.json', 'phrases', 'id'),
+    ('collection', 'collections.json', 'collections', 'id'),
+]
+
+
+def residual_batches():
+    """Pending non-lesson entities grouped per source file, chunked to MAX_ITEMS."""
+    out = []
+    for kind, pattern, key, idkey in RESIDUAL:
+        for path in sorted(glob.glob(f'{SRC}/{pattern}')):
+            ids = [f"{kind}:{x[idkey]}" for x in load(path).get(key, []) if x.get('reviewStatus', 'draft') in PENDING]
+            stem = os.path.basename(path)[:-5]
+            for i in range(0, len(ids), MAX_ITEMS):
+                out.append((f'{kind}-{stem}', ids[i:i + MAX_ITEMS]))
+    return out
+
+
 def next_batch_id(lesson_id):
     n = 1
     while os.path.exists(f'{REVIEWS}/{lesson_id}.r{n}'):
@@ -87,19 +109,25 @@ def main():
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--only', default='')
     ap.add_argument('--max', type=int, default=0)
+    ap.add_argument('--lessons-only', action='store_true')
     a = ap.parse_args()
     lessons = sorted((os.path.basename(p)[:-5] for p in glob.glob(f'{SRC}/lessons/*.json')), key=order_key)
     if a.only:
         wanted = set(a.only.split(','))
         lessons = [l for l in lessons if l in wanted]
-    done = 0
+    jobs = []
     for lid in lessons:
         items = draft_scope(lid)
-        if not items:
-            continue
+        if items:
+            jobs.append((lid, ['--items', ','.join(items)] if len(items) <= MAX_ITEMS else ['--lesson', lid], len(items)))
+    if not a.only and not a.lessons_only:
+        for stem, ids in residual_batches():
+            jobs.append((stem, ['--items', ','.join(ids)], len(ids)))
+    done = 0
+    for lid, scope, count in jobs:
+        items = [None] * count
         batch = next_batch_id(lid)
-        scope = ['--items', ','.join(items)] if len(items) <= MAX_ITEMS else ['--lesson', lid]
-        print(f'== {batch}: {len(items)} draft entities, scope {scope[0]}', flush=True)
+        print(f'== {batch}: {len(items)} pending entities, scope {scope[0]}', flush=True)
         base = ['node', 'tools/review/review.ts']
         rc, out = sh(base + ['packet', *scope, '--author-provider', 'anthropic', '--author-model', 'claude-opus-5-5',
                              '--batch-id', batch] + (['--dry-run'] if a.dry_run else []))
