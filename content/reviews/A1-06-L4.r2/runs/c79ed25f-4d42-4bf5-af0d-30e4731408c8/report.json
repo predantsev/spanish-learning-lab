@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-06-L4.r2",
+  "packetHash": "89c2f681be13f3c631c85e99b9104454044817de179dcb3b2e125b2cb3f6a912",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "e20261f4a6cb593c820de0d88135dd3b27c13615b383fe86adecd5eca70bfc43",
+    "reviewerPacketSha256": "0f01ae58233f0adc52c2f3986d60d1f461d10ab0ef8d81da4b60ae9fe01c7f99",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pWhWUr/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pWhWUr/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pWhWUr/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pWhWUr/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pWhWUr/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c00c-c2da-7663-8b43-affe726adf96",
+        "version": "v0.166.0",
+        "tokens used": "47,588"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-06-L4-T34",
+        "reviewerAnswer": "El fin de semana quiero descansar. / Quiero descansar el fin de semana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The noun reading of «descanso» is appropriately distinguished from an incorrect verb construction through the unresolved outcome. No closed key is declared."
+      },
+      {
+        "caseId": "task:A1-06-L4-T37",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The requirement that the expression itself identify tonight makes a uniquely correct."
+      },
+      {
+        "caseId": "task:A1-06-L4-T47",
+        "reviewerAnswer": "Esta tarde Pablo trabaja. / Pablo trabaja esta tarde.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "«Por la tarde» alone does not satisfy the explicit requirement to identify today. Other valid formulations are not demonstrably rejected because no closed key is declared."
+      },
+      {
+        "caseId": "task:A1-06-L4-T59",
+        "reviewerAnswer": "a is closest: the sentence expresses a wish to travel to Madrid and specifies no day. It does not establish whether a plan also exists.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «План має конкретний час і звучить як уже вирішене.»; task.options[0].label: «Лише бажання.»",
+        "defect": "The explanation presents a specific time as a necessary property of plans and makes desire and planning mutually exclusive. Plans need not have a fixed date, and querer can express intention or determination. The sentence communicates wanting to travel without establishing whether arrangements exist.",
+        "correction": "Ask «Що прямо виражає це речення?» and label a «Бажання поїхати до Мадрида.». Describe the examples specifically: «Quiero…» expresses desire; «El sábado voy…» presents an action as planned for Saturday. Remove the general requirement that a plan have a specific time.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «querer», senses concerning desire and intention or determination (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, entry «plan», senses concerning intention and project (from memory)."
+        ],
+        "notes": "The definite defect is the categorical explanation. The speaker's actual planning status remains unspecified."
+      },
+      {
+        "caseId": "task:A1-06-L4-T67",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supplied transcript clearly expresses acceptance. Audio delivery is outside this text-only review."
+      },
+      {
+        "caseId": "task:A1-06-L4-T68",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The plural invitation can naturally receive a singular response from one invitee. «Вона» agrees grammatically with «людина» in the prompt."
+      },
+      {
+        "caseId": "clip:clip.a1-06.invitation.cena",
+        "reviewerAnswer": "Several people are invited to dinner at home tonight; a respondent declines because they are working tonight.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Ukrainian translation preserves the meaning. A singular reply to a plural invitation is coherent."
+      },
+      {
+        "caseId": "clip:clip.a1-06.invitation.cine",
+        "reviewerAnswer": "An invitation to the cinema on Saturday receives an enthusiastic acceptance.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T34",
+      "contentHash": "b8f9ba532a9c47a7dddc2f9eebbd0f2adbe77fe3fcab990d9f78448b9d955a1b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L4-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "El fin de semana quiero descansar. / Quiero descansar el fin de semana.",
+      "notes": "The noun reading of «descanso» is appropriately distinguished from an incorrect verb construction through the unresolved outcome. No closed key is declared.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T37",
+      "contentHash": "b6533ba204ebda24b6e4e9c8a109650d6d4eae04c8c2443a6582b64b0c58dedb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L4-T37",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The requirement that the expression itself identify tonight makes a uniquely correct.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T47",
+      "contentHash": "8edd12564c87d9ba6257f33c71a1cab004005f148541df01c775071923897390",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L4-T47",
+      "verdict": "valid",
+      "reviewerAnswer": "Esta tarde Pablo trabaja. / Pablo trabaja esta tarde.",
+      "notes": "«Por la tarde» alone does not satisfy the explicit requirement to identify today. Other valid formulations are not demonstrably rejected because no closed key is declared.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T59",
+      "contentHash": "aa27dd1cdf40ad3e2b66d99c57619b6f96002b259523c83c8c6c3598844b499a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «План має конкретний час і звучить як уже вирішене.»; task.options[0].label: «Лише бажання.»",
+          "description": "The explanation presents a specific time as a necessary property of plans and makes desire and planning mutually exclusive. Plans need not have a fixed date, and querer can express intention or determination. The sentence communicates wanting to travel without establishing whether arrangements exist.",
+          "suggestion": "Ask «Що прямо виражає це речення?» and label a «Бажання поїхати до Мадрида.». Describe the examples specifically: «Quiero…» expresses desire; «El sábado voy…» presents an action as planned for Saturday. Remove the general requirement that a plan have a specific time."
+        }
+      ],
+      "caseId": "task:A1-06-L4-T59",
+      "verdict": "flawed",
+      "reviewerAnswer": "a is closest: the sentence expresses a wish to travel to Madrid and specifies no day. It does not establish whether a plan also exists.",
+      "notes": "The definite defect is the categorical explanation. The speaker's actual planning status remains unspecified.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «querer», senses concerning desire and intention or determination (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, entry «plan», senses concerning intention and project (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T67",
+      "contentHash": "b6717f02dbcb67190c4b64b60758367919251fd8f238407d5098d9da7da3b8be",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L4-T67",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The supplied transcript clearly expresses acceptance. Audio delivery is outside this text-only review.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T68",
+      "contentHash": "93f6f06c935b41edb64e7f49ba4d286a4ced4ff5b89e8f7cc76c8c10b2e4c1e4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L4-T68",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The plural invitation can naturally receive a singular response from one invitee. «Вона» agrees grammatically with «людина» in the prompt.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-06.invitation.cena",
+      "contentHash": "acc4846af1116de580fcb2673f7be3f494c278caa318c3d9ebe323c9f2bb349a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-06.invitation.cena",
+      "verdict": "valid",
+      "reviewerAnswer": "Several people are invited to dinner at home tonight; a respondent declines because they are working tonight.",
+      "notes": "The Ukrainian translation preserves the meaning. A singular reply to a plural invitation is coherent.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-06.invitation.cine",
+      "contentHash": "d309f5fef5664583fd0c00a5245e7452ec4f77d484c2aca2237cc7b173b4c3c1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-06.invitation.cine",
+      "verdict": "valid",
+      "reviewerAnswer": "An invitation to the cinema on Saturday receives an enthusiastic acceptance.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
