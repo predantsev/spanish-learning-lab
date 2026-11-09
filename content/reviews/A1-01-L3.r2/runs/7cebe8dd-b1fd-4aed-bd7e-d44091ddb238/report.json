@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-01-L3.r2",
+  "packetHash": "4445ddce245b9659cdaadfdfc1ee7e13a767233393d6f0d5d37232c98b8c1478",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "685ca5f5f88e066cd58df71762b42596161efdae2c9c9dacbb6fc72a006bd231",
+    "reviewerPacketSha256": "723576d031777575267972ffe7e24be507c285abc70a6f3f89cebfeeb90c8051",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ncu6A6/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ncu6A6/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ncu6A6/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ncu6A6/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ncu6A6/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bda9-59d7-79c0-94aa-d408fe77a01f",
+        "version": "v0.166.0",
+        "tokens used": "34,669"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-01-L3-T27",
+        "reviewerAnswer": "Hola, Pablo, ¿qué tal? Also acceptable: Hola, Pablo. ¿Qué tal? / ¡Hola, Pablo! ¿Qué tal?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L3-T40",
+        "reviewerAnswer": "¡Hasta luego, Pablo! Also acceptable: Hasta luego, Pablo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L3-T47",
+        "reviewerAnswer": "Muchas gracias, señor García. Also acceptable: ¡Muchas gracias, señor García!",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-L3-T54",
+        "reviewerAnswer": "Lo siento, Pablo. Exclamatory punctuation is also possible: ¡Lo siento, Pablo!",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not closed, so the unlisted exclamatory variant is not demonstrably graded incorrect."
+      },
+      {
+        "caseId": "clip:clip.a1-01.hola-pablo-que-tal",
+        "reviewerAnswer": "Hola, Pablo, ¿qué tal? — Привіт, Пабло, як справи?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript and Ukrainian translation agree. Actual audio was not assessed."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L3-T27",
+      "contentHash": "81bdb0a34e4125c6a1e4bcd637e368efc7722c8ba9f573398204143473963cee",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L3-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "Hola, Pablo, ¿qué tal? Also acceptable: Hola, Pablo. ¿Qué tal? / ¡Hola, Pablo! ¿Qué tal?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L3-T40",
+      "contentHash": "2d235f79bc27e673980fd4020e486c929a372fc042fc9a42118e8b1765645aea",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L3-T40",
+      "verdict": "valid",
+      "reviewerAnswer": "¡Hasta luego, Pablo! Also acceptable: Hasta luego, Pablo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L3-T47",
+      "contentHash": "061fb5b43d1cc99062fa462a174954f2077ebc18691a223a37964ccfd9dd6056",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L3-T47",
+      "verdict": "valid",
+      "reviewerAnswer": "Muchas gracias, señor García. Also acceptable: ¡Muchas gracias, señor García!",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L3-T54",
+      "contentHash": "ae18461289526f30e6bfb2845d418859afbdbc42bc50689418cf190200c04788",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-L3-T54",
+      "verdict": "valid",
+      "reviewerAnswer": "Lo siento, Pablo. Exclamatory punctuation is also possible: ¡Lo siento, Pablo!",
+      "notes": "The key is not closed, so the unlisted exclamatory variant is not demonstrably graded incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-01.hola-pablo-que-tal",
+      "contentHash": "36b85d9f8f4c33c8f82459027e296b7358701333ea32e08af64d076fea6330bd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-01.hola-pablo-que-tal",
+      "verdict": "valid",
+      "reviewerAnswer": "Hola, Pablo, ¿qué tal? — Привіт, Пабло, як справи?",
+      "notes": "The transcript and Ukrainian translation agree. Actual audio was not assessed.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
