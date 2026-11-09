@@ -89,7 +89,7 @@ export const RULES: Record<string, string> = {
   'time.clock.minutes':
     'До половини години хвилини додаємо через y: las tres y cuarto (3:15), las tres y media (3:30), las cinco y diez (5:10). Після половини називаємо наступну годину й віднімаємо хвилини через menos: las cuatro menos cuarto (3:45), las seis menos veinte (5:40).',
   'time.clock.de-la-manana':
-    'З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche (у розмові правильно й a las ocho por la mañana). Без точного часу — тільки por: Trabajo por la mañana.',
+    'З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche (у розмові правильно й a las ocho por la mañana). Без точного часу частину доби найчастіше називаємо з por la: Trabajo por la mañana.',
   'time.event.a-las': 'Про час події питаємо ¿A qué hora…?: ¿A qué hora es la clase? Відповідь: a las + година: A las nueve. О першій — a la una.',
   'contrast.que-hora-a-que-hora': '¿Qué hora es? — «Котра година зараз?» (Son las cinco.) ¿A qué hora…? — «О котрій відбувається подія?» (A las nueve.)',
   'time.range.de-a': '«Від … до …» — de … a …: El banco abre de nueve a dos. Інший варіант — desde las nueve hasta las dos. На табличках коротко: de 9:00 a 14:00.',
@@ -177,7 +177,7 @@ export const RULES: Record<string, string> = {
   'contrast.like-need-want':
     'Me gusta — «мені подобається» (загалом). Necesito — «мені потрібно» (без цього важко). Quiero — «я хочу» (бажання). Me gusta el café — каву люблю; Necesito un café — без кави не обійдуся; Quiero un café — хочу кави.',
   'contrast.wish-plan':
-    'Quiero ir a la playa — лише бажання: «хочу піти на пляж». El sábado voy a la playa — план: «у суботу йду на пляж». План має конкретний час і звучить як уже вирішене.',
+    'Quiero ir a la playa — «хочу піти на пляж»: речення називає бажання і не каже, чи вже щось вирішено. El sábado voy a la playa — «у суботу йду на пляж»: теперішній час зі словом майбутнього подає дію як уже вирішену.',
   'formula.invitation':
     'Запросити: ¿Quieres ir al cine el sábado? Погодитися: ¡Vale! («гаразд, домовились»), ¡Claro! — «звісно», ¡Genial! — «чудово». Відмовитися ввічливо: Lo siento + причина: Lo siento, el sábado trabajo. Запропонувати інший день: Otro día, ¿vale?',
   // A1-06-L5

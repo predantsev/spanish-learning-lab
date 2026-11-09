@@ -15,25 +15,25 @@ const LM = 'listening.message/listening-meaning';
 const CRIT = [
   'Є привітання на початку і прощання в кінці (¡Hola…!, Un abrazo, Besos, ¡Hasta pronto!).',
   'Головну мету досягнуто: відповідь на запрошення, план чи прохання зрозуміла.',
-  'Є хоча б одна причина з porque або протиставлення з pero.',
+  'Є хоча б одна причина з porque.',
   'Вивчені форми вжиті правильно (me gusta, quiero / necesito + інфінітив, el sábado voy…).',
   'Відповідь може відрізнятися від прикладу: перевіряється зміст і вивчені форми; довжина — орієнтир.',
 ];
 
 // ======================= openings and closings
-k.exact({ n: 1, role: 'supported', fam: 'a106.open', t: [OC], ins: 'Почни повідомлення подрузі Ані іспанською: «Привіт, Ано!» Зразок: ¡Hola, Pablo!', acc: ['¡Hola, Ana!', 'Hola, Ana:', 'Hola, Ana.', 'Hola, Ana', '¡Hola Ana!', 'Hola Ana:'] });
+k.exact({ n: 1, role: 'supported', fam: 'a106.open', t: [OC], ins: 'Почни повідомлення подрузі Ані іспанською: «Привіт, Ано!» Зразок: ¡Hola, Pablo!', acc: ['¡Hola, Ana!', 'Hola, Ana:', 'Hola, Ana.', 'Hola, Ana'], err: [['¡Hola Ana!', 'Звертання відокремлюємо комою: ¡Hola, Ana!', { [OC]: 'incorrect' }], ['Hola Ana:', 'Звертання відокремлюємо комою: Hola, Ana:', { [OC]: 'incorrect' }]] });
 k.exact({ n: 2, role: 'independent', fam: 'a106.close', t: [OC], ins: 'Закінчи повідомлення другові іспанською: «Обіймаю».', acc: ['Un abrazo.', 'Un abrazo,', 'Un abrazo', '¡Un abrazo!'] });
 k.exact({ n: 3, role: 'independent', fam: 'a106.close', t: [OC], ins: 'Закінчи повідомлення іспанською: «До скорого!»', acc: ['¡Hasta pronto!', 'Hasta pronto.', 'Hasta pronto'] });
-k.exact({ n: 4, role: 'independent', fam: 'a106.open', t: [OC], ins: 'Почни лист другові Пабло іспанською: «Дорогий Пабло».', acc: ['Querido Pablo:', 'Querido Pablo,', '¡Querido Pablo!', 'Querido Pablo'], err: [['Querida Pablo:', 'Pablo — чоловік, тож querido.', { [OC]: 'incorrect' }]] });
+k.exact({ n: 4, role: 'independent', fam: 'a106.open', t: [OC], ins: 'Почни лист другові Пабло іспанською: «Дорогий Пабло».', acc: ['Querido Pablo:', '¡Querido Pablo!', 'Querido Pablo'], err: [['Querida Pablo:', 'Pablo — чоловік, тож querido.', { [OC]: 'incorrect' }], ['Querido Pablo,', 'В іспанському листі після звертання ставлять двокрапку, а не кому: Querido Pablo:', { [OC]: 'incorrect' }]] });
 k.exact({ n: 5, role: 'delayed', fam: 'a106.close', t: [OC], ins: 'Закінчи повідомлення подрузі іспанською: «Побачимося».', acc: ['Nos vemos.', 'Nos vemos', '¡Nos vemos!'] });
 k.choice({ n: 6, role: 'independent', fam: 'a106.r-close', t: [OCR], ins: 'Що означає «Besos» у кінці повідомлення другові?', o: [['«Цілую» — звичне прощання між друзями.', true], ['«Дякую».', false], ['«Вибач».', false]] });
 k.choice({ n: 7, role: 'delayed', fam: 'a106.r-open', t: [OCR], ins: 'Як звернутися до подруги Марти на початку листа?', o: [['Querido Marta:', false], ['Querida Marta:', true], ['Querida a Marta:', false]] });
 
 // ======================= reading messages
 const M1 = '¡Hola, Lucía! El sábado es mi cumpleaños. ¿Quieres cenar en mi casa a las nueve? Necesito tu ayuda: ¿puedes traer pan? Un abrazo, Carmen';
-const M2 = 'Hola, Diego: esta semana no puedo ir al gimnasio porque tengo exámenes. Pero el lunes que viene voy contigo. ¡Hasta pronto! Sergio';
-const M3 = 'Querida Elena: estoy en Valencia con mi familia. Me gusta mucho la ciudad, pero hace mucho calor. Mañana vamos a la playa. Besos, Raquel';
-const M4 = 'Hola, Jorge: ¿quieres ir al cine el viernes? Hay una película española a las ocho. Después podemos cenar. ¿Qué prefieres, pizza o tapas? Laura';
+const M2 = 'Hola, Diego: Esta semana no puedo ir al gimnasio porque tengo exámenes. Pero el lunes que viene voy contigo. ¡Hasta pronto! Sergio';
+const M3 = 'Querida Elena: Estoy en Valencia con mi familia. Me gusta mucho la ciudad, pero hace mucho calor. Mañana vamos a la playa. Besos, Raquel';
+const M4 = 'Hola, Jorge: ¿Quieres ir al cine el viernes? Hay una película española a las ocho. Después podemos cenar. ¿Qué prefieres, pizza o tapas? Laura';
 const rm = (n: number, role: 'independent' | 'delayed', fam: string, text: string, q: string, o: Array<[string, boolean]>, gloss?: string): string =>
   k.choice({ n, role, fam, t: [RM], ins: `Прочитай повідомлення. ${q}`, p: [text], o, ...(gloss ? { tr: gloss } : {}) });
 rm(11, 'independent', 'a106.m-birthday', M1, 'Чого хоче Кармен?', [['Запросити Лусію на вечерю в день народження.', true], ['Попросити Лусію прийти о дев’ятій ранку.', false], ['Розповісти про свої плани на неділю.', false]], 'Слова: ayuda — допомога; ¿puedes traer…? — «можеш принести…?»');
@@ -45,7 +45,7 @@ rm(16, 'independent', 'a106.m-valencia', M3, 'Що Ракель робить з�
 rm(17, 'delayed', 'a106.m-cinema', M4, 'Що пропонує Лаура?', [['Піти в кіно в п’ятницю, а потім повечеряти.', true], ['Повечеряти в суботу.', false], ['Подивитися фільм удома.', false]], 'Слова: podemos — «ми можемо»; pizza — піца; tapas — тапас (невеликі закуски).');
 rm(18, 'delayed', 'a106.m-cinema', M4, 'Що Лаура питає наприкінці?', [['Що Хорхе вибирає: піцу чи тапас.', true], ['О котрій фільм.', false], ['Чи любить Хорхе кіно.', false]], 'Слова: podemos — «ми можемо»; pizza — піца; tapas — тапас (невеликі закуски).');
 k.choice({ n: 19, role: 'independent', fam: 'a106.m-birthday', t: [RMC], ins: `Прочитай повідомлення Кармен ще раз: «${M1}» Ти можеш прийти. Яка відповідь підходить?`, o: [['¡Claro! ¿A qué hora? Un abrazo.', false], ['¡Vale! Nos vemos el sábado a las nueve. Un abrazo.', true], ['Lo siento, el domingo trabajo.', false]] });
-k.choice({ n: 20, role: 'delayed', fam: 'a106.m-cinema', t: [RMC], ins: `Прочитай повідомлення Лаури ще раз: «${M4}» Хорхе в п’ятницю працює. Яка відповідь підходить?`, o: [['¡Genial! Prefiero pizza.', false], ['Lo siento, el viernes trabajo. ¿Y el sábado?', true], ['¿Cuándo es la película?', false]] });
+k.choice({ n: 20, role: 'delayed', fam: 'a106.m-cinema', t: [RMC], ins: `Прочитай повідомлення Лаури ще раз: «${M4}» Хорхе в п’ятницю працює до десятої вечора. Яка відповідь підходить?`, o: [['¡Genial! Prefiero pizza.', false], ['Lo siento, el viernes trabajo. ¿Y el sábado?', true], ['¿Cuándo es la película?', false]] });
 
 // ======================= writing a message (rubric)
 k.rubric({
@@ -55,14 +55,14 @@ k.rubric({
   t: [WM],
   ins: `Прочитай повідомлення: «${M1}» Напиши Кармен відповідь 3–5 реченнями іспанською: погодься чи відмовся, поясни чому (porque) і попрощайся. Зразок — у підказці.`,
   crit: CRIT,
-  exm: ['¡Hola, Carmen! ¡Muchas gracias! Sí, quiero cenar en tu casa el sábado. Me gusta mucho tu cocina. Necesito comprar pan, ¿vale? Un abrazo, Ana'],
+  exm: ['¡Hola, Carmen! ¡Muchas gracias! Sí, quiero cenar en tu casa el sábado porque me gusta mucho tu cocina. Necesito comprar pan, ¿vale? Un abrazo, Ana'],
 });
 k.rubric({
   n: 22,
   role: 'independent',
   fam: 'a106.w-plan',
   t: [WM],
-  ins: 'Напиши другові повідомлення 3–5 реченнями іспанською про свої плани на вихідні: що ти робиш, що тобі подобається, і запроси його приєднатися.',
+  ins: 'Напиши другові повідомлення 3–5 реченнями іспанською про свої плани на вихідні: що ти робиш, що тобі подобається і чому (porque), і запроси його приєднатися.',
   crit: CRIT,
   exm: ['¡Hola, Pablo! El sábado voy a la playa con mi hermana porque me gusta mucho nadar. Por la noche cenamos en un restaurante. ¿Quieres ir con nosotras? ¡Hasta pronto! Marta'],
 });
@@ -71,9 +71,9 @@ k.rubric({
   role: 'transfer',
   fam: 'a106.w-neighbour-t',
   t: [WM],
-  ins: 'Ти переїхав у нову квартиру. Напиши новій знайомій Ані повідомлення 3–5 реченнями іспанською: що тобі подобається в районі, що тобі потрібно (наприклад, знайти аптеку чи супермаркет) і запропонуй випити каву.',
+  ins: 'Ти переїхав у нову квартиру. Напиши новій знайомій Ані повідомлення 3–5 реченнями іспанською: що тобі подобається в районі і чому (porque), що тобі потрібно (наприклад, знайти аптеку чи супермаркет) і запропонуй випити каву.',
   crit: CRIT,
-  exm: ['Hola, Ana: me gusta mucho mi piso nuevo porque está cerca del centro. Necesito un supermercado: ¿hay uno cerca de aquí? ¿Quieres tomar un café el domingo? Nos vemos. Un beso, Isabel'],
+  exm: ['Hola, Ana: Me gusta mucho mi piso nuevo porque está cerca del centro. Necesito un supermercado: ¿hay uno cerca de aquí? ¿Quieres tomar un café el domingo? Nos vemos. Un beso, Isabel'],
 });
 
 // ======================= listening: voice messages
@@ -110,7 +110,7 @@ export default k.build({
       kind: 'explanation',
       title: 'Як почати й закінчити повідомлення',
       blocks: [
-        uk('Початок: ¡Hola, Ana! або Hola, Ana: — після звертання в іспанській часто ставлять двокрапку. Querido / Querida + ім’я — «дорогий / дорога» (узгоджуємо з адресатом).'),
+        uk('Початок: ¡Hola, Ana! або Hola, Ana: — після звертання в іспанській часто ставлять двокрапку, і далі текст починаємо з великої літери: Hola, Ana: Mañana voy… Querido / Querida + ім’я — «дорогий / дорога» (узгоджуємо з адресатом).'),
         uk('Кінець: Un abrazo — «обіймаю», Besos / Un beso — «цілую» (між друзями в Іспанії це звично), ¡Hasta pronto! — «до скорого», Nos vemos — «побачимося».'),
         uk('Між ними — головне: що плануєш, що подобається, куди запрошуєш, і чому (porque).'),
         es('¡Hola, Marta! El domingo como con mis padres. ¿Quieres comer con nosotros? Besos, Ana'),

@@ -37,10 +37,12 @@ type E = Array<[string, string]>;
 function x(n: number, role: TaskRole, fam: string, t: string, ins: string, acc: string[], err: E = [], p?: string, tr?: string, hints?: Hint[]): string {
   return k.exact({ n, role, fam, t: [t], ins, acc, ...(err.length > 0 ? { err } : {}), ...(p ? { p: [p] } : {}), ...(tr ? { tr } : {}), ...(hints ? { hints } : {}) });
 }
-/** Construction clues for full-sentence tasks whose sentence needs a construction taught in another step. */
-const ART = (t: string): Hint[] => [hClue([t], 'Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.')];
-const INF = (t: string): Hint[] => [hClue([t], 'Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.')];
-const ANL = (t: string): Hint[] => [hClue([t], 'Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.')];
+/** Construction clues for full-sentence tasks whose sentence needs a construction taught in another step.
+ * The clue explains a construction that is not an assessed target of the task, so it carries no targets
+ * (content/README.md rule 5: a hint lists exactly the targets it explains). The argument is kept for call sites. */
+const ART = (_t: string): Hint[] => [hClue([], 'Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.')];
+const INF = (_t: string): Hint[] => [hClue([], 'Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.')];
+const ANL = (_t: string): Hint[] => [hClue([], 'Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.')];
 
 /** Single-slot rewrite task: the learner retypes the whole sentence with the gap filled. */
 function one(n: number, role: TaskRole, fam: string, t: string, ins: string, before: string, after: string, acc: string[], err: E = [], tr?: string): string {
@@ -125,7 +127,7 @@ x(39, 'independent', 'a106.dance', INW, 'Впиши дієслово bailar у �
 x(40, 'independent', 'a106.swim', IN, 'Переклади іспанською: «Мені подобається плавати».', ['Me gusta nadar.', 'A mí me gusta nadar.'], [['Me gusta nado.', infErr('nado', 'nadar')[1]]]);
 x(41, 'independent', 'a106.travel', IN, 'Переклади іспанською: «Тобі подобається подорожувати?»', ['¿Te gusta viajar?', '¿A ti te gusta viajar?'], [['¿Te gustan viajar?', 'З інфінітивом — завжди gusta: ¿Te gusta viajar?'], ['¿Te gusta viajas?', infErr('viajas', 'viajar')[1]]]);
 one(42, 'independent', 'a106.reading', INW, 'Перепиши речення повністю, вставивши gusta або gustan: «Мені подобається читати й писати».', 'Me ', ' leer y escribir.', ['gusta'], [['gustan', 'З інфінітивом — завжди gusta, навіть із кількома діями.']]);
-x(43, 'delayed', 'a106.run', IN, 'Переклади іспанською: «Їм подобається бігати в парку».', ['Les gusta correr en el parque.', 'A ellos les gusta correr en el parque.', 'A ellas les gusta correr en el parque.'], [['Les gusta corren en el parque.', infErr('corren', 'correr')[1]]], undefined, undefined, [hClue([IN], 'Кільком людям (ellos, ellas) — les: Les gusta leer. Нам — nos: Nos gusta nadar.')]);
+x(43, 'delayed', 'a106.run', IN, 'Переклади іспанською: «Їм подобається бігати в парку».', ['Les gusta correr en el parque.', 'A ellos les gusta correr en el parque.', 'A ellas les gusta correr en el parque.'], [['Les gusta corren en el parque.', infErr('corren', 'correr')[1]]], undefined, undefined, [hClue([], 'Кільком людям (ellos, ellas) — les: Les gusta leer. Нам — nos: Nos gusta nadar.')]);
 x(44, 'delayed', 'a106.kitchen', INW, 'Впиши дієслово cocinar у потрібній формі: «Тобі подобається готувати?»', ['cocinar'], [infErr('cocinas', 'cocinar')], '¿Te gusta ___?');
 x(45, 'transfer', 'a106.dog-t', IN, 'Переклади іспанською: «Мені подобається гуляти зі своїм собакою».', ['Me gusta pasear con mi perro.', 'A mí me gusta pasear con mi perro.'], [['Me gusta paseo con mi perro.', infErr('paseo', 'pasear')[1]]]);
 x(46, 'transfer', 'a106.sport-t', IN, 'Переклади іспанською: «Нам подобається плавати й бігати».', ['Nos gusta nadar y correr.', 'A nosotros nos gusta nadar y correr.', 'A nosotras nos gusta nadar y correr.'], [['Nos gustan nadar y correr.', 'З інфінітивами — завжди gusta, навіть із кількома діями.']]);
