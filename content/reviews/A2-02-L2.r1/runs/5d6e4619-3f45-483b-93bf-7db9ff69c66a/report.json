@@ -1,0 +1,1447 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-02-L2.r1",
+  "packetHash": "5c3f2dcb3dad1ac54d3aa71c03c8db489482ffa3b1d65d43645c5ea2613120d8",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "0e511d0e8817404071ebb9b6902825cd0487c2435e1f7211df30247aae0f04f2",
+    "reviewerPacketSha256": "e1972dd41a2b22ba9e4e71902d9b535f34625f063ec01cc3795ddf88bdd0a120",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5bzM9S/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5bzM9S/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5bzM9S/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5bzM9S/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-5bzM9S/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c04f-d85a-7612-bf04-3250fd57d188",
+        "version": "v0.166.0",
+        "tokens used": "26,746"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:object-pron.direct-1-2",
+        "reviewerAnswer": "«me, te, nos, os» represent first- and second-person direct objects; «os» corresponds to «vosotros/vosotras».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:object-pron.direct-3",
+        "reviewerAnswer": "Use «lo, la, los, las» according to gender and number. Singular masculine personal «le» is also standard; courtesy «le/les» can address women as well.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.variantPolicyUk: «Le для предметів і для жінок не приймаємо»",
+        "defect": "The blanket rejection for women excludes accepted courtesy leísmo when addressing a woman as «usted». This falls within the skill's explicit address-form scope. The ordinary third-person feminine case and courtesy address require different treatment.",
+        "correction": "Keep «la» as the feminine model, but distinguish ordinary third-person reference from accepted courtesy «le». Resolve the pending plural policy separately, distinguishing ordinary third-person «los» from courtesy «les».",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», discussion of leísmo de cortesía with «usted/ustedes» (from memory).",
+          "Packet: content.body.scope.noteUk explicitly includes address using «usted» and «ustedes»."
+        ],
+        "notes": "The singular masculine «lo/le» policy is otherwise sound."
+      },
+      {
+        "caseId": "skill:object-pron.direct-referent",
+        "reviewerAnswer": "In «Compro unas naranjas y las pongo en la mesa», «las» refers to «unas naranjas». Context and agreement identify the nominal antecedent.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The rule is appropriate for the explicitly nominal scope of this skill."
+      },
+      {
+        "caseId": "skill:object-pron.placement-finite",
+        "reviewerAnswer": "Within the supplied present-indicative constructions: «Lo compro», «No lo compro», «¿Los conoces?» and «Te llamo mañana».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The rule is evaluated within the supplied present-indicative scope. Affirmative imperatives will require separate treatment when introduced."
+      },
+      {
+        "caseId": "lexeme:lex.ayudar",
+        "reviewerAnswer": "«ayudar» means «допомагати»; «¿Te ayudo?» is correct.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.buscar",
+        "reviewerAnswer": "«buscar» means «шукати»: «Busco las llaves», but «Busco a Ana» for a specific person.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.noteUk: «Без прийменника: busco las llaves»",
+        "defect": "The example is correct, but the unqualified instruction omits personal «a», required with a specific human direct object such as Ana. This is particularly misleading in a lesson that also uses «buscar» with people.",
+        "correction": "Restrict the no-preposition statement to the inanimate example and add a contrasting personal example: «Busco las llaves» / «Busco a Ana».",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «a», personal «a» before definite human direct objects (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.esperar",
+        "reviewerAnswer": "«esperar» means «чекати; сподіватися»; «Espero el autobús» and «Espero a Ana» are correct models.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.invitar",
+        "reviewerAnswer": "«invitar» means «запрошувати; пригощати».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A2-02-L2",
+        "reviewerAnswer": "Appropriate models include «Ana me llama», «¿La leche? La compro» and «No las veo». Ordinary feminine reference uses «la/las», while courtesy address can also use «le/les».",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s3].blocks[3].text: «Ми вчимо lo; про предмети і про жінок le не вживаємо.»",
+        "defect": "The unrestricted ban on «le» for women excludes accepted courtesy address to a woman using «usted». The same explanation explicitly introduces address forms through «¿La ayudo, señora?».",
+        "correction": "Distinguish ordinary third-person feminine reference from courtesy address. Keep «la» as the teaching model without declaring courtesy «le» incorrect.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», discussion of leísmo de cortesía (from memory).",
+          "Packet: content.body.steps[id=s3].blocks[0] includes «¿La ayudo, señora?»."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T01",
+        "reviewerAnswer": "me",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T02",
+        "reviewerAnswer": "Te",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T03",
+        "reviewerAnswer": "os",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T04",
+        "reviewerAnswer": "nos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T05",
+        "reviewerAnswer": "Me",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T06",
+        "reviewerAnswer": "Me",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T11",
+        "reviewerAnswer": "La",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T12",
+        "reviewerAnswer": "Las",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T13",
+        "reviewerAnswer": "Los",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T14",
+        "reviewerAnswer": "«lo» fits the listed four-form instruction; «le» is also standard Spain Spanish for Pablo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[1].text: «Про предмети і про жінок — лише lo, la.»",
+        "defect": "The unrestricted statement omits plural «los/las» and excludes accepted courtesy «le» for a woman addressed as «usted». The answer key for Pablo itself correctly accepts «lo» and «le».",
+        "correction": "Describe ordinary third-person forms as «lo, la, los, las», with gender and number agreement. Distinguish singular masculine personal «le» and courtesy address instead of giving a blanket prohibition.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», third-person accusative forms (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», leísmo de cortesía (from memory)."
+        ],
+        "notes": "The prompt could also explicitly acknowledge the accepted «le» variant."
+      },
+      {
+        "caseId": "task:A2-02-L2-T15",
+        "reviewerAnswer": "la",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T16",
+        "reviewerAnswer": "las",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T21",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T22",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[1].text: «Про предмети і про жінок — лише lo, la.»",
+        "defect": "The hint excludes plural forms even though this task requires «las». Its blanket restriction also fails to distinguish ordinary feminine reference from accepted courtesy «le/les». The option key for «mis hermanas» is correct.",
+        "correction": "Include «los/las» in the general rule and distinguish ordinary third-person reference from courtesy address. Retain «las» as the answer here.",
+        "sources": [
+          "Course contract rule 6: help must accurately explain its target.",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», third-person accusative forms (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», leísmo de cortesía (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T23",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[1].text: «Про предмети і про жінок — лише lo, la.»",
+        "defect": "The general hint omits plural «los/las» and incorrectly rules out courtesy «le» for female «usted». Neither issue changes the correct answer «lo» for «el ordenador».",
+        "correction": "State the ordinary four-form paradigm with gender and number agreement, then distinguish singular masculine personal «le» and courtesy address.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», third-person accusative forms (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», leísmo de cortesía (from memory)."
+        ],
+        "notes": "Calling the specified laptop «el ordenador» is acceptable; it does not need to be changed to assess this pronoun."
+      },
+      {
+        "caseId": "task:A2-02-L2-T24",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T25",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T26",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T27",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T31",
+        "reviewerAnswer": "«lo compro», «lo compro yo» or «yo lo compro».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T32",
+        "reviewerAnswer": "«te llamo»; «yo te llamo» and «te llamo yo» also fit the blank.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+        "defect": "The question already contains the object pronoun «me», not an object noun. The required operation is changing speaker perspective from «me» to «te», so the instruction describes the wrong operation.",
+        "correction": "Ask learners to answer using the appropriate pronoun, or explicitly explain that the pronoun changes with the speaker.",
+        "sources": [
+          "Packet: task.prompt[2] is «—¿Me llamas mañana? —Sí, ___ mañana.»; its object is already «me».",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», forms «me» and «te» (from memory)."
+        ],
+        "notes": "The Spanish model and reviewed answers are otherwise correct; the open key permits additional answers to remain unresolved."
+      },
+      {
+        "caseId": "task:A2-02-L2-T33",
+        "reviewerAnswer": "las quiero",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T34",
+        "reviewerAnswer": "la veo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Here «tu madre» is an ordinary third-person referent, so courtesy leísmo does not justify «le veo»."
+      },
+      {
+        "caseId": "task:A2-02-L2-T35",
+        "reviewerAnswer": "«os espero» for informal plural address. Courtesy «les espero» is possible if the reply addresses the group as «ustedes».",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»; task.errors[2]: «les espero» marked incorrect",
+        "defect": "The object «nos» is already a pronoun, so no object noun can be replaced. Separately, rejecting «les espero» assumes a «vosotros» reply, although the prompt does not establish how the respondent addresses the group.",
+        "correction": "Describe the change of speaker perspective and explicitly establish that the reply addresses the group as «vosotros». Otherwise resolve the courtesy «ustedes» reading before grading «les espero» incorrect.",
+        "sources": [
+          "Packet: task.prompt[1] is «—¿Nos esperas en el parque? —Sí, ___ allí.».",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», «nos» as a pronoun (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», courtesy «les» with «ustedes» (from memory).",
+          "Course contract rule 3: reviewed wrong answers must be wrong for the stated context."
+        ],
+        "notes": "The instruction mismatch is definite. The treatment of «les espero» is independently underdetermined, not a claim that «les» is correct for «vosotros»."
+      },
+      {
+        "caseId": "task:A2-02-L2-T36",
+        "reviewerAnswer": "«te busco», «te busco yo» or «yo te busco».",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+        "defect": "The question contains the object pronoun «me», not an object noun. The answer changes the pronoun's person with the speaker.",
+        "correction": "Ask for a reply using the appropriate pronoun, rather than instructing the learner to replace a noun.",
+        "sources": [
+          "Packet: task.prompt[1] is «—¿Me buscas tú? —Sí, ___. ¿Tienes un momento?»."
+        ],
+        "notes": "The Spanish answers and per-target error outcomes are otherwise consistent."
+      },
+      {
+        "caseId": "task:A2-02-L2-T37",
+        "reviewerAnswer": "los tengo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [
+          "RAE, Diccionario de la lengua española, «billete» and «entrada», admission-ticket senses (from memory)."
+        ],
+        "notes": "«Entradas para el cine» would be more usual in everyday Spain Spanish. The broader admission-ticket sense of «billete» makes this a wording preference rather than a definite lexical error. Using «entradas» would require «las tengo» throughout."
+      },
+      {
+        "caseId": "task:A2-02-L2-T38",
+        "reviewerAnswer": "«os invito», «os invito yo» or «yo os invito».",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+        "defect": "The object in «¿Nos invitas a cenar?» is already the pronoun «nos». The answer changes speaker perspective; it does not replace an object noun.",
+        "correction": "Ask learners to answer using the appropriate pronoun, or describe the speaker-dependent change from «nos» to «os».",
+        "sources": [
+          "Packet: task.prompt[1] is «—¿Nos invitas a cenar? —Claro, ___ el sábado.»."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T39",
+        "reviewerAnswer": "Los compramos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T40",
+        "reviewerAnswer": "«os ayudo» fits an informal plural classroom reply. Formal «ustedes» could instead produce «los/las ayudo» or courtesy «les ayudo».",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+        "defect": "The object is already «nos». «Profesora» is a vocative, not the noun that should be replaced. The instruction therefore describes an operation that does not match the dialogue.",
+        "correction": "Ask for a reply using the appropriate pronoun. If «os» is specifically required, establish that the teacher addresses the learners as «vosotros».",
+        "sources": [
+          "Packet: task.prompt[1] is «—Profesora, ¿nos ayuda, por favor? —Sí, ___ ahora mismo.».",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», courtesy address with «usted/ustedes» (from memory)."
+        ],
+        "notes": "The open key does not automatically reject unreviewed formal-address variants."
+      },
+      {
+        "caseId": "task:A2-02-L2-T41",
+        "reviewerAnswer": "«No lo compro.» as a negative statement; «No, lo compro.» is possible with «no» as a separate negative response.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1]: «no / lo / compro»; task.closed=true with only «No lo compro.» accepted",
+        "defect": "The visible instruction does not specify that «no» must negate the verb. The negative-clause reading and an initial negative response followed by an affirmative clause permit different punctuation and meaning. The optional translation hint selects the negative reading, but the bare prompt does not.",
+        "correction": "Explicitly request a negative declarative sentence, or supply context establishing the function of «no» before applying the closed key.",
+        "sources": [
+          "Course contract rule 3: a closed key must cover answers correct for the stated context.",
+          "Course contract rule 5: internal punctuation is not normalized.",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+        ],
+        "notes": "The accepted negative sentence itself is correct."
+      },
+      {
+        "caseId": "task:A2-02-L2-T42",
+        "reviewerAnswer": "«Te llamo mañana.» or «Mañana te llamo.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T43",
+        "reviewerAnswer": "«No la veo.» as a negative statement; «No, la veo.» is possible as a negative response followed by an affirmative clause.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1]: «no / la / veo»; task.closed=true with only «No la veo.» accepted",
+        "defect": "The visible prompt leaves the function of «no» unspecified. Clausal negation gives the accepted sentence; a separate negative response permits «No, la veo». The translation hint reveals the intended negative meaning, but this constraint is absent from the initial instruction.",
+        "correction": "Request a negative declarative sentence explicitly, or add context that resolves the two readings.",
+        "sources": [
+          "Course contract rules 3 and 5.",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+        ],
+        "notes": "There is no error in the accepted negative word order."
+      },
+      {
+        "caseId": "task:A2-02-L2-T44",
+        "reviewerAnswer": "¿Los conoces?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T45",
+        "reviewerAnswer": "«Ana siempre las compra», «Ana las compra siempre» and «Siempre las compra Ana» all fit; other context-dependent subject positions are possible.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The open key avoids automatically rejecting additional acceptable word orders."
+      },
+      {
+        "caseId": "task:A2-02-L2-T46",
+        "reviewerAnswer": "«No os espero.» as a negative statement; «No, os espero.» is possible as a negative response followed by an affirmative clause.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1]: «no / os / espero»; task.closed=true with only «No os espero.» accepted",
+        "defect": "The visible prompt does not distinguish verbal negation from a separate response «no». Both arrangements preserve correct pronoun placement, but differ in meaning and internal punctuation. Only the optional translation hint establishes the intended negative reading.",
+        "correction": "Explicitly require a negative declarative sentence, or supply a context fixing the function of «no».",
+        "sources": [
+          "Course contract rules 3 and 5.",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+        ],
+        "notes": "The supplied negative answer is correct under the intended reading."
+      },
+      {
+        "caseId": "task:A2-02-L2-T47",
+        "reviewerAnswer": "«Mis padres no me llaman.» or «No me llaman mis padres.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The open key leaves other context-dependent arrangements unresolved rather than automatically incorrect."
+      },
+      {
+        "caseId": "task:A2-02-L2-T48",
+        "reviewerAnswer": "«¿Lo quiere usted?» or «¿Usted lo quiere?»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-02-L2-T49",
+        "reviewerAnswer": "«No te entiendo.» as a negative statement; «No, te entiendo.» is possible as a negative response followed by an affirmative clause.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1]: «no / te / entiendo»; task.closed=true with only «No te entiendo.» accepted",
+        "defect": "The visible instruction does not specify whether «no» negates «entiendo» or serves as a separate response. These readings produce different valid sentences. The translation hint identifies the intended negative meaning, but the initial prompt does not constrain it.",
+        "correction": "Explicitly request a negative declarative sentence, or add context resolving the function of «no» before retaining the closed key.",
+        "sources": [
+          "Course contract rules 3 and 5.",
+          "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+        ],
+        "notes": "The accepted negative sentence is correct."
+      },
+      {
+        "caseId": "task:A2-02-L2-T50",
+        "reviewerAnswer": "«Hoy no lo cojo.» or «No lo cojo hoy.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "«Coger» is appropriate Spain Spanish here. The translation hint supplies the train referent, and the open key accommodates unreviewed alternatives."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "object-pron.direct-1-2",
+      "contentHash": "cd602e469358cb8390f9e41090e6fcb03d4598e6f4fb766dc44ce2e269c7f218",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:object-pron.direct-1-2",
+      "verdict": "valid",
+      "reviewerAnswer": "«me, te, nos, os» represent first- and second-person direct objects; «os» corresponds to «vosotros/vosotras».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "object-pron.direct-3",
+      "contentHash": "168b0aef3fe24c47b1bbd7f1fe9c7a0983bce68e8560a5c290475ece358d1245",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.variantPolicyUk: «Le для предметів і для жінок не приймаємо»",
+          "description": "The blanket rejection for women excludes accepted courtesy leísmo when addressing a woman as «usted». This falls within the skill's explicit address-form scope. The ordinary third-person feminine case and courtesy address require different treatment.",
+          "suggestion": "Keep «la» as the feminine model, but distinguish ordinary third-person reference from accepted courtesy «le». Resolve the pending plural policy separately, distinguishing ordinary third-person «los» from courtesy «les»."
+        }
+      ],
+      "caseId": "skill:object-pron.direct-3",
+      "verdict": "flawed",
+      "reviewerAnswer": "Use «lo, la, los, las» according to gender and number. Singular masculine personal «le» is also standard; courtesy «le/les» can address women as well.",
+      "notes": "The singular masculine «lo/le» policy is otherwise sound.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», discussion of leísmo de cortesía with «usted/ustedes» (from memory).",
+        "Packet: content.body.scope.noteUk explicitly includes address using «usted» and «ustedes»."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "object-pron.direct-referent",
+      "contentHash": "1cd0cbbb5b14626ba23c9d1dc05d5ccfae12edb20ff7bd994e0cd3405bed9e3d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:object-pron.direct-referent",
+      "verdict": "valid",
+      "reviewerAnswer": "In «Compro unas naranjas y las pongo en la mesa», «las» refers to «unas naranjas». Context and agreement identify the nominal antecedent.",
+      "notes": "The rule is appropriate for the explicitly nominal scope of this skill.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "object-pron.placement-finite",
+      "contentHash": "13b5cd2ff06856d8c58af2b4d3aa4ffc1b8a357dae77d85e41b694b2e666aad2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:object-pron.placement-finite",
+      "verdict": "valid",
+      "reviewerAnswer": "Within the supplied present-indicative constructions: «Lo compro», «No lo compro», «¿Los conoces?» and «Te llamo mañana».",
+      "notes": "The rule is evaluated within the supplied present-indicative scope. Affirmative imperatives will require separate treatment when introduced.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ayudar",
+      "contentHash": "cbe8451aebb265743985ac1f80d2987c568e454d9596d40716d012916410c078",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ayudar",
+      "verdict": "valid",
+      "reviewerAnswer": "«ayudar» means «допомагати»; «¿Te ayudo?» is correct.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.buscar",
+      "contentHash": "f735e4ca70308a74d8f0f53833f42a88c625a6185cb46427960acfff3a9c8a82",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.noteUk: «Без прийменника: busco las llaves»",
+          "description": "The example is correct, but the unqualified instruction omits personal «a», required with a specific human direct object such as Ana. This is particularly misleading in a lesson that also uses «buscar» with people.",
+          "suggestion": "Restrict the no-preposition statement to the inanimate example and add a contrasting personal example: «Busco las llaves» / «Busco a Ana»."
+        }
+      ],
+      "caseId": "lexeme:lex.buscar",
+      "verdict": "flawed",
+      "reviewerAnswer": "«buscar» means «шукати»: «Busco las llaves», but «Busco a Ana» for a specific person.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «a», personal «a» before definite human direct objects (from memory)."
+      ]
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.esperar",
+      "contentHash": "bb6f9974e96752ed1b41d47247bacfda297957387cb6e9172ece382751c0d209",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.esperar",
+      "verdict": "valid",
+      "reviewerAnswer": "«esperar» means «чекати; сподіватися»; «Espero el autobús» and «Espero a Ana» are correct models.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.invitar",
+      "contentHash": "0f51290ae2a111aa66d1d3970f6645e5eeeb0cd612026e1c9eda05bc3844a618",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.invitar",
+      "verdict": "valid",
+      "reviewerAnswer": "«invitar» means «запрошувати; пригощати».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A2-02-L2",
+      "contentHash": "a15685d23bb8d808a2bf3e8c328f08a3694a05916db38d5170bc99e0c18f348b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[3].text: «Ми вчимо lo; про предмети і про жінок le не вживаємо.»",
+          "description": "The unrestricted ban on «le» for women excludes accepted courtesy address to a woman using «usted». The same explanation explicitly introduces address forms through «¿La ayudo, señora?».",
+          "suggestion": "Distinguish ordinary third-person feminine reference from courtesy address. Keep «la» as the teaching model without declaring courtesy «le» incorrect."
+        }
+      ],
+      "caseId": "lesson:A2-02-L2",
+      "verdict": "flawed",
+      "reviewerAnswer": "Appropriate models include «Ana me llama», «¿La leche? La compro» and «No las veo». Ordinary feminine reference uses «la/las», while courtesy address can also use «le/les».",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», discussion of leísmo de cortesía (from memory).",
+        "Packet: content.body.steps[id=s3].blocks[0] includes «¿La ayudo, señora?»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T01",
+      "contentHash": "f4cff1c792f998a3501773b4ddd19cbdaae83ddc9e6cdf78ade725b172e6d6d9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "me",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T02",
+      "contentHash": "a4c700431a36efc5ed9b59d04fc77b093b6cd55db27864461e8bb04f0d94d1ec",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Te",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T03",
+      "contentHash": "c20d51583b32d17dc68a4c3884895d661bd262145e7cd59203cbfaa309baea2c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "os",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T04",
+      "contentHash": "17f7b29f769f64f8132cf299673475d7126110898d0f1d7e5f582712d6aa840a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "nos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T05",
+      "contentHash": "48d0d279ab3d17c36502277ecbf3ac898adc23860f1e94f38329761fa13e5ad5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "Me",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T06",
+      "contentHash": "e4d5e3c6502c6bacdd103c7d96fa693096051bd0e2ea89fe1b23861d42d095ed",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "Me",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T11",
+      "contentHash": "659ab76c825aa4237bfb12ee45c94b8721929e0ef9399396db6240c50c6af53b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "La",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T12",
+      "contentHash": "8048f98a028dcef78400d906c5d3fc8975e6caeea600de5d954f1f633047d70e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "Las",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T13",
+      "contentHash": "b0d4771f7ffcbfa716b6bde439553ba3259338dbfe2c2bde2115412c1d290b63",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "Los",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T14",
+      "contentHash": "1c57baa29223164b67e01a227b76cc29768efd4520a55c374606c2a0953dc87a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[1].text: «Про предмети і про жінок — лише lo, la.»",
+          "description": "The unrestricted statement omits plural «los/las» and excludes accepted courtesy «le» for a woman addressed as «usted». The answer key for Pablo itself correctly accepts «lo» and «le».",
+          "suggestion": "Describe ordinary third-person forms as «lo, la, los, las», with gender and number agreement. Distinguish singular masculine personal «le» and courtesy address instead of giving a blanket prohibition."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "«lo» fits the listed four-form instruction; «le» is also standard Spain Spanish for Pablo.",
+      "notes": "The prompt could also explicitly acknowledge the accepted «le» variant.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», third-person accusative forms (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», leísmo de cortesía (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T15",
+      "contentHash": "23f08e669c6c9d37b14f9d2cc04eb64563d06ade6eb7507d884f806a1b664fe3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "la",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T16",
+      "contentHash": "cb1c4aa1735a705327e85db4559cadd4b358daee3ce5c71177119e6675667856",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "las",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T21",
+      "contentHash": "02fec03ac1eefca2afa1e083c548e553f1fffde402a27f1f1f5417ced333b561",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T22",
+      "contentHash": "436dfd4ca761212f2344b7ebf75d90281373bec750e25392326bf97ad046ac65",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[1].text: «Про предмети і про жінок — лише lo, la.»",
+          "description": "The hint excludes plural forms even though this task requires «las». Its blanket restriction also fails to distinguish ordinary feminine reference from accepted courtesy «le/les». The option key for «mis hermanas» is correct.",
+          "suggestion": "Include «los/las» in the general rule and distinguish ordinary third-person reference from courtesy address. Retain «las» as the answer here."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6: help must accurately explain its target.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», third-person accusative forms (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», leísmo de cortesía (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T23",
+      "contentHash": "9eb2f9f1691e86f03e8cb4d40cdb31dda27a4ca03d06c8bbb663ca0c30b61c80",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[1].text: «Про предмети і про жінок — лише lo, la.»",
+          "description": "The general hint omits plural «los/las» and incorrectly rules out courtesy «le» for female «usted». Neither issue changes the correct answer «lo» for «el ordenador».",
+          "suggestion": "State the ordinary four-form paradigm with gender and number agreement, then distinguish singular masculine personal «le» and courtesy address."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T23",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Calling the specified laptop «el ordenador» is acceptable; it does not need to be changed to assess this pronoun.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», third-person accusative forms (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», leísmo de cortesía (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T24",
+      "contentHash": "97a9a5c73b9735cafffe73629f2a603a5d558a5674d00eb3234e6c8bcd7544db",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T25",
+      "contentHash": "c67712cc99938aa7cb2110e0b6f9e25653aa7f6b0090c61db8a25699672d6a05",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T26",
+      "contentHash": "43c05adbfc4f64f35ffdce9bc7868bad55b53c560759945c7d69aabefcce3550",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T27",
+      "contentHash": "7ffcf9cdb54d3b734ff2197fb7d3e76fe376ffe3f5d23189c190142f099dcbda",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T31",
+      "contentHash": "f105ed08f35ca7151e0cf7fa6a336769af0e425d2414bbc2c4d9b6693a64837f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "«lo compro», «lo compro yo» or «yo lo compro».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T32",
+      "contentHash": "33e36b3baca7563d5ae820630f5c88bc6a9c5b1ed04682c296c3e591cebb63ae",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+          "description": "The question already contains the object pronoun «me», not an object noun. The required operation is changing speaker perspective from «me» to «te», so the instruction describes the wrong operation.",
+          "suggestion": "Ask learners to answer using the appropriate pronoun, or explicitly explain that the pronoun changes with the speaker."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "«te llamo»; «yo te llamo» and «te llamo yo» also fit the blank.",
+      "notes": "The Spanish model and reviewed answers are otherwise correct; the open key permits additional answers to remain unresolved.",
+      "sources": [
+        "Packet: task.prompt[2] is «—¿Me llamas mañana? —Sí, ___ mañana.»; its object is already «me».",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», forms «me» and «te» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T33",
+      "contentHash": "fbe116a27f8f708ff78273263301ca1a8353dddf8217eba1ed61f6e6ef9f7795",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "las quiero",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T34",
+      "contentHash": "6a016085854d25c15c4befd1ed1e04d1617f3952fb228c6b186a57d23ff74a2d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "la veo",
+      "notes": "Here «tu madre» is an ordinary third-person referent, so courtesy leísmo does not justify «le veo».",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T35",
+      "contentHash": "7a8b0f651a075100cb5ef4bcabf30ca01acfaafe92494a36a94ee62e5b7b5261",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»; task.errors[2]: «les espero» marked incorrect",
+          "description": "The object «nos» is already a pronoun, so no object noun can be replaced. Separately, rejecting «les espero» assumes a «vosotros» reply, although the prompt does not establish how the respondent addresses the group.",
+          "suggestion": "Describe the change of speaker perspective and explicitly establish that the reply addresses the group as «vosotros». Otherwise resolve the courtesy «ustedes» reading before grading «les espero» incorrect."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T35",
+      "verdict": "flawed",
+      "reviewerAnswer": "«os espero» for informal plural address. Courtesy «les espero» is possible if the reply addresses the group as «ustedes».",
+      "notes": "The instruction mismatch is definite. The treatment of «les espero» is independently underdetermined, not a claim that «les» is correct for «vosotros».",
+      "sources": [
+        "Packet: task.prompt[1] is «—¿Nos esperas en el parque? —Sí, ___ allí.».",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «pronombres personales átonos», «nos» as a pronoun (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», courtesy «les» with «ustedes» (from memory).",
+        "Course contract rule 3: reviewed wrong answers must be wrong for the stated context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T36",
+      "contentHash": "9683b49b5c61cedab0adcdd7ce9b950b7de0ea8f253b44f589cdc6188d38277b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+          "description": "The question contains the object pronoun «me», not an object noun. The answer changes the pronoun's person with the speaker.",
+          "suggestion": "Ask for a reply using the appropriate pronoun, rather than instructing the learner to replace a noun."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "«te busco», «te busco yo» or «yo te busco».",
+      "notes": "The Spanish answers and per-target error outcomes are otherwise consistent.",
+      "sources": [
+        "Packet: task.prompt[1] is «—¿Me buscas tú? —Sí, ___. ¿Tienes un momento?»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T37",
+      "contentHash": "ac56303044a24226195dbf4fde0115bc125e47b7856bbcfb7fa4a81b7d16db8a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T37",
+      "verdict": "valid",
+      "reviewerAnswer": "los tengo",
+      "notes": "«Entradas para el cine» would be more usual in everyday Spain Spanish. The broader admission-ticket sense of «billete» makes this a wording preference rather than a definite lexical error. Using «entradas» would require «las tengo» throughout.",
+      "sources": [
+        "RAE, Diccionario de la lengua española, «billete» and «entrada», admission-ticket senses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T38",
+      "contentHash": "837ef2d8ae41affb8906641a280e12e0ffad4a52203a936e1335191a273aa8f9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+          "description": "The object in «¿Nos invitas a cenar?» is already the pronoun «nos». The answer changes speaker perspective; it does not replace an object noun.",
+          "suggestion": "Ask learners to answer using the appropriate pronoun, or describe the speaker-dependent change from «nos» to «os»."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T38",
+      "verdict": "flawed",
+      "reviewerAnswer": "«os invito», «os invito yo» or «yo os invito».",
+      "notes": "",
+      "sources": [
+        "Packet: task.prompt[1] is «—¿Nos invitas a cenar? —Claro, ___ el sábado.»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T39",
+      "contentHash": "7e715bdd4f87a1a953681058919e0f4b63b07e505963946b2e169c493a8de155",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T39",
+      "verdict": "valid",
+      "reviewerAnswer": "Los compramos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T40",
+      "contentHash": "29b2f244a28a11e997da15aea426da9110fc62601978324e1f9dc0ec45537b6e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0]: «Дайте відповідь, замінивши іменник займенником.»",
+          "description": "The object is already «nos». «Profesora» is a vocative, not the noun that should be replaced. The instruction therefore describes an operation that does not match the dialogue.",
+          "suggestion": "Ask for a reply using the appropriate pronoun. If «os» is specifically required, establish that the teacher addresses the learners as «vosotros»."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T40",
+      "verdict": "flawed",
+      "reviewerAnswer": "«os ayudo» fits an informal plural classroom reply. Formal «ustedes» could instead produce «los/las ayudo» or courtesy «les ayudo».",
+      "notes": "The open key does not automatically reject unreviewed formal-address variants.",
+      "sources": [
+        "Packet: task.prompt[1] is «—Profesora, ¿nos ayuda, por favor? —Sí, ___ ahora mismo.».",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «leísmo», courtesy address with «usted/ustedes» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T41",
+      "contentHash": "d294f98eee542cba78b47805910036beaa817c6b74b9b8a2f2c89c5196f48eeb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1]: «no / lo / compro»; task.closed=true with only «No lo compro.» accepted",
+          "description": "The visible instruction does not specify that «no» must negate the verb. The negative-clause reading and an initial negative response followed by an affirmative clause permit different punctuation and meaning. The optional translation hint selects the negative reading, but the bare prompt does not.",
+          "suggestion": "Explicitly request a negative declarative sentence, or supply context establishing the function of «no» before applying the closed key."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T41",
+      "verdict": "uncertain",
+      "reviewerAnswer": "«No lo compro.» as a negative statement; «No, lo compro.» is possible with «no» as a separate negative response.",
+      "notes": "The accepted negative sentence itself is correct.",
+      "sources": [
+        "Course contract rule 3: a closed key must cover answers correct for the stated context.",
+        "Course contract rule 5: internal punctuation is not normalized.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T42",
+      "contentHash": "662d5e7371f1c108489b416441883d6424f934a4f1f367877e96834c88c5e571",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T42",
+      "verdict": "valid",
+      "reviewerAnswer": "«Te llamo mañana.» or «Mañana te llamo.»",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T43",
+      "contentHash": "7113c9a96d83bdf83c3c983c9207d2c262a18a5b84e8d08fe398a221a0a2eba1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1]: «no / la / veo»; task.closed=true with only «No la veo.» accepted",
+          "description": "The visible prompt leaves the function of «no» unspecified. Clausal negation gives the accepted sentence; a separate negative response permits «No, la veo». The translation hint reveals the intended negative meaning, but this constraint is absent from the initial instruction.",
+          "suggestion": "Request a negative declarative sentence explicitly, or add context that resolves the two readings."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T43",
+      "verdict": "uncertain",
+      "reviewerAnswer": "«No la veo.» as a negative statement; «No, la veo.» is possible as a negative response followed by an affirmative clause.",
+      "notes": "There is no error in the accepted negative word order.",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T44",
+      "contentHash": "8c91f55faca6de9e02049b39f390b3ac5c1c91fcb7fd873eab6c8c4ae4b5b92d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T44",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Los conoces?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T45",
+      "contentHash": "04a9ede863f12e817791f8fe8c3377f2f8008fa13318a9a9e94939db6d44d2ac",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T45",
+      "verdict": "valid",
+      "reviewerAnswer": "«Ana siempre las compra», «Ana las compra siempre» and «Siempre las compra Ana» all fit; other context-dependent subject positions are possible.",
+      "notes": "The open key avoids automatically rejecting additional acceptable word orders.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T46",
+      "contentHash": "a4f4904038a26a4c0d5d7d75aae15e9d67b5d9961a56f1dac249b6ff7a8217f5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1]: «no / os / espero»; task.closed=true with only «No os espero.» accepted",
+          "description": "The visible prompt does not distinguish verbal negation from a separate response «no». Both arrangements preserve correct pronoun placement, but differ in meaning and internal punctuation. Only the optional translation hint establishes the intended negative reading.",
+          "suggestion": "Explicitly require a negative declarative sentence, or supply a context fixing the function of «no»."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T46",
+      "verdict": "uncertain",
+      "reviewerAnswer": "«No os espero.» as a negative statement; «No, os espero.» is possible as a negative response followed by an affirmative clause.",
+      "notes": "The supplied negative answer is correct under the intended reading.",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T47",
+      "contentHash": "cc3771267982a025df434e75d3b4658aca2a93fd4671446e34908571fc11a276",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T47",
+      "verdict": "valid",
+      "reviewerAnswer": "«Mis padres no me llaman.» or «No me llaman mis padres.»",
+      "notes": "The open key leaves other context-dependent arrangements unresolved rather than automatically incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T48",
+      "contentHash": "a5905377a36332c4bb9bd6a7aeaee45d0a68c026f6a73b8e13297d6f2354289c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T48",
+      "verdict": "valid",
+      "reviewerAnswer": "«¿Lo quiere usted?» or «¿Usted lo quiere?»",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T49",
+      "contentHash": "dd458ad1fb3c05b5282e13f73b4f1237e66292d672ecbd81549a28f5101561a0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1]: «no / te / entiendo»; task.closed=true with only «No te entiendo.» accepted",
+          "description": "The visible instruction does not specify whether «no» negates «entiendo» or serves as a separate response. These readings produce different valid sentences. The translation hint identifies the intended negative meaning, but the initial prompt does not constrain it.",
+          "suggestion": "Explicitly request a negative declarative sentence, or add context resolving the function of «no» before retaining the closed key."
+        }
+      ],
+      "caseId": "task:A2-02-L2-T49",
+      "verdict": "uncertain",
+      "reviewerAnswer": "«No te entiendo.» as a negative statement; «No, te entiendo.» is possible as a negative response followed by an affirmative clause.",
+      "notes": "The accepted negative sentence is correct.",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, «coma», separation of initial affirmative/negative response particles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-02-L2-T50",
+      "contentHash": "83dae44e14a72ec710750849824ee4cb76b60d42fe9ce9bd05286809ebb84c14",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-02-L2-T50",
+      "verdict": "valid",
+      "reviewerAnswer": "«Hoy no lo cojo.» or «No lo cojo hoy.»",
+      "notes": "«Coger» is appropriate Spain Spanish here. The translation hint supplies the train referent, and the open key accommodates unreviewed alternatives.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
