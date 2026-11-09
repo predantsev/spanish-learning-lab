@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-02-C1.r1",
+  "packetHash": "b636a698287f402207d0009e40f4db63d81601567163b8964cfe9e9a9e9ecd00",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "df7bb73dbe1a5006dc2548da666c7145c0909f1fd1d5928528bb61c2eb95e52e",
+    "reviewerPacketSha256": "1afa49cb4208867abeb8fef7456127cb0fa9d81673cca553f4eabc86ee218f2e",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pHYBWa/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pHYBWa/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pHYBWa/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pHYBWa/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-pHYBWa/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdc4-687f-7831-b91a-c98a767ed3e7",
+        "version": "v0.166.0",
+        "tokens used": "39,377"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-02-C1",
+        "reviewerAnswer": "Not applicable: lesson overview.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[3].blocks[0].items[0]: «нерозв’язані відповіді»",
+        "defect": "This is an incorrect Ukrainian collocation for answers that cannot be graded. Problems and questions can be unresolved; an answer outside the reviewed variants is unrecognized or ungraded.",
+        "correction": "Replace the clause with «відповіді, яких немає серед перевірених варіантів, не вважаються помилками».",
+        "sources": [
+          "Course contract, rule 8.",
+          "Ukrainian academic dictionary SUM-11, entry «розв’язувати», senses concerning solving problems and answering questions (from memory)."
+        ],
+        "notes": "Required steps within an optional lesson do not themselves create a contradiction."
+      },
+      {
+        "caseId": "task:A1-02-C1-T01",
+        "reviewerAnswer": "nuestras sillas blancas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-C1-T02",
+        "reviewerAnswer": "mis llaves verdes",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore[2] and context.targets[2].description: «Прикметники на -e та на приголосну: одна форма для обох родів»",
+        "defect": "The description incorrectly treats consonant-final adjectives as uniformly invariant in gender. Common A1 adjectives include español/española and trabajador/trabajadora. The forms required by this exercise are nevertheless correct.",
+        "correction": "Describe the illustrated invariant adjectives specifically, or qualify the generalization and distinguish consonant-final adjectives that change gender.",
+        "sources": [
+          "Review duties: false rules or misleading simplifications.",
+          "RAE/ASALE, Diccionario de la lengua española, entries «español, la» and «trabajador, ra» (from memory)."
+        ],
+        "notes": "The feedback «Ключі твої — mis» can correctly address the learner as the owner speaking about their own keys; it is not necessarily a mistranslation of mis."
+      },
+      {
+        "caseId": "task:A1-02-C1-T03",
+        "reviewerAnswer": "la moto roja de mi hermano",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-C1-T04",
+        "reviewerAnswer": "los hoteles grandes",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore[2] and context.targets[2].description: «Прикметники на -e та на приголосну: одна форма для обох родів»; task.hints[1].blocks[0].text: «Після приголосної в множині додаємо -es.»",
+        "defect": "The adjective description overgeneralizes: español/española demonstrates gender variation after a consonant. The plural hint also presents an unrestricted consonant rule, although nouns such as lunes remain unchanged. The answer hoteles grandes is correct.",
+        "correction": "Limit the adjective description to the invariant patterns illustrated. Scope the plural hint to this ending: «Іменники на -l утворюють множину за допомогою -es: hotel → hoteles.»",
+        "sources": [
+          "Review duties: false rules or misleading simplifications.",
+          "RAE/ASALE, Diccionario de la lengua española, entry «español, la» (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», rules for nouns ending in consonants, including invariant unstressed -s/-x endings (from memory)."
+        ],
+        "notes": "The key, error outcomes and target attribution are otherwise consistent."
+      },
+      {
+        "caseId": "task:A1-02-C1-T05",
+        "reviewerAnswer": "luces, autobuses",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The stress explanation is correct for autobús. Explicitly saying «У слові autobús» would clarify its scope."
+      },
+      {
+        "caseId": "task:A1-02-C1-T06",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text-only review: the transcript and translation agree, and the transcript appears only in an optional transcript hint."
+      },
+      {
+        "caseId": "task:A1-02-C1-T07",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-C1-T08",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The caption supplies Pablo as the natural referent of su."
+      },
+      {
+        "caseId": "clip:clip.a1-02.flores-rojas",
+        "reviewerAnswer": "Some red and very pretty flowers.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish phrase and Ukrainian translation are acceptable. Audio delivery was outside this text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-02-C1",
+      "contentHash": "e2dd0020266a1c62616171b8432e116c1a5329923402d57bbfedc28d55603dc3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[3].blocks[0].items[0]: «нерозв’язані відповіді»",
+          "description": "This is an incorrect Ukrainian collocation for answers that cannot be graded. Problems and questions can be unresolved; an answer outside the reviewed variants is unrecognized or ungraded.",
+          "suggestion": "Replace the clause with «відповіді, яких немає серед перевірених варіантів, не вважаються помилками»."
+        }
+      ],
+      "caseId": "lesson:A1-02-C1",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: lesson overview.",
+      "notes": "Required steps within an optional lesson do not themselves create a contradiction.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Ukrainian academic dictionary SUM-11, entry «розв’язувати», senses concerning solving problems and answering questions (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T01",
+      "contentHash": "f49d4386f93707b0eabcb1353e0b5eb74bc43b00545a1fa5c140d43897866eff",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-C1-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "nuestras sillas blancas",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T02",
+      "contentHash": "a6d7b8f412f5dfc9c0cd435ce2cbeba7fd05f8aac18452905a27b6d7abceddb4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore[2] and context.targets[2].description: «Прикметники на -e та на приголосну: одна форма для обох родів»",
+          "description": "The description incorrectly treats consonant-final adjectives as uniformly invariant in gender. Common A1 adjectives include español/española and trabajador/trabajadora. The forms required by this exercise are nevertheless correct.",
+          "suggestion": "Describe the illustrated invariant adjectives specifically, or qualify the generalization and distinguish consonant-final adjectives that change gender."
+        }
+      ],
+      "caseId": "task:A1-02-C1-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "mis llaves verdes",
+      "notes": "The feedback «Ключі твої — mis» can correctly address the learner as the owner speaking about their own keys; it is not necessarily a mistranslation of mis.",
+      "sources": [
+        "Review duties: false rules or misleading simplifications.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «español, la» and «trabajador, ra» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T03",
+      "contentHash": "ed5b3d2a57fe1f62942bc0a357a17b98c136d9aa7b02f1cef77008045dac84ad",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-C1-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "la moto roja de mi hermano",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T04",
+      "contentHash": "7884754f855c215dc7db1150855cd3c33b1de630d9eb28366e3ecf584a811985",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore[2] and context.targets[2].description: «Прикметники на -e та на приголосну: одна форма для обох родів»; task.hints[1].blocks[0].text: «Після приголосної в множині додаємо -es.»",
+          "description": "The adjective description overgeneralizes: español/española demonstrates gender variation after a consonant. The plural hint also presents an unrestricted consonant rule, although nouns such as lunes remain unchanged. The answer hoteles grandes is correct.",
+          "suggestion": "Limit the adjective description to the invariant patterns illustrated. Scope the plural hint to this ending: «Іменники на -l утворюють множину за допомогою -es: hotel → hoteles.»"
+        }
+      ],
+      "caseId": "task:A1-02-C1-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "los hoteles grandes",
+      "notes": "The key, error outcomes and target attribution are otherwise consistent.",
+      "sources": [
+        "Review duties: false rules or misleading simplifications.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «español, la» (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», rules for nouns ending in consonants, including invariant unstressed -s/-x endings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T05",
+      "contentHash": "0dcdaa31e0688629e2ec63b75440b199aa499fed4e1d200b9bc0d9e99f84772b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-C1-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "luces, autobuses",
+      "notes": "The stress explanation is correct for autobús. Explicitly saying «У слові autobús» would clarify its scope.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T06",
+      "contentHash": "7f44673c47ef9f17faded555d6b8f276c27051363698ce804da397bed6c72ff2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-C1-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Text-only review: the transcript and translation agree, and the transcript appears only in an optional transcript hint.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T07",
+      "contentHash": "bcc6beae794163b188e9ee7ad13a09dfff2bdc40c54a000615dec143512c4ada",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-C1-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-C1-T08",
+      "contentHash": "d6d4e176b3ed4646c06aa7013dd07a9fd81810851f514926cb3288be506b21a5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-C1-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The caption supplies Pablo as the natural referent of su.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-02.flores-rojas",
+      "contentHash": "67b03f828d8c28cd266a72e45b05141fe783efc8651cd96b2c4289e0a5596ad8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-02.flores-rojas",
+      "verdict": "valid",
+      "reviewerAnswer": "Some red and very pretty flowers.",
+      "notes": "The Spanish phrase and Ukrainian translation are acceptable. Audio delivery was outside this text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
