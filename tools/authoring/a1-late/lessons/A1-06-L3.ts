@@ -15,20 +15,20 @@ type E = Array<[string, string]>;
 function x(n: number, role: TaskRole, fam: string, t: string, ins: string, acc: string[], err: E = [], p?: string, tr?: string): string {
   return k.exact({ n, role, fam, t: [t], ins, acc, ...(err.length > 0 ? { err } : {}), ...(p ? { p: [p] } : {}), ...(tr ? { tr } : {}) });
 }
-const meNec = (s: string, right: string): [string, string] => [s, `Людина — підмет: «мені потрібно» = ${right}, без займенника me.`];
+const meNec = (s: string, right: string, ukm = 'мені потрібно', pron = 'me'): [string, string] => [s, `Людина — підмет: «${ukm}» = ${right}, без займенника ${pron}.`];
 const infErr = (s: string, inf: string): [string, string] => [s, `Після necesitar — інфінітив (словникова форма): ${inf}.`];
 
 // ======================= necesitar + noun
 x(1, 'supported', 'a106.rain', NN, 'Переклади іспанською: «Мені потрібна парасолька». Зразок: Necesito un bolígrafo.', ['Necesito un paraguas.', 'Yo necesito un paraguas.'], [meNec('Me necesita un paraguas.', 'necesito')]);
 x(2, 'supported', 'a106.shopping', NN, 'Впиши форму necesitar: «Нам потрібне молоко». Зразок: yo → necesito.', ['necesitamos'], [['necesito', 'Necesito — «мені». «Нам» — necesitamos.'], ['necesitar', 'Потрібна форма для nosotros: necesitamos.']], 'Nosotros ___ leche.');
-x(3, 'independent', 'a106.help', NN, 'Запитай друга іспанською: «Тобі щось потрібно?»', ['¿Necesitas algo?', '¿Tú necesitas algo?', '¿Necesitas tú algo?'], [meNec('¿Te necesita algo?', 'necesitas')]);
+x(3, 'independent', 'a106.help', NN, 'Запитай друга іспанською: «Тобі щось потрібно?»', ['¿Necesitas algo?', '¿Tú necesitas algo?', '¿Necesitas tú algo?'], [meNec('¿Te necesita algo?', 'necesitas', 'тобі потрібно', 'te')]);
 x(4, 'independent', 'a106.school', NN, 'Переклади іспанською: «Ані потрібен рюкзак».', ['Ana necesita una mochila.'], [['A Ana le necesita una mochila.', 'Necesitar — не як gustar: людина — підмет, Ana necesita.']]);
-x(5, 'independent', 'a106.shopping', NN, 'Переклади іспанською: «Нам потрібен хліб».', ['Necesitamos pan.', 'Nosotros necesitamos pan.', 'Nosotras necesitamos pan.'], [meNec('Nos necesita pan.', 'necesitamos')]);
+x(5, 'independent', 'a106.shopping', NN, 'Переклади іспанською: «Нам потрібен хліб».', ['Necesitamos pan.', 'Nosotros necesitamos pan.', 'Nosotras necesitamos pan.'], [meNec('Nos necesita pan.', 'necesitamos', 'нам потрібно', 'nos')]);
 x(6, 'independent', 'a106.money', NN, 'Переклади іспанською: «Мені потрібні гроші».', ['Necesito dinero.', 'Yo necesito dinero.'], [meNec('Me necesita dinero.', 'necesito')]);
 x(7, 'delayed', 'a106.car', NN, 'Переклади іспанською: «Моїм батькам потрібна машина».', ['Mis padres necesitan un coche.'], [['A mis padres les necesita un coche.', 'Necesitar — не як gustar: mis padres necesitan.']]);
-x(8, 'delayed', 'a106.help', NN, 'Продавець питає ввічливо (usted). Як він скаже: «Вам щось потрібно?»', ['¿Necesita algo?', '¿Usted necesita algo?', '¿Necesita usted algo?'], [meNec('¿Le necesita algo?', 'necesita')]);
+x(8, 'delayed', 'a106.help', NN, 'Продавець питає ввічливо (usted). Як він скаже: «Вам щось потрібно?»', ['¿Necesita algo?', '¿Usted necesita algo?', '¿Necesita usted algo?'], [meNec('¿Le necesita algo?', 'necesita', 'вам потрібно' + ' (usted)', 'le')]);
 x(9, 'transfer', 'a106.market-t', NN, 'Продавець на ринку питає: «¿Qué necesita?» Скажи іспанською: «Мені потрібен кілограм помідорів».', ['Necesito un kilo de tomates.', 'Yo necesito un kilo de tomates.'], [meNec('Me necesita un kilo de tomates.', 'necesito')]);
-x(10, 'transfer', 'a106.station-t', NN, 'На вокзалі. Скажи іспанською: «Нам потрібні два квитки».', ['Necesitamos dos billetes.', 'Nosotros necesitamos dos billetes.', 'Nosotras necesitamos dos billetes.'], [meNec('Nos necesita dos billetes.', 'necesitamos')]);
+x(10, 'transfer', 'a106.station-t', NN, 'На вокзалі. Скажи іспанською: «Нам потрібні два квитки».', ['Necesitamos dos billetes.', 'Nosotros necesitamos dos billetes.', 'Nosotras necesitamos dos billetes.'], [meNec('Nos necesita dos billetes.', 'necesitamos', 'нам потрібно', 'nos')]);
 k.choice({
   n: 11,
   role: 'independent',
@@ -100,7 +100,7 @@ export default k.build({
       title: 'Necesito + річ або дія',
       blocks: [
         uk('Українське «мені потрібно» іспанською — necesito: людина тут підмет, як у звичайних дієсловах на -ar (necesito, necesitas, necesita, necesitamos, necesitáis, necesitan). Не як gustar: не «me necesita».'),
-        uk('Після necesito — річ (з артиклем un / una для однієї речі, без артикля для невизначеної кількості) або дія в інфінітиві.'),
+        uk('Після necesito — річ або дія в інфінітиві. Одна будь-яка річ — з un / una (Necesito un bolígrafo); конкретна, уже відома річ — з el / la (Necesito el bolígrafo); невизначена кількість — без артикля (Necesito pan).'),
         ex('Necesito un bolígrafo.', 'Мені потрібна ручка.'),
         ex('Necesitamos agua.', 'Нам потрібна вода.'),
         ex('Necesito descansar.', 'Мені треба відпочити.'),

@@ -53,7 +53,7 @@ export const RULES: Record<string, string> = {
   'number.16-29':
     'Від 16 до 29 числа пишуться одним словом: dieci- + одиниці (dieciséis, diecisiete), veinti- + одиниці (veintiuno, veintidós). Знак наголосу мають dieciséis, veintidós, veintitrés і veintiséis.',
   'number.30-99':
-    'Десятки: treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa. Від 31 до 99 між десятками й одиницями ставимо y і пишемо окремо: treinta y uno, cuarenta y cinco.',
+    'Десятки: treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa. Від 31 до 99 між десятками й одиницями ставимо y і зазвичай пишемо окремо: treinta y uno, cuarenta y cinco (злите написання через i — treintaiuno — допустиме, але рідкісне).',
   'number.100-1000':
     'Рівно 100 — cien, 101–199 — ciento + решта (ciento veinte). Сотні: doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos; перед іменником жіночого роду — -as (doscientas fotos). 1000 — mil.',
   'number.uno-un-una':
@@ -62,7 +62,7 @@ export const RULES: Record<string, string> = {
     'Порядкові числа змінюються, як прикметники на -o: primero / primera, segundo / segunda, tercero, cuarto, quinto, sexto, séptimo, octavo, noveno, décimo. На табличках: 1.º, 2.ª.',
   'number.ordinal.apocope':
     'Перед іменником чоловічого роду в однині primero і tercero втрачають -o: el primer piso, el tercer día. Перед жіночим родом форма повна: la primera calle, la tercera planta.',
-  'listening.amounts': 'Послухай і визнач число чи кількість. Відповідати можна цифрами: тут перевіряється, чи ти правильно почув, а не як пишеться число.',
+  'listening.amounts': 'Послухай і визнач число чи кількість: тут перевіряється, чи ти правильно почув, а не як пишеться число.',
   'quant.mucho':
     'Перед іменником mucho («багато») і poco («мало») узгоджуються з ним: mucho dinero, mucha agua, muchos libros, muchas personas; poco tiempo, pocas sillas. Після дієслова вони не змінюються: Trabaja mucho.',
   'contrast.muy-mucho':
@@ -89,7 +89,7 @@ export const RULES: Record<string, string> = {
   'time.clock.minutes':
     'До половини години хвилини додаємо через y: las tres y cuarto (3:15), las tres y media (3:30), las cinco y diez (5:10). Після половини називаємо наступну годину й віднімаємо хвилини через menos: las cuatro menos cuarto (3:45), las seis menos veinte (5:40).',
   'time.clock.de-la-manana':
-    'З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. Без точного часу — por: Trabajo por la mañana.',
+    'З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche (у розмові правильно й a las ocho por la mañana). Без точного часу — тільки por: Trabajo por la mañana.',
   'time.event.a-las': 'Про час події питаємо ¿A qué hora…?: ¿A qué hora es la clase? Відповідь: a las + година: A las nueve. О першій — a la una.',
   'contrast.que-hora-a-que-hora': '¿Qué hora es? — «Котра година зараз?» (Son las cinco.) ¿A qué hora…? — «О котрій відбувається подія?» (A las nueve.)',
   'time.range.de-a': '«Від … до …» — de … a …: El banco abre de nueve a dos. Інший варіант — desde las nueve hasta las dos. На табличках коротко: de 9:00 a 14:00.',
@@ -116,7 +116,7 @@ export const RULES: Record<string, string> = {
   'listening.dates': 'Послухай і визнач день, дату чи годину. Спершу звертай увагу на день тижня й число, потім — на місяць і час.',
   // A1-05-L5
   'prep.spatial.object':
-    'Де предмет: encima de — «на, зверху», debajo de — «під», al lado de — «поруч із», delante de — «перед», detrás de — «за, позаду», entre … y … — «між … і …». Після виразу — іменник з артиклем: debajo de la silla. Про предмет на поверхні часто можна сказати й просто en: en la mesa.',
+    'Де предмет: encima de — «на, зверху», debajo de — «під», al lado de — «поруч із», delante de — «перед», detrás de — «за, позаду», entre … y … — «між … і …». Після виразу зазвичай іменник з артиклем: debajo de la silla. Про предмет на поверхні часто можна сказати й просто en: en la mesa.',
   'prep.spatial.place':
     'Де місце в місті: cerca de — «близько від», lejos de — «далеко від», enfrente de — «навпроти», a la derecha de — «праворуч від», a la izquierda de — «ліворуч від». Aquí — «тут», allí — «там». Дієслово — estar: La farmacia está cerca de la plaza.',
   'article.contraction-del':
@@ -182,7 +182,7 @@ export const RULES: Record<string, string> = {
     'Запросити: ¿Quieres ir al cine el sábado? Погодитися: ¡Vale! («гаразд, домовились»), ¡Claro! — «звісно», ¡Genial! — «чудово». Відмовитися ввічливо: Lo siento + причина: Lo siento, el sábado trabajo. Запропонувати інший день: Otro día, ¿vale?',
   // A1-06-L5
   'link.y': 'Y («і») з’єднує дві схожі або послідовні думки: Me gusta leer y escuchar música. Trabajo en casa y estudio por la tarde.',
-  'link.y-e': 'Перед словом, що починається зі звуку [i] (на i- або hi-), y змінюється на e: español e inglés, padres e hijos. Перед іншими звуками — y: Ana y Pablo.',
+  'link.y-e': 'Перед словом, що починається з голосного звуку [i] (i-, hi-), y змінюється на e: español e inglés, padres e hijos. Перед іншими звуками — y: Ana y Pablo; перед hie- (звук [j]) теж y: agua y hielo («вода й лід»).',
   'link.pero': 'Pero («але») вводить протиставлення: Me gusta el café, pero no me gusta el té. Перед pero зазвичай ставимо кому.',
   'link.porque': 'Porque («тому що, бо») пояснює причину: No voy al cine porque estoy cansado. Пишеться одним словом і без знака наголосу.',
   'question.por-que': 'Питання про причину — ¿Por qué…? («чому?»): два слова, qué зі знаком наголосу. ¿Por qué estudias español? Відповідь починається з porque.',
@@ -191,7 +191,7 @@ export const RULES: Record<string, string> = {
     'Погодитися зі ствердженням — también: —Trabajo en casa. —Yo también. Із запереченням — tampoco («теж ні»): —No tengo coche. —Yo tampoco. Не погодитися: Yo no / Yo sí. З gustar — через a mí: A mí también.',
   'neg.short-answer.nada-nadie': 'Nada — «нічого», nadie — «ніхто». Коротка відповідь: —¿Necesitas algo? —Nada, gracias. —¿Quién está en casa? —Nadie. Nada más — «більше нічого».',
   'link.sequence.antes-despues-de':
-    'Antes de — «перед, до», después de — «після». Після них — інфінітив або іменник з артиклем: después de cenar, antes de la clase, después del trabajo (de + el = del). Не «después de ceno».',
+    'Antes de — «перед, до», después de — «після». Після них — інфінітив або іменник: después de cenar, antes de la clase, después del trabajo (de + el = del); іменник буває й без артикля: antes de clase. Не «después de ceno».',
   // A1-06-L6
   'formula.message-opening-closing':
     'Повідомлення другу починають так: ¡Hola, Ana! або Hola, Ana: (після звертання часто ставлять двокрапку). Querido Pablo / Querida Ana — «дорогий / дорога». Закінчують: Un abrazo — «обіймаю», Besos або Un beso — «цілую» (між друзями в Іспанії це звично), ¡Hasta pronto! — «до скорого», Nos vemos — «побачимося».',
