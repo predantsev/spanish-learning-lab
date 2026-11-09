@@ -177,7 +177,7 @@ export const RULES: Record<string, string> = {
   'contrast.like-need-want':
     'Me gusta — «мені подобається» (загалом). Necesito — «мені потрібно» (без цього важко). Quiero — «я хочу» (бажання). Me gusta el café — каву люблю; Necesito un café — без кави не обійдуся; Quiero un café — хочу кави.',
   'contrast.wish-plan':
-    'Quiero ir a la playa — лише бажання: «хочу піти на пляж». El sábado voy a la playa — план: «у суботу йду на пляж». План має конкретний час і звучить як уже вирішене.',
+    'Quiero ir a la playa — «хочу піти на пляж»: речення називає бажання і не каже, чи вже щось вирішено. El sábado voy a la playa — «у суботу йду на пляж»: теперішній час зі словом майбутнього подає дію як уже вирішену.',
   'formula.invitation':
     'Запросити: ¿Quieres ir al cine el sábado? Погодитися: ¡Vale! («гаразд, домовились»), ¡Claro! — «звісно», ¡Genial! — «чудово». Відмовитися ввічливо: Lo siento + причина: Lo siento, el sábado trabajo. Запропонувати інший день: Otro día, ¿vale?',
   // A1-06-L5
