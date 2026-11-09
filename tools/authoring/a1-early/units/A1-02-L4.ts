@@ -18,7 +18,8 @@ const R_AO = 'Прикметник на -o має чотири форми й у�
 const R_AI = 'Прикметники цього уроку на -e і на приголосну (grande, verde, interesante, inteligente, azul, fácil, joven) мають одну форму для обох родів: un coche grande, una casa grande. Змінюється тільки число: -s після голосної (grandes), -es після приголосної (azules). Так поводяться не всі прикметники: español → española.';
 const R_PO = 'Описовий прикметник в іспанській зазвичай стоїть після іменника: una casa blanca — «білий будинок», un coche nuevo — «нова машина».';
 const R_MU = 'Muy («дуже») ставимо перед прикметником, і воно ніколи не змінює форму: muy grande, muy bonita, muy pequeños.';
-const PRE = 'Такий порядок трапляється, але в звичайному описі прикметник стоїть після іменника';
+const PRE = 'Такий порядок трапляється, але завдання просить звичайний нейтральний опис, де прикметник стоїть після іменника';
+const NEUTRAL = ' Це звичайний нейтральний опис: прикметник стоїть після іменника.';
 
 type Err = [string, OutcomeSpec, string];
 
@@ -112,47 +113,47 @@ export const unit: Unit = {
   },
   tasks: [
     // ---------- agreement -o ----------
-    phrase(1, 'supported', 'agree', [AO_W], 'Напиши словосполучення, узгодивши прикметник nuevo («новий»): una casa + nuevo.', 'una casa nueva', [
+    phrase(1, 'supported', 'agree', [AO_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник nuevo («новий»): una casa + nuevo.', 'una casa nueva', [
       ['una casa nuevo.', 'x', 'Casa — жіночого роду, тому nueva.'],
       ['una casa nuevas.', 'x', 'Іменник в однині, тому nueva.'],
     ], 'Жіночий рід, однина — nueva', 'Пам’ятай: rojo, roja, rojos, rojas — прикметник бере рід і число іменника.', ['nueva.']),
-    phrase(2, 'supported', 'agree', [AO_W], 'Напиши словосполучення, узгодивши прикметник rojo («червоний»): unos libros + rojo.', 'unos libros rojos', [
+    phrase(2, 'supported', 'agree', [AO_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник rojo («червоний»): unos libros + rojo.', 'unos libros rojos', [
       ['unos libros rojo.', 'x', 'Іменник у множині, тому rojos.'],
       ['unos libros rojas.', 'x', 'Libros — чоловічого роду, тому rojos.'],
     ], 'Чоловічий рід, множина — rojos', 'Пам’ятай: rojo, roja, rojos, rojas — прикметник бере рід і число іменника.', ['rojos.']),
-    phrase(3, 'independent', 'translate', [AO_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «нова машина».', 'un coche nuevo', [
+    phrase(3, 'independent', 'translate', [AO_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «нова машина».' + NEUTRAL, 'un coche nuevo', [
       ['un coche nueva.', { [AO_W]: 'x', [PO_U]: 'c' }, 'Coche — чоловічого роду, тому nuevo.'],
-      ['un nuevo coche.', { [PO_U]: 'u', [AO_W]: 'c' }, `${PRE}: un coche nuevo.`],
+      ['un nuevo coche.', { [PO_U]: 'x', [AO_W]: 'c' }, `${PRE}: un coche nuevo.`],
     ], 'Coche — чоловічого роду, прикметник після іменника'),
-    phrase(4, 'independent', 'agree', [AO_W], 'Напиши словосполучення, узгодивши прикметник pequeño («маленький»): las mesas + pequeño.', 'las mesas pequeñas', [
+    phrase(4, 'independent', 'agree', [AO_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник pequeño («маленький»): las mesas + pequeño.', 'las mesas pequeñas', [
       ['las mesas pequeños.', 'x', 'Mesas — жіночого роду, тому pequeñas.'],
       ['las mesas pequeña.', 'x', 'Іменник у множині, тому pequeñas.'],
-      ['las mesas pequenas.', 'u', 'Форма правильна, але потрібна літера ñ: pequeñas.'],
+      ['las mesas pequenas.', 'x', 'Рід і число правильні, але без літери ñ це помилка в написанні: pequeñas.'],
     ], 'Жіночий рід, множина — pequeñas', undefined, ['pequeñas.']),
-    phrase(5, 'independent', 'translate', [AO_W, PO_U], 'Напиши іспанською з означеним артиклем: «білі квіти» (ті, про які вже йшлося).', 'las flores blancas', [
+    phrase(5, 'independent', 'translate', [AO_W, PO_U], 'Напиши іспанською з означеним артиклем: «білі квіти» (ті, про які вже йшлося).' + NEUTRAL, 'las flores blancas', [
       ['las flores blancos.', { [AO_W]: 'x', [PO_U]: 'c' }, 'Flores — жіночого роду, тому blancas.'],
-      ['las blancas flores.', { [PO_U]: 'u', [AO_W]: 'c' }, `${PRE}: las flores blancas.`],
+      ['las blancas flores.', { [PO_U]: 'x', [AO_W]: 'c' }, `${PRE}: las flores blancas.`],
     ], 'Flores — жіночого роду, прикметник після іменника'),
-    phrase(6, 'independent', 'agree', [AO_W], 'Напиши словосполучення, узгодивши прикметник bonito («гарний»): un día + bonito.', 'un día bonito', [
+    phrase(6, 'independent', 'agree', [AO_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник bonito («гарний»): un día + bonito.', 'un día bonito', [
       ['un día bonita.', 'x', 'Día — чоловічого роду (виняток), тому bonito.'],
     ], 'Día — чоловічого роду', undefined, ['bonito.']),
-    phrase(7, 'delayed', 'translate', [AO_W, PO_U], 'Напиши іспанською з означеним артиклем: «маленька рука».', 'la mano pequeña', [
+    phrase(7, 'delayed', 'translate', [AO_W, PO_U], 'Напиши іспанською з означеним артиклем: «маленька рука».' + NEUTRAL, 'la mano pequeña', [
       ['la mano pequeño.', { [AO_W]: 'x', [PO_U]: 'c' }, 'Mano — жіночого роду, тому pequeña.'],
-      ['la pequeña mano.', { [PO_U]: 'u', [AO_W]: 'c' }, `${PRE}: la mano pequeña.`],
-      ['la mano pequena.', 'u', 'Форма правильна, але потрібна літера ñ: pequeña.'],
+      ['la pequeña mano.', { [PO_U]: 'x', [AO_W]: 'c' }, `${PRE}: la mano pequeña.`],
+      ['la mano pequena.', { [AO_W]: 'x', [PO_U]: 'c' }, 'Рід і порядок правильні, але без літери ñ це помилка в написанні: pequeña.'],
     ], 'Mano — жіночого роду'),
-    phrase(8, 'delayed', 'agree', [AO_W], 'Напиши словосполучення, узгодивши прикметник negro («чорний»): unas sillas + negro.', 'unas sillas negras', [
+    phrase(8, 'delayed', 'agree', [AO_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник negro («чорний»): unas sillas + negro.', 'unas sillas negras', [
       ['unas sillas negros.', 'x', 'Sillas — жіночого роду, тому negras.'],
       ['unas sillas negra.', 'x', 'Іменник у множині, тому negras.'],
     ], 'Жіночий рід, множина — negras', undefined, ['negras.']),
-    phrase(9, 'transfer', 'ad', [AO_W, PO_U], 'Ти пишеш оголошення про продаж. Напиши іспанською з неозначеним артиклем лише: «червоний мотоцикл» (коротке слово moto).', 'una moto roja', [
+    phrase(9, 'transfer', 'ad', [AO_W, PO_U], 'Ти пишеш оголошення про продаж. Напиши іспанською з неозначеним артиклем лише: «червоний мотоцикл» (коротке слово moto).' + NEUTRAL, 'una moto roja', [
       ['una moto rojo.', { [AO_W]: 'x', [PO_U]: 'c' }, 'Moto — жіночого роду, тому roja.'],
-      ['una roja moto.', { [PO_U]: 'u', [AO_W]: 'c' }, `${PRE}: una moto roja.`],
+      ['una roja moto.', { [PO_U]: 'x', [AO_W]: 'c' }, `${PRE}: una moto roja.`],
     ], 'Moto — жіночого роду'),
-    phrase(10, 'transfer', 'description', [AO_W, PO_U], 'Ти підписуєш фото з виставки. Напиши іспанською з неозначеним артиклем: «старі машини».', 'unos coches viejos', [
+    phrase(10, 'transfer', 'description', [AO_W, PO_U], 'Ти підписуєш фото з виставки. Напиши іспанською з неозначеним артиклем: «старі машини».' + NEUTRAL, 'unos coches viejos', [
       ['unos coches viejas.', { [AO_W]: 'x', [PO_U]: 'c' }, 'Coches — чоловічого роду, тому viejos.'],
       ['unos coches viejo.', { [AO_W]: 'x', [PO_U]: 'c' }, 'Іменник у множині, тому viejos.'],
-      ['unos viejos coches.', { [PO_U]: 'u', [AO_W]: 'c' }, `${PRE}: unos coches viejos.`],
+      ['unos viejos coches.', { [PO_U]: 'x', [AO_W]: 'c' }, `${PRE}: unos coches viejos.`],
     ], 'Чоловічий рід, множина — viejos'),
     pick({
       n: 11, role: 'independent', family: 'choose-form', targets: [AO_C],
@@ -163,44 +164,44 @@ export const unit: Unit = {
       bad: 'Ні. Правильно: unas casas blancas.',
     }),
     // ---------- invariable gender ----------
-    phrase(12, 'supported', 'agree', [AI_W], 'Напиши словосполучення, узгодивши прикметник grande («великий»): una casa + grande.', 'una casa grande', [
+    phrase(12, 'supported', 'agree', [AI_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник grande («великий»): una casa + grande.', 'una casa grande', [
       ['una casa granda.', 'x', 'Grande має одну форму для обох родів: una casa grande.'],
     ], 'Grande не змінюється за родом', 'Пам’ятай: grande, verde, azul, joven мають одну форму для обох родів; змінюється тільки число.', ['grande.']),
-    phrase(13, 'supported', 'agree', [AI_W], 'Напиши словосполучення, узгодивши прикметник azul («синій»): unos libros + azul.', 'unos libros azules', [
+    phrase(13, 'supported', 'agree', [AI_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник azul («синій»): unos libros + azul.', 'unos libros azules', [
       ['unos libros azul.', 'x', 'Іменник у множині, тому azules.'],
       ['unos libros azuls.', 'x', 'Після приголосної в множині додаємо -es: azules.'],
     ], 'Множина після приголосної — -es', 'Пам’ятай: grande, verde, azul, joven мають одну форму для обох родів; змінюється тільки число.', ['azules.']),
-    phrase(14, 'independent', 'translate', [AI_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «зелена машина».', 'un coche verde', [
+    phrase(14, 'independent', 'translate', [AI_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «зелена машина».' + NEUTRAL, 'un coche verde', [
       ['un coche verdo.', { [AI_W]: 'x', [PO_U]: 'c' }, 'Verde має одну форму для обох родів: verde.'],
-      ['un verde coche.', { [PO_U]: 'u', [AI_W]: 'c' }, `${PRE}: un coche verde.`],
+      ['un verde coche.', { [PO_U]: 'x', [AI_W]: 'c' }, `${PRE}: un coche verde.`],
     ], 'Verde не змінюється за родом, стоїть після іменника'),
-    phrase(15, 'independent', 'agree', [AI_W], 'Напиши словосполучення, узгодивши прикметник verde («зелений»): las mesas + verde.', 'las mesas verdes', [
+    phrase(15, 'independent', 'agree', [AI_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник verde («зелений»): las mesas + verde.', 'las mesas verdes', [
       ['las mesas verde.', 'x', 'Іменник у множині, тому verdes.'],
       ['las mesas verdas.', 'x', 'Verde не має форми на -a; у множині — verdes.'],
     ], 'Множина — verdes', undefined, ['verdes.']),
-    phrase(16, 'independent', 'translate', [AI_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «цікаві книжки».', 'unos libros interesantes', [
+    phrase(16, 'independent', 'translate', [AI_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «цікаві книжки».' + NEUTRAL, 'unos libros interesantes', [
       ['unos libros interesante.', { [AI_W]: 'x', [PO_U]: 'c' }, 'Іменник у множині, тому interesantes.'],
-      ['unos interesantes libros.', { [PO_U]: 'u', [AI_W]: 'c' }, `${PRE}: unos libros interesantes.`],
+      ['unos interesantes libros.', { [PO_U]: 'x', [AI_W]: 'c' }, `${PRE}: unos libros interesantes.`],
     ], 'Множина — interesantes, після іменника'),
     phrase(17, 'independent', 'fix', [AI_W], 'Виправ помилку в прикметнику: unas chicas jóvenas.', 'unas chicas jóvenes', [
       ['unas chicas jóvenas.', 'x', 'Joven має одну форму для обох родів; множина — jóvenes.'],
-      ['unas chicas jovenes.', 'u', 'Форма правильна, але в jóvenes потрібен знак наголосу.'],
+      ['unas chicas jovenes.', 'x', 'Рід і число правильні, але без знака наголосу це помилка в написанні: jóvenes.'],
     ], 'Joven не змінюється за родом; множина — jóvenes'),
-    phrase(18, 'delayed', 'translate', [AI_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «великий готель».', 'un hotel grande', [
+    phrase(18, 'delayed', 'translate', [AI_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «великий готель» (про розмір будівлі).' + NEUTRAL, 'un hotel grande', [
       ['un hotel grando.', { [AI_W]: 'x', [PO_U]: 'c' }, 'Grande має одну форму для обох родів: grande.'],
-      ['un gran hotel.', 'u', 'Перед іменником grande скорочується до gran і часто означає «чудовий, величний», хоча може описувати й розмір; у звичайному описі розміру кажемо un hotel grande.'],
+      ['un gran hotel.', { [PO_U]: 'x', [AI_W]: 'c' }, 'Перед іменником grande скорочується до gran (un gran hotel — часто «чудовий, величний готель»). Завдання просить звичайний нейтральний опис розміру з прикметником після іменника: un hotel grande.'],
     ], 'Grande не змінюється за родом, стоїть після іменника'),
-    phrase(19, 'delayed', 'agree', [AI_W], 'Напиши словосполучення, узгодивши прикметник grande («великий»): las ciudades + grande.', 'las ciudades grandes', [
+    phrase(19, 'delayed', 'agree', [AI_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник grande («великий»): las ciudades + grande.', 'las ciudades grandes', [
       ['las ciudades grande.', 'x', 'Іменник у множині, тому grandes.'],
     ], 'Множина — grandes', undefined, ['grandes.']),
-    phrase(20, 'transfer', 'description', [AI_W, PO_U], 'Ти описуєш кімнату в оголошенні. Напиши іспанською з неозначеним артиклем: «сині стільці».', 'unas sillas azules', [
+    phrase(20, 'transfer', 'description', [AI_W, PO_U], 'Ти описуєш кімнату в оголошенні. Напиши іспанською з неозначеним артиклем: «сині стільці».' + NEUTRAL, 'unas sillas azules', [
       ['unas sillas azul.', { [AI_W]: 'x', [PO_U]: 'c' }, 'Іменник у множині, тому azules.'],
       ['unas sillas azulas.', { [AI_W]: 'x', [PO_U]: 'c' }, 'Azul не має форми на -a; у множині — azules.'],
-      ['unas azules sillas.', { [PO_U]: 'u', [AI_W]: 'c' }, `${PRE}: unas sillas azules.`],
+      ['unas azules sillas.', { [PO_U]: 'x', [AI_W]: 'c' }, `${PRE}: unas sillas azules.`],
     ], 'Множина — azules, після іменника'),
-    phrase(21, 'transfer', 'profile', [AI_W, PO_U], 'Ти описуєш подругу в повідомленні. Напиши іспанською з неозначеним артиклем: «розумна подруга».', 'una amiga inteligente', [
+    phrase(21, 'transfer', 'profile', [AI_W, PO_U], 'Ти описуєш подругу в повідомленні. Напиши іспанською з неозначеним артиклем: «розумна подруга».' + NEUTRAL, 'una amiga inteligente', [
       ['una amiga inteligenta.', { [AI_W]: 'x', [PO_U]: 'c' }, 'Inteligente має одну форму для обох родів.'],
-      ['una inteligente amiga.', { [PO_U]: 'u', [AI_W]: 'c' }, `${PRE}: una amiga inteligente.`],
+      ['una inteligente amiga.', { [PO_U]: 'x', [AI_W]: 'c' }, `${PRE}: una amiga inteligente.`],
     ], 'Inteligente не змінюється за родом'),
     // ---------- position ----------
     phrase(22, 'supported', 'build', [PO_U], 'Склади з цих слів звичайний нейтральний опис, де прикметник стоїть після іменника: blanca / una / casa.', 'una casa blanca', [

@@ -49,7 +49,7 @@ const LS_L = 'listening.short-sentences/listening-meaning';
 const R: Record<string, string> = {
   [OR_U]: 'Звідки людина — ser de + місто чи країна: Soy de Kiev.',
   [NA_U]: 'Національність — ser + прикметник у роді й числі людини: Soy ucraniana.',
-  [AN_W]: 'Національності на приголосну: español — española, inglés — inglesa, francés — francesa; у жіночому роді й множині знак наголосу зникає: ingleses, franceses.',
+  [AN_W]: 'Español, inglés, francés і alemán мають жіночу форму на -a: española, inglesa, francesa, alemana; в inglés, francés і alemán у жіночому роді й множині знак наголосу зникає: ingleses, franceses.',
   [PR_U]: 'Коли просто називаємо професію, після ser артикль зазвичай не ставимо: Pablo es médico.',
   [DS_U]: 'Ser + прикметник описує риси; прикметник узгоджується з підметом: Es alta y rubia.',
   [ID_U]: 'Хто це — ser: Es mi hermano. Son mis padres.',
@@ -176,7 +176,7 @@ export const unit: Unit = {
       n: 6, role: 'transfer', family: 'c1-family-origin', targets: [PR_U, OR_U],
       prompt: [uk('Ти просто повідомляєш, ким працює тато і звідки він (нейтрально, без оцінки): «Мій тато — лікар, він з Одеси».')],
       answer: 'Mi padre es médico y es de Odesa.',
-      also: ['Mi padre es médico. Es de Odesa.', 'Mi padre es médico, es de Odesa.', 'Mi padre es médico y es de Odessa.', 'Mi padre es médico. Él es de Odesa.', 'Mi padre es médico y él es de Odesa.'],
+      also: ['Mi padre es médico. Es de Odesa.', 'Mi padre es médico, es de Odesa.', 'Mi padre es médico. Él es de Odesa.', 'Mi padre es médico y él es de Odesa.'],
       errors: [
         ['Mi padre es un médico y es de Odesa.', { [PR_U]: 'x', [OR_U]: 'c' }, 'У простому повідомленні про професію артикль після ser не ставимо: Mi padre es médico.'],
         ['Mi padre es médico y es Odesa.', { [OR_U]: 'x', [PR_U]: 'c' }, 'Звідки людина — ser de: es de Odesa.'],

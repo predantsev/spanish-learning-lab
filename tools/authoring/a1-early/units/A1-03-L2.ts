@@ -31,7 +31,7 @@ const R: Record<string, string> = {
   [ID_U]: 'Щоб сказати, хто або що це, вживаємо ser: Soy Ana. Es mi hermano. Es un libro. Українське «це» перед іменником часто відповідає просто es: «Це моя сестра» — Es mi hermana. Про кількох — son: Son mis amigos.',
   [OR_U]: 'Звідки людина — ser de + місто чи країна: Soy de Kiev. Ana es de Madrid. Прийменник de обов’язковий: не «Soy Kiev», а Soy de Kiev. Питання: ¿De dónde eres? — «Звідки ти?».',
   [NA_U]: 'Національність — ser + прикметник, узгоджений з людиною: Soy ucraniano (каже чоловік), Soy ucraniana (каже жінка), Somos ucranianos. Національності пишуться з малої літери.',
-  [AN_W]: 'Національності на приголосну мають жіночу форму на -a: español — española, inglés — inglesa, francés — francesa, alemán — alemana. У жіночому роді й у множині знак наголосу зникає: inglés, але inglesa, ingleses; alemán — alemanes.',
+  [AN_W]: 'Прикметники національності español, inglés, francés і alemán, хоч і закінчуються на приголосну, мають жіночу форму на -a: español — española, inglés — inglesa, francés — francesa, alemán — alemana. В inglés, francés і alemán знак наголосу в жіночому роді й у множині зникає: inglés, але inglesa, ingleses; alemán — alemanes. Так поводяться не всі прикметники на приголосну, тому ці форми запам’ятовуємо.',
   [PR_U]: 'Коли називаємо професію чи рід занять, після ser артикль зазвичай не ставимо: Soy profesora. Pablo es médico. Somos estudiantes.',
   [DS_U]: 'Ser + прикметник описує, яка людина чи річ є — вигляд, характер, риси: Ana es alta. El piso es pequeño. Прикметник узгоджується з підметом у роді й числі.',
   [FI_P]: 'Me llamo Ana — «мене звати Ана». ¿Cómo te llamas? — «як тебе звати?», ввічливо: ¿Cómo se llama usted? Encantado (каже чоловік), Encantada (каже жінка) або Mucho gusto — «приємно познайомитися». Представити когось: Este es Pablo, Esta es Ana.',
@@ -107,7 +107,7 @@ export const unit: Unit = {
         title: 'Частина 1. Національність',
         blocks: [
           uk('Національність — ser + прикметник, який узгоджується з людиною: Soy ucraniano (каже чоловік), Soy ucraniana (каже жінка), Somos ucranianos. В іспанській національності пишуться з малої літери.'),
-          uk('Прикметники національності на приголосну — виняток: вони мають жіночу форму на -a. Знак наголосу в жіночому роді й у множині зникає.'),
+          uk('Прикметники національності español, inglés, francés і alemán закінчуються на приголосну, але мають жіночу форму на -a. В inglés, francés і alemán знак наголосу в жіночому роді й у множині зникає. Так поводяться не всі прикметники на приголосну, тому ці форми запам’ятовуємо.'),
           tableEs(['Él', 'Ella', 'Ellos', 'Ellas'], [
             ['ucraniano', 'ucraniana', 'ucranianos', 'ucranianas'],
             ['español', 'española', 'españoles', 'españolas'],
@@ -252,7 +252,7 @@ export const unit: Unit = {
     t(19, 'delayed', 'sentence', [OR_U], 'Напиши іспанською: «Мій тато з Одеси».', 'Mi padre es de Odesa.', [
       ['Mi padre es Odesa.', 'x', 'Перед містом потрібне de.'],
       ['Mi padre de Odesa.', 'x', 'Потрібне дієслово: Mi padre es de Odesa.'],
-    ], 'Es de + місто', { also: ['Mi padre es de Odessa.'] }),
+    ], 'Es de + місто'),
     t(20, 'delayed', 'fill', [OR_W], 'Допиши пропущене слово (можна написати лише його або все речення): «Мої друзі з Барселони».', 'Mis amigos son de Barcelona.', [
       ['Mis amigos son Barcelona.', 'x', 'Перед містом потрібне de.'],
     ], 'Son de + місто', { shown: 'Mis amigos son ___ Barcelona.', also: ['de.'] }),
