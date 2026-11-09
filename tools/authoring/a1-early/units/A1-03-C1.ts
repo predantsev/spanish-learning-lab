@@ -50,22 +50,25 @@ const R: Record<string, string> = {
   [OR_U]: 'Звідки людина — ser de + місто чи країна: Soy de Kiev.',
   [NA_U]: 'Національність — ser + прикметник у роді й числі людини: Soy ucraniana.',
   [AN_W]: 'Національності на приголосну: español — española, inglés — inglesa, francés — francesa; у жіночому роді й множині знак наголосу зникає: ingleses, franceses.',
-  [PR_U]: 'Професія після ser — без артикля: Pablo es médico.',
+  [PR_U]: 'Коли просто називаємо професію, після ser артикль зазвичай не ставимо: Pablo es médico.',
   [DS_U]: 'Ser + прикметник описує риси; прикметник узгоджується з підметом: Es alta y rubia.',
   [ID_U]: 'Хто це — ser: Es mi hermano. Son mis padres.',
   [EL_U]: 'Де знаходиться відома людина чи річ — estar en: Ana está en casa.',
   [ST_U]: 'Стан — estar + прикметник: Estoy enferma.',
-  [HY_U]: 'Що десь є — hay (одна форма), після нього un/una або без артикля: En mi calle hay un parque.',
+  [HY_U]: 'Що десь є — hay (одна форма), після нього зазвичай un/una або іменник без артикля: En mi calle hay un parque.',
   [HE_U]: 'Hay — що десь є (нова річ); estar — де знаходиться відома річ: Mi hotel está en la plaza. En la plaza hay un restaurante.',
   [TP_U]: '«У мене є» — tengo: Tengo una hermana.',
   [PS_U]: '«Я голодна», «хочу пити» — tener + іменник, без estar: No tengo hambre. Tengo sed.',
   [YN_U]: 'Питання «так чи ні» — твердження між знаками ¿ ?: ¿Tienes bicicleta?',
   [YN_W]: 'Питання пишуть між знаками ¿ на початку і ? в кінці.',
   [QC_W]: 'Cómo — «як? який?», зі знаком наголосу: ¿Cómo es…?',
-  [WO_U]: 'Питальне слово → дієслово → підмет: ¿Cómo es tu profesor?',
-  [NG_U]: 'No стоїть безпосередньо перед дієсловом: No tengo hambre.',
+  [WO_U]: 'Базовий порядок, який ми тренуємо: питальне слово → дієслово → підмет: ¿Cómo es tu profesor?',
+  [NG_U]: 'No ставимо перед дієсловом: No tengo hambre.',
 };
-const rulesOf = (targets: string[]): Array<[string[], string]> => targets.filter((t) => R[t]).map((t) => [[t], R[t] as string]);
+// A hint that also explains a second assessed target (question marks, nationality agreement) is attributed to it too.
+const ALSO: Record<string, string> = { [YN_U]: YN_W, [NA_U]: AN_W };
+const rulesOf = (targets: string[]): Array<[string[], string]> =>
+  targets.filter((t) => R[t]).map((t) => [ALSO[t] && targets.includes(ALSO[t] as string) ? [t, ALSO[t] as string] : [t], R[t] as string]);
 
 export const unit: Unit = {
   lesson: {
@@ -136,7 +139,7 @@ export const unit: Unit = {
     }),
     typed({
       n: 3, role: 'transfer', family: 'c1-street', targets: [HY_U, DS_U],
-      prompt: [uk('Ти пишеш про свою вулицю два речення: «На моїй вулиці є парк. Парк дуже гарний».')],
+      prompt: [uk('Ти пишеш про свою вулицю два речення: «На моїй вулиці є парк. Парк дуже гарний». У другому реченні опиши, який парк загалом (його рису), а не як він виглядає сьогодні.')],
       answer: 'En mi calle hay un parque. El parque es muy bonito.',
       also: ['Hay un parque en mi calle. El parque es muy bonito.', 'En mi calle hay un parque. Es muy bonito.', 'Hay un parque en mi calle. Es muy bonito.'],
       errors: [
@@ -148,13 +151,13 @@ export const unit: Unit = {
     }),
     typed({
       n: 4, role: 'transfer', family: 'c1-family-profile', targets: [TP_U, DS_U],
-      prompt: [uk('Ти пишеш про родину: «У мене є сестра. Вона висока й білява».')],
+      prompt: [uk('Ти пишеш про родину: «У мене є сестра. Вона висока й білява». Опиши її звичайні риси.')],
       answer: 'Tengo una hermana. Es alta y rubia.',
       also: ['Tengo una hermana. Ella es alta y rubia.', 'Tengo una hermana, es alta y rubia.', 'Tengo una hermana. Es rubia y alta.', 'Yo tengo una hermana. Es alta y rubia.'],
       errors: [
         ['Hay una hermana. Es alta y rubia.', { [TP_U]: 'x', [DS_U]: 'c' }, '«У мене є» — tengo.'],
         ['Tengo una hermana. Es alto y rubio.', { [DS_U]: 'x', [TP_U]: 'c' }, 'Про сестру — alta, rubia.'],
-        ['Tengo una hermana. Está alta y rubia.', { [DS_U]: 'x', [TP_U]: 'c' }, 'Риси людини — ser: Es alta y rubia.'],
+        ['Tengo una hermana. Está alta y rubia.', { [DS_U]: 'x', [TP_U]: 'c' }, 'Звичайні риси людини описуємо з ser: Es alta y rubia. Está alta / está rubia означало б, що вона виросла чи змінила вигляд.'],
       ],
       rules: rulesOf([TP_U, DS_U]), why: 'Tengo + una; ser + прикметники',
     }),
@@ -164,18 +167,18 @@ export const unit: Unit = {
       answer: 'No, no tengo hambre. Tengo sed.',
       also: ['No, no tengo hambre, tengo sed.', 'No. No tengo hambre. Tengo sed.', 'No, no tengo hambre. Pero tengo sed.', 'No, no tengo hambre, pero tengo sed.'],
       errors: [
-        ['No, tengo no hambre. Tengo sed.', { [NG_U]: 'x', [PS_U]: 'c' }, 'No стоїть перед дієсловом: no tengo.'],
+        ['No, tengo no hambre. Tengo sed.', { [NG_U]: 'x', [PS_U]: 'c' }, 'No ставимо перед дієсловом: no tengo.'],
         ['No, no estoy hambre. Tengo sed.', { [PS_U]: 'x', [NG_U]: 'c' }, 'У цьому виразі — tener: no tengo hambre.'],
       ],
       rules: rulesOf([NG_U, PS_U]), why: 'No + tengo; tener sed',
     }),
     typed({
       n: 6, role: 'transfer', family: 'c1-family-origin', targets: [PR_U, OR_U],
-      prompt: [uk('Ти пишеш про тата: «Мій тато — лікар, він з Одеси».')],
+      prompt: [uk('Ти просто повідомляєш, ким працює тато і звідки він (нейтрально, без оцінки): «Мій тато — лікар, він з Одеси».')],
       answer: 'Mi padre es médico y es de Odesa.',
       also: ['Mi padre es médico. Es de Odesa.', 'Mi padre es médico, es de Odesa.', 'Mi padre es médico y es de Odessa.', 'Mi padre es médico. Él es de Odesa.', 'Mi padre es médico y él es de Odesa.'],
       errors: [
-        ['Mi padre es un médico y es de Odesa.', { [PR_U]: 'x', [OR_U]: 'c' }, 'Професія після ser — без артикля.'],
+        ['Mi padre es un médico y es de Odesa.', { [PR_U]: 'x', [OR_U]: 'c' }, 'У простому повідомленні про професію артикль після ser не ставимо: Mi padre es médico.'],
         ['Mi padre es médico y es Odesa.', { [OR_U]: 'x', [PR_U]: 'c' }, 'Звідки людина — ser de: es de Odesa.'],
       ],
       rules: rulesOf([PR_U, OR_U]), why: 'Ser + професія без артикля; ser de',
@@ -200,7 +203,7 @@ export const unit: Unit = {
       errors: [
         ['¿Cómo tu profesor nuevo es?', { [WO_U]: 'x', [QC_W]: 'c' }, 'Після питального слова йде дієслово: ¿Cómo es tu profesor nuevo?'],
         ['¿Como es tu profesor nuevo?', { [QC_W]: 'x', [WO_U]: 'c' }, 'Cómo у питанні пишеться зі знаком наголосу.'],
-        ['¿Cómo está tu profesor nuevo?', { [QC_W]: 'u', [WO_U]: 'c' }, 'Так питають про самопочуття; про вдачу — ¿Cómo es…?'],
+        ['¿Cómo está tu profesor nuevo?', { [QC_W]: 'c', [WO_U]: 'u' }, 'Cómo написано правильно, але так питають про самопочуття; про вдачу — ¿Cómo es…?'],
       ],
       rules: rulesOf([QC_W, WO_U]), why: 'Cómo + es + підмет',
     }),
@@ -211,7 +214,7 @@ export const unit: Unit = {
       also: ['Mi hotel está en la plaza. Hay un restaurante en la plaza.', 'Mi hotel está en la plaza y en la plaza hay un restaurante.'],
       errors: [
         ['Mi hotel hay en la plaza. En la plaza hay un restaurante.', 'x', 'Мій готель — відомий: está.'],
-        ['Mi hotel está en la plaza. En la plaza está un restaurante.', 'x', 'Що десь є — hay un restaurante.'],
+        ['Mi hotel está en la plaza. En la plaza está un restaurante.', 'u', 'Está з un буває, коли ресторан уже відомий як орієнтир; щоб просто повідомити, що на площі є ресторан, кажемо hay un restaurante.'],
       ],
       rules: rulesOf([HE_U]), why: 'Відоме — está; нове — hay',
     }),

@@ -24,7 +24,9 @@ const R: Record<string, string> = {
   [ST_U]: 'Як почувається людина або в якому стані щось перебуває — estar + прикметник: Estoy cansada. La tienda está cerrada. Прикметник узгоджується з підметом; bien і mal не змінюються: Estamos bien.',
   [SE_C]: 'Ser — хто це, звідки, яким є за своїми рисами, ким працює: Es alta. Es de Madrid. Estar — де знаходиться і в якому стані перебуває: Está en Madrid. Está cansada.',
 };
-const rulesOf = (targets: string[]): Array<[string[], string]> => targets.filter((t) => R[t]).map((t) => [[t], R[t] as string]);
+// The estar.location hint teaches the whole estar + en + place frame, so it also supports prep.en.location when assessed.
+const rulesOf = (targets: string[]): Array<[string[], string]> =>
+  targets.filter((t) => R[t]).map((t) => [t === EL_U && targets.includes(EN_W) ? [t, EN_W] : [t], R[t] as string]);
 
 interface Opts {
   also?: Array<string | [string, string]>;
@@ -179,48 +181,48 @@ export const unit: Unit = {
       ['La llave está la habitación de Ana.', { [EN_W]: 'x', [EL_U]: 'c' }, 'Перед місцем потрібне en.'],
     ], 'Está en la habitación de Ana'),
     // ---------- present.estar forms ----------
-    t(11, 'supported', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Yo estoy en casa.', [
+    t(11, 'supported', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Yo estoy en casa.', [
       ['Yo está en casa.', 'x', 'З yo — estoy.'],
     ], 'Yo estoy', { support: 'Пам’ятай: estoy, estás, está, estamos, estáis, están.', shown: 'Yo ___ en casa.', also: ['estoy.'] }),
-    t(12, 'supported', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Tú estás en el parque.', [
+    t(12, 'supported', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Tú estás en el parque.', [
       ['Tú estas en el parque.', 'x', 'Estás пишеться зі знаком наголосу.'],
       ['Tú está en el parque.', 'x', 'З tú — estás.'],
     ], 'Tú estás', { support: 'Пам’ятай: у estás, está, estáis, están є знак наголосу.', shown: 'Tú ___ en el parque.', also: ['estás.'] }),
-    t(13, 'independent', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Vosotros estáis en Madrid.', [
+    t(13, 'independent', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Vosotros estáis en Madrid.', [
       ['Vosotros están en Madrid.', 'x', 'З vosotros — estáis.'],
       ['Vosotros estais en Madrid.', 'x', 'Estáis пишеться зі знаком наголосу.'],
     ], 'Vosotros estáis', { shown: 'Vosotros ___ en Madrid.', also: ['estáis.'] }),
-    t(14, 'independent', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Ellos están bien.', [
+    t(14, 'independent', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Ellos están bien.', [
       ['Ellos estan bien.', 'x', 'Están пишеться зі знаком наголосу.'],
       ['Ellos estáis bien.', 'x', 'Estáis — з vosotros; з ellos — están.'],
     ], 'Ellos están', { shown: 'Ellos ___ bien.', also: ['están.'] }),
-    t(15, 'independent', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Usted está en el hotel.', [
+    t(15, 'independent', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Usted está en el hotel.', [
       ['Usted estás en el hotel.', 'x', 'Usted поєднується з формою 3-ї особи: está.'],
       ['Usted esta en el hotel.', 'x', 'Está пишеться зі знаком наголосу; esta без знака — інше слово.'],
     ], 'Usted está', { shown: 'Usted ___ en el hotel.', also: ['está.'] }),
-    t(16, 'independent', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Ustedes están ocupados.', [
+    t(16, 'independent', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Ustedes están ocupados.', [
       ['Ustedes estáis ocupados.', 'x', 'Ustedes поєднується з формою 3-ї особи множини: están.'],
     ], 'Ustedes están', { shown: 'Ustedes ___ ocupados.', also: ['están.'] }),
-    t(17, 'delayed', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Nosotras estamos contentas.', [
+    t(17, 'delayed', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Nosotras estamos contentas.', [
       ['Nosotras están contentas.', 'x', 'З nosotras — estamos.'],
     ], 'Nosotras estamos', { shown: 'Nosotras ___ contentas.', also: ['estamos.'] }),
-    t(18, 'delayed', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Ella está en la oficina.', [
+    t(18, 'delayed', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Ella está en la oficina.', [
       ['Ella esta en la oficina.', 'x', 'Está пишеться зі знаком наголосу; esta без знака — інше слово.'],
       ['Ella estoy en la oficina.', 'x', 'Estoy — з yo; з ella — está.'],
     ], 'Ella está', { shown: 'Ella ___ en la oficina.', also: ['está.'] }),
-    t(19, 'transfer', 'chat-form', [ES_W], 'Ти пишеш подрузі: «Ми з друзями в Мадриді». Допиши форму estar і напиши речення повністю.', 'Mis amigos y yo estamos en Madrid.', [
+    t(19, 'transfer', 'chat-form', [ES_W], 'Ти пишеш подрузі: «Ми з друзями в Мадриді». Допиши форму estar (можна написати лише її або все речення).', 'Mis amigos y yo estamos en Madrid.', [
       ['Mis amigos y yo están en Madrid.', 'x', 'Mis amigos y yo — це «ми»: estamos.'],
     ], 'Mis amigos y yo estamos', { shown: 'Mis amigos y yo ___ en Madrid.', also: ['estamos.'] }),
-    t(20, 'delayed', 'fill', [ES_W], 'Допиши форму estar і напиши речення повністю.', 'Mis hermanas están en Valencia.', [
+    t(20, 'delayed', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Mis hermanas están en Valencia.', [
       ['Mis hermanas está en Valencia.', 'x', 'Сестер кілька — «вони»: están.'],
       ['Mis hermanas estan en Valencia.', 'x', 'Están пишеться зі знаком наголосу.'],
     ], 'Ellas están', { shown: 'Mis hermanas ___ en Valencia.', also: ['están.'] }),
     // ---------- prep.en.location own ----------
-    t(21, 'independent', 'fill-en', [EN_W], 'Допиши прийменник і напиши речення повністю: «Мобільний у сумці».', 'El móvil está en el bolso.', [
+    t(21, 'independent', 'fill-en', [EN_W], 'Допиши прийменник (можна написати лише його або все речення): «Мобільний у сумці».', 'El móvil está en el bolso.', [
       ['El móvil está de el bolso.', 'x', 'Місце — en: en el bolso.'],
       ['El móvil está el bolso.', 'x', 'Перед місцем потрібне en.'],
     ], 'En + місце', { shown: 'El móvil está ___ el bolso.', also: ['en.'] }),
-    t(22, 'delayed', 'fill-en', [EN_W], 'Допиши прийменник і напиши речення повністю: «Ми у Валенсії».', 'Estamos en Valencia.', [
+    t(22, 'delayed', 'fill-en', [EN_W], 'Допиши прийменник (можна написати лише його або все речення): «Ми у Валенсії».', 'Estamos en Valencia.', [
       ['Estamos de Valencia.', 'x', 'De — «з, звідки»; місце — en.'],
     ], 'En + місто', { shown: 'Estamos ___ Valencia.', also: ['en.'] }),
     // ---------- choices: forms, en, location ----------
@@ -289,8 +291,8 @@ export const unit: Unit = {
       ['Ana está contento.', 'x', 'Ана — жінка: contenta.'],
       ['Ana es contenta.', 'x', 'Стан — estar: Ana está contenta.'],
     ], 'Está + стан', { support: 'Пам’ятай: Ana está cansada — estar для стану.' }),
-    t(43, 'independent', 'feel', [ST_U], 'Напиши іспанською: «У нас усе добре» (дослівно: «Ми добре»).', 'Estamos bien.', [
-      ['Estamos buenos.', 'x', 'Bien («добре») не змінюється: Estamos bien.'],
+    t(43, 'independent', 'feel', [ST_U], 'Друг питає, як у вас справи загалом. Відповідай іспанською: «У нас усе добре» (дослівно: «Ми добре»).', 'Estamos bien.', [
+      ['Estamos buenos.', 'x', 'Тут потрібен прислівник bien — «добре», він не змінюється: Estamos bien. Bueno — окремий прикметник «добрий»; estar bueno має інші значення (наприклад, «одужати»), а не «у нас усе добре».'],
       ['Somos bien.', 'x', 'Як почуваємося — estar: Estamos bien.'],
     ], 'Estamos bien', { also: ['Nosotros estamos bien.', 'Nosotras estamos bien.'] }),
     t(44, 'independent', 'feel', [ST_U], 'Пабло сьогодні не прийшов на роботу. Напиши іспанською: «Пабло хворий».', 'Pablo está enfermo.', [
