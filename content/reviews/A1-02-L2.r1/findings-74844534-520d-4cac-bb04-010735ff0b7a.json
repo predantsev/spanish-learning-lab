@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-02-L2.r1",
+  "jobId": "74844534-520d-4cac-bb04-010735ff0b7a",
+  "receiptId": "ca49a684-4d36-432e-aea3-efc60eb53520",
+  "recordedAt": "2026-11-09T00:27:50.682Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L2-T17",
+      "contentHash": "4a03b9bdd8ca0a9b642e09af31a0d874b084f8c439ea8a9b0e8fffd1f0bf4985",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Una foto, por favor.\"; task.feedback.incorrectUk: \"Ні. Una foto — «якесь фото», не конкретне.\"",
+          "description": "The feedback assigns a nonspecific interpretation that the fragment alone cannot establish. An indefinite noun phrase can have specific or nonspecific reference. The ordinary reading supports a, but the claim that no particular photograph is intended requires additional context.",
+          "suggestion": "State explicitly that any photograph will do, or remove \"не конкретне\" and explain that una does not identify the photograph as the previously established one."
+        }
+      ],
+      "caseId": "task:A1-02-L2-T17",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the ordinary choice. However, the fragment does not establish whether the speaker has a particular photograph in mind.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), chapter 15, discussion of specific and nonspecific indefinite noun phrases (from memory).",
+        "Packet verdict guidance: use uncertain when an element's correctness depends on an unstated intended reading."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L2-T18",
+      "contentHash": "b47dd7d91569537e1c1cbe4069e35520637e9c5c73a85915f72006819f544917",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"У готелі тобі дали ключ від номера. Ти шукаєш саме цей ключ. Як його назвеш?\"; task.options[1].feedbackUk: \"Ідеться про конкретний ключ від твого номера, тому la.\"",
+          "description": "Having a particular key in mind does not by itself determine a definite article. Direct reference to a mutually identifiable key favors la llave; introducing the lost key in a new conversation can naturally use una llave. The prompt establishes speaker specificity but leaves conversational identifiability unresolved.",
+          "suggestion": "Specify an addressee who already knows which key is meant and make the utterance a direct reference to that shared key. Otherwise accommodate both discourse readings rather than rejecting una solely because the key is particular."
+        }
+      ],
+      "caseId": "task:A1-02-L2-T18",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a when the key is identifiable in the conversation; b can introduce that same particular key to someone who cannot yet identify it. The addressee and discourse setting are unspecified.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), chapters 14–15, definite identification and specific indefinite reference (from memory).",
+        "Packet verdict guidance: use uncertain when the key selects one of several reasonable readings without fixing the relevant context."
+      ]
+    }
+  ]
+}
