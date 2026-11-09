@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-04-L5.r2",
+  "jobId": "e139edd7-9da6-4839-b4d6-ad17f5910923",
+  "receiptId": "cd526973-4731-47a1-9956-c9e539c355c5",
+  "recordedAt": "2026-11-09T01:58:00.654Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L5",
+      "contentHash": "d2d00f50dfb521c401191bd8c4d79a406459c1ef0704e08adec5e7779f183f91",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[4].text: \"Без por la слово mañana означає «завтра».\"",
+          "description": "Absence of por la does not make mañana mean tomorrow. It still means morning in la mañana, esta mañana and de la mañana. The statement incorrectly makes the distinction depend exclusively on por la.",
+          "suggestion": "Explain that bare mañana used as a time adverb means tomorrow, whereas the noun means morning and occurs in expressions including la mañana, esta mañana and por la mañana."
+        }
+      ],
+      "caseId": "lesson:A1-04-L5",
+      "verdict": "flawed",
+      "reviewerAnswer": "Use the listed frequency and part-of-day expressions. Distinguish adverbial mañana, meaning tomorrow, from the noun mañana, meaning morning.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «mañana», noun and temporal-adverb senses (from memory).",
+        "Course contract rule 8: Spanish must be correct."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T11",
+      "contentHash": "1fbaa6b204d191dd8fbe75f68f5dacb4dd5ce14e391ee44b2321e5bfcec2dec8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Desayuno ___.\"; task.options[a,c].outcomes and feedbackUk: \"Сніданок буває зранку: por la mañana.\"",
+          "description": "The key assumes a conventional breakfast schedule that the prompt does not specify. Breakfast normally suggests morning, but the sentence does not establish this particular speaker's breakfast time, so the other temporal adjuncts are not intrinsically wrong.",
+          "suggestion": "Explicitly ask for the usual breakfast time in a conventional daily routine, or supply a contextual time cue before assigning one uniquely correct option."
+        }
+      ],
+      "caseId": "task:A1-04-L5-T11",
+      "verdict": "uncertain",
+      "reviewerAnswer": "b is the ordinary expectation. c can fit a late-rising routine, and a can fit an unusual night schedule; the speaker's routine is unspecified.",
+      "notes": "The uncertainty concerns the missing routine, not the grammatical correctness of por la mañana.",
+      "sources": [
+        "Course contract rule 2: choice outcomes must identify the correct option.",
+        "The supplied verdict definition for uncertain: the intended reading is underdetermined."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T12",
+      "contentHash": "00a8b74ae3e3ab36101487357217b025889aa4e2a35048744e75239765683fa8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Me levanto temprano y voy al trabajo ___.\"; task.options[b].feedbackUk: \"Встаєш рано й одразу йдеш на роботу — отже, зранку: por la mañana.\"",
+          "description": "Getting up early does not determine when the person goes to work. The conjunction y does not establish immediate departure, and the feedback adds \"одразу\", which the prompt never states. A night-work reading remains possible.",
+          "suggestion": "Supply a morning departure cue or a clearly specified routine. Align the feedback with information actually present in the prompt."
+        }
+      ],
+      "caseId": "task:A1-04-L5-T12",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the default expectation, but b can also fit someone who gets up early and goes to work at night.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2.",
+        "The supplied verdict definition for uncertain: missing context permits multiple readings.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «temprano, na», temporal-adverb senses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T32",
+      "contentHash": "04b6db4d814558d21446b7e7c7d57cf10835005e3b10b13329a9a1c8e8ac997a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Переклади іспанською: «Я ніколи не п’ю каву ввечері».\"; task.accepted and task.referenceAnswer use only \"por la noche\".",
+          "description": "The Ukrainian evening cue does not distinguish early evening, which can fall within la tarde, from later evening or night, expressed with la noche. The prerequisites themselves include tarde meaning \"вечір (до темряви)\". The intended period cannot be established from the prompt.",
+          "suggestion": "Specify the intended evening period in Ukrainian, then review the corresponding Spanish variants. Do not infer noche solely from \"ввечері\"."
+        }
+      ],
+      "caseId": "task:A1-04-L5-T32",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Nunca bebo café por la tarde. / Nunca bebo café por la noche. Tomas with tomo are also possible; the intended evening period is unspecified.",
+      "notes": "The key is not declared closed; this is unresolved interpretation rather than demonstrated automatic rejection of tarde variants.",
+      "sources": [
+        "context.taughtBefore: \"This lesson: tarde — день (після обіду), вечір (до темряви)\".",
+        "Course contract rule 3 and the supplied uncertain-verdict criterion.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «tarde» and «noche» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T42",
+      "contentHash": "e89ddb4924cc0b7c782042aea033d3f88b81c924f488b1087dcb7f5115338b3f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.slots[1].errors[0]: \"el fin de semana\", with feedback \"El fin de semana — «на цих (одних) вихідних». Регулярно — los fines de semana.\"; task.referenceAnswer and task.hints[2].blocks[0].text: \"todos los días trabajo en la oficina y los fines de semana descanso.\"",
+          "description": "Singular el fin de semana can have habitual meaning in a routine description; it does not necessarily designate this one weekend. Marking it wrong on that basis teaches a false restriction. Separately, the displayed complete sentence incorrectly begins with lowercase todos.",
+          "suggestion": "Accept el fin de semana for the habitual reading and explain that the singular can also describe a recurring weekend routine. Capitalize Todos in the reveal and reference answer."
+        }
+      ],
+      "caseId": "task:A1-04-L5-T42",
+      "verdict": "flawed",
+      "reviewerAnswer": "Todos los días trabajo en la oficina y los fines de semana descanso. The second slot can also naturally be el fin de semana with habitual meaning.",
+      "notes": "",
+      "sources": [
+        "Course contract rules 4 and 8.",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of generic and temporal uses of the definite article (from memory).",
+        "RAE/ASALE, Ortografía de la lengua española, initial capitalization of complete sentences (from memory)."
+      ]
+    }
+  ]
+}
