@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-02-L3.r3",
+  "packetHash": "a3bdfe516fba6f078650a5829627647997243ee9a2b2da58a407d3b5677e6e2b",
+  "reviewReport": null,
+  "reviewReportNote": "0 targets; the contract ReviewReport holds 1–30 verdicts",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "f15e476505e5937092aaa66fab1d93e33ec36e85e3fa26d8ea47399e006083cc",
+    "reviewerPacketSha256": "cec798d3021c02ad26599918330e549bc49c4b353d946a9acc744d182d9def33",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rfVyB5/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rfVyB5/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rfVyB5/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rfVyB5/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-rfVyB5/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bfd9-13d5-73f1-b913-d38af38e5b1a",
+        "version": "v0.166.0",
+        "tokens used": "27,381"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-02-L3",
+        "reviewerAnswer": "No response is elicited by this lesson case. Expected forms include libros, casas, coches, cafés; ciudades, hoteles, profesores, mujeres; lápices, luces, veces; estaciones, autobuses, jóvenes, exámenes; las manos, los días and las aguas.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s1].blocks[2].text: \"Інші кінцеві приголосні мають свої правила; у цьому уроці тренуємо лише -d, -l, -r і -z.\"",
+        "defect": "The stated lesson-wide restriction contradicts the lesson itself: s3 explicitly teaches plurals of words ending in -s and -n, including autobús, joven and examen, and s4 repeats some of those plurals.",
+        "correction": "Restrict the scope statement to this table, replacing \"у цьому уроці тренуємо лише -d, -l, -r і -z\" with \"у цій таблиці розглядаємо закінчення -d, -l, -r і -z\".",
+        "sources": [
+          "Packet: content.body.steps[id=s1].blocks[2].text states the restriction.",
+          "Packet: content.body.steps[id=s3].blocks[1].rows explicitly includes autobús → autobuses, joven → jóvenes and examen → exámenes.",
+          "Packet: content.body.steps[id=s4].blocks includes los autobuses and los exámenes."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-02-L3",
+      "contentHash": "b864614db59690f36d9e3c1cb6face3abb5f6c5645ba6fa4ec6ed2a8af10d536",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s1].blocks[2].text: \"Інші кінцеві приголосні мають свої правила; у цьому уроці тренуємо лише -d, -l, -r і -z.\"",
+          "description": "The stated lesson-wide restriction contradicts the lesson itself: s3 explicitly teaches plurals of words ending in -s and -n, including autobús, joven and examen, and s4 repeats some of those plurals.",
+          "suggestion": "Restrict the scope statement to this table, replacing \"у цьому уроці тренуємо лише -d, -l, -r і -z\" with \"у цій таблиці розглядаємо закінчення -d, -l, -r і -z\"."
+        }
+      ],
+      "caseId": "lesson:A1-02-L3",
+      "verdict": "flawed",
+      "reviewerAnswer": "No response is elicited by this lesson case. Expected forms include libros, casas, coches, cafés; ciudades, hoteles, profesores, mujeres; lápices, luces, veces; estaciones, autobuses, jóvenes, exámenes; las manos, los días and las aguas.",
+      "notes": "",
+      "sources": [
+        "Packet: content.body.steps[id=s1].blocks[2].text states the restriction.",
+        "Packet: content.body.steps[id=s3].blocks[1].rows explicitly includes autobús → autobuses, joven → jóvenes and examen → exámenes.",
+        "Packet: content.body.steps[id=s4].blocks includes los autobuses and los exámenes."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
