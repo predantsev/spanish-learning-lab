@@ -1,0 +1,2133 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L3.r1",
+  "packetHash": "6351273f926af11fef92b78bbecce80b959f0c07bf325102aed96330f1e096fb",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "712999a4d347eddb1f89fe984a8483f0ecd0fd3bcbf8e0f9f9b786590d987221",
+    "reviewerPacketSha256": "c9ce2a5a5e7e37ddecee8514d0b6f260fb4cf657f3ff695ffa480a060562295d",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KHgzTM/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KHgzTM/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KHgzTM/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KHgzTM/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KHgzTM/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdd5-054b-7721-9218-35e40c514968",
+        "version": "v0.166.0",
+        "tokens used": "136,832"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "situation:people-family-home",
+        "reviewerAnswer": "Not applicable: situation metadata.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:contrast.ser-estar",
+        "reviewerAnswer": "Ser for the taught identity, origin and characteristic descriptions; estar for the taught location and state descriptions.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:estar.location",
+        "reviewerAnswer": "Ana está en casa. El libro está en la mesa. ¿Dónde está el hotel?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:estar.state",
+        "reviewerAnswer": "Estoy cansado/cansada. Ana está contenta. Estamos bien. La tienda está cerrada.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:prep.en.location",
+        "reviewerAnswer": "en casa; en la mesa; en Madrid; en el piso.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: \"Для руху «куди» вживають інший прийменник — його вивчатимемо в A1-04.\"",
+        "defect": "The unrestricted statement wrongly excludes en from movement towards a destination. Peninsular Spanish also uses constructions such as entrar en la habitación.",
+        "correction": "Limit the preview to the construction being introduced later, for example: \"Напрямок із дієсловом ir передає прийменник a: ir a Madrid. Це вивчатимемо в A1-04.\"",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «entrar», destination complements with en or a (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:present.estar",
+        "reviewerAnswer": "yo estoy; tú estás; él/ella/usted está; nosotros/nosotras estamos; vosotros/vosotras estáis; ellos/ellas/ustedes están.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The corpus-wide count asserted in bankJustificationUk is unconfirmed: the referenced A2 task bank is not included in the supplied packet."
+      },
+      {
+        "caseId": "lexeme:lex.abierto",
+        "reviewerAnswer": "abierto — «відчинений, відкритий»; abierta, abiertos, abiertas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.banco",
+        "reviewerAnswer": "el banco; plural bancos; the financial-institution meaning is «банк».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.bien",
+        "reviewerAnswer": "bien — «добре»; an invariable adverb.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.cansado",
+        "reviewerAnswer": "cansado — «втомлений»; cansada, cansados, cansadas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.cerrado",
+        "reviewerAnswer": "cerrado — «зачинений, закритий»; cerrada, cerrados, cerradas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.cocina",
+        "reviewerAnswer": "la cocina — «кухня»; plural cocinas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.contento",
+        "reviewerAnswer": "contento — «задоволений, радий»; contenta, contentos, contentas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.en-casa",
+        "reviewerAnswer": "en casa — «вдома».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.enfermo",
+        "reviewerAnswer": "enfermo — «хворий»; enferma, enfermos, enfermas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.estar",
+        "reviewerAnswer": "estar — «бути, перебувати (де, у якому стані)»; estoy, estás, está, estamos, estáis, están.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.mal",
+        "reviewerAnswer": "mal — «погано»; an invariable adverb.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.ocupado",
+        "reviewerAnswer": "ocupado — «зайнятий»; ocupada, ocupados, ocupadas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.oficina",
+        "reviewerAnswer": "la oficina — «офіс»; plural oficinas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.parque",
+        "reviewerAnswer": "el parque — «парк»; plural parques.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-03-L3",
+        "reviewerAnswer": "No single learner response: the lesson teaches estar conjugation, en for location, location/state constructions and the contextual contrast with ser.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "This verdict concerns the lesson content and sequence. Referenced tasks are reviewed separately."
+      },
+      {
+        "caseId": "task:A1-03-L3-T01",
+        "reviewerAnswer": "Ana está en casa.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint explains both assessed targets, including the en + place frame, but attributes support only to estar.location.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or rewrite the hint to explain only the choice of estar.",
+        "sources": [
+          "Course contract rule 6: hint targets must exactly match the targets the help explains."
+        ],
+        "notes": "No closed:true flag is supplied; omitted unreviewed alternatives are not assumed to be graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L3-T02",
+        "reviewerAnswer": "El libro está en la mesa. El libro está sobre la mesa also expresses the requested location.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint explains the assessed en construction as well as estar.location, but omits the preposition target from its support attribution.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow its explanation to estar.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": "The key expressly recognizes the sobre alternative, and no closed:true flag is supplied."
+      },
+      {
+        "caseId": "task:A1-03-L3-T03",
+        "reviewerAnswer": "Mis padres están en Kiev. Mis padres están en Kyiv is also acceptable.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "Support for the assessed en + place construction is omitted from the hint's target list.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or restrict its explanation to estar.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T04",
+        "reviewerAnswer": "Las llaves están en la cocina.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint explains both assessed constructions but attributes support only to estar.location.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or remove its explanation of the en frame.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T05",
+        "reviewerAnswer": "Estamos en el parque. Nosotros estamos en el parque and Nosotras estamos en el parque also fit.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint also explains the assessed preposition construction, whose support is not recorded.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow the hint to estar.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T06",
+        "reviewerAnswer": "¿Dónde está el hotel?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T07",
+        "reviewerAnswer": "Pablo está en la oficina.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint explains the assessed en frame but attributes support only to estar.location.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow its content to estar.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T08",
+        "reviewerAnswer": "Mi hermana está en Madrid.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint explains both assessed targets but omits support attribution for prep.en.location.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or restrict its explanation to estar.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T09",
+        "reviewerAnswer": "Estoy en el banco. Yo estoy en el banco also fits.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint explains the assessed en + place frame as well as estar.location, but records only the latter support.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow the hint to estar.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T10",
+        "reviewerAnswer": "La llave está en la habitación de Ana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+        "defect": "The hint explains both assessed constructions but omits support attribution for the en target.",
+        "correction": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow its content to estar.",
+        "sources": [
+          "Course contract rule 6."
+        ],
+        "notes": "Earlier teaching of possessive de + name is unconfirmed: it is absent from this case's taughtBefore and non-reveal hints. Verify that prerequisite or gloss «la habitación de Ana» in the prompt."
+      },
+      {
+        "caseId": "task:A1-03-L3-T11",
+        "reviewerAnswer": "Yo estoy en casa.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"estoy.\" versus task.prompt[1].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The key accepts only the missing verb although the instruction explicitly requires the complete sentence.",
+        "correction": "Remove the single-word accepted variant, or explicitly allow either the missing form alone or the complete sentence.",
+        "sources": [
+          "Course contract rule 3: accepted variants must be acceptable answers to the stated task."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T12",
+        "reviewerAnswer": "Tú estás en el parque.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"estás.\" versus task.prompt[1].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The accepted single verb does not satisfy the explicit requirement to write the complete sentence.",
+        "correction": "Remove this variant, or revise the instruction to permit the missing form alone as well as the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T13",
+        "reviewerAnswer": "Vosotros estáis en Madrid.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"estáis.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The key accepts a single verb despite the complete-sentence requirement.",
+        "correction": "Remove this variant, or explicitly permit either the form alone or the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T14",
+        "reviewerAnswer": "Ellos están bien.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"están.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The single-word accepted answer does not meet the required response format.",
+        "correction": "Remove this variant, or change the instruction to allow the missing form alone or the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T15",
+        "reviewerAnswer": "Usted está en el hotel.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"está.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The key accepts only the verb although the instruction requires the complete sentence.",
+        "correction": "Remove this variant, or explicitly permit either the missing form or the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T16",
+        "reviewerAnswer": "Ustedes están ocupados.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"están.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The accepted verb alone does not satisfy the complete-sentence instruction.",
+        "correction": "Remove this variant, or revise the instruction to allow the form alone as well as the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T17",
+        "reviewerAnswer": "Nosotras estamos contentas.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"estamos.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The key accepts a response containing only the missing verb, contrary to the stated complete-sentence requirement.",
+        "correction": "Remove this variant, or explicitly permit the missing form alone or the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T18",
+        "reviewerAnswer": "Ella está en la oficina.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"está.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The accepted single verb does not meet the instruction to write the complete sentence.",
+        "correction": "Remove this variant, or amend the instruction to permit either response format.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T19",
+        "reviewerAnswer": "Mis amigos y yo estamos en Madrid.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"estamos.\" versus task.prompt[0].text: \"Ти пишеш подрузі: «Ми з друзями в Мадриді». Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The key accepts only the missing form despite the explicit requirement for the complete sentence.",
+        "correction": "Remove this variant, or explicitly allow either the form alone or the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T20",
+        "reviewerAnswer": "Mis hermanas están en Valencia.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"están.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+        "defect": "The single-word accepted response does not satisfy the complete-sentence instruction.",
+        "correction": "Remove this variant, or permit the missing form alone as well as the complete sentence in the instruction.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T21",
+        "reviewerAnswer": "El móvil está en el bolso.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"en.\" versus task.prompt[0].text: \"Допиши прийменник і напиши речення повністю: «Мобільний у сумці».\"",
+        "defect": "The key accepts only the preposition although the prompt explicitly requires the complete sentence.",
+        "correction": "Remove this variant, or explicitly permit either the preposition alone or the complete sentence.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T22",
+        "reviewerAnswer": "Estamos en Valencia.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"en.\" versus task.prompt[0].text: \"Допиши прийменник і напиши речення повністю: «Ми у Валенсії».\"",
+        "defect": "The accepted preposition alone does not meet the complete-sentence requirement.",
+        "correction": "Remove this variant, or revise the instruction to permit either response format.",
+        "sources": [
+          "Course contract rule 3."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T31",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T32",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T33",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T34",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T35",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T36",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "In option c's feedback, explicitly naming Spanish «la puerta» would clarify that «однина» concerns Spanish; Ukrainian «двері» is plural-only."
+      },
+      {
+        "caseId": "task:A1-03-L3-T37",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T38",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T41",
+        "reviewerAnswer": "Estoy cansada. Yo estoy cansada also fits.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T42",
+        "reviewerAnswer": "Ana está contenta.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T43",
+        "reviewerAnswer": "Estamos bien; optionally Nosotros/Nosotras estamos bien. Estamos buenos is also possible if the intended statement specifically concerns being healthy or recovered.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[0]: \"Estamos buenos.\" is marked incorrect; task.prompt[0] gives \"У нас усе добре\" without specifying general well-being versus health or recovery.",
+        "defect": "Estar bueno has a health/recovery meaning as well as other meanings. Whether this reviewed alternative is unsuitable depends on the intended situation, which the prompt does not fix. Bueno is a separate adjective, not an inflected form of bien.",
+        "correction": "Specify the intended situation and meaning, then reassess this alternative. Explain the distinction between bien and bueno rather than relying only on the invariability of bien.",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «bueno», health sense and its use with estar (from memory).",
+          "Course contract rule 3; the supplied verdict instructions require uncertain for judgments that depend on unspecified context."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T44",
+        "reviewerAnswer": "Pablo está enfermo.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T45",
+        "reviewerAnswer": "Mis padres están ocupados.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T46",
+        "reviewerAnswer": "La tienda está cerrada.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T47",
+        "reviewerAnswer": "¿Cómo estás?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T48",
+        "reviewerAnswer": "El banco está abierto.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T49",
+        "reviewerAnswer": "Estoy bien, gracias. Yo estoy bien, gracias also fits.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T50",
+        "reviewerAnswer": "El café está cerrado. La cafetería está cerrada is also a natural translation.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T51",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T52",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T53",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T54",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T55",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T56",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T57",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T61",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text-only review: the transcript supports the answer; pronunciation and recording quality were not assessed."
+      },
+      {
+        "caseId": "task:A1-03-L3-T62",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt supplies the speaker's name, Pablo; the transcript itself does not identify him. The meaning choice is nevertheless clear. Actual audio was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a1-03.estoy-cansado",
+        "reviewerAnswer": "A speaker greets Ana and says that he is very tired: «Привіт, Ано. Я дуже втомлений.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Transcript and translation reviewed; actual audio was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a1-03.hermana-oficina",
+        "reviewerAnswer": "The speaker's sister is in the office: «Моя сестра в офісі.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Transcript and translation reviewed; actual audio was not assessed."
+      },
+      {
+        "caseId": "phrase:phrase.como-estas",
+        "reviewerAnswer": "¿Cómo estás?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "phrase:phrase.donde-esta-el-hotel",
+        "reviewerAnswer": "¿Dónde está el hotel?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "situation",
+      "logicalId": "people-family-home",
+      "contentHash": "25143abb41e5b10bbea654fec57fa26c9a5309b2a3eb4d954c2124417b8a4ea4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "situation:people-family-home",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: situation metadata.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "contrast.ser-estar",
+      "contentHash": "693bece6ac7eb09895df1526899c12bf188ca19613086a9305e751443b8c648f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:contrast.ser-estar",
+      "verdict": "valid",
+      "reviewerAnswer": "Ser for the taught identity, origin and characteristic descriptions; estar for the taught location and state descriptions.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "estar.location",
+      "contentHash": "27471e4a0ae071819bc51fbcb9ecbcd36b055f5e425dbc753d9ad7736c01b712",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:estar.location",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana está en casa. El libro está en la mesa. ¿Dónde está el hotel?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "estar.state",
+      "contentHash": "036578be76ad252488cb286540fd4ca2e604e887c95b3fc17133ac87ed8fe8da",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:estar.state",
+      "verdict": "valid",
+      "reviewerAnswer": "Estoy cansado/cansada. Ana está contenta. Estamos bien. La tienda está cerrada.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "prep.en.location",
+      "contentHash": "5ef6ca11fa9d7d9221924b06fd6cafa2c8a75e188b0587850ac8402187591a86",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"Для руху «куди» вживають інший прийменник — його вивчатимемо в A1-04.\"",
+          "description": "The unrestricted statement wrongly excludes en from movement towards a destination. Peninsular Spanish also uses constructions such as entrar en la habitación.",
+          "suggestion": "Limit the preview to the construction being introduced later, for example: \"Напрямок із дієсловом ir передає прийменник a: ir a Madrid. Це вивчатимемо в A1-04.\""
+        }
+      ],
+      "caseId": "skill:prep.en.location",
+      "verdict": "flawed",
+      "reviewerAnswer": "en casa; en la mesa; en Madrid; en el piso.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «entrar», destination complements with en or a (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "present.estar",
+      "contentHash": "022df67552fc6f40ed0a3ce54f8ab258e032053f02c0cc4c1c377c14bf80df5e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:present.estar",
+      "verdict": "valid",
+      "reviewerAnswer": "yo estoy; tú estás; él/ella/usted está; nosotros/nosotras estamos; vosotros/vosotras estáis; ellos/ellas/ustedes están.",
+      "notes": "The corpus-wide count asserted in bankJustificationUk is unconfirmed: the referenced A2 task bank is not included in the supplied packet.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.abierto",
+      "contentHash": "7c1cac53bd9e6fa0597f05ae1c448cf31577326751cde92cce5934fb261d01b0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.abierto",
+      "verdict": "valid",
+      "reviewerAnswer": "abierto — «відчинений, відкритий»; abierta, abiertos, abiertas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.banco",
+      "contentHash": "05e9ddd428c9725b5c644bd741cecf9ce926d6c2f51de7ec05f3fdb88f793d08",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.banco",
+      "verdict": "valid",
+      "reviewerAnswer": "el banco; plural bancos; the financial-institution meaning is «банк».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.bien",
+      "contentHash": "e07084fb1341dfcca7153a9c57953f35875f1dea4be03bb9dda3d00aa8b13fb0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.bien",
+      "verdict": "valid",
+      "reviewerAnswer": "bien — «добре»; an invariable adverb.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.cansado",
+      "contentHash": "61b133a7cf524a6474aecb72bb8d5464b5458c4fea98900154fe7abb52128de3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.cansado",
+      "verdict": "valid",
+      "reviewerAnswer": "cansado — «втомлений»; cansada, cansados, cansadas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.cerrado",
+      "contentHash": "470c774f14c44fa03a4d832b61e953d75ee12c846a72c36c572089076d4ccca2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.cerrado",
+      "verdict": "valid",
+      "reviewerAnswer": "cerrado — «зачинений, закритий»; cerrada, cerrados, cerradas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.cocina",
+      "contentHash": "dcd0a19e4ff276683972658e9c3a70a97212968349f9b376ee0b49ae804a6f7e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.cocina",
+      "verdict": "valid",
+      "reviewerAnswer": "la cocina — «кухня»; plural cocinas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.contento",
+      "contentHash": "2a21bd8ca5a952aaca089682de31652b9cf8521d4777042542b75c89b9eb427d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.contento",
+      "verdict": "valid",
+      "reviewerAnswer": "contento — «задоволений, радий»; contenta, contentos, contentas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.en-casa",
+      "contentHash": "aeecdb6c858800356119172ab9da58bdf9546f95384858b4a73061b027bb1892",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.en-casa",
+      "verdict": "valid",
+      "reviewerAnswer": "en casa — «вдома».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.enfermo",
+      "contentHash": "7a076abb881721dca104a232c75dd92ab1cefd659768ad39d9cb2c4596a70f86",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.enfermo",
+      "verdict": "valid",
+      "reviewerAnswer": "enfermo — «хворий»; enferma, enfermos, enfermas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.estar",
+      "contentHash": "fc48094fc1c24f3d8cdf6ad82112091c8ca4ff351f51d43cb736ad7bc4c3da2d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.estar",
+      "verdict": "valid",
+      "reviewerAnswer": "estar — «бути, перебувати (де, у якому стані)»; estoy, estás, está, estamos, estáis, están.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.mal",
+      "contentHash": "a4e642353db780dc582f8d0c1f40315adbc98bc8a702ce13029dac1c87bf4969",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.mal",
+      "verdict": "valid",
+      "reviewerAnswer": "mal — «погано»; an invariable adverb.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ocupado",
+      "contentHash": "fe7430726deaed74457bac1900ce8d38f80b41a300fc104d24d54c09f16d45de",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ocupado",
+      "verdict": "valid",
+      "reviewerAnswer": "ocupado — «зайнятий»; ocupada, ocupados, ocupadas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.oficina",
+      "contentHash": "3b7a23bb4c0c008c51bb398ea193cf36c4b2a8a813e893443486df2ed585c360",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.oficina",
+      "verdict": "valid",
+      "reviewerAnswer": "la oficina — «офіс»; plural oficinas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.parque",
+      "contentHash": "38f181158d5c9358b79c0faf5222547218827af4ee836867d886332f054918df",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.parque",
+      "verdict": "valid",
+      "reviewerAnswer": "el parque — «парк»; plural parques.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L3",
+      "contentHash": "535d4fb2f27259f03d3fe5bdf1ce983fd715100ae08c568d100718810ea9fab5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-03-L3",
+      "verdict": "valid",
+      "reviewerAnswer": "No single learner response: the lesson teaches estar conjugation, en for location, location/state constructions and the contextual contrast with ser.",
+      "notes": "This verdict concerns the lesson content and sequence. Referenced tasks are reviewed separately.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T01",
+      "contentHash": "b6fae8d52084a8df22a70f5635473bc9554f3714eb29c0116b8fce9091d54aa6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint explains both assessed targets, including the en + place frame, but attributes support only to estar.location.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or rewrite the hint to explain only the choice of estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T01",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ana está en casa.",
+      "notes": "No closed:true flag is supplied; omitted unreviewed alternatives are not assumed to be graded incorrect.",
+      "sources": [
+        "Course contract rule 6: hint targets must exactly match the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T02",
+      "contentHash": "79994c0bad440599c99326b3bd4b29443811f9e46b58af2f907043ca2e030efb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint explains the assessed en construction as well as estar.location, but omits the preposition target from its support attribution.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow its explanation to estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "El libro está en la mesa. El libro está sobre la mesa also expresses the requested location.",
+      "notes": "The key expressly recognizes the sobre alternative, and no closed:true flag is supplied.",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T03",
+      "contentHash": "d924cc59885819d50e974a255f5aa6a39276dde1c86b5fee8acdb941f1deabfb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "Support for the assessed en + place construction is omitted from the hint's target list.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or restrict its explanation to estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis padres están en Kiev. Mis padres están en Kyiv is also acceptable.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T04",
+      "contentHash": "b36e694f9afc4e6d399413a3ddf38bab6d13af689912c2aafb9c0778f5e73aeb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint explains both assessed constructions but attributes support only to estar.location.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or remove its explanation of the en frame."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "Las llaves están en la cocina.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T05",
+      "contentHash": "73350efef99972c98db83bb4965472c43254b238ece94c8b7362ee5d8c0d3dae",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint also explains the assessed preposition construction, whose support is not recorded.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow the hint to estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "Estamos en el parque. Nosotros estamos en el parque and Nosotras estamos en el parque also fit.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T06",
+      "contentHash": "d002040b003a2957ccb61dffba2ee5bc5cb0711ad0b716e619350ae3f61d8002",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde está el hotel?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T07",
+      "contentHash": "76b6d868c53fa945bed2241465c2f73e7e2c879cb5216e64475f8c05151a9326",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint explains the assessed en frame but attributes support only to estar.location.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow its content to estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T07",
+      "verdict": "flawed",
+      "reviewerAnswer": "Pablo está en la oficina.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T08",
+      "contentHash": "0be27c51437482d3d3025f5c6379f49e69c370078654335b670108e48bc346f7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint explains both assessed targets but omits support attribution for prep.en.location.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or restrict its explanation to estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi hermana está en Madrid.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T09",
+      "contentHash": "add0f1e254d5684868dc50a41e7f22437d5c398f03e141a7b8cf0020ec1f63f9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint explains the assessed en + place frame as well as estar.location, but records only the latter support.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow the hint to estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T09",
+      "verdict": "flawed",
+      "reviewerAnswer": "Estoy en el banco. Yo estoy en el banco also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T10",
+      "contentHash": "0384b8ed866d223ed4228c4d6c978349ebd6b238bf1e7e64a1621a1c2d00a159",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"estar.location/construction-use\"]; its text explicitly teaches \"estar + en + місце\".",
+          "description": "The hint explains both assessed constructions but omits support attribution for the en target.",
+          "suggestion": "Add \"prep.en.location/written-form\" to this hint's targets, or narrow its content to estar."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "La llave está en la habitación de Ana.",
+      "notes": "Earlier teaching of possessive de + name is unconfirmed: it is absent from this case's taughtBefore and non-reveal hints. Verify that prerequisite or gloss «la habitación de Ana» in the prompt.",
+      "sources": [
+        "Course contract rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T11",
+      "contentHash": "9902f6e9b462f7bf4aa75202629999c43bcebf9f439fbdb9979773019ed5255f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"estoy.\" versus task.prompt[1].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The key accepts only the missing verb although the instruction explicitly requires the complete sentence.",
+          "suggestion": "Remove the single-word accepted variant, or explicitly allow either the missing form alone or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "Yo estoy en casa.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3: accepted variants must be acceptable answers to the stated task."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T12",
+      "contentHash": "37c4d549a2d28dfbdc013d130f74500e83ad5348b388cfabed08f511bf847f25",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"estás.\" versus task.prompt[1].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The accepted single verb does not satisfy the explicit requirement to write the complete sentence.",
+          "suggestion": "Remove this variant, or revise the instruction to permit the missing form alone as well as the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "Tú estás en el parque.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T13",
+      "contentHash": "524603959876da167b2e970ecc189cf738224901a6c87ebd6d08638e871f9f7d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"estáis.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The key accepts a single verb despite the complete-sentence requirement.",
+          "suggestion": "Remove this variant, or explicitly permit either the form alone or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "Vosotros estáis en Madrid.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T14",
+      "contentHash": "960bbab6689766bc6bc68fe65e9316ff7aa055edaa5676df97fdd3b2f4ed718d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"están.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The single-word accepted answer does not meet the required response format.",
+          "suggestion": "Remove this variant, or change the instruction to allow the missing form alone or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ellos están bien.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T15",
+      "contentHash": "c2990400aeeb5827be388258ad30791f1918604974fa2bd19dbbf463795fce07",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"está.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The key accepts only the verb although the instruction requires the complete sentence.",
+          "suggestion": "Remove this variant, or explicitly permit either the missing form or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T15",
+      "verdict": "flawed",
+      "reviewerAnswer": "Usted está en el hotel.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T16",
+      "contentHash": "2dad3edb0e68c761c5c1546c113b317426500380d62687d2b832510bdf99281a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"están.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The accepted verb alone does not satisfy the complete-sentence instruction.",
+          "suggestion": "Remove this variant, or revise the instruction to allow the form alone as well as the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T16",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ustedes están ocupados.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T17",
+      "contentHash": "b0b110890e630e25c3e6c4fd4e1b914556a707137087769f066b5c5f64adcb4e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"estamos.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The key accepts a response containing only the missing verb, contrary to the stated complete-sentence requirement.",
+          "suggestion": "Remove this variant, or explicitly permit the missing form alone or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "Nosotras estamos contentas.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T18",
+      "contentHash": "515c9fcdd174b760761922680b3e0de760416a11c1ead1080181bddf7c8a0740",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"está.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The accepted single verb does not meet the instruction to write the complete sentence.",
+          "suggestion": "Remove this variant, or amend the instruction to permit either response format."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T18",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ella está en la oficina.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T19",
+      "contentHash": "d42605122ea971329114032c645eeb6b670103818891531142a06f7b4f5c709e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"estamos.\" versus task.prompt[0].text: \"Ти пишеш подрузі: «Ми з друзями в Мадриді». Допиши форму estar і напиши речення повністю.\"",
+          "description": "The key accepts only the missing form despite the explicit requirement for the complete sentence.",
+          "suggestion": "Remove this variant, or explicitly allow either the form alone or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T19",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis amigos y yo estamos en Madrid.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T20",
+      "contentHash": "9cde993265cec62c739b99c1faba59667be6ec4bdb0886119c708565a65754ee",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"están.\" versus task.prompt[0].text: \"Допиши форму estar і напиши речення повністю.\"",
+          "description": "The single-word accepted response does not satisfy the complete-sentence instruction.",
+          "suggestion": "Remove this variant, or permit the missing form alone as well as the complete sentence in the instruction."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis hermanas están en Valencia.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T21",
+      "contentHash": "fc1427166380f1b352ab21a0576b2ae48c65d5eb208f29ab88ea7bbb650eb7e6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"en.\" versus task.prompt[0].text: \"Допиши прийменник і напиши речення повністю: «Мобільний у сумці».\"",
+          "description": "The key accepts only the preposition although the prompt explicitly requires the complete sentence.",
+          "suggestion": "Remove this variant, or explicitly permit either the preposition alone or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "El móvil está en el bolso.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T22",
+      "contentHash": "95b72dcf244d6935ed0fd38e08d64849fc411416408b2faf48097de6bc598b01",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"en.\" versus task.prompt[0].text: \"Допиши прийменник і напиши речення повністю: «Ми у Валенсії».\"",
+          "description": "The accepted preposition alone does not meet the complete-sentence requirement.",
+          "suggestion": "Remove this variant, or revise the instruction to permit either response format."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "Estamos en Valencia.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T31",
+      "contentHash": "d05bf557fc51f3c5c7b601922390e9cfb85f8c0226bbc84781d67b66bd2db43f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T32",
+      "contentHash": "66a1086e74b4ea749c5a9588bb4b1da6b746d7d4b23c0b6f98ba769020f671e1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T33",
+      "contentHash": "659bc12ae71844f70b317a76c68f00b3b2bef77159a9702f316274193c3b2137",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T34",
+      "contentHash": "84b85b1a9dff0789dacd371af90b1b913adffd997ed39a6c8c7795fa86362027",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T35",
+      "contentHash": "39241fcc5ff501931bc9c9ce5a247a7149dc9bea39a358d8bbe60b047fea115a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T36",
+      "contentHash": "167ca833eb40373f4b673d2486dedead860c3cd835eb339b0be4f63dbfec92e8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T36",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "In option c's feedback, explicitly naming Spanish «la puerta» would clarify that «однина» concerns Spanish; Ukrainian «двері» is plural-only.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T37",
+      "contentHash": "d0e65095dfb64aab352941b3de9ca0a45fa19e7d48357c54be0deee423cc0cde",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T37",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T38",
+      "contentHash": "ca12a9b01fed6c57abf3912408683a9de63cce1e9fe39e2c81279651776326a2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T38",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T41",
+      "contentHash": "b8fb69221add6c5ab2e37a51863313ff1662837d0ee66d9b65db26b22c3f7475",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T41",
+      "verdict": "valid",
+      "reviewerAnswer": "Estoy cansada. Yo estoy cansada also fits.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T42",
+      "contentHash": "92d48a2c393653ac6e46785019212a20cfc9d82879974eeefe1992743043440c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T42",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana está contenta.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T43",
+      "contentHash": "ef4cab70cbef60aa62a47e79932f81a8584d31483fd9e5c5076874388c8f649a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[0]: \"Estamos buenos.\" is marked incorrect; task.prompt[0] gives \"У нас усе добре\" without specifying general well-being versus health or recovery.",
+          "description": "Estar bueno has a health/recovery meaning as well as other meanings. Whether this reviewed alternative is unsuitable depends on the intended situation, which the prompt does not fix. Bueno is a separate adjective, not an inflected form of bien.",
+          "suggestion": "Specify the intended situation and meaning, then reassess this alternative. Explain the distinction between bien and bueno rather than relying only on the invariability of bien."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T43",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Estamos bien; optionally Nosotros/Nosotras estamos bien. Estamos buenos is also possible if the intended statement specifically concerns being healthy or recovered.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «bueno», health sense and its use with estar (from memory).",
+        "Course contract rule 3; the supplied verdict instructions require uncertain for judgments that depend on unspecified context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T44",
+      "contentHash": "f33377e3222271a69bab4c5eeb1d5cda7756cd01e228edd98d79a33a5cda430e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T44",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo está enfermo.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T45",
+      "contentHash": "4fd521ab063b8b3c52ade83ef253fb974966c356c5209b203df71126157781ee",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T45",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis padres están ocupados.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T46",
+      "contentHash": "122d94b92247cd8a63872652240d678bbcf2eb33106bc94bd70108af38853713",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T46",
+      "verdict": "valid",
+      "reviewerAnswer": "La tienda está cerrada.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T47",
+      "contentHash": "8f2e377edfd5234ac5eb188165cba40e07ceba8d1806926bcfdacb8df0af5e40",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T47",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo estás?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T48",
+      "contentHash": "d0e0e2c027c2401753a92b3eb0917f42e3e7df6540d9299f103f40c593b5dc83",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T48",
+      "verdict": "valid",
+      "reviewerAnswer": "El banco está abierto.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T49",
+      "contentHash": "e8d36c8f43a666d4f75925c943d151bbca11fe7247153e39c4f9309b7f990dca",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T49",
+      "verdict": "valid",
+      "reviewerAnswer": "Estoy bien, gracias. Yo estoy bien, gracias also fits.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T50",
+      "contentHash": "3dd1a0eb4310f027d42ad8dacfc3e68cff624340ed754dad6f3bde36a64d3279",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T50",
+      "verdict": "valid",
+      "reviewerAnswer": "El café está cerrado. La cafetería está cerrada is also a natural translation.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T51",
+      "contentHash": "1cccc23c0067136d3b7c004e74908ac1b9beeb96a944663732b3994c3ca92918",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T51",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T52",
+      "contentHash": "67760c4525a2eb92b0cd25bb580f40c71d5f2e7dea4e4095831d10b02716cc4e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T52",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T53",
+      "contentHash": "55974ab42cfcab1883abef3e4b5d3016c549ac63af02459deaa51fb7df998de3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T53",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T54",
+      "contentHash": "60e02cf9a5b98175680a03967f5bcc9cb8643a562d1623c59318a320aab4fee7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T54",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T55",
+      "contentHash": "4fe7028f8589f38446e9159f0e573f3688e23947d9f6250fb8e07f20525a6f35",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T55",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T56",
+      "contentHash": "c8e7d0e95b319b89dfa550871386638ad56b79a70370b4b58fa0dcc70d2fa6d4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T56",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T57",
+      "contentHash": "ee894e36d649ef7eda3e0aaf05276f2f234667ac9a1c0c09d91de8ea2ccf1a7e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T57",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T61",
+      "contentHash": "ffab50b2526e334659e30923c6f1b8303153f2e8de6c1722db2cda18ccc523ba",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T61",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Text-only review: the transcript supports the answer; pronunciation and recording quality were not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T62",
+      "contentHash": "f43c1ca46bbaf262f80e85060fbe669dc3b9510c45d052faf31a2231a90d66be",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T62",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The prompt supplies the speaker's name, Pablo; the transcript itself does not identify him. The meaning choice is nevertheless clear. Actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.estoy-cansado",
+      "contentHash": "8ba102c5e2af11b4fc3c2d4c3ca95ea26ebc97f318c41710cc09a1993c341fd9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.estoy-cansado",
+      "verdict": "valid",
+      "reviewerAnswer": "A speaker greets Ana and says that he is very tired: «Привіт, Ано. Я дуже втомлений.»",
+      "notes": "Transcript and translation reviewed; actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.hermana-oficina",
+      "contentHash": "011310a7549b445573f75265c14dfedcbba20d937c6f310a412221367a545cc7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.hermana-oficina",
+      "verdict": "valid",
+      "reviewerAnswer": "The speaker's sister is in the office: «Моя сестра в офісі.»",
+      "notes": "Transcript and translation reviewed; actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.como-estas",
+      "contentHash": "603e2d79cd56101ab4b89871f1ddc1be131cd4438ffa1f484f7689549f08cd86",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.como-estas",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo estás?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.donde-esta-el-hotel",
+      "contentHash": "71857b6f7c7a7d83976fb72f765b0fd635309655f986b905d18667e3d66419de",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.donde-esta-el-hotel",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde está el hotel?",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
