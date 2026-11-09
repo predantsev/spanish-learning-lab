@@ -4,7 +4,8 @@
 Walks lessons in course order. For each lesson whose own record, tasks or clips are still `draft`,
 builds one review batch (an --items batch of the draft entities when they fit in 25, otherwise the
 whole lesson), runs the calibrated Codex reviewer, applies the verdicts and commits the batch.
-Entities in `needs-review` (unrepaired findings) and `quarantined` are skipped.
+Entities in `draft` and `needs-review` are included (run it only after the repair pass, so the
+remaining needs-review ones are disputed findings); `quarantined` is skipped.
 
 Stops with exit 10 when the reviewer reports a usage limit (the failed run record is committed,
 nothing is applied), exit 1 on any other tool failure. Run from the repository root with the
@@ -23,6 +24,9 @@ import sys
 SRC = 'content/source'
 REVIEWS = 'content/reviews'
 MAX_ITEMS = 25
+# needs-review entities still pending after the repair pass are disputed or context-only findings:
+# they are re-reviewed as they are (repaired ones are already draft again).
+PENDING = ('draft', 'needs-review')
 LIMIT_RE = re.compile(r'usage limit|hit your usage|rate limit', re.I)
 
 
@@ -39,18 +43,18 @@ def order_key(lesson_id):
 def draft_scope(lesson_id):
     items = []
     lesson = load(f'{SRC}/lessons/{lesson_id}.json')
-    if lesson.get('reviewStatus', 'draft') == 'draft':
+    if lesson.get('reviewStatus', 'draft') in PENDING:
         items.append(f'lesson:{lesson_id}')
     tpath = f'{SRC}/tasks/{lesson_id}.json'
     if os.path.exists(tpath):
         for t in load(tpath)['tasks']:
-            if t.get('reviewStatus', 'draft') == 'draft':
+            if t.get('reviewStatus', 'draft') in PENDING:
                 items.append(f"task:{t['id']}")
     block = lesson['blockId']
     apath = f'{SRC}/audio/{block}.json'
     if os.path.exists(apath):
         for c in load(apath)['clips']:
-            if c.get('lessonId') == lesson_id and c.get('reviewStatus', 'draft') == 'draft':
+            if c.get('lessonId') == lesson_id and c.get('reviewStatus', 'draft') in PENDING:
                 items.append(f"clip:{c['id']}")
     return items
 
