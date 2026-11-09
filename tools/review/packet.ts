@@ -202,9 +202,11 @@ function formsOf(skill: Skill): string {
 
 /**
  * `taughtBefore`: the assessed targets' own steps, their prerequisite skills (transitively) and the
- * words first taught in this lesson and earlier lessons of the same block (most recent first, capped).
+ * words first taught in this lesson and earlier lessons of the same block (most recent first, capped),
+ * plus words from EARLIER blocks that the reviewed item actually uses (`usedText`), so a word taught
+ * in an earlier block is not mistaken for an untaught one.
  */
-export function taughtBefore(corpus: Corpus, lessonId: string, targetSkillIds: string[]): string[] {
+export function taughtBefore(corpus: Corpus, lessonId: string, targetSkillIds: string[], usedText = ''): string[] {
   const skills = new Map(corpus.skills.map((s) => [s.id, s.body]));
   const out: string[] = [];
   const seen = new Set<string>();
@@ -235,7 +237,26 @@ export function taughtBefore(corpus: Corpus, lessonId: string, targetSkillIds: s
     .sort((a, b) => compareLessons(b.firstLesson, a.firstLesson) || (a.lemma < b.lemma ? -1 : 1))
     .slice(0, MAX_TAUGHT_WORDS);
   for (const x of words) out.push(x.firstLesson === lessonId ? `This lesson: ${x.lemma} — ${x.meaningUk}` : `${x.lemma} — ${x.meaningUk} (${x.firstLesson})`);
+  if (usedText) {
+    const text = usedText.toLowerCase();
+    const earlier = corpus.lexemes
+      .map((x) => x.body)
+      .filter((x) => blockOfLesson(x.firstLesson) !== block && compareLessons(x.firstLesson, lessonId) < 0)
+      .filter((x) => usesWord(text, x.lemma.toLowerCase()))
+      .sort((a, b) => compareLessons(b.firstLesson, a.firstLesson) || (a.lemma < b.lemma ? -1 : 1))
+      .slice(0, MAX_EARLIER_WORDS);
+    for (const x of earlier) out.push(`${x.lemma} — ${x.meaningUk} (${x.firstLesson}, earlier block)`);
+  }
   return out;
+}
+
+const MAX_EARLIER_WORDS = 40;
+
+/** Whole-word occurrence of a (possibly multi-word) lemma; letters include Spanish accented ones. */
+function usesWord(text: string, lemma: string): boolean {
+  if (!lemma) return false;
+  const escaped = lemma.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^\\p{L}])${escaped}($|[^\\p{L}])`, 'u').test(text);
 }
 
 function lessonOf(record: AnyRecord): string {
@@ -268,6 +289,15 @@ function caseTargets(record: AnyRecord): Array<{ skillId: string; modality: stri
   return [];
 }
 
+function usedTextOf(corpus: Corpus, record: AnyRecord): string {
+  const parts = [JSON.stringify(record.body)];
+  if (record.kind === 'task') {
+    const clipIds = new Set((record.body as Task).clipIds ?? []);
+    for (const c of corpus.clips) if (clipIds.has(c.id)) parts.push(JSON.stringify(c.body));
+  }
+  return parts.join(' ');
+}
+
 export function reviewerCase(corpus: Corpus, record: AnyRecord): ReviewerCase {
   const skills = new Map(corpus.skills.map((s) => [s.id, s.body]));
   const lessonId = lessonOf(record);
@@ -276,7 +306,7 @@ export function reviewerCase(corpus: Corpus, record: AnyRecord): ReviewerCase {
   const context: ReviewerCase['context'] = {
     lessonId: lessonId || 'n/a',
     lessonTopic: lesson ? `${lesson.titleUk}${lesson.termEs ? ` (${lesson.termEs})` : ''}` : lessonId || 'n/a',
-    taughtBefore: lessonId ? taughtBefore(corpus, lessonId, [...new Set(targets.map((t) => t.skillId))]) : [],
+    taughtBefore: lessonId ? taughtBefore(corpus, lessonId, [...new Set(targets.map((t) => t.skillId))], usedTextOf(corpus, record)) : [],
     targets: targets.map((t) => ({ target: t.modality === '*' ? t.skillId : `${t.skillId}/${t.modality}`, description: skills.get(t.skillId)?.titleUk ?? t.skillId })),
   };
   const caseId = `${record.kind}:${record.id}`;
