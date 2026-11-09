@@ -1,0 +1,735 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-01-L4.r2",
+  "packetHash": "bb7724b40f27bc0cbcc3b1f102ed998c6a1d7d4be54189f9d1adab900fc11f7a",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "1e54eab1ad1ae68bd633d562c58146dc1d946a4b00cfa2683b544d6ede660eb1",
+    "reviewerPacketSha256": "5afa1cb6593aa88472cfa9aea726064781f7b2cf307f31de96a2f6bd983765f1",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aA1B7T/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aA1B7T/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aA1B7T/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aA1B7T/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-aA1B7T/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c024-b240-7193-80cd-1d072a08f33e",
+        "version": "v0.166.0",
+        "tokens used": "93,412"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A2-01-L4",
+        "reviewerAnswer": "Not applicable: explanatory lesson content.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[s3].blocks[2].text: «estar + gerundio (форма на -ando / -iendo) зі звичною дією підкреслює, що ситуація тимчасова»",
+        "defect": "This categorically equates habitual progressive uses with temporariness. The construction can also describe an action regularly in progress at a recurring time, without implying a temporary routine.",
+        "correction": "Say that the progressive can emphasize a temporary current routine. Retain the simple present as the neutral choice for permanent habits without making temporariness obligatory in every habitual progressive.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, discussion of estar + gerundio and habitual or iterative interpretations (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T01",
+        "reviewerAnswer": "está cocinando",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T02",
+        "reviewerAnswer": "están durmiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T03",
+        "reviewerAnswer": "estás haciendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T04",
+        "reviewerAnswer": "estoy leyendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[1].text: «Після голосної основи — -yendo: leer → leyendo, oír → oyendo.»",
+        "defect": "The rule does not restrict its scope to the relevant -er/-ir verbs. A vowel-final stem alone does not select -yendo: estudiar has estudiando, already explicitly taught in this case.",
+        "correction": "Use a narrowly accurate reminder: «Форми gerundio: leer → leyendo, oír → oyendo.» Alternatively, explain the relevant -er/-ir pattern while distinguishing -ar → -ando.",
+        "sources": [
+          "Packet, context.taughtBefore: «estudiar → estudiando».",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 4, verbal inflection and gerund formation (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T05",
+        "reviewerAnswer": "está sirviendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T06",
+        "reviewerAnswer": "está escribiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T07",
+        "reviewerAnswer": "estáis oyendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[1].text: «Після голосної основи — -yendo: leer → leyendo, oír → oyendo.»",
+        "defect": "The unrestricted vowel-stem rule incorrectly includes -ar verbs such as estudiar, whose gerund is estudiando. The examples are correct, but the stated generalization is too broad.",
+        "correction": "Use «Форми gerundio: leer → leyendo, oír → oyendo», or explicitly delimit the relevant -er/-ir pattern and distinguish -ar → -ando.",
+        "sources": [
+          "Packet, context.taughtBefore: «estudiar → estudiando».",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 4, verbal inflection and gerund formation (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T08",
+        "reviewerAnswer": "está durmiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T09",
+        "reviewerAnswer": "estamos pidiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T10",
+        "reviewerAnswer": "están durmiendo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T11",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T12",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T21",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The explicit permanent-habit instruction makes the simple present the appropriate neutral choice."
+      },
+      {
+        "caseId": "task:A2-01-L4-T22",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The greeting dialogue naturally invites a current-activity answer; option b explicitly describes a daily habit."
+      },
+      {
+        "caseId": "task:A2-01-L4-T23",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T24",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T25",
+        "reviewerAnswer": "a for stating the usual dinner time; b also fits a reading in which dinner is routinely in progress at nine.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: «Ідеться про звичайну годину вечері в родині. Оберіть форму.»; task.options[b]: «estamos cenando», graded incorrect.",
+        "defect": "The prompt does not distinguish stating the habitual meal time from describing dinner as regularly in progress at nine. Both readings concern the family's usual dinner time. The feedback identifies the second reading but the prompt does not exclude it.",
+        "correction": "Specify whether the learner must state the usual meal time without an in-progress perspective or describe what is underway at nine. Grade the options according to that clarified intention.",
+        "sources": [
+          "Packet, task.options[b].feedbackUk: «о дев’ятій вечеря вже триває».",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio with habitual or iterative interpretations (from memory).",
+          "Packet, Verdicts: uncertain applies when the intended reading is underdetermined."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T26",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T27",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T28",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T29",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L4-T35",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text-only review: the supplied transcript supports option a."
+      },
+      {
+        "caseId": "task:A2-01-L4-T36",
+        "reviewerAnswer": "En casa todos están ocupados. Mi padre está cocinando, mi hermana está leyendo en el sofá y el perro está durmiendo. Y yo estoy escuchando música.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Reviewed against the supplied transcript. The colon variant is explicitly accepted, and other internal punctuation variants remain unresolved under the open key."
+      },
+      {
+        "caseId": "clip:clip.a2-01.l4.home-busy",
+        "reviewerAnswer": "The father is cooking, the sister is reading on the sofa, the dog is sleeping, and the speaker is listening to music.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish transcript and Ukrainian translation agree. Audio delivery was outside this text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A2-01-L4",
+      "contentHash": "19a594a50b3c0e7065c13a390394b892ef16b9b562e7ada4e3c3faf9755ba39b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[s3].blocks[2].text: «estar + gerundio (форма на -ando / -iendo) зі звичною дією підкреслює, що ситуація тимчасова»",
+          "description": "This categorically equates habitual progressive uses with temporariness. The construction can also describe an action regularly in progress at a recurring time, without implying a temporary routine.",
+          "suggestion": "Say that the progressive can emphasize a temporary current routine. Retain the simple present as the neutral choice for permanent habits without making temporariness obligatory in every habitual progressive."
+        }
+      ],
+      "caseId": "lesson:A2-01-L4",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: explanatory lesson content.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, discussion of estar + gerundio and habitual or iterative interpretations (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T01",
+      "contentHash": "ae26897f042ec40a2f0a74a9aafdfb3c0cda19e987f02a1fbe39757fa2091e83",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "está cocinando",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T02",
+      "contentHash": "36d623caefa4537d03a0469b38d581ff11265e1ac20d2352727ba95e046cf50f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "están durmiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T03",
+      "contentHash": "a8a4d83aa2f9211f00355f52efb200272824041a7b6148d95070423c5b24740b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "estás haciendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T04",
+      "contentHash": "fb4d3569c4ba86f1b30618df6bf919d0ec1de4c05bd6666f9360f30fb7e2cbb2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[1].text: «Після голосної основи — -yendo: leer → leyendo, oír → oyendo.»",
+          "description": "The rule does not restrict its scope to the relevant -er/-ir verbs. A vowel-final stem alone does not select -yendo: estudiar has estudiando, already explicitly taught in this case.",
+          "suggestion": "Use a narrowly accurate reminder: «Форми gerundio: leer → leyendo, oír → oyendo.» Alternatively, explain the relevant -er/-ir pattern while distinguishing -ar → -ando."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "estoy leyendo",
+      "notes": "",
+      "sources": [
+        "Packet, context.taughtBefore: «estudiar → estudiando».",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 4, verbal inflection and gerund formation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T05",
+      "contentHash": "7287b399bbf4e6b98f6dd78f82402befa353620410e6ca5dab0ca19f2dffe7ac",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "está sirviendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T06",
+      "contentHash": "ae504eb334ad4ca7190fcd70c148f8647cd86f0192bc898c61a7203a4cdc3320",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "está escribiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T07",
+      "contentHash": "d5475975b44ea71b3ff385993f2a7263c53814462889c3160fa884713765f6ed",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[1].text: «Після голосної основи — -yendo: leer → leyendo, oír → oyendo.»",
+          "description": "The unrestricted vowel-stem rule incorrectly includes -ar verbs such as estudiar, whose gerund is estudiando. The examples are correct, but the stated generalization is too broad.",
+          "suggestion": "Use «Форми gerundio: leer → leyendo, oír → oyendo», or explicitly delimit the relevant -er/-ir pattern and distinguish -ar → -ando."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T07",
+      "verdict": "flawed",
+      "reviewerAnswer": "estáis oyendo",
+      "notes": "",
+      "sources": [
+        "Packet, context.taughtBefore: «estudiar → estudiando».",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 4, verbal inflection and gerund formation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T08",
+      "contentHash": "8f9ebcbf904d88f5c6936672768c6e02fe60c44cb6dea2aead11418690adf181",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "está durmiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T09",
+      "contentHash": "e2fa1e2e58837b7302ad52a785676c8297b4d5a5af3d74af8f23df2fe5010df9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "estamos pidiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T10",
+      "contentHash": "7d97840fe673a916ca62b7bb077f76f347b52af3098bc1fdb015892216600b9b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "están durmiendo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T11",
+      "contentHash": "20de64631cb6b7b0e17e95ed893cdccf117084f5fb3a96df8b5e710fad106a55",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T12",
+      "contentHash": "974efe1f2aea67c80152f083304ae719dc8c7be1ba3a2bbcfffff6b2623e9f22",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T21",
+      "contentHash": "448c23d30ec432d85de1c245f2739645819224619d16ccd17cf8e4662a2d7985",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The explicit permanent-habit instruction makes the simple present the appropriate neutral choice.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T22",
+      "contentHash": "be3e06fe93df5de0cc75dd7915d2648ac2ff5bd83fcc889a89ecae57a662e7bf",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The greeting dialogue naturally invites a current-activity answer; option b explicitly describes a daily habit.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T23",
+      "contentHash": "ec1a598da52e573be49fc1cd75c999a6e15e0fa09eaec52d890cfd97b5730a7c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T24",
+      "contentHash": "860b62dd827d836595e1c5173c276bb12b044bd887b657f2514c029f76181e19",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T25",
+      "contentHash": "0870e2c0b49acad9f2f24c6b5938b5202acc57394540fbaa9290628214d3f916",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «Ідеться про звичайну годину вечері в родині. Оберіть форму.»; task.options[b]: «estamos cenando», graded incorrect.",
+          "description": "The prompt does not distinguish stating the habitual meal time from describing dinner as regularly in progress at nine. Both readings concern the family's usual dinner time. The feedback identifies the second reading but the prompt does not exclude it.",
+          "suggestion": "Specify whether the learner must state the usual meal time without an in-progress perspective or describe what is underway at nine. Grade the options according to that clarified intention."
+        }
+      ],
+      "caseId": "task:A2-01-L4-T25",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a for stating the usual dinner time; b also fits a reading in which dinner is routinely in progress at nine.",
+      "notes": "",
+      "sources": [
+        "Packet, task.options[b].feedbackUk: «о дев’ятій вечеря вже триває».",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio with habitual or iterative interpretations (from memory).",
+        "Packet, Verdicts: uncertain applies when the intended reading is underdetermined."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T26",
+      "contentHash": "22a27049fa9f5ac10ed1b8f6162db0d88c4861835e21e7b763121b72c5ef50bc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T27",
+      "contentHash": "3867191736c855d6d0654c96a377936d827ee29107a3f0a92b0457d83970dd11",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T28",
+      "contentHash": "023c075c0f31035d4769437351f3edb79f710a8b406be96b703d55cec3500838",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T29",
+      "contentHash": "832f4b9022db8607cfacb9acd3016ad53383cab206b957bdc1eae67ebe86b0c0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T35",
+      "contentHash": "47c56fe84da7fb4a89b4ff210fcb63ecd16a563b121f0314638393689dc16490",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Text-only review: the supplied transcript supports option a.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L4-T36",
+      "contentHash": "dc3a92c9c7adbeef8033df0a65e46f3ec27ea2b9db1a6fc038a38d86a943427c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L4-T36",
+      "verdict": "valid",
+      "reviewerAnswer": "En casa todos están ocupados. Mi padre está cocinando, mi hermana está leyendo en el sofá y el perro está durmiendo. Y yo estoy escuchando música.",
+      "notes": "Reviewed against the supplied transcript. The colon variant is explicitly accepted, and other internal punctuation variants remain unresolved under the open key.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a2-01.l4.home-busy",
+      "contentHash": "6fc33b8cbd1bf380d2e3c48d2ab0f2ccdfec3ae46612595ad1ccc2a02d433b6a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a2-01.l4.home-busy",
+      "verdict": "valid",
+      "reviewerAnswer": "The father is cooking, the sister is reading on the sofa, the dog is sleeping, and the speaker is listening to music.",
+      "notes": "The Spanish transcript and Ukrainian translation agree. Audio delivery was outside this text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
