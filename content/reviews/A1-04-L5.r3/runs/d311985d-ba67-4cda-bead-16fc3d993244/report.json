@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L5.r3",
+  "packetHash": "36bd8152ad4adb153b7dc1c2ac4c42e7a3a25ef56e455ed84f424fa1b93994bf",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "0301fc10ccadc433268aff93a45037bbd2ff8573c2c95ff81c29e087fe60bf2c",
+    "reviewerPacketSha256": "b546602314550be532a9e43cb2d476aaa09d225f22f464dedebe8444069199df",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-qBNr5V/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-qBNr5V/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-qBNr5V/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-qBNr5V/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-qBNr5V/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1befd-f65b-7fc3-83e2-955f4bbe5537",
+        "version": "v0.166.0",
+        "tokens used": "25,680"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-04-L5",
+        "reviewerAnswer": "Not applicable: this case contains lesson explanations rather than a learner task.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s3].blocks[1].text: \"El sábado — «у суботу» (один раз).\"",
+        "defect": "The categorical qualification «один раз» is misleading. Singular el sábado can also have a habitual reading in a description of someone's routine, such as El sábado descanso y el domingo trabajo.",
+        "correction": "Explain that los sábados explicitly expresses recurrence, while el sábado usually identifies a particular Saturday but can also express recurrence in a habitual context.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, discussion of temporal expressions with weekday names and habitual interpretations (from memory)."
+        ],
+        "notes": "The mañana explanation would also benefit from specifying its adverbial use: article absence alone does not distinguish tomorrow from morning, as esta mañana illustrates."
+      },
+      {
+        "caseId": "task:A1-04-L5-T11",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L5-T12",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L5-T32",
+        "reviewerAnswer": "Nunca bebo café por la noche. Other valid formulations include No tomo nunca café por la noche; por la tarde is also possible when «ввечері» refers to early evening.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore: missing the supporting constructions por la noche / por la tarde required by task.prompt[0].text, \"Переклади іспанською: «Я ніколи не п’ю каву ввечері».\"",
+        "defect": "The prerequisite mapping omits the part-of-day constructions newly introduced in this lesson. Translating «ввечері» requires such a construction, but neither the prompt nor the hints teaches it. This is a prerequisite-record defect; the supplied lesson does contain the necessary teaching in s1.",
+        "correction": "Add the earlier s1 teaching of time.parts-of-day, including por la tarde and por la noche, to this case's taughtBefore, or supply the necessary expressions in a vocabulary hint.",
+        "sources": [
+          "Course contract rule 1: required forms and constructions must be documented in taughtBefore or supplied in the prompt or a hint.",
+          "Packet lesson:A1-04-L5, content.body.steps[id=s1]: teaching of por la mañana, por la tarde and por la noche."
+        ],
+        "notes": "The accepted evening alternatives accommodate the Ukrainian wording. No closed:true is specified, so omitted correct word orders are not demonstrated incorrect rejections."
+      },
+      {
+        "caseId": "task:A1-04-L5-T42",
+        "reviewerAnswer": "Todos los días trabajo en la oficina y los fines de semana descanso. Cada día is also suitable in the first slot; el fin de semana can have the required habitual reading in the second.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Accepting singular el fin de semana is appropriate in this routine context. Both slots remain open, so other acceptable expressions are not automatically graded incorrect."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L5",
+      "contentHash": "4045556c817d5c9b51211e3a3373e927a2aa94ce56f8b625b11032217de85aed",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[1].text: \"El sábado — «у суботу» (один раз).\"",
+          "description": "The categorical qualification «один раз» is misleading. Singular el sábado can also have a habitual reading in a description of someone's routine, such as El sábado descanso y el domingo trabajo.",
+          "suggestion": "Explain that los sábados explicitly expresses recurrence, while el sábado usually identifies a particular Saturday but can also express recurrence in a habitual context."
+        }
+      ],
+      "caseId": "lesson:A1-04-L5",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: this case contains lesson explanations rather than a learner task.",
+      "notes": "The mañana explanation would also benefit from specifying its adverbial use: article absence alone does not distinguish tomorrow from morning, as esta mañana illustrates.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, discussion of temporal expressions with weekday names and habitual interpretations (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T11",
+      "contentHash": "638c334fd28818ec4d646bc75e8116f44a90187f4d09bdd77ca6203dc5b25483",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L5-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T12",
+      "contentHash": "48507a6d290433fe54c82149cd0954c066c20ec973006bad3ad750435b8eae65",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L5-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T32",
+      "contentHash": "69c06570bd92d67dbcdf9ea08695de23ed4055c334731e054804e85975439222",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: missing the supporting constructions por la noche / por la tarde required by task.prompt[0].text, \"Переклади іспанською: «Я ніколи не п’ю каву ввечері».\"",
+          "description": "The prerequisite mapping omits the part-of-day constructions newly introduced in this lesson. Translating «ввечері» requires such a construction, but neither the prompt nor the hints teaches it. This is a prerequisite-record defect; the supplied lesson does contain the necessary teaching in s1.",
+          "suggestion": "Add the earlier s1 teaching of time.parts-of-day, including por la tarde and por la noche, to this case's taughtBefore, or supply the necessary expressions in a vocabulary hint."
+        }
+      ],
+      "caseId": "task:A1-04-L5-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "Nunca bebo café por la noche. Other valid formulations include No tomo nunca café por la noche; por la tarde is also possible when «ввечері» refers to early evening.",
+      "notes": "The accepted evening alternatives accommodate the Ukrainian wording. No closed:true is specified, so omitted correct word orders are not demonstrated incorrect rejections.",
+      "sources": [
+        "Course contract rule 1: required forms and constructions must be documented in taughtBefore or supplied in the prompt or a hint.",
+        "Packet lesson:A1-04-L5, content.body.steps[id=s1]: teaching of por la mañana, por la tarde and por la noche."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T42",
+      "contentHash": "1d58018da876a95edb2f597beda62583d7c66c5b750845147e61d413999d363b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L5-T42",
+      "verdict": "valid",
+      "reviewerAnswer": "Todos los días trabajo en la oficina y los fines de semana descanso. Cada día is also suitable in the first slot; el fin de semana can have the required habitual reading in the second.",
+      "notes": "Accepting singular el fin de semana is appropriate in this routine context. Both slots remain open, so other acceptable expressions are not automatically graded incorrect.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

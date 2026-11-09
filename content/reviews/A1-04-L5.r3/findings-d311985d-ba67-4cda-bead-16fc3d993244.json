@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-04-L5.r3",
+  "jobId": "d311985d-ba67-4cda-bead-16fc3d993244",
+  "receiptId": "7128bd3f-24e0-47d4-93b6-c029e9ee29e8",
+  "recordedAt": "2026-11-09T06:32:01.609Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L5",
+      "contentHash": "4045556c817d5c9b51211e3a3373e927a2aa94ce56f8b625b11032217de85aed",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[1].text: \"El sábado — «у суботу» (один раз).\"",
+          "description": "The categorical qualification «один раз» is misleading. Singular el sábado can also have a habitual reading in a description of someone's routine, such as El sábado descanso y el domingo trabajo.",
+          "suggestion": "Explain that los sábados explicitly expresses recurrence, while el sábado usually identifies a particular Saturday but can also express recurrence in a habitual context."
+        }
+      ],
+      "caseId": "lesson:A1-04-L5",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: this case contains lesson explanations rather than a learner task.",
+      "notes": "The mañana explanation would also benefit from specifying its adverbial use: article absence alone does not distinguish tomorrow from morning, as esta mañana illustrates.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, discussion of temporal expressions with weekday names and habitual interpretations (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T32",
+      "contentHash": "69c06570bd92d67dbcdf9ea08695de23ed4055c334731e054804e85975439222",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: missing the supporting constructions por la noche / por la tarde required by task.prompt[0].text, \"Переклади іспанською: «Я ніколи не п’ю каву ввечері».\"",
+          "description": "The prerequisite mapping omits the part-of-day constructions newly introduced in this lesson. Translating «ввечері» requires such a construction, but neither the prompt nor the hints teaches it. This is a prerequisite-record defect; the supplied lesson does contain the necessary teaching in s1.",
+          "suggestion": "Add the earlier s1 teaching of time.parts-of-day, including por la tarde and por la noche, to this case's taughtBefore, or supply the necessary expressions in a vocabulary hint."
+        }
+      ],
+      "caseId": "task:A1-04-L5-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "Nunca bebo café por la noche. Other valid formulations include No tomo nunca café por la noche; por la tarde is also possible when «ввечері» refers to early evening.",
+      "notes": "The accepted evening alternatives accommodate the Ukrainian wording. No closed:true is specified, so omitted correct word orders are not demonstrated incorrect rejections.",
+      "sources": [
+        "Course contract rule 1: required forms and constructions must be documented in taughtBefore or supplied in the prompt or a hint.",
+        "Packet lesson:A1-04-L5, content.body.steps[id=s1]: teaching of por la mañana, por la tarde and por la noche."
+      ]
+    }
+  ]
+}
