@@ -1,0 +1,263 @@
+{
+  "cases": [
+    {
+      "caseId": "task:A1-03-L3-T01",
+      "reviewerAnswer": "Ana está en casa.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T02",
+      "reviewerAnswer": "El libro está en la mesa. Also acceptable: El libro está sobre la mesa.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[id=e3].text: \"El libro está sobre la mesa.\"; task.errors[id=e3].feedbackUk: \"Теж правильно: sobre — «на, зверху». Тут тренуємо en: en la mesa.\"",
+      "defect": "This is an explicitly reviewed acceptable translation, as the feedback acknowledges, but it appears in errors rather than accepted. The prompt reminds learners about en without explicitly requiring its use.",
+      "correction": "Explicitly require en in the prompt and explain that sobre conveys the meaning correctly but does not meet that instruction. Alternatively, accept the translation while leaving the en target unassessed.",
+      "sources": [
+        "Course contract rule 3: accepted lists reviewed acceptable answers; errors lists reviewed wrong answers.",
+        "Packet: task.prompt and task.errors[id=e3].feedbackUk."
+      ],
+      "notes": "The defect concerns an explicitly reviewed alternative. The absence of closed=true does not justify treating arbitrary unlisted variants as rejected."
+    },
+    {
+      "caseId": "task:A1-03-L3-T03",
+      "reviewerAnswer": "Mis padres están en Kiev.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[id=e3].feedbackUk: \"Тут потрібне, де вони: están en Kiev.\"",
+      "defect": "The construction \"Тут потрібне, де вони\" is malformed Ukrainian. The adjective потрібне does not introduce the intended indirect question this way.",
+      "correction": "Replace it with \"Тут треба сказати, де вони перебувають: están en Kiev.\"",
+      "sources": [
+        "Course contract rule 8: learner-facing Ukrainian must be correct and natural.",
+        "Academic Dictionary of Ukrainian (SUM-11), entries «потрібний» and «потрібно», adjectival and predicative uses (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T04",
+      "reviewerAnswer": "Las llaves están en la cocina.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T05",
+      "reviewerAnswer": "Estamos en el parque. Explicit Nosotros or Nosotras is also acceptable.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T07",
+      "reviewerAnswer": "Pablo está en la oficina.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T08",
+      "reviewerAnswer": "Mi hermana está en Madrid.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[id=e2].feedbackUk: \"Тут потрібне, де вона: está en Madrid.\"",
+      "defect": "The construction \"Тут потрібне, де вона\" is malformed Ukrainian. The intended instruction needs an appropriate predicate introducing the indirect question.",
+      "correction": "Replace it with \"Тут треба сказати, де вона перебуває: está en Madrid.\"",
+      "sources": [
+        "Course contract rule 8: learner-facing Ukrainian must be correct and natural.",
+        "Academic Dictionary of Ukrainian (SUM-11), entries «потрібний» and «потрібно», adjectival and predicative uses (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T09",
+      "reviewerAnswer": "Estoy en el banco. Yo estoy en el banco is also acceptable.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T10",
+      "reviewerAnswer": "La llave está en la habitación de Ana.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: \"Ти залишаєш записку сусідові: «Ключ у кімнаті Ани».\"; context.taughtBefore: no possessive noun + de + owner construction; task.referenceAnswer: \"La llave está en la habitación de Ana.\"",
+      "defect": "Producing habitación de Ana requires the possessive construction noun + de + owner. That construction is neither mapped in taughtBefore nor glossed in the prompt or explanatory hints. The final-answer reveal does not establish prior teaching.",
+      "correction": "Add the prerequisite with evidence of earlier teaching, or gloss \"la habitación de Ana — кімната Ани\" in the prompt or a vocabulary hint with an empty targets list.",
+      "sources": [
+        "Course contract rule 1: required constructions must be taught beforehand or supplied through a gloss.",
+        "Course contract rule 6: a vocabulary gloss supports no grammar target.",
+        "Packet: context.taughtBefore, task.prompt[0], and task.hints."
+      ],
+      "notes": "This finding concerns the missing construction in the prerequisite mapping; it does not establish that the construction is absent from the wider course."
+    },
+    {
+      "caseId": "task:A1-03-L3-T11",
+      "reviewerAnswer": "estoy; full sentence: Yo estoy en casa.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T12",
+      "reviewerAnswer": "estás; full sentence: Tú estás en el parque.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T13",
+      "reviewerAnswer": "estáis; full sentence: Vosotros estáis en Madrid.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T14",
+      "reviewerAnswer": "están; full sentence: Ellos están bien.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T15",
+      "reviewerAnswer": "está; full sentence: Usted está en el hotel.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T16",
+      "reviewerAnswer": "están; full sentence: Ustedes están ocupados.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T17",
+      "reviewerAnswer": "estamos; full sentence: Nosotras estamos contentas.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T18",
+      "reviewerAnswer": "está; full sentence: Ella está en la oficina.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T19",
+      "reviewerAnswer": "estamos; full sentence: Mis amigos y yo estamos en Madrid.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T20",
+      "reviewerAnswer": "están; full sentence: Mis hermanas están en Valencia.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T21",
+      "reviewerAnswer": "en; full sentence: El móvil está en el bolso.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T22",
+      "reviewerAnswer": "en; full sentence: Estamos en Valencia.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L3-T43",
+      "reviewerAnswer": "Estamos bien. Explicit Nosotros or Nosotras is also acceptable.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.errors[id=e1].feedbackUk: \"estar bueno має інші значення (наприклад, «одужати»)\"",
+      "defect": "The gloss одужати denotes recovering, a change of state. In the health reading, estar bueno describes being healthy or well, including the resulting state after recovery. The gloss confuses a state with the transition into it.",
+      "correction": "Replace the example gloss with \"бути здоровим\" or \"уже бути здоровим після хвороби\". Ponerse bueno can express recovering.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry bueno, health-related uses of estar bueno and ponerse bueno (from memory).",
+        "Academic Dictionary of Ukrainian (SUM-11), entry «одужувати», recovery/change-of-state meaning (from memory).",
+        "Course contract rule 8: Spanish meanings and Ukrainian translations must be correct."
+      ],
+      "notes": "The explicit general-wellbeing context supports Estamos bien. The defect is the illustrative gloss, not the intended answer."
+    }
+  ]
+}
