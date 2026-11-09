@@ -1,0 +1,633 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-02-L4.r2",
+  "packetHash": "8f2d8da56e5b9bcbfc43afeaf7deca7373255ad3bc7e30b87eb952faba6437c7",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "dda6912dd1a7a9b04345946c9355d43987f03e2211fc86348e3cc9d2d1156cbc",
+    "reviewerPacketSha256": "4bbf70376a3100ecac1988295f0c825eebe0c8dd5058156a2a2b5b978674bb68",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AUDl0R/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AUDl0R/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AUDl0R/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AUDl0R/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AUDl0R/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bec7-9d20-75f2-bf02-8ce5990fe70c",
+        "version": "v0.166.0",
+        "tokens used": "73,740"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-02-L4",
+        "reviewerAnswer": "Not applicable: this case contains lesson exposition rather than a learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The explanation appropriately limits gender invariance to the listed adjectives and acknowledges prenominal adjective placement."
+      },
+      {
+        "caseId": "task:A1-02-L4-T05",
+        "reviewerAnswer": "las flores blancas; las blancas flores is also possible with an explanatory or expressive reading.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"«білі квіти» (ті, про які вже йшлося)\"; task.errors[1].text: \"las blancas flores.\" with an \"unresolved\" position outcome.",
+        "defect": "The prompt fixes definiteness but does not distinguish a restrictive description from an explanatory description of already identified flowers. Adjective placement can differ between these readings, and the reviewed prenominal alternative remains unresolved.",
+        "correction": "Specify that postnominal placement is required, or clarify the intended reading and settle acceptance of the reviewed alternative.",
+        "sources": [
+          "Course contract rule 3 and the supplied definition of \"uncertain\".",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of qualifying-adjective position and restrictive versus explanatory readings (from memory)."
+        ],
+        "notes": "No closed flag is supplied; this finding concerns the explicitly reviewed alternative, not automatic rejection of unlisted answers."
+      },
+      {
+        "caseId": "task:A1-02-L4-T09",
+        "reviewerAnswer": "una moto roja; una roja moto would require an expressive or literary reading.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Ти пишеш оголошення про продаж.\"; task.errors[1].text: \"una roja moto.\" with an \"unresolved\" position outcome.",
+        "defect": "The reference answer suits ordinary sales prose. The reviewed alternative's acceptability depends on whether expressive advertising language is permitted; the prompt does not expressly settle that register or require postnominal placement.",
+        "correction": "Require ordinary neutral wording with the adjective after the noun, or specify whether expressive prenominal wording is admissible and classify it accordingly.",
+        "sources": [
+          "Course contract rule 3 and the supplied definition of \"uncertain\".",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of qualifying-adjective position and expressive prenominal uses (from memory)."
+        ],
+        "notes": "The prenominal alternative is marked, rather than an equally neutral replacement. Its outcome is unresolved, not explicitly incorrect."
+      },
+      {
+        "caseId": "task:A1-02-L4-T12",
+        "reviewerAnswer": "una casa grande",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"grande.\"; task.prompt[1].text requires \"Напиши словосполучення\".",
+        "defect": "The key accepts an adjective alone although the instruction requires the complete phrase.",
+        "correction": "Remove the fragment from accepted answers, or explicitly allow either the complete phrase or only the adjective.",
+        "sources": [
+          "Course contract rule 3.",
+          "Packet: task.prompt[1] requires a phrase; task.accepted[1] accepts only \"grande.\"."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T13",
+        "reviewerAnswer": "unos libros azules",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"azules.\"; task.prompt[1].text requires \"Напиши словосполучення\".",
+        "defect": "The accepted adjective fragment does not fulfill the instruction to write the phrase.",
+        "correction": "Remove the fragment from accepted answers, or explicitly permit an adjective-only response.",
+        "sources": [
+          "Course contract rule 3.",
+          "Packet: task.prompt[1] requires a phrase; task.accepted[1] accepts only \"azules.\"."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T14",
+        "reviewerAnswer": "un coche verde; un verde coche is possible in marked expressive language.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"«зелена машина»\"; task.errors[1].text: \"un verde coche.\" with an \"unresolved\" position outcome.",
+        "defect": "The prompt does not require neutral postnominal order. The reviewed alternative depends on an expressive register that the task neither permits nor excludes.",
+        "correction": "Explicitly require the adjective after the noun, or establish the permitted register and settle the reviewed alternative.",
+        "sources": [
+          "Course contract rule 3 and the supplied definition of \"uncertain\".",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of adjective position and expressive prenominal uses (from memory)."
+        ],
+        "notes": "No closed flag is supplied; the issue is the unresolved reviewed alternative, not an assumed closed key."
+      },
+      {
+        "caseId": "task:A1-02-L4-T15",
+        "reviewerAnswer": "las mesas verdes",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"verdes.\"; task.prompt[0].text requires \"Напиши словосполучення\".",
+        "defect": "The key accepts only the adjective despite requesting the complete phrase.",
+        "correction": "Remove the fragment from accepted answers, or explicitly allow an adjective-only response.",
+        "sources": [
+          "Course contract rule 3.",
+          "Packet: task.prompt[0] requires a phrase; task.accepted[1] accepts only \"verdes.\"."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T16",
+        "reviewerAnswer": "unos libros interesantes; unos interesantes libros can also fit an evaluative description.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"«цікаві книжки»\"; task.errors[1].text: \"unos interesantes libros.\" with an \"unresolved\" position outcome.",
+        "defect": "The translation does not distinguish restrictive postnominal description from prenominal evaluation. Both orders can be grammatical, but the key leaves the reviewed evaluative alternative unresolved.",
+        "correction": "Specify the required adjective position or intended reading, then align acceptance and feedback with that requirement.",
+        "sources": [
+          "Course contract rule 3 and the supplied definition of \"uncertain\".",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of adjective position and evaluative readings (from memory)."
+        ],
+        "notes": "The alternative need not be treated as ungrammatical. No closed flag is supplied."
+      },
+      {
+        "caseId": "task:A1-02-L4-T17",
+        "reviewerAnswer": "unas chicas jóvenes",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[1].text: \"unas chicas jovenes.\"; its \"adj.agreement.invariable-gender/written-form\" outcome is \"unresolved\".",
+        "defect": "This is a reviewed, demonstrably incorrect written form. Jóvenes requires the written accent, and that spelling is explicitly taught in context.taughtBefore. Its written-form error is therefore settled rather than unresolved.",
+        "correction": "Set the written-form outcome to incorrect. Feedback may acknowledge correct gender and number agreement while identifying the missing written accent.",
+        "sources": [
+          "Course contract rules 3 and 5.",
+          "Packet: context.taughtBefore explicitly includes \"joven, jóvenes\".",
+          "RAE/ASALE, Ortografía de la lengua española (2010), chapter II, accentuation of esdrújulas (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T18",
+        "reviewerAnswer": "un hotel grande; un gran hotel can also fit, depending on the intended descriptive or evaluative reading.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"«великий готель»\"; task.errors[1].text: \"un gran hotel.\" with both outcomes \"unresolved\".",
+        "defect": "The prompt does not establish the intended interpretation of \"великий\" sufficiently to settle the reviewed alternative. Gran can express evaluation and can also occur with a size interpretation, as the packet's feedback acknowledges.",
+        "correction": "Specify the intended meaning and, if postnominal placement is the assessment requirement, state that requirement explicitly before classifying the alternative.",
+        "sources": [
+          "Course contract rule 3 and the supplied definition of \"uncertain\".",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry \"grande\", discussion of apocope and prenominal use (from memory)."
+        ],
+        "notes": "For greater precision, the apocope explanation could explicitly refer to singular nouns; the example itself is singular."
+      },
+      {
+        "caseId": "task:A1-02-L4-T19",
+        "reviewerAnswer": "las ciudades grandes",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"grandes.\"; task.prompt[0].text requires \"Напиши словосполучення\".",
+        "defect": "The accepted adjective alone does not provide the requested phrase.",
+        "correction": "Remove the fragment from accepted answers, or explicitly permit either the phrase or the adjective alone.",
+        "sources": [
+          "Course contract rule 3.",
+          "Packet: task.prompt[0] requires a phrase; task.accepted[1] accepts only \"grandes.\"."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L4-T20",
+        "reviewerAnswer": "unas sillas azules; unas azules sillas would require a marked expressive reading.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Ти описуєш кімнату в оголошенні.\"; task.errors[2].text: \"unas azules sillas.\" with an \"unresolved\" position outcome.",
+        "defect": "The reference answer is appropriate for neutral descriptive prose. Whether the reviewed prenominal alternative is admissible depends on allowing expressive advertising language, which the prompt does not explicitly settle.",
+        "correction": "Require a neutral description with postnominal adjective placement, or establish whether expressive wording is permitted and settle the alternative accordingly.",
+        "sources": [
+          "Course contract rule 3 and the supplied definition of \"uncertain\".",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of adjective position and expressive prenominal uses (from memory)."
+        ],
+        "notes": "The alternative is stylistically marked. Its unresolved outcome does not establish that it is grammatically incorrect."
+      },
+      {
+        "caseId": "task:A1-02-L4-T21",
+        "reviewerAnswer": "una amiga inteligente; una inteligente amiga can also fit an evaluative description.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"«розумна подруга»\"; task.errors[1].text: \"una inteligente amiga.\" with an \"unresolved\" position outcome.",
+        "defect": "The message context does not distinguish postnominal description from prenominal evaluation. The reviewed alternative can fit the latter reading, but its acceptance remains unresolved.",
+        "correction": "State the required adjective position or clarify the intended reading, then settle the alternative's classification.",
+        "sources": [
+          "Course contract rule 3 and the supplied definition of \"uncertain\".",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of qualifying-adjective position and evaluative readings (from memory)."
+        ],
+        "notes": "No closed flag is supplied; this concerns an explicitly reviewed alternative."
+      },
+      {
+        "caseId": "task:A1-02-L4-T22",
+        "reviewerAnswer": "una casa blanca",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly requires postnominal placement, so the prenominal alternative does not fulfill the task."
+      },
+      {
+        "caseId": "task:A1-02-L4-T23",
+        "reviewerAnswer": "un coche rojo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly requires postnominal placement, and the model is permitted for the supported role."
+      },
+      {
+        "caseId": "task:A1-02-L4-T24",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-02-L4",
+      "contentHash": "cd386ef1a5eb5422a86450f7af96c389708b2495096f962bf9a1ff69d5a587d5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-02-L4",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this case contains lesson exposition rather than a learner task.",
+      "notes": "The explanation appropriately limits gender invariance to the listed adjectives and acknowledges prenominal adjective placement.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T05",
+      "contentHash": "1467667a9192aab377d60e69d5fff0421e022dd9e76589fe475fadb2b91457bc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"«білі квіти» (ті, про які вже йшлося)\"; task.errors[1].text: \"las blancas flores.\" with an \"unresolved\" position outcome.",
+          "description": "The prompt fixes definiteness but does not distinguish a restrictive description from an explanatory description of already identified flowers. Adjective placement can differ between these readings, and the reviewed prenominal alternative remains unresolved.",
+          "suggestion": "Specify that postnominal placement is required, or clarify the intended reading and settle acceptance of the reviewed alternative."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T05",
+      "verdict": "uncertain",
+      "reviewerAnswer": "las flores blancas; las blancas flores is also possible with an explanatory or expressive reading.",
+      "notes": "No closed flag is supplied; this finding concerns the explicitly reviewed alternative, not automatic rejection of unlisted answers.",
+      "sources": [
+        "Course contract rule 3 and the supplied definition of \"uncertain\".",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of qualifying-adjective position and restrictive versus explanatory readings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T09",
+      "contentHash": "a304c2f8e82ae133144144106cd431c394c9813fb198bac965bb2010752ed80a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Ти пишеш оголошення про продаж.\"; task.errors[1].text: \"una roja moto.\" with an \"unresolved\" position outcome.",
+          "description": "The reference answer suits ordinary sales prose. The reviewed alternative's acceptability depends on whether expressive advertising language is permitted; the prompt does not expressly settle that register or require postnominal placement.",
+          "suggestion": "Require ordinary neutral wording with the adjective after the noun, or specify whether expressive prenominal wording is admissible and classify it accordingly."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T09",
+      "verdict": "uncertain",
+      "reviewerAnswer": "una moto roja; una roja moto would require an expressive or literary reading.",
+      "notes": "The prenominal alternative is marked, rather than an equally neutral replacement. Its outcome is unresolved, not explicitly incorrect.",
+      "sources": [
+        "Course contract rule 3 and the supplied definition of \"uncertain\".",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of qualifying-adjective position and expressive prenominal uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T12",
+      "contentHash": "4d7174b29f9f230f33e1d7e124752f278dcbb99374ae13936859cd6f0420667f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"grande.\"; task.prompt[1].text requires \"Напиши словосполучення\".",
+          "description": "The key accepts an adjective alone although the instruction requires the complete phrase.",
+          "suggestion": "Remove the fragment from accepted answers, or explicitly allow either the complete phrase or only the adjective."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "una casa grande",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3.",
+        "Packet: task.prompt[1] requires a phrase; task.accepted[1] accepts only \"grande.\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T13",
+      "contentHash": "e70588cab70b7116baa862833f31a26205751f3eef2d3be0d756c1772291fe17",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"azules.\"; task.prompt[1].text requires \"Напиши словосполучення\".",
+          "description": "The accepted adjective fragment does not fulfill the instruction to write the phrase.",
+          "suggestion": "Remove the fragment from accepted answers, or explicitly permit an adjective-only response."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "unos libros azules",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3.",
+        "Packet: task.prompt[1] requires a phrase; task.accepted[1] accepts only \"azules.\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T14",
+      "contentHash": "30092bc6f78bd63b93b939bc2d6df541e42928c584f29308361627ab11888a3e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"«зелена машина»\"; task.errors[1].text: \"un verde coche.\" with an \"unresolved\" position outcome.",
+          "description": "The prompt does not require neutral postnominal order. The reviewed alternative depends on an expressive register that the task neither permits nor excludes.",
+          "suggestion": "Explicitly require the adjective after the noun, or establish the permitted register and settle the reviewed alternative."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T14",
+      "verdict": "uncertain",
+      "reviewerAnswer": "un coche verde; un verde coche is possible in marked expressive language.",
+      "notes": "No closed flag is supplied; the issue is the unresolved reviewed alternative, not an assumed closed key.",
+      "sources": [
+        "Course contract rule 3 and the supplied definition of \"uncertain\".",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of adjective position and expressive prenominal uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T15",
+      "contentHash": "98131d0b64eba2f46eae3cfaeafb6d8c12cffe7dc7e3b3962484629d4d0c3aa5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"verdes.\"; task.prompt[0].text requires \"Напиши словосполучення\".",
+          "description": "The key accepts only the adjective despite requesting the complete phrase.",
+          "suggestion": "Remove the fragment from accepted answers, or explicitly allow an adjective-only response."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T15",
+      "verdict": "flawed",
+      "reviewerAnswer": "las mesas verdes",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3.",
+        "Packet: task.prompt[0] requires a phrase; task.accepted[1] accepts only \"verdes.\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T16",
+      "contentHash": "559cc7a561c5252076fe2d16d886605ddd41bfa93701281b66144bfa5819e45a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"«цікаві книжки»\"; task.errors[1].text: \"unos interesantes libros.\" with an \"unresolved\" position outcome.",
+          "description": "The translation does not distinguish restrictive postnominal description from prenominal evaluation. Both orders can be grammatical, but the key leaves the reviewed evaluative alternative unresolved.",
+          "suggestion": "Specify the required adjective position or intended reading, then align acceptance and feedback with that requirement."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T16",
+      "verdict": "uncertain",
+      "reviewerAnswer": "unos libros interesantes; unos interesantes libros can also fit an evaluative description.",
+      "notes": "The alternative need not be treated as ungrammatical. No closed flag is supplied.",
+      "sources": [
+        "Course contract rule 3 and the supplied definition of \"uncertain\".",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of adjective position and evaluative readings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T17",
+      "contentHash": "61cea3a73895cedc2373c6db4737ed61b1e3fab15a554c0018938cddddc4e94d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[1].text: \"unas chicas jovenes.\"; its \"adj.agreement.invariable-gender/written-form\" outcome is \"unresolved\".",
+          "description": "This is a reviewed, demonstrably incorrect written form. Jóvenes requires the written accent, and that spelling is explicitly taught in context.taughtBefore. Its written-form error is therefore settled rather than unresolved.",
+          "suggestion": "Set the written-form outcome to incorrect. Feedback may acknowledge correct gender and number agreement while identifying the missing written accent."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "unas chicas jóvenes",
+      "notes": "",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "Packet: context.taughtBefore explicitly includes \"joven, jóvenes\".",
+        "RAE/ASALE, Ortografía de la lengua española (2010), chapter II, accentuation of esdrújulas (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T18",
+      "contentHash": "22bbf0fad390de5c181346dcaffc95f8a5870f472628c1e5ae8e49dea4b24242",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"«великий готель»\"; task.errors[1].text: \"un gran hotel.\" with both outcomes \"unresolved\".",
+          "description": "The prompt does not establish the intended interpretation of \"великий\" sufficiently to settle the reviewed alternative. Gran can express evaluation and can also occur with a size interpretation, as the packet's feedback acknowledges.",
+          "suggestion": "Specify the intended meaning and, if postnominal placement is the assessment requirement, state that requirement explicitly before classifying the alternative."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T18",
+      "verdict": "uncertain",
+      "reviewerAnswer": "un hotel grande; un gran hotel can also fit, depending on the intended descriptive or evaluative reading.",
+      "notes": "For greater precision, the apocope explanation could explicitly refer to singular nouns; the example itself is singular.",
+      "sources": [
+        "Course contract rule 3 and the supplied definition of \"uncertain\".",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry \"grande\", discussion of apocope and prenominal use (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T19",
+      "contentHash": "abc52afbafb838748a7e3a69eba21253b34f8f6daf7e6d2a63a5593ffbac4077",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"grandes.\"; task.prompt[0].text requires \"Напиши словосполучення\".",
+          "description": "The accepted adjective alone does not provide the requested phrase.",
+          "suggestion": "Remove the fragment from accepted answers, or explicitly permit either the phrase or the adjective alone."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T19",
+      "verdict": "flawed",
+      "reviewerAnswer": "las ciudades grandes",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3.",
+        "Packet: task.prompt[0] requires a phrase; task.accepted[1] accepts only \"grandes.\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T20",
+      "contentHash": "c091be6a14bd9bf21f68747157f14b09a7015ab2f109732fc47ceeaf9ca20b8d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Ти описуєш кімнату в оголошенні.\"; task.errors[2].text: \"unas azules sillas.\" with an \"unresolved\" position outcome.",
+          "description": "The reference answer is appropriate for neutral descriptive prose. Whether the reviewed prenominal alternative is admissible depends on allowing expressive advertising language, which the prompt does not explicitly settle.",
+          "suggestion": "Require a neutral description with postnominal adjective placement, or establish whether expressive wording is permitted and settle the alternative accordingly."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T20",
+      "verdict": "uncertain",
+      "reviewerAnswer": "unas sillas azules; unas azules sillas would require a marked expressive reading.",
+      "notes": "The alternative is stylistically marked. Its unresolved outcome does not establish that it is grammatically incorrect.",
+      "sources": [
+        "Course contract rule 3 and the supplied definition of \"uncertain\".",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of adjective position and expressive prenominal uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T21",
+      "contentHash": "15d612545454ac193490082b6ae1f75509a057c17cab5621be985a1f8582b6dd",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"«розумна подруга»\"; task.errors[1].text: \"una inteligente amiga.\" with an \"unresolved\" position outcome.",
+          "description": "The message context does not distinguish postnominal description from prenominal evaluation. The reviewed alternative can fit the latter reading, but its acceptance remains unresolved.",
+          "suggestion": "State the required adjective position or clarify the intended reading, then settle the alternative's classification."
+        }
+      ],
+      "caseId": "task:A1-02-L4-T21",
+      "verdict": "uncertain",
+      "reviewerAnswer": "una amiga inteligente; una inteligente amiga can also fit an evaluative description.",
+      "notes": "No closed flag is supplied; this concerns an explicitly reviewed alternative.",
+      "sources": [
+        "Course contract rule 3 and the supplied definition of \"uncertain\".",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 13, discussion of qualifying-adjective position and evaluative readings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T22",
+      "contentHash": "213c7ca34df20d4f4a3612a0f589766745b033d1b21950afb4cc6cd3b0ba65f2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "una casa blanca",
+      "notes": "The prompt explicitly requires postnominal placement, so the prenominal alternative does not fulfill the task.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T23",
+      "contentHash": "fdb02e3c542091679610637bc5d5a17f011d1fb9a1f11fc1fe9f4ce3624471f3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "un coche rojo",
+      "notes": "The prompt explicitly requires postnominal placement, and the model is permitted for the supported role.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L4-T24",
+      "contentHash": "67eda4057ed570fdb68c9d912c584fefb72fe4e3470c3e3f3b988eba38182157",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L4-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
