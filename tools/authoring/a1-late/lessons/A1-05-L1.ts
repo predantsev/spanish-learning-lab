@@ -97,14 +97,14 @@ nw(13, 'independent', 'a105.count', N1629, '18', 'dieciocho');
 nw(14, 'independent', 'a105.count', N1629, '26', 'veintiséis', [['veintiseis', 'Майже: veintiséis пишеться зі знаком наголосу.']]);
 nw(15, 'delayed', 'a105.count', N1629, '29', 'veintinueve', [['veinte y nueve', 'Від 21 до 29 — одним словом: veintinueve.']]);
 nw(16, 'transfer', 'a105.hotel', N1629, '23', 'veintitrés', [['veintitres', 'Майже: veintitrés пишеться зі знаком наголосу.']], undefined, 'El hotel tiene ___ habitaciones. (23)', 'У готелі двадцять три кімнати.');
-nw(17, 'transfer', 'a105.books', N1629, '27', 'veintisiete', [], undefined, 'Mi hermana tiene ___ libros de inglés. (27)', 'У моєї сестри двадцять сім книжок англійською.');
+nw(17, 'transfer', 'a105.books', N1629, '27', 'veintisiete', [], undefined, 'Mi hermana tiene ___ libros de inglés. (27)', 'У моєї сестри двадцять сім книжок з англійської.');
 
 readNum(18, 'independent', 'a105.count', N015R, 'catorce', [['4', false], ['14', true], ['40', false]]);
 readNum(19, 'independent', 'a105.count', N1629R, 'diecisiete', [['17', true], ['7', false], ['70', false], ['16', false]]);
 
 // ======================= Step 3: 30–1000
 nw(20, 'supported', 'a105.count', N3099, '30', 'treinta', [['trenta', 'Treinta пишеться з ei: treinta.']], '40 → cuarenta');
-nw(21, 'supported', 'a105.count', N3099, '45', 'cuarenta y cinco', [['cuarentaycinco', 'Від 31 пишемо трьома словами: cuarenta y cinco.'], ['cuarenta cinco', 'Між десятками й одиницями потрібне y: cuarenta y cinco.']], '31 → treinta y uno');
+nw(21, 'supported', 'a105.count', N3099, '45', 'cuarenta y cinco', [['cuarentaycinco', 'Числа 31–99, крім круглих десятків, пишемо трьома словами: cuarenta y cinco.'], ['cuarenta cinco', 'Між десятками й одиницями потрібне y: cuarenta y cinco.']], '31 → treinta y uno');
 nw(22, 'independent', 'a105.count', N3099, '50', 'cincuenta', [['cinquenta', 'Cincuenta пишеться з c: cincuenta.']]);
 nw(23, 'independent', 'a105.count', N3099, '67', 'sesenta y siete', [['setenta y siete', 'Setenta — це 70. 60 — sesenta.'], ['sesenta siete', 'Між десятками й одиницями потрібне y.']]);
 k.slots({
@@ -126,7 +126,7 @@ k.slots({
   ins: 'Перепиши речення повністю, записавши числа словами. Зверни увагу на рід іменника.',
   p: ['En el museo hay ___ fotos y ___ mapas. (200, 35)'],
   tpl: ['En el museo hay ', S('s1'), ' fotos y ', S('s2'), ' mapas.'],
-  slots: [slot('s1', N100, ['doscientas'], [['doscientos', 'Foto — жіночого роду (la foto), тож doscientas.'], ['dos cientas', 'Сотні пишуться одним словом: doscientas.']]), slot('s2', N3099, ['treinta y cinco'], [['treintaycinco', 'Від 31 пишемо трьома словами: treinta y cinco.']])],
+  slots: [slot('s1', N100, ['doscientas'], [['doscientos', 'Foto — жіночого роду (la foto), тож doscientas.'], ['dos cientas', 'Сотні пишуться одним словом: doscientas.']]), slot('s2', N3099, ['treinta y cinco'], [['treintaycinco', 'Числа 31–99, крім круглих десятків, пишемо трьома словами: treinta y cinco.']])],
   tr: 'У музеї двісті фотографій і тридцять п’ять мап.',
 });
 nw(26, 'delayed', 'a105.count', N3099, '73', 'setenta y tres', [['sesenta y tres', 'Sesenta — це 60. 70 — setenta.']]);
@@ -423,21 +423,21 @@ k.exact({ n: 112, role: 'supported', fam: 'a105.shop-list', t: [COU], ins: `${co
 k.exact({ n: 113, role: 'supported', fam: 'a105.shop-list', t: [COW], ins: 'Впиши слово, якого бракує. Зразок: un kilo de tomates.', p: ['un litro ___ leche'], acc: ['de'], err: [['del', 'Після міри — de без артикля: un litro de leche.']], tr: 'літр молока' });
 k.exact({ n: 114, role: 'independent', fam: 'a105.shop-list', t: [COU], ins: `${coIns} «Пачка кави».`, acc: ['un paquete de café'], err: deErr('', 'un paquete café', 'un paquete del café') });
 k.exact({ n: 115, role: 'independent', fam: 'a105.shop-list', t: [COU], ins: `${coIns} «Пляшка води».`, acc: ['una botella de agua'], err: [['un botella de agua', 'Botella — жіночого роду: una botella.'], ...deErr('', 'una botella agua', 'una botella del agua')] });
-k.exact({ n: 116, role: 'independent', fam: 'a105.shop-list', t: [COU], ins: `${coIns} «Десяток (дюжина) яєць».`, acc: ['una docena de huevos'], err: deErr('', 'una docena huevos', 'una docena de los huevos') });
+k.exact({ n: 116, role: 'independent', fam: 'a105.shop-list', t: [COU], ins: `${coIns} «Дюжина (12) яєць».`, acc: ['una docena de huevos'], err: deErr('', 'una docena huevos', 'una docena de los huevos') });
 k.exact({ n: 117, role: 'independent', fam: 'a105.deli', t: [COU], ins: `${coIns} «Пів кілограма сиру».`, acc: ['medio kilo de queso'], err: [['media kilo de queso', 'Kilo — чоловічого роду: medio kilo.'], ['medio kilo queso', 'Між мірою і товаром потрібне de.']] });
 k.exact({ n: 118, role: 'delayed', fam: 'a105.shop-list', t: [COW], ins: 'Впиши слово, якого бракує.', p: ['una lata ___ atún'], acc: ['de'], err: [['del', 'Після міри — de без артикля: una lata de atún.']], tr: 'бляшанка тунця' });
 k.slots({ n: 119, role: 'delayed', fam: 'a105.deli', t: [COU], ins: 'Напиши в списку покупок «два кілограми помідорів», доповнивши запис.', p: ['___ de tomates'], tpl: [S('s1'), ' de tomates'], slots: [slot('s1', COU, ['dos kilos'], [['dos kilo', 'Після числа більше за один — множина: dos kilos.']])], ref: 'dos kilos de tomates' });
 k.exact({ n: 120, role: 'transfer', fam: 'a105.list-milk', t: [COU], ins: `${coIns} Список покупок: «дві пляшки молока».`, acc: ['dos botellas de leche'], err: [['dos botella de leche', 'Після числа більше за один — множина: dos botellas.'], ['dos botellas leche', 'Між мірою і товаром потрібне de.']] });
-k.exact({ n: 121, role: 'transfer', fam: 'a105.eggs', t: [COU], ins: `${coIns} «Пів десятка (півдюжини) яєць».`, acc: ['media docena de huevos'], err: [['medio docena de huevos', 'Docena — жіночого роду: media docena.']] });
+k.exact({ n: 121, role: 'transfer', fam: 'a105.eggs', t: [COU], ins: `${coIns} «Півдюжини (6) яєць».`, acc: ['media docena de huevos'], err: [['medio docena de huevos', 'Docena — жіночого роду: media docena.']] });
 k.choice({ n: 122, role: 'independent', fam: 'a105.deli', t: [COR], ins: 'Прочитай запис у списку покупок. Скільки сиру потрібно купити?', p: ['medio kilo de queso'], o: [['500 г.', true], ['1 кг.', false], ['2 кг.', false]] });
 
 // ======================= listening: amounts
 const A1 = k.clip({ id: 'clip.a1-05.amounts.edad', kind: 'sentence', es: 'Tengo treinta y dos años.', uk: 'Мені тридцять два роки.', t: [LA], fam: 'a105.l-age' });
 const A2 = k.clip({ id: 'clip.a1-05.amounts.clase', kind: 'sentence', es: 'En mi clase hay quince estudiantes.', uk: 'У моєму класі п’ятнадцять студентів.', t: [LA, LAD], fam: 'a105.l-class' });
-const A3 = k.clip({ id: 'clip.a1-05.amounts.compra', kind: 'sentence', es: 'Un kilo de tomates y una docena de huevos, por favor.', uk: 'Кілограм помідорів і десяток яєць, будь ласка.', t: [LA], fam: 'a105.l-shop' });
+const A3 = k.clip({ id: 'clip.a1-05.amounts.compra', kind: 'sentence', es: 'Un kilo de tomates y una docena de huevos, por favor.', uk: 'Кілограм помідорів і дюжину яєць, будь ласка.', t: [LA], fam: 'a105.l-shop' });
 k.choice({ n: 123, role: 'independent', fam: 'a105.l-age', t: [LA], clips: [A1], ins: 'Послухай запис. Скільки років людині?', o: [['23', false], ['32', true], ['42', false]], hints: [hTranscript([LA], 'Tengo treinta y dos años.')] });
 k.choice({ n: 124, role: 'independent', fam: 'a105.l-class', t: [LA], clips: [A2], ins: 'Послухай запис. Скільки студентів у класі?', o: [['5', false], ['50', false], ['15', true]], hints: [hTranscript([LA], 'En mi clase hay quince estudiantes.')] });
-k.choice({ n: 125, role: 'independent', fam: 'a105.l-shop', t: [LA], clips: [A3], ins: 'Послухай запис. Що просить людина?', o: [['Кілограм помідорів і десяток яєць.', true], ['Два кілограми помідорів.', false], ['Пляшку води й десяток яєць.', false]], hints: [hTranscript([LA], 'Un kilo de tomates y una docena de huevos, por favor.')] });
+k.choice({ n: 125, role: 'independent', fam: 'a105.l-shop', t: [LA], clips: [A3], ins: 'Послухай запис. Що просить людина?', o: [['Кілограм помідорів і дюжину яєць.', true], ['Два кілограми помідорів.', false], ['Пляшку води й дюжину яєць.', false]], hints: [hTranscript([LA], 'Un kilo de tomates y una docena de huevos, por favor.')] });
 k.exact({
   n: 126,
   role: 'independent',
@@ -534,7 +534,7 @@ export default k.build({
       kind: 'supported-practice',
       title: 'Крок 3. Десятки, сотні й тисяча',
       blocks: [
-        uk('Десятки: treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa. Від 31 до 99 — три слова з y: treinta y uno, cuarenta y cinco.'),
+        uk('Десятки: treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa. Від 31 до 99, крім круглих десятків (40, 50…), — три слова з y: treinta y uno, cuarenta y cinco.'),
         uk('Рівно 100 — cien; 101–199 — ciento + решта: ciento veinte. Сотні: doscientos, trescientos, cuatrocientos, quinientos, seiscientos, setecientos, ochocientos, novecientos; перед жіночим родом — -as: doscientas fotos. 1000 — mil, 2000 — dos mil.'),
       ],
       tasks: [k.id(20), k.id(21), k.id(30), k.id(31)],
@@ -614,7 +614,7 @@ export default k.build({
       title: 'Підсумок',
       blocks: [
         ul(
-          '16–29 — одним словом (veintidós); 31–99 — з y (treinta y uno); 100 — cien, 101 — ciento uno.',
+          '16–29 — одним словом (veintidós); 31–99, крім круглих десятків, — з y (treinta y uno); 100 — cien, 101 — ciento uno.',
           'Перед іменником: un / una, veintiún; primer, tercer — перед чоловічим родом.',
           'Вік: tengo … años. Кількість: mucho / poco узгоджуються з іменником; muy — перед прикметником.',
           'Міра + de + іменник: un kilo de tomates.',

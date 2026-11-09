@@ -50,7 +50,7 @@ function pw(n: number, role: TaskRole, fam: string, label: string, acc: string[]
 pw(1, 'supported', 'a105.shop-price', '3,50 €', price('tres euros', 'cincuenta'), [['tres euro con cincuenta', 'Після числа більше за один — euros.']], '2,50 € → dos euros con cincuenta');
 pw(2, 'supported', 'a105.shop-price', '1 €', ['un euro'], [['uno euro', 'Перед іменником uno скорочується: un euro.'], ['una euro', 'Euro — чоловічого роду: un euro.']], '2 € → dos euros');
 pw(3, 'independent', 'a105.shop-price', '12,99 €', price('doce euros', 'noventa y nueve'));
-pw(4, 'independent', 'a105.shop-price', '0,80 €', ['ochenta céntimos'], [['ochenta euros', 'Euros — це цілі євро. Менше за євро — céntimos.']]);
+pw(4, 'independent', 'a105.shop-price', '0,80 €', ['ochenta céntimos'], [['ochenta euros', 'Ochenta euros — це 80 €. Тут 0,80 € — менше за євро, тож кажемо ochenta céntimos.']]);
 pw(5, 'independent', 'a105.shop-price', '21 €', ['veintiún euros'], [['veintiuno euros', 'Перед іменником veintiuno скорочується: veintiún euros.'], ['veintiun euros', 'Майже: veintiún пишеться зі знаком наголосу.']]);
 k.slots({
   n: 6,
@@ -148,8 +148,8 @@ k.exact({
   fam: 'a105.fruit',
   t: [PAU],
   ins: 'Ти продавець. Відповідай покупцеві іспанською: помідори коштують три євро за кілограм.',
-  acc: ['Cuestan tres euros el kilo.', 'Los tomates cuestan tres euros el kilo.'],
-  err: [['Cuesta tres euros el kilo.', 'Tomates — множина: cuestan.']],
+  acc: ['Cuestan tres euros el kilo.', 'Los tomates cuestan tres euros el kilo.', 'Cuesta tres euros el kilo.', 'El kilo cuesta tres euros.'],
+  err: [['Los tomates cuesta tres euros el kilo.', 'Tomates — множина: los tomates cuestan.']],
 });
 k.exact({ n: 21, role: 'delayed', fam: 'a105.deli', t: [PAU], ins: 'Запитай іспанською, скільки коштує сир.', acc: qPrice('el queso'), err: [['¿Cuánto cuestan el queso?', 'Queso — одна річ: cuesta.']] });
 k.slots({
@@ -243,7 +243,7 @@ k.exact({
   fam: 'a105.l-shop-pay',
   t: [FSD],
   clips: [s3],
-  ins: 'Необов’язковий диктант: послухай і запиши, що каже касир. Великі літери й знаки в кінці речень не оцінюються.',
+  ins: 'Необов’язковий диктант: послухай і запиши, що каже касир. Великі літери не оцінюються; крапку в кінці можна не ставити.',
   acc: ['Son cinco euros. ¿En efectivo o con tarjeta?', 'Son 5 euros. ¿En efectivo o con tarjeta?'],
   pol: DICTATION,
 });
@@ -260,7 +260,7 @@ rl(43, 'independent', 'a105.label-bar', LABEL_2, 'Скільки коштує ч
 rl(44, 'independent', 'a105.label-bar', LABEL_2, 'Що в цьому барі найдешевше?', [['Кава.', true], ['Келих пива (caña).', false], ['Сік.', false]]);
 rl(45, 'independent', 'a105.label-menu', LABEL_3, 'Скільки коштує комплексний обід (menú del día)?', [['12,50 €.', true], ['1 €.', false], ['15 €.', false]]);
 rl(46, 'independent', 'a105.label-menu', LABEL_3, 'Скільки коштує кава окремо?', [['12,50 €.', false], ['Один євро.', true], ['Вона безкоштовна.', false]]);
-rl(47, 'delayed', 'a105.label-super', LABEL_4, 'Скільки коштує десяток яєць?', [['0,95 €.', false], ['1,10 €.', false], ['2,40 €.', true]]);
+rl(47, 'delayed', 'a105.label-super', LABEL_4, 'Скільки коштує дюжина (12) яєць?', [['0,95 €.', false], ['1,10 €.', false], ['2,40 €.', true]]);
 rl(48, 'delayed', 'a105.label-super', LABEL_4, 'Що коштує менше за один євро?', [['Молоко.', true], ['Хліб.', false], ['Яйця.', false]]);
 
 k.material({
@@ -295,10 +295,10 @@ export default k.build({
   steps: [
     {
       kind: 'explanation',
-      title: 'Ціна на цінику і словами',
+      title: 'Ціна на ціннику і словами',
       blocks: [
         uk('На іспанських цінниках десяткову частину відокремлює кома, а знак € зазвичай стоїть після суми: 3,50 € — три євро п’ятдесят центів.'),
-        uk('Словами ціну кажуть так: tres euros con cincuenta (céntimos). У розмові коротше: tres euros cincuenta або просто tres cincuenta. Менше за євро — céntimos: ochenta céntimos. Один євро — un euro.'),
+        uk('Словами ціну кажуть так: tres euros con cincuenta (céntimos). У розмові коротше: tres euros cincuenta або просто tres cincuenta. Суму, меншу за євро, зазвичай називаємо в céntimos: ochenta céntimos. Один євро — un euro.'),
         ex('Cuesta tres euros con cincuenta.', 'Коштує три євро п’ятдесят.'),
         ex('Son ochenta céntimos.', 'З вас вісімдесят центів.'),
       ],

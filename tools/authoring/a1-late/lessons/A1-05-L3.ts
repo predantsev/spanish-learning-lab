@@ -108,14 +108,14 @@ k.choice({ n: 31, role: 'independent', fam: 'a105.clock', t: [MIR], ins: 'Про
 
 // ======================= de la mañana (with exact time)
 const dmErr = (part: 'mañana' | 'tarde' | 'noche'): Array<[string, string, Record<string, 'incorrect' | 'unresolved'>?]> => [
-  [`por la ${part}`, `З точним часом частину доби додаємо через de: de la ${part}. Por la ${part} — без точного часу.`],
+  [`por la ${part}`, `З точним часом в Іспанії зазвичай кажуть de la ${part}; por la ${part} поряд із годиною теж трапляється в розмові, тож тут не рахується помилкою, але очікувана відповідь — de la ${part}.`, { [DM]: 'unresolved' }],
   [`en la ${part}`, `В Іспанії з точним часом кажуть de la ${part}; en la ${part} поширене в Латинській Америці, тож тут не рахується помилкою, але очікувана відповідь — de la ${part}.`, { [DM]: 'unresolved' }],
 ];
 const dmIns = (when: string, model?: string): string => `Впиши іспанською частину доби до точного часу (${when}).${model ? ` Зразок: a las cinco de la tarde.` : ''}`;
 k.exact({ n: 32, role: 'supported', fam: 'a105.morning-time', t: [DM], ins: dmIns('зранку', 'y'), p: ['a las ocho ___'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'о восьмій ранку' });
 k.exact({ n: 33, role: 'supported', fam: 'a105.afternoon-time', t: [DM], ins: dmIns('після обіду', 'y'), p: ['a las cinco ___'], acc: ['de la tarde'], err: dmErr('tarde'), tr: 'о п’ятій після обіду' });
 k.exact({ n: 34, role: 'independent', fam: 'a105.night-time', t: [DM], ins: dmIns('уночі'), p: ['a las once ___'], acc: ['de la noche'], err: dmErr('noche'), tr: 'об одинадцятій вечора' });
-k.exact({ n: 35, role: 'independent', fam: 'a105.morning-time', t: [DM], ins: dmIns('зранку'), p: ['Trabajo a las nueve ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Я працюю з дев’ятої ранку.' });
+k.exact({ n: 35, role: 'independent', fam: 'a105.morning-time', t: [DM], ins: dmIns('зранку'), p: ['Trabajo a las nueve ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Я працюю о дев’ятій ранку.' });
 k.exact({ n: 36, role: 'independent', fam: 'a105.night-time', t: [DM], ins: dmIns('увечері, 22:00'), p: ['Ceno a las diez ___.'], acc: ['de la noche'], err: dmErr('noche'), tr: 'Я вечеряю о десятій вечора.' });
 k.slots({
   n: 37,
@@ -126,8 +126,8 @@ k.slots({
   p: ['La tienda abre a las nueve ___ y cierra a las ocho ___.'],
   tpl: ['La tienda abre a las nueve ', S('s1'), ' y cierra a las ocho ', S('s2'), '.'],
   slots: [
-    { id: 's1', t: DM, acc: ['de la mañana'], err: [['por la mañana', 'З точним часом — de la mañana.']] },
-    { id: 's2', t: DM, acc: ['de la tarde', 'de la noche'], err: [['por la tarde', 'З точним часом — de la tarde.']] },
+    { id: 's1', t: DM, acc: ['de la mañana'] },
+    { id: 's2', t: DM, acc: ['de la tarde', 'de la noche'] },
   ],
   tr: 'Крамниця відчиняється о дев’ятій ранку й зачиняється о восьмій вечора.',
 });
@@ -135,7 +135,7 @@ k.exact({ n: 38, role: 'delayed', fam: 'a105.afternoon-time', t: [DM], ins: dmIn
 k.exact({ n: 39, role: 'delayed', fam: 'a105.class-time', t: [DM], ins: dmIns('зранку'), p: ['La clase es a las diez ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Заняття о десятій ранку.' });
 k.exact({ n: 40, role: 'transfer', fam: 'a105.train', t: [DM], ins: dmIns('зранку'), p: ['El tren sale a las seis ___.'], acc: ['de la mañana'], err: dmErr('mañana'), tr: 'Потяг відправляється о шостій ранку.' });
 k.exact({ n: 41, role: 'transfer', fam: 'a105.concert', t: [DM], ins: dmIns('увечері, 22:00'), p: ['La cena es a las diez ___.'], acc: ['de la noche'], err: dmErr('noche'), tr: 'Вечеря о десятій вечора.' });
-k.choice({ n: 42, role: 'independent', fam: 'a105.morning-time', t: [DMC], ins: 'Обери правильний варіант.', p: ['Me levanto a las siete ___.'], o: [['por la mañana', DMC, 'З точним часом — de la mañana.'], ['de la mañana', true]], tr: 'Я встаю о сьомій ранку.' });
+k.choice({ n: 42, role: 'independent', fam: 'a105.morning-time', t: [DMC], ins: 'Обери правильний варіант.', p: ['Me levanto a las siete ___.'], o: [['en mañana', DMC, 'Частину доби з точним часом додаємо через de і артикль: de la mañana.'], ['de la mañana', true], ['la mañana', DMC, 'Перед la mañana потрібен прийменник de: de la mañana.']], tr: 'Я встаю о сьомій ранку.' });
 
 // ======================= ¿A qué hora…? — a las …
 const aQue: [string, string] = ['', 'Про час події питаємо з a: ¿A qué hora…?'];
@@ -175,33 +175,27 @@ k.slots({
 k.exact({ n: 58, role: 'supported', fam: 'a105.bank-hours', t: [RAU], ins: 'Напиши іспанською: «з дев’ятої до другої». Зразок: de diez a ocho.', acc: range('nueve', 'dos') });
 k.exact({ n: 59, role: 'independent', fam: 'a105.pharmacy-hours', t: [RAU], ins: 'Переклади іспанською: «Аптека працює з десятої до восьмої».', acc: rangeSent('La farmacia abre', 'diez', 'ocho') });
 k.exact({ n: 60, role: 'independent', fam: 'a105.bank-hours', t: [RAU], ins: 'Напиши словами години роботи з таблички: 9:00–14:00.', acc: [...range('nueve', 'dos'), ...range('nueve', 'catorce')] });
-k.slots({
+k.exact({
   n: 61,
   role: 'independent',
   fam: 'a105.workday',
   t: [RAW],
   ins: 'Перепиши речення повністю: я працюю з восьмої до третьої.',
   p: ['Trabajo ___ ocho ___ tres.'],
-  tpl: ['Trabajo ', S('s1'), ' ocho ', S('s2'), ' tres.'],
-  slots: [
-    { id: 's1', t: RAW, acc: ['de', 'de las'], err: [['a', '«Від» — de.']] },
-    { id: 's2', t: RAW, acc: ['a', 'a las'], err: [['de', '«До» — a.']] },
-  ],
+  acc: rangeSent('Trabajo', 'ocho', 'tres'),
+  err: [['Trabajo a ocho de tres.', '«Від» — de, «до» — a: de ocho a tres.']],
   tr: 'Я працюю з восьмої до третьої.',
 });
 k.exact({ n: 62, role: 'independent', fam: 'a105.class-time', t: [RAU], ins: 'Переклади іспанською: «Заняття з п’ятої до сьомої».', acc: rangeSent('La clase es', 'cinco', 'siete') });
-k.slots({
+k.exact({
   n: 63,
   role: 'delayed',
   fam: 'a105.museum-hours',
   t: [RAW],
   ins: 'Перепиши речення повністю: музей працює з десятої до шостої.',
   p: ['El museo abre ___ diez ___ seis.'],
-  tpl: ['El museo abre ', S('s1'), ' diez ', S('s2'), ' seis.'],
-  slots: [
-    { id: 's1', t: RAW, acc: ['de', 'de las'], err: [['a', '«Від» — de.']] },
-    { id: 's2', t: RAW, acc: ['a', 'a las'], err: [['de', '«До» — a.']] },
-  ],
+  acc: rangeSent('El museo abre', 'diez', 'seis'),
+  err: [['El museo abre a diez de seis.', '«Від» — de, «до» — a: de diez a seis.']],
   tr: 'Музей працює з десятої до шостої.',
 });
 k.exact({ n: 64, role: 'delayed', fam: 'a105.workday', t: [RAU], ins: 'Напиши іспанською: «з восьмої до третьої».', acc: range('ocho', 'tres') });
@@ -220,7 +214,7 @@ k.exact({
     'El restaurante está abierto desde la una hasta las cuatro.',
   ],
 });
-k.exact({ n: 66, role: 'transfer', fam: 'a105.study-hours', t: [RAU], ins: 'Переклади іспанською: «Я вчуся з четвертої до шостої після обіду».', acc: rangeSent('Estudio', 'cuatro', 'seis', ' de la tarde.') });
+k.exact({ n: 66, role: 'transfer', fam: 'a105.study-hours', t: [RAU], ins: 'Переклади іспанською: «Я вчуся з четвертої до шостої після обіду» («після обіду» з точним часом — de la tarde).', acc: rangeSent('Estudio', 'cuatro', 'seis', ' de la tarde.') });
 k.choice({ n: 67, role: 'independent', fam: 'a105.bank-hours', t: [RAR], ins: 'Прочитай табличку (horario — години роботи). Коли працює заклад?', p: ['Horario: de 9:00 a 14:00'], o: [['З 9:00 до 14:00.', true], ['О 9:00 і о 14:00.', false], ['Після 14:00.', false]] });
 
 // ======================= abre / cierra
@@ -233,7 +227,7 @@ k.exact({ n: 72, role: 'independent', fam: 'a105.pharmacy-hours', t: [ACU], ins:
 k.exact({ n: 73, role: 'independent', fam: 'a105.super-hours', t: [ACU], ins: 'Переклади іспанською: «Супермаркет відчиняється о дев’ятій».', acc: ['El supermercado abre a las nueve.'], err: [['El supermercado abren a las nueve.', 'Supermercado — один заклад: abre.']] });
 k.slots({ n: 74, role: 'delayed', fam: 'a105.bank-hours', t: [ACW], ins: 'Перепиши речення повністю: банк зачиняється о другій.', p: ['El banco ___ a las dos.'], tpl: ['El banco ', S('s1'), ' a las dos.'], slots: [{ id: 's1', t: ACW, acc: ['cierra'], err: [['cerra', 'У формі cierra основа змінюється: e → ie.'], ['cierran', 'Banco — один заклад: cierra.']] }], tr: 'Банк зачиняється о другій.' });
 k.exact({ n: 75, role: 'delayed', fam: 'a105.museum-hours', t: [ACU], ins: 'Переклади іспанською: «Музеї зачиняються о шостій».', acc: ['Los museos cierran a las seis.'], err: [['Los museos cierra a las seis.', 'Museos — кілька закладів: cierran.']] });
-k.exact({ n: 76, role: 'transfer', fam: 'a105.bar-hours', t: [ACU], ins: 'Переклади іспанською: «Бар відчиняється о сьомій ранку».', acc: ['El bar abre a las siete de la mañana.'] });
+k.exact({ n: 76, role: 'transfer', fam: 'a105.bar-hours', t: [ACU], ins: 'Переклади іспанською: «Бар відчиняється о сьомій ранку» («ранку» з точним часом — de la mañana).', acc: ['El bar abre a las siete de la mañana.'] });
 k.exact({
   n: 77,
   role: 'transfer',
@@ -243,7 +237,7 @@ k.exact({
   acc: ['El banco está cerrado.', 'Ahora el banco está cerrado.', 'El banco está cerrado ahora.'],
   err: [['El banco cierra.', 'Cierra — дія: «зачиняється» (о певній годині). Стан «зачинений зараз» — está cerrado.']],
 });
-k.choice({ n: 78, role: 'independent', fam: 'a105.pharmacy-hours', t: [ACR], ins: 'Прочитай. О котрій зачиняється аптека?', p: ['La farmacia abre a las nueve y cierra a las nueve de la noche.'], o: [['О 9:00.', false], ['О 21:00.', true], ['О 19:00.', false]] });
+k.choice({ n: 78, role: 'independent', fam: 'a105.pharmacy-hours', t: [ACR], ins: 'Прочитай (de la noche — «вечора»). О котрій зачиняється аптека?', p: ['La farmacia abre a las nueve y cierra a las nueve de la noche.'], o: [['О 9:00.', false], ['О 21:00.', true], ['О 19:00.', false]] });
 
 // ======================= reading: opening hours (CV-06)
 const H1 = 'FARMACIA GARCÍA — Horario: L–V 9:00–14:00 y 17:00–20:30 · Sábados: 10:00–14:00 · Domingos y festivos: cerrado';
@@ -331,7 +325,7 @@ export default k.build({
       title: 'Крок 2. О котрій? ¿A qué hora…?',
       blocks: [
         uk('¿Qué hora es? — «Котра година зараз?». ¿A qué hora…? — «О котрій відбувається подія?». Відповідь про подію — a las + година (a la una).'),
-        uk('З точним часом частину доби додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. Без точного часу — por la mañana.'),
+        uk('З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. Без точного часу кажемо por: Trabajo por la mañana.'),
         ex('¿A qué hora es la clase? — A las nueve.', 'О котрій заняття? — О дев’ятій.'),
         ex('El concierto es a las nueve de la noche.', 'Концерт о дев’ятій вечора.'),
       ],
@@ -365,7 +359,7 @@ export default k.build({
         ul(
           'Son las dos; es la una; y cuarto / y media / menos cuarto.',
           '¿Qué hora es? — котра година; ¿A qué hora…? — a las …',
-          'З точним часом — de la mañana / de la tarde / de la noche.',
+          'З точним часом зазвичай — de la mañana / de la tarde / de la noche.',
           'Abre / cierra; de nueve a dos.',
         ),
       ],

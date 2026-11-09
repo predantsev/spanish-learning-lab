@@ -76,7 +76,7 @@ export const RULES: Record<string, string> = {
   'price.amount-comprehension':
     'На іспанських цінниках десяткову частину відокремлює кома: 3,50 € — три євро п’ятдесят центів. Знак € зазвичай стоїть після суми. Тисячі пишуть із крапкою, пробілом або разом: 1.200 €, 1 200 €, 1200 €.',
   'price.amount-wording':
-    'Ціну словами називаємо так: число + euros + con + центи: tres euros con cincuenta (céntimos). У розмові коротше: tres euros cincuenta або tres cincuenta. Менше за євро — céntimos: ochenta céntimos. Один євро — un euro, 21 — veintiún euros.',
+    'Ціну словами називаємо так: число + euros + con + центи: tres euros con cincuenta (céntimos). У розмові коротше: tres euros cincuenta або tres cincuenta. Суму, меншу за євро, зазвичай називаємо в céntimos: ochenta céntimos. Один євро — un euro, 21 — veintiún euros.',
   'price.ask-answer':
     'Ціну однієї речі питаємо ¿Cuánto cuesta…?, кількох — ¿Cuánto cuestan…?: ¿Cuánto cuestan los tomates? Відповідь: Cuesta dos euros. Cuestan tres euros el kilo. Загальну суму питаємо ¿Cuánto es? — Son cinco euros.',
   'formula.shop':
@@ -89,7 +89,7 @@ export const RULES: Record<string, string> = {
   'time.clock.minutes':
     'До половини години хвилини додаємо через y: las tres y cuarto (3:15), las tres y media (3:30), las cinco y diez (5:10). Після половини називаємо наступну годину й віднімаємо хвилини через menos: las cuatro menos cuarto (3:45), las seis menos veinte (5:40).',
   'time.clock.de-la-manana':
-    'З точним часом частину доби додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. Без точного часу — por: por la mañana.',
+    'З точним часом частину доби зазвичай додаємо через de: a las ocho de la mañana, a las cinco de la tarde, a las once de la noche. Без точного часу — por: Trabajo por la mañana.',
   'time.event.a-las': 'Про час події питаємо ¿A qué hora…?: ¿A qué hora es la clase? Відповідь: a las + година: A las nueve. О першій — a la una.',
   'contrast.que-hora-a-que-hora': '¿Qué hora es? — «Котра година зараз?» (Son las cinco.) ¿A qué hora…? — «О котрій відбувається подія?» (A las nueve.)',
   'time.range.de-a': '«Від … до …» — de … a …: El banco abre de nueve a dos. Інший варіант — desde las nueve hasta las dos. На табличках коротко: de 9:00 a 14:00.',
@@ -97,7 +97,7 @@ export const RULES: Record<string, string> = {
     'Abre — «відчиняється», cierra — «зачиняється»; про кілька закладів — abren, cierran. El banco abre a las nueve y cierra a las dos. Стан зараз — estar: La farmacia está cerrada.',
   'reading.opening-hours':
     'Horario — «години роботи». L–V — «з понеділка до п’ятниці». Багато закладів в Іспанії працюють із перервою: 9:00–14:00 y 17:00–20:30. Festivos — святкові дні, cerrado — зачинено.',
-  'listening.times': 'Послухай і визнач час. Звертай увагу на y і menos: las cuatro menos cuarto — це 3:45, а не 4:15.',
+  'listening.times': 'Послухай і визнач час. Звертай увагу на y і menos: y додає хвилини до години, menos віднімає їх від наступної години (las dos menos diez — 1:50).',
   // A1-05-L4
   'date.days-of-week':
     'Дні тижня: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Вони чоловічого роду (el lunes) і пишуться з малої літери. Знак наголосу мають miércoles і sábado.',
