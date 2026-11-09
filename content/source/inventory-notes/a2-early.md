@@ -291,7 +291,8 @@ All S1/S4/S5/S6/S8/S9 sections are taken from the CURRICULUM anchors and were no
 15. `Las cartas las he escrito yo` (fronted object with doubling) as an invariance example — too
     advanced for A2-03?
 16. `-zco` rule wording ("most verbs in vowel + -cer/-cir", exceptions hacer/decir): sufficient?
-17. Ukrainian terminology: `герундій` (gerundio), `дієприкметник` (participio),
+17. Ukrainian terminology: `форма gerundio` (gerundio; the one course-wide term per the C-084
+    integrator decision of 2026-11-09), `дієприкметник` (participio),
     `простий минулий час` (indefinido), `складений минулий час` (perfecto compuesto) — align with
     the A1 range's wording.
 18. `poder` vs `saber` + infinitive: is the Ukrainian «могти/вміти» parallel accurate in every

@@ -11,11 +11,11 @@ const GP_C = ['contrast.gerund-participle', 'context-choice'];
 
 const AR_RULE = 'Дієслова на -ar: відкидаємо -ar і додаємо -ado: hablar → hablado, jugar → jugado, estar → estado. Після haber дієприкметник завжди закінчується на -o.';
 const ERIR_RULE = 'Дієслова на -er та -ir: відкидаємо -er / -ir і додаємо -ido: comer → comido, vivir → vivido, ser → sido, ir → ido. Після haber дієприкметник завжди закінчується на -o.';
-const GP_RULE = 'Estar + герундій (-ando, -iendo) — дія відбувається зараз: Estoy comiendo. Haber + дієприкметник (-ado, -ido) — дія вже відбулася: He comido.';
+const GP_RULE = 'Estar + форма gerundio (-ando, -iendo) — дія відбувається зараз: Estoy comiendo. Haber + дієприкметник (-ado, -ido) — дія вже відбулася: He comido.';
 const INSTR = 'Впишіть дієприкметник дієслова в дужках.';
-const GP_INSTR = 'Впишіть герундій або дієприкметник дієслова в дужках. Подивіться на допоміжне дієслово: estar чи haber.';
+const GP_INSTR = 'Впишіть форму gerundio або дієприкметник дієслова в дужках. Подивіться на допоміжне дієслово: estar чи haber.';
 
-const GERUND = (g, p) => `${g} — герундій, він іде після estar. Після haber потрібен дієприкметник: ${p}.`;
+const GERUND = (g, p) => `${g} — форма gerundio, вона йде після estar. Після haber потрібен дієприкметник: ${p}.`;
 const AGREE = (p) => `Після haber дієприкметник не змінюється і завжди закінчується на -o: ${p}.`;
 const WRONG_END = (verbType, p) => `${verbType}: ${p}.`;
 
@@ -118,7 +118,7 @@ const tasks = [
 
   // ---------- contrast.gerund-participle: written ----------
   gap('T21', 'supported', 'home', GP_W, GP_RULE, 'Ahora Ana está ___ (cocinar).', 'cocinando',
-    [['cocinado', 'Перед пропуском — está (estar): дія відбувається зараз, потрібен герундій cocinando.']],
+    [['cocinado', 'Перед пропуском — está (estar): дія відбувається зараз, потрібна форма gerundio cocinando.']],
     'Ahora Ana está cocinando.', 'Зараз Ана готує.',
     { instr: `${GP_INSTR} Зразки нижче.`, model: ['Ahora estoy comiendo. — Hoy he comido en casa.', 'Зараз я їм. — Сьогодні я обідав(-ла) вдома.'], clue: 'Перед пропуском — está.' }),
   gap('T22', 'supported', 'work-study', GP_W, GP_RULE, 'Hoy Pablo ha ___ (trabajar) en casa.', 'trabajado',
@@ -126,7 +126,7 @@ const tasks = [
     'Hoy Pablo ha trabajado en casa.', 'Сьогодні Пабло працював удома.',
     { instr: `${GP_INSTR} Зразки нижче.`, model: ['Ahora estoy comiendo. — Hoy he comido en casa.', 'Зараз я їм. — Сьогодні я обідав(-ла) вдома.'], clue: 'Перед пропуском — ha.' }),
   gap('T23', 'independent', 'home', GP_W, GP_RULE, 'Ahora mis padres están ___ (hablar) con el médico.', 'hablando',
-    [['hablado', 'Перед пропуском — están (estar): розмова триває зараз, потрібен герундій hablando.']],
+    [['hablado', 'Перед пропуском — están (estar): розмова триває зараз, потрібна форма gerundio hablando.']],
     'Ahora mis padres están hablando con el médico.', 'Зараз мої батьки розмовляють із лікарем.', { instr: GP_INSTR }),
   gap('T24', 'independent', 'work-study', GP_W, GP_RULE, '¿Has ___ (aprender) mucho hoy?', 'aprendido',
     [['aprendiendo', 'Перед пропуском — has (haber): потрібен дієприкметник aprendido.']],
@@ -135,7 +135,7 @@ const tasks = [
     [['durmiendo', 'Перед пропуском — han (haber): потрібен дієприкметник dormido.']],
     'Hoy los niños han dormido poco.', 'Сьогодні діти мало спали.', { instr: GP_INSTR }),
   gap('T26', 'transfer', 'leisure', GP_W, GP_RULE, 'Ahora estamos ___ (escuchar) música.', 'escuchando',
-    [['escuchado', 'Перед пропуском — estamos (estar): потрібен герундій escuchando.']],
+    [['escuchado', 'Перед пропуском — estamos (estar): потрібна форма gerundio escuchando.']],
     'Ahora estamos escuchando música.', 'Зараз ми слухаємо музику.', { instr: GP_INSTR }),
 
   // ---------- contrast.gerund-participle: choice in context ----------
@@ -143,13 +143,13 @@ const tasks = [
     [['comiendo', true], ['comido', false, 'Comido — дієприкметник, у perfecto він іде після haber (ha comido). Луїс їсть фрукти просто зараз: está comiendo.']],
     'Ahora Luis está comiendo fruta en la cocina.', 'Зараз Луїс їсть фрукти на кухні.'),
   pick('T28', 'independent', 'work-study', GP_C, GP_RULE, 'Hoy hemos ___ mucho en clase.',
-    [['hablado', true], ['hablando', false, 'Hablando — герундій, він іде після estar. Після hemos — дієприкметник: hemos hablado.']],
+    [['hablado', true], ['hablando', false, 'Hablando — форма gerundio, вона йде після estar. Після hemos — дієприкметник: hemos hablado.']],
     'Hoy hemos hablado mucho en clase.', 'Сьогодні ми багато розмовляли на занятті.'),
   pick('T29', 'delayed', 'work-study', GP_C, GP_RULE, 'Ahora mi hermano está ___ en su habitación.',
-    [['estudiando', true], ['estudiado', false, 'Estudiado — дієприкметник, він іде після haber. Після está — герундій: está estudiando.']],
+    [['estudiando', true], ['estudiado', false, 'Estudiado — дієприкметник, він іде після haber. Після está — форма gerundio: está estudiando.']],
     'Ahora mi hermano está estudiando en su habitación.', 'Зараз мій брат навчається у своїй кімнаті.'),
   pick('T30', 'transfer', 'leisure', GP_C, GP_RULE, 'Hoy hemos ___ en la playa.',
-    [['nadado', true], ['nadando', false, 'Nadando — герундій, він іде після estar. Після hemos — дієприкметник: hemos nadado.']],
+    [['nadado', true], ['nadando', false, 'Nadando — форма gerundio, вона йде після estar. Після hemos — дієприкметник: hemos nadado.']],
     'Hoy hemos nadado en la playa.', 'Сьогодні ми плавали на пляжі.'),
 ];
 
@@ -161,7 +161,7 @@ export default {
     titleUk: 'Правильні дієприкметники на -ado та -ido',
     termEs: 'participio regular',
     summaryUk:
-      'Як утворити дієприкметник від дієслів на -ar (-ado) та на -er / -ir (-ido) і поставити його після haber. Чим дієприкметник (he comido) відрізняється від герундія (estoy comiendo).',
+      'Як утворити дієприкметник від дієслів на -ar (-ado) та на -er / -ir (-ido) і поставити його після haber. Чим дієприкметник (he comido) відрізняється від форми gerundio (estoy comiendo).',
     objectives: ['A2-03-O2'],
     situations: ['routine-study-leisure', 'people-family-home'],
     estimatedMinutes: 16,
@@ -188,9 +188,9 @@ export default {
           uk('Після haber дієприкметник не змінюється і завжди закінчується на -o: Ana ha comido, mis padres han comido.'),
         ],
       }),
-      step('s3', 'explanation', 'Дієприкметник чи герундій', true, {
+      step('s3', 'explanation', 'Дієприкметник чи форма gerundio', true, {
         blocks: [
-          uk('Не плутайте дієприкметник із герундієм, який ви вже знаєте з estar. Estar + герундій (-ando, -iendo) — дія відбувається зараз. Haber + дієприкметник (-ado, -ido) — дія вже відбулася.'),
+          uk('Не плутайте дієприкметник із формою gerundio, яку ви вже знаєте з estar. Estar + форма gerundio (-ando, -iendo) — дія відбувається зараз. Haber + дієприкметник (-ado, -ido) — дія вже відбулася.'),
           ex('Ahora estoy comiendo.', 'Зараз я їм.'),
           ex('Hoy he comido en casa.', 'Сьогодні я обідав(-ла) вдома.'),
           esTable(['infinitivo', 'gerundio', 'participio'], [
