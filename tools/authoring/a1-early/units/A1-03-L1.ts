@@ -29,8 +29,8 @@ const R: Record<string, string> = {
   [PP_W]: 'Nosotros — «ми», vosotros — «ви» (кільком людям на «ти»), ellos — «вони», ustedes — ввічливе «ви» до кількох. Якщо в групі лише жінки: nosotras, vosotras, ellas.',
   [SER_W]: 'Форми дієслова ser: yo soy, tú eres, él/ella/usted es, nosotros somos, vosotros sois, ellos/ellas/ustedes son.',
   [OM_U]: 'Форма дієслова вже показує особу, тому займенник часто пропускають: Soy Ana. Займенник додають для наголосу чи протиставлення.',
-  [ATU_W]: 'Tú зі знаком — «ти»: Tú eres Ana. Tu без знака — «твій, твоя»: tu casa. Після tu йде іменник, після tú — зазвичай дієслово.',
-  [AEL_W]: 'Él зі знаком — «він»: Él es Pablo. El без знака — артикль: el libro. Після артикля йде іменник.',
+  [ATU_W]: 'Tú зі знаком — «ти»: Tú eres Ana. Tu без знака — «твій, твоя»: tu casa, tu nuevo libro. Tu стоїть перед іменником (між ними може бути прикметник), після tú — зазвичай дієслово.',
+  [AEL_W]: 'Él зі знаком — «він»: Él es Pablo. El без знака — артикль: el libro, el nuevo libro. Артикль стоїть перед іменником (між ними може бути прикметник).',
   [ST_U]: 'Просте речення: (хто) + дієслово + решта: Ana es mi amiga. Дієслово не пропускаємо, навіть коли в українській його немає.',
 };
 // The tú/él accent hints also model the written pronoun itself, so they support pron.subject when it is assessed.
