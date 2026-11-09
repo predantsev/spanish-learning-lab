@@ -202,7 +202,10 @@ export function dictation(lessonId, spec) {
   if (spec.err?.length) task.errors = spec.err.map(([text, feedbackUk], i) => ({ id: `e${i + 1}`, text, outcomes: { [spec.t]: 'incorrect' }, feedbackUk }));
   task.closed = spec.closed !== false;
   task.policy = POLICY;
-  task.hints = [{ kind: 'transcript', targets: [spec.t], blocks: [ES(accepted[0])] }];
+  task.hints = [
+    ...(spec.rule ? [{ kind: 'rule', targets: [spec.t], blocks: asList(spec.rule).map((r) => (typeof r === 'string' ? UK(r) : r)) }] : []),
+    { kind: 'transcript', targets: [spec.t], blocks: [ES(accepted[0])] },
+  ];
   task.referenceAnswer = accepted[0];
   task.feedback = {
     correctUk: 'Правильно: ви точно записали почуте.',
