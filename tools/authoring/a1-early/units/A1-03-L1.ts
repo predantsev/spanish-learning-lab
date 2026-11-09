@@ -37,6 +37,10 @@ const R: Record<string, string> = {
 const rulesOf = (targets: string[]): Array<[string[], string]> =>
   targets.filter((t) => R[t]).map((t) => [(t === ATU_W || t === AEL_W) && targets.includes(PS_W) ? [t, PS_W] : [t], R[t] as string]);
 
+// Flagged in three review batches (A1-03-L1.r1, .r2, .r3): repair cap reached (brief 13, round 2),
+// so these tasks are quarantined instead of being repaired a third time.
+const QUARANTINED = new Set([1, 2, 3, 4, 5, 11, 12, 13, 14, 15, 45]);
+
 function t(n: number, role: TaskRole, family: string, targets: string[], prompt: string, answer: string, errors: Array<[string, OutcomeSpec, string]>, why: string, opts: { also?: Array<string | [string, string]>; support?: string; shown?: string } = {}): TaskSpec {
   return typed({
     n, role, family, targets,
@@ -125,7 +129,7 @@ export const unit: Unit = {
       },
     ],
   },
-  tasks: [
+  tasks: ([
     // A: él (+ pron.subject)
     t(1, 'supported', 'pronoun', [PS_W, AEL_W], 'Допиши займенник «він».', 'Él es Pablo.', [
       ['El es Pablo.', { [AEL_W]: 'x', [PS_W]: 'c' }, 'Займенник «він» пишеться зі знаком наголосу: él. El без знака — артикль.'],
@@ -334,7 +338,7 @@ export const unit: Unit = {
     pick({ n: 63, role: 'independent', family: 'choose', targets: [PP_C], prompt: [uk('Ти розповідаєш про двох подруг. Який займенник?'), es('___ son mis amigas.')], options: [['Ellas', 'c'], ['Ellos', 'x', 'Обидві — жінки, тому ellas.'], ['Nosotras', 'x', 'Nosotras — «ми»; з ним — somos.']], rules: [[[PP_C], R[PP_W] as string]], ok: 'Так: Ellas son mis amigas.', bad: 'Ні. Про двох подруг — ellas.' }),
     pick({ n: 64, role: 'delayed', family: 'choose', targets: [TU_C], prompt: [uk('Ти пишеш повідомлення своїй сестрі. Як до неї звертатися?')], options: [['tú', 'c'], ['usted', 'x', 'До сестри — на «ти»: tú.']], rules: [[[TU_C], 'Tú — до друзів, родичів, колег; usted — ввічливо, офіційно.']], ok: 'Так: tú.', bad: 'Ні. До сестри — tú.' }),
     pick({ n: 65, role: 'delayed', family: 'choose', targets: [VO_C], prompt: [uk('Ти вітаєш на офіційній зустрічі двох незнайомих літніх панів. Як сказати «ви»?')], options: [['ustedes', 'c'], ['vosotros', 'x', 'Vosotros — до кількох людей на «ти»; офіційно — ustedes.']], rules: [[[VO_C], 'Ввічливо до кількох — ustedes; на «ти» — vosotros.']], ok: 'Так: ustedes.', bad: 'Ні. Офіційно до кількох — ustedes.' }),
-  ],
+  ] as TaskSpec[]).map((spec) => (QUARANTINED.has(spec.n) ? { ...spec, status: 'quarantined' as const } : spec)),
 };
 
 function tableEs() {
