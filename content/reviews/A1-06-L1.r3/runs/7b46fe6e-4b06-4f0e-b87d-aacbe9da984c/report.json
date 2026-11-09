@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-06-L1.r3",
+  "packetHash": "3edfaa5bacfec799564c99b5024f3c4b8bd0e252aa3f648e426cf5b442655005",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "fd12e29db75d34d42c8d17940ac005085577b92a178d63e9a7aa7b1d1348993b",
+    "reviewerPacketSha256": "678017060319e8dcc2d976a029703a28a85e80b55936ea57c9e777364d838760",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-n6YhBa/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-n6YhBa/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-n6YhBa/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-n6YhBa/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-n6YhBa/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c005-8c7d-7512-a2a2-09583889259e",
+        "version": "v0.166.0",
+        "tokens used": "61,593"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-06-L1",
+        "reviewerAnswer": "Not applicable: this case contains lesson explanations rather than a task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T04",
+        "reviewerAnswer": "Me gusta el chocolate.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.pronouns/written-form\"] for the explanation \"Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.\"",
+        "defect": "This clue explains definite articles with generic nouns. It does not explain the choice of me, te or le, so its target attribution is incorrect.",
+        "correction": "Set this clue's targets to [\"gustar.noun-with-article/written-form\"].",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T08",
+        "reviewerAnswer": "¿Te gusta la playa?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.pronouns/written-form\"] for the explanation \"Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.\"",
+        "defect": "The clue teaches definite articles with generic nouns rather than the assessed pronoun choice.",
+        "correction": "Set this clue's targets to [\"gustar.noun-with-article/written-form\"].",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T109",
+        "reviewerAnswer": "A mí también.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T115",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supplied transcript supports the answer. The recording itself was not assessed."
+      },
+      {
+        "caseId": "task:A1-06-L1-T116",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supplied transcript supports the answer. The recording itself was not assessed."
+      },
+      {
+        "caseId": "task:A1-06-L1-T117",
+        "reviewerAnswer": "Me gusta mucho el cine y no me gusta nada el teatro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The answer matches the supplied transcript. The recording itself was not assessed."
+      },
+      {
+        "caseId": "task:A1-06-L1-T16",
+        "reviewerAnswer": "Nos gusta viajar.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.pronouns.plural/written-form\"] for the explanation \"Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.\"",
+        "defect": "The clue explains the infinitive construction. The incidental example containing nos does not explain how to select plural experiencer pronouns.",
+        "correction": "Set this clue's targets to [\"gustar.infinitive/construction-use\"].",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T20",
+        "reviewerAnswer": "Les gusta bailar.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.pronouns.plural/written-form\"] for the explanation \"Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.\"",
+        "defect": "The clue explains gusta followed by an infinitive rather than the choice of nos, os or les.",
+        "correction": "Set this clue's targets to [\"gustar.infinitive/construction-use\"].",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T43",
+        "reviewerAnswer": "Les gusta correr en el parque.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.infinitive/construction-use\"] for the explanation \"Кільком людям (ellos, ellas) — les: Les gusta leer. Нам — nos: Nos gusta nadar.\"",
+        "defect": "The clue explains the selection of les and nos. It does not explain why the following action takes the infinitive form.",
+        "correction": "Set this clue's targets to [\"gustar.pronouns.plural/written-form\"].",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T56",
+        "reviewerAnswer": "Me gusta el té y me gustan las manzanas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T58",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T77",
+        "reviewerAnswer": "A mis amigos no les gusta el fútbol.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.negation/construction-use\"] for the explanation \"Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.\"",
+        "defect": "The clue explains a named experiencer introduced by a and accompanied by le or les. It provides no explanation of negation.",
+        "correction": "Attribute this clue to gustar.a-noun-le with the appropriate modality. Keep the separate negation rule attributed to gustar.negation.",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T78",
+        "reviewerAnswer": "No me gusta cocinar.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.negation/construction-use\"] for the explanation \"Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.\"",
+        "defect": "The clue explains the infinitive construction and contains no explanation of negation.",
+        "correction": "Set this clue's targets to [\"gustar.infinitive/construction-use\"].",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T87",
+        "reviewerAnswer": "A mi hermano le encanta el fútbol.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.encantar/construction-use\"] for the explanation \"Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.\"",
+        "defect": "This clue explains the a + named experiencer + le/les construction using gustar. It does not explain encantar.",
+        "correction": "Attribute this clue to gustar.a-noun-le with the appropriate modality. Keep the separate encantar rule attributed to gustar.encantar.",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T99",
+        "reviewerAnswer": "A mi madre le gusta mucho bailar.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets = [\"gustar.degree/construction-use\"] for the explanation \"Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.\"",
+        "defect": "The clue explains the a + named experiencer + le/les construction. It does not explain degree expressions or the use of mucho.",
+        "correction": "Attribute this clue to gustar.a-noun-le with the appropriate modality. Keep the separate degree rule attributed to gustar.degree.",
+        "sources": [
+          "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-06-L1",
+      "contentHash": "2ad15dfffa849a6c3fd1bfcb347a80dd9c7b01216349a82643fd2425954ec03c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-06-L1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this case contains lesson explanations rather than a task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T04",
+      "contentHash": "1917591dc5913e98f8cd5d23d7d6ff841e3fe6cf42f283c01f1dd95f783c0efb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.pronouns/written-form\"] for the explanation \"Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.\"",
+          "description": "This clue explains definite articles with generic nouns. It does not explain the choice of me, te or le, so its target attribution is incorrect.",
+          "suggestion": "Set this clue's targets to [\"gustar.noun-with-article/written-form\"]."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "Me gusta el chocolate.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T08",
+      "contentHash": "cb7c36e540e02de5371e408608779fe06018179a5dae7163e57e7a3c6817c1ce",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.pronouns/written-form\"] for the explanation \"Про річ, що подобається загалом, — іменник з означеним артиклем: Me gusta el café. Me gustan los libros.\"",
+          "description": "The clue teaches definite articles with generic nouns rather than the assessed pronoun choice.",
+          "suggestion": "Set this clue's targets to [\"gustar.noun-with-article/written-form\"]."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Te gusta la playa?",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T109",
+      "contentHash": "509c28de2582493f2f63d08f862184dc901a062a3913528ef3176b62a08e64af",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T109",
+      "verdict": "valid",
+      "reviewerAnswer": "A mí también.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T115",
+      "contentHash": "0b0475497a06eaaf0600f1f64ce0d080c4c47897f7c7645347daf7054e57bd2c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T115",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "The supplied transcript supports the answer. The recording itself was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T116",
+      "contentHash": "a49641412801e16c2b2690a8d7d10a840bc850f80b80a7ee11a0351be51549a8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T116",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "The supplied transcript supports the answer. The recording itself was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T117",
+      "contentHash": "72e3196c32c37c134b2728ceeaaafc0e851493d42bda14d5f1e14c94e164143f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T117",
+      "verdict": "valid",
+      "reviewerAnswer": "Me gusta mucho el cine y no me gusta nada el teatro.",
+      "notes": "The answer matches the supplied transcript. The recording itself was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T16",
+      "contentHash": "be97fc8314901bdc6b56856f270b637f2a7001456abc0a092a72f67e8cca092d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.pronouns.plural/written-form\"] for the explanation \"Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.\"",
+          "description": "The clue explains the infinitive construction. The incidental example containing nos does not explain how to select plural experiencer pronouns.",
+          "suggestion": "Set this clue's targets to [\"gustar.infinitive/construction-use\"]."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T16",
+      "verdict": "flawed",
+      "reviewerAnswer": "Nos gusta viajar.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T20",
+      "contentHash": "ddc6ca187d4a49a74aeb12cf198f898da71652d615e840752cf28c63832af3d1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.pronouns.plural/written-form\"] for the explanation \"Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.\"",
+          "description": "The clue explains gusta followed by an infinitive rather than the choice of nos, os or les.",
+          "suggestion": "Set this clue's targets to [\"gustar.infinitive/construction-use\"]."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "Les gusta bailar.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T43",
+      "contentHash": "8c7719068bf10ec4d9def6ae02199680196ab8c7da507aef84d4c6cdcc9b76ab",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.infinitive/construction-use\"] for the explanation \"Кільком людям (ellos, ellas) — les: Les gusta leer. Нам — nos: Nos gusta nadar.\"",
+          "description": "The clue explains the selection of les and nos. It does not explain why the following action takes the infinitive form.",
+          "suggestion": "Set this clue's targets to [\"gustar.pronouns.plural/written-form\"]."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "Les gusta correr en el parque.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T56",
+      "contentHash": "553b0c8f6672419307e212365ec43396798786d55a338f3960f8d9da62cece21",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T56",
+      "verdict": "valid",
+      "reviewerAnswer": "Me gusta el té y me gustan las manzanas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T58",
+      "contentHash": "a6d6189a2ab45b0c99ebf1fc505933c517b0c53a52e070825ddbf40e9c514563",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T58",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T77",
+      "contentHash": "e424b1509c11a49c08033bef57fd28674e1f85129fd1cd69282cb6e3ede1d8bf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.negation/construction-use\"] for the explanation \"Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.\"",
+          "description": "The clue explains a named experiencer introduced by a and accompanied by le or les. It provides no explanation of negation.",
+          "suggestion": "Attribute this clue to gustar.a-noun-le with the appropriate modality. Keep the separate negation rule attributed to gustar.negation."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T77",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mis amigos no les gusta el fútbol.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T78",
+      "contentHash": "0e937f26952451154c74274d414b0e00ca2f17b5930ccd220f4e99914f0f6cb4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.negation/construction-use\"] for the explanation \"Про дію, що подобається, — gusta + інфінітив: Me gusta leer. Nos gusta nadar.\"",
+          "description": "The clue explains the infinitive construction and contains no explanation of negation.",
+          "suggestion": "Set this clue's targets to [\"gustar.infinitive/construction-use\"]."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T78",
+      "verdict": "flawed",
+      "reviewerAnswer": "No me gusta cocinar.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T87",
+      "contentHash": "81c1e1787882cce60dbf7b147544475e305d57184633ff1e484139cf50a57707",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.encantar/construction-use\"] for the explanation \"Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.\"",
+          "description": "This clue explains the a + named experiencer + le/les construction using gustar. It does not explain encantar.",
+          "suggestion": "Attribute this clue to gustar.a-noun-le with the appropriate modality. Keep the separate encantar rule attributed to gustar.encantar."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T87",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mi hermano le encanta el fútbol.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T99",
+      "contentHash": "550e227c089b04b969caa6c1531f439455daa99d0d3ea5cca505dfbf88dce8a6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets = [\"gustar.degree/construction-use\"] for the explanation \"Про конкретну людину — a + людина + le (кільком людям — les): A Ana le gusta el té. A mis padres les gusta viajar.\"",
+          "description": "The clue explains the a + named experiencer + le/les construction. It does not explain degree expressions or the use of mucho.",
+          "suggestion": "Attribute this clue to gustar.a-noun-le with the appropriate modality. Keep the separate degree rule attributed to gustar.degree."
+        }
+      ],
+      "caseId": "task:A1-06-L1-T99",
+      "verdict": "flawed",
+      "reviewerAnswer": "A mi madre le gusta mucho bailar.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6: hint targets must identify exactly the targets the help explains."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
