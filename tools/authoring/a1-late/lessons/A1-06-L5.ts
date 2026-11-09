@@ -39,7 +39,7 @@ const infAfterDe = (s: string): [string, string] => [s, 'Після antes de / d
 
 // ======================= y
 x(1, 'supported', 'a106.routine', Y, joinIns('y', 'Leo. Escucho música. → Leo y escucho música'), ['Trabajo en casa y estudio por la tarde.'], [], 'Trabajo en casa. Estudio por la tarde.');
-x(2, 'supported', 'a106.hobbies', Y, joinIns('y', 'Me gusta nadar. Me gusta correr. → Me gusta nadar y correr'), ['Me gusta leer y cocinar.', 'Me gusta leer y me gusta cocinar.'], [['Me gustan leer y cocinar.', 'Y тут ужито правильно. Але з інфінітивами — gusta, навіть із двома діями: Me gusta leer y cocinar.', { [Y]: 'unresolved' }]], 'Me gusta leer. Me gusta cocinar.');
+x(2, 'supported', 'a106.hobbies', Y, joinIns('y', 'Me gusta nadar. Me gusta correr. → Me gusta nadar y correr'), ['Me gusta leer y cocinar.', 'Me gusta leer y me gusta cocinar.'], [], 'Me gusta leer. Me gusta cocinar.');
 x(3, 'independent', 'a106.routine', Y, 'Переклади іспанською: «Я снідаю і йду на роботу».', ['Desayuno y voy al trabajo.', 'Yo desayuno y voy al trabajo.']);
 x(4, 'independent', 'a106.study', Y, joinIns('y'), ['Ana estudia y trabaja.'], [], 'Ana estudia. Ana trabaja.');
 x(5, 'independent', 'a106.shopping', Y, 'Переклади іспанською: «Мені потрібні хліб і молоко».', ['Necesito pan y leche.', 'Yo necesito pan y leche.']);
@@ -67,7 +67,7 @@ x(21, 'independent', 'a106.city', PE, 'Переклади іспанською: 
 x(22, 'independent', 'a106.beach', PE, 'Переклади іспанською: «Я хочу піти на пляж, але в мене немає часу».', comma('Quiero ir a la playa', 'pero no tengo tiempo.'));
 x(23, 'independent', 'a106.languages', PE, 'Переклади іспанською: «Ана говорить англійською, але не говорить французькою».', comma('Ana habla inglés', 'pero no habla francés.'));
 x(24, 'independent', 'a106.hotel', PE, joinIns('pero'), comma('El hotel es caro', 'pero está cerca del centro.'), [], 'El hotel es caro. Está cerca del centro.');
-x(25, 'delayed', 'a106.work', PE, 'Переклади іспанською: «Я втомлений, але працюю».', [...comma('Estoy cansado', 'pero trabajo.'), ...comma('Estoy cansada', 'pero trabajo.')]);
+x(25, 'delayed', 'a106.work', PE, 'Переклади іспанською: «Я втомлений, але працюю».', [...comma('Estoy cansado', 'pero trabajo.')]);
 x(26, 'delayed', 'a106.car', PE, joinIns('pero'), comma('Necesito un coche', 'pero no tengo dinero.'), [], 'Necesito un coche. No tengo dinero.');
 x(27, 'transfer', 'a106.invite-reply-t', PE, 'Друг кличе тебе на вечірку в суботу. Відповідай іспанською: «Я хочу, але в суботу я працюю».', [...comma('Quiero', 'pero el sábado trabajo.'), ...comma('Quiero ir', 'pero el sábado trabajo.')]);
 x(28, 'transfer', 'a106.flat-t', PE, 'Опиши квартиру іспанською: «Квартира маленька, але вона в центрі».', [...comma('El piso es pequeño', 'pero está en el centro.'), ...comma('Mi piso es pequeño', 'pero está en el centro.')]);
@@ -77,7 +77,7 @@ k.choice({ n: 30, role: 'delayed', fam: 'a106.work', t: [PEC], ins: 'Обери 
 // ======================= porque
 x(31, 'supported', 'a106.cinema', PQ, joinIns('porque', 'Estudio español. Quiero vivir en Madrid. → Estudio español porque quiero vivir en Madrid'), ['No voy al cine porque estoy cansado.'], [porqueAcc('No voy al cine por qué estoy cansado.')], 'No voy al cine. Estoy cansado.');
 x(32, 'supported', 'a106.study', PQ, joinIns('porque', 'No voy al cine. Estoy cansado. → No voy al cine porque estoy cansado'), ['Estudio español porque quiero vivir en Madrid.'], [porqueAcc('Estudio español por qué quiero vivir en Madrid.')], 'Estudio español. Quiero vivir en Madrid.');
-x(33, 'independent', 'a106.cafe', PQ, 'Переклади іспанською: «Я п’ю каву, бо я втомлений».', ['Tomo un café porque estoy cansado.', 'Tomo café porque estoy cansado.', 'Bebo café porque estoy cansado.', 'Tomo un café porque estoy cansada.', 'Tomo café porque estoy cansada.'], [porqueAcc('Tomo un café por qué estoy cansado.')]);
+x(33, 'independent', 'a106.cafe', PQ, 'Переклади іспанською: «Я п’ю каву, бо я втомлений».', ['Tomo un café porque estoy cansado.', 'Tomo café porque estoy cansado.', 'Bebo café porque estoy cansado.'], [porqueAcc('Tomo un café por qué estoy cansado.')]);
 x(34, 'independent', 'a106.dinner', PQ, 'Переклади іспанською: «Ми вечеряємо вдома, бо ресторан зачинений».', ['Cenamos en casa porque el restaurante está cerrado.'], [porqueAcc('Cenamos en casa por qué el restaurante está cerrado.')]);
 x(35, 'independent', 'a106.food', PQ, joinIns('porque'), ['Ana no come carne porque no le gusta.'], [['Ana no come carne pero no le gusta.', 'Pero — «але». Тут причина: porque.']], 'Ana no come carne. No le gusta.');
 x(36, 'independent', 'a106.study', PQ, 'Переклади іспанською: «Я вчу іспанську, бо хочу подорожувати».', ['Estudio español porque quiero viajar.', 'Aprendo español porque quiero viajar.'], [porqueAcc('Estudio español por qué quiero viajar.')]);
@@ -101,7 +101,7 @@ x(49, 'delayed', 'a106.beach', QW, 'Запитай іспанською: «Чо�
 x(50, 'delayed', 'a106.work', QW, pqIns(), ['Por qué'], pqErrs, '¿___ trabajas el sábado?');
 x(51, 'transfer', 'a106.shop-closed-t', QW, 'Ти бачиш зачинену крамницю. Запитай перехожого іспанською: «Чому крамниця зачинена?»', ['¿Por qué está cerrada la tienda?', '¿Por qué la tienda está cerrada?'], [porQueErr('¿Porque está cerrada la tienda?')]);
 x(52, 'transfer', 'a106.interview-t', QW, 'Запитай нову колегу іспанською: «Чому ти хочеш жити в Іспанії?»', ['¿Por qué quieres vivir en España?'], [porQueErr('¿Porque quieres vivir en España?')]);
-k.choice({ n: 53, role: 'independent', fam: 'a106.food', t: [QWC], ins: 'Обери правильне написання.', p: ['¿___ no comes?'], o: [['Porque', QWC, porQueErr('')[1]], ['Por qué', true], ['Por que', QWC, porQueErr('')[1]]] });
+k.choice({ n: 53, role: 'independent', fam: 'a106.food', t: [QWC], ins: 'Ти хочеш запитати друга: «Чому ти не їси?» Обери правильне написання.', p: ['¿___ no comes?'], o: [['Porque', QWC, porQueErr('')[1]], ['Por qué', true], ['Por que', QWC, porQueErr('')[1]]] });
 
 // ======================= porque vs por qué
 k.slots({
@@ -118,7 +118,7 @@ k.slots({
   ],
 });
 x(55, 'independent', 'a106.study', OP, 'Впиши porque або por qué.', ['porque'], [porqueAcc('por qué')], 'Estudio mucho ___ tengo un examen.');
-x(56, 'independent', 'a106.drinks', OP, 'Впиши porque або por qué.', ['Por qué'], [porQueErr('Porque')], '¿___ no te gusta el té?');
+x(56, 'independent', 'a106.drinks', OP, 'Ти питаєш подругу: «Чому тобі не подобається чай?» Впиши porque або por qué.', ['Por qué'], [porQueErr('Porque')], '¿___ no te gusta el té?');
 k.slots({
   n: 57,
   role: 'delayed',
