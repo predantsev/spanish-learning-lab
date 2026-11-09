@@ -1,0 +1,62 @@
+{
+  "cases": [
+    {
+      "caseId": "lesson:A1-06-L3",
+      "reviewerAnswer": "No response task. The explanatory patterns are necesitar + noun and necesitar + infinitive: Necesito un bolígrafo; Necesitamos agua; Necesito descansar.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-06-L3-T03",
+      "reviewerAnswer": "¿Necesitas algo?",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The accepted questions are correct. No closed key is specified, so omitted alternatives do not demonstrate incorrect grading."
+    },
+    {
+      "caseId": "task:A1-06-L3-T05",
+      "reviewerAnswer": "Necesitamos pan.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-06-L3-T08",
+      "reviewerAnswer": "¿Necesita algo?",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The explicit usted instruction resolves the form of address."
+    },
+    {
+      "caseId": "task:A1-06-L3-T10",
+      "reviewerAnswer": "Necesitamos dos billetes.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.prompt[0].text: \"На вокзалі. Скажи іспанською: «Нам потрібні два квитки».\"; context.taughtBefore and task.hints provide no vocabulary gloss for \"billete/billetes\", required by task.accepted.",
+      "defect": "Answering requires the ticket vocabulary billete/billetes, which is neither listed among the mapped prerequisites nor glossed in the prompt or hints. Its appearance in the full answer reveal does not supply a vocabulary gloss.",
+      "correction": "Teach billete beforehand or add a vocabulary hint such as \"billetes — квитки\" with an empty targets array.",
+      "sources": [
+        "Course contract, rule 1: required new vocabulary must be taught beforehand or glossed in the prompt or a hint.",
+        "Course contract, rule 6: a vocabulary gloss supports no grammar target."
+      ],
+      "notes": "The Spanish answer itself is correct and natural for a station in Spain."
+    }
+  ]
+}
