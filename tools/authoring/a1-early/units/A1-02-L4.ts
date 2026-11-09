@@ -189,7 +189,7 @@ export const unit: Unit = {
     ], 'Joven не змінюється за родом; множина — jóvenes'),
     phrase(18, 'delayed', 'translate', [AI_W, PO_U], 'Напиши іспанською з неозначеним артиклем: «великий готель» (про розмір будівлі).' + NEUTRAL, 'un hotel grande', [
       ['un hotel grando.', { [AI_W]: 'x', [PO_U]: 'c' }, 'Grande має одну форму для обох родів: grande.'],
-      ['un gran hotel.', { [PO_U]: 'x', [AI_W]: 'u' }, 'Перед іменником grande скорочується до gran (un gran hotel — часто «чудовий, величний готель»). Завдання просить звичайний нейтральний опис розміру з прикметником після іменника: un hotel grande.'],
+      ['un gran hotel.', { [PO_U]: 'x', [AI_W]: 'c' }, 'Перед іменником grande скорочується до gran (un gran hotel — часто «чудовий, величний готель»). Завдання просить звичайний нейтральний опис розміру з прикметником після іменника: un hotel grande.'],
     ], 'Grande не змінюється за родом, стоїть після іменника'),
     phrase(19, 'delayed', 'agree', [AI_W], 'Напиши словосполучення або лише прикметник, узгодивши прикметник grande («великий»): las ciudades + grande.', 'las ciudades grandes', [
       ['las ciudades grande.', 'x', 'Іменник у множині, тому grandes.'],
