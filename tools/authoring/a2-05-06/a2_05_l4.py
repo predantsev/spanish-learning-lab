@@ -13,6 +13,8 @@ R_HF = ('De pequeño / de niño («у дитинстві») узгоджують
         'про кількох — de pequeños, de pequeñas. Antes — «раніше»; entonces, en aquella época — «тоді, у той час».')
 R_UH = ('Імперфект описує звичку певного періоду минулого (antes, de pequeño, en aquella época): що людина зазвичай '
         'робила тоді. Одну завершену подію передає pretérito indefinido, а теперішню звичку — presente.')
+R_UH_IR = R_UH + ' Iba, íbamos — форми імперфекту ir (урок A2-05-L3): iba, ibas, iba, íbamos, ibais, iban.'
+R_IBA = 'Iba — імперфект ir (урок A2-05-L3): iba, ibas, iba, íbamos, ibais, iban. Ці форми пишуться з b.'
 INSTR_USE = ('Доповніть речення правильною формою дієслова в дужках. Мовець описує, як зазвичай бувало в той період '
              'минулого. Час не підказано: вирішіть за змістом.')
 
@@ -122,7 +124,7 @@ def l4():
                        [('Los domingos íbamos al pueblo.', 'c', None),
                         ('El domingo fuimos al pueblo.', 'i', 'Це одна поїздка минулої неділі — подія, а не звичка.'),
                         ('Los domingos vamos al pueblo.', 'i', 'Це звичка в теперішньому часі.')],
-                       [rule(ux, R_UH)], fbx)]
+                       [rule(ux, R_UH_IR)], fbx)]
     ind_ux = [
         t.choice('independent', 'routine-then-now', ux,
                  [P('Оберіть форму, яка підходить за змістом. Мовець описує, як зазвичай бувало раніше.'),
@@ -136,7 +138,7 @@ def l4():
                  [('Ана поїхала в село одного літа.', 'i', 'Iba … todos los veranos описує повторювану звичку, а не одну поїздку.'),
                   ('Ана й тепер їздить у село щоліта.', 'i', 'Iba — минулий час: так було в дитинстві.'),
                   ('У дитинстві Ана щоліта їздила в село.', 'c', None)],
-                 [rule(ux, R_UH)], fbx),
+                 [rule(ux, R_UH_IR)], fbx),
     ]
     held_ux = [
         t.choice('delayed', 'routine-then-now', ux,
@@ -237,7 +239,7 @@ def l4():
                  [P('Диктант (необов’язково). Прослухайте запис ще раз і напишіть друге речення.')],
                  [dictation],
                  [('Todos los veranos iva a la playa con mis abuelos.', 'i', 'Iba пишеться з b.')],
-                 [reveal([LH_D], dictation)],
+                 [rule([LH_D], R_IBA), reveal([LH_D], dictation)],
                  ('Правильно записано.', 'Є помилка в записі. Порівняйте з правильним реченням.',
                   'Запис відрізняється від тексту, і перевірити його автоматично не вдалося. Порівняйте з правильним реченням: '
                   + dictation),
