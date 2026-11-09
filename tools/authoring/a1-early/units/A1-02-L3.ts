@@ -16,9 +16,9 @@ const AC_C = 'noun.plural.accent-change/context-choice';
 
 const R_AP = 'Артиклі у множині: el → los, la → las, un → unos, una → unas. Рід лишається тим самим: la mano → las manos, el día → los días.';
 const R_PS = 'Якщо іменник закінчується на голосну, у множині додаємо -s: libro → libros, coche → coches, café → cafés.';
-const R_PES = 'Якщо іменник закінчується на приголосну, у множині додаємо -es: ciudad → ciudades, hotel → hoteles, profesor → profesores.';
+const R_PES = 'Іменники на -d, -l, -r (як у цьому уроці) у множині отримують -es: ciudad → ciudades, hotel → hoteles, profesor → profesores. Інші кінцеві приголосні мають свої правила.';
 const R_ZC = 'Якщо іменник закінчується на -z, у множині z змінюється на c і додається -es: lápiz → lápices, luz → luces, vez → veces.';
-const R_AC = 'У множині наголос лишається на тому самому складі, тому знак наголосу може зникнути (estación → estaciones, autobús → autobuses) або з’явитися (joven → jóvenes, examen → exámenes).';
+const R_AC = 'У цих словах наголос у множині лишається на тому самому складі, тому знак наголосу може зникнути (estación → estaciones, autobús → autobuses) або з’явитися (joven → jóvenes, examen → exámenes).';
 
 type Err = [string, OutcomeSpec, string];
 
@@ -56,10 +56,11 @@ export const unit: Unit = {
         blocks: [
           tableUk(['Іменник закінчується на', 'Що робимо', 'Приклади'], [
             ['голосну', 'додаємо -s', 'libro → libros, casa → casas, coche → coches, café → cafés'],
-            ['приголосну', 'додаємо -es', 'ciudad → ciudades, hotel → hoteles, profesor → profesores, mujer → mujeres'],
+            ['-d, -l, -r', 'додаємо -es', 'ciudad → ciudades, hotel → hoteles, profesor → profesores, mujer → mujeres'],
             ['-z', 'z → c і додаємо -es', 'lápiz → lápices, luz → luces, vez → veces'],
           ]),
           uk('Перед e в іспанському письмі зазвичай пишуть c, а не z, тому lápices, а не lápizes.'),
+          uk('Інші кінцеві приголосні мають свої правила; у цьому уроці тренуємо лише -d, -l, -r і -z.'),
         ],
       },
       {
@@ -78,7 +79,7 @@ export const unit: Unit = {
         kind: 'explanation',
         title: 'Знак наголосу в множині',
         blocks: [
-          uk('Наголос у множині лишається на тому самому складі. Але склад -es додається, тому знак наголосу може зникнути або з’явитися.'),
+          uk('У словах цього уроку наголос у множині лишається на тому самому складі. Але склад -es додається, тому знак наголосу може зникнути або з’явитися.'),
           tableUk(['Однина', 'Множина', 'Що сталося'], [
             ['estación (es-ta-CIÓN)', 'estaciones (es-ta-CIO-nes)', 'знак зникає'],
             ['autobús (au-to-BÚS)', 'autobuses (au-to-BU-ses)', 'знак зникає'],
@@ -106,9 +107,9 @@ export const unit: Unit = {
         title: 'Підсумок',
         blocks: [
           ulUk(
-            'Голосна → -s (casas), приголосна → -es (ciudades), -z → -ces (lápices).',
+            'Голосна → -s (casas); -d, -l, -r → -es (ciudades, hoteles, flores); -z → -ces (lápices).',
             'Артиклі: el → los, la → las, un → unos, una → unas; рід не змінюється.',
-            'Наголос не переходить: estación → estaciones, joven → jóvenes.',
+            'У цих словах наголос не переходить: estación → estaciones, joven → jóvenes.',
           ),
         ],
       },
@@ -196,22 +197,22 @@ export const unit: Unit = {
       ['los hotel.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Іменник теж змінюється: hoteles.'],
       ['las hoteles.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Hotel — чоловічого роду, тому los.'],
       ['el hoteles.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Артикль теж іде в множину: el → los.'],
-    ], 'Множина — los hoteles', 'Пам’ятай: до слова на приголосну додаємо -es.'),
+    ], 'Множина — los hoteles', 'Пам’ятай: до слова на -d, -l, -r додаємо -es.'),
     typed({
       n: 13, role: 'supported', family: 'plural', targets: [PES_W],
-      prompt: [uk('Пам’ятай: до слова на приголосну додаємо -es.'), uk('Напиши множину слова (без артикля).'), es('ciudad')],
+      prompt: [uk('Пам’ятай: до слова на -d, -l, -r додаємо -es.'), uk('Напиши множину слова (без артикля).'), es('ciudad')],
       answer: 'ciudades',
-      errors: [['ciudads.', 'x', 'Після приголосної додаємо -es: ciudades.'], ['ciudad.', 'x', 'Слово не змінилося: у множині додаємо -es.']],
+      errors: [['ciudads.', 'x', 'Після -d, -l, -r додаємо -es: ciudades.'], ['ciudad.', 'x', 'Слово не змінилося: у множині додаємо -es.']],
       rules: [[[PES_W], R_PES]],
-      why: 'Після приголосної — -es',
+      why: 'Після -d, -l, -r — -es',
     }),
     plArt(14, 'independent', 'plural-with-article', PES_W, R_PES, 'la flor', 'las flores', [
-      ['las flors.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після приголосної додаємо -es: flores.'],
+      ['las flors.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після -d, -l, -r додаємо -es: flores.'],
       ['los flores.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Flor — жіночого роду, тому las.'],
       ['la flores.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Артикль теж іде в множину: la → las.'],
     ], 'Множина — las flores'),
     plArt(15, 'independent', 'plural-with-article', PES_W, R_PES, 'un profesor', 'unos profesores', [
-      ['unos profesors.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після приголосної додаємо -es: profesores.'],
+      ['unos profesors.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після -d, -l, -r додаємо -es: profesores.'],
       ['unas profesores.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Profesor — чоловічого роду, тому unos.'],
       ['un profesores.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Артикль теж іде в множину: un → unos.'],
       ['los profesores.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Було un — неозначений артикль, тому unos.'],
@@ -220,24 +221,24 @@ export const unit: Unit = {
       n: 16, role: 'independent', family: 'plural', targets: [PES_W],
       prompt: [uk('Напиши множину слова (без артикля).'), es('mujer')],
       answer: 'mujeres',
-      errors: [['mujers.', 'x', 'Після приголосної додаємо -es: mujeres.']],
+      errors: [['mujers.', 'x', 'Після -d, -l, -r додаємо -es: mujeres.']],
       rules: [[[PES_W], R_PES]],
-      why: 'Після приголосної — -es',
+      why: 'Після -d, -l, -r — -es',
     }),
     typed({
       n: 17, role: 'independent', family: 'fix', targets: [PES_W],
       prompt: [uk('Виправ помилку в множині.'), es('los móvils')],
       answer: 'los móviles',
-      errors: [['los móvils.', 'x', 'Нічого не змінилося: після приголосної додаємо -es.'], ['los moviles.', 'u', 'Множина утворена правильно, але знак наголосу лишається: móviles.']],
+      errors: [['los móvils.', 'x', 'Нічого не змінилося: після -l додаємо -es.'], ['los moviles.', 'u', 'Множина утворена правильно, але знак наголосу лишається: móviles.']],
       rules: [[[PES_W], R_PES]],
-      why: 'Після приголосної — -es',
+      why: 'Після -d, -l, -r — -es',
     }),
     plArt(18, 'delayed', 'recall', PES_W, R_PES, 'Напиши іспанською у множині з означеним артиклем: «університети» (ті, про які вже йшлося).', 'las universidades', [
-      ['las universidads.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після приголосної додаємо -es: universidades.'],
+      ['las universidads.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після -d, -l, -r додаємо -es: universidades.'],
       ['los universidades.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Universidad — жіночого роду, тому las.'],
     ], 'Множина — las universidades'),
     plArt(19, 'delayed', 'recall', PES_W, R_PES, 'Напиши іспанською у множині з неозначеним артиклем: «якісь комп’ютери».', 'unos ordenadores', [
-      ['unos ordenadors.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після приголосної додаємо -es: ordenadores.'],
+      ['unos ordenadors.', { [PES_W]: 'x', [AP_W]: 'c' }, 'Після -d, -l, -r додаємо -es: ordenadores.'],
       ['unas ordenadores.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Ordenador — чоловічого роду, тому unos.'],
       ['un ordenadores.', { [AP_W]: 'x', [PES_W]: 'c' }, 'Артикль теж іде в множину: unos.'],
     ], 'Множина — unos ordenadores'),
@@ -245,7 +246,7 @@ export const unit: Unit = {
       n: 20, role: 'transfer', family: 'letter', targets: [PES_W],
       prompt: [uk('Ти пишеш офіційне звертання до кількох чоловіків. Напиши без артикля множину слова señor («пан»).')],
       answer: 'señores',
-      errors: [['señors.', 'x', 'Після приголосної додаємо -es: señores.'], ['senores.', 'u', 'Множина утворена правильно, але потрібна літера ñ: señores.']],
+      errors: [['señors.', 'x', 'Після -d, -l, -r додаємо -es: señores.'], ['senores.', 'u', 'Множина утворена правильно, але потрібна літера ñ: señores.']],
       rules: [[[PES_W], R_PES]],
       why: 'Множина — señores',
     }),
@@ -253,14 +254,14 @@ export const unit: Unit = {
       n: 21, role: 'transfer', family: 'list', targets: [PES_W],
       prompt: [uk('Ти складаєш маршрут подорожі. Напиши в нотатках іспанською без артикля: «міста».')],
       answer: 'ciudades',
-      errors: [['ciudads.', 'x', 'Після приголосної додаємо -es: ciudades.'], ['ciudad.', 'x', 'Потрібна множина: ciudades.']],
+      errors: [['ciudads.', 'x', 'Після -d, -l, -r додаємо -es: ciudades.'], ['ciudad.', 'x', 'Потрібна множина: ciudades.']],
       rules: [[[PES_W], R_PES]],
       why: 'Множина — ciudades',
     }),
     pick({
       n: 22, role: 'independent', family: 'choose-plural', targets: [PES_C],
       prompt: [uk('Вибери правильну множину.'), es('el profesor')],
-      options: [['los profesores', 'c'], ['los profesors', 'x', 'Після приголосної додаємо -es.'], ['los profesor', 'x', 'Іменник теж іде в множину.']],
+      options: [['los profesores', 'c'], ['los profesors', 'x', 'Після -r додаємо -es.'], ['los profesor', 'x', 'Іменник теж іде в множину.']],
       rules: [[[PES_C], R_PES]],
       ok: 'Так: los profesores.',
       bad: 'Ні. Правильно: los profesores.',
@@ -307,17 +308,15 @@ export const unit: Unit = {
       rules: [[[ZC_W], R_ZC]],
       why: 'Z → c + -es',
     }),
-    typed({
-      n: 28, role: 'delayed', family: 'plural-with-article', targets: [ZC_W],
-      prompt: [uk('Напиши у множині разом з артиклем.'), es('la luz')],
-      answer: 'las luces',
-      errors: [['las luzes.', 'x', 'Перед e пишемо c: luces.'], ['las luzs.', 'x', 'Після -z додаємо -es і змінюємо z на c: luces.']],
-      rules: [[[ZC_W], R_ZC]],
-      why: 'Z → c + -es',
-    }),
+    plArt(28, 'delayed', 'plural-with-article', ZC_W, R_ZC, 'la luz', 'las luces', [
+      ['las luzes.', { [ZC_W]: 'x', [AP_W]: 'c' }, 'Перед e пишемо c: luces.'],
+      ['las luzs.', { [ZC_W]: 'x', [AP_W]: 'c' }, 'Після -z додаємо -es і змінюємо z на c: luces.'],
+      ['la luces.', { [AP_W]: 'x', [ZC_W]: 'c' }, 'Артикль теж іде в множину: la → las.'],
+      ['los luces.', { [AP_W]: 'x', [ZC_W]: 'c' }, 'Luz — жіночого роду, тому las.'],
+    ], 'Множина — las luces'),
     typed({
       n: 29, role: 'transfer', family: 'list', targets: [ZC_W],
-      prompt: [uk('Ти складаєш список канцелярії для навчання. Напиши іспанською без артикля: «олівці».')],
+      prompt: [uk('Ти складаєш список канцтоварів для навчання. Напиши іспанською без артикля: «олівці».')],
       answer: 'lápices',
       errors: [['lápizes.', 'x', 'Перед e пишемо c: lápices.'], ['lapices.', 'u', 'Z → c правильно, але знак наголосу лишається: lápices.']],
       rules: [[[ZC_W], R_ZC]],
@@ -334,7 +333,7 @@ export const unit: Unit = {
     // ---------- accent change ----------
     typed({
       n: 31, role: 'supported', family: 'plural', targets: [AC_W],
-      prompt: [uk('Пам’ятай: наголос не переходить, тому знак може зникнути: estación → estaciones.'), uk('Напиши множину слова (без артикля).'), es('autobús')],
+      prompt: [uk('Пам’ятай: у цих словах наголос не переходить, тому знак може зникнути: estación → estaciones.'), uk('Напиши множину слова (без артикля).'), es('autobús')],
       answer: 'autobuses',
       errors: [['autobúses.', 'x', 'У множині наголошений склад BU вже не останній, тому знак зникає: autobuses.']],
       rules: [[[AC_W], R_AC]],

@@ -1,5 +1,5 @@
 // A1-01-L2 — stress awareness and written accents in a small familiar word set; first listening clips.
-import { LOOSE, clip, clue, es, ex, gloss, reveal, rule, tableUk, transcript, uk, ulUk } from '../lib.ts';
+import { LOOSE, clip, clue, es, ex, reveal, rule, tableUk, transcript, translationFor, uk, ulUk } from '../lib.ts';
 import type { Unit } from '../lib.ts';
 import { U } from '../common.ts';
 
@@ -281,7 +281,7 @@ export const unit: Unit = {
         ['Ні, дякую.', 'x', 'У записі звучить sí — «так».'],
         ['До побачення.', 'x', 'У записі немає adiós; звучить sí, gracias — «так, дякую».'],
       ],
-      hints: [gloss(ex('gracias', 'дякую'), ex('sí', 'так'), ex('no', 'ні')), transcript([LF], 'Sí, gracias.')],
+      hints: [translationFor([LF], ex('gracias', 'дякую'), ex('sí', 'так'), ex('no', 'ні')), transcript([LF], 'Sí, gracias.')],
       ok: 'Так: Sí, gracias — «Так, дякую».',
       bad: 'Ні. У записі звучить Sí, gracias — «Так, дякую».',
     },

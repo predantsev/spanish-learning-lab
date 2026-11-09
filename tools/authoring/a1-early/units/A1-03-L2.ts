@@ -32,7 +32,7 @@ const R: Record<string, string> = {
   [OR_U]: 'Звідки людина — ser de + місто чи країна: Soy de Kiev. Ana es de Madrid. Прийменник de обов’язковий: не «Soy Kiev», а Soy de Kiev. Питання: ¿De dónde eres? — «Звідки ти?».',
   [NA_U]: 'Національність — ser + прикметник, узгоджений з людиною: Soy ucraniano (каже чоловік), Soy ucraniana (каже жінка), Somos ucranianos. Національності пишуться з малої літери.',
   [AN_W]: 'Національності на приголосну мають жіночу форму на -a: español — española, inglés — inglesa, francés — francesa, alemán — alemana. У жіночому роді й у множині знак наголосу зникає: inglés, але inglesa, ingleses; alemán — alemanes.',
-  [PR_U]: 'Коли кажемо, ким людина працює чи навчається, після ser артикль не ставимо: Soy profesora. Pablo es médico. Somos estudiantes.',
+  [PR_U]: 'Коли називаємо професію чи рід занять, після ser артикль зазвичай не ставимо: Soy profesora. Pablo es médico. Somos estudiantes.',
   [DS_U]: 'Ser + прикметник описує, яка людина чи річ є — вигляд, характер, риси: Ana es alta. El piso es pequeño. Прикметник узгоджується з підметом у роді й числі.',
   [FI_P]: 'Me llamo Ana — «мене звати Ана». ¿Cómo te llamas? — «як тебе звати?», ввічливо: ¿Cómo se llama usted? Encantado (каже чоловік), Encantada (каже жінка) або Mucho gusto — «приємно познайомитися». Представити когось: Este es Pablo, Esta es Ana.',
   [PD_W]: 'В анкеті поле заповнюють коротко, без речення: Nombre: Ana. Nacionalidad: ucraniana. País: Ucrania.',
@@ -133,7 +133,7 @@ export const unit: Unit = {
         kind: 'explanation',
         title: 'Частина 2. Професія і опис',
         blocks: [
-          uk('Коли кажемо, ким людина працює чи навчається, після ser артикль не ставимо: Soy profesora. Pablo es médico. Mis hermanos son camareros. «Soy una profesora» у цьому значенні — помилка.'),
+          uk('Коли називаємо професію чи рід занять, після ser артикль зазвичай не ставимо: Soy profesora. Pablo es médico. Mis hermanos son camareros. У простому повідомленні про професію «Soy una profesora» звучить неприродно; артикль з’являється в інших значеннях, які ми поки не вивчаємо.'),
           uk('Ser + прикметник описує, яка людина чи річ є: вигляд, характер, риси. Прикметник узгоджується з підметом: Ana es alta. Pablo es moreno. Mis amigos son simpáticos. La casa es bonita.'),
           tableUk(['Слово', 'Значення'], [
             ['médico / médica', 'лікар / лікарка'],
@@ -220,13 +220,13 @@ export const unit: Unit = {
     }),
     pick({
       n: 12, role: 'delayed', family: 'choose-photo', targets: [ID_C],
-      prompt: [uk('Ти показуєш фото двох своїх друзів. Що написати під фото?')],
-      options: [['Son mis amigos.', 'c'], ['Es mis amigos.', 'x', 'Друзів двоє, тому son.'], ['Mis amigos.', 'x', 'Без дієслова це лише «мої друзі»; «це мої друзі» — Son mis amigos.']],
+      prompt: [uk('Ти показуєш фото двох своїх друзів і пишеш під ним повне речення з ser: «Це мої друзі». Яке речення правильне?')],
+      options: [['Son mis amigos.', 'c'], ['Es mis amigos.', 'x', 'Друзів двоє, тому son.'], ['Mis amigos.', 'x', 'Як короткий підпис це можливо, але тут потрібне повне речення з ser: Son mis amigos.']],
       rules: [[[ID_C], R[ID_U] as string]],
       ok: 'Так: Son mis amigos.', bad: 'Ні. Про кількох — Son mis amigos.',
     }),
     // ---------- ser.origin ----------
-    t(13, 'supported', 'fill', [OR_W], 'Допиши пропущене слово й напиши речення повністю: «Я з Києва».', 'Soy de Kiev.', [
+    t(13, 'supported', 'fill', [OR_W], 'Допиши пропущене слово (можна написати лише його або все речення): «Я з Києва».', 'Soy de Kiev.', [
       ['Soy Kiev.', 'x', 'Після ser перед містом потрібне de: Soy de Kiev.'],
     ], 'Soy de + місто', { support: 'Пам’ятай: звідки людина — ser de + місто чи країна.', shown: 'Soy ___ Kiev.', also: ['de.', 'Soy de Kyiv.'] }),
     t(14, 'supported', 'sentence', [OR_U], 'Напиши іспанською: «Ана з Мадрида».', 'Ana es de Madrid.', [
@@ -253,13 +253,13 @@ export const unit: Unit = {
       ['Mi padre es Odesa.', 'x', 'Перед містом потрібне de.'],
       ['Mi padre de Odesa.', 'x', 'Потрібне дієслово: Mi padre es de Odesa.'],
     ], 'Es de + місто', { also: ['Mi padre es de Odessa.'] }),
-    t(20, 'delayed', 'fill', [OR_W], 'Допиши пропущене слово й напиши речення повністю: «Мої друзі з Барселони».', 'Mis amigos son de Barcelona.', [
+    t(20, 'delayed', 'fill', [OR_W], 'Допиши пропущене слово (можна написати лише його або все речення): «Мої друзі з Барселони».', 'Mis amigos son de Barcelona.', [
       ['Mis amigos son Barcelona.', 'x', 'Перед містом потрібне de.'],
     ], 'Son de + місто', { shown: 'Mis amigos son ___ Barcelona.', also: ['de.'] }),
     t(21, 'transfer', 'chat', [OR_U], 'Нова знайома в чаті питає: «¿De dónde eres?». Відповідай реченням: «Я зі Львова».', 'Soy de Lviv.', [
       ['Soy Lviv.', 'x', 'Перед містом потрібне de: Soy de Lviv.'],
     ], 'Soy de + місто', { also: ['Yo soy de Lviv.', 'Soy de Leópolis.', 'Yo soy de Leópolis.'] }),
-    t(22, 'transfer', 'caption', [OR_U], 'Ти підписуєш фото з друзями: «Мої друзі з Іспанії».', 'Mis amigos son de España.', [
+    t(22, 'transfer', 'caption', [OR_U], 'Ти підписуєш фото з друзями повним реченням з ser: «Мої друзі — з Іспанії».', 'Mis amigos son de España.', [
       ['Mis amigos son España.', 'x', 'Перед країною потрібне de.'],
       ['Mis amigos es de España.', 'u', 'De на місці, але друзів кілька — son.'],
     ], 'Son de + країна'),
@@ -325,7 +325,7 @@ export const unit: Unit = {
       rules: [[[AN_C], R[AN_W] as string]],
       ok: 'Так: Mi madre es inglesa.', bad: 'Ні. Про жінку — inglesa, без знака наголосу.',
     }),
-    t(36, 'delayed', 'fill', [AN_W], 'Допиши національність (Німеччина) і напиши речення повністю.', 'Ella es alemana.', [
+    t(36, 'delayed', 'fill', [AN_W], 'Допиши національність (Німеччина); можна написати лише її або все речення.', 'Ella es alemana.', [
       ['Ella es alemán.', 'x', 'Про жінку — alemana.'],
       ['Ella es alemána.', 'x', 'У жіночому роді знак наголосу зникає: alemana.'],
     ], 'Alemán → alemana', { shown: 'Ella es ___.', also: ['alemana.'] }),
@@ -402,7 +402,7 @@ export const unit: Unit = {
     ], 'Es + прикметники', { also: ['Mi casa es bonita y grande.'], gl: Y }),
     t(54, 'independent', 'person', [DS_U], 'Напиши іспанською двом друзям (на «ти»): «Ви дуже розумні».', 'Sois muy inteligentes.', [
       ['Sois muy inteligente.', 'x', 'Вас кілька: inteligentes.'],
-      ['Son muy inteligentes.', 'u', 'Son — для ellos або ввічливого ustedes; друзям на «ти» в Іспанії — sois.'],
+      ['Son muy inteligentes.', 'u', 'У більшості Іспанії до друзів на «ти» кажуть vosotros — sois; son — для ellos або ввічливого ustedes. У цьому курсі тренуємо систему vosotros.'],
     ], 'Sois + прикметник у множині', { also: ['Vosotros sois muy inteligentes.'] }),
     t(55, 'delayed', 'person', [DS_U], 'Напиши іспанською: «Моя сестра білява».', 'Mi hermana es rubia.', [
       ['Mi hermana es rubio.', 'x', 'Сестра — жінка: rubia.'],
@@ -499,12 +499,12 @@ export const unit: Unit = {
       ['Espana.', 'u', 'Поле вибране правильно, але бракує літери ñ: España.'],
     ], 'País: España', { shown: 'País: ___' }),
     t(73, 'delayed', 'form-fill', [PD_W], 'Заповни поле анкети для Хав’єра — він іспанець. Напиши лише те, що треба вписати в поле.', 'español', [
-      ['española.', 'x', 'Хав’єр — чоловік: español.'],
       ['España.', 'x', 'España — країна; у полі Nacionalidad пишемо національність: español.'],
-    ], 'Nacionalidad: español', { shown: 'Nacionalidad: ___' }),
-    t(74, 'transfer', 'course-form', [PD_W], 'Ти заповнюєш анкету на мовні курси за свою подругу Ганну — вона німкеня. Що вписати в поле?', 'alemana', [
-      ['alemán.', 'x', 'Ганна — жінка: alemana.'],
-      ['alemána.', 'x', 'У жіночому роді знак наголосу зникає: alemana.'],
+    ], 'Nacionalidad: español', { shown: 'Nacionalidad: ___', also: [['española.', 'Теж правильно: у полі анкети прикметник може узгоджуватися зі словом nacionalidad (жіночого роду). Про себе Хав’єр скаже: Soy español.']] }),
+    t(74, 'transfer', 'course-form', [PD_W, AN_W], 'Ти заповнюєш анкету на мовні курси за свою подругу Ганну — вона німкеня. Що вписати в поле?', 'alemana', [
+      ['alemán.', { [AN_W]: 'x', [PD_W]: 'c' }, 'Ганна — жінка: alemana.'],
+      ['alemána.', { [AN_W]: 'x', [PD_W]: 'c' }, 'У жіночому роді знак наголосу зникає: alemana.'],
+      ['Alemania.', { [PD_W]: 'x', [AN_W]: 'u' }, 'Alemania — країна; у полі Nacionalidad пишемо національність: alemana.'],
     ], 'Nacionalidad: alemana', { shown: 'Nacionalidad: ___' }),
     // ---------- listening.short-sentences ----------
     pick({
@@ -541,7 +541,7 @@ export const unit: Unit = {
       n: 78, role: 'delayed', family: 'listen-question', targets: [LS_L], clips: ['clip.a1-03.de-donde-eres'],
       prompt: [uk('Послухай. Про що питають Пабло?')],
       options: [['звідки він', 'c'], ['як його звати', 'x', 'Ім’я вже названо: Hola, Pablo. Питають ¿De dónde eres?'], ['ким він працює', 'x', 'У записі питання ¿De dónde eres? — «Звідки ти?».']],
-      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано: хто, звідки, де, що є. Питання з питальним словом (¿De dónde…?) починається з цього слова.']],
+      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано: хто, звідки, де, що є. De dónde — «звідки»: так питають про походження.']],
       extraHints: [transcript([LS_L], 'Hola, Pablo. ¿De dónde eres?')],
       ok: 'Так: ¿De dónde eres? — «Звідки ти?».', bad: 'Ні. У записі: Hola, Pablo. ¿De dónde eres?',
     }),

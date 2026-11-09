@@ -33,17 +33,20 @@ const LS_L = 'listening.short-sentences/listening-meaning';
 const R: Record<string, string> = {
   [YN_U]: 'Щоб поставити питання «так чи ні», часто досить узяти твердження й додати знаки ¿ ?: Eres de Madrid. → ¿Eres de Madrid? Підмет можна залишити на місці або поставити після дієслова: ¿Ana es profesora? / ¿Es Ana profesora?',
   [YN_W]: 'Питання пишуть між двома знаками: ¿ на початку і ? в кінці: ¿Tienes coche?',
-  [WO_U]: 'У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет: ¿Dónde está el hotel? ¿De dónde es Ana? Прийменник стоїть перед питальним словом: ¿De dónde eres?',
+  [WO_U]: 'Базовий порядок, який ми тренуємо в таких питаннях: питальне слово → дієслово → підмет (якщо він є окремо): ¿Dónde está el hotel? ¿De dónde es Ana? У ¿Qué hay en la mesa? окремого підмета немає: qué + hay + місце. Прийменник стоїть перед питальним словом: ¿De dónde eres? Інші порядки теж бувають, але їх ми поки не тренуємо.',
   [IA_W]: 'Питальні слова завжди пишуться зі знаком наголосу: qué, quién, quiénes, dónde, cómo.',
   [QQ_W]: 'Qué — «що?»: ¿Qué es? ¿Qué tienes? ¿Qué hay en la mesa?',
-  [QN_W]: 'Quién — «хто?»: ¿Quién es? Про кількох людей — quiénes і дієслово в множині: ¿Quiénes son?',
+  [QN_W]: 'Quién — «хто?»: ¿Quién es? У питанні «хто це?» про кількох людей кажемо quiénes, а дієслово ser — у множині: ¿Quiénes son?',
   [QD_W]: 'Dónde — «де?»: ¿Dónde está el banco? De dónde — «звідки?»: ¿De dónde eres?',
   [QC_W]: 'Cómo — «як? який?»: ¿Cómo estás? — про самопочуття; ¿Cómo es tu casa? — про опис; ¿Cómo te llamas? — «як тебе звати?».',
-  [NG_U]: 'Щоб заперечити, ставимо no безпосередньо перед дієсловом: No soy de Madrid. Ana no está en casa. No tengo coche. No hay leche.',
+  [NG_U]: 'Щоб заперечити, ставимо no перед дієсловом: No soy de Madrid. Ana no está en casa. No tengo coche. No hay leche.',
   [NG_W]: 'У відповіді часто буває два no: ¿Eres profesora? — No, no soy profesora. Перше no означає «ні» (після нього кома), друге — «не».',
 };
 for (const [k, base] of [[YN_R, YN_U], [WO_C, WO_U], [IA_C, IA_W], [QQ_C, QQ_W], [QQ_R, QQ_W], [QN_C, QN_W], [QN_R, QN_W], [QD_C, QD_W], [QD_R, QD_W], [QC_C, QC_W], [QC_R, QC_W], [NG_C, NG_U]] as const) R[k] = R[base] as string;
-const rulesOf = (targets: string[]): Array<[string[], string]> => targets.filter((t) => R[t]).map((t) => [[t], R[t] as string]);
+// The yes/no construction hint also explains the ¿ ? marks, so it supports the written-form target when that is assessed.
+const ALSO: Record<string, string> = { [YN_U]: YN_W };
+const rulesOf = (targets: string[]): Array<[string[], string]> =>
+  targets.filter((t) => R[t]).map((t) => [ALSO[t] && targets.includes(ALSO[t] as string) ? [t, ALSO[t] as string] : [t], R[t] as string]);
 
 interface Opts {
   also?: Array<string | [string, string]>;
@@ -109,7 +112,7 @@ export const unit: Unit = {
             ['cómo', 'як? який?', '¿Cómo estás? ¿Cómo es tu casa?'],
           ]),
           uk('Питальні слова завжди пишуться зі знаком наголосу: qué, quién, dónde, cómo. Знак ставимо й тоді, коли питання починається після коми: Hola, ¿cómo estás?'),
-          uk('Порядок слів: питальне слово → дієслово → підмет: ¿Dónde está el hotel? ¿De dónde es Ana? Прийменник стоїть перед питальним словом, а не в кінці: ¿De dónde eres?'),
+          uk('Базовий порядок слів, який ми тренуємо: питальне слово → дієслово → підмет: ¿Dónde está el hotel? ¿De dónde es Ana? Прийменник стоїть перед питальним словом, а не в кінці: ¿De dónde eres? Інші порядки теж трапляються, але поки тренуємо цей.'),
           uk('¿Cómo estás? питає про самопочуття (estar), ¿Cómo es…? — про опис, риси (ser).'),
         ],
       },
@@ -119,7 +122,7 @@ export const unit: Unit = {
         kind: 'explanation',
         title: 'Частина 3. Заперечення: no',
         blocks: [
-          uk('Щоб заперечити, ставимо no безпосередньо перед дієсловом: No soy de Madrid. Ana no está en casa. No tengo coche. No hay leche. Після no з tener і hay артикль un/una часто пропускають: No tengo coche.'),
+          uk('Щоб заперечити, ставимо no перед дієсловом: No soy de Madrid. Ana no está en casa. No tengo coche. No hay leche. Після no з tener і hay артикль un/una часто пропускають: No tengo coche.'),
           uk('У короткій відповіді буває два no: ¿Eres profesora? — No, no soy profesora. Перше no — «ні» (після нього кома), друге — «не».'),
           ex('¿Estás en casa? — No, no estoy en casa. Estoy en la oficina.', 'Ти вдома? — Ні, я не вдома. Я в офісі.'),
         ],
@@ -134,7 +137,7 @@ export const unit: Unit = {
           ulUk(
             'Питання «так чи ні»: ¿Eres de Madrid? ¿Es Ana profesora?',
             'Qué, quién, dónde, cómo — завжди зі знаком наголосу.',
-            'Питальне слово → дієслово → підмет: ¿De dónde es Ana?',
+            'Базовий порядок: питальне слово → дієслово → підмет: ¿De dónde es Ana?',
             'No — перед дієсловом: No tengo coche. No, no soy profesora.',
           ),
         ],
@@ -206,7 +209,7 @@ export const unit: Unit = {
     t(41, 'supported', 'where', [QD_W, IA_W, WO_U], 'Спитай іспанською: «Де банк?»', '¿Dónde está el banco?', [
       ['¿Donde está el banco?', { [IA_W]: 'x', [QD_W]: 'c', [WO_U]: 'c' }, 'Dónde пишеться зі знаком наголосу.'],
       ['¿Dónde el banco está?', { [WO_U]: 'x', [QD_W]: 'c', [IA_W]: 'c' }, 'Після питального слова йде дієслово: ¿Dónde está el banco?'],
-    ], 'Dónde + está + підмет', { support: 'Пам’ятай: питальне слово → дієслово → підмет.' }),
+    ], 'Dónde + está + підмет', { support: 'Пам’ятай: базовий порядок — питальне слово → дієслово → підмет.' }),
     t(42, 'independent', 'origin', [QD_W, IA_W], 'Спитай іспанською друга: «Звідки ти?»', '¿De dónde eres?', [
       ['¿De donde eres?', { [IA_W]: 'x', [QD_W]: 'c' }, 'Dónde пишеться зі знаком наголосу.'],
       ['¿Dónde eres?', { [QD_W]: 'x', [IA_W]: 'c' }, '«Звідки?» — de dónde.'],
@@ -247,7 +250,7 @@ export const unit: Unit = {
     t(61, 'supported', 'arrange', [WO_U], 'Склади питання з цих слів: «Де Пабло?»', '¿Dónde está Pablo?', [
       ['¿Dónde Pablo está?', 'x', 'Після питального слова йде дієслово: ¿Dónde está Pablo?'],
       ['¿Pablo dónde está?', 'u', 'Так буває в розмові, але основний порядок: ¿Dónde está Pablo?'],
-    ], 'Питальне слово → дієслово → підмет', { support: 'Пам’ятай: питальне слово → дієслово → підмет.', shown: 'está / Pablo / dónde' }),
+    ], 'Питальне слово → дієслово → підмет', { support: 'Пам’ятай: базовий порядок — питальне слово → дієслово → підмет.', shown: 'está / Pablo / dónde' }),
     t(62, 'delayed', 'arrange', [WO_U], 'Склади питання з цих слів: «Звідки твій викладач?»', '¿De dónde es tu profesor?', [
       ['¿Dónde es tu profesor de?', 'x', 'Прийменник стоїть перед питальним словом: ¿De dónde…?'],
       ['¿De dónde tu profesor es?', 'x', 'Після питального слова йде дієслово.'],
@@ -255,8 +258,8 @@ export const unit: Unit = {
     choice(66, 'independent', 'choose-order', WO_C, [uk('Яке питання побудоване правильно?')], [
       ['¿De dónde es Ana?', 'c'], ['¿Dónde es Ana de?', 'x', 'Прийменник стоїть перед питальним словом.'], ['¿De dónde Ana es?', 'x', 'Після питального слова йде дієслово.'],
     ], 'Так: ¿De dónde es Ana?', 'Ні. Правильно: ¿De dónde es Ana?'),
-    choice(67, 'delayed', 'choose-order', WO_C, [uk('Яке питання побудоване правильно?')], [
-      ['¿Dónde está el hotel?', 'c'], ['¿Dónde el hotel está?', 'x', 'Після питального слова йде дієслово.'], ['¿El hotel está dónde?', 'x', 'Питальне слово ставимо на початок: ¿Dónde está el hotel?'],
+    choice(67, 'delayed', 'choose-order', WO_C, [uk('Ти вперше питаєш перехожого про готель (не перепитуєш). Яке питання побудоване за звичайним порядком?')], [
+      ['¿Dónde está el hotel?', 'c'], ['¿Dónde el hotel está?', 'x', 'Після питального слова йде дієслово.'], ['¿El hotel está dónde?', 'x', 'Так можна хіба що перепитати; у звичайному питанні питальне слово стоїть на початку: ¿Dónde está el hotel?'],
     ], 'Так: ¿Dónde está el hotel?', 'Ні. Правильно: ¿Dónde está el hotel?'),
     // ---------- interrogative accent: choice ----------
     choice(71, 'independent', 'choose-accent', IA_C, [uk('Яке питання написане правильно?')], [
@@ -295,9 +298,9 @@ export const unit: Unit = {
     t(91, 'supported', 'negate', [NG_U], 'Зроби речення запереченням.', 'No soy de Madrid.', [
       ['Soy no de Madrid.', 'x', 'No ставимо перед дієсловом: No soy de Madrid.'],
       ['Yo soy no de Madrid.', 'x', 'No ставимо перед дієсловом: Yo no soy de Madrid.'],
-    ], 'No перед дієсловом', { support: 'Пам’ятай: no ставимо безпосередньо перед дієсловом.', shown: 'Soy de Madrid.', also: ['Yo no soy de Madrid.'] }),
+    ], 'No перед дієсловом', { support: 'Пам’ятай: no ставимо перед дієсловом.', shown: 'Soy de Madrid.', also: ['Yo no soy de Madrid.'] }),
     t(92, 'supported', 'negate', [NG_U], 'Зроби речення запереченням.', 'Ana no está en casa.', [
-      ['No Ana está en casa.', 'x', 'No стоїть безпосередньо перед дієсловом: Ana no está en casa.'],
+      ['No Ana está en casa.', 'x', 'No ставимо перед дієсловом: Ana no está en casa.'],
       ['Ana está no en casa.', 'x', 'No стоїть перед дієсловом, а не після нього.'],
     ], 'No перед дієсловом', { support: 'Пам’ятай: підмет → no → дієслово.', shown: 'Ana está en casa.' }),
     t(93, 'independent', 'translate', [NG_U], 'Напиши іспанською: «У мене немає машини».', 'No tengo coche.', [
@@ -314,7 +317,7 @@ export const unit: Unit = {
     ], 'No, no + дієслово', { also: ['No, yo no soy profesora.', 'No. No soy profesora.'] }),
     t(96, 'independent', 'translate', [NG_U], 'Напиши іспанською: «Мої батьки не в Мадриді».', 'Mis padres no están en Madrid.', [
       ['Mis padres están no en Madrid.', 'x', 'No стоїть перед дієсловом.'],
-      ['No mis padres están en Madrid.', 'x', 'No стоїть безпосередньо перед дієсловом: Mis padres no están…'],
+      ['No mis padres están en Madrid.', 'x', 'No ставимо перед дієсловом: Mis padres no están…'],
     ], 'No перед дієсловом'),
     t(97, 'delayed', 'negate', [NG_U], 'Зроби речення запереченням.', 'Pablo no es médico.', [
       ['Pablo es no médico.', 'x', 'No стоїть перед дієсловом: Pablo no es médico.'],
@@ -331,10 +334,10 @@ export const unit: Unit = {
       ['No no soy española, soy ucraniana.', { [NG_W]: 'x', [NG_U]: 'c' }, 'Після першого no ставимо кому.'],
     ], 'No, no + дієслово', { also: ['No, no soy española. Soy ucraniana.', 'No. No soy española, soy ucraniana.', 'No, no soy española; soy ucraniana.'] }),
     choice(101, 'independent', 'choose-neg', NG_C, [uk('Яке заперечення правильне?')], [
-      ['Ana no está en casa.', 'c'], ['Ana está no en casa.', 'x', 'No стоїть перед дієсловом.'], ['No Ana está en casa.', 'x', 'No стоїть безпосередньо перед дієсловом.'],
+      ['Ana no está en casa.', 'c'], ['Ana está no en casa.', 'x', 'No стоїть перед дієсловом.'], ['No Ana está en casa.', 'x', 'No ставимо перед дієсловом, а не перед підметом.'],
     ], 'Так: Ana no está en casa.', 'Ні. No — перед дієсловом: Ana no está en casa.'),
-    choice(102, 'delayed', 'choose-neg', NG_C, [uk('Яке заперечення правильне?')], [
-      ['No hay pan.', 'c'], ['Hay no pan.', 'x', 'No стоїть перед дієсловом: No hay pan.'], ['No hay el pan.', 'x', 'Після hay не ставимо el: No hay pan.'],
+    choice(102, 'delayed', 'choose-neg', NG_C, [uk('Удома скінчився хліб. Як сказати «Хліба немає»?')], [
+      ['No hay pan.', 'c'], ['Hay no pan.', 'x', 'No стоїть перед дієсловом: No hay pan.'], ['No hay el pan.', 'x', 'Тут ідеться про хліб загалом, тому після hay артикль el не потрібен: No hay pan.'],
     ], 'Так: No hay pan.', 'Ні. No hay pan.'),
     // ---------- listening ----------
     pick({
@@ -349,7 +352,7 @@ export const unit: Unit = {
       n: 112, role: 'delayed', family: 'listen-question-who', targets: [LS_L], clips: ['clip.a1-03.quien-profesora'],
       prompt: [uk('Послухай. Про що питають?')],
       options: [['хто викладачка', 'c'], ['звідки викладачка', 'x', 'У записі ¿Quién es…? — «Хто…?».'], ['де викладачка', 'x', 'У записі ¿Quién es tu profesora?']],
-      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. Питання з питальним словом (¿Quién…?) починається з цього слова.']],
+      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. Знайди питальне слово: quién — «хто», тобто питають про людину.']],
       extraHints: [transcript([LS_L], 'Ana, ¿quién es tu profesora?')],
       ok: 'Так: ¿Quién es tu profesora? — «Хто твоя викладачка?».', bad: 'Ні. У записі: ¿Quién es tu profesora?',
     }),

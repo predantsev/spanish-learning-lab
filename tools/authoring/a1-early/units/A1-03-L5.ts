@@ -1,5 +1,5 @@
 // A1-03-L5 — tener: forms, possession, and the small set tener hambre / sed / frío / calor / sueño.
-import { clip, ex, gloss, tableUk, transcript, uk, ulUk, es } from '../lib.ts';
+import { clip, ex, gloss, tableUk, transcript, translationFor, uk, ulUk, es } from '../lib.ts';
 import type { OutcomeSpec, TaskSpec, Unit } from '../lib.ts';
 import type { Block } from '../../../content/types.ts';
 import { pick, typed } from '../common.ts';
@@ -77,7 +77,7 @@ export const unit: Unit = {
         kind: 'explanation',
         title: '«У мене є»: tener',
         blocks: [
-          uk('Українське «у мене є» передаємо особовою формою tener: Tengo un coche — «У мене є машина». Tengo una hermana — «У мене є сестра». У питанні та після заперечення артикль часто пропускають: ¿Tienes perro? Tengo coche.'),
+          uk('Українське «у мене є» передаємо особовою формою tener: Tengo un coche — «У мене є машина». Tengo una hermana — «У мене є сестра». З деякими іменниками після tener можливі обидва варіанти: Tengo un coche / Tengo coche; ¿Tienes un perro? / ¿Tienes perro? У запереченні артикль зазвичай пропускають: No tengo coche.'),
           uk('Не плутай з hay: hay повідомляє, що щось є десь (En la calle hay un banco), а tener — що щось належить комусь (Ana tiene un piso).'),
           uk('Зовнішність теж часто описують через tener: Ana tiene el pelo largo — «У Ани довге волосся».'),
           ex('¿Tienes perro? — Sí, tengo un perro y un gato.', 'У тебе є собака? — Так, у мене є собака й кіт.'),
@@ -141,8 +141,7 @@ export const unit: Unit = {
     t(6, 'independent', 'looks', [TP_U], 'Напиши іспанською: «У Пабло довге волосся».', 'Pablo tiene el pelo largo.', [
       ['Pablo tiene el pelo larga.', 'x', 'Pelo — чоловічого роду: largo.'],
       ['Pablo es el pelo largo.', 'x', 'Про волосся кажемо tener: Pablo tiene el pelo largo.'],
-      ['Pablo tiene pelo largo.', 'u', 'Так теж кажуть; найчастіше — з артиклем: Pablo tiene el pelo largo.'],
-    ], 'Tiene el pelo…'),
+    ], 'Tiene el pelo…', { also: [['Pablo tiene pelo largo.', 'Теж правильно; найчастіше кажуть з артиклем: Pablo tiene el pelo largo.']] }),
     t(7, 'delayed', 'have', [TP_U], 'Напиши іспанською: «У моїх батьків є велосипед».', 'Mis padres tienen una bicicleta.', [
       ['Mis padres tiene una bicicleta.', 'u', 'Конструкція правильна, але батьків двоє — tienen.'],
       ['Hay una bicicleta de mis padres.', 'x', 'Про те, що належить людям, кажемо tener.'],
@@ -193,7 +192,7 @@ export const unit: Unit = {
     ], 'Tengo calor', { also: ['Yo tengo calor.'] }),
     t(28, 'delayed', 'ask', [PS_U], 'Спитай іспанською двох друзів (на «ти»): «Ви хочете пити?»', '¿Tenéis sed?', [
       ['¿Estáis sed?', 'x', '«Хочете пити?» — ¿Tenéis sed?'],
-      ['¿Tienen sed?', 'u', 'Tienen — для ellos або ввічливого ustedes; друзям на «ти» — ¿Tenéis sed?'],
+      ['¿Tienen sed?', 'u', 'У більшості Іспанії до друзів на «ти» кажуть vosotros — ¿Tenéis sed?; tienen — для ellos або ввічливого ustedes. У цьому курсі тренуємо систему vosotros.'],
     ], '¿Tenéis sed?', { also: ['¿Vosotros tenéis sed?', '¿Vosotras tenéis sed?'] }),
     t(29, 'transfer', 'message', [PS_U], 'Ти пишеш мамі ввечері: «Я втомлена й хочу спати» (ти — жінка).', 'Estoy cansada y tengo sueño.', [
       ['Estoy cansada y estoy sueño.', 'x', '«Хочу спати» — tengo sueño.'],
@@ -208,41 +207,41 @@ export const unit: Unit = {
       ['Tengo sueño.', 'c'], ['Tengo sed.', 'x', 'Sed — «спрага»; «хочу спати» — tengo sueño.'], ['Estoy sueño.', 'x', 'У цьому виразі — tener.'],
     ], 'Так: Tengo sueño.', 'Ні. «Хочу спати» — Tengo sueño.'),
     // ---------- present.tener forms ----------
-    t(40, 'delayed', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Tú y yo tenemos hambre.', [
+    t(40, 'delayed', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Tú y yo tenemos hambre.', [
       ['Tú y yo tenéis hambre.', 'x', 'Якщо в групі є я — «ми»: tenemos.'],
       ['Tú y yo tienemos hambre.', 'x', 'З nosotros основа ten-: tenemos.'],
     ], 'Tú y yo = nosotros → tenemos', { shown: 'Tú y yo ___ hambre.', also: ['tenemos.'] }),
-    t(41, 'supported', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Yo tengo un perro.', [
+    t(41, 'supported', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Yo tengo un perro.', [
       ['Yo tieno un perro.', 'x', 'З yo — tengo.'],
       ['Yo tiene un perro.', 'x', 'Tiene — з él/ella; з yo — tengo.'],
     ], 'Yo tengo', { support: 'Пам’ятай: tengo, tienes, tiene, tenemos, tenéis, tienen.', shown: 'Yo ___ un perro.', also: ['tengo.'] }),
-    t(42, 'supported', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Tú tienes sed.', [
+    t(42, 'supported', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Tú tienes sed.', [
       ['Tú tenes sed.', 'x', 'З tú основа tien-: tienes.'],
     ], 'Tú tienes', { support: 'Пам’ятай: у tienes, tiene, tienen основа tien-.', shown: 'Tú ___ sed.', also: ['tienes.'] }),
-    t(43, 'independent', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Nosotros tenemos un coche.', [
+    t(43, 'independent', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Nosotros tenemos un coche.', [
       ['Nosotros tienemos un coche.', 'x', 'З nosotros основа ten-: tenemos.'],
     ], 'Nosotros tenemos', { shown: 'Nosotros ___ un coche.', also: ['tenemos.'] }),
-    t(44, 'independent', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Vosotros tenéis frío.', [
+    t(44, 'independent', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Vosotros tenéis frío.', [
       ['Vosotros tienéis frío.', 'x', 'З vosotros основа ten-: tenéis.'],
       ['Vosotros teneis frío.', 'x', 'Tenéis пишеться зі знаком наголосу.'],
     ], 'Vosotros tenéis', { shown: 'Vosotros ___ frío.', also: ['tenéis.'] }),
-    t(45, 'independent', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Ella tiene una bicicleta.', [
+    t(45, 'independent', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Ella tiene una bicicleta.', [
       ['Ella tene una bicicleta.', 'x', 'З ella — tiene.'],
     ], 'Ella tiene', { shown: 'Ella ___ una bicicleta.', also: ['tiene.'] }),
-    t(46, 'independent', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Ellos tienen calor.', [
+    t(46, 'independent', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Ellos tienen calor.', [
       ['Ellos tenen calor.', 'x', 'З ellos основа tien-: tienen.'],
     ], 'Ellos tienen', { shown: 'Ellos ___ calor.', also: ['tienen.'] }),
-    t(47, 'delayed', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Usted tiene un hijo.', [
+    t(47, 'delayed', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Usted tiene un hijo.', [
       ['Usted tienes un hijo.', 'x', 'Usted поєднується з формою 3-ї особи: tiene.'],
     ], 'Usted tiene', { shown: 'Usted ___ un hijo.', also: ['tiene.'] }),
-    t(48, 'delayed', 'fill', [TN_W], 'Допиши форму tener і напиши речення повністю.', 'Ustedes tienen hambre.', [
+    t(48, 'delayed', 'fill', [TN_W], 'Допиши форму tener (можна написати лише її або все речення).', 'Ustedes tienen hambre.', [
       ['Ustedes tenéis hambre.', 'x', 'Ustedes поєднується з формою 3-ї особи множини: tienen.'],
     ], 'Ustedes tienen', { shown: 'Ustedes ___ hambre.', also: ['tienen.'] }),
-    t(49, 'transfer', 'chat-form', [TN_W], 'Ти пишеш другові: «У нас із братом є мотоцикл». Допиши форму tener і напиши речення повністю.', 'Mi hermano y yo tenemos una moto.', [
+    t(49, 'transfer', 'chat-form', [TN_W], 'Ти пишеш другові: «У нас із братом є мотоцикл». Допиши форму tener (можна написати лише її або все речення).', 'Mi hermano y yo tenemos una moto.', [
       ['Mi hermano y yo tienen una moto.', 'x', 'Mi hermano y yo — це «ми»: tenemos.'],
     ], 'Mi hermano y yo tenemos', { shown: 'Mi hermano y yo ___ una moto.', also: ['tenemos.'] }),
-    choice(50, 'independent', 'choose-form', TN_C, [uk('Яка форма tener потрібна?'), es('Pablo y tú ___ un gato.')], [
-      ['tenéis', 'c'], ['tienen', 'x', 'Pablo y tú — це vosotros: tenéis.'], ['tenemos', 'x', '«Ми» — якщо серед них є я.'],
+    choice(50, 'independent', 'choose-form', TN_C, [uk('Яка форма tener потрібна? Вживай систему vosotros, як у більшості Іспанії (її тренуємо в цьому курсі).'), es('Pablo y tú ___ un gato.')], [
+      ['tenéis', 'c'], ['tienen', 'x', 'У системі vosotros Pablo y tú — це vosotros: tenéis. (У частині Андалусії тут кажуть ustedes tienen, але в цьому курсі тренуємо vosotros.)'], ['tenemos', 'x', '«Ми» — якщо серед них є я.'],
     ], 'Так: Pablo y tú tenéis un gato.', 'Ні. Pablo y tú = vosotros → tenéis.'),
     // ---------- listening ----------
     pick({
@@ -250,7 +249,7 @@ export const unit: Unit = {
       prompt: [uk('Послухай. Що є в сестри?')],
       options: [['дуже гарний собака', 'c'], ['дуже гарний кіт', 'x', 'У записі un perro — «собака».'], ['новий велосипед', 'x', 'У записі un perro muy bonito.']],
       rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано: хто, що має, де, що є.']],
-      extraHints: [transcript([LS_L], 'Mi hermana tiene un perro muy bonito.')],
+      extraHints: [translationFor([LS_L], ex('tiene', 'має (tener — «мати», з цього уроку)')), transcript([LS_L], 'Mi hermana tiene un perro muy bonito.')],
       ok: 'Так: Mi hermana tiene un perro muy bonito.', bad: 'Ні. У записі: Mi hermana tiene un perro muy bonito.',
     }),
     pick({
@@ -258,7 +257,7 @@ export const unit: Unit = {
       prompt: [uk('Послухай. Про що питають Пабло?')],
       options: [['чи ти голодний', 'c'], ['чи тобі холодно', 'x', 'У записі hambre — «голод».'], ['чи ти хочеш спати', 'x', 'У записі ¿Tienes hambre?']],
       rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. У загальному питанні («так чи ні») голос у кінці зазвичай підвищується.']],
-      extraHints: [transcript([LS_L], 'Pablo, ¿tienes hambre?')],
+      extraHints: [translationFor([LS_L], ex('tener hambre / tener frío / tener sueño', 'бути голодним / мерзнути / хотіти спати (з цього уроку)')), transcript([LS_L], 'Pablo, ¿tienes hambre?')],
       ok: 'Так: Pablo, ¿tienes hambre? — «Пабло, ти голодний?».', bad: 'Ні. У записі: Pablo, ¿tienes hambre?',
     }),
   ],

@@ -15,7 +15,7 @@ const LS_L = 'listening.short-sentences/listening-meaning';
 const R: Record<string, string> = {
   [HY_U]: 'Hay означає «є, існує, знаходиться» і не змінюється: Hay un libro en la mesa. Hay unas sillas. Після hay зазвичай стоїть un/una/unos/unas або іменник без артикля, але не el/la: Hay leche.',
   [HY_W]: 'Hay пишеться з h (вона не читається) і має одну форму для однини й множини: Hay un banco. Hay unos coches.',
-  [HE_U]: 'Hay — коли повідомляємо, що щось є (нове, ще не відоме): En la calle hay un banco. Estar — коли кажемо, де знаходиться конкретна, уже відома річ чи людина: El banco está en la calle. Після hay — un/una або іменник без артикля; з estar — el/la, mi або ім’я.',
+  [HE_U]: 'Hay — коли повідомляємо, що щось є (нове, ще не відоме): En la calle hay un banco. Estar — коли кажемо, де знаходиться конкретна, уже відома річ чи людина: El banco está en la calle. Тому зазвичай після hay стоїть un/una або іменник без артикля, а з estar — el/la, mi або ім’я; але вирішує зміст, а не сам артикль.',
 };
 R[HY_C] = R[HY_U] as string;
 R[HE_C] = R[HE_U] as string;
@@ -131,15 +131,15 @@ export const unit: Unit = {
       ['En mi calle hay el supermercado.', 'x', 'Після hay не ставимо el.'],
     ], 'Hay + un', { also: ['Hay un supermercado en mi calle.'] }),
     // ---------- hay.existence (written-form) ----------
-    t(11, 'supported', 'fill', [HY_W], 'Допиши пропущене слово й напиши речення повністю: «На площі є банк».', 'Hay un banco en la plaza.', [
+    t(11, 'supported', 'fill', [HY_W], 'Допиши пропущене слово (можна написати лише його або все речення): «На площі є банк».', 'Hay un banco en la plaza.', [
       ['Ay un banco en la plaza.', 'x', 'Hay пишеться з h, хоча вона не читається.'],
       ['Está un banco en la plaza.', 'x', 'Що десь є — hay.'],
     ], 'Hay', { support: 'Пам’ятай: «є» — hay, з h на початку.', shown: '___ un banco en la plaza.', also: ['Hay.'] }),
-    t(12, 'independent', 'fill', [HY_W], 'Допиши пропущене слово й напиши речення повністю: «На столі є квіти».', 'Hay unas flores en la mesa.', [
+    t(12, 'independent', 'fill', [HY_W], 'Допиши пропущене слово (можна написати лише його або все речення): «На столі є квіти».', 'Hay unas flores en la mesa.', [
       ['Ay unas flores en la mesa.', 'x', 'Hay пишеться з h.'],
       ['Son unas flores en la mesa.', 'x', 'Що десь є — hay.'],
     ], 'Hay — одна форма', { shown: '___ unas flores en la mesa.', also: ['Hay.'] }),
-    t(13, 'delayed', 'fill', [HY_W], 'Допиши пропущене слово й напиши речення повністю: «На вулиці є машини».', 'En la calle hay unos coches.', [
+    t(13, 'delayed', 'fill', [HY_W], 'Допиши пропущене слово (можна написати лише його або все речення): «На вулиці є машини».', 'En la calle hay unos coches.', [
       ['En la calle están unos coches.', 'x', 'Що десь є — hay, і він не змінюється.'],
       ['En la calle ay unos coches.', 'x', 'Hay пишеться з h.'],
     ], 'Hay — одна форма', { shown: 'En la calle ___ unos coches.', also: ['hay.'] }),
@@ -150,9 +150,9 @@ export const unit: Unit = {
       ['hay', 'c'], ['están', 'x', 'Що десь є — hay, і він не змінюється.'], ['son', 'x', 'Що десь є — hay.'],
     ], 'Так: En la cocina hay pan y leche.', 'Ні. Що десь є — hay: En la cocina hay pan y leche.'),
     // ---------- contrast.hay-estar (context-choice) ----------
-    choice(21, 'supported', 'hay-estar', HE_C, [uk('Пам’ятай: hay + un/una; estar + el/la. Що потрібно?'), es('En la calle ___ un banco.')], [
-      ['hay', 'c'], ['está', 'x', 'Після пропуску un banco — нова річ: hay.'],
-    ], 'Так: En la calle hay un banco.', 'Ні. Перед un banco — hay.'),
+    choice(21, 'supported', 'hay-estar', HE_C, [uk('Пам’ятай: щоб повідомити, що щось є, — hay; щоб сказати, де відома річ, — estar.'), uk('Турист не знає, чи є поруч банк. Ти повідомляєш йому, що на вулиці є банк. Що потрібно?'), es('En la calle ___ un banco.')], [
+      ['hay', 'c'], ['está', 'x', 'Ти повідомляєш, що банк є, а не де знаходиться відомий банк: hay.'],
+    ], 'Так: En la calle hay un banco.', 'Ні. Повідомляємо, що банк є, — hay.'),
     choice(22, 'independent', 'hay-estar', HE_C, [es('El banco ___ en la plaza.')], [
       ['está', 'c'], ['hay', 'x', 'El banco — конкретний, відомий банк: está.'],
     ], 'Так: El banco está en la plaza.', 'Ні. Відома річ (el banco) — está.'),
@@ -165,9 +165,9 @@ export const unit: Unit = {
     choice(25, 'independent', 'hay-estar', HE_C, [es('Mi coche ___ en la calle.')], [
       ['está', 'c'], ['hay', 'x', 'Mi coche — конкретна, моя машина: está.'],
     ], 'Так: Mi coche está en la calle.', 'Ні. Моя машина — відома річ: está.'),
-    choice(26, 'delayed', 'hay-estar', HE_C, [es('En la mesa ___ unas llaves.')], [
-      ['hay', 'c'], ['están', 'x', 'Unas llaves — нові, невідомі ключі: hay.'],
-    ], 'Так: En la mesa hay unas llaves.', 'Ні. Перед unas llaves — hay.'),
+    choice(26, 'delayed', 'hay-estar', HE_C, [uk('Ти заходиш у кімнату й бачиш на столі якісь ключі — не знаєш, чиї. Ти повідомляєш, що вони там є.'), es('En la mesa ___ unas llaves.')], [
+      ['hay', 'c'], ['están', 'x', 'Ти повідомляєш, що на столі є якісь ключі, — для цього hay.'],
+    ], 'Так: En la mesa hay unas llaves.', 'Ні. Повідомляємо, що ключі є, — hay.'),
     choice(27, 'delayed', 'hay-estar', HE_C, [es('Las llaves ___ en la mesa.')], [
       ['están', 'c'], ['hay', 'x', 'Las llaves — конкретні ключі: están.'],
     ], 'Так: Las llaves están en la mesa.', 'Ні. Відомі ключі (las llaves) — están.'),
@@ -227,7 +227,7 @@ export const unit: Unit = {
       n: 52, role: 'delayed', family: 'listen-question-where', targets: [LS_L], clips: ['clip.a1-03.donde-estacion'],
       prompt: [uk('Послухай. Що питає людина?')],
       options: [['де вокзал', 'c'], ['чи є тут вокзал', 'x', 'У записі ¿Dónde está la estación? — «Де вокзал?».'], ['де готель', 'x', 'У записі la estación — «вокзал».']],
-      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. Питання з питальним словом (¿Dónde…?) починається з цього слова.']],
+      rules: [[[LS_L], 'Послухай речення й визнач, що в ньому сказано. Dónde — «де»: це слово показує, що питають про місце.']],
       extraHints: [transcript([LS_L], 'Perdón, ¿dónde está la estación?')],
       ok: 'Так: Perdón, ¿dónde está la estación?', bad: 'Ні. У записі: Perdón, ¿dónde está la estación? — «Де вокзал?».',
     }),
