@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-05-L1.r2",
+  "jobId": "d87e32d9-4bcd-446d-890f-346f355650d0",
+  "receiptId": "d0f59e9c-fe8e-4944-894e-c4601d026804",
+  "recordedAt": "2026-11-09T02:14:50.762Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "number.30-99",
+      "contentHash": "332cfea7c63747cf91bca2240b55ecc3fe333c7a54c6fa10909ff86e162fe936",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: «Від 31 числа пишуться трьома словами з y.»",
+          "description": "The range statement incorrectly includes exact tens such as 40 and 50, which are single words. The following sentence lists those tens separately but does not clearly delimit the three-word rule.",
+          "suggestion": "Specify that the conventional three-word pattern applies to numbers from 31 to 99 with nonzero units; exact tens remain single words."
+        }
+      ],
+      "caseId": "skill:number.30-99",
+      "verdict": "flawed",
+      "reviewerAnswer": "N/A: no learner task.",
+      "notes": "Teaching the usual separated spelling is appropriate. Less common accepted joined spellings need not be introduced here.",
+      "sources": [
+        "Packet: content.body.scope.forms includes «cuarenta» and «cincuenta».",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «cardinales», spelling of compound cardinals (from memory)."
+      ]
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.docena",
+      "contentHash": "423dbe3aab61d764401a1f3a9f850a3442b3fb691d1460a8820f3097740a0136",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.meaningUk: «дюжина, десяток (12)»",
+          "description": "Docena denotes twelve items. Ukrainian «десяток» denotes ten, so the gloss falsely equates two different quantities; adding «(12)» does not make «десяток» mean twelve.",
+          "suggestion": "Use «дюжина (12 штук)» and correct the corresponding prerequisite gloss wherever it is reused."
+        }
+      ],
+      "caseId": "lexeme:lex.docena",
+      "verdict": "flawed",
+      "reviewerAnswer": "N/A: no learner task.",
+      "notes": "This finding concerns the lexeme being reviewed; its unrelated repetition in other cases' prerequisite metadata does not independently invalidate those learner tasks.",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «docena» (from memory).",
+        "Словник української мови в 11 томах, entries «десяток» and «дюжина» (from memory)."
+      ]
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.treinta",
+      "contentHash": "aafebb5d02abc12e38ce9f578a916493d56c2dcb57dc12e7bfec32b31775731b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.noteUk: «Від 31 — трьома словами: treinta y uno, treinta y dos…»",
+          "description": "The unrestricted rule includes subsequent exact tens such as cuarenta, which are single words.",
+          "suggestion": "Restrict the note to 31–39, or explicitly describe compound tens with nonzero units and distinguish exact tens."
+        }
+      ],
+      "caseId": "lexeme:lex.treinta",
+      "verdict": "flawed",
+      "reviewerAnswer": "N/A: no learner task.",
+      "notes": "The examples themselves are correct.",
+      "sources": [
+        "Packet: the numeral inventory lists «cuarenta», «cincuenta» and the other exact tens as single words.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «cardinales», spelling of compound cardinals (from memory)."
+      ]
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-05-L1",
+      "contentHash": "b06a5dcd94f8e59a82acda656a7a6ee0032c62c8ac75cba3dd83ecd3a40a7095",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s4].blocks[0].text: «Від 31 до 99 — три слова з y: treinta y uno, cuarenta y cinco.»; steps[id=s14].blocks[0].items[0]: «31–99 — з y (treinta y uno)»",
+          "description": "Both range statements include exact tens such as 40, 50 and 60, which neither contain y nor consist of three words.",
+          "suggestion": "State that the conventional tens + y + units pattern applies when the units are nonzero; exact tens are single words. Make the same distinction in the summary."
+        }
+      ],
+      "caseId": "lesson:A1-05-L1",
+      "verdict": "flawed",
+      "reviewerAnswer": "N/A: no learner task.",
+      "notes": "Also reconcile the declared prerequisite order: question.word.cuanto lists quant.mucho as a prerequisite, but the lesson introduces cuánto in s6 and mucho/poco in s9. Either reorder these introductions or remove the unnecessary dependency if earlier agreement teaching suffices.",
+      "sources": [
+        "Packet: the same s4 paragraph lists «cuarenta, cincuenta, sesenta» as exact tens.",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «cardinales», spelling of compound cardinals (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L1-T116",
+      "contentHash": "5d36caf2945b2b928a5cc96d36e2485b3e78d0ab691eb19081ac8e9ca35cda53",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: «Десяток (дюжина) яєць»",
+          "description": "The Ukrainian prompt incorrectly presents ten and twelve eggs as equivalent. The intended answer una docena de huevos expresses twelve.",
+          "suggestion": "Use «Дюжина яєць (12 штук)» if retaining the existing key."
+        }
+      ],
+      "caseId": "task:A1-05-L1-T116",
+      "verdict": "flawed",
+      "reviewerAnswer": "The prompt gives incompatible quantities: «десяток» corresponds to diez huevos; «дюжина» corresponds to una docena de huevos.",
+      "notes": "The Spanish answer and its construction are correct for a dozen.",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «docena» (from memory).",
+        "Словник української мови в 11 томах, entries «десяток» and «дюжина» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L1-T121",
+      "contentHash": "5f8dbbbf9a124994f1c6af3f9dd06fb2c5f280355c3220f1452dac016fbd8702",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: «Пів десятка (півдюжини) яєць»",
+          "description": "Half of ten is five, whereas half a dozen is six. The parenthetical incorrectly equates these quantities.",
+          "suggestion": "Use «Півдюжини яєць (6 штук)» if retaining media docena de huevos."
+        }
+      ],
+      "caseId": "task:A1-05-L1-T121",
+      "verdict": "flawed",
+      "reviewerAnswer": "The prompt gives incompatible quantities: half of «десяток» is cinco huevos; «півдюжини» is media docena de huevos, or six eggs.",
+      "notes": "The Spanish agreement media docena is correct.",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «docena» (from memory).",
+        "Словник української мови в 11 томах, entries «десяток» and «дюжина» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L1-T125",
+      "contentHash": "6074ec701be495e98caba254e3ce5186a0327c8dc86583b9d8659e49fdaaefe6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "clips[0].translationUk: «Кілограм помідорів і десяток яєць, будь ласка.»; task.options[id=a].label and task.hints[kind=reveal].blocks[0].text: «Кілограм помідорів і десяток яєць.»",
+          "description": "Una docena means twelve items, but «десяток» means ten. Consequently the translation and reveal are wrong, and option a is incorrectly marked correct.",
+          "suggestion": "Use «Кілограм помідорів і дюжину яєць, будь ласка.» for the clip translation and the corresponding wording without «будь ласка» for option a and the reveal."
+        }
+      ],
+      "caseId": "task:A1-05-L1-T125",
+      "verdict": "flawed",
+      "reviewerAnswer": "No option is fully correct. The transcript requests one kilogram of tomatoes and twelve eggs; option a says ten eggs.",
+      "notes": "Text-only review; recording quality and transcript/audio agreement were not assessed.",
+      "sources": [
+        "Course contract rules 2 and 8.",
+        "Packet: clips[0].transcript contains «una docena de huevos».",
+        "RAE/ASALE, Diccionario de la lengua española, entry «docena» (from memory).",
+        "Словник української мови в 11 томах, entries «десяток» and «дюжина» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L1-T17",
+      "contentHash": "b84ae65172494c2b357ecf045d9eeef7aac18e12c9b24dbc0deced14c7b14256",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[kind=translation].blocks[0].text: «У моєї сестри двадцять сім книжок англійською.»",
+          "description": "Libros de inglés ordinarily denotes books for studying English. The translation instead specifies books written in English, which would be libros en inglés.",
+          "suggestion": "Translate the supplied Spanish as «У моєї сестри двадцять сім книжок з англійської мови.» Alternatively, change the Spanish to libros en inglés if the existing Ukrainian meaning is intended."
+        }
+      ],
+      "caseId": "task:A1-05-L1-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "veintisiete",
+      "notes": "The numeral key is correct.",
+      "sources": [
+        "Course contract rule 8 and the duty to review translations for wrong meaning.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «de» and «en», their uses for subject matter and language respectively (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L1-T21",
+      "contentHash": "a3ee3051967c945fc78fbcbe69953ff26af49b55cc7431d121130d14241feec9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].feedbackUk: «Від 31 пишемо трьома словами: cuarenta y cinco.»",
+          "description": "The general rule includes exact tens above 31, such as cuarenta, which are single words. The answer for 45 is correct, but the feedback overgeneralizes its pattern.",
+          "suggestion": "Explain the actual error locally: «У цьому записі пишемо три слова: cuarenta y cinco.» For a general rule, explicitly exclude exact tens and describe this as the conventional separated spelling."
+        }
+      ],
+      "caseId": "task:A1-05-L1-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "cuarenta y cinco",
+      "notes": "The reviewed error cuarentaycinco is incorrect; the recognized joined spelling uses i: cuarentaicinco. Because the key is not closed, omission of that alternative is not an automatic rejection.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «cardinales», spelling of compound cardinals (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L1-T25",
+      "contentHash": "24a2a0a0ce2200a77f66ece156b6031045ae4db763693ace3d3d4acfadbe0b09",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.slots[id=s2].errors[0].feedbackUk: «Від 31 пишемо трьома словами: treinta y cinco.»",
+          "description": "The unrestricted three-word rule includes exact tens such as 40, which are single words. The answer for 35 is correct, but the explanation overgeneralizes.",
+          "suggestion": "Use local feedback such as «У цьому записі пишемо три слова: treinta y cinco.» A general explanation should distinguish exact tens from compound tens with nonzero units."
+        }
+      ],
+      "caseId": "task:A1-05-L1-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "En el museo hay doscientas fotos y treinta y cinco mapas.",
+      "notes": "Doscientas correctly agrees with fotos. The reviewed error treintaycinco is incorrect; the accepted joined spelling uses i: treintaicinco.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «cardinales», spelling of compound cardinals (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-05.amounts.compra",
+      "contentHash": "8aa3ba5485b33c4514a4ecbbb908517b5ee83f7d5b40195ce56714ca1f0c6c5c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.translationUk: «Кілограм помідорів і десяток яєць, будь ласка.»",
+          "description": "The transcript requests una docena de huevos, meaning twelve eggs. The Ukrainian translation requests ten eggs.",
+          "suggestion": "Use «Кілограм помідорів і дюжину яєць, будь ласка.»"
+        }
+      ],
+      "caseId": "clip:clip.a1-05.amounts.compra",
+      "verdict": "flawed",
+      "reviewerAnswer": "N/A: no learner task.",
+      "notes": "The Spanish transcript is correct. The recording itself was not assessed.",
+      "sources": [
+        "Course contract rule 8.",
+        "Packet: content.body.transcript contains «una docena de huevos».",
+        "RAE/ASALE, Diccionario de la lengua española, entry «docena» (from memory).",
+        "Словник української мови в 11 томах, entries «десяток» and «дюжина» (from memory)."
+      ]
+    }
+  ]
+}
