@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-05-C1.r2",
+  "packetHash": "4551a3954aada8cd5a1a7867e95f2459a34ea7145f080b11f085b124a6df7389",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "9289b20b33119d45897cdb68260d1ea3e83774e932074d39bc94af7fb7f98f80",
+    "reviewerPacketSha256": "bce703b7547647fc65da2d544a2d98813842c55ba244975a086cb1ce044932b3",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zf1tB3/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zf1tB3/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zf1tB3/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zf1tB3/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-zf1tB3/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bf25-da3c-7b12-ac64-a19b479236b5",
+        "version": "v0.166.0",
+        "tokens used": "51,821"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-05-C1",
+        "reviewerAnswer": "Not applicable: lesson overview, with no learner response requested.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-C1-T01",
+        "reviewerAnswer": "¿Dónde es el concierto?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore: missing event-location construction with ser, required by task.referenceAnswer «¿Dónde es el concierto?»",
+        "defect": "The mapped prerequisites teach location questions with estar and event-time questions with ser, but do not teach locating an event with ser. The rule hint gives only «¿Dónde…?»; the reveal supplies the answer without explaining this new construction.",
+        "correction": "Teach and map event location with ser before this check, including «El concierto es en la plaza» and «¿Dónde es el concierto?»; alternatively, use a situation requiring the already taught place-location construction with estar.",
+        "sources": [
+          "Course contract rule 1: constructions required for answering must be mapped as taught or explained in the prompt or a hint.",
+          "This case's context.taughtBefore: question.choice-missing-info models «¿Dónde está…?»; time.event.a-las models «¿A qué hora es la clase?»."
+        ],
+        "notes": "The Spanish reference answer is natural and correct. No closed key is declared, so omitted paraphrases alone do not establish wrongful rejection."
+      },
+      {
+        "caseId": "task:A1-05-C1-T02",
+        "reviewerAnswer": "El museo está cerca del hotel y abre a las diez.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.slots[0].errors[0].feedbackUk: «De + el завжди зливаються: del hotel.»",
+        "defect": "«Завжди» makes the contraction rule unconditional. Contraction is not used when El begins a proper name or title whose initial article is retained, as in «de El País». The sentence and slot answers themselves are correct.",
+        "correction": "Scope the feedback to this example: «Тут de + el зливаються: del hotel.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «el» (article), contraction with a/de and exceptions involving proper names and titles (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-C1-T03",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "No year is specified; the weekday and date do not establish a calendar inconsistency."
+      },
+      {
+        "caseId": "task:A1-05-C1-T04",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-C1-T05",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript supports option a. Audio realization is outside this text-only review."
+      },
+      {
+        "caseId": "task:A1-05-C1-T06",
+        "reviewerAnswer": "Cuesta ocho euros. Also acceptable: «Ocho euros.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "No closed key is declared; omitted valid paraphrases alone do not establish wrongful rejection."
+      },
+      {
+        "caseId": "clip:clip.a1-05.check.clase",
+        "reviewerAnswer": "The Spanish class is on Monday at six, in room four.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish transcript and Ukrainian translation agree. Audio realization is outside this text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-05-C1",
+      "contentHash": "4736d414ee995ddc0130eb696c9771457bf731b3ba2e91a5078655c360dfabb4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-05-C1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: lesson overview, with no learner response requested.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T01",
+      "contentHash": "6607bb525d7058e610102e59737b2c41ed5b0811b02767c1a350d95d1c2e4757",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: missing event-location construction with ser, required by task.referenceAnswer «¿Dónde es el concierto?»",
+          "description": "The mapped prerequisites teach location questions with estar and event-time questions with ser, but do not teach locating an event with ser. The rule hint gives only «¿Dónde…?»; the reveal supplies the answer without explaining this new construction.",
+          "suggestion": "Teach and map event location with ser before this check, including «El concierto es en la plaza» and «¿Dónde es el concierto?»; alternatively, use a situation requiring the already taught place-location construction with estar."
+        }
+      ],
+      "caseId": "task:A1-05-C1-T01",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Dónde es el concierto?",
+      "notes": "The Spanish reference answer is natural and correct. No closed key is declared, so omitted paraphrases alone do not establish wrongful rejection.",
+      "sources": [
+        "Course contract rule 1: constructions required for answering must be mapped as taught or explained in the prompt or a hint.",
+        "This case's context.taughtBefore: question.choice-missing-info models «¿Dónde está…?»; time.event.a-las models «¿A qué hora es la clase?»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T02",
+      "contentHash": "3c3e3ea93ca138c64209524b0a6d2eac8cd63263ab897af82db4f51792cbc712",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.slots[0].errors[0].feedbackUk: «De + el завжди зливаються: del hotel.»",
+          "description": "«Завжди» makes the contraction rule unconditional. Contraction is not used when El begins a proper name or title whose initial article is retained, as in «de El País». The sentence and slot answers themselves are correct.",
+          "suggestion": "Scope the feedback to this example: «Тут de + el зливаються: del hotel.»"
+        }
+      ],
+      "caseId": "task:A1-05-C1-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "El museo está cerca del hotel y abre a las diez.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «el» (article), contraction with a/de and exceptions involving proper names and titles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T03",
+      "contentHash": "df577fa439285cb4dfd65fa763575197140b16e9d22d3872c83d23e4f7db01eb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-C1-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "No year is specified; the weekday and date do not establish a calendar inconsistency.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T04",
+      "contentHash": "3a2e8d954c09d88ba36fa8083f490dfaf2d9cb88b5f9a4b9703d6529676f8ce7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-C1-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T05",
+      "contentHash": "59e40692d11e04d38f1e21e347a437fb37dceeec00d922ab6ff783ee0461677e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-C1-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The transcript supports option a. Audio realization is outside this text-only review.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T06",
+      "contentHash": "d7078cd3bfaff65bba22cd40180c701c4d1aeb7cb6f50988cc68f3e0f8486e8f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-C1-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "Cuesta ocho euros. Also acceptable: «Ocho euros.»",
+      "notes": "No closed key is declared; omitted valid paraphrases alone do not establish wrongful rejection.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-05.check.clase",
+      "contentHash": "080558b2086f4662a882c6afde75ff5abd3ca57578f967fa3c6f843f74d37632",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-05.check.clase",
+      "verdict": "valid",
+      "reviewerAnswer": "The Spanish class is on Monday at six, in room four.",
+      "notes": "The Spanish transcript and Ukrainian translation agree. Audio realization is outside this text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}
