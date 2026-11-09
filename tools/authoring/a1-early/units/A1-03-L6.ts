@@ -214,10 +214,10 @@ export const unit: Unit = {
       ['¿De donde eres?', { [IA_W]: 'x', [QD_W]: 'c' }, 'Dónde пишеться зі знаком наголосу.'],
       ['¿Dónde eres?', { [QD_W]: 'x', [IA_W]: 'c' }, '«Звідки?» — de dónde.'],
     ], '«Звідки?» — de dónde'),
-    t(43, 'independent', 'origin', [QD_W, WO_U], 'Спитай іспанською: «Звідки Ана?»', '¿De dónde es Ana?', [
+    t(43, 'independent', 'origin', [QD_W, WO_U], 'Спитай іспанською за базовим порядком, який ми тренуємо: «Звідки Ана?»', '¿De dónde es Ana?', [
       ['¿Dónde es Ana de?', { [WO_U]: 'x', [QD_W]: 'c' }, 'Прийменник стоїть перед питальним словом: ¿De dónde es Ana?'],
       ['¿De dónde Ana es?', { [WO_U]: 'x', [QD_W]: 'c' }, 'Після питального слова йде дієслово: ¿De dónde es Ana?'],
-      ['¿Ana de dónde es?', { [WO_U]: 'u', [QD_W]: 'c' }, 'Так буває в розмові, але основний порядок: ¿De dónde es Ana?'],
+      ['¿Ana de dónde es?', { [WO_U]: 'x', [QD_W]: 'c' }, 'Так теж кажуть у розмові (Ana винесено вперед), але завдання просить базовий порядок: ¿De dónde es Ana?'],
     ], 'De dónde + es + Ana'),
     t(44, 'delayed', 'where', [QD_W, IA_W], 'Спитай іспанською друга: «Де ти?»', '¿Dónde estás?', [
       ['¿Donde estás?', { [IA_W]: 'x', [QD_W]: 'c' }, 'Dónde пишеться зі знаком наголосу.'],
@@ -247,9 +247,9 @@ export const unit: Unit = {
       ['Hola, ¿como estás?', { [IA_W]: 'x', [QC_W]: 'c' }, 'Знак наголосу в cómo потрібен і тоді, коли питання стоїть після коми.'],
     ], '¿Cómo estás?', { also: ['¡Hola! ¿Cómo estás?', 'Hola. ¿Cómo estás?', 'Hola, ¿cómo estás tú?'] }),
     // ---------- word order: arrange ----------
-    t(61, 'supported', 'arrange', [WO_U], 'Склади питання з цих слів: «Де Пабло?»', '¿Dónde está Pablo?', [
+    t(61, 'supported', 'arrange', [WO_U], 'Склади з цих слів питання за базовим порядком: «Де Пабло?»', '¿Dónde está Pablo?', [
       ['¿Dónde Pablo está?', 'x', 'Після питального слова йде дієслово: ¿Dónde está Pablo?'],
-      ['¿Pablo dónde está?', 'u', 'Так буває в розмові, але основний порядок: ¿Dónde está Pablo?'],
+      ['¿Pablo dónde está?', 'x', 'Так теж кажуть у розмові (Pablo винесено вперед), але завдання просить базовий порядок: ¿Dónde está Pablo?'],
     ], 'Питальне слово → дієслово → підмет', { support: 'Пам’ятай: базовий порядок — питальне слово → дієслово → підмет.', shown: 'está / Pablo / dónde' }),
     t(62, 'delayed', 'arrange', [WO_U], 'Склади питання з цих слів: «Звідки твій викладач?»', '¿De dónde es tu profesor?', [
       ['¿Dónde es tu profesor de?', 'x', 'Прийменник стоїть перед питальним словом: ¿De dónde…?'],
@@ -259,7 +259,7 @@ export const unit: Unit = {
       ['¿De dónde es Ana?', 'c'], ['¿Dónde es Ana de?', 'x', 'Прийменник стоїть перед питальним словом.'], ['¿De dónde Ana es?', 'x', 'Після питального слова йде дієслово.'],
     ], 'Так: ¿De dónde es Ana?', 'Ні. Правильно: ¿De dónde es Ana?'),
     choice(67, 'delayed', 'choose-order', WO_C, [uk('Ти вперше питаєш перехожого про готель (не перепитуєш). Яке питання побудоване за звичайним порядком?')], [
-      ['¿Dónde está el hotel?', 'c'], ['¿Dónde el hotel está?', 'x', 'Після питального слова йде дієслово.'], ['¿El hotel está dónde?', 'x', 'Так можна хіба що перепитати; у звичайному питанні питальне слово стоїть на початку: ¿Dónde está el hotel?'],
+      ['¿Dónde está el hotel?', 'c'], ['¿Dónde el hotel está?', 'x', 'Після питального слова йде дієслово.'], ['¿El hotel está dónde?', 'x', 'Питальне слово в кінці теж трапляється в розмові, але це не той звичайний порядок, який тут просять: ¿Dónde está el hotel?'],
     ], 'Так: ¿Dónde está el hotel?', 'Ні. Правильно: ¿Dónde está el hotel?'),
     // ---------- interrogative accent: choice ----------
     choice(71, 'independent', 'choose-accent', IA_C, [uk('Яке питання написане правильно?')], [

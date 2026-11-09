@@ -141,15 +141,15 @@ export const unit: Unit = {
       ['Ana está casa.', { [EN_W]: 'x', [EL_U]: 'c' }, 'Перед місцем потрібне en: en casa.'],
       ['Ana está en la casa.', { [EL_U]: 'c', [EN_W]: 'u' }, 'Так кажуть «у будинку»; «вдома» — en casa, без артикля.'],
     ], 'Está en casa', { support: 'Пам’ятай: де знаходиться людина — estar + en + місце.' }),
-    t(2, 'supported', 'where-thing', LOC, 'Напиши іспанською: «Книжка на столі» (про конкретну книжку: el libro).', 'El libro está en la mesa.', [
+    t(2, 'supported', 'where-thing', LOC, 'Напиши іспанською з прийменником en: «Книжка на столі» (про конкретну книжку: el libro).', 'El libro está en la mesa.', [
       ['El libro es en la mesa.', { [EL_U]: 'x', [EN_W]: 'c' }, 'Де знаходиться річ — estar: está.'],
       ['El libro está la mesa.', { [EN_W]: 'x', [EL_U]: 'c' }, 'Перед місцем потрібне en: en la mesa.'],
-      ['El libro está sobre la mesa.', { [EL_U]: 'c', [EN_W]: 'u' }, 'Теж правильно: sobre — «на, зверху». Тут тренуємо en: en la mesa.'],
+      ['El libro está sobre la mesa.', { [EL_U]: 'c', [EN_W]: 'x' }, 'Речення правильне: sobre — «на, зверху». Але завдання просить прийменник en: en la mesa.'],
     ], 'Está en la mesa', { support: 'Пам’ятай: «на столі» — en la mesa.' }),
     t(3, 'independent', 'where', LOC, 'Напиши іспанською: «Мої батьки в Києві».', 'Mis padres están en Kiev.', [
       ['Mis padres son en Kiev.', { [EL_U]: 'x', [EN_W]: 'c' }, 'Де знаходяться люди — estar: están.'],
       ['Mis padres están Kiev.', { [EN_W]: 'x', [EL_U]: 'c' }, 'Перед містом потрібне en.'],
-      ['Mis padres son de Kiev.', { [EL_U]: 'u', [EN_W]: 'u' }, 'Речення правильне, але означає «Мої батьки з Києва» (походження). Тут потрібне, де вони: están en Kiev.'],
+      ['Mis padres son de Kiev.', { [EL_U]: 'u', [EN_W]: 'u' }, 'Речення правильне, але означає «Мої батьки з Києва» (походження). Тут треба сказати, де вони перебувають: están en Kiev.'],
     ], 'Están en + місто', { also: ['Mis padres están en Kyiv.'] }),
     t(4, 'independent', 'where-thing', LOC, 'Напиши іспанською: «Ключі на кухні» (про конкретні ключі: las llaves).', 'Las llaves están en la cocina.', [
       ['Las llaves son en la cocina.', { [EL_U]: 'x', [EN_W]: 'c' }, 'Де знаходиться річ — estar: están.'],
@@ -170,7 +170,7 @@ export const unit: Unit = {
     ], 'Está en la oficina'),
     t(8, 'delayed', 'where', LOC, 'Напиши іспанською: «Моя сестра в Мадриді».', 'Mi hermana está en Madrid.', [
       ['Mi hermana es en Madrid.', { [EL_U]: 'x', [EN_W]: 'c' }, 'Де знаходиться людина — estar.'],
-      ['Mi hermana es de Madrid.', { [EL_U]: 'u', [EN_W]: 'u' }, 'Речення правильне, але означає «Моя сестра з Мадрида». Тут потрібне, де вона: está en Madrid.'],
+      ['Mi hermana es de Madrid.', { [EL_U]: 'u', [EN_W]: 'u' }, 'Речення правильне, але означає «Моя сестра з Мадрида». Тут треба сказати, де вона перебуває: está en Madrid.'],
     ], 'Está en + місто'),
     t(9, 'transfer', 'chat', LOC, 'Друг пише в чаті й питає, де ти. Відповідай іспанською: «Я в банку».', 'Estoy en el banco.', [
       ['Soy en el banco.', { [EL_U]: 'x', [EN_W]: 'c' }, 'Де ти знаходишся — estar: estoy.'],
@@ -179,7 +179,7 @@ export const unit: Unit = {
     t(10, 'transfer', 'note', LOC, 'Ти залишаєш записку сусідові: «Ключ у кімнаті Ани».', 'La llave está en la habitación de Ana.', [
       ['La llave es en la habitación de Ana.', { [EL_U]: 'x', [EN_W]: 'c' }, 'Де знаходиться річ — estar.'],
       ['La llave está la habitación de Ana.', { [EN_W]: 'x', [EL_U]: 'c' }, 'Перед місцем потрібне en.'],
-    ], 'Está en la habitación de Ana'),
+    ], 'Está en la habitación de Ana', { gl: [ex('la habitación de Ana', 'кімната Ани')] }),
     // ---------- present.estar forms ----------
     t(11, 'supported', 'fill', [ES_W], 'Допиши форму estar (можна написати лише її або все речення).', 'Yo estoy en casa.', [
       ['Yo está en casa.', 'x', 'З yo — estoy.'],
@@ -292,7 +292,7 @@ export const unit: Unit = {
       ['Ana es contenta.', 'x', 'Стан — estar: Ana está contenta.'],
     ], 'Está + стан', { support: 'Пам’ятай: Ana está cansada — estar для стану.' }),
     t(43, 'independent', 'feel', [ST_U], 'Друг питає, як у вас справи загалом. Відповідай іспанською: «У нас усе добре» (дослівно: «Ми добре»).', 'Estamos bien.', [
-      ['Estamos buenos.', 'x', 'Тут потрібен прислівник bien — «добре», він не змінюється: Estamos bien. Bueno — окремий прикметник «добрий»; estar bueno має інші значення (наприклад, «одужати»), а не «у нас усе добре».'],
+      ['Estamos buenos.', 'x', 'Тут потрібен прислівник bien — «добре», він не змінюється: Estamos bien. Bueno — окремий прикметник «добрий»; estar bueno має інші значення (наприклад, «бути здоровим після хвороби»), а не «у нас усе добре».'],
       ['Somos bien.', 'x', 'Як почуваємося — estar: Estamos bien.'],
     ], 'Estamos bien', { also: ['Nosotros estamos bien.', 'Nosotras estamos bien.'] }),
     t(44, 'independent', 'feel', [ST_U], 'Пабло сьогодні не прийшов на роботу. Напиши іспанською: «Пабло хворий».', 'Pablo está enfermo.', [

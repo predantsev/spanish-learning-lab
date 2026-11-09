@@ -98,21 +98,21 @@ export const unit: Unit = {
   tasks: [
     // ---------- hay.existence (construction-use) ----------
     t(1, 'supported', 'room', [HY_U], 'Напиши іспанською: «На столі є книжка».', 'Hay un libro en la mesa.', [
-      ['Hay el libro en la mesa.', 'x', 'Після hay не ставимо el/la: Hay un libro.'],
+      ['Hay el libro en la mesa.', 'x', 'Тут повідомляємо, що на столі є якась книжка: Hay un libro en la mesa. Про відому книжку сказали б El libro está en la mesa.'],
       ['Está un libro en la mesa.', 'x', 'Що десь є (нова річ) — hay: Hay un libro en la mesa.'],
       ['Es un libro en la mesa.', 'x', 'Що десь є — hay: Hay un libro en la mesa.'],
-    ], 'Hay + un/una', { support: 'Пам’ятай: «є» — hay, після нього un/una.', also: ['En la mesa hay un libro.'] }),
+    ], 'Hay + un/una', { support: 'Пам’ятай: «є» — hay, після нього зазвичай un/una.', also: ['En la mesa hay un libro.'] }),
     t(2, 'supported', 'room', [HY_U], 'Напиши іспанською: «На кухні є стільці».', 'Hay sillas en la cocina.', [
-      ['Hay las sillas en la cocina.', 'x', 'Після hay не ставимо las: Hay sillas / Hay unas sillas.'],
+      ['Hay las sillas en la cocina.', 'x', 'Тут повідомляємо, що на кухні є стільці: Hay sillas / Hay unas sillas.'],
       ['Están unas sillas en la cocina.', 'x', 'Що десь є — hay, і він не змінюється: Hay sillas.'],
     ], 'Hay — одна форма', { support: 'Пам’ятай: hay не змінюється й у множині.', also: ['Hay unas sillas en la cocina.', 'En la cocina hay sillas.', 'En la cocina hay unas sillas.'] }),
     t(3, 'independent', 'street', [HY_U], 'Напиши іспанською: «На моїй вулиці є аптека».', 'En mi calle hay una farmacia.', [
-      ['En mi calle hay la farmacia.', 'x', 'Після hay не ставимо la: hay una farmacia.'],
+      ['En mi calle hay la farmacia.', 'x', 'Тут повідомляємо, що на вулиці є аптека: hay una farmacia.'],
       ['En mi calle está una farmacia.', 'x', 'Що десь є — hay.'],
     ], 'Hay + una', { also: ['Hay una farmacia en mi calle.'] }),
     t(4, 'independent', 'street', [HY_U], 'Спитай іспанською перехожого: «Тут є готель?»', '¿Hay un hotel aquí?', [
       ['¿Está un hotel aquí?', 'x', 'Чи щось є — hay: ¿Hay un hotel aquí?'],
-      ['¿Hay el hotel aquí?', 'x', 'Після hay не ставимо el: ¿Hay un hotel aquí?'],
+      ['¿Hay el hotel aquí?', 'x', 'Питаємо, чи тут узагалі є готель: ¿Hay un hotel aquí?'],
     ], '¿Hay…?', { also: ['¿Aquí hay un hotel?', '¿Hay hotel aquí?', '¿Hay un hotel por aquí?'] }),
     t(6, 'independent', 'street', [HY_U], 'Напиши іспанською: «На площі є ресторан».', 'En la plaza hay un restaurante.', [
       ['En la plaza está un restaurante.', 'x', 'Що десь є — hay.'],
@@ -120,15 +120,15 @@ export const unit: Unit = {
     ], 'Hay + un', { also: ['Hay un restaurante en la plaza.'] }),
     t(7, 'delayed', 'street', [HY_U], 'Напиши іспанською: «У парку є кав’ярня» (кав’ярня — un café).', 'En el parque hay un café.', [
       ['En el parque está un café.', 'x', 'Що десь є — hay.'],
-      ['En el parque hay el café.', 'x', 'Після hay не ставимо el.'],
+      ['En el parque hay el café.', 'x', 'Тут повідомляємо, що в парку є кав’ярня: hay un café.'],
     ], 'Hay + un', { also: ['Hay un café en el parque.', ['En el parque hay una cafetería.', 'Cafetería ми ще не вивчали, але речення правильне.'], ['Hay una cafetería en el parque.', 'Cafetería ми ще не вивчали, але речення правильне.']] }),
     t(9, 'transfer', 'ad', [HY_U], 'Ти пишеш оголошення про квартиру: «У квартирі є велика кухня».', 'En el piso hay una cocina grande.', [
       ['En el piso está una cocina grande.', 'x', 'Що десь є — hay.'],
-      ['En el piso hay la cocina grande.', 'x', 'Після hay не ставимо la.'],
+      ['En el piso hay la cocina grande.', 'x', 'Тут повідомляємо, що в квартирі є велика кухня: hay una cocina grande.'],
     ], 'Hay + una', { also: ['Hay una cocina grande en el piso.'] }),
     t(10, 'transfer', 'message', [HY_U], 'Ти пишеш другові, який шукає, де купити їжу: «На моїй вулиці є супермаркет».', 'En mi calle hay un supermercado.', [
       ['En mi calle está un supermercado.', 'x', 'Що десь є — hay.'],
-      ['En mi calle hay el supermercado.', 'x', 'Після hay не ставимо el.'],
+      ['En mi calle hay el supermercado.', 'x', 'Тут повідомляємо, що на вулиці є супермаркет: hay un supermercado.'],
     ], 'Hay + un', { also: ['Hay un supermercado en mi calle.'] }),
     // ---------- hay.existence (written-form) ----------
     t(11, 'supported', 'fill', [HY_W], 'Допиши пропущене слово (можна написати лише його або все речення): «На площі є банк».', 'Hay un banco en la plaza.', [
@@ -177,8 +177,8 @@ export const unit: Unit = {
     // ---------- contrast.hay-estar (construction-use) ----------
     t(31, 'supported', 'rewrite', [HE_U], 'Перепиши речення так, щоб сказати, де знаходиться ця (уже відома) книжка: el libro.', 'El libro está en la mesa.', [
       ['El libro hay en la mesa.', 'x', 'З el libro (відома річ) — está.'],
-      ['Hay el libro en la mesa.', 'x', 'Після hay не ставимо el; про відому книжку — El libro está en la mesa.'],
-    ], 'Відома річ — está', { support: 'Пам’ятай: hay + un/una; el/la + estar.', shown: 'Hay un libro en la mesa.' }),
+      ['Hay el libro en la mesa.', 'x', 'Тут говоримо про місце відомої книжки: El libro está en la mesa.'],
+    ], 'Відома річ — está', { support: 'Пам’ятай: що десь є — hay; де відома річ — estar.', shown: 'Hay un libro en la mesa.' }),
     t(32, 'independent', 'dialogue', [HE_U], 'Тебе питають: «¿Dónde está la farmacia?». Відповідай: «Аптека на площі».', 'La farmacia está en la plaza.', [
       ['Hay la farmacia en la plaza.', 'x', 'Про відому аптеку (la farmacia) — está.'],
       ['En la plaza hay una farmacia.', 'u', 'Речення правильне, але повідомляє, що аптека є; на питання «де?» відповідаємо: La farmacia está en la plaza.'],
@@ -191,9 +191,9 @@ export const unit: Unit = {
       ['¿Está un supermercado aquí?', 'x', 'Чи щось є — ¿Hay…?'],
       ['¿Dónde está el supermercado?', 'u', 'Питання правильне, але так питають про відомий супермаркет; тут — чи він узагалі є: ¿Hay un supermercado aquí?'],
     ], '¿Hay…?', { also: ['¿Aquí hay un supermercado?', '¿Hay supermercado aquí?', '¿Hay un supermercado por aquí?'] }),
-    t(35, 'transfer', 'host-note', [HE_U], 'Ти залишаєш записку гостеві: «Ключ на столі».', 'La llave está en la mesa.', [
+    t(35, 'transfer', 'host-note', [HE_U], 'Гість знає, що ти залишиш йому ключ від квартири, і знає, про який ключ ідеться. Ти пишеш йому записку: «Ключ на столі».', 'La llave está en la mesa.', [
       ['Hay la llave en la mesa.', 'x', 'Ключ — відомий, конкретний: está.'],
-      ['Hay una llave en la mesa.', 'u', 'Речення правильне, але повідомляє лише, що на столі є якийсь ключ; гостеві кажемо, де ключ: La llave está en la mesa.'],
+      ['Hay una llave en la mesa.', 'x', 'Так повідомляють, що на столі є якийсь ключ. Гість уже знає, про який ключ ідеться, тому кажемо, де він: La llave está en la mesa.'],
     ], 'La llave — está'),
     t(36, 'transfer', 'ad-text', [HE_U], 'Ти пишеш в оголошенні два речення: «На площі є ресторан. Ресторан відчинений».', 'En la plaza hay un restaurante. El restaurante está abierto.', [
       ['En la plaza está un restaurante. El restaurante está abierto.', 'x', 'Спершу повідомляємо, що ресторан є: hay un restaurante.'],
@@ -212,7 +212,7 @@ export const unit: Unit = {
     ], 'Mi madre — está'),
     t(40, 'independent', 'room', [HE_U], 'Напиши іспанською: «На кухні є стіл».', 'En la cocina hay una mesa.', [
       ['En la cocina está una mesa.', 'x', 'Що десь є — hay una mesa.'],
-      ['En la cocina hay la mesa.', 'x', 'Після hay не ставимо la.'],
+      ['En la cocina hay la mesa.', 'x', 'Тут повідомляємо, що на кухні є стіл: En la cocina hay una mesa.'],
     ], 'Hay + una', { also: ['Hay una mesa en la cocina.'] }),
     // ---------- listening ----------
     pick({
