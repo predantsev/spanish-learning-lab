@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-02-L1.r2",
+  "jobId": "2f32b916-f72d-4722-863e-aca411738fce",
+  "receiptId": "3484798e-81fe-49fb-a4f4-92947095cfee",
+  "recordedAt": "2026-11-09T00:22:05.020Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L1-T21",
+      "contentHash": "7fe6e1b9897f8542710cd56c69f37d3ee0e0342e2da1690910385f5ace2052fb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Ти підписуєш фото для власного словника. Напиши з означеним артиклем слово café («кава»).\"; context.taughtBefore does not list \"el café\".",
+          "description": "The answer is linguistically correct, but the prerequisite is unresolved. The taught -e/consonant principle requires memorizing lexical gender; it does not determine the gender of café. The prompt supplies its meaning but not its gender. Café is ordinary A1 vocabulary and might have been learned earlier, so its omission alone does not establish a definite teaching violation.",
+          "suggestion": "Confirm and document prior teaching of el café. If its gender is new, introduce it before this assessment or use a noun whose gender is already documented as taught."
+        }
+      ],
+      "caseId": "task:A1-02-L1-T21",
+      "verdict": "uncertain",
+      "reviewerAnswer": "el café",
+      "notes": "Prior teaching of the masculine gender of café is unconfirmed: it is absent from this case's taughtBefore list and the supplied lesson. The reveal hint supplies the answer after help is requested.",
+      "sources": [
+        "Course contract 1: teach before testing, including the exception for ordinary vocabulary potentially taught in earlier lessons."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L1-T36",
+      "contentHash": "a26e203335a844cd1a12fe7bd4db5e3c0444d1df5f4e0f3c5ea6b7f4c9813185",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[1].feedbackUk: \"Estudianta трапляється лише в розмовній мові; у нейтральному стилі estudiante має одну форму, рід показує артикль: la estudiante.\"",
+          "description": "The categorical restriction \"лише в розмовній мові\" misrepresents the usage information. Estudianta is recorded as little used; that frequency label does not mean exclusively colloquial. The requested answer la estudiante is correct.",
+          "suggestion": "Describe estudianta as a rare feminine form, without claiming exclusively colloquial usage. Explain that this task explicitly requires estudiante, whose neutral feminine construction is la estudiante."
+        }
+      ],
+      "caseId": "task:A1-02-L1-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "la estudiante",
+      "notes": "The explicit instruction \"Використай вивчене слово estudiante\" makes the requested response unambiguous; the existence of estudianta does not require accepting it here.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry estudianta: little-used feminine noun (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry estudiante: common gender and the regular feminine la estudiante (from memory)."
+      ]
+    }
+  ]
+}
