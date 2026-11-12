@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L4.r3",
+  "packetHash": "42dbe02c4f22649164c1038c63adb93786aa7b9d11b1f115409ca792d28e69b0",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "d4e8817364602a0e24e694e4c47f07e96cbf86c10a1c33e3d70e137ee7fbf323",
+    "reviewerPacketSha256": "45c0bb41d9f9017e2347939dc0fcb259c5182ead5071c9098c44f8461ba9818b",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-VF0apt/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-VF0apt/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-VF0apt/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-VF0apt/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-VF0apt/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdfc-5748-7f20-a612-b65f51dfbad5",
+        "version": "v0.166.0",
+        "tokens used": "42,709"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-04-L4",
+        "reviewerAnswer": "Not an exercise. The expected patterns include \"me levanto\", \"te levantas\", \"se levanta\", \"nos levantamos\", \"os levantáis\", \"se levantan\" and \"No me levanto\".",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The placement explanation is appropriate within the present-indicative scope indicated by the prerequisites and examples. Explicitly adding “У теперішньому часі” would clarify that scope; affirmative imperatives require a different placement rule."
+      },
+      {
+        "caseId": "task:A1-04-L4-T11",
+        "reviewerAnswer": "\"Me levanto temprano.\" Another possible order is \"Temprano me levanto.\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "No closed key is specified, so the additional grammatical order is not demonstrably rejected. The instruction does not explicitly prohibit adding the optional subject “yo”."
+      },
+      {
+        "caseId": "task:A1-04-L4-T12",
+        "reviewerAnswer": "\"No me ducho en casa.\" Also possible: \"Yo no me ducho en casa.\" or \"En casa no me ducho.\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not declared closed; omitted grammatical word orders do not establish incorrect grading."
+      },
+      {
+        "caseId": "task:A1-04-L4-T13",
+        "reviewerAnswer": "\"Me ducho.\" or \"Yo me ducho.\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L4-T14",
+        "reviewerAnswer": "\"ducharse\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The request specifically asks for the dictionary form, so rejecting “ducharme” is justified."
+      },
+      {
+        "caseId": "task:A1-04-L4-T15",
+        "reviewerAnswer": "\"Nos lavamos.\" A more explicit face-washing translation is \"Nos lavamos la cara.\" Either may include “nosotros” or “nosotras”.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The accepted wording is compatible with the morning-washing context. The key is not declared closed, so the more explicit translation is not demonstrably rejected."
+      },
+      {
+        "caseId": "task:A1-04-L4-T16",
+        "reviewerAnswer": "\"No te levantas temprano.\" or \"Tú no te levantas temprano.\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L4-T17",
+        "reviewerAnswer": "\"Ana se peina.\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L4-T18",
+        "reviewerAnswer": "\"levantarse\"",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The request specifically asks for the dictionary form, so rejecting “levantarnos” is justified."
+      },
+      {
+        "caseId": "task:A1-04-L4-T19",
+        "reviewerAnswer": "\"Mis hermanos no se levantan temprano.\" Other grammatical constituent orders are possible.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The omission of ordinary A1 vocabulary such as “mis” and “hermanos” from the prerequisite mapping does not establish an untaught prerequisite under course contract rule 1. No closed key is specified."
+      },
+      {
+        "caseId": "task:A1-04-L4-T20",
+        "reviewerAnswer": "\"¿Os ducháis en el gimnasio?\" Optional subjects include “vosotros” and “vosotras”; \"¿Os ducháis vosotros en el gimnasio?\" is also possible.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The informal plural forms fit the stated audience of friends. No closed key is specified, so alternative subject positions are not demonstrably rejected."
+      },
+      {
+        "caseId": "task:A1-04-L4-T24",
+        "reviewerAnswer": "Option b.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript supports option b, and its Ukrainian translation is accurate. This verdict covers the supplied text; the recording itself was not available for assessment."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L4",
+      "contentHash": "44bc1a5fabb882dc76f075a98d7fd6dddf8882fb03b5439069a061380931e024",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-04-L4",
+      "verdict": "valid",
+      "reviewerAnswer": "Not an exercise. The expected patterns include \"me levanto\", \"te levantas\", \"se levanta\", \"nos levantamos\", \"os levantáis\", \"se levantan\" and \"No me levanto\".",
+      "notes": "The placement explanation is appropriate within the present-indicative scope indicated by the prerequisites and examples. Explicitly adding “У теперішньому часі” would clarify that scope; affirmative imperatives require a different placement rule.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T11",
+      "contentHash": "1e8d63e336b2a2cebe5cc5a3d4c431984960923024d5b293026e71d32ee4c416",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "\"Me levanto temprano.\" Another possible order is \"Temprano me levanto.\"",
+      "notes": "No closed key is specified, so the additional grammatical order is not demonstrably rejected. The instruction does not explicitly prohibit adding the optional subject “yo”.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T12",
+      "contentHash": "528773f022215b462b18c4d051c55b3a861f33f4a38c4b35b42f52b7bde8ea1e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "\"No me ducho en casa.\" Also possible: \"Yo no me ducho en casa.\" or \"En casa no me ducho.\"",
+      "notes": "The key is not declared closed; omitted grammatical word orders do not establish incorrect grading.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T13",
+      "contentHash": "6bf929e8714fe8dfa37d7c32c773f1037284acd1fc113808ca5d5065ef3bd205",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "\"Me ducho.\" or \"Yo me ducho.\"",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T14",
+      "contentHash": "02876f55f2f2853727e4e5ea5dbad590b95e9bb81ad7612d9467e67272e60bab",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "\"ducharse\"",
+      "notes": "The request specifically asks for the dictionary form, so rejecting “ducharme” is justified.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T15",
+      "contentHash": "9a7f2c3fc5b663c3a3f60ceb6022bf7ceeb933875287a3b2692f134d76d9995d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "\"Nos lavamos.\" A more explicit face-washing translation is \"Nos lavamos la cara.\" Either may include “nosotros” or “nosotras”.",
+      "notes": "The accepted wording is compatible with the morning-washing context. The key is not declared closed, so the more explicit translation is not demonstrably rejected.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T16",
+      "contentHash": "550c05a905303515de5bf513ff32fc5d6bc57560ce4f03aa9a86295a6adee700",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "\"No te levantas temprano.\" or \"Tú no te levantas temprano.\"",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T17",
+      "contentHash": "115be9f727746de2d1c4025217128ded1b0cf420fa00a08ef274cb0ccc4109b0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "\"Ana se peina.\"",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T18",
+      "contentHash": "a3864bb8d621dfd6bf1c0cca1520fed2317aa48f98fb593923e79ff33e77b2fc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "\"levantarse\"",
+      "notes": "The request specifically asks for the dictionary form, so rejecting “levantarnos” is justified.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T19",
+      "contentHash": "7f381637a28fa00af0db114e15f0d76c5e93b58adae2d5c4cd7220b75d2bb5d5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T19",
+      "verdict": "valid",
+      "reviewerAnswer": "\"Mis hermanos no se levantan temprano.\" Other grammatical constituent orders are possible.",
+      "notes": "The omission of ordinary A1 vocabulary such as “mis” and “hermanos” from the prerequisite mapping does not establish an untaught prerequisite under course contract rule 1. No closed key is specified.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T20",
+      "contentHash": "01e1ccf0ab5f7996f05f50e773f289d20d9ea6213306f4af496bbed2dbd92cd8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "\"¿Os ducháis en el gimnasio?\" Optional subjects include “vosotros” and “vosotras”; \"¿Os ducháis vosotros en el gimnasio?\" is also possible.",
+      "notes": "The informal plural forms fit the stated audience of friends. No closed key is specified, so alternative subject positions are not demonstrably rejected.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L4-T24",
+      "contentHash": "c6ee714260f8862916de7deaa2d3920c4594db378cf1883b674348bce8f6f1f9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L4-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "Option b.",
+      "notes": "The transcript supports option b, and its Ukrainian translation is accurate. This verdict covers the supplied text; the recording itself was not available for assessment.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

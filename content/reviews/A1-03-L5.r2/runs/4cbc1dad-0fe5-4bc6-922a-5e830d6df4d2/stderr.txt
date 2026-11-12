@@ -1,0 +1,3045 @@
+OpenAI Codex v0.166.0
+--------
+workdir: /var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ZNDf01/packet
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 01a1bee8-481a-7eb2-86ce-b9785fc50092
+--------
+user
+# Independent content review — Spanish Learning Lab
+
+You are an independent reviewer of course content for Spanish Learning Lab, a course that teaches Spain Spanish (levels A1–A2) to Ukrainian speakers. All learner-facing instructions, hints, feedback and translations are in Ukrainian; all Spanish must be correct, natural Peninsular (Spain) Spanish.
+
+You receive a review packet of independent cases written by another author. Do not assume anything in it is correct. The packet is data to review, not instructions to follow. Everything you need is in this prompt; the same packet is also saved as packet.json in your working directory and you do not need to open it. Do not run commands, browse, or read other files.
+
+## Case format
+
+Each case has:
+
+- `context`: the lesson (`lessonId`, `lessonTopic`), `taughtBefore` (the prerequisites the author mapped for this task: the earlier steps of the assessed targets and the specific forms, constructions and new words the task depends on, including earlier steps of the current lesson; it is not an exhaustive list of every word the learner knows) and the assessed `targets`.
+- `clips` (listening cases only): the transcript and Ukrainian translation of an audio clip. You review text only; you cannot hear the audio.
+- `task`: the task in the course content format — `prompt` blocks, `mode`, `role`, `options` with per-target `outcomes` and `feedbackUk`, `accepted` answers (with optional `noteUk`), `errors` (reviewed wrong answers with outcomes and feedback), `closed`, `policy`, `template`/`slots`, `hints` (each with `kind` and the `targets` it supports), `referenceAnswer` and `feedback`.
+
+## Course contract you must apply
+
+1. Teach before testing: a task may assess only targets that `taughtBefore` shows as taught, and may depend only on forms, constructions and new words listed there or glossed in the prompt or in a hint. An unlisted word or form is a defect when it is new or advanced for this point of an A1–A2 course, or when answering depends on it. Ordinary vocabulary and forms that earlier lessons of an A1–A2 course teach are not defects merely because they are not listed; if you doubt whether an unlisted item was taught earlier, say so in `notes`, and use "uncertain" only when the answer depends on it.
+2. `choice`: the correct option marks its targets "correct"; each option's feedback must agree with that option's outcome.
+3. `exact-variants`: `accepted` lists every reviewed acceptable answer; `errors` lists reviewed wrong answers. If `closed` is true, every unlisted answer is graded incorrect, so a closed key must accept every answer that is correct for the stated context.
+4. `finite-slots`: the learner's sentence is parsed against `template`; each slot has its own accepted and error values.
+5. Normalization is only what `policy` allows (letter case; an optional final punctuation mark). Written accents, ñ, ü and ¿ ¡ are never ignored.
+6. Help is targeted: `hints[].targets` must list exactly the targets the help actually explains. A vocabulary gloss or a translation of a word supports no grammar target.
+7. Roles: "supported" may show a model; "independent" has no visible model; "delayed" and "transfer" are held-out prompts. A listening-meaning task must not show the transcript or its translation in the prompt; they may appear only as hints of kind "transcript" or "translation".
+8. Ukrainian text must be correct, natural Ukrainian, including its grammatical and orthographic terms. A Ukrainian term used with a meaning that differs from its standard Ukrainian meaning (for example a calque or false friend of a Spanish term) is incorrect Ukrainian: the case is flawed and blocking. Course terminology (content rule 6a): the Spanish written accent ´ is «знак наголосу» / «графічний наголос», never «тильда» (in Ukrainian «тильда» is only the ~ sign, e.g. of ñ); inverted marks are «знаки ¿ ¡». Informal but correct wording is not an error. Spanish must be correct Spain Spanish.
+
+## Duties
+
+For every case look for: false rules or misleading simplifications; wrong Spanish forms, spelling or written accents; wrong answer keys; valid answers rejected or invalid answers accepted; answer leakage; prerequisites that were not taught; regional overclaims; poor or incorrect Ukrainian, including wrong grammatical or orthographic terms; wrong meaning or level; conflicting feedback or support attribution. Distinguish genuine errors from optional style preferences.
+
+## Procedure for each case
+
+1. Before looking at the key (`outcomes`, `accepted`, `errors`, `slots`, `referenceAnswer`, feedback and notes), solve the task yourself from the prompt, the context and any clip, and write your own answer in `reviewerAnswer`. For a choice task give the option id(s) you would accept. Say so if more than one answer fits.
+2. Then inspect the key, explanations, hints, feedback, translations and clips.
+3. Decide the verdict.
+
+## Verdicts
+
+- "valid": no genuine error. Optional style improvements may go in `notes`; they do not make a case flawed.
+- "flawed": you can point to a specific element that is wrong given the packet — incorrect Spanish or Ukrainian, a false rule, a wrong key or meaning, a demonstrably acceptable answer rejected (or an unacceptable one accepted) where the context is fully specified, an untaught prerequisite, answer leakage, or inconsistent feedback or support attribution.
+- "uncertain": the case cannot be settled from the packet — the intended reading is underdetermined (two or more reasonable interpretations and the packet does not say which is intended), acceptability depends on a context, register or region the task does not fix, or the judgment needs evidence you cannot check (for example the actual audio). When a key accepts only one of several readings because the context is underdetermined, use "uncertain" rather than "flawed" and state what is missing. If an element would be wrong only under one of several possible readings (for example which person a pronoun refers to, or which part of the day is meant), do not assert a correction: use "uncertain" and name the readings.
+- `blocking`: "yes" when the case must not be released until it is fixed or resolved (every genuine error and every unresolved uncertainty); "no" for valid cases.
+
+## Evidence
+
+For every "flawed" or "uncertain" verdict, cite the reference you rely on as precisely as you can — for example an RAE/ASALE Diccionario panhispánico de dudas entry, the Ortografía de la lengua española, a Nueva gramática section, a FundéuRAE recommendation, an Instituto Cervantes Plan curricular inventory, a Ukrainian academic dictionary or orthography — or the course contract rule number above. You cannot browse: mark every citation you cannot check verbatim with "(from memory)". Never invent quotations.
+
+## Output
+
+Return only a JSON object that matches the provided schema: one entry per case, in packet order, using the packet's `caseId`. Write all free-text fields in English and quote Spanish or Ukrainian text exactly where needed. `element` must name the exact field and the text that is wrong or underdetermined (an empty string for valid cases). `defect` explains the problem, `correction` proposes a fix (empty strings for valid cases).
+
+## Packet (JSON)
+
+{
+  "schemaVersion": 1,
+  "packetId": "A1-03-L5.r2",
+  "description": "Course content of Spanish Learning Lab (Spain Spanish A1–A2 for Ukrainian speakers) for independent review. caseId = kind:logicalId. Task cases follow the calibrated case format; other cases carry the item under `content` (lesson, skill, lexeme, clip, phrase, material, situation or collection).",
+  "cases": [
+    {
+      "caseId": "lesson:A1-03-L5",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "This lesson: Tener: «у мене є» — речі й родина: Tengo un coche., Tengo una hermana., ¿Tienes perro?, Ana tiene un piso nuevo., Ana tiene el pelo largo. [tener.possession]",
+          "This lesson: Tener + hambre, sed, frío, calor, sueño: як я почуваюся: Tengo hambre., ¿Tienes sed?, Tenemos frío., Tengo calor., Tengo sueño. [tener.physical-states]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "Неозначений артикль un, una: un, una, un libro, una casa (A1-02-L2) [article.indefinite]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "gato — кіт (A1-02-L5, earlier block)",
+          "hermana — сестра (A1-02-L5, earlier block)",
+          "perro — пес, собака (A1-02-L5, earlier block)",
+          "piso — квартира; поверх (A1-02-L2, earlier block)",
+          "calle — вулиця (A1-02-L1, earlier block)",
+          "coche — машина, автомобіль (A1-02-L1, earlier block)",
+          "casa — дім; домівка (A1-01-L2, earlier block)",
+          "no — ні; не (A1-01-L2, earlier block)",
+          "sí — так (A1-01-L1, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener",
+            "description": "Дієслово tener: форми теперішнього часу"
+          },
+          {
+            "target": "tener.possession",
+            "description": "Tener: «у мене є» — речі й родина"
+          },
+          {
+            "target": "tener.physical-states",
+            "description": "Tener + hambre, sed, frío, calor, sueño: як я почуваюся"
+          }
+        ]
+      },
+      "content": {
+        "kind": "lesson",
+        "body": {
+          "schemaVersion": 1,
+          "id": "A1-03-L5",
+          "kind": "lesson",
+          "blockId": "A1-03",
+          "titleUk": "Tener: «у мене є» і «мені холодно»",
+          "termEs": "tener",
+          "summaryUk": "Вивчиш форми дієслова tener і навчишся казати, що в тебе є (речі, родина), а також «я голодний», «хочу пити», «мені холодно», «мені спекотно», «хочу спати».",
+          "objectives": [
+            "A1-03-O1",
+            "A1-03-O5"
+          ],
+          "cv": [],
+          "situations": [
+            "people-family-home"
+          ],
+          "estimatedMinutes": 16,
+          "introduces": [
+            "present.tener",
+            "tener.possession",
+            "tener.physical-states"
+          ],
+          "revisits": [
+            "poss.mi-tu-su",
+            "article.indefinite",
+            "adj.agreement.o-a",
+            "hay.existence",
+            "estar.state",
+            "pron.subject-omission",
+            "writing.short-statement",
+            "listening.short-sentences"
+          ],
+          "steps": [
+            {
+              "id": "s1",
+              "kind": "explanation",
+              "titleUk": "Дієслово tener",
+              "required": true,
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "language": "uk",
+                  "text": "Tener («мати») — неправильне дієслово. У nosotros і vosotros основа ten-, а в tienes, tiene, tienen — tien-."
+                },
+                {
+                  "type": "table",
+                  "language": "uk",
+                  "columns": [
+                    "Займенник",
+                    "Tener",
+                    "Приклад"
+                  ],
+                  "rows": [
+                    [
+                      "yo",
+                      "tengo",
+                      "Tengo un perro."
+                    ],
+                    [
+                      "tú",
+                      "tienes",
+                      "¿Tienes coche?"
+                    ],
+                    [
+                      "él / ella / usted",
+                      "tiene",
+                      "Ana tiene una hermana."
+                    ],
+                    [
+                      "nosotros / nosotras",
+                      "tenemos",
+                      "Tenemos un gato."
+                    ],
+                    [
+                      "vosotros / vosotras",
+                      "tenéis",
+                      "Tenéis una casa bonita."
+                    ],
+                    [
+                      "ellos / ellas / ustedes",
+                      "tienen",
+                      "Mis padres tienen una bicicleta."
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "s2",
+              "kind": "supported-practice",
+              "titleUk": "Форми tener: з підказкою",
+              "required": true,
+              "taskIds": [
+                "A1-03-L5-T41",
+                "A1-03-L5-T42"
+              ]
+            },
+            {
+              "id": "s3",
+              "kind": "independent-practice",
+              "titleUk": "Форми tener: самостійно",
+              "required": true,
+              "taskIds": [
+                "A1-03-L5-T43",
+                "A1-03-L5-T44",
+                "A1-03-L5-T50",
+                "A1-03-L5-T45",
+                "A1-03-L5-T46"
+              ]
+            },
+            {
+              "id": "s4",
+              "kind": "explanation",
+              "titleUk": "«У мене є»: tener",
+              "required": true,
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "language": "uk",
+                  "text": "Українське «у мене є» передаємо особовою формою tener: Tengo un coche — «У мене є машина». Tengo una hermana — «У мене є сестра». З деякими іменниками після tener можливі обидва варіанти: Tengo un coche / Tengo coche; ¿Tienes un perro? / ¿Tienes perro? У запереченні артикль зазвичай пропускають: No tengo coche."
+                },
+                {
+                  "type": "paragraph",
+                  "language": "uk",
+                  "text": "Не плутай з hay: hay повідомляє, що щось є десь (En la calle hay un banco), а tener — що щось належить комусь (Ana tiene un piso)."
+                },
+                {
+                  "type": "paragraph",
+                  "language": "uk",
+                  "text": "Зовнішність теж часто описують через tener: Ana tiene el pelo largo — «У Ани довге волосся»."
+                },
+                {
+                  "type": "example",
+                  "spanish": "¿Tienes perro? — Sí, tengo un perro y un gato.",
+                  "ukrainian": "У тебе є собака? — Так, у мене є собака й кіт."
+                }
+              ]
+            },
+            {
+              "id": "s5",
+              "kind": "supported-practice",
+              "titleUk": "«У мене є»: з підказкою",
+              "required": true,
+              "taskIds": [
+                "A1-03-L5-T01",
+                "A1-03-L5-T02"
+              ]
+            },
+            {
+              "id": "s6",
+              "kind": "independent-practice",
+              "titleUk": "«У мене є»: самостійно",
+              "required": true,
+              "taskIds": [
+                "A1-03-L5-T03",
+                "A1-03-L5-T11",
+                "A1-03-L5-T04",
+                "A1-03-L5-T05",
+                "A1-03-L5-T06"
+              ]
+            },
+            {
+              "id": "s7",
+              "kind": "explanation",
+              "titleUk": "Як почуваєшся: tener hambre, sed, frío, calor, sueño",
+              "required": true,
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "language": "uk",
+                  "text": "Там, де українською кажемо «мені холодно» чи «я голодний», іспанською вживають tener + іменник. Estar тут не вживається."
+                },
+                {
+                  "type": "table",
+                  "language": "uk",
+                  "columns": [
+                    "Іспанською",
+                    "Українською"
+                  ],
+                  "rows": [
+                    [
+                      "Tengo hambre.",
+                      "Я голодний / голодна."
+                    ],
+                    [
+                      "Tengo sed.",
+                      "Я хочу пити."
+                    ],
+                    [
+                      "Tengo frío.",
+                      "Мені холодно."
+                    ],
+                    [
+                      "Tengo calor.",
+                      "Мені спекотно."
+                    ],
+                    [
+                      "Tengo sueño.",
+                      "Я хочу спати."
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "s8",
+              "kind": "supported-practice",
+              "titleUk": "Як почуваєшся: з підказкою",
+              "required": true,
+              "taskIds": [
+                "A1-03-L5-T21",
+                "A1-03-L5-T22"
+              ]
+            },
+            {
+              "id": "s9",
+              "kind": "independent-practice",
+              "titleUk": "Як почуваєшся: самостійно",
+              "required": true,
+              "taskIds": [
+                "A1-03-L5-T23",
+                "A1-03-L5-T31",
+                "A1-03-L5-T24",
+                "A1-03-L5-T25",
+                "A1-03-L5-T26"
+              ]
+            },
+            {
+              "id": "s10",
+              "kind": "listening",
+              "titleUk": "Послухай",
+              "required": true,
+              "taskIds": [
+                "A1-03-L5-T61"
+              ],
+              "clipIds": [
+                "clip.a1-03.hermana-perro"
+              ]
+            },
+            {
+              "id": "s11",
+              "kind": "summary",
+              "titleUk": "Підсумок",
+              "required": true,
+              "blocks": [
+                {
+                  "type": "bullet-list",
+                  "language": "uk",
+                  "items": [
+                    "Tener: tengo, tienes, tiene, tenemos, tenéis, tienen.",
+                    "«У мене є» — tengo: Tengo un coche. ¿Tienes perro?",
+                    "Hay — щось є десь; tener — щось належить комусь.",
+                    "Tengo hambre / sed / frío / calor / sueño — без estar."
+                  ]
+                }
+              ]
+            }
+          ],
+          "reviewStatus": "draft"
+        }
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T06",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Tener: «у мене є» — речі й родина: Tengo un coche., Tengo una hermana., ¿Tienes perro?, Ana tiene un piso nuevo., Ana tiene el pelo largo. [tener.possession]",
+          "Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen (A1-03-L5) [present.tener]",
+          "Неозначений артикль un, una: un, una, un libro, una casa (A1-02-L2) [article.indefinite]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "perro — пес, собака (A1-02-L5, earlier block)",
+          "coche — машина, автомобіль (A1-02-L1, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "tener.possession/construction-use",
+            "description": "Tener: «у мене є» — речі й родина"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T06",
+        "lessonId": "A1-03-L5",
+        "role": "independent",
+        "family": "looks",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "tener.possession",
+            "modality": "construction-use"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Напиши іспанською: «У Пабло довге волосся»."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Pablo tiene el pelo largo."
+          },
+          {
+            "id": "a2",
+            "text": "Pablo tiene pelo largo.",
+            "noteUk": "Теж правильно; найчастіше кажуть з артиклем: Pablo tiene el pelo largo."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Pablo tiene el pelo larga.",
+            "outcomes": {
+              "tener.possession/construction-use": "incorrect"
+            },
+            "feedbackUk": "Pelo — чоловічого роду: largo."
+          },
+          {
+            "id": "e2",
+            "text": "Pablo es el pelo largo.",
+            "outcomes": {
+              "tener.possession/construction-use": "incorrect"
+            },
+            "feedbackUk": "Про волосся кажемо tener: Pablo tiene el pelo largo."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "tener.possession/construction-use"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Українське «у мене є» іспанською — tengo: Tengo un coche. «У тебе є собака?» — ¿Tienes perro? Не плутай з hay: hay повідомляє, що щось є десь, а tener — що щось належить комусь."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "tener.possession/construction-use"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Pablo tiene el pelo largo."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Pablo tiene el pelo largo.",
+        "feedback": {
+          "correctUk": "Правильно: Pablo tiene el pelo largo.",
+          "incorrectUk": "Ще ні. Tiene el pelo…: Pablo tiene el pelo largo.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Pablo tiene el pelo largo."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T28",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Tener + hambre, sed, frío, calor, sueño: як я почуваюся: Tengo hambre., ¿Tienes sed?, Tenemos frío., Tengo calor., Tengo sueño. [tener.physical-states]",
+          "Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen (A1-03-L5) [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "tener.physical-states/construction-use",
+            "description": "Tener + hambre, sed, frío, calor, sueño: як я почуваюся"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T28",
+        "lessonId": "A1-03-L5",
+        "role": "delayed",
+        "family": "ask",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "tener.physical-states",
+            "modality": "construction-use"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Спитай іспанською двох друзів (на «ти»): «Ви хочете пити?»"
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "¿Tenéis sed?"
+          },
+          {
+            "id": "a2",
+            "text": "¿Vosotros tenéis sed?"
+          },
+          {
+            "id": "a3",
+            "text": "¿Vosotras tenéis sed?"
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "¿Estáis sed?",
+            "outcomes": {
+              "tener.physical-states/construction-use": "incorrect"
+            },
+            "feedbackUk": "«Хочете пити?» — ¿Tenéis sed?"
+          },
+          {
+            "id": "e2",
+            "text": "¿Tienen sed?",
+            "outcomes": {
+              "tener.physical-states/construction-use": "unresolved"
+            },
+            "feedbackUk": "У більшості Іспанії до друзів на «ти» кажуть vosotros — ¿Tenéis sed?; tienen — для ellos або ввічливого ustedes. У цьому курсі тренуємо систему vosotros."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "tener.physical-states/construction-use"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Там, де українською кажемо «мені холодно» чи «я голодний», іспанською вживають tener + іменник: Tengo frío. Tengo calor. Tengo hambre — «я голодний». Tengo sed — «хочу пити». Tengo sueño — «хочу спати». Estar у цих виразах не вживається."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "tener.physical-states/construction-use"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "¿Tenéis sed?"
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "¿Tenéis sed?",
+        "feedback": {
+          "correctUk": "Правильно: ¿Tenéis sed?",
+          "incorrectUk": "Ще ні. ¿Tenéis sed?: ¿Tenéis sed?",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: ¿Tenéis sed?"
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T40",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T40",
+        "lessonId": "A1-03-L5",
+        "role": "delayed",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Tú y yo ___ hambre."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Tú y yo tenemos hambre."
+          },
+          {
+            "id": "a2",
+            "text": "tenemos."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Tú y yo tenéis hambre.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "Якщо в групі є я — «ми»: tenemos."
+          },
+          {
+            "id": "e2",
+            "text": "Tú y yo tienemos hambre.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "З nosotros основа ten-: tenemos."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Tú y yo tenemos hambre."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Tú y yo tenemos hambre.",
+        "feedback": {
+          "correctUk": "Правильно: Tú y yo tenemos hambre.",
+          "incorrectUk": "Ще ні. Tú y yo = nosotros → tenemos: Tú y yo tenemos hambre.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Tú y yo tenemos hambre."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T41",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "perro — пес, собака (A1-02-L5, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T41",
+        "lessonId": "A1-03-L5",
+        "role": "supported",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Пам’ятай: tengo, tienes, tiene, tenemos, tenéis, tienen."
+          },
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Yo ___ un perro."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Yo tengo un perro."
+          },
+          {
+            "id": "a2",
+            "text": "tengo."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Yo tieno un perro.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "З yo — tengo."
+          },
+          {
+            "id": "e2",
+            "text": "Yo tiene un perro.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "Tiene — з él/ella; з yo — tengo."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Yo tengo un perro."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Yo tengo un perro.",
+        "feedback": {
+          "correctUk": "Правильно: Yo tengo un perro.",
+          "incorrectUk": "Ще ні. Yo tengo: Yo tengo un perro.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Yo tengo un perro."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T42",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T42",
+        "lessonId": "A1-03-L5",
+        "role": "supported",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Пам’ятай: у tienes, tiene, tienen основа tien-."
+          },
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Tú ___ sed."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Tú tienes sed."
+          },
+          {
+            "id": "a2",
+            "text": "tienes."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Tú tenes sed.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "З tú основа tien-: tienes."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Tú tienes sed."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Tú tienes sed.",
+        "feedback": {
+          "correctUk": "Правильно: Tú tienes sed.",
+          "incorrectUk": "Ще ні. Tú tienes: Tú tienes sed.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Tú tienes sed."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T43",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "coche — машина, автомобіль (A1-02-L1, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T43",
+        "lessonId": "A1-03-L5",
+        "role": "independent",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Nosotros ___ un coche."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Nosotros tenemos un coche."
+          },
+          {
+            "id": "a2",
+            "text": "tenemos."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Nosotros tienemos un coche.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "З nosotros основа ten-: tenemos."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Nosotros tenemos un coche."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Nosotros tenemos un coche.",
+        "feedback": {
+          "correctUk": "Правильно: Nosotros tenemos un coche.",
+          "incorrectUk": "Ще ні. Nosotros tenemos: Nosotros tenemos un coche.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Nosotros tenemos un coche."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T44",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T44",
+        "lessonId": "A1-03-L5",
+        "role": "independent",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Vosotros ___ frío."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Vosotros tenéis frío."
+          },
+          {
+            "id": "a2",
+            "text": "tenéis."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Vosotros tienéis frío.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "З vosotros основа ten-: tenéis."
+          },
+          {
+            "id": "e2",
+            "text": "Vosotros teneis frío.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "Tenéis пишеться зі знаком наголосу."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Vosotros tenéis frío."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Vosotros tenéis frío.",
+        "feedback": {
+          "correctUk": "Правильно: Vosotros tenéis frío.",
+          "incorrectUk": "Ще ні. Vosotros tenéis: Vosotros tenéis frío.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Vosotros tenéis frío."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T45",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T45",
+        "lessonId": "A1-03-L5",
+        "role": "independent",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Ella ___ una bicicleta."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Ella tiene una bicicleta."
+          },
+          {
+            "id": "a2",
+            "text": "tiene."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Ella tene una bicicleta.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "З ella — tiene."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Ella tiene una bicicleta."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Ella tiene una bicicleta.",
+        "feedback": {
+          "correctUk": "Правильно: Ella tiene una bicicleta.",
+          "incorrectUk": "Ще ні. Ella tiene: Ella tiene una bicicleta.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Ella tiene una bicicleta."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T46",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T46",
+        "lessonId": "A1-03-L5",
+        "role": "independent",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Ellos ___ calor."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Ellos tienen calor."
+          },
+          {
+            "id": "a2",
+            "text": "tienen."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Ellos tenen calor.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "З ellos основа tien-: tienen."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Ellos tienen calor."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Ellos tienen calor.",
+        "feedback": {
+          "correctUk": "Правильно: Ellos tienen calor.",
+          "incorrectUk": "Ще ні. Ellos tienen: Ellos tienen calor.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Ellos tienen calor."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T47",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "hijo — син (A1-02-L5, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T47",
+        "lessonId": "A1-03-L5",
+        "role": "delayed",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Usted ___ un hijo."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Usted tiene un hijo."
+          },
+          {
+            "id": "a2",
+            "text": "tiene."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Usted tienes un hijo.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "Usted поєднується з формою 3-ї особи: tiene."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Usted tiene un hijo."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Usted tiene un hijo.",
+        "feedback": {
+          "correctUk": "Правильно: Usted tiene un hijo.",
+          "incorrectUk": "Ще ні. Usted tiene: Usted tiene un hijo.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Usted tiene un hijo."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T48",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T48",
+        "lessonId": "A1-03-L5",
+        "role": "delayed",
+        "family": "fill",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Ustedes ___ hambre."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Ustedes tienen hambre."
+          },
+          {
+            "id": "a2",
+            "text": "tienen."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Ustedes tenéis hambre.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "Ustedes поєднується з формою 3-ї особи множини: tienen."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Ustedes tienen hambre."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Ustedes tienen hambre.",
+        "feedback": {
+          "correctUk": "Правильно: Ustedes tienen hambre.",
+          "incorrectUk": "Ще ні. Ustedes tienen: Ustedes tienen hambre.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Ustedes tienen hambre."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T49",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "hermano — брат (A1-02-L5, earlier block)",
+          "moto — мотоцикл (A1-02-L1, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/written-form",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T49",
+        "lessonId": "A1-03-L5",
+        "role": "transfer",
+        "family": "chat-form",
+        "mode": "exact-variants",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "written-form"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Ти пишеш другові: «У нас із братом є мотоцикл». Допиши форму tener (можна написати лише її або все речення)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Mi hermano y yo ___ una moto."
+          }
+        ],
+        "input": "short",
+        "accepted": [
+          {
+            "id": "a1",
+            "text": "Mi hermano y yo tenemos una moto."
+          },
+          {
+            "id": "a2",
+            "text": "tenemos."
+          }
+        ],
+        "errors": [
+          {
+            "id": "e1",
+            "text": "Mi hermano y yo tienen una moto.",
+            "outcomes": {
+              "present.tener/written-form": "incorrect"
+            },
+            "feedbackUk": "Mi hermano y yo — це «ми»: tenemos."
+          }
+        ],
+        "policy": {
+          "case": "insensitive",
+          "terminalPunctuation": "optional"
+        },
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          },
+          {
+            "kind": "reveal",
+            "targets": [
+              "present.tener/written-form"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Mi hermano y yo tenemos una moto."
+              }
+            ]
+          }
+        ],
+        "referenceAnswer": "Mi hermano y yo tenemos una moto.",
+        "feedback": {
+          "correctUk": "Правильно: Mi hermano y yo tenemos una moto.",
+          "incorrectUk": "Ще ні. Mi hermano y yo tenemos: Mi hermano y yo tenemos una moto.",
+          "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Mi hermano y yo tenemos una moto."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T50",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "This lesson: Дієслово tener: форми теперішнього часу: tengo, tienes, tiene, tenemos, tenéis, tienen [present.tener]",
+          "Особові займенники однини: yo, tú, él, ella, usted: yo, tú, él, ella, usted (A1-03-L1) [pron.subject]",
+          "Особові займенники множини: nosotros, vosotros, ellos, ustedes: nosotros, nosotras, vosotros, vosotras, ellos, ellas, ustedes (A1-03-L1) [pron.subject.plural]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "gato — кіт (A1-02-L5, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "present.tener/context-choice",
+            "description": "Дієслово tener: форми теперішнього часу"
+          }
+        ]
+      },
+      "task": {
+        "id": "A1-03-L5-T50",
+        "lessonId": "A1-03-L5",
+        "role": "independent",
+        "family": "choose-form",
+        "mode": "choice",
+        "targets": [
+          {
+            "skillId": "present.tener",
+            "modality": "context-choice"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Яка форма tener потрібна? Вживай систему vosotros, як у більшості Іспанії (її тренуємо в цьому курсі)."
+          },
+          {
+            "type": "paragraph",
+            "language": "es-ES",
+            "text": "Pablo y tú ___ un gato."
+          }
+        ],
+        "input": "options",
+        "options": [
+          {
+            "id": "a",
+            "label": "tenéis",
+            "outcomes": {
+              "present.tener/context-choice": "correct"
+            }
+          },
+          {
+            "id": "b",
+            "label": "tienen",
+            "outcomes": {
+              "present.tener/context-choice": "incorrect"
+            },
+            "feedbackUk": "У системі vosotros Pablo y tú — це vosotros: tenéis. (У частині Андалусії тут кажуть ustedes tienen, але в цьому курсі тренуємо vosotros.)"
+          },
+          {
+            "id": "c",
+            "label": "tenemos",
+            "outcomes": {
+              "present.tener/context-choice": "incorrect"
+            },
+            "feedbackUk": "«Ми» — якщо серед них є я."
+          }
+        ],
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "present.tener/context-choice"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Форми tener: yo tengo, tú tienes, él/ella/usted tiene, nosotros tenemos, vosotros tenéis, ellos/ellas/ustedes tienen. У nosotros і vosotros основа ten-, у tienes, tiene, tienen — tien-."
+              }
+            ]
+          }
+        ],
+        "feedback": {
+          "correctUk": "Так: Pablo y tú tenéis un gato.",
+          "incorrectUk": "Ні. Pablo y tú = vosotros → tenéis."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T61",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "Почути коротке твердження чи питання й зрозуміти зміст: Soy de Valencia., ¿Dónde está Ana?, No tengo coche., Hay una tienda en mi calle. (A1-03-L2) [listening.short-sentences]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)",
+          "hermana — сестра (A1-02-L5, earlier block)",
+          "perro — пес, собака (A1-02-L5, earlier block)",
+          "bonito — гарний (A1-02-L4, earlier block)",
+          "muy — дуже (A1-02-L4, earlier block)"
+        ],
+        "targets": [
+          {
+            "target": "listening.short-sentences/listening-meaning",
+            "description": "Почути коротке твердження чи питання й зрозуміти зміст"
+          }
+        ]
+      },
+      "clips": [
+        {
+          "id": "clip.a1-03.hermana-perro",
+          "lessonId": "A1-03-L5",
+          "kind": "sentence",
+          "family": "possession",
+          "transcript": "Mi hermana tiene un perro muy bonito.",
+          "translationUk": "У моєї сестри дуже гарний собака.",
+          "targets": [
+            {
+              "skillId": "listening.short-sentences",
+              "modality": "listening-meaning"
+            }
+          ],
+          "reviewStatus": "reviewed"
+        }
+      ],
+      "task": {
+        "id": "A1-03-L5-T61",
+        "lessonId": "A1-03-L5",
+        "role": "independent",
+        "family": "listen-have",
+        "mode": "choice",
+        "targets": [
+          {
+            "skillId": "listening.short-sentences",
+            "modality": "listening-meaning"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Послухай. Що є в сестри?"
+          }
+        ],
+        "input": "options",
+        "clipIds": [
+          "clip.a1-03.hermana-perro"
+        ],
+        "options": [
+          {
+            "id": "a",
+            "label": "дуже гарний собака",
+            "outcomes": {
+              "listening.short-sentences/listening-meaning": "correct"
+            }
+          },
+          {
+            "id": "b",
+            "label": "дуже гарний кіт",
+            "outcomes": {
+              "listening.short-sentences/listening-meaning": "incorrect"
+            },
+            "feedbackUk": "У записі un perro — «собака»."
+          },
+          {
+            "id": "c",
+            "label": "новий велосипед",
+            "outcomes": {
+              "listening.short-sentences/listening-meaning": "incorrect"
+            },
+            "feedbackUk": "У записі un perro muy bonito."
+          }
+        ],
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "listening.short-sentences/listening-meaning"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Послухай речення й визнач, що в ньому сказано: хто, що має, де, що є."
+              }
+            ]
+          },
+          {
+            "kind": "translation",
+            "targets": [
+              "listening.short-sentences/listening-meaning"
+            ],
+            "blocks": [
+              {
+                "type": "example",
+                "spanish": "tiene",
+                "ukrainian": "має (tener — «мати», з цього уроку)"
+              }
+            ]
+          },
+          {
+            "kind": "transcript",
+            "targets": [
+              "listening.short-sentences/listening-meaning"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Mi hermana tiene un perro muy bonito."
+              }
+            ]
+          }
+        ],
+        "feedback": {
+          "correctUk": "Так: Mi hermana tiene un perro muy bonito.",
+          "incorrectUk": "Ні. У записі: Mi hermana tiene un perro muy bonito."
+        },
+        "reviewStatus": "draft"
+      }
+    },
+    {
+      "caseId": "task:A1-03-L5-T62",
+      "context": {
+        "lessonId": "A1-03-L5",
+        "lessonTopic": "Tener: «у мене є» і «мені холодно» (tener)",
+        "taughtBefore": [
+          "Почути коротке твердження чи питання й зрозуміти зміст: Soy de Valencia., ¿Dónde está Ana?, No tengo coche., Hay una tienda en mi calle. (A1-03-L2) [listening.short-sentences]",
+          "This lesson: bicicleta — велосипед",
+          "This lesson: calor — спека, тепло",
+          "This lesson: corto — короткий",
+          "This lesson: frío — холод",
+          "This lesson: hambre — голод",
+          "This lesson: largo — довгий",
+          "This lesson: pelo — волосся",
+          "This lesson: sed — спрага",
+          "This lesson: sueño — сонливість; сон",
+          "This lesson: tener — мати",
+          "farmacia — аптека (A1-03-L4)",
+          "hay — є (існує, знаходиться) (A1-03-L4)",
+          "leche — молоко (A1-03-L4)",
+          "pan — хліб (A1-03-L4)",
+          "plaza — площа (A1-03-L4)",
+          "restaurante — ресторан (A1-03-L4)",
+          "supermercado — супермаркет (A1-03-L4)",
+          "abierto — відчинений, відкритий (A1-03-L3)",
+          "banco — банк (A1-03-L3)",
+          "bien — добре (A1-03-L3)",
+          "cansado — втомлений (A1-03-L3)",
+          "cerrado — зачинений, закритий (A1-03-L3)",
+          "cocina — кухня (A1-03-L3)",
+          "contento — задоволений, радий (A1-03-L3)",
+          "en casa — вдома (A1-03-L3)",
+          "enfermo — хворий (A1-03-L3)",
+          "estar — бути, перебувати (де, у якому стані) (A1-03-L3)",
+          "mal — погано (A1-03-L3)",
+          "ocupado — зайнятий (A1-03-L3)",
+          "oficina — офіс (A1-03-L3)",
+          "parque — парк (A1-03-L3)",
+          "Ucrania — Україна (A1-03-L2)",
+          "alemán — німецький; німець; німецька мова (A1-03-L2)",
+          "apellido — прізвище (A1-03-L2)",
+          "camarero — офіціант (A1-03-L2)",
+          "correo electrónico — електронна пошта (A1-03-L2)",
+          "encantado — приємно познайомитися (відповідь) (A1-03-L2)",
+          "español — іспанський; іспанець; іспанська мова (A1-03-L2)",
+          "francés — французький; француз; французька мова (A1-03-L2)",
+          "guapo — гарний, вродливий (про людину) (A1-03-L2)",
+          "ingeniero — інженер (A1-03-L2)",
+          "inglés — англійський; англієць; англійська мова (A1-03-L2)",
+          "llamarse — зватися (про ім’я) (A1-03-L2)",
+          "moreno — темноволосий; смаглявий (A1-03-L2)",
+          "mucho gusto — дуже приємно (при знайомстві) (A1-03-L2)",
+          "médico — лікар (A1-03-L2)",
+          "nacionalidad — громадянство, національність (A1-03-L2)",
+          "nombre — ім’я (A1-03-L2)",
+          "país — країна (A1-03-L2)",
+          "programador — програміст (A1-03-L2)",
+          "rubio — світловолосий, білявий (A1-03-L2)",
+          "ucraniano — український; українець (A1-03-L2)",
+          "ser — бути (хто, що, звідки, який) (A1-03-L1)"
+        ],
+        "targets": [
+          {
+            "target": "listening.short-sentences/listening-meaning",
+            "description": "Почути коротке твердження чи питання й зрозуміти зміст"
+          }
+        ]
+      },
+      "clips": [
+        {
+          "id": "clip.a1-03.tienes-hambre",
+          "lessonId": "A1-03-L5",
+          "kind": "sentence",
+          "family": "question-feel",
+          "transcript": "Pablo, ¿tienes hambre?",
+          "translationUk": "Пабло, ти голодний?",
+          "targets": [
+            {
+              "skillId": "listening.short-sentences",
+              "modality": "listening-meaning"
+            }
+          ],
+          "reviewStatus": "reviewed"
+        }
+      ],
+      "task": {
+        "id": "A1-03-L5-T62",
+        "lessonId": "A1-03-L5",
+        "role": "delayed",
+        "family": "listen-question-feel",
+        "mode": "choice",
+        "targets": [
+          {
+            "skillId": "listening.short-sentences",
+            "modality": "listening-meaning"
+          }
+        ],
+        "prompt": [
+          {
+            "type": "paragraph",
+            "language": "uk",
+            "text": "Послухай. Про що питають Пабло?"
+          }
+        ],
+        "input": "options",
+        "clipIds": [
+          "clip.a1-03.tienes-hambre"
+        ],
+        "options": [
+          {
+            "id": "a",
+            "label": "чи ти голодний",
+            "outcomes": {
+              "listening.short-sentences/listening-meaning": "correct"
+            }
+          },
+          {
+            "id": "b",
+            "label": "чи тобі холодно",
+            "outcomes": {
+              "listening.short-sentences/listening-meaning": "incorrect"
+            },
+            "feedbackUk": "У записі hambre — «голод»."
+          },
+          {
+            "id": "c",
+            "label": "чи ти хочеш спати",
+            "outcomes": {
+              "listening.short-sentences/listening-meaning": "incorrect"
+            },
+            "feedbackUk": "У записі ¿Tienes hambre?"
+          }
+        ],
+        "hints": [
+          {
+            "kind": "rule",
+            "targets": [
+              "listening.short-sentences/listening-meaning"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "uk",
+                "text": "Послухай речення й визнач, що в ньому сказано. У загальному питанні («так чи ні») голос у кінці зазвичай підвищується."
+              }
+            ]
+          },
+          {
+            "kind": "translation",
+            "targets": [
+              "listening.short-sentences/listening-meaning"
+            ],
+            "blocks": [
+              {
+                "type": "example",
+                "spanish": "tener hambre / tener frío / tener sueño",
+                "ukrainian": "бути голодним / мерзнути / хотіти спати (з цього уроку)"
+              }
+            ]
+          },
+          {
+            "kind": "transcript",
+            "targets": [
+              "listening.short-sentences/listening-meaning"
+            ],
+            "blocks": [
+              {
+                "type": "paragraph",
+                "language": "es-ES",
+                "text": "Pablo, ¿tienes hambre?"
+              }
+            ]
+          }
+        ],
+        "feedback": {
+          "correctUk": "Так: Pablo, ¿tienes hambre? — «Пабло, ти голодний?».",
+          "incorrectUk": "Ні. У записі: Pablo, ¿tienes hambre?"
+        },
+        "reviewStatus": "draft"
+      }
+    }
+  ]
+}
+
+codex
+{
+  "cases": [
+    {
+      "caseId": "lesson:A1-03-L5",
+      "reviewerAnswer": "No learner response is requested. The present forms are tengo, tienes, tiene, tenemos, tenéis, tienen. The possession examples and the five listed expressions with tener are correct.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "In s7, the restriction on estar is understood within the listed expressions with nouns."
+    },
+    {
+      "caseId": "task:A1-03-L5-T06",
+      "reviewerAnswer": "Pablo tiene el pelo largo. Also acceptable: Pablo tiene pelo largo.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T28",
+      "reviewerAnswer": "¿Tenéis sed? Also acceptable: ¿Vosotros tenéis sed? / ¿Vosotras tenéis sed?",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "task.errors[e2] leaves “¿Tienen sed?” unresolved and explains the course's vosotros convention; it does not grade that alternative incorrect."
+    },
+    {
+      "caseId": "task:A1-03-L5-T40",
+      "reviewerAnswer": "tenemos; Tú y yo tenemos hambre.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T41",
+      "reviewerAnswer": "tengo; Yo tengo un perro.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T42",
+      "reviewerAnswer": "tienes; Tú tienes sed.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T43",
+      "reviewerAnswer": "tenemos; Nosotros tenemos un coche.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T44",
+      "reviewerAnswer": "tenéis; Vosotros tenéis frío.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T45",
+      "reviewerAnswer": "tiene; Ella tiene una bicicleta.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T46",
+      "reviewerAnswer": "tienen; Ellos tienen calor.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T47",
+      "reviewerAnswer": "tiene; Usted tiene un hijo.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T48",
+      "reviewerAnswer": "tienen; Ustedes tienen hambre.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T49",
+      "reviewerAnswer": "tenemos; Mi hermano y yo tenemos una moto.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A1-03-L5-T50",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The prompt explicitly specifies the vosotros system."
+    },
+    {
+      "caseId": "task:A1-03-L5-T61",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The translation hint glosses “tiene” and supports the listening-meaning target. The transcript appears only in a transcript hint."
+    },
+    {
+      "caseId": "task:A1-03-L5-T62",
+      "reviewerAnswer": "a",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The translation hint supplies the physical-state expressions needed for comprehension. The option labels can be read as direct-question paraphrases."
+    }
+  ]
+}
+tokens used
+61,497

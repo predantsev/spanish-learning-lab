@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "A1-01-C1",
+  "tasks": [
+    {
+      "id": "A1-01-C1-T01",
+      "lessonId": "A1-01-C1",
+      "role": "transfer",
+      "family": "c1-message",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "ortho.exclamation-marks",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "ortho.written-accent.familiar-words",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "ortho.sentence-punctuation",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ана пише тобі: «¿Un café?» Напиши відповідь іспанською з окликом на початку: «Привіт, Ано! Так, дякую.»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "¡Hola, Ana! Sí, gracias."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Hola, Ana! Sí, gracias.",
+          "outcomes": {
+            "ortho.exclamation-marks/written-form": "incorrect",
+            "ortho.written-accent.familiar-words/written-form": "correct",
+            "ortho.sentence-punctuation/written-form": "correct"
+          },
+          "feedbackUk": "Бракує ¡ на початку оклику: ¡Hola, Ana!"
+        },
+        {
+          "id": "e2",
+          "text": "¡Hola, Ana! Si, gracias.",
+          "outcomes": {
+            "ortho.exclamation-marks/written-form": "correct",
+            "ortho.written-accent.familiar-words/written-form": "incorrect",
+            "ortho.sentence-punctuation/written-form": "correct"
+          },
+          "feedbackUk": "Si без знака — «якщо»; «так» — sí."
+        },
+        {
+          "id": "e3",
+          "text": "¡Hola Ana! Sí, gracias.",
+          "outcomes": {
+            "ortho.exclamation-marks/written-form": "correct",
+            "ortho.written-accent.familiar-words/written-form": "correct",
+            "ortho.sentence-punctuation/written-form": "incorrect"
+          },
+          "feedbackUk": "Звертання відокремлюємо комою: ¡Hola, Ana!"
+        },
+        {
+          "id": "e4",
+          "text": "¡Hola, Ana! Sí, gracias",
+          "outcomes": {
+            "ortho.exclamation-marks/written-form": "correct",
+            "ortho.written-accent.familiar-words/written-form": "correct",
+            "ortho.sentence-punctuation/written-form": "incorrect"
+          },
+          "feedbackUk": "Твердження закінчуємо крапкою: Sí, gracias."
+        }
+      ],
+      "policy": {
+        "case": "sensitive",
+        "terminalPunctuation": "required"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "ortho.exclamation-marks/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Оклик має два знаки: ¡ на початку і ! в кінці."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "ortho.written-accent.familiar-words/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Sí — «так» — пишеться зі знаком наголосу; si без знака — «якщо»."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "ortho.sentence-punctuation/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Звертання відокремлюємо комою, твердження закінчуємо крапкою."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "ortho.exclamation-marks/written-form",
+            "ortho.written-accent.familiar-words/written-form",
+            "ortho.sentence-punctuation/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¡Hola, Ana! Sí, gracias."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¡Hola, Ana! Sí, gracias.",
+      "feedback": {
+        "correctUk": "Правильно: ¡Hola, Ana! Sí, gracias.",
+        "incorrectUk": "Ще ні. Перевір знаки оклику, знак наголосу в sí і кому при звертанні: ¡Hola, Ana! Sí, gracias.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: ¡Hola, Ana! Sí, gracias."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-01-C1-T02",
+      "lessonId": "A1-01-C1",
+      "role": "transfer",
+      "family": "c1-address",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "ortho.written-accent.familiar-words",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "ortho.capitalization",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "ortho.sentence-punctuation",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти звертаєшся до сусіда в черзі. Напиши іспанською: «Перепрошую, пане Гарсія.»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Perdón, señor García."
+        },
+        {
+          "id": "a2",
+          "text": "¡Perdón, señor García!",
+          "noteUk": "Оклик замість крапки теж правильний."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Perdon, señor García.",
+          "outcomes": {
+            "ortho.written-accent.familiar-words/written-form": "incorrect",
+            "ortho.capitalization/written-form": "correct",
+            "ortho.sentence-punctuation/written-form": "correct"
+          },
+          "feedbackUk": "Perdón пишеться зі знаком наголосу над ó."
+        },
+        {
+          "id": "e2",
+          "text": "Perdón, Señor García.",
+          "outcomes": {
+            "ortho.written-accent.familiar-words/written-form": "correct",
+            "ortho.capitalization/written-form": "incorrect",
+            "ortho.sentence-punctuation/written-form": "correct"
+          },
+          "feedbackUk": "Señor перед прізвищем пишемо з малої літери."
+        },
+        {
+          "id": "e3",
+          "text": "Perdón, señor garcía.",
+          "outcomes": {
+            "ortho.written-accent.familiar-words/written-form": "correct",
+            "ortho.capitalization/written-form": "incorrect",
+            "ortho.sentence-punctuation/written-form": "correct"
+          },
+          "feedbackUk": "Прізвище пишемо з великої літери: García."
+        },
+        {
+          "id": "e4",
+          "text": "Perdón señor García.",
+          "outcomes": {
+            "ortho.written-accent.familiar-words/written-form": "correct",
+            "ortho.capitalization/written-form": "correct",
+            "ortho.sentence-punctuation/written-form": "incorrect"
+          },
+          "feedbackUk": "Звертання відокремлюємо комою: Perdón, señor García."
+        }
+      ],
+      "policy": {
+        "case": "sensitive",
+        "terminalPunctuation": "required"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "ortho.capitalization/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Señor перед прізвищем — з малої, прізвище — з великої."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "ortho.sentence-punctuation/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Звертання відокремлюємо комою."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "ortho.written-accent.familiar-words/written-form",
+            "ortho.capitalization/written-form",
+            "ortho.sentence-punctuation/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Perdón, señor García."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Perdón, señor García.",
+      "feedback": {
+        "correctUk": "Правильно: Perdón, señor García.",
+        "incorrectUk": "Ще ні. Правильно: Perdón, señor García.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Perdón, señor García."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-01-C1-T03",
+      "lessonId": "A1-01-C1",
+      "role": "transfer",
+      "family": "c1-listen",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "formula.please-thanks",
+          "modality": "listening-meaning"
+        },
+        {
+          "skillId": "formula.leave-taking",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай. Що сказала людина?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-01.gracias-hasta-manana"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "Дякую. До завтра!",
+          "outcomes": {
+            "formula.please-thanks/listening-meaning": "correct",
+            "formula.leave-taking/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Будь ласка. До завтра!",
+          "outcomes": {
+            "formula.please-thanks/listening-meaning": "incorrect",
+            "formula.leave-taking/listening-meaning": "correct"
+          },
+          "feedbackUk": "Por favor не звучить; у записі gracias — «дякую»."
+        },
+        {
+          "id": "c",
+          "label": "Дякую. Добрий ранок!",
+          "outcomes": {
+            "formula.please-thanks/listening-meaning": "correct",
+            "formula.leave-taking/listening-meaning": "incorrect"
+          },
+          "feedbackUk": "Buenos días не звучить; у записі hasta mañana — «до завтра»."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "formula.please-thanks/listening-meaning",
+            "formula.leave-taking/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Gracias. ¡Hasta mañana!"
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Так: Gracias. ¡Hasta mañana! — «Дякую. До завтра!».",
+        "incorrectUk": "Ні. У записі звучить Gracias. ¡Hasta mañana! — «Дякую. До завтра!»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-01-C1-T04",
+      "lessonId": "A1-01-C1",
+      "role": "transfer",
+      "family": "c1-time",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "formula.greeting.time-of-day",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "7:30, ти заходиш у кав’ярню на сніданок. Як привітатися?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Buenos días.",
+          "outcomes": {
+            "formula.greeting.time-of-day/context-choice": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Buenas tardes.",
+          "outcomes": {
+            "formula.greeting.time-of-day/context-choice": "incorrect"
+          },
+          "feedbackUk": "Buenas tardes кажуть після обіду."
+        },
+        {
+          "id": "c",
+          "label": "Buenas noches.",
+          "outcomes": {
+            "formula.greeting.time-of-day/context-choice": "incorrect"
+          },
+          "feedbackUk": "Buenas noches кажуть пізно ввечері."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "formula.greeting.time-of-day/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Buenos días — зранку й до обіду, buenas tardes — після обіду, buenas noches — пізно ввечері."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Так: зранку — buenos días.",
+        "incorrectUk": "Ні. Зранку вітаються buenos días."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-01-C1-T05",
+      "lessonId": "A1-01-C1",
+      "role": "transfer",
+      "family": "c1-reading",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "formula.apology",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай короткий діалог у кав’ярні."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "—Un café, por favor. —Lo siento, señora."
+        },
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Що відповів офіціант?"
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Мені шкода, пані.",
+          "outcomes": {
+            "formula.apology/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Нема за що, пані.",
+          "outcomes": {
+            "formula.apology/reading-meaning": "incorrect"
+          },
+          "feedbackUk": "Нема за що — de nada."
+        },
+        {
+          "id": "c",
+          "label": "Дякую, пані.",
+          "outcomes": {
+            "formula.apology/reading-meaning": "incorrect"
+          },
+          "feedbackUk": "Дякую — gracias."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "formula.apology/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Lo siento — «мені шкода»: так кажуть, коли доводиться відмовити."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Так: lo siento — «мені шкода»; мабуть, кави немає.",
+        "incorrectUk": "Ні. Lo siento — «мені шкода»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-01-C1-T06",
+      "lessonId": "A1-01-C1",
+      "role": "transfer",
+      "family": "c1-dictation",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "formula.please-thanks",
+          "modality": "dictation"
+        },
+        {
+          "skillId": "formula.leave-taking",
+          "modality": "dictation"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай і запиши почуте іспанською."
+        }
+      ],
+      "input": "short",
+      "clipIds": [
+        "clip.a1-01.gracias-hasta-manana"
+      ],
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Gracias. ¡Hasta mañana!"
+        },
+        {
+          "id": "a2",
+          "text": "Gracias. Hasta mañana."
+        },
+        {
+          "id": "a3",
+          "text": "Gracias, hasta mañana."
+        },
+        {
+          "id": "a4",
+          "text": "Gracias, ¡hasta mañana!"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Gracias. ¡Hasta manana!",
+          "outcomes": {
+            "formula.please-thanks/dictation": "correct",
+            "formula.leave-taking/dictation": "incorrect"
+          },
+          "feedbackUk": "У mañana потрібна літера ñ."
+        },
+        {
+          "id": "e2",
+          "text": "Gracias. Hasta manana.",
+          "outcomes": {
+            "formula.please-thanks/dictation": "correct",
+            "formula.leave-taking/dictation": "incorrect"
+          },
+          "feedbackUk": "У mañana потрібна літера ñ."
+        },
+        {
+          "id": "e3",
+          "text": "Gracias. ¡Asta mañana!",
+          "outcomes": {
+            "formula.please-thanks/dictation": "correct",
+            "formula.leave-taking/dictation": "incorrect"
+          },
+          "feedbackUk": "Hasta пишеться з h, хоча h не читається."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "formula.please-thanks/dictation",
+            "formula.leave-taking/dictation"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Gracias. ¡Hasta mañana!"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Gracias. ¡Hasta mañana!",
+      "feedback": {
+        "correctUk": "Правильно: Gracias. ¡Hasta mañana!",
+        "incorrectUk": "Ще ні. У записі: Gracias. ¡Hasta mañana!",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Gracias. ¡Hasta mañana!"
+      },
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-05-L6.r2",
+  "jobId": "601a2181-258e-4afe-be93-37cb65f3f87d",
+  "receiptId": "e0851531-9f7e-4455-9d31-252c32cb9e74",
+  "recordedAt": "2026-11-09T07:11:30.351Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "question.word.cual",
+      "contentHash": "6d8993d40ac760adc723e2f10e561bbe2fc64eb6fb60ba306684511b946d5bcf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: \"В Іспанії cuál не ставлять безпосередньо перед іменником: ¿Qué libro?, а не «¿Cuál libro?».\"",
+          "description": "The categorical geographical prohibition overstates the distinction. Adnominal interrogative cuál exists; its use is substantially more frequent in America than in Spain. A regional preference should not be presented as an exceptionless prohibition.",
+          "suggestion": "State that qué before a noun is the usual contemporary Peninsular pattern, while adnominal cuál is much more frequent in American Spanish."
+        }
+      ],
+      "caseId": "skill:question.word.cual",
+      "verdict": "flawed",
+      "reviewerAnswer": "Cuál identifies a singular referent or information value; cuáles identifies plural referents. Qué before a noun is the usual contemporary Peninsular model.",
+      "notes": "The supplied examples with qué and pronominal cuál/cuáles are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «cuál», interrogative adjectival use before a noun and geographical distribution (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T13",
+      "contentHash": "63f53cc8116f06207a5df7d9b988ac4290ed420ff6dc778851aa8143df2fe892",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=a].feedbackUk: \"Qué es…? питає, що це таке взагалі. Конкретний номер — ¿Cuál es…?\"",
+          "description": "The first Spanish question model has a closing question mark but lacks the required opening ¿.",
+          "suggestion": "Replace \"Qué es…?\" with \"¿Qué es…?\"."
+        }
+      ],
+      "caseId": "task:A1-05-L6-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "The answer key itself is correct.",
+      "sources": [
+        "Course contract, rule 8: Spanish must be correct.",
+        "RAE/ASALE, Ortografía de la lengua española, treatment of opening and closing interrogation marks (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T15",
+      "contentHash": "1dc41496af1880d6e06e4acfce0ba3e4c0cf19f078b42d338e0209ddea1314e1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Обери питальне слово (перед іменником).\"; task.options[id=b]: \"Cuál\", graded \"incorrect\".",
+          "description": "Qué is the clear default model for Spain, but adnominal cuál is not categorically excluded from Spanish usage in Spain. Whether option b is acceptable in the intended register is unconfirmed: the prompt does not explicitly request the usual neutral Peninsular form or specify a variant policy.",
+          "suggestion": "Specify that learners must select the usual neutral form in contemporary Spain, or resolve the treatment of marked adnominal cuál before grading it incorrect."
+        }
+      ],
+      "caseId": "task:A1-05-L6-T15",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the ordinary contemporary Peninsular answer; b may fit a marked adnominal use of cuál.",
+      "notes": "Qué should remain the beginner model. The uncertainty concerns categorical rejection of the alternative.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «cuál», interrogative adjectival use and geographical distribution (from memory).",
+        "Review verdict definition: use uncertain when acceptability depends on an unspecified register or regional usage."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T22",
+      "contentHash": "fad898f1f36abdf207aab25d8f72ba12aa4dd66bec1d5bef89c309e9a473608c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].outcomes[\"question.choice-missing-info/construction-use\"]: \"incorrect\" for \"¿Donde está la farmacia?\".",
+          "description": "The response requests the correct missing information using the correct construction. Its error is the missing written accent. Assigning that error to information choice contradicts the packet's explicit separation of accent assessment.",
+          "suggestion": "Assess the accent under a separate orthographic target and preserve a correct outcome for information choice. Keep the misspelling significant rather than normalizing it away."
+        }
+      ],
+      "caseId": "task:A1-05-L6-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Dónde está la farmacia?",
+      "notes": "",
+      "sources": [
+        "Packet, skill:question.choice-missing-info, content.body.scope.noteUk: \"Знак наголосу й узгодження оцінюються окремими цілями.\"",
+        "Course contract, rule 5: written accents are never ignored."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T25",
+      "contentHash": "0671322e00efd93b369072ecade11aa81eaba9495df5e4002acbb4fa7c0bd1b9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].outcomes[\"question.choice-missing-info/construction-use\"]: \"incorrect\" for \"¿Quien es la profesora?\".",
+          "description": "The response chooses the correct person question; only the written accent is wrong. The outcome incorrectly attributes an orthographic error to information choice, contrary to the skill's stated assessment scope.",
+          "suggestion": "Add a separate orthographic assessment for quién and record information choice as correct. Do not ignore the missing accent."
+        }
+      ],
+      "caseId": "task:A1-05-L6-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Quién es la profesora?",
+      "notes": "",
+      "sources": [
+        "Packet, skill:question.choice-missing-info, content.body.scope.noteUk: \"Знак наголосу й узгодження оцінюються окремими цілями.\"",
+        "Course contract, rule 5: written accents are never ignored."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T30",
+      "contentHash": "90bf1c4617fe8a6b2d2ffb965b197ce0ecd82b62ab63f7098216c8d089f87b7c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].outcomes[\"question.choice-missing-info/construction-use\"]: \"incorrect\" for \"¿Cuánto cuestan la clase?\".",
+          "description": "The learner correctly requests the missing price. The sentence has a subject–verb agreement error, which the skill specification says must be assessed separately. The current outcome confounds agreement with information choice.",
+          "suggestion": "Record information choice as correct and assess cuesta versus cuestan under an appropriate separate agreement or price-question target."
+        }
+      ],
+      "caseId": "task:A1-05-L6-T30",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Cuánto cuesta la clase de español?",
+      "notes": "The reviewed response is grammatically incorrect; the defect is its target attribution.",
+      "sources": [
+        "Packet, skill:question.choice-missing-info, content.body.scope.noteUk: \"Знак наголосу й узгодження оцінюються окремими цілями.\""
+      ]
+    }
+  ]
+}

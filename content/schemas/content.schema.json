@@ -1,0 +1,467 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spanish-learning-lab.invalid/content/v1/content.schema.json",
+  "title": "Spanish Learning Lab course source files v1",
+  "description": "Authoring format for content/source. Blocks reuse the wire contract block types (docs/contracts/schemas.json#/$defs/Block); no other markup exists.",
+  "$defs": {
+    "SkillId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{1,119}$" },
+    "Modality": {
+      "type": "string",
+      "enum": ["written-form", "context-choice", "reading-meaning", "listening-meaning", "dictation", "phrase-recall", "construction-use"]
+    },
+    "TargetKey": {
+      "description": "skillId/modality",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{1,119}/(written-form|context-choice|reading-meaning|listening-meaning|dictation|phrase-recall|construction-use)$"
+    },
+    "Target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skillId", "modality"],
+      "properties": { "skillId": { "$ref": "#/$defs/SkillId" }, "modality": { "$ref": "#/$defs/Modality" } }
+    },
+    "ObjectiveId": { "type": "string", "pattern": "^A[12]-0[1-8]-O[0-9]{1,2}$" },
+    "LessonId": { "type": "string", "pattern": "^A[12]-0[1-8]-(L[0-9]{1,2}|C1)$" },
+    "BlockId": { "type": "string", "pattern": "^A[12]-0[1-8]$" },
+    "CvId": { "type": "string", "pattern": "^CV-0[1-6]$" },
+    "LocalId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{1,119}$" },
+    "TaskId": { "type": "string", "pattern": "^A[12]-0[1-8]-(L[0-9]{1,2}|C1)-T[0-9]{2,3}$" },
+    "ReviewStatus": {
+      "description": "draft: authored, not yet reviewed. needs-review: queued for or failed opposite-provider review. reviewed: an opposite-provider review receipt exists for the current hash with no open blocking finding. ready: reviewed plus a local validation receipt (set only by tools/review, never by hand).",
+      "type": "string",
+      "enum": ["draft", "needs-review", "reviewed", "ready", "quarantined"]
+    },
+    "TextUk": { "type": "string", "minLength": 1, "maxLength": 2000 },
+    "TextEs": { "type": "string", "minLength": 1, "maxLength": 2000 },
+    "SourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "section"],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^S[0-9]{1,2}$" },
+        "section": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "note": { "type": "string", "maxLength": 500 }
+      }
+    },
+    "Block": {
+      "oneOf": [
+        {
+          "type": "object", "additionalProperties": false, "required": ["type", "language", "text"],
+          "properties": { "type": { "const": "paragraph" }, "language": { "enum": ["uk", "es-ES"] }, "text": { "type": "string", "minLength": 1, "maxLength": 2000 } }
+        },
+        {
+          "type": "object", "additionalProperties": false, "required": ["type", "language", "items"],
+          "properties": {
+            "type": { "const": "bullet-list" }, "language": { "enum": ["uk", "es-ES"] },
+            "items": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "type": "string", "minLength": 1, "maxLength": 500 } }
+          }
+        },
+        {
+          "type": "object", "additionalProperties": false, "required": ["type", "spanish", "ukrainian"],
+          "properties": { "type": { "const": "example" }, "spanish": { "type": "string", "minLength": 1, "maxLength": 1000 }, "ukrainian": { "type": "string", "minLength": 1, "maxLength": 1000 } }
+        },
+        {
+          "type": "object", "additionalProperties": false, "required": ["type", "labelUk", "targets", "mode", "maxItems"],
+          "properties": {
+            "type": { "const": "practice-link" }, "labelUk": { "type": "string", "minLength": 1, "maxLength": 120 },
+            "targets": { "type": "array", "minItems": 1, "maxItems": 30, "items": { "$ref": "#/$defs/Target" } },
+            "mode": { "enum": ["written", "listening", "mixed"] }, "maxItems": { "type": "integer", "minimum": 1, "maximum": 30 }
+          }
+        },
+        {
+          "type": "object", "additionalProperties": false, "required": ["type", "language", "columns", "rows"],
+          "properties": {
+            "type": { "const": "table" }, "language": { "enum": ["uk", "es-ES"] },
+            "columns": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "type": "string", "minLength": 1, "maxLength": 80 } },
+            "rows": {
+              "type": "array", "minItems": 1, "maxItems": 20,
+              "items": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "type": "string", "minLength": 1, "maxLength": 500 } }
+            }
+          }
+        }
+      ]
+    },
+    "Policy": {
+      "description": "Normalization tolerated by the checker. Accents, ñ, ü, inverted marks and word order are never normalized away. 'case: insensitive' is allowed only where capitalization is not assessed.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case", "terminalPunctuation"],
+      "properties": {
+        "case": { "enum": ["sensitive", "insensitive"] },
+        "terminalPunctuation": {
+          "description": "required: final . ? ! (and opening ¿ ¡) must match an accepted variant. optional: a single trailing . ! ? and the matching opening mark may be absent from the response.",
+          "enum": ["required", "optional"]
+        }
+      }
+    },
+    "TargetOutcomes": {
+      "description": "Per-target verdict implied by a reviewed option/variant. Keys are TargetKey strings of the task's own targets.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/TargetKey" },
+      "additionalProperties": { "enum": ["correct", "incorrect", "unresolved"] },
+      "minProperties": 1
+    },
+    "Hint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "targets", "blocks"],
+      "properties": {
+        "kind": { "enum": ["rule", "targeted-clue", "translation", "transcript", "reveal"] },
+        "targets": { "description": "Targets this help actually supports (may be empty only for vocabulary support of a non-assessed word).", "type": "array", "maxItems": 30, "items": { "$ref": "#/$defs/TargetKey" } },
+        "blocks": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/Block" } }
+      }
+    },
+    "Variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "text"],
+      "properties": {
+        "id": { "$ref": "#/$defs/LocalId" },
+        "text": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "noteUk": { "type": "string", "maxLength": 500 }
+      }
+    },
+    "ErrorVariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "text", "outcomes", "feedbackUk"],
+      "properties": {
+        "id": { "$ref": "#/$defs/LocalId" },
+        "text": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "outcomes": { "$ref": "#/$defs/TargetOutcomes" },
+        "feedbackUk": { "$ref": "#/$defs/TextUk" }
+      }
+    },
+    "Slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "target", "accepted", "closed"],
+      "properties": {
+        "id": { "$ref": "#/$defs/LocalId" },
+        "target": { "$ref": "#/$defs/TargetKey" },
+        "accepted": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "type": "string", "minLength": 1, "maxLength": 200 } },
+        "errors": {
+          "type": "array", "maxItems": 20,
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["text", "feedbackUk"],
+            "properties": { "text": { "type": "string", "minLength": 1, "maxLength": 200 }, "feedbackUk": { "$ref": "#/$defs/TextUk" } }
+          }
+        },
+        "closed": { "description": "true only when reviewers confirmed every acceptable value for this slot is listed; an unlisted value is then incorrect for this slot's target. false: unlisted value is unresolved.", "type": "boolean" }
+      }
+    },
+    "Task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "lessonId", "role", "family", "mode", "targets", "prompt", "input", "feedback", "reviewStatus"],
+      "properties": {
+        "id": { "$ref": "#/$defs/TaskId" },
+        "lessonId": { "$ref": "#/$defs/LessonId" },
+        "role": {
+          "description": "supported: learning with visible model/help. independent: in-lesson practice without visible model. delayed: held-out prompt for later review only. transfer: held-out prompt in a new context family.",
+          "enum": ["supported", "independent", "delayed", "transfer"]
+        },
+        "family": { "description": "Prompt/context family id; delayed advancement needs a different family or clip than the previous eligible check.", "$ref": "#/$defs/LocalId" },
+        "mode": { "enum": ["choice", "exact-variants", "finite-slots", "rubric-review"] },
+        "targets": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/Target" } },
+        "prompt": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/Block" } },
+        "input": { "enum": ["options", "short", "multiline"] },
+        "clipIds": { "type": "array", "maxItems": 2, "items": { "$ref": "#/$defs/LocalId" } },
+        "options": {
+          "type": "array", "minItems": 2, "maxItems": 8,
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["id", "label", "outcomes"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z]$" },
+              "label": { "type": "string", "minLength": 1, "maxLength": 300 },
+              "outcomes": { "$ref": "#/$defs/TargetOutcomes" },
+              "feedbackUk": { "$ref": "#/$defs/TextUk" }
+            }
+          }
+        },
+        "accepted": { "type": "array", "minItems": 1, "maxItems": 30, "items": { "$ref": "#/$defs/Variant" } },
+        "errors": { "type": "array", "maxItems": 30, "items": { "$ref": "#/$defs/ErrorVariant" } },
+        "closed": { "description": "exact-variants with exactly one target: true when reviewers confirmed all acceptable answers are listed, so an unlisted answer is incorrect. Otherwise unlisted answers are unresolved.", "type": "boolean" },
+        "policy": { "$ref": "#/$defs/Policy" },
+        "template": {
+          "description": "finite-slots: literal strings and {slot} references; two slot references must be separated by a non-empty literal.",
+          "type": "array", "minItems": 1, "maxItems": 12,
+          "items": {
+            "oneOf": [
+              { "type": "string", "minLength": 1, "maxLength": 300 },
+              { "type": "object", "additionalProperties": false, "required": ["slot"], "properties": { "slot": { "$ref": "#/$defs/LocalId" } } }
+            ]
+          }
+        },
+        "slots": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/Slot" } },
+        "rubric": {
+          "type": "object", "additionalProperties": false, "required": ["criteriaUk", "exemplars"],
+          "properties": {
+            "criteriaUk": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/TextUk" } },
+            "exemplars": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/Variant" } }
+          }
+        },
+        "hints": { "type": "array", "maxItems": 6, "items": { "$ref": "#/$defs/Hint" } },
+        "referenceAnswer": { "type": "string", "maxLength": 2000 },
+        "feedback": {
+          "type": "object", "additionalProperties": false, "required": ["correctUk", "incorrectUk"],
+          "properties": {
+            "correctUk": { "$ref": "#/$defs/TextUk" },
+            "incorrectUk": { "$ref": "#/$defs/TextUk" },
+            "unresolvedUk": { "$ref": "#/$defs/TextUk" }
+          }
+        },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "TaskFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "lessonId", "tasks"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "lessonId": { "$ref": "#/$defs/LessonId" },
+        "tasks": { "type": "array", "minItems": 1, "maxItems": 400, "items": { "$ref": "#/$defs/Task" } }
+      }
+    },
+    "Step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "titleUk", "required"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^s[0-9]{1,2}$" },
+        "kind": { "enum": ["explanation", "examples", "supported-practice", "independent-practice", "reading", "listening", "writing", "summary", "self-check"] },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "required": { "type": "boolean" },
+        "blocks": { "type": "array", "maxItems": 40, "items": { "$ref": "#/$defs/Block" } },
+        "taskIds": { "type": "array", "maxItems": 40, "items": { "$ref": "#/$defs/TaskId" } },
+        "clipIds": { "type": "array", "maxItems": 6, "items": { "$ref": "#/$defs/LocalId" } }
+      }
+    },
+    "Lesson": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "id", "kind", "blockId", "titleUk", "summaryUk", "objectives", "estimatedMinutes", "introduces", "revisits", "steps", "situations", "reviewStatus"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "id": { "$ref": "#/$defs/LessonId" },
+        "kind": { "enum": ["lesson", "optional-check"] },
+        "blockId": { "$ref": "#/$defs/BlockId" },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "termEs": { "type": "string", "maxLength": 160 },
+        "summaryUk": { "$ref": "#/$defs/TextUk" },
+        "objectives": { "type": "array", "minItems": 1, "maxItems": 12, "items": { "$ref": "#/$defs/ObjectiveId" } },
+        "cv": { "type": "array", "maxItems": 6, "items": { "$ref": "#/$defs/CvId" } },
+        "situations": { "type": "array", "maxItems": 8, "items": { "$ref": "#/$defs/LocalId" } },
+        "estimatedMinutes": { "type": "integer", "minimum": 3, "maximum": 20 },
+        "skippableFoundation": { "type": "boolean" },
+        "introduces": { "description": "Skills first taught in this lesson.", "type": "array", "maxItems": 60, "items": { "$ref": "#/$defs/SkillId" } },
+        "revisits": { "description": "Earlier skills deliberately reused here.", "type": "array", "maxItems": 60, "items": { "$ref": "#/$defs/SkillId" } },
+        "steps": { "type": "array", "minItems": 2, "maxItems": 14, "items": { "$ref": "#/$defs/Step" } },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "Skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skillId", "parentObjectives", "kind", "modalities", "titleUk", "scope", "firstLesson", "prerequisites", "ruleUk", "assessed", "returns", "sources", "reviewStatus"],
+      "properties": {
+        "skillId": { "$ref": "#/$defs/SkillId" },
+        "parentObjectives": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/ObjectiveId" } },
+        "kind": { "enum": ["orthography", "form", "exception", "contrast", "construction", "vocabulary", "function", "reading", "listening", "phrase", "text"] },
+        "modalities": { "type": "array", "minItems": 1, "maxItems": 7, "uniqueItems": true, "items": { "$ref": "#/$defs/Modality" } },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "termEs": { "type": "string", "maxLength": 160 },
+        "scope": {
+          "type": "object", "additionalProperties": false, "required": ["noteUk"],
+          "properties": {
+            "forms": { "type": "array", "maxItems": 40, "items": { "type": "string", "minLength": 1, "maxLength": 120 } },
+            "persons": { "type": "array", "maxItems": 6, "items": { "enum": ["1s", "2s", "3s", "1p", "2p", "3p"] } },
+            "exceptionOf": { "$ref": "#/$defs/SkillId" },
+            "noteUk": { "$ref": "#/$defs/TextUk" }
+          }
+        },
+        "firstLesson": { "$ref": "#/$defs/LessonId" },
+        "prerequisites": { "type": "array", "maxItems": 20, "items": { "$ref": "#/$defs/SkillId" } },
+        "ruleUk": { "$ref": "#/$defs/TextUk" },
+        "assessed": { "description": "false for incidental/support material that is taught but never scored.", "type": "boolean" },
+        "returns": {
+          "type": "object", "additionalProperties": false, "required": ["practice", "check", "later"],
+          "properties": {
+            "practice": { "type": "array", "maxItems": 20, "items": { "$ref": "#/$defs/LessonId" } },
+            "check": { "type": "array", "maxItems": 6, "items": { "$ref": "#/$defs/LessonId" } },
+            "later": { "type": "array", "maxItems": 20, "items": { "$ref": "#/$defs/LessonId" } }
+          }
+        },
+        "cv": { "type": "array", "maxItems": 6, "items": { "$ref": "#/$defs/CvId" } },
+        "situations": { "type": "array", "maxItems": 8, "items": { "$ref": "#/$defs/LocalId" } },
+        "sources": { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/SourceRef" } },
+        "variantPolicyUk": { "type": "string", "maxLength": 500 },
+        "bankJustificationUk": { "description": "Required when the task bank deviates from the 10-instance baseline for a small productive grammar target.", "type": "string", "maxLength": 500 },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "SkillFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "blockId", "skills"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "blockId": { "$ref": "#/$defs/BlockId" },
+        "skills": { "type": "array", "minItems": 1, "maxItems": 400, "items": { "$ref": "#/$defs/Skill" } }
+      }
+    },
+    "LexicalItem": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "lemma", "pos", "meaningUk", "firstLesson"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^lex\\.[a-z0-9][a-z0-9._-]{0,100}$" },
+        "lemma": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "pos": { "enum": ["noun", "verb", "adjective", "adverb", "pronoun", "determiner", "preposition", "conjunction", "interjection", "numeral", "expression"] },
+        "gender": { "enum": ["m", "f", "m/f"] },
+        "plural": { "type": "string", "maxLength": 80 },
+        "meaningUk": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "firstLesson": { "$ref": "#/$defs/LessonId" },
+        "noteUk": { "type": "string", "maxLength": 300 },
+        "reviewStatus": { "description": "Optional (added 2026-11-06, #111). Absent means not yet reviewed and is treated as draft; lexical lists are reviewed before task generation (CONTENT-PLAN).", "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "LexiconFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "blockId", "items"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "blockId": { "$ref": "#/$defs/BlockId" },
+        "items": { "type": "array", "maxItems": 600, "items": { "$ref": "#/$defs/LexicalItem" } }
+      }
+    },
+    "Clip": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "lessonId", "kind", "transcript", "translationUk", "targets", "family", "reviewStatus"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^clip\\.[a-z0-9][a-z0-9._-]{1,110}$" },
+        "lessonId": { "$ref": "#/$defs/LessonId" },
+        "kind": { "enum": ["phrase", "sentence", "dialogue-line", "text"] },
+        "transcript": { "type": "string", "minLength": 1, "maxLength": 1200 },
+        "translationUk": { "type": "string", "minLength": 1, "maxLength": 1200 },
+        "targets": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/Target" } },
+        "family": { "$ref": "#/$defs/LocalId" },
+        "pronunciationNoteUk": { "type": "string", "maxLength": 300 },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "ClipFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "blockId", "clips"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "blockId": { "$ref": "#/$defs/BlockId" },
+        "clips": { "type": "array", "maxItems": 300, "items": { "$ref": "#/$defs/Clip" } }
+      }
+    },
+    "Phrase": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "spanish", "ukrainian", "firstLesson", "skills", "situations", "reviewStatus"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^phrase\\.[a-z0-9][a-z0-9._-]{1,100}$" },
+        "spanish": { "$ref": "#/$defs/TextEs" },
+        "ukrainian": { "$ref": "#/$defs/TextUk" },
+        "noteUk": { "type": "string", "maxLength": 500 },
+        "firstLesson": { "$ref": "#/$defs/LessonId" },
+        "skills": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/SkillId" } },
+        "situations": { "type": "array", "minItems": 1, "maxItems": 6, "items": { "$ref": "#/$defs/LocalId" } },
+        "clipIds": { "type": "array", "maxItems": 2, "items": { "$ref": "#/$defs/LocalId" } },
+        "recall": {
+          "description": "Exact phrase recall from the Ukrainian meaning.",
+          "type": "object", "additionalProperties": false, "required": ["accepted", "policy"],
+          "properties": {
+            "accepted": { "type": "array", "minItems": 1, "maxItems": 10, "items": { "$ref": "#/$defs/Variant" } },
+            "policy": { "$ref": "#/$defs/Policy" }
+          }
+        },
+        "variationTaskIds": { "description": "Reviewed construction-variation tasks using familiar material.", "type": "array", "maxItems": 10, "items": { "$ref": "#/$defs/TaskId" } },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "PhraseFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "phrases"],
+      "properties": { "schemaVersion": { "const": 1 }, "phrases": { "type": "array", "maxItems": 600, "items": { "$ref": "#/$defs/Phrase" } } }
+    },
+    "Collection": {
+      "type": "object", "additionalProperties": false, "required": ["id", "titleUk", "descriptionUk", "phraseIds", "reviewStatus"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^collection\\.[a-z0-9][a-z0-9._-]{1,80}$" },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "descriptionUk": { "$ref": "#/$defs/TextUk" },
+        "phraseIds": { "type": "array", "minItems": 12, "maxItems": 12, "uniqueItems": true, "items": { "type": "string" } },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "CollectionFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "collections"],
+      "properties": { "schemaVersion": { "const": 1 }, "collections": { "type": "array", "minItems": 8, "maxItems": 8, "items": { "$ref": "#/$defs/Collection" } } }
+    },
+    "Material": {
+      "type": "object", "additionalProperties": false, "required": ["id", "topicId", "titleUk", "blocks", "linkedTargets", "reviewStatus"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^material\\.[a-z0-9][a-z0-9._-]{1,100}$" },
+        "topicId": { "description": "Block id or lesson id the material belongs to.", "type": "string", "pattern": "^A[12]-0[1-8](-(L[0-9]{1,2}|C1))?$" },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "blocks": { "type": "array", "minItems": 1, "maxItems": 40, "items": { "$ref": "#/$defs/Block" } },
+        "linkedTargets": { "type": "array", "maxItems": 30, "items": { "$ref": "#/$defs/TargetKey" } },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "MaterialFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "blockId", "materials"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "blockId": { "$ref": "#/$defs/BlockId" },
+        "materials": { "type": "array", "maxItems": 60, "items": { "$ref": "#/$defs/Material" } }
+      }
+    },
+    "Situation": {
+      "type": "object", "additionalProperties": false, "required": ["id", "titleUk", "firstLessons"],
+      "properties": {
+        "id": { "$ref": "#/$defs/LocalId" },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "firstLessons": { "type": "array", "minItems": 1, "maxItems": 10, "items": { "$ref": "#/$defs/LessonId" } },
+        "laterLessons": { "type": "array", "maxItems": 20, "items": { "$ref": "#/$defs/LessonId" } },
+        "reviewStatus": { "description": "Optional (added 2026-11-06, #111). Absent means not yet reviewed and is treated as draft (titleUk is learner-facing copy).", "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "SituationFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "situations"],
+      "properties": { "schemaVersion": { "const": 1 }, "situations": { "type": "array", "minItems": 1, "maxItems": 30, "items": { "$ref": "#/$defs/Situation" } } }
+    },
+    "CourseBlock": {
+      "description": "One curriculum block (A1-01 … A2-08) as shown in the catalog/progress (added 2026-11-06, #111).",
+      "type": "object", "additionalProperties": false, "required": ["id", "titleUk", "summaryUk", "reviewStatus"],
+      "properties": {
+        "id": { "$ref": "#/$defs/BlockId" },
+        "titleUk": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "termEs": { "type": "string", "maxLength": 160 },
+        "summaryUk": { "$ref": "#/$defs/TextUk" },
+        "reviewStatus": { "$ref": "#/$defs/ReviewStatus" }
+      }
+    },
+    "BlockFile": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "blocks"],
+      "properties": { "schemaVersion": { "const": 1 }, "blocks": { "type": "array", "minItems": 1, "maxItems": 20, "items": { "$ref": "#/$defs/CourseBlock" } } }
+    },
+    "SourceRegistry": {
+      "type": "object", "additionalProperties": false, "required": ["schemaVersion", "sources"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "sources": {
+          "type": "array", "minItems": 1, "maxItems": 40,
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["id", "title", "url", "useNote"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^S[0-9]{1,2}$" },
+              "title": { "type": "string", "minLength": 1, "maxLength": 300 },
+              "url": { "type": "string", "pattern": "^https://", "maxLength": 500 },
+              "useNote": { "type": "string", "minLength": 1, "maxLength": 500 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

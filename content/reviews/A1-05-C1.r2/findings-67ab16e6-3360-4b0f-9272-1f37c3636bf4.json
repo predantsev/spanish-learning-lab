@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-05-C1.r2",
+  "jobId": "67ab16e6-3360-4b0f-9272-1f37c3636bf4",
+  "receiptId": "cd0bd778-6af1-4812-b4f9-5f1df8a6d1fc",
+  "recordedAt": "2026-11-09T07:15:42.013Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T01",
+      "contentHash": "6607bb525d7058e610102e59737b2c41ed5b0811b02767c1a350d95d1c2e4757",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: missing event-location construction with ser, required by task.referenceAnswer «¿Dónde es el concierto?»",
+          "description": "The mapped prerequisites teach location questions with estar and event-time questions with ser, but do not teach locating an event with ser. The rule hint gives only «¿Dónde…?»; the reveal supplies the answer without explaining this new construction.",
+          "suggestion": "Teach and map event location with ser before this check, including «El concierto es en la plaza» and «¿Dónde es el concierto?»; alternatively, use a situation requiring the already taught place-location construction with estar."
+        }
+      ],
+      "caseId": "task:A1-05-C1-T01",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Dónde es el concierto?",
+      "notes": "The Spanish reference answer is natural and correct. No closed key is declared, so omitted paraphrases alone do not establish wrongful rejection.",
+      "sources": [
+        "Course contract rule 1: constructions required for answering must be mapped as taught or explained in the prompt or a hint.",
+        "This case's context.taughtBefore: question.choice-missing-info models «¿Dónde está…?»; time.event.a-las models «¿A qué hora es la clase?»."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-C1-T02",
+      "contentHash": "3c3e3ea93ca138c64209524b0a6d2eac8cd63263ab897af82db4f51792cbc712",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.slots[0].errors[0].feedbackUk: «De + el завжди зливаються: del hotel.»",
+          "description": "«Завжди» makes the contraction rule unconditional. Contraction is not used when El begins a proper name or title whose initial article is retained, as in «de El País». The sentence and slot answers themselves are correct.",
+          "suggestion": "Scope the feedback to this example: «Тут de + el зливаються: del hotel.»"
+        }
+      ],
+      "caseId": "task:A1-05-C1-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "El museo está cerca del hotel y abre a las diez.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «el» (article), contraction with a/de and exceptions involving proper names and titles (from memory)."
+      ]
+    }
+  ]
+}

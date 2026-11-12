@@ -1,0 +1,699 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-06-L3.r2",
+  "packetHash": "82a1383347dedd33eadaaec1c91cd03f67e6b3c42efd173911ed2e1a1a753186",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "ae83b78492e38a3f59519ee947df8cbc53ed6b0c981c5e15a9869a77560abf1e",
+    "reviewerPacketSha256": "ddacd50681a2195cb743cd8a369f8ccccc112fb2de3e05b47f2afdbb137a889b",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ye0gNd/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ye0gNd/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ye0gNd/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ye0gNd/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-ye0gNd/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bf37-2ee6-78b0-95d1-264673ae849c",
+        "version": "v0.166.0",
+        "tokens used": "12,203"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-06-L3",
+        "reviewerAnswer": "Conjugated necesitar + noun phrase or infinitive: Necesito un bolígrafo. / Necesitamos agua. / Necesito descansar.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[0].blocks[1].text: «з артиклем un / una для однієї речі, без артикля для невизначеної кількості»",
+        "defect": "This presents article choice as determined by quantity alone. One identified object can require a definite article: Necesito el bolígrafo. Necesitar does not require un/una for every singular countable object.",
+        "correction": "Limit un/una to an unspecified singular countable object. Contrast an identified object with el/la, and illustrate an unspecified amount of a mass noun without an article.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 14–15 on definite and indefinite articles (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T01",
+        "reviewerAnswer": "Necesito un paraguas. / Yo necesito un paraguas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T02",
+        "reviewerAnswer": "necesitamos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T03",
+        "reviewerAnswer": "¿Necesitas algo? / ¿Tú necesitas algo? / ¿Necesitas tú algo?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesitas, без займенника me.»",
+        "defect": "Necesitas means that you need something, not that I need something. The erroneous answer contains te, whereas the feedback discusses me.",
+        "correction": "Replace with: «Людина — підмет: «тобі потрібно» = necesitas, без займенника te.»",
+        "sources": [
+          "Course contract rule 8.",
+          "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: tú necesitas (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T04",
+        "reviewerAnswer": "Ana necesita una mochila.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T05",
+        "reviewerAnswer": "Necesitamos pan. / Nosotros necesitamos pan. / Nosotras necesitamos pan.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesitamos, без займенника me.»",
+        "defect": "Necesitamos expresses our need, not my need. The erroneous answer contains nos, whereas the feedback discusses me.",
+        "correction": "Replace with: «Людина — підмет: «нам потрібно» = necesitamos, без займенника nos.»",
+        "sources": [
+          "Course contract rule 8.",
+          "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: nosotros/nosotras necesitamos (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T06",
+        "reviewerAnswer": "Necesito dinero. / Yo necesito dinero.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T07",
+        "reviewerAnswer": "Mis padres necesitan un coche.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The mapping does not explicitly list mis or padres. These are ordinary A1 possessive and family vocabulary; their omission alone does not establish a prerequisite defect under rule 1."
+      },
+      {
+        "caseId": "task:A1-06-L3-T08",
+        "reviewerAnswer": "¿Necesita algo? / ¿Usted necesita algo? / ¿Necesita usted algo?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesita, без займенника me.»",
+        "defect": "For the specified usted address, necesita corresponds to «вам потрібно», not «мені потрібно». The erroneous answer contains le, whereas the feedback discusses me.",
+        "correction": "Replace with: «Людина — підмет: «вам потрібно» (usted) = necesita, без займенника le.»",
+        "sources": [
+          "Course contract rule 8.",
+          "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: usted necesita (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T09",
+        "reviewerAnswer": "Necesito un kilo de tomates. / Yo necesito un kilo de tomates.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The mapping lists kilo but does not explicitly list tomates or kilo de + noun. These are ordinary A1 shopping language; omission alone does not establish an untaught prerequisite under rule 1."
+      },
+      {
+        "caseId": "task:A1-06-L3-T10",
+        "reviewerAnswer": "Necesitamos dos billetes. / Nosotros necesitamos dos billetes. / Nosotras necesitamos dos billetes.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesitamos, без займенника me.»",
+        "defect": "Necesitamos expresses our need, not my need. The erroneous answer contains nos, whereas the feedback discusses me.",
+        "correction": "Replace with: «Людина — підмет: «нам потрібно» = necesitamos, без займенника nos.»",
+        "sources": [
+          "Course contract rule 8.",
+          "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: nosotros/nosotras necesitamos (from memory)."
+        ],
+        "notes": "Billetes is ordinary A1 travel vocabulary; its omission from taughtBefore alone does not establish an additional defect."
+      },
+      {
+        "caseId": "task:A1-06-L3-T11",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T12",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T13",
+        "reviewerAnswer": "comprar",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T14",
+        "reviewerAnswer": "Necesitamos estudiar. / Nosotros necesitamos estudiar. / Nosotras necesitamos estudiar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T15",
+        "reviewerAnswer": "descansar",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T16",
+        "reviewerAnswer": "Hoy necesito trabajar. / Necesito trabajar hoy. Explicit yo is also acceptable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "«Hoy necesito trabajo.» is grammatical with trabajo meaning work/a job, but does not translate the requested action. Feedback could clarify that distinction. No closed key is declared, so omitted variants such as «Yo necesito trabajar hoy.» do not demonstrate an incorrect rejection."
+      },
+      {
+        "caseId": "task:A1-06-L3-T17",
+        "reviewerAnswer": "Ana necesita estudiar inglés.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T18",
+        "reviewerAnswer": "Mis hermanos necesitan cocinar en casa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T19",
+        "reviewerAnswer": "Necesitas descansar. / Tú necesitas descansar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T20",
+        "reviewerAnswer": "tomar",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "For greater timetable precision, the Ukrainian could explicitly refer to the train departing at eight: el tren de las ocho identifies the scheduled service."
+      },
+      {
+        "caseId": "task:A1-06-L3-T21",
+        "reviewerAnswer": "Necesito ir a la farmacia. / Yo necesito ir a la farmacia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T22",
+        "reviewerAnswer": "Necesitamos llegar a las nueve. / Nosotros necesitamos llegar a las nueve. / Nosotras necesitamos llegar a las nueve.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-06-L3",
+      "contentHash": "eb5ce33a6c85fac669a633869c86f7a671569e31d72baec65eea8ea36eebce77",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[1].text: «з артиклем un / una для однієї речі, без артикля для невизначеної кількості»",
+          "description": "This presents article choice as determined by quantity alone. One identified object can require a definite article: Necesito el bolígrafo. Necesitar does not require un/una for every singular countable object.",
+          "suggestion": "Limit un/una to an unspecified singular countable object. Contrast an identified object with el/la, and illustrate an unspecified amount of a mass noun without an article."
+        }
+      ],
+      "caseId": "lesson:A1-06-L3",
+      "verdict": "flawed",
+      "reviewerAnswer": "Conjugated necesitar + noun phrase or infinitive: Necesito un bolígrafo. / Necesitamos agua. / Necesito descansar.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 14–15 on definite and indefinite articles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T01",
+      "contentHash": "acd9d55120cd1a757b8ca3d8700d5af5e00cbbb6fb59eba033dabee518f4d7c4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesito un paraguas. / Yo necesito un paraguas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T02",
+      "contentHash": "5e59ce92130096a1ae3eef12973be296a853a3c251219b64575ad9300f61119e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "necesitamos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T03",
+      "contentHash": "c4dd17816ab4140b2b21cb044f6da1ca2234c04de394b9dbd20f8baf8f151cdf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesitas, без займенника me.»",
+          "description": "Necesitas means that you need something, not that I need something. The erroneous answer contains te, whereas the feedback discusses me.",
+          "suggestion": "Replace with: «Людина — підмет: «тобі потрібно» = necesitas, без займенника te.»"
+        }
+      ],
+      "caseId": "task:A1-06-L3-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Necesitas algo? / ¿Tú necesitas algo? / ¿Necesitas tú algo?",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: tú necesitas (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T04",
+      "contentHash": "b2ef240c05ff9c293194c1c7bc893cc5377e54922a193bab7072450e79119127",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana necesita una mochila.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T05",
+      "contentHash": "20368901eaf6e11bdeae50988849b2b5757dc3c75c5a09368c079358fc561a20",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesitamos, без займенника me.»",
+          "description": "Necesitamos expresses our need, not my need. The erroneous answer contains nos, whereas the feedback discusses me.",
+          "suggestion": "Replace with: «Людина — підмет: «нам потрібно» = necesitamos, без займенника nos.»"
+        }
+      ],
+      "caseId": "task:A1-06-L3-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "Necesitamos pan. / Nosotros necesitamos pan. / Nosotras necesitamos pan.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: nosotros/nosotras necesitamos (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T06",
+      "contentHash": "89fd64d7a2331f6c72ebcd793f1cf2c885a483de1f3c90d33617d06d92983929",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesito dinero. / Yo necesito dinero.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T07",
+      "contentHash": "5e93fc7cb0831a4b9a783930a65e1f9a97856a8f93cc1019985b39a18f7b59ea",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis padres necesitan un coche.",
+      "notes": "The mapping does not explicitly list mis or padres. These are ordinary A1 possessive and family vocabulary; their omission alone does not establish a prerequisite defect under rule 1.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T08",
+      "contentHash": "9896428f8e2592347db66c8baf263a981644148a0f6a4a647ce4cc35f3e9cf3e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesita, без займенника me.»",
+          "description": "For the specified usted address, necesita corresponds to «вам потрібно», not «мені потрібно». The erroneous answer contains le, whereas the feedback discusses me.",
+          "suggestion": "Replace with: «Людина — підмет: «вам потрібно» (usted) = necesita, без займенника le.»"
+        }
+      ],
+      "caseId": "task:A1-06-L3-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Necesita algo? / ¿Usted necesita algo? / ¿Necesita usted algo?",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: usted necesita (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T09",
+      "contentHash": "13be616157f12fa3f561e1c02638f43e04d337edbb885541c974aa4cadab282d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesito un kilo de tomates. / Yo necesito un kilo de tomates.",
+      "notes": "The mapping lists kilo but does not explicitly list tomates or kilo de + noun. These are ordinary A1 shopping language; omission alone does not establish an untaught prerequisite under rule 1.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T10",
+      "contentHash": "37d6047049a9b00fa91d7c4ea261e1fbbfab5d5af2fcc0617c76e0e2aa890e9d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[0].feedbackUk: «Людина — підмет: «мені потрібно» = necesitamos, без займенника me.»",
+          "description": "Necesitamos expresses our need, not my need. The erroneous answer contains nos, whereas the feedback discusses me.",
+          "suggestion": "Replace with: «Людина — підмет: «нам потрібно» = necesitamos, без займенника nos.»"
+        }
+      ],
+      "caseId": "task:A1-06-L3-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "Necesitamos dos billetes. / Nosotros necesitamos dos billetes. / Nosotras necesitamos dos billetes.",
+      "notes": "Billetes is ordinary A1 travel vocabulary; its omission from taughtBefore alone does not establish an additional defect.",
+      "sources": [
+        "Course contract rule 8.",
+        "RAE/ASALE, Diccionario de la lengua española, «necesitar», present indicative conjugation: nosotros/nosotras necesitamos (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T11",
+      "contentHash": "9757150d129b473938286a2fc58fff5375b2432cb9cf90f58c38d1afacac37cd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T12",
+      "contentHash": "c65840684dd7d58e7096b9a635bf0ba2e6a7372ae5c687f1969bbbbdd32effe2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T13",
+      "contentHash": "0ceeb34f4ba7f3823feb0d8392eb1d9b28f034c0012258cdb9af788deb01a798",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "comprar",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T14",
+      "contentHash": "b412ba3c05e31c6c988b93af6f4de3e5d45fb93de2de5422687ebba6845590ec",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesitamos estudiar. / Nosotros necesitamos estudiar. / Nosotras necesitamos estudiar.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T15",
+      "contentHash": "baa017adf8118159dfac98eb720d1377d6259e82938a6f025a445518fff5db14",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "descansar",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T16",
+      "contentHash": "e923dc6346fea2154ec47a3d76f751b6b6766a3084c30d1b4e0fe8f1072f47e2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "Hoy necesito trabajar. / Necesito trabajar hoy. Explicit yo is also acceptable.",
+      "notes": "«Hoy necesito trabajo.» is grammatical with trabajo meaning work/a job, but does not translate the requested action. Feedback could clarify that distinction. No closed key is declared, so omitted variants such as «Yo necesito trabajar hoy.» do not demonstrate an incorrect rejection.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T17",
+      "contentHash": "3597063cfaa4ac0cc2cb8df98e3240140cae5b239c47a9628e947598a1f31d93",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana necesita estudiar inglés.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T18",
+      "contentHash": "bb7f59536929c4ef104c77e369f943edd8edb7c7465d4739dbfbf9d20dc7377a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis hermanos necesitan cocinar en casa.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T19",
+      "contentHash": "678274d446715d5745dfb0399cd9e36ee2c4f03534ccbdfe055f35ac1695c1b1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T19",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesitas descansar. / Tú necesitas descansar.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T20",
+      "contentHash": "1a886ecde9bdcbf8f6d2cd6243407c967c065bd710fe049376f50e3a990dc591",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "tomar",
+      "notes": "For greater timetable precision, the Ukrainian could explicitly refer to the train departing at eight: el tren de las ocho identifies the scheduled service.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T21",
+      "contentHash": "f8fd7108607b56b890fdb1bd67d32e4715cbccc422c7d41c9137afa786589443",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesito ir a la farmacia. / Yo necesito ir a la farmacia.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T22",
+      "contentHash": "503c30b8e6caf8e9d7de43d175580c6beb0650108321160cf46d002a4f77d8c8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesitamos llegar a las nueve. / Nosotros necesitamos llegar a las nueve. / Nosotras necesitamos llegar a las nueve.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

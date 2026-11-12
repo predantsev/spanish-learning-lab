@@ -1,0 +1,2347 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L6.r1",
+  "packetHash": "c25a65f5e0c2d33d699a78185230c18b088335a361f303e8a7cc3debb9bbdbfe",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "9570116ca6c35413296a1a379ed2285190340269663e8363b911c6aeaf33b2ff",
+    "reviewerPacketSha256": "f7db00c7cffe8878f6747bf2d4c814fc6ac36f67593bb9ac2bce75a86b66eb4f",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RPAQBl/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RPAQBl/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RPAQBl/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RPAQBl/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RPAQBl/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bde8-b1f5-7823-94e8-bfd2bea0868b",
+        "version": "v0.166.0",
+        "tokens used": "206,595"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:neg.no-before-verb",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: \"Щоб заперечити, ставимо no безпосередньо перед дієсловом\"",
+        "defect": "Immediate adjacency is not a general rule. Unstressed object or reflexive pronouns intervene, as in No me llamo Ana.",
+        "correction": "Restrict immediate adjacency to clauses without clitic pronouns, or explain their position between no and the verb.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 (personal pronouns) and 48 (negation) (from memory)."
+        ],
+        "notes": "The supplied examples themselves are correct."
+      },
+      {
+        "caseId": "skill:ortho.interrogative-accent",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The accent rule correctly concerns interrogative uses. Spanish termEs \"la tilde en los interrogativos\" is appropriate."
+      },
+      {
+        "caseId": "skill:question.word-order",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "This presents one common pattern as the general structure of wh-questions. The interrogative can itself be the subject, as in ¿Quién tiene coche?, and a topic can precede it, as in ¿Ana de dónde es?.",
+        "correction": "Describe this as the basic pattern practised here, rather than a requirement for all wh-questions. Retain the appropriately qualified \"зазвичай\" from scope.noteUk.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, partial interrogatives and interrogative word order (from memory)."
+        ],
+        "notes": "The examples and the prohibition on stranding de in ¿De dónde eres? are correct."
+      },
+      {
+        "caseId": "skill:question.word.como",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:question.word.donde",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:question.word.que",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The accent statement concerns interrogative qué; scope.noteUk explicitly distinguishes relative que."
+      },
+      {
+        "caseId": "skill:question.word.quien",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.scope.noteUk: \"Quiénes — коли очікуємо кількох людей; дієслово тоді в множині.\"; content.body.ruleUk: \"Якщо питаєш про кількох людей, кажи quiénes і став дієслово в множині\"",
+        "defect": "Quiénes does not automatically require a plural verb. Verb agreement depends on the subject; compare ¿A quiénes conoces?, where quiénes is an object.",
+        "correction": "Limit the agreement statement to the illustrated identity questions, ¿Quién es…? / ¿Quiénes son…?, or explicitly distinguish subject and object uses.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 (interrogative pronouns) and 33 (the subject and agreement) (from memory)."
+        ],
+        "notes": "The supplied copular examples are correct."
+      },
+      {
+        "caseId": "skill:question.yes-no",
+        "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-03-L6",
+        "reviewerAnswer": "Not applicable: lesson content, with no single learner task.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s4].blocks: \"Порядок слів: питальне слово → дієслово → підмет\"; steps[id=s7].blocks: \"ставимо no безпосередньо перед дієсловом\"; steps[id=s11].blocks.items: \"Питальне слово → дієслово → підмет\"",
+        "defect": "The word-order statement presents a common pattern as universal, excluding interrogative subjects and preceding topics. The immediate-adjacency statement for no excludes intervening clitics, as in No me llamo Ana.",
+        "correction": "Label the word order as the basic pattern practised in these examples. Restrict immediate adjacency of no to clauses without clitic pronouns, or explain their intervening position.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, interrogative word order (from memory).",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48, clitic placement and negation (from memory)."
+        ],
+        "notes": "The Spanish examples, translations and qualified description of rising yes/no intonation are otherwise acceptable."
+      },
+      {
+        "caseId": "task:A1-03-L6-T01",
+        "reviewerAnswer": "¿Eres de Madrid?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?: Eres de Madrid. → ¿Eres de Madrid?\"",
+        "defect": "The hint explicitly explains question punctuation, supporting the assessed written-form target as well as construction-use.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "The answer and reviewed error diagnoses are otherwise sound."
+      },
+      {
+        "caseId": "task:A1-03-L6-T02",
+        "reviewerAnswer": "¿Ana es profesora? / ¿Es Ana profesora? / ¿Es profesora Ana?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The hint explicitly teaches punctuation but omits the assessed written-form target from its support attribution.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "All three accepted word orders are grammatical."
+      },
+      {
+        "caseId": "task:A1-03-L6-T03",
+        "reviewerAnswer": "¿Tienes coche?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The hint explains punctuation while attributing support only to construction-use.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "Other grammatical pronoun placements are possible; the packet does not declare a closed key."
+      },
+      {
+        "caseId": "task:A1-03-L6-T04",
+        "reviewerAnswer": "¿Hay leche?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The hint explicitly supports written-form through its punctuation explanation, but that target is omitted.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T05",
+        "reviewerAnswer": "¿Estás cansada?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The punctuation explanation supports the assessed written-form target, which is missing from the hint attribution.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "The feminine adjective and estar are appropriate."
+      },
+      {
+        "caseId": "task:A1-03-L6-T06",
+        "reviewerAnswer": "¿Pablo está en casa? / ¿Está Pablo en casa?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The hint explicitly explains punctuation but does not attribute support to written-form.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "¿Está en casa Pablo? is also grammatical; no closed key is specified."
+      },
+      {
+        "caseId": "task:A1-03-L6-T07",
+        "reviewerAnswer": "¿Sois hermanos?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The hint teaches question punctuation but omits written-form from its targets.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "Hermanos is ordinary beginner family vocabulary; its earlier introduction is not documented in this case."
+      },
+      {
+        "caseId": "task:A1-03-L6-T08",
+        "reviewerAnswer": "¿Es usted de España? / ¿Usted es de España? / ¿Es de España?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The hint explicitly explains punctuation, supporting the assessed written-form target without declaring it.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "The español alternatives ask nationality, whereas de España asks origin; the latter more directly matches the requested wording."
+      },
+      {
+        "caseId": "task:A1-03-L6-T09",
+        "reviewerAnswer": "¿Hay leche? Other natural formulations include ¿Tiene leche?, ¿Tienen leche? and ¿Tenéis leche?.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The hint explains punctuation but attributes support only to construction-use.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "The accepted formulations are natural. Additional variants do not establish a rejection defect because no closed key is specified."
+      },
+      {
+        "caseId": "task:A1-03-L6-T10",
+        "reviewerAnswer": "¿Eres estudiante?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+        "defect": "The punctuation explanation also supports written-form, which is omitted from the hint's targets.",
+        "correction": "Add question.yes-no/written-form to this hint's targets.",
+        "sources": [
+          "Course contract, rule 6."
+        ],
+        "notes": "Estudiante is ordinary beginner vocabulary; its earlier introduction is not documented in this case."
+      },
+      {
+        "caseId": "task:A1-03-L6-T100",
+        "reviewerAnswer": "No, no soy española. Soy ucraniana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The hint states immediate adjacency as a general negation rule, although clitics can intervene: No me llamo Ana.",
+        "correction": "Limit the adjacency statement to clauses without clitic pronouns.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48, clitic placement and negation (from memory)."
+        ],
+        "notes": "The accepted replies and their feminine nationality forms are correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T101",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The general hint incorrectly requires immediate adjacency, excluding intervening clitics such as in No me llamo Ana.",
+        "correction": "Restrict immediate adjacency to clauses without clitic pronouns.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "Option a is the correct neutral sentence among the supplied options."
+      },
+      {
+        "caseId": "task:A1-03-L6-T102",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.options[id=c].feedbackUk: \"Після hay не ставимо el\"; task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The feedback turns a contextual article restriction into an absolute ban; existential haber can occur with definite expressions such as Hay el mismo problema de siempre. The negation hint also incorrectly requires immediate adjacency despite possible intervening clitics.",
+        "correction": "Explain that this sentence requires No hay pan, without el. Restrict the immediate-adjacency rule to clauses without clitic pronouns.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, discussion of definiteness restrictions and exceptions with existential haber (from memory).",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "Option c is not an acceptable neutral standalone alternative here; the defect concerns the absolute explanation."
+      },
+      {
+        "caseId": "task:A1-03-L6-T11",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T111",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript supports the key and translation. Actual audio quality and correspondence were not assessed."
+      },
+      {
+        "caseId": "task:A1-03-L6-T112",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Питання з питальним словом (¿Quién…?) починається з цього слова.\"",
+        "defect": "This makes initial placement universal. A grammatical question can have a preceding topic, as in ¿Ana de dónde es?.",
+        "correction": "Ask the learner to identify the interrogative word without claiming that every wh-question begins with it.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, interrogative word order and preceding topics (from memory)."
+        ],
+        "notes": "The transcript, Ukrainian vocative \"Ано\", translation and answer key are correct. Actual audio was not assessed."
+      },
+      {
+        "caseId": "task:A1-03-L6-T12",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T21",
+        "reviewerAnswer": "¿Qué es?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "¿Qué es esto? is another possible formulation; the key is not declared closed."
+      },
+      {
+        "caseId": "task:A1-03-L6-T22",
+        "reviewerAnswer": "¿Qué tienes?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T23",
+        "reviewerAnswer": "¿Qué hay en la mesa?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint presents one pattern as universal. Interrogative subjects and preceding topics do not follow that three-part sequence. Moreover, existential hay has no grammatical subject, so this task does not instantiate the stated subject-final pattern.",
+        "correction": "Describe the current sentence as qué + hay + location. Present wh–verb–subject as a common pattern for appropriate personal-verb questions.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, partial interrogatives (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry \"haber\", impersonal existential use (from memory)."
+        ],
+        "notes": "The reference answer is correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T24",
+        "reviewerAnswer": "¿Qué hay en el bolso? / ¿Qué hay en la bolsa?, depending on the bag.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Bolso is ordinary beginner vocabulary, although its earlier introduction is not documented. The open key does not establish rejection of bolsa or other suitable bag terms."
+      },
+      {
+        "caseId": "task:A1-03-L6-T25",
+        "reviewerAnswer": "¿Qué tienes en la mochila? / ¿Qué hay en tu mochila?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Mochila is ordinary beginner vocabulary, although its earlier introduction is not documented. Llevar is only an optional accepted alternative, not a required prerequisite."
+      },
+      {
+        "caseId": "task:A1-03-L6-T31",
+        "reviewerAnswer": "¿Quién es?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+        "defect": "Plural quiénes does not itself determine verb number when it is an object; compare ¿A quiénes conoces?.",
+        "correction": "Limit the agreement explanation to the displayed identity questions ¿Quién es…? / ¿Quiénes son…?.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33, interrogative pronouns and subject agreement (from memory)."
+        ],
+        "notes": "The answer and accent diagnoses are correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T32",
+        "reviewerAnswer": "¿Quién es tu profesora?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"; task.hints[2].blocks[0].text: \"спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hints overgeneralize both agreement and word order. Object quiénes need not have a plural verb, and wh-questions do not universally contain a separate postverbal subject.",
+        "correction": "Scope the agreement statement to ¿Quién es…? / ¿Quiénes son…? and describe the word order as the basic pattern practised here.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21, 33 and 42 (from memory)."
+        ],
+        "notes": "The reference answer is correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T33",
+        "reviewerAnswer": "¿Quiénes son? / ¿Quiénes son ellos?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+        "defect": "The hint makes plural verb agreement automatic whenever quiénes refers to several people. That is false for object uses such as ¿A quiénes conoces?.",
+        "correction": "Restrict the explanation to the illustrated copular identity questions.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+        ],
+        "notes": "The accepted answers and rejection of ¿Quién son? are appropriate for this context."
+      },
+      {
+        "caseId": "task:A1-03-L6-T34",
+        "reviewerAnswer": "¿Quiénes son tus amigos?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"; task.hints[1].blocks[0].text: \"спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The first hint overgeneralizes agreement beyond the illustrated copular questions; the second presents one word order as universal.",
+        "correction": "Scope the agreement rule to the identity models and label the word order as a common basic pattern.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21, 33 and 42 (from memory)."
+        ],
+        "notes": "The reference answer is correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T35",
+        "reviewerAnswer": "¿Quién eres? / ¿Quién es usted? / ¿Quién es?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+        "defect": "Quiénes does not automatically require a plural verb when it is an object; the hint does not state the necessary scope.",
+        "correction": "Limit the agreement statement to the illustrated identity questions.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+        ],
+        "notes": "The accepted informal and formal ways of identifying the sender are reasonable."
+      },
+      {
+        "caseId": "task:A1-03-L6-T41",
+        "reviewerAnswer": "¿Dónde está el banco?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[2].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint presents the practised pattern as universal, excluding questions with an interrogative subject or a preceding topic.",
+        "correction": "Identify this as the basic pattern used in the current examples, not the only grammatical wh-question structure.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+        ],
+        "notes": "The reference answer and the accent feedback are correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T42",
+        "reviewerAnswer": "¿De dónde eres?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T43",
+        "reviewerAnswer": "¿De dónde es Ana? A topicalized formulation, ¿Ana de dónde es?, is also grammatical.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint presents one order as universal, although the task's own e3 feedback acknowledges a grammatical preceding-topic alternative.",
+        "correction": "Describe the reference order as the basic pattern being practised, while acknowledging grammatical topicalization.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, partial interrogatives and preceding topics (from memory).",
+          "Packet, task.errors[id=e3].feedbackUk: \"Так буває в розмові\"."
+        ],
+        "notes": "The e3 outcomes are unresolved, not incorrect; no closed-key rejection is asserted."
+      },
+      {
+        "caseId": "task:A1-03-L6-T44",
+        "reviewerAnswer": "¿Dónde estás? / ¿Dónde estás tú?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T45",
+        "reviewerAnswer": "¿Dónde está mi llave? / ¿Dónde está la llave?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint states one common word order as a general requirement, overlooking interrogative subjects and preceding topics.",
+        "correction": "Describe it as the basic pattern practised here.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+        ],
+        "notes": "The accepted answers are natural. Llave is ordinary beginner vocabulary, although its earlier introduction is not documented."
+      },
+      {
+        "caseId": "task:A1-03-L6-T51",
+        "reviewerAnswer": "¿Cómo estás?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly fixes the well-being reading. The e2 feedback correctly distinguishes it from description."
+      },
+      {
+        "caseId": "task:A1-03-L6-T52",
+        "reviewerAnswer": "¿Cómo es tu casa?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint makes a common word-order pattern universal, although interrogative subjects and preceding topics have other structures.",
+        "correction": "Label this as the basic pattern used in the current examples.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+        ],
+        "notes": "The parenthetical description resolves the ser/estar reading, and the reference answer is correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T53",
+        "reviewerAnswer": "¿Cómo te llamas?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T54",
+        "reviewerAnswer": "¿Cómo es tu hermana?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint presents one word order as universal instead of identifying the basic pattern practised in these examples.",
+        "correction": "Qualify the statement so it does not exclude interrogative subjects or preceding topics.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+        ],
+        "notes": "The prompt explicitly requests personality and appearance, so the reference use of ser is appropriate."
+      },
+      {
+        "caseId": "task:A1-03-L6-T55",
+        "reviewerAnswer": "¡Hola! ¿Cómo estás?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The alternative greeting punctuation is acceptable."
+      },
+      {
+        "caseId": "task:A1-03-L6-T61",
+        "reviewerAnswer": "¿Dónde está Pablo?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint presents the practised order as universal. Its own e2 feedback acknowledges a grammatical preceding-topic order.",
+        "correction": "Identify the requested order as the basic model practised here rather than the only grammatical order.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory).",
+          "Packet, task.errors[id=e2].feedbackUk: \"Так буває в розмові\"."
+        ],
+        "notes": "The supported prompt makes the intended model clear."
+      },
+      {
+        "caseId": "task:A1-03-L6-T62",
+        "reviewerAnswer": "¿De dónde es tu profesor?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The hint presents one common pattern as universal, excluding interrogative subjects and preceding topics.",
+        "correction": "Describe this as the basic word-order model practised by the exercise.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+        ],
+        "notes": "The reference answer and the explanation of de placement are correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T66",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+        "defect": "The general hint makes one pattern mandatory for all wh-questions. Interrogative subjects and preceding topics provide counterexamples.",
+        "correction": "Label the pattern as a common basic model rather than an exhaustive rule.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+        ],
+        "notes": "Option a is the correct standard Peninsular formulation among the supplied options."
+      },
+      {
+        "caseId": "task:A1-03-L6-T67",
+        "reviewerAnswer": "a for a neutral information question; c also fits an echo question. The prompt does not specify which reading is intended.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Яке питання побудоване правильно?\"; task.options[id=c]: \"¿El hotel está dónde?\", marked incorrect; feedbackUk: \"Питальне слово ставимо на початок\"",
+        "defect": "Option c can be a grammatical echo or clarification question. No discourse context or instruction excludes that reading, so its unconditional rejection cannot be justified.",
+        "correction": "Specify that the learner must choose the neutral initial-wh pattern, or provide discourse context and grade the echo reading accordingly. Qualify the initial-placement explanation.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, echo interrogatives and in-situ interrogative expressions (from memory).",
+          "Provided verdict criteria: use uncertain when competing readings are not resolved by the packet."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T71",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T72",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T76",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T77",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+        "defect": "The hint makes verb number depend automatically on quiénes. Object quiénes can accompany a singular verb, as in ¿A quiénes conoces?.",
+        "correction": "Scope the agreement statement to the displayed identity questions.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+        ],
+        "notes": "The doorbell context and sentence frame support option a."
+      },
+      {
+        "caseId": "task:A1-03-L6-T78",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T79",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T81",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T82",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+        "defect": "The hint overgeneralizes plural agreement. Quiénes can be an object, in which case it does not determine verb number.",
+        "correction": "Limit the agreement explanation to ¿Quién es…? / ¿Quiénes son…?.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+        ],
+        "notes": "The translation key is correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T83",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T84",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T91",
+        "reviewerAnswer": "No soy de Madrid.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The hint states immediate adjacency as a general rule, although clitics can intervene, as in No me llamo Ana.",
+        "correction": "Restrict immediate adjacency to clauses without clitic pronouns.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "The answer and reviewed transformations are otherwise appropriate."
+      },
+      {
+        "caseId": "task:A1-03-L6-T92",
+        "reviewerAnswer": "Ana no está en casa.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "Immediate adjacency is not a general negation rule because clitic pronouns can intervene.",
+        "correction": "Limit the statement to clauses without clitics; the current example can remain unchanged.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L6-T93",
+        "reviewerAnswer": "No tengo coche.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The hint incorrectly generalizes immediate adjacency to all negation, excluding intervening clitics.",
+        "correction": "Restrict immediate adjacency to clauses without clitic pronouns.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "The accepted possession expressions are appropriate; the e2 feedback correctly distinguishes existential hay."
+      },
+      {
+        "caseId": "task:A1-03-L6-T94",
+        "reviewerAnswer": "Aquí no hay leche. / No hay leche aquí.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The hint makes immediate adjacency universal, although clitic pronouns can occur between no and the verb.",
+        "correction": "Scope the adjacency statement to clauses without clitics.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "No hay leche can naturally leave the current location implicit."
+      },
+      {
+        "caseId": "task:A1-03-L6-T95",
+        "reviewerAnswer": "No, no soy profesora.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The general rule excludes intervening clitic pronouns, as in No me llamo Ana.",
+        "correction": "Restrict immediate adjacency to clauses without clitics.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "The accepted replies are correct. A single-clause reply No soy profesora is also natural; e3 does not mark it incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L6-T96",
+        "reviewerAnswer": "Mis padres no están en Madrid.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The hint presents immediate adjacency as universal, despite possible intervening clitic pronouns.",
+        "correction": "Limit immediate adjacency to clauses without clitics.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "The reference translation is correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T97",
+        "reviewerAnswer": "Pablo no es médico.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The hint incorrectly requires immediate adjacency in all negative clauses, overlooking intervening clitics.",
+        "correction": "Scope immediate adjacency to clauses without clitic pronouns.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "The intended transformation is correct."
+      },
+      {
+        "caseId": "task:A1-03-L6-T98",
+        "reviewerAnswer": "No, no tengo hambre.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "Immediate adjacency is not a general rule: unstressed pronouns can intervene between no and the verb.",
+        "correction": "Limit the adjacency explanation to clauses without clitics.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "The answer and comma feedback are appropriate for the illustrated reply."
+      },
+      {
+        "caseId": "task:A1-03-L6-T99",
+        "reviewerAnswer": "No estoy en casa. Estoy en la oficina.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+        "defect": "The hint overgeneralizes immediate adjacency, excluding grammatical intervening clitics.",
+        "correction": "Restrict immediate adjacency to clauses without clitic pronouns.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+        ],
+        "notes": "The accepted comma, full-stop and semicolon variants are acceptable Spanish."
+      },
+      {
+        "caseId": "clip:clip.a1-03.no-tengo-coche",
+        "reviewerAnswer": "The speaker has no car and has a bicycle.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish transcript and Ukrainian translation agree. Actual audio was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a1-03.quien-profesora",
+        "reviewerAnswer": "Ana is being asked who her teacher is.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish transcript and Ukrainian translation agree; \"Ано\" is an appropriate vocative. Actual audio was not assessed."
+      },
+      {
+        "caseId": "phrase:phrase.donde-esta-la-estacion",
+        "reviewerAnswer": "¿Dónde está la estación?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The phrase, translation and note about transport-station meanings are acceptable."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "neg.no-before-verb",
+      "contentHash": "d7764202e142d76c52215be6acf80cd754a85c274cf4b2bf6e475b174067b721",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"Щоб заперечити, ставимо no безпосередньо перед дієсловом\"",
+          "description": "Immediate adjacency is not a general rule. Unstressed object or reflexive pronouns intervene, as in No me llamo Ana.",
+          "suggestion": "Restrict immediate adjacency to clauses without clitic pronouns, or explain their position between no and the verb."
+        }
+      ],
+      "caseId": "skill:neg.no-before-verb",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "The supplied examples themselves are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 (personal pronouns) and 48 (negation) (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "ortho.interrogative-accent",
+      "contentHash": "9d07731fe2b9c410a93d2e534bdf2f3f781d7517018261339c128a317c585afc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.interrogative-accent",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "The accent rule correctly concerns interrogative uses. Spanish termEs \"la tilde en los interrogativos\" is appropriate.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "question.word-order",
+      "contentHash": "6a9c8e60179ede0ed4eb06ddd70968ebb58e368f21c3ed6bd951a7adaf66d7a2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "This presents one common pattern as the general structure of wh-questions. The interrogative can itself be the subject, as in ¿Quién tiene coche?, and a topic can precede it, as in ¿Ana de dónde es?.",
+          "suggestion": "Describe this as the basic pattern practised here, rather than a requirement for all wh-questions. Retain the appropriately qualified \"зазвичай\" from scope.noteUk."
+        }
+      ],
+      "caseId": "skill:question.word-order",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "The examples and the prohibition on stranding de in ¿De dónde eres? are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, partial interrogatives and interrogative word order (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "question.word.como",
+      "contentHash": "3bbab6453e570c17eb6c777d6d50170f7af16aa12a754086256bdcb35bcd935f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:question.word.como",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "question.word.donde",
+      "contentHash": "9899da031717fe004b77338edd8e8a71dcd2e3bb7de0d513221684fbab577f58",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:question.word.donde",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "question.word.que",
+      "contentHash": "b0ad1bcb751cf547ae5451ec628349992b695ba878bd32830d288cc71bec5c58",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:question.word.que",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "The accent statement concerns interrogative qué; scope.noteUk explicitly distinguishes relative que.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "question.word.quien",
+      "contentHash": "6fbe300eaecf2d6d07fe2179549fc0de5364e9476c8bf69a703ea92d549d212c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: \"Quiénes — коли очікуємо кількох людей; дієслово тоді в множині.\"; content.body.ruleUk: \"Якщо питаєш про кількох людей, кажи quiénes і став дієслово в множині\"",
+          "description": "Quiénes does not automatically require a plural verb. Verb agreement depends on the subject; compare ¿A quiénes conoces?, where quiénes is an object.",
+          "suggestion": "Limit the agreement statement to the illustrated identity questions, ¿Quién es…? / ¿Quiénes son…?, or explicitly distinguish subject and object uses."
+        }
+      ],
+      "caseId": "skill:question.word.quien",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "The supplied copular examples are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 (interrogative pronouns) and 33 (the subject and agreement) (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "question.yes-no",
+      "contentHash": "48c332f91cbebbdf6496865c1e0b663eee172a9b3e4ad2dccdb8eb59c14727b9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:question.yes-no",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: instructional content, with no learner task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L6",
+      "contentHash": "3bed7780a73e4f7bda5b7476971d78ae7fe165b6b1e667e242c9391e6d84036b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s4].blocks: \"Порядок слів: питальне слово → дієслово → підмет\"; steps[id=s7].blocks: \"ставимо no безпосередньо перед дієсловом\"; steps[id=s11].blocks.items: \"Питальне слово → дієслово → підмет\"",
+          "description": "The word-order statement presents a common pattern as universal, excluding interrogative subjects and preceding topics. The immediate-adjacency statement for no excludes intervening clitics, as in No me llamo Ana.",
+          "suggestion": "Label the word order as the basic pattern practised in these examples. Restrict immediate adjacency of no to clauses without clitic pronouns, or explain their intervening position."
+        }
+      ],
+      "caseId": "lesson:A1-03-L6",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: lesson content, with no single learner task.",
+      "notes": "The Spanish examples, translations and qualified description of rising yes/no intonation are otherwise acceptable.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, interrogative word order (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48, clitic placement and negation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T01",
+      "contentHash": "e87887b5b7ee6ae466b75a73f7fc09b428ce8a1c13fc786de1048f1fef1da66f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?: Eres de Madrid. → ¿Eres de Madrid?\"",
+          "description": "The hint explicitly explains question punctuation, supporting the assessed written-form target as well as construction-use.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T01",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Eres de Madrid?",
+      "notes": "The answer and reviewed error diagnoses are otherwise sound.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T02",
+      "contentHash": "bce830b5e7800c8d36f7afadfc733062eb0b90390487397d6aec21edd14239ae",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The hint explicitly teaches punctuation but omits the assessed written-form target from its support attribution.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Ana es profesora? / ¿Es Ana profesora? / ¿Es profesora Ana?",
+      "notes": "All three accepted word orders are grammatical.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T03",
+      "contentHash": "bdc748f5735a8e0082f9ffc14b0914df0e4b68f374a421fc840b259acf35a10d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The hint explains punctuation while attributing support only to construction-use.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Tienes coche?",
+      "notes": "Other grammatical pronoun placements are possible; the packet does not declare a closed key.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T04",
+      "contentHash": "a1c5ef9035d2ad35a4abe20e90978e40776b9dbeaf37a4bde7f0e9cd934b6a1d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The hint explicitly supports written-form through its punctuation explanation, but that target is omitted.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T04",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Hay leche?",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T05",
+      "contentHash": "9ac9ccfe3385e8b148d7e11d5c169b328ef92b2f7f80d4b27f040ddfec398ea2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The punctuation explanation supports the assessed written-form target, which is missing from the hint attribution.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Estás cansada?",
+      "notes": "The feminine adjective and estar are appropriate.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T06",
+      "contentHash": "d27b42c28674a5b89dcf80b0d57c1248dce51c3425edfb5bda26f1a1920f1725",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The hint explicitly explains punctuation but does not attribute support to written-form.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Pablo está en casa? / ¿Está Pablo en casa?",
+      "notes": "¿Está en casa Pablo? is also grammatical; no closed key is specified.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T07",
+      "contentHash": "83aec6578f25452e17222430ae51fcab6edde64eee3fc41caa03579f7a695713",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The hint teaches question punctuation but omits written-form from its targets.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T07",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Sois hermanos?",
+      "notes": "Hermanos is ordinary beginner family vocabulary; its earlier introduction is not documented in this case.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T08",
+      "contentHash": "483cc2d884fcaee0d4d078a2aba14146d12ac7c00ee8975243f2f435dcf8a2fa",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The hint explicitly explains punctuation, supporting the assessed written-form target without declaring it.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Es usted de España? / ¿Usted es de España? / ¿Es de España?",
+      "notes": "The español alternatives ask nationality, whereas de España asks origin; the latter more directly matches the requested wording.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T09",
+      "contentHash": "7ca493e9639800a9394aa1f326b773092378375d57b87eeada8af226adf38f62",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The hint explains punctuation but attributes support only to construction-use.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T09",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Hay leche? Other natural formulations include ¿Tiene leche?, ¿Tienen leche? and ¿Tenéis leche?.",
+      "notes": "The accepted formulations are natural. Additional variants do not establish a rejection defect because no closed key is specified.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T10",
+      "contentHash": "a32cdb78ef955e9e96d92fd10c6b5fad2d0f91fc029a7da51160553f2c715b47",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets: [\"question.yes-no/construction-use\"]; hint text: \"додати знаки ¿ ?\"",
+          "description": "The punctuation explanation also supports written-form, which is omitted from the hint's targets.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Eres estudiante?",
+      "notes": "Estudiante is ordinary beginner vocabulary; its earlier introduction is not documented in this case.",
+      "sources": [
+        "Course contract, rule 6."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T100",
+      "contentHash": "06fb5903a5a0edfc3d07481dd3d356e78dad9035935ec5d55daa217231836406",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The hint states immediate adjacency as a general negation rule, although clitics can intervene: No me llamo Ana.",
+          "suggestion": "Limit the adjacency statement to clauses without clitic pronouns."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T100",
+      "verdict": "flawed",
+      "reviewerAnswer": "No, no soy española. Soy ucraniana.",
+      "notes": "The accepted replies and their feminine nationality forms are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48, clitic placement and negation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T101",
+      "contentHash": "8252d86ba1d4c94d6af59b47267f58d76aa5f9c2cc2281807809c45ac648d463",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The general hint incorrectly requires immediate adjacency, excluding intervening clitics such as in No me llamo Ana.",
+          "suggestion": "Restrict immediate adjacency to clauses without clitic pronouns."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T101",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Option a is the correct neutral sentence among the supplied options.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T102",
+      "contentHash": "f7c606d54b0e2cbc92de2d7c366464ee3a38e3aee214f1b0caea4869365e7102",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=c].feedbackUk: \"Після hay не ставимо el\"; task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The feedback turns a contextual article restriction into an absolute ban; existential haber can occur with definite expressions such as Hay el mismo problema de siempre. The negation hint also incorrectly requires immediate adjacency despite possible intervening clitics.",
+          "suggestion": "Explain that this sentence requires No hay pan, without el. Restrict the immediate-adjacency rule to clauses without clitic pronouns."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T102",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Option c is not an acceptable neutral standalone alternative here; the defect concerns the absolute explanation.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, discussion of definiteness restrictions and exceptions with existential haber (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T11",
+      "contentHash": "795b278dd18906340b3e78fa85ebc4cfd3816eb3ac1275776a06a22db91a4d99",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T111",
+      "contentHash": "872321a851f2fa4e8ef48dd327774b0ff6cf729166dca56b422d30a1a826b61d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T111",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The transcript supports the key and translation. Actual audio quality and correspondence were not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T112",
+      "contentHash": "2f7ecc863297b2cc4d193a7d9e6bb37994d90694e2e1ee641f74d61461052d20",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Питання з питальним словом (¿Quién…?) починається з цього слова.\"",
+          "description": "This makes initial placement universal. A grammatical question can have a preceding topic, as in ¿Ana de dónde es?.",
+          "suggestion": "Ask the learner to identify the interrogative word without claiming that every wh-question begins with it."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T112",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The transcript, Ukrainian vocative \"Ано\", translation and answer key are correct. Actual audio was not assessed.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, interrogative word order and preceding topics (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T12",
+      "contentHash": "a98ec2a99ab2f83a678d363a99142f79801806ddfe5332cb0283fa3e854562ac",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T21",
+      "contentHash": "ceb09005e841f01333c10169c91aa0df042fb1528fd2cd018ddf2d143513090c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T21",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Qué es?",
+      "notes": "¿Qué es esto? is another possible formulation; the key is not declared closed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T22",
+      "contentHash": "c818e86581507497e0a6d0cb0c1997308b9a4767d5eee4fabf8fa865aa5b1f21",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Qué tienes?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T23",
+      "contentHash": "4acb03fbfd3091f00c471b0be12b235fe95772ff5ee4589f1674356578affe4b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint presents one pattern as universal. Interrogative subjects and preceding topics do not follow that three-part sequence. Moreover, existential hay has no grammatical subject, so this task does not instantiate the stated subject-final pattern.",
+          "suggestion": "Describe the current sentence as qué + hay + location. Present wh–verb–subject as a common pattern for appropriate personal-verb questions."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T23",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Qué hay en la mesa?",
+      "notes": "The reference answer is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, partial interrogatives (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry \"haber\", impersonal existential use (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T24",
+      "contentHash": "4ded1131a279fccf47c28764f5027d57e852218b442cdfff4c838c1759418b03",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Qué hay en el bolso? / ¿Qué hay en la bolsa?, depending on the bag.",
+      "notes": "Bolso is ordinary beginner vocabulary, although its earlier introduction is not documented. The open key does not establish rejection of bolsa or other suitable bag terms.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T25",
+      "contentHash": "2d0a0b120aa86bb717d241a205ee1151fdc17c3a43e98d6a1035af225795c166",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Qué tienes en la mochila? / ¿Qué hay en tu mochila?",
+      "notes": "Mochila is ordinary beginner vocabulary, although its earlier introduction is not documented. Llevar is only an optional accepted alternative, not a required prerequisite.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T31",
+      "contentHash": "46d5f411ac663d25de64b3b21ec21cecfcbfc0ede9ba5886ab6bc1317cacd6f0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+          "description": "Plural quiénes does not itself determine verb number when it is an object; compare ¿A quiénes conoces?.",
+          "suggestion": "Limit the agreement explanation to the displayed identity questions ¿Quién es…? / ¿Quiénes son…?."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Quién es?",
+      "notes": "The answer and accent diagnoses are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33, interrogative pronouns and subject agreement (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T32",
+      "contentHash": "b82ccd730f81d92d1ca5a7d58b3b836b45f4fb24aa85ca27b852082be9f1c0d8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"; task.hints[2].blocks[0].text: \"спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hints overgeneralize both agreement and word order. Object quiénes need not have a plural verb, and wh-questions do not universally contain a separate postverbal subject.",
+          "suggestion": "Scope the agreement statement to ¿Quién es…? / ¿Quiénes son…? and describe the word order as the basic pattern practised here."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Quién es tu profesora?",
+      "notes": "The reference answer is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21, 33 and 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T33",
+      "contentHash": "0b0058b736a4cefdfa9c49cc427471a64f5b24a78608ac62fef8270dc11a0b5e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+          "description": "The hint makes plural verb agreement automatic whenever quiénes refers to several people. That is false for object uses such as ¿A quiénes conoces?.",
+          "suggestion": "Restrict the explanation to the illustrated copular identity questions."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T33",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Quiénes son? / ¿Quiénes son ellos?",
+      "notes": "The accepted answers and rejection of ¿Quién son? are appropriate for this context.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T34",
+      "contentHash": "24b3d63474c3d319835ecfcd17dccbe89b2e66fe9e87dfbf5288a9db563c3f1d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"; task.hints[1].blocks[0].text: \"спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The first hint overgeneralizes agreement beyond the illustrated copular questions; the second presents one word order as universal.",
+          "suggestion": "Scope the agreement rule to the identity models and label the word order as a common basic pattern."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T34",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Quiénes son tus amigos?",
+      "notes": "The reference answer is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21, 33 and 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T35",
+      "contentHash": "673dbae3b9dfbbe057770a1e61da870206945e3e0de94361b4161ec2fd82f8bd",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+          "description": "Quiénes does not automatically require a plural verb when it is an object; the hint does not state the necessary scope.",
+          "suggestion": "Limit the agreement statement to the illustrated identity questions."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T35",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Quién eres? / ¿Quién es usted? / ¿Quién es?",
+      "notes": "The accepted informal and formal ways of identifying the sender are reasonable.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T41",
+      "contentHash": "9f2d36db643a44027a74c9dd0d5ba303cafc35ae4767922d3c3a72b137e3d25e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[2].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint presents the practised pattern as universal, excluding questions with an interrogative subject or a preceding topic.",
+          "suggestion": "Identify this as the basic pattern used in the current examples, not the only grammatical wh-question structure."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T41",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Dónde está el banco?",
+      "notes": "The reference answer and the accent feedback are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T42",
+      "contentHash": "3d4b099730ff5b1467ba934afcf530d06e17ee9e54eb3d8014d09668786afa41",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T42",
+      "verdict": "valid",
+      "reviewerAnswer": "¿De dónde eres?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T43",
+      "contentHash": "3b538b9ce8f3f4cf4595ddfb839ae91fea6e3e175347e07154e9d5ff344e481b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint presents one order as universal, although the task's own e3 feedback acknowledges a grammatical preceding-topic alternative.",
+          "suggestion": "Describe the reference order as the basic pattern being practised, while acknowledging grammatical topicalization."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿De dónde es Ana? A topicalized formulation, ¿Ana de dónde es?, is also grammatical.",
+      "notes": "The e3 outcomes are unresolved, not incorrect; no closed-key rejection is asserted.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, partial interrogatives and preceding topics (from memory).",
+        "Packet, task.errors[id=e3].feedbackUk: \"Так буває в розмові\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T44",
+      "contentHash": "9c5d87e5cbc19ee0ae03e678cb562e9a9e53f8dc89a70ac9f2f0bd075344513a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T44",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde estás? / ¿Dónde estás tú?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T45",
+      "contentHash": "0fe00a3d24041cbdab6ca59147d1348d6443ecb4b510cb324953978132e170b2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint states one common word order as a general requirement, overlooking interrogative subjects and preceding topics.",
+          "suggestion": "Describe it as the basic pattern practised here."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T45",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Dónde está mi llave? / ¿Dónde está la llave?",
+      "notes": "The accepted answers are natural. Llave is ordinary beginner vocabulary, although its earlier introduction is not documented.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T51",
+      "contentHash": "53030b1c893172dd7a6c6f0c637ada2db937008817cd98498ffd9208cb86d6d9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T51",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo estás?",
+      "notes": "The prompt explicitly fixes the well-being reading. The e2 feedback correctly distinguishes it from description.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T52",
+      "contentHash": "6dfab50b1cf2198f6c3f9bc0ee15e5a4bccd136539ab85ce249f75f8aa992684",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint makes a common word-order pattern universal, although interrogative subjects and preceding topics have other structures.",
+          "suggestion": "Label this as the basic pattern used in the current examples."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T52",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Cómo es tu casa?",
+      "notes": "The parenthetical description resolves the ser/estar reading, and the reference answer is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T53",
+      "contentHash": "b143f63b5e3993232e9acb016eae61186ceafaecfea7e71500db762ec589b3e7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T53",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo te llamas?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T54",
+      "contentHash": "a4d8fa6077e6ec53369832d7a3be508e52b38186009a8bb725043781bb65af4d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint presents one word order as universal instead of identifying the basic pattern practised in these examples.",
+          "suggestion": "Qualify the statement so it does not exclude interrogative subjects or preceding topics."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T54",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Cómo es tu hermana?",
+      "notes": "The prompt explicitly requests personality and appearance, so the reference use of ser is appropriate.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T55",
+      "contentHash": "b0c26470fc1d456bb4bf1f1eea59ef69ccdfa824a583be9d42044b237a548239",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T55",
+      "verdict": "valid",
+      "reviewerAnswer": "¡Hola! ¿Cómo estás?",
+      "notes": "The alternative greeting punctuation is acceptable.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T61",
+      "contentHash": "3039079bf3093a49ae2fcb24063f3ea32ab0690369658ace6e82156d45512a89",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint presents the practised order as universal. Its own e2 feedback acknowledges a grammatical preceding-topic order.",
+          "suggestion": "Identify the requested order as the basic model practised here rather than the only grammatical order."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T61",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Dónde está Pablo?",
+      "notes": "The supported prompt makes the intended model clear.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory).",
+        "Packet, task.errors[id=e2].feedbackUk: \"Так буває в розмові\"."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T62",
+      "contentHash": "3c935d39065d7cae442b677b69d3c0332411737e4f6fa0e2aab83d0867053b12",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The hint presents one common pattern as universal, excluding interrogative subjects and preceding topics.",
+          "suggestion": "Describe this as the basic word-order model practised by the exercise."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T62",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿De dónde es tu profesor?",
+      "notes": "The reference answer and the explanation of de placement are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T66",
+      "contentHash": "7dfa7d8098123dcd3bedcbccbfbc2496a89f526985d6c05e542eeb0824ddcf08",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У питанні з питальним словом спочатку стоїть питальне слово, потім дієслово, потім підмет\"",
+          "description": "The general hint makes one pattern mandatory for all wh-questions. Interrogative subjects and preceding topics provide counterexamples.",
+          "suggestion": "Label the pattern as a common basic model rather than an exhaustive rule."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T66",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Option a is the correct standard Peninsular formulation among the supplied options.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T67",
+      "contentHash": "d41ac23f96883f68736f3c6c2343602a91439318a9bec063b0d653c70d285df5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"Яке питання побудоване правильно?\"; task.options[id=c]: \"¿El hotel está dónde?\", marked incorrect; feedbackUk: \"Питальне слово ставимо на початок\"",
+          "description": "Option c can be a grammatical echo or clarification question. No discourse context or instruction excludes that reading, so its unconditional rejection cannot be justified.",
+          "suggestion": "Specify that the learner must choose the neutral initial-wh pattern, or provide discourse context and grade the echo reading accordingly. Qualify the initial-placement explanation."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T67",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a for a neutral information question; c also fits an echo question. The prompt does not specify which reading is intended.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, echo interrogatives and in-situ interrogative expressions (from memory).",
+        "Provided verdict criteria: use uncertain when competing readings are not resolved by the packet."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T71",
+      "contentHash": "33bfc029247259f6e805696195d3cc084c3045ca77574227b5425b21cc949a30",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T71",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T72",
+      "contentHash": "5eead17260386fc3615f8a5c5290f48d2d5689df712cade18bd4ff4c411a6b36",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T72",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T76",
+      "contentHash": "ff66fa8633b9d10946864074f0af1c2b8c41e116c223d3bc821b083267c48bef",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T76",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T77",
+      "contentHash": "4266de2947a4636748b849d9d4b01ea4e3ddbdca61fb1faa37ea671ad6dca279",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+          "description": "The hint makes verb number depend automatically on quiénes. Object quiénes can accompany a singular verb, as in ¿A quiénes conoces?.",
+          "suggestion": "Scope the agreement statement to the displayed identity questions."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T77",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The doorbell context and sentence frame support option a.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T78",
+      "contentHash": "342fd23d9504087bb2cafc1293e9f5a4eea695cf387175191d6a2d1c87365369",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T78",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T79",
+      "contentHash": "33f5c7f0502bb3146dfe82f72606934f05a55f5463b4cd172a8427fcc5897c46",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T79",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T81",
+      "contentHash": "20e8df3a9b8951ce04c70a6f50456f0ad54a60d81eafbcdea9f4a60b549e2560",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T81",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T82",
+      "contentHash": "95b364478be415490076ddb1d1254f8974391aeeb973bad8689b0feac7687852",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Про кількох людей — quiénes і дієслово в множині\"",
+          "description": "The hint overgeneralizes plural agreement. Quiénes can be an object, in which case it does not determine verb number.",
+          "suggestion": "Limit the agreement explanation to ¿Quién es…? / ¿Quiénes son…?."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T82",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The translation key is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 21 and 33 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T83",
+      "contentHash": "41f3b393b5610516779ea405d71e21fb2ca2cdcf8c1b10f298eec9015ba6bbe7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T83",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T84",
+      "contentHash": "a726a69e76f0b853fb43d09d05f34e5d2401f208aa61615db860ba5c3467e3df",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T84",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T91",
+      "contentHash": "89f79dd59a99f275db408dcacfe3f3f1c5025ae77a6d51dbe5085494942f2af8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The hint states immediate adjacency as a general rule, although clitics can intervene, as in No me llamo Ana.",
+          "suggestion": "Restrict immediate adjacency to clauses without clitic pronouns."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T91",
+      "verdict": "flawed",
+      "reviewerAnswer": "No soy de Madrid.",
+      "notes": "The answer and reviewed transformations are otherwise appropriate.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T92",
+      "contentHash": "80cd47fc8218cbb7048d4bcada6830ffb8422d6a8424e50d46e200192239b8c5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "Immediate adjacency is not a general negation rule because clitic pronouns can intervene.",
+          "suggestion": "Limit the statement to clauses without clitics; the current example can remain unchanged."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T92",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ana no está en casa.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T93",
+      "contentHash": "8ec092064c407ab0aa6bbf9e06effb37eb34f9e7e781bebddddefafe0411e3fc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The hint incorrectly generalizes immediate adjacency to all negation, excluding intervening clitics.",
+          "suggestion": "Restrict immediate adjacency to clauses without clitic pronouns."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T93",
+      "verdict": "flawed",
+      "reviewerAnswer": "No tengo coche.",
+      "notes": "The accepted possession expressions are appropriate; the e2 feedback correctly distinguishes existential hay.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T94",
+      "contentHash": "3823e688c888a8c77f15890b27e0bbcde47b1a257e7315476637c4c3dfdb0728",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The hint makes immediate adjacency universal, although clitic pronouns can occur between no and the verb.",
+          "suggestion": "Scope the adjacency statement to clauses without clitics."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T94",
+      "verdict": "flawed",
+      "reviewerAnswer": "Aquí no hay leche. / No hay leche aquí.",
+      "notes": "No hay leche can naturally leave the current location implicit.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T95",
+      "contentHash": "c9ac806f9755bb9d613681d379e1d6dd651cdebd70a98c3eafb40141951d21f2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The general rule excludes intervening clitic pronouns, as in No me llamo Ana.",
+          "suggestion": "Restrict immediate adjacency to clauses without clitics."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T95",
+      "verdict": "flawed",
+      "reviewerAnswer": "No, no soy profesora.",
+      "notes": "The accepted replies are correct. A single-clause reply No soy profesora is also natural; e3 does not mark it incorrect.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T96",
+      "contentHash": "c652f6e4a750f4ea666a61a3dc29dbe26c79cc343d6c274069f63d606e148976",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The hint presents immediate adjacency as universal, despite possible intervening clitic pronouns.",
+          "suggestion": "Limit immediate adjacency to clauses without clitics."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T96",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis padres no están en Madrid.",
+      "notes": "The reference translation is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T97",
+      "contentHash": "7c2ac9ca036e4ac43c829970a837df2862aad2f9d9d7c756ce274c7d05d713f9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The hint incorrectly requires immediate adjacency in all negative clauses, overlooking intervening clitics.",
+          "suggestion": "Scope immediate adjacency to clauses without clitic pronouns."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T97",
+      "verdict": "flawed",
+      "reviewerAnswer": "Pablo no es médico.",
+      "notes": "The intended transformation is correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T98",
+      "contentHash": "93d9b9f25e1e0db15cbf88bbaa9eaa3fb7c74977eeb5fee7bda6ddfd456c360f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "Immediate adjacency is not a general rule: unstressed pronouns can intervene between no and the verb.",
+          "suggestion": "Limit the adjacency explanation to clauses without clitics."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T98",
+      "verdict": "flawed",
+      "reviewerAnswer": "No, no tengo hambre.",
+      "notes": "The answer and comma feedback are appropriate for the illustrated reply.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T99",
+      "contentHash": "a59162b51754a3d66ef277badaa5571c2cad1773f2c03d12cbd2b39be6df0e02",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"ставимо no безпосередньо перед дієсловом\"",
+          "description": "The hint overgeneralizes immediate adjacency, excluding grammatical intervening clitics.",
+          "suggestion": "Restrict immediate adjacency to clauses without clitic pronouns."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T99",
+      "verdict": "flawed",
+      "reviewerAnswer": "No estoy en casa. Estoy en la oficina.",
+      "notes": "The accepted comma, full-stop and semicolon variants are acceptable Spanish.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 and 48 (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.no-tengo-coche",
+      "contentHash": "bd19e9598b8635247de208e78e35e29e08bda84ecaefa95d585bfe84ee4061b3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.no-tengo-coche",
+      "verdict": "valid",
+      "reviewerAnswer": "The speaker has no car and has a bicycle.",
+      "notes": "The Spanish transcript and Ukrainian translation agree. Actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.quien-profesora",
+      "contentHash": "90fdb3982d0c7767eee03b33b54a6aca9b0e83fe1185f3f485572cd32de6169c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.quien-profesora",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana is being asked who her teacher is.",
+      "notes": "The Spanish transcript and Ukrainian translation agree; \"Ано\" is an appropriate vocative. Actual audio was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.donde-esta-la-estacion",
+      "contentHash": "4f000b11fd00f84b93f97e86c19b9904f3eae35fbcd1d07c00081cb7ea5b88ca",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.donde-esta-la-estacion",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde está la estación?",
+      "notes": "The phrase, translation and note about transport-station meanings are acceptable.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

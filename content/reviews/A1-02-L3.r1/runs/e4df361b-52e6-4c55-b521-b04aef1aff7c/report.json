@@ -1,0 +1,1477 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-02-L3.r1",
+  "packetHash": "7aad92033c344953c51480a53b4cd4b72e4bdc4fc8608a3da3f1573e373ea082",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "1063d38f54f3c7a41aecf8e10935e593f173795b1d1ba1c19c5357cad8700b46",
+    "reviewerPacketSha256": "e5e49a5b60428df9d2cd0b52f4b629a3ba0d1700e4c0583efc03d99ebedbcda3",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-dUObAs/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-dUObAs/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-dUObAs/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-dUObAs/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-dUObAs/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdb4-4923-7242-a511-56aa12d0d455",
+        "version": "v0.166.0",
+        "tokens used": "113,634"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:article.plural",
+        "reviewerAnswer": "los libros; las casas; unos libros; unas casas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:noun.plural.accent-change",
+        "reviewerAnswer": "estaciones; autobuses; ingleses; jóvenes; exámenes.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: \"У множині наголос лишається на тому самому складі\"; content.body.scope.noteUk: \"Наголошений склад не змінюється\".",
+        "defect": "The examples are correct, but stress preservation is stated without qualification. Some Spanish nouns shift stress in the plural: carácter → caracteres, régimen → regímenes and espécimen → especímenes.",
+        "correction": "Limit the statement to the selected words: \"У цих словах наголос лишається на тому самому складі\". The exceptional nouns need not be introduced at this level.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:noun.plural.es",
+        "reviewerAnswer": "ciudades; hoteles; profesores; mujeres.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "This is too broad. Consonant-final nouns do not uniformly take -es: lunes and crisis remain unchanged, while some other consonant endings take -s. The separate treatment of -z does not resolve these exceptions.",
+        "correction": "Restrict the rule to the endings practised here, -d, -l and -r, and state that other consonant endings have separate rules.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, rules for final -s/-x, -l/-r/-n/-d/-z/-j and other consonants (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:noun.plural.s",
+        "reviewerAnswer": "libros; casas; coches; cafés.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:noun.plural.z-ces",
+        "reviewerAnswer": "lápices; luces; veces.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.autobus",
+        "reviewerAnswer": "autobús: masculine noun; plural autobuses; Ukrainian meaning \"автобус\".",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.examen",
+        "reviewerAnswer": "examen: masculine noun; plural exámenes; Ukrainian meaning \"іспит\".",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.joven",
+        "reviewerAnswer": "joven: adjective with the same form for both genders; plural jóvenes; also a noun meaning \"молода людина\".",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.luz",
+        "reviewerAnswer": "luz: feminine noun; plural luces; Ukrainian meaning \"світло\".",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.vez",
+        "reviewerAnswer": "vez: feminine noun; plural veces; Ukrainian meaning \"раз\"; a veces means \"іноді\".",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-02-L3",
+        "reviewerAnswer": "Expected forms include los libros, las mesas, unos amigos, las ciudades, las luces, los autobuses, los exámenes and el agua → las aguas.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[0].blocks[0].rows[1]: \"приголосну\" / \"додаємо -es\"; content.body.steps[2].blocks[0].text: \"Наголос у множині лишається на тому самому складі.\"; content.body.steps[6].blocks[0].items[0]: \"приголосна → -es\" and items[2]: \"Наголос не переходить\".",
+        "defect": "Two rules are presented as universal. Consonant-final nouns do not all take -es: lunes and crisis are unchanged. Stress is usually preserved, but carácter → caracteres, régimen → regímenes and espécimen → especímenes shift stress. The displayed plural forms themselves are correct.",
+        "correction": "Restrict the consonant rule to the endings practised here, -d, -l and -r. Qualify stress preservation with \"У цих словах\" or \"Зазвичай\". Apply these changes to both the explanations and the summary.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory).",
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": "The explicit explanation el agua → las aguas correctly handles the feminine stressed-a exception."
+      },
+      {
+        "caseId": "task:A1-02-L3-T01",
+        "reviewerAnswer": "los libros",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T02",
+        "reviewerAnswer": "casas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T03",
+        "reviewerAnswer": "las llaves",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The repeated answer in incorrectUk is an optional editorial cleanup."
+      },
+      {
+        "caseId": "task:A1-02-L3-T04",
+        "reviewerAnswer": "unos amigos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T05",
+        "reviewerAnswer": "cafés",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The missing-accent spelling is not accepted; its error-specific feedback explicitly identifies the spelling problem."
+      },
+      {
+        "caseId": "task:A1-02-L3-T06",
+        "reviewerAnswer": "las mesas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Earlier teaching of mesa is not explicitly mapped in taughtBefore. It is ordinary introductory vocabulary, and the supplied error exposes its stem, so this does not prevent solving the task."
+      },
+      {
+        "caseId": "task:A1-02-L3-T07",
+        "reviewerAnswer": "las fotos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T08",
+        "reviewerAnswer": "unas mochilas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T09",
+        "reviewerAnswer": "sillas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T10",
+        "reviewerAnswer": "sofás",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The missing-accent spelling is not accepted; its error-specific feedback explicitly identifies the spelling problem."
+      },
+      {
+        "caseId": "task:A1-02-L3-T11",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T12",
+        "reviewerAnswer": "los hoteles",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Пам’ятай: до слова на приголосну додаємо -es.\"; task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The answer and key are correct, but the supporting rule incorrectly covers every consonant ending. Nouns such as lunes and crisis remain unchanged.",
+        "correction": "State that nouns ending in -l, such as hotel, take -es, or explicitly restrict the reminder to the consonant endings practised in this lesson.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, rules for final -s/-x and -l/-r/-n/-d/-z/-j (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T13",
+        "reviewerAnswer": "ciudades",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Пам’ятай: до слова на приголосну додаємо -es.\"; task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The key is correct, but the reminder and hint give an unrestricted consonant → -es rule. This fails for nouns such as lunes and crisis.",
+        "correction": "Use a rule for final -d or restrict the statement to the endings practised here: -d, -l and -r.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T14",
+        "reviewerAnswer": "las flores",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The key is correct, but the hint falsely extends the -es pattern to all consonant-final nouns. For example, lunes and crisis are unchanged.",
+        "correction": "Explain that final -r takes -es, or restrict the rule to the endings practised here.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T15",
+        "reviewerAnswer": "unos profesores",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The answer and reviewed errors are correct, but the hint states an overbroad rule. Not every consonant-final noun adds -es; lunes and crisis remain unchanged.",
+        "correction": "Limit the hint to final -r or to the practised endings -d, -l and -r.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T16",
+        "reviewerAnswer": "mujeres",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The key is correct, but the hint incorrectly treats -es as the plural ending for every consonant-final noun. Counterexamples include unchanged lunes and crisis.",
+        "correction": "Explain the final -r pattern instead of stating a rule for all consonants.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T17",
+        "reviewerAnswer": "los móviles",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The correction móviles is right, but the hint generalizes beyond the valid final -l pattern. Consonant-final nouns such as lunes and crisis do not add -es.",
+        "correction": "State that final -l takes -es, or restrict the hint to the endings practised here.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": "The error-specific feedback correctly requires the written accent in móviles."
+      },
+      {
+        "caseId": "task:A1-02-L3-T18",
+        "reviewerAnswer": "las universidades",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The answer is correct, but the hint gives a false unrestricted rule for consonant endings. Nouns such as lunes and crisis are unchanged.",
+        "correction": "Use the final -d rule or specify the practised endings -d, -l and -r.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T19",
+        "reviewerAnswer": "unos ordenadores",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The key is correct, but the hint presents the final -r pattern as a rule for every consonant ending. This incorrectly includes nouns such as lunes and crisis.",
+        "correction": "Restrict the hint to final -r or to the consonant endings practised in this lesson.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T20",
+        "reviewerAnswer": "señores",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The prompt gloss and answer are correct. The hint nevertheless states a false general rule: some consonant-final nouns remain unchanged or take -s rather than -es.",
+        "correction": "Explain that final -r takes -es, using señor → señores or another example.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, rules for final -s/-x, -l/-r/-n/-d/-z/-j and other consonants (from memory)."
+        ],
+        "notes": "The prompt supplies the meaning of señor, and the error-specific feedback correctly requires ñ."
+      },
+      {
+        "caseId": "task:A1-02-L3-T21",
+        "reviewerAnswer": "ciudades",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The key is correct, but the hint incorrectly covers all consonant-final nouns. For example, lunes and crisis remain unchanged.",
+        "correction": "Limit the explanation to final -d or to the endings practised here.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T22",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+        "defect": "The option outcomes and feedback are correct. The hint gives an overbroad consonant → -es rule, which fails for unchanged nouns such as lunes and crisis.",
+        "correction": "Explain the final -r pattern or restrict the rule to the practised endings -d, -l and -r.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T23",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Only las fits among the supplied options; the absence of unas from this choice task does not create an ambiguous key."
+      },
+      {
+        "caseId": "task:A1-02-L3-T24",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T25",
+        "reviewerAnswer": "luces",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T26",
+        "reviewerAnswer": "lápices",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The missing-accent spelling is not accepted; its error-specific feedback distinguishes the correct z → c change from the remaining spelling error."
+      },
+      {
+        "caseId": "task:A1-02-L3-T27",
+        "reviewerAnswer": "veces",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T28",
+        "reviewerAnswer": "las luces",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore: article.plural is absent; task.prompt[0].text: \"Напиши у множині разом з артиклем.\"; task.prompt[1].text: \"la luz\".",
+        "defect": "The task requires producing la → las, but this case does not map prior teaching of plural articles or explain that transformation in a rule hint. The z → c prerequisite does not supply the article transformation. The answer itself is correct.",
+        "correction": "Add the prior teaching of article.plural to taughtBefore, or teach the article transformation before requiring it.",
+        "sources": [
+          "Course contract rule 1: dependent forms and constructions must be listed in taughtBefore or supplied in the prompt or a hint.",
+          "Packet, this case's context.taughtBefore, task.prompt and task.hints: the only article-bearing hint is the final answer reveal."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T29",
+        "reviewerAnswer": "lápices",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Ти складаєш список канцелярії для навчання.\"",
+        "defect": "Here \"канцелярії\" is used to mean stationery. Standard Ukrainian канцелярія denotes an administrative office or its premises, rather than the stationery supplies intended by this context.",
+        "correction": "Replace the sentence with \"Ти складаєш список канцелярського приладдя для навчання.\" or use \"список канцтоварів\".",
+        "sources": [
+          "Course contract rule 8: a Ukrainian word used with a nonstandard calqued meaning is a blocking error.",
+          "Словник української мови в 11 томах, entry «канцелярія», administrative-office and premises senses (from memory)."
+        ],
+        "notes": "The Spanish answer and the explanation of lápices are correct."
+      },
+      {
+        "caseId": "task:A1-02-L3-T30",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T31",
+        "reviewerAnswer": "autobuses",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"Пам’ятай: наголос не переходить\"; task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+        "defect": "The answer is correct, but stress preservation is stated without qualification. Spanish has plurals with a stress shift, including carácter → caracteres and régimen → regímenes.",
+        "correction": "Specify \"У цих словах наголос не переходить\" or qualify the general statement with \"Зазвичай\" in both the reminder and the hint.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T32",
+        "reviewerAnswer": "exámenes",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+        "defect": "The key and word-specific feedback are correct, but the hint presents stress preservation as universal. Exceptions include carácter → caracteres, régimen → regímenes and espécimen → especímenes.",
+        "correction": "Restrict the statement to the illustrated words: \"У цих словах наголос лишається на тому самому складі\".",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T33",
+        "reviewerAnswer": "habitaciones",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+        "defect": "The answer is correct, but the hint states stress preservation without limiting its scope. Some nouns shift stress in the plural, such as carácter → caracteres and régimen → regímenes.",
+        "correction": "Use \"У цих словах\" or \"Зазвичай\" to qualify the stress-preservation statement.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T34",
+        "reviewerAnswer": "jóvenes",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+        "defect": "The joven → jóvenes explanation is correct. The hint nevertheless states a universal stress rule that has exceptions, including carácter → caracteres, régimen → regímenes and espécimen → especímenes.",
+        "correction": "Limit the statement to these examples or introduce it with \"Зазвичай\".",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T35",
+        "reviewerAnswer": "estaciones",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+        "defect": "The key is correct, but the hint gives stress preservation as an unrestricted rule. Spanish also has stress-shifting plurals, such as carácter → caracteres and régimen → regímenes.",
+        "correction": "Qualify the statement with \"У цих словах\" or \"Зазвичай\".",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-02-L3-T36",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+        "defect": "The options, outcomes and word-specific feedback are correct. The hint overgeneralizes stress preservation; carácter → caracteres, régimen → regímenes and espécimen → especímenes are exceptions.",
+        "correction": "Restrict the statement to the illustrated words or qualify it with \"Зазвичай\".",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "article.plural",
+      "contentHash": "2f69456358d1adf6c36610546cffa68f82386de716af3415632b451dc993fc07",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:article.plural",
+      "verdict": "valid",
+      "reviewerAnswer": "los libros; las casas; unos libros; unas casas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "noun.plural.accent-change",
+      "contentHash": "1639732d487a0b18778446118ce24c6e6dbb5ef3024da4196ea6b12c2b970d2e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"У множині наголос лишається на тому самому складі\"; content.body.scope.noteUk: \"Наголошений склад не змінюється\".",
+          "description": "The examples are correct, but stress preservation is stated without qualification. Some Spanish nouns shift stress in the plural: carácter → caracteres, régimen → regímenes and espécimen → especímenes.",
+          "suggestion": "Limit the statement to the selected words: \"У цих словах наголос лишається на тому самому складі\". The exceptional nouns need not be introduced at this level."
+        }
+      ],
+      "caseId": "skill:noun.plural.accent-change",
+      "verdict": "flawed",
+      "reviewerAnswer": "estaciones; autobuses; ingleses; jóvenes; exámenes.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "noun.plural.es",
+      "contentHash": "3f98efb15fed6c04e4a6ddb14bda282eb7fd0aac396a03ea32fd693ad5300afd",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "This is too broad. Consonant-final nouns do not uniformly take -es: lunes and crisis remain unchanged, while some other consonant endings take -s. The separate treatment of -z does not resolve these exceptions.",
+          "suggestion": "Restrict the rule to the endings practised here, -d, -l and -r, and state that other consonant endings have separate rules."
+        }
+      ],
+      "caseId": "skill:noun.plural.es",
+      "verdict": "flawed",
+      "reviewerAnswer": "ciudades; hoteles; profesores; mujeres.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, rules for final -s/-x, -l/-r/-n/-d/-z/-j and other consonants (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "noun.plural.s",
+      "contentHash": "6bc2646b179d00fa49cfa9889d3e1eae73c010eb84b5f00120684de82c8828ad",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:noun.plural.s",
+      "verdict": "valid",
+      "reviewerAnswer": "libros; casas; coches; cafés.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "noun.plural.z-ces",
+      "contentHash": "62029a999b56c3f347534b67a0df2db8a8103354462a1c9fd348080d145eea38",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:noun.plural.z-ces",
+      "verdict": "valid",
+      "reviewerAnswer": "lápices; luces; veces.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.autobus",
+      "contentHash": "dd22f2a5e81b996d6e4a8cfb2c209bc128fd468365356adc09384419172d84b7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.autobus",
+      "verdict": "valid",
+      "reviewerAnswer": "autobús: masculine noun; plural autobuses; Ukrainian meaning \"автобус\".",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.examen",
+      "contentHash": "895cf492ca365592154f4899c10c93e0800de3034a595e070a7c9ffb7730f583",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.examen",
+      "verdict": "valid",
+      "reviewerAnswer": "examen: masculine noun; plural exámenes; Ukrainian meaning \"іспит\".",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.joven",
+      "contentHash": "e8fefdda2714a2928ec75d4f9daaf87ac09b337ab87035cc14680cb93d57f70a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.joven",
+      "verdict": "valid",
+      "reviewerAnswer": "joven: adjective with the same form for both genders; plural jóvenes; also a noun meaning \"молода людина\".",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.luz",
+      "contentHash": "5c3b85335f4d0422b99316618f13e1b9f08354bd74f4dc8dabd8abd4b206dc06",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.luz",
+      "verdict": "valid",
+      "reviewerAnswer": "luz: feminine noun; plural luces; Ukrainian meaning \"світло\".",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.vez",
+      "contentHash": "acbd4c612cf4dc132711b32f14bc3aef48e34a4f7cf6d6c38b17bf5d52477d1b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.vez",
+      "verdict": "valid",
+      "reviewerAnswer": "vez: feminine noun; plural veces; Ukrainian meaning \"раз\"; a veces means \"іноді\".",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-02-L3",
+      "contentHash": "f9c2d8643c6a095bd49f3be7689d2f54634a723ab3fa0eca9c7304a6aeb8f887",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[0].rows[1]: \"приголосну\" / \"додаємо -es\"; content.body.steps[2].blocks[0].text: \"Наголос у множині лишається на тому самому складі.\"; content.body.steps[6].blocks[0].items[0]: \"приголосна → -es\" and items[2]: \"Наголос не переходить\".",
+          "description": "Two rules are presented as universal. Consonant-final nouns do not all take -es: lunes and crisis are unchanged. Stress is usually preserved, but carácter → caracteres, régimen → regímenes and espécimen → especímenes shift stress. The displayed plural forms themselves are correct.",
+          "suggestion": "Restrict the consonant rule to the endings practised here, -d, -l and -r. Qualify stress preservation with \"У цих словах\" or \"Зазвичай\". Apply these changes to both the explanations and the summary."
+        }
+      ],
+      "caseId": "lesson:A1-02-L3",
+      "verdict": "flawed",
+      "reviewerAnswer": "Expected forms include los libros, las mesas, unos amigos, las ciudades, las luces, los autobuses, los exámenes and el agua → las aguas.",
+      "notes": "The explicit explanation el agua → las aguas correctly handles the feminine stressed-a exception.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory).",
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T01",
+      "contentHash": "ae666dbc6c457cad2eed19293322259bf61a676bd6d3f0e7c8169b49cec9a5db",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "los libros",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T02",
+      "contentHash": "c50569a43f4580e11e0f9656301594becba66be3f5752da034e0e9d1658b0fc0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "casas",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T03",
+      "contentHash": "9e965ef127e85f704561186d504c4aa26a2b3b7f0c32fc42ab79d80728a4973d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "las llaves",
+      "notes": "The repeated answer in incorrectUk is an optional editorial cleanup.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T04",
+      "contentHash": "5aa743686b2c24ae416332bbf385634037bc7dbd431e534076ada2f178985aa3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "unos amigos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T05",
+      "contentHash": "49b6765653dbfb0001fd077336de09beb03577fd48435512f176eb5174a2bdb4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "cafés",
+      "notes": "The missing-accent spelling is not accepted; its error-specific feedback explicitly identifies the spelling problem.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T06",
+      "contentHash": "5091ac93f4057ff9943cc8f400c5c5ee2ca42b181e7ee2dd9a1a93ad35a8e7f4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "las mesas",
+      "notes": "Earlier teaching of mesa is not explicitly mapped in taughtBefore. It is ordinary introductory vocabulary, and the supplied error exposes its stem, so this does not prevent solving the task.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T07",
+      "contentHash": "1f70ba29f6b01d6ea301fabed09132ec90ea27dc6a98806d3795f9bcf25a8b0a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "las fotos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T08",
+      "contentHash": "6f988fd3a4f17d631fc74728aa81f5695072230a3be50bb8eff289fc8c9ac8de",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "unas mochilas",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T09",
+      "contentHash": "07c42928f5a61483279d16396b1c1bada598a67a7d922aa5a3eabc7de3efa75c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "sillas",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T10",
+      "contentHash": "d45206586159b522ba3fba3bd48403b26100f97328e5ac35e51a06f3ab0a464a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "sofás",
+      "notes": "The missing-accent spelling is not accepted; its error-specific feedback explicitly identifies the spelling problem.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T11",
+      "contentHash": "b8e4836771ca2348ac3d98e0a49deb48b6bc6d6b751ab8171b9fe1db05c255b8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T12",
+      "contentHash": "79617e0835118a30cad41fb08acc8df79b2a7765eb623f912517754d8145479b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Пам’ятай: до слова на приголосну додаємо -es.\"; task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The answer and key are correct, but the supporting rule incorrectly covers every consonant ending. Nouns such as lunes and crisis remain unchanged.",
+          "suggestion": "State that nouns ending in -l, such as hotel, take -es, or explicitly restrict the reminder to the consonant endings practised in this lesson."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "los hoteles",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, rules for final -s/-x and -l/-r/-n/-d/-z/-j (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T13",
+      "contentHash": "4839d55bc54791ac2a69dc35eca0b9cc57106d94c824e50eeb0a07dc9ed4c3cb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Пам’ятай: до слова на приголосну додаємо -es.\"; task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The key is correct, but the reminder and hint give an unrestricted consonant → -es rule. This fails for nouns such as lunes and crisis.",
+          "suggestion": "Use a rule for final -d or restrict the statement to the endings practised here: -d, -l and -r."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "ciudades",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T14",
+      "contentHash": "c47c4f078ec893fd2d96c7f03ebc9eaecc0ce3c022c24c6dbe8cc55dc70aa1c6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The key is correct, but the hint falsely extends the -es pattern to all consonant-final nouns. For example, lunes and crisis are unchanged.",
+          "suggestion": "Explain that final -r takes -es, or restrict the rule to the endings practised here."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "las flores",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T15",
+      "contentHash": "899bd1f89942ce68a93b9ecd0525e255747f55c788e9f505371b75ae302ccfeb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The answer and reviewed errors are correct, but the hint states an overbroad rule. Not every consonant-final noun adds -es; lunes and crisis remain unchanged.",
+          "suggestion": "Limit the hint to final -r or to the practised endings -d, -l and -r."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T15",
+      "verdict": "flawed",
+      "reviewerAnswer": "unos profesores",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T16",
+      "contentHash": "998e4be7d20eea63cd8963eeaee60c2347c429070ef5de0f6412effe8fc8374e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The key is correct, but the hint incorrectly treats -es as the plural ending for every consonant-final noun. Counterexamples include unchanged lunes and crisis.",
+          "suggestion": "Explain the final -r pattern instead of stating a rule for all consonants."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T16",
+      "verdict": "flawed",
+      "reviewerAnswer": "mujeres",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T17",
+      "contentHash": "4c6f7f89d11582680ca8a316533506bc7f495388ca88b718f7a50766adf080b8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The correction móviles is right, but the hint generalizes beyond the valid final -l pattern. Consonant-final nouns such as lunes and crisis do not add -es.",
+          "suggestion": "State that final -l takes -es, or restrict the hint to the endings practised here."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "los móviles",
+      "notes": "The error-specific feedback correctly requires the written accent in móviles.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T18",
+      "contentHash": "6dd8d9585dc234e7187682db0e52228da8ba4591ad473af2409a978f92762764",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The answer is correct, but the hint gives a false unrestricted rule for consonant endings. Nouns such as lunes and crisis are unchanged.",
+          "suggestion": "Use the final -d rule or specify the practised endings -d, -l and -r."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T18",
+      "verdict": "flawed",
+      "reviewerAnswer": "las universidades",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T19",
+      "contentHash": "d10f34fd518455f0ecfb8b0be1f92979e88063557f781ae90b93292599b51ccd",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[1].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The key is correct, but the hint presents the final -r pattern as a rule for every consonant ending. This incorrectly includes nouns such as lunes and crisis.",
+          "suggestion": "Restrict the hint to final -r or to the consonant endings practised in this lesson."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T19",
+      "verdict": "flawed",
+      "reviewerAnswer": "unos ordenadores",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T20",
+      "contentHash": "3b2f21e8de86328805cec150fac1722d0458d2a8a5539e6f3163bd0d6d627c29",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The prompt gloss and answer are correct. The hint nevertheless states a false general rule: some consonant-final nouns remain unchanged or take -s rather than -es.",
+          "suggestion": "Explain that final -r takes -es, using señor → señores or another example."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "señores",
+      "notes": "The prompt supplies the meaning of señor, and the error-specific feedback correctly requires ñ.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, rules for final -s/-x, -l/-r/-n/-d/-z/-j and other consonants (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T21",
+      "contentHash": "43486dec8222fe347b109d6fa4b0f3c96889771fcead96509491a064cf665f18",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The key is correct, but the hint incorrectly covers all consonant-final nouns. For example, lunes and crisis remain unchanged.",
+          "suggestion": "Limit the explanation to final -d or to the endings practised here."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "ciudades",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T22",
+      "contentHash": "61ba58600424ecadace3e2655ab59742a970e3396562aeb5f6c1c5343e1e84ea",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Якщо іменник закінчується на приголосну, у множині додаємо -es\".",
+          "description": "The option outcomes and feedback are correct. The hint gives an overbroad consonant → -es rule, which fails for unchanged nouns such as lunes and crisis.",
+          "suggestion": "Explain the final -r pattern or restrict the rule to the practised endings -d, -l and -r."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 1, plural formation by final consonant (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T23",
+      "contentHash": "92b377120b28498dae50dfd4d4ba3b159a213d2aadd71b27b12fec5be56745b8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Only las fits among the supplied options; the absence of unas from this choice task does not create an ambiguous key.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T24",
+      "contentHash": "af40a6c163d4a475c6ad271d62aa8545a045e52a3c9a79debe534fcbba27abfd",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T25",
+      "contentHash": "b0ad73f297ee5f8b5556a07e35fb6118f01bcc8c29cbb91a3cdbeb85b5bc4de0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "luces",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T26",
+      "contentHash": "0c755d99c9eac2cc1eca4ba14edc77948c03eb6cb9de5b0c7a8cd47c5fb363ee",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "lápices",
+      "notes": "The missing-accent spelling is not accepted; its error-specific feedback distinguishes the correct z → c change from the remaining spelling error.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T27",
+      "contentHash": "3c20e70286059d2d9460ad3548c3ec0d71b0b6bd4905e94fe4ea23e4e17e1379",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "veces",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T28",
+      "contentHash": "a62278ea90983a63d8d9d1548455f18e9aba751d6e2ca4181821a29358270c05",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore: article.plural is absent; task.prompt[0].text: \"Напиши у множині разом з артиклем.\"; task.prompt[1].text: \"la luz\".",
+          "description": "The task requires producing la → las, but this case does not map prior teaching of plural articles or explain that transformation in a rule hint. The z → c prerequisite does not supply the article transformation. The answer itself is correct.",
+          "suggestion": "Add the prior teaching of article.plural to taughtBefore, or teach the article transformation before requiring it."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T28",
+      "verdict": "flawed",
+      "reviewerAnswer": "las luces",
+      "notes": "",
+      "sources": [
+        "Course contract rule 1: dependent forms and constructions must be listed in taughtBefore or supplied in the prompt or a hint.",
+        "Packet, this case's context.taughtBefore, task.prompt and task.hints: the only article-bearing hint is the final answer reveal."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T29",
+      "contentHash": "220a1408af9e8a0d572f61654e9dee54f2441e01f25bc57d7e4d7d83b88d634f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Ти складаєш список канцелярії для навчання.\"",
+          "description": "Here \"канцелярії\" is used to mean stationery. Standard Ukrainian канцелярія denotes an administrative office or its premises, rather than the stationery supplies intended by this context.",
+          "suggestion": "Replace the sentence with \"Ти складаєш список канцелярського приладдя для навчання.\" or use \"список канцтоварів\"."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T29",
+      "verdict": "flawed",
+      "reviewerAnswer": "lápices",
+      "notes": "The Spanish answer and the explanation of lápices are correct.",
+      "sources": [
+        "Course contract rule 8: a Ukrainian word used with a nonstandard calqued meaning is a blocking error.",
+        "Словник української мови в 11 томах, entry «канцелярія», administrative-office and premises senses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T30",
+      "contentHash": "7ed5540b34d20ec92cefc1e5b5c3a4e0a43accd07f9783555c6deb96ca392d55",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-02-L3-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T31",
+      "contentHash": "b108a11e67d658a9bd29a9c6ac208d7589e87d3f2e386ae288fc763ad3600765",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Пам’ятай: наголос не переходить\"; task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+          "description": "The answer is correct, but stress preservation is stated without qualification. Spanish has plurals with a stress shift, including carácter → caracteres and régimen → regímenes.",
+          "suggestion": "Specify \"У цих словах наголос не переходить\" or qualify the general statement with \"Зазвичай\" in both the reminder and the hint."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "autobuses",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T32",
+      "contentHash": "456d7464be349c5df656f465a7fad391714eea68beef7e11e56b79f9f29ee26e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+          "description": "The key and word-specific feedback are correct, but the hint presents stress preservation as universal. Exceptions include carácter → caracteres, régimen → regímenes and espécimen → especímenes.",
+          "suggestion": "Restrict the statement to the illustrated words: \"У цих словах наголос лишається на тому самому складі\"."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "exámenes",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T33",
+      "contentHash": "c7af2bdee2ee9758e632930acf3ea9e51f633a95dd20807d2c873a79c26e8d8b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+          "description": "The answer is correct, but the hint states stress preservation without limiting its scope. Some nouns shift stress in the plural, such as carácter → caracteres and régimen → regímenes.",
+          "suggestion": "Use \"У цих словах\" or \"Зазвичай\" to qualify the stress-preservation statement."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T33",
+      "verdict": "flawed",
+      "reviewerAnswer": "habitaciones",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T34",
+      "contentHash": "7d1a9f8129a502866ebf6e2c1029837e85a138dfd0a24e9b25462f9ee7cfa76a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+          "description": "The joven → jóvenes explanation is correct. The hint nevertheless states a universal stress rule that has exceptions, including carácter → caracteres, régimen → regímenes and espécimen → especímenes.",
+          "suggestion": "Limit the statement to these examples or introduce it with \"Зазвичай\"."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T34",
+      "verdict": "flawed",
+      "reviewerAnswer": "jóvenes",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T35",
+      "contentHash": "c9976823c170f319c27208da4e459cb1b8ccf36ed256018fe23a8344e759a507",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+          "description": "The key is correct, but the hint gives stress preservation as an unrestricted rule. Spanish also has stress-shifting plurals, such as carácter → caracteres and régimen → regímenes.",
+          "suggestion": "Qualify the statement with \"У цих словах\" or \"Зазвичай\"."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T35",
+      "verdict": "flawed",
+      "reviewerAnswer": "estaciones",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-02-L3-T36",
+      "contentHash": "449e09afa2eca145eb6ff0c72fa265e81d5dd36417c5d570cf55945555933efc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"У множині наголос лишається на тому самому складі\".",
+          "description": "The options, outcomes and word-specific feedback are correct. The hint overgeneralizes stress preservation; carácter → caracteres, régimen → regímenes and espécimen → especímenes are exceptions.",
+          "suggestion": "Restrict the statement to the illustrated words or qualify it with \"Зазвичай\"."
+        }
+      ],
+      "caseId": "task:A1-02-L3-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «plural», section 2, «Cambio de acento en el plural» (from memory)."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

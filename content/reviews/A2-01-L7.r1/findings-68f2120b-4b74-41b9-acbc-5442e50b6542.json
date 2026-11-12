@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-01-L7.r1",
+  "jobId": "68f2120b-4b74-41b9-acbc-5442e50b6542",
+  "receiptId": "92440975-0650-4ae8-b438-637d01056593",
+  "recordedAt": "2026-11-09T12:17:20.249Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A2-01-L7",
+      "contentHash": "b5a2364a953551a313c0386b0e736d118d4988df4c49a73304a2bd4a3b7e9520",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s4].blocks[1].rows: 'іде дощ / сніг (зазвичай)' → 'llueve / nieva', contrasted with 'іде дощ / сніг (зараз)' → 'está lloviendo / está nevando'.",
+          "description": "The table teaches a misleading habitual-versus-current distinction. The simple present also describes current precipitation: Ahora llueve and Ahora nieva are correct.",
+          "suggestion": "Translate llueve / nieva without restricting them to habitual weather. Explain that estar + gerundio emphasizes precipitation in progress and that both constructions can describe current weather."
+        }
+      ],
+      "caseId": "lesson:A2-01-L7",
+      "verdict": "flawed",
+      "reviewerAnswer": "Both llueve and está lloviendo can describe current rain; habitual rain can be expressed with llueve and a habitual context.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, actual and habitual readings of the present indicative (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T22",
+      "contentHash": "e8e6df258d8bc99d93b32fd172fd40490c41e718166d5a381cf734524808d51e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e3].feedbackUk: 'Тут ідеться про «просто зараз», потрібна форма está nevando.'",
+          "description": "The explanation misleadingly makes 'right now' the reason that the progressive is required. Ahora mismo nieva is grammatical. In this exercise, nieva fails because the prompt explicitly requests estar + gerundio.",
+          "suggestion": "Use: 'У завданні потрібно вжити estar + gerundio: está nevando. Nieva теж може описувати сніг зараз, але не відповідає заданій конструкції.'"
+        }
+      ],
+      "caseId": "task:A2-01-L7-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "está nevando, as explicitly requested by the prompt.",
+      "notes": "The accepted answer and rejection of nieva under the explicit construction requirement are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, actual present indicative (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T32",
+      "contentHash": "da8041251d8b2d40624b232bd76f0bbdd56657341a2d0542d5d4689589b1d3c3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=b].feedbackUk: 'Про «зараз» сказали б está nevando.'",
+          "description": "The feedback suggests a misleading exclusive connection between current snowfall and the progressive. Nieva can also describe snowfall now. Option b is unsuitable because it replaces the stated December time frame with an unstated 'now'.",
+          "suggestion": "Explain the actual mismatch: 'En diciembre означає «у грудні»; у реченні не сказано, що сніг іде саме зараз.'"
+        }
+      ],
+      "caseId": "task:A2-01-L7-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The option outcomes themselves are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, actual and habitual present indicative (from memory).",
+        "Packet: task.prompt[1].text explicitly contains 'en diciembre'."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T41",
+      "contentHash": "81a70420db2629138b004573a18b2b0ed0f3208f3a440fd63bda50f118048ac7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only 'está nublado'; task.closed = true.",
+          "description": "The closed key rejects the correct completion el cielo está nublado, producing Hoy el cielo está nublado y no hace sol. The prompt does not restrict the answer to two words or prohibit an explicit subject.",
+          "suggestion": "Accept the additional correct completions and use an open key, or explicitly constrain the requested answer to the two-word impersonal expression."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T41",
+      "verdict": "flawed",
+      "reviewerAnswer": "está nublado; el cielo está nublado also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3: a closed key must accept every answer correct for the stated context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T42",
+      "contentHash": "784df084170578ddf5136eb149d8f3257f2cb12e863ed4a9005683e30458de88",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only 'está despejado'; task.closed = true.",
+          "description": "The closed key rejects el cielo está despejado, which correctly completes Por la noche el cielo está despejado y hace frío. No answer-length or subject restriction is stated.",
+          "suggestion": "Open the key and review alternatives, or explicitly request the two-word impersonal expression."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T42",
+      "verdict": "flawed",
+      "reviewerAnswer": "está despejado; el cielo está despejado also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T43",
+      "contentHash": "7f760c94fa4899ae8a9858d501d62c2d992cd2d1c96204020a2dece665e766af",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only 'está nublado'; task.closed = true.",
+          "description": "Hoy el cielo está nublado is a correct answer to the stated prompt, but its completion el cielo está nublado is rejected by the closed key.",
+          "suggestion": "Open the key and accept reviewed alternatives, or state an explicit two-word impersonal-expression requirement."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "está nublado; el cielo está nublado also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T44",
+      "contentHash": "483cd249b3fc0091d4b498413bc9063fceb6cbbde5c0ed301340008bdab46ebb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only 'está despejado'; task.closed = true.",
+          "description": "The correct completion el cielo está despejado yields Hoy el cielo está despejado y hace mucho sol, but the closed key rejects it.",
+          "suggestion": "Open the key and review alternatives, or explicitly restrict the completion to the two-word impersonal expression."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T44",
+      "verdict": "flawed",
+      "reviewerAnswer": "está despejado; el cielo está despejado also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T45",
+      "contentHash": "0602211d7b84e35550b0c4635e4376bdeb574aef2e6fc4143f9fab8ba11412c2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only 'está nublado'; task.closed = true.",
+          "description": "Aquí el cielo está nublado, pero no llueve is correct and expresses the requested meaning. The closed key rejects its completion without a prompt constraint that would exclude it.",
+          "suggestion": "Open the key and accept reviewed alternatives, or explicitly request the two-word impersonal expression."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T45",
+      "verdict": "flawed",
+      "reviewerAnswer": "está nublado; el cielo está nublado also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T46",
+      "contentHash": "4c437c6d6d7a7ec7452187e3edfb185bbdd6065fcad9c9f32787105e3a9601b6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted contains only 'está despejado'; task.closed = true.",
+          "description": "The completion está el cielo despejado gives a grammatical sentence with the requested meaning: En verano, en Sevilla siempre está el cielo despejado. The closed key rejects it.",
+          "suggestion": "Open the key and review alternatives, or explicitly constrain the answer to the two-word impersonal expression."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T46",
+      "verdict": "flawed",
+      "reviewerAnswer": "está despejado; está el cielo despejado also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T64",
+      "contentHash": "ded5a655b1a1617d397f07f5248df970f8d227d92f81671c8c503fdfd0f8ef3a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: 'Normalmente Marta trabaja en una oficina, pero hoy está en casa: ___. Mañana vuelve a la oficina.'; option c, 'va a trabajar en la oficina hoy', is graded incorrect.",
+          "description": "The intended all-day homeworking reading is inferred rather than specified. Being home today does not exclude going to the office later today; returning tomorrow does not explicitly rule out another visit today.",
+          "suggestion": "Specify that Marta is working at home throughout today's working day, or explicitly ask for her current activity before retaining a as the sole answer."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T64",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the clearest fit; c is possible if Marta is home now and will work at the office later today.",
+      "notes": "Option a is the most cohesive reading, but the feedback for c treats an unstated all-day interpretation as certain.",
+      "sources": [
+        "Course verdict definition for uncertain: the intended reading is underdetermined.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, contextual temporal interpretation of the present indicative (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T65",
+      "contentHash": "236df4638758c1ddd4820864a08f27645ab08a620e7f7f9053bc42ac8b86dd5a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: 'Hoy es lunes. Los lunes Ana tiene clase de inglés, pero hoy está enferma: ___.'; option c, 'mañana va a dormir', is graded incorrect.",
+          "description": "Today's illness does not determine whether the continuation describes sleeping now or a plan to sleep tomorrow. The prompt asks only for a fitting continuation and does not specify the intended temporal focus.",
+          "suggestion": "Explicitly ask what Ana is doing right now, or add context that identifies her current activity."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T65",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a under a current-activity reading; c is also compatible with a plan to rest tomorrow.",
+      "notes": "The missing time focus, rather than the grammaticality of either construction, needs resolution.",
+      "sources": [
+        "Course verdict definition for uncertain: multiple reasonable readings without a specified intended reading.",
+        "Packet: task.prompt contains no instruction to describe a current action."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T66",
+      "contentHash": "07ab8a3be9fd8356df04f9fc265adf265bca0f3f29b6a5a775564c44aaba369d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: '¡Hola, Pablo! Estoy en el tren. ___ y llego a las diez. Mañana vamos al cine, ¿vale?'; option b, 'Mañana voy a leer un libro', is graded incorrect.",
+          "description": "The message does not explicitly require the blank to describe an activity occurring on the train now. Mentioning a reading plan for tomorrow is possible; the feedback adds a current-activity requirement absent from the prompt.",
+          "suggestion": "Add an instruction that the missing sentence must describe what the sender is doing now on the train, or supply a question establishing that focus."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T66",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the most cohesive continuation; b is possible if the message includes tomorrow's reading plan.",
+      "notes": "",
+      "sources": [
+        "Course verdict definition for uncertain: an underdetermined intended reading must be resolved.",
+        "Packet: task.prompt[0] asks only for a fitting continuation; option b feedback introduces the unstated current-action restriction."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T82",
+      "contentHash": "6ee6993b956bd35a76b963f3858cb660d2a24c420459fa330697d0ed3495f616",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.rubric.criteriaUk[0]: 'Є звичка (простий теперішній), дія зараз (estar + gerundio) і план (ir a + інфінітив) з вказівкою часу.'",
+          "description": "The rubric requires ir a + infinitive for the plan although the prompt imposes no such restriction. The reviewer's El sábado voy a la playa expresses the requested weekend plan correctly using the explicitly taught future-oriented present.",
+          "suggestion": "Accept either ir a + infinitive or a future-oriented present with an appropriate time expression, as the rubric in T81 already does. Alternatively, state an explicit ir a + infinitive requirement in the prompt."
+        }
+      ],
+      "caseId": "task:A2-01-L7-T82",
+      "verdict": "flawed",
+      "reviewerAnswer": "¡Hola, Pablo! Normalmente a esta hora trabajo en casa. Ahora estoy leyendo en el tren. El sábado voy a la playa con mi familia. Un abrazo.",
+      "notes": "",
+      "sources": [
+        "Packet: context.taughtBefore, time.plan.present-for-future, explicitly includes 'El sábado voy a la playa.'",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, prospective or future-oriented present indicative (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L7-T95",
+      "contentHash": "8a80dfc2ca910463071435129e3e9418f004348a8900b3e94d0b2419ae00faa7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.options[id=b].feedbackUk: 'Гуляти вона збирається ввечері, а завтра буде дощ.'; clips[0].transcript says 'Esta tarde voy a pasear por el centro', translated as 'Сьогодні по обіді'.",
+          "description": "The feedback narrows esta tarde to the evening, while the supplied translation selects an afternoon reading. Both can fall within tarde, but the packet gives no hour or other context establishing which is intended.",
+          "suggestion": "Specify the intended time, or use wording that preserves the broader time reference, such as 'Гуляти людина збирається пізніше сьогодні, а завтра буде дощ.'"
+        }
+      ],
+      "caseId": "task:A2-01-L7-T95",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a",
+      "notes": "The keyed answer a is supported by the transcript; the uncertainty concerns the time-specific feedback.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, tarde, noun sense covering the period from midday to nightfall (from memory).",
+        "Course verdict definition for uncertain: do not assert a correction when the judgment depends on an unspecified part of the day."
+      ]
+    },
+    {
+      "kind": "material",
+      "logicalId": "material.a2-01.weather",
+      "contentHash": "d0a0c3fb12c30e84ffd2b31d248c2a129e68edad2cbb670dff2c3a71f108ba8d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.blocks[0].rows: 'іде дощ / сніг (зазвичай)' → 'llueve / nieva', contrasted with 'іде дощ / сніг (зараз)' → 'está lloviendo / está nevando'.",
+          "description": "The table presents a misleading habitual-versus-current split. Llueve and nieva are also valid descriptions of weather happening now.",
+          "suggestion": "Remove the habitual-only implication from the simple-present row and explain that the progressive emphasizes an ongoing event; both forms can describe current precipitation."
+        }
+      ],
+      "caseId": "material:material.a2-01.weather",
+      "verdict": "flawed",
+      "reviewerAnswer": "Llueve / nieva can describe current or habitual precipitation; está lloviendo / está nevando emphasize precipitation in progress.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, actual and habitual readings of the present indicative (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 28, estar + gerundio (from memory)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-01-L2.r1",
+  "jobId": "e6220060-af5b-4cd9-b2bf-c50d4c9afa25",
+  "receiptId": "dac9322a-137a-4ca5-9cf2-262099ee7bd6",
+  "recordedAt": "2026-11-08T19:30:54.677Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "ortho.stress-awareness",
+      "contentHash": "038e9e4f50a1ff479d27b887a005ec8e705f9e8e9361a39495344206506df675",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: «У кожному слові один склад звучить сильніше — це наголос.»",
+          "description": "This falsely gives every word exactly one stressed syllable. Spanish has unstressed function words, including de and conditional si; adverbs ending in -mente can have two prosodic stresses.",
+          "suggestion": "Scope the statement to the examples: «У багатоскладових словах із цього уроку один склад звучить сильніше. Це наголошений склад.»"
+        }
+      ],
+      "caseId": "skill:ortho.stress-awareness",
+      "verdict": "flawed",
+      "reviewerAnswer": "CA-sa, ME-sa, ho-TEL, ca-FÉ, a-DIÓS, NÚ-me-ro, LÁ-piz.",
+      "notes": "The illustrated stress positions are correct. A complete accentuation system need not be introduced here.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), chapter II, treatment of tonic/atonic words and prosodic stress in adverbs ending in -mente (from memory)."
+      ]
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-01-L2",
+      "contentHash": "c43d36f2414164a6bc11d06bee16a544e5c7a56d8fb9143f70f8b9dc06f7978e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[0].text: «У кожному слові один склад звучить сильніше — це наголос.»",
+          "description": "The universal statement is false: Spanish includes unstressed function words and adverbs in -mente with two prosodic stresses. Introducing this as a property of every word creates a misleading rule.",
+          "suggestion": "Restrict the observation to the lesson's examples: «У багатоскладових словах із цього уроку один склад звучить сильніше. Це наголошений склад.»"
+        }
+      ],
+      "caseId": "lesson:A1-01-L2",
+      "verdict": "flawed",
+      "reviewerAnswer": "Stress: CA-sa, ME-sa, GRA-cias, ho-TEL. Accented forms: sí, adiós, perdón, café, aquí, también, número, teléfono, música, sábado, fácil, lápiz.",
+      "notes": "The displayed syllabification, twelve accented spellings, translations and sí/si distinction are correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), chapter II, treatment of tonic/atonic words and prosodic stress in adverbs ending in -mente (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-L2-T14",
+      "contentHash": "f9393879d9becce120375d628f1037079fec59895047775bcba018ccf0f7a66d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: «Підказка: у записі є слово gracias — «дякую».»",
+          "description": "The prompt supplies a transcript excerpt and its translation. Rule 7 confines transcript and translation support to designated hints, including in supported listening tasks.",
+          "suggestion": "Move the gracias gloss into a translation hint. Use the prompt «Послухай коротку відповідь. Що відповіла людина?»"
+        }
+      ],
+      "caseId": "task:A1-01-L2-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The partial cue does not settle the sí/no contrast. The answer key and clip translation are correct for the supplied transcript.",
+      "sources": [
+        "Course contract, rule 7: listening transcripts and their translations may appear only in hints of kind transcript or translation."
+      ]
+    }
+  ]
+}

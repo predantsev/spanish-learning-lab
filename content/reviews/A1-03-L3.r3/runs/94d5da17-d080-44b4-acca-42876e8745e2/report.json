@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L3.r3",
+  "packetHash": "60bca0faa5e970ba4f8290c0201147d804e6408dc0ca94a7c5bd78d74a72190a",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "8c3831709b741a51c9f61f440b426721ed735b748d94bed884ffd4df841236ee",
+    "reviewerPacketSha256": "fdc180ba80bd78b564b22e4303dc4bad59e36fe372de20e630ab48bb177a8b25",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-FTuDaa/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-FTuDaa/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-FTuDaa/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-FTuDaa/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-FTuDaa/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bfe9-ddaf-7500-840b-623502649031",
+        "version": "v0.166.0",
+        "tokens used": "32,402"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-03-L3-T02",
+        "reviewerAnswer": "El libro está en la mesa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly requires en, so the treatment of sobre is justified. A visible model is permitted for this supported task."
+      },
+      {
+        "caseId": "task:A1-03-L3-T03",
+        "reviewerAnswer": "Mis padres están en Kiev. The spelling Kyiv is also acceptable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt contains no visible model. The feedback correctly distinguishes location from origin."
+      },
+      {
+        "caseId": "task:A1-03-L3-T08",
+        "reviewerAnswer": "Mi hermana está en Madrid.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L3-T10",
+        "reviewerAnswer": "La llave está en la habitación de Ana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The translation hint supplies the otherwise unlisted phrase la habitación de Ana and correctly attributes support to no assessed grammar target."
+      },
+      {
+        "caseId": "task:A1-03-L3-T43",
+        "reviewerAnswer": "Estamos bien. Nosotros estamos bien. Nosotras estamos bien.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "All three answers fit the unspecified group composition. The prompt specifies general well-being, and the feedback appropriately distinguishes this meaning from estar bueno."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T02",
+      "contentHash": "c16adc55741d2562a45360c4b25948a1e404554e9178d43045ecb850ce68468c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "El libro está en la mesa.",
+      "notes": "The prompt explicitly requires en, so the treatment of sobre is justified. A visible model is permitted for this supported task.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T03",
+      "contentHash": "70fe42a4863af665fd11894e6dea288a092dbf0e6d84f9da1d2935261426e0a3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis padres están en Kiev. The spelling Kyiv is also acceptable.",
+      "notes": "The prompt contains no visible model. The feedback correctly distinguishes location from origin.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T08",
+      "contentHash": "c64b1ec3916c93f388a437735f1f88c5964cb534398f92d11e5753665eb8beaa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi hermana está en Madrid.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T10",
+      "contentHash": "6359bca5332da7b7b52c1c29e4ad5988d660bd1899202d163e9fbb38ae81a96c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "La llave está en la habitación de Ana.",
+      "notes": "The translation hint supplies the otherwise unlisted phrase la habitación de Ana and correctly attributes support to no assessed grammar target.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T43",
+      "contentHash": "fe06fdc8eab5f4518d9c1a0aca6265d6cd9a2027772aa1668aaba86ef3d1cc4a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L3-T43",
+      "verdict": "valid",
+      "reviewerAnswer": "Estamos bien. Nosotros estamos bien. Nosotras estamos bien.",
+      "notes": "All three answers fit the unspecified group composition. The prompt specifies general well-being, and the feedback appropriately distinguishes this meaning from estar bueno.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

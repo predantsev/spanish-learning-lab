@@ -1,0 +1,4660 @@
+{
+  "schemaVersion": 1,
+  "kind": "sll-audio-technical-qa",
+  "scope": "Technical QA only (format, integrity, playability, loudness, peak, silence, clipping). NOT language QA: no judgment of words, stress, accent or naturalness.",
+  "generatedAt": "2026-11-10T08:10:28.534Z",
+  "index": {
+    "path": "work/media/index.json",
+    "sha256": "1c1e16309c58e32387a3fbdac834057ab2039d308070ef8ad05cf12f126e5b37",
+    "entries": 106
+  },
+  "tools": {
+    "ffmpeg": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 8.1.1 Copyright (c) 2007-2026 the FFmpeg developers",
+    "node": "v24.22.1"
+  },
+  "thresholds": {
+    "format": {
+      "codec": "mp3",
+      "sampleRate": 44100,
+      "channels": 1,
+      "bitrateKbps": 128
+    },
+    "loudness": {
+      "targetLufs": -19,
+      "okLu": 1,
+      "warnLu": 2
+    },
+    "truePeakCeilingDbtp": -1,
+    "durationSec": {
+      "A1": {
+        "min": 2,
+        "max": 15
+      },
+      "A2": {
+        "min": 10,
+        "max": 60
+      }
+    },
+    "shortClipSec": 3,
+    "silence": {
+      "maxLeadingMs": 1000,
+      "maxTrailingMs": 1500,
+      "maxInternalMs": 2000,
+      "maxRatio": 0.6
+    },
+    "abruptEdge": {
+      "endDbfs": -40,
+      "maxTrailingSilenceMs": 30,
+      "startDbfs": -28,
+      "maxLeadingSilenceMs": 10
+    },
+    "clipping": {
+      "failRun": 3,
+      "failSamples": 10
+    }
+  },
+  "analysis": {
+    "frameMs": 10,
+    "silenceDbfs": -50,
+    "nearFullScale": 0.98,
+    "edgeMs": 20
+  },
+  "summary": {
+    "pass": 52,
+    "warn": 54,
+    "fail": 0
+  },
+  "files": [
+    {
+      "clipId": "clip.a1-01.buenas-tardes-ana",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "3df28b0590c6c6d6c8e63ac85d19dfd182089a9397493754b0fd653d29e5814d.mp3",
+      "sha256": "3df28b0590c6c6d6c8e63ac85d19dfd182089a9397493754b0fd653d29e5814d",
+      "bytes": 20479,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1215,
+        "decodedFrames": 48,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.5,
+        "samplePeakDbfs": -7.52,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.123,
+        "headRmsDbfs": -19.64,
+        "tailRmsDbfs": -93.7
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.22 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.64 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.buenos-dias-garcia",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "45d5db21cf883d8fa38513f965a4c9d5a9b05a24611110b6e9c352f6c7f026a7.mp3",
+      "sha256": "45d5db21cf883d8fa38513f965a4c9d5a9b05a24611110b6e9c352f6c7f026a7",
+      "bytes": 34271,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2075,
+        "decodedFrames": 81,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.9,
+        "samplePeakDbfs": -6.92,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.163,
+        "headRmsDbfs": -20.72,
+        "tailRmsDbfs": -90.55
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.72 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.gracias-hasta-manana",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-C1",
+      "file": "8e35a57f9f2ff68541d94119f5b8daa5645e077c0a5484c9c54408ba64756522.mp3",
+      "sha256": "8e35a57f9f2ff68541d94119f5b8daa5645e077c0a5484c9c54408ba64756522",
+      "bytes": 29256,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1774,
+        "decodedFrames": 69,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.4,
+        "samplePeakDbfs": -6.44,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.208,
+        "headRmsDbfs": -19.15,
+        "tailRmsDbfs": -91.38
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.77 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.15 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.hasta-luego-pablo",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "94bdb0099df90dab83c266e50c0b2e022a8011196e510b1ea7433029e37e2db7.mp3",
+      "sha256": "94bdb0099df90dab83c266e50c0b2e022a8011196e510b1ea7433029e37e2db7",
+      "bytes": 22568,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1355,
+        "decodedFrames": 53,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.63,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.206,
+        "headRmsDbfs": -28.08,
+        "tailRmsDbfs": -90.1
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.35 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.hasta-manana-garcia",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "82382c79d4bc2a9f636d5f1b9f7f32ee197122c638c466faa297ca819ba10774.mp3",
+      "sha256": "82382c79d4bc2a9f636d5f1b9f7f32ee197122c638c466faa297ca819ba10774",
+      "bytes": 33853,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2040,
+        "decodedFrames": 80,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.3,
+        "samplePeakDbfs": -7.3,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.141,
+        "headRmsDbfs": -28.93,
+        "tailRmsDbfs": -91.71
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.hola-pablo-que-tal",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "e7c025f189eeaed05db90fcfe8503ff157abcb6b323aa4b389d0fa042b2571af.mp3",
+      "sha256": "e7c025f189eeaed05db90fcfe8503ff157abcb6b323aa4b389d0fa042b2571af",
+      "bytes": 27166,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1645,
+        "decodedFrames": 64,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -4.3,
+        "samplePeakDbfs": -4.31,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 190,
+        "longestInternalSilenceMs": 130,
+        "silenceRatio": 0.273,
+        "headRmsDbfs": -17.41,
+        "tailRmsDbfs": -88.43
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.65 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.41 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.lo-siento-mucho-garcia",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "49b351eda23428e2fa179e666c86e080dfff14b2467face81c595ab73cc1a7c7.mp3",
+      "sha256": "49b351eda23428e2fa179e666c86e080dfff14b2467face81c595ab73cc1a7c7",
+      "bytes": 36779,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2224,
+        "decodedFrames": 87,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.1,
+        "samplePeakDbfs": -7.17,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.126,
+        "headRmsDbfs": -18.92,
+        "tailRmsDbfs": -90.92
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.92 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.lo-siento-pablo",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "bf0d7f7732949ea349f994237e2b0e3fd728385c21882bdb50f4e854bb401c3b.mp3",
+      "sha256": "bf0d7f7732949ea349f994237e2b0e3fd728385c21882bdb50f4e854bb401c3b",
+      "bytes": 22986,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1365,
+        "decodedFrames": 54,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.58,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.204,
+        "headRmsDbfs": -18.52,
+        "tailRmsDbfs": -91.36
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.36 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.52 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.muchas-gracias-garcia",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "676f9e0fff97bc25479c1d07ef108e415dfeec4c26362590200702f83e0b106d.mp3",
+      "sha256": "676f9e0fff97bc25479c1d07ef108e415dfeec4c26362590200702f83e0b106d",
+      "bytes": 35943,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2179,
+        "decodedFrames": 85,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.6,
+        "samplePeakDbfs": -5.64,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.156,
+        "headRmsDbfs": -17.96,
+        "tailRmsDbfs": -92.41
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.96 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.no-gracias",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L2",
+      "file": "ffa04ce7872db414166d42e94000d425c2f71633c682e6581d4120ba892fd510.mp3",
+      "sha256": "ffa04ce7872db414166d42e94000d425c2f71633c682e6581d4120ba892fd510",
+      "bytes": 20479,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1216,
+        "decodedFrames": 48,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.5,
+        "samplePeakDbfs": -5.47,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 130,
+        "silenceRatio": 0.27,
+        "headRmsDbfs": -14.74,
+        "tailRmsDbfs": -89.34
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.22 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-14.74 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.perdon-senora",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L2",
+      "file": "1b7671685c6c3e92edfaec6e876159f456f6333c149c90b18ec84581d31cdc77.mp3",
+      "sha256": "1b7671685c6c3e92edfaec6e876159f456f6333c149c90b18ec84581d31cdc77",
+      "bytes": 22568,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1350,
+        "decodedFrames": 53,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.7,
+        "samplePeakDbfs": -6.72,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.213,
+        "headRmsDbfs": -23.53,
+        "tailRmsDbfs": -92.18
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.35 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-23.53 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.si-gracias",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L2",
+      "file": "1040c9036f4d0e0fee156fe7ed0435d942dd81f97be3c479906a2594f1620f90.mp3",
+      "sha256": "1040c9036f4d0e0fee156fe7ed0435d942dd81f97be3c479906a2594f1620f90",
+      "bytes": 21314,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1268,
+        "decodedFrames": 50,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.4,
+        "samplePeakDbfs": -5.44,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 130,
+        "silenceRatio": 0.26,
+        "headRmsDbfs": -36.86,
+        "tailRmsDbfs": -88.44
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.27 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-01.si-por-favor",
+      "voice": "macos.monica",
+      "lessonId": "A1-01-L3",
+      "file": "0323d72835cb3d1a15c1547bc4dfa26f4924680fb4016774dea95f96fb8d7b93.mp3",
+      "sha256": "0323d72835cb3d1a15c1547bc4dfa26f4924680fb4016774dea95f96fb8d7b93",
+      "bytes": 19225,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1141,
+        "decodedFrames": 45,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5,
+        "samplePeakDbfs": -4.96,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 130,
+        "silenceRatio": 0.235,
+        "headRmsDbfs": -35.99,
+        "tailRmsDbfs": -87.19
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.14 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-02.casa-blanca",
+      "voice": "macos.monica",
+      "lessonId": "A1-02-L4",
+      "file": "4c7df831489f5ee003a792ba593f1b612a95ea367cbe6d8407d863cdaf405877.mp3",
+      "sha256": "4c7df831489f5ee003a792ba593f1b612a95ea367cbe6d8407d863cdaf405877",
+      "bytes": 28420,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1713,
+        "decodedFrames": 67,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.1,
+        "samplePeakDbfs": -7.08,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.081,
+        "headRmsDbfs": -18.27,
+        "tailRmsDbfs": -92.63
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.71 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.27 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-02.coche-rojo",
+      "voice": "macos.monica",
+      "lessonId": "A1-02-L4",
+      "file": "56ec4b8245d39d87c26a9664297e78be03868fcfdf8aaa315288b953aa616656.mp3",
+      "sha256": "56ec4b8245d39d87c26a9664297e78be03868fcfdf8aaa315288b953aa616656",
+      "bytes": 25494,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1528,
+        "decodedFrames": 60,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.1,
+        "samplePeakDbfs": -6.14,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 10,
+        "silenceRatio": 0.098,
+        "headRmsDbfs": -16.48,
+        "tailRmsDbfs": -93.13
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.53 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-16.48 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-02.flores-rojas",
+      "voice": "macos.monica",
+      "lessonId": "A1-02-C1",
+      "file": "0f9e58dfd7c02c559b6558c2aad7992414b76555e8e5d42f0e37f8872c3ee243.mp3",
+      "sha256": "0f9e58dfd7c02c559b6558c2aad7992414b76555e8e5d42f0e37f8872c3ee243",
+      "bytes": 30928,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1876,
+        "decodedFrames": 73,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.9,
+        "samplePeakDbfs": -6.93,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 10,
+        "silenceRatio": 0.112,
+        "headRmsDbfs": -18.07,
+        "tailRmsDbfs": -91.74
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.88 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.07 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-02.libros-nuevos",
+      "voice": "macos.monica",
+      "lessonId": "A1-02-L4",
+      "file": "70f06c26bf5c2acd928b41e3d2f4af7336e149fa3385703a0b39c81a62587f3e.mp3",
+      "sha256": "70f06c26bf5c2acd928b41e3d2f4af7336e149fa3385703a0b39c81a62587f3e",
+      "bytes": 21732,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1284,
+        "decodedFrames": 51,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.5,
+        "samplePeakDbfs": -7.49,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.163,
+        "headRmsDbfs": -17.91,
+        "tailRmsDbfs": -94.65
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.28 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.91 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-02.mesas-pequenas",
+      "voice": "macos.monica",
+      "lessonId": "A1-02-L4",
+      "file": "2c12b98a47c13b1a57a5cc8ff1a89b322db55cd56eeea80245f67bc59cb1eea5.mp3",
+      "sha256": "2c12b98a47c13b1a57a5cc8ff1a89b322db55cd56eeea80245f67bc59cb1eea5",
+      "bytes": 29674,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1795,
+        "decodedFrames": 70,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.64,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 10,
+        "silenceRatio": 0.122,
+        "headRmsDbfs": -17.8,
+        "tailRmsDbfs": -92.53
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.79 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.8 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.ana-es-medica",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L2",
+      "file": "50470f2cd3621472cf8434a402d6b893ce087a206648d8b58af9f18fe4fe6b64.mp3",
+      "sha256": "50470f2cd3621472cf8434a402d6b893ce087a206648d8b58af9f18fe4fe6b64",
+      "bytes": 32181,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1936,
+        "decodedFrames": 76,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.9,
+        "samplePeakDbfs": -6.88,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.072,
+        "headRmsDbfs": -24.59,
+        "tailRmsDbfs": -90.54
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.94 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.59 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.ana-no-esta",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-C1",
+      "file": "533b6daed849cde7481a69226ee357a0fb57b8656a78bd6986025f0a1d964b2e.mp3",
+      "sha256": "533b6daed849cde7481a69226ee357a0fb57b8656a78bd6986025f0a1d964b2e",
+      "bytes": 37197,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2272,
+        "decodedFrames": 88,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.7,
+        "samplePeakDbfs": -5.75,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.136,
+        "headRmsDbfs": -23.66,
+        "tailRmsDbfs": -91.74
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-23.66 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.calle-farmacia",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L4",
+      "file": "93d8d8c99bbeb15def08d51e8afabd07457210cab5238d8e210e0ab82999a97a.mp3",
+      "sha256": "93d8d8c99bbeb15def08d51e8afabd07457210cab5238d8e210e0ab82999a97a",
+      "bytes": 26748,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1598,
+        "decodedFrames": 63,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.8,
+        "samplePeakDbfs": -6.85,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.088,
+        "headRmsDbfs": -21.68,
+        "tailRmsDbfs": -91.52
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.60 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.68 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.de-donde-eres",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L2",
+      "file": "cf3f5f8b04bf31276fec3baf29cb8c6e9cc6ba612ebe1c84bd3652316f9bbd63.mp3",
+      "sha256": "cf3f5f8b04bf31276fec3baf29cb8c6e9cc6ba612ebe1c84bd3652316f9bbd63",
+      "bytes": 29674,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1796,
+        "decodedFrames": 70,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7,
+        "samplePeakDbfs": -6.96,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.206,
+        "headRmsDbfs": -19.81,
+        "tailRmsDbfs": -91.27
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.80 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.81 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.donde-estacion",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L4",
+      "file": "0bba49c45a11e517baba3d816298445a0d9c820fd409881a70946cd86ba8e2dd.mp3",
+      "sha256": "0bba49c45a11e517baba3d816298445a0d9c820fd409881a70946cd86ba8e2dd",
+      "bytes": 33017,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2000,
+        "decodedFrames": 78,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.7,
+        "samplePeakDbfs": -6.74,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 130,
+        "silenceRatio": 0.164,
+        "headRmsDbfs": -24.26,
+        "tailRmsDbfs": -91.98
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.26 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.esta-es-lucia",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L2",
+      "file": "4d58e4b0c4a78c1027f114c827e7d09ede968024aae777a486a5a180214aca5f.mp3",
+      "sha256": "4d58e4b0c4a78c1027f114c827e7d09ede968024aae777a486a5a180214aca5f",
+      "bytes": 29256,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1761,
+        "decodedFrames": 69,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.8,
+        "samplePeakDbfs": -6.8,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 130,
+        "silenceRatio": 0.158,
+        "headRmsDbfs": -21.71,
+        "tailRmsDbfs": -92.28
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.76 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.71 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.estoy-cansado",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L3",
+      "file": "0b1aedfe043fb16096d7eff93c07e956ad223ffe2e537e48c63fa9a9c14eb264.mp3",
+      "sha256": "0b1aedfe043fb16096d7eff93c07e956ad223ffe2e537e48c63fa9a9c14eb264",
+      "bytes": 32181,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1936,
+        "decodedFrames": 76,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.9,
+        "samplePeakDbfs": -5.94,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 150,
+        "silenceRatio": 0.155,
+        "headRmsDbfs": -19.06,
+        "tailRmsDbfs": -93.42
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.94 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.06 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.hermana-oficina",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L3",
+      "file": "54ba9da1cc4023e8a3fc65339f7dbb1905c6c11be4afcfc750430322f245643c.mp3",
+      "sha256": "54ba9da1cc4023e8a3fc65339f7dbb1905c6c11be4afcfc750430322f245643c",
+      "bytes": 26748,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1598,
+        "decodedFrames": 63,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.3,
+        "samplePeakDbfs": -7.27,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.088,
+        "headRmsDbfs": -18.48,
+        "tailRmsDbfs": -91.59
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.60 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.48 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.hermana-perro",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L5",
+      "file": "eaabb7fd618d159c9cd84c65304fbc9542c8bbe6f95b5399215713abac306b44.mp3",
+      "sha256": "eaabb7fd618d159c9cd84c65304fbc9542c8bbe6f95b5399215713abac306b44",
+      "bytes": 30928,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1865,
+        "decodedFrames": 73,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -8.1,
+        "samplePeakDbfs": -8.15,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.075,
+        "headRmsDbfs": -19.36,
+        "tailRmsDbfs": -93.18
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.86 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.36 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.me-llamo-pablo",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L2",
+      "file": "4065a17f0f8274d458647d9edcf6e008822758cb9071c36b6819c4c5864e5e4b.mp3",
+      "sha256": "4065a17f0f8274d458647d9edcf6e008822758cb9071c36b6819c4c5864e5e4b",
+      "bytes": 38451,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2330,
+        "decodedFrames": 91,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.7,
+        "samplePeakDbfs": -5.76,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.185,
+        "headRmsDbfs": -18.85,
+        "tailRmsDbfs": -91.47
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.85 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.no-tengo-coche",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L6",
+      "file": "9ac3f0d5b27df2f33b4c49b655f20b1bb089caa942b2229be1ee5670635f5ccd.mp3",
+      "sha256": "9ac3f0d5b27df2f33b4c49b655f20b1bb089caa942b2229be1ee5670635f5ccd",
+      "bytes": 44720,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2725,
+        "decodedFrames": 106,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.3,
+        "samplePeakDbfs": -5.27,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.172,
+        "headRmsDbfs": -16.15,
+        "tailRmsDbfs": -92.33
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-16.15 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.quien-profesora",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L6",
+      "file": "100d7df8d255e3fdd040f0ef79a6383f016a0a2a177531d473daa94b6f04dffa.mp3",
+      "sha256": "100d7df8d255e3fdd040f0ef79a6383f016a0a2a177531d473daa94b6f04dffa",
+      "bytes": 28420,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1715,
+        "decodedFrames": 67,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.2,
+        "samplePeakDbfs": -6.26,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 190,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.192,
+        "headRmsDbfs": -24.02,
+        "tailRmsDbfs": -89.11
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.72 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.02 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.soy-de-valencia",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L2",
+      "file": "a84b2155b5a8596523125a01b2830c834b3c47dbbdf87b5d303d4a15cc03861f.mp3",
+      "sha256": "a84b2155b5a8596523125a01b2830c834b3c47dbbdf87b5d303d4a15cc03861f",
+      "bytes": 36361,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2214,
+        "decodedFrames": 86,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.82,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.131,
+        "headRmsDbfs": -18.91,
+        "tailRmsDbfs": -92.99
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.91 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-03.tienes-hambre",
+      "voice": "macos.monica",
+      "lessonId": "A1-03-L5",
+      "file": "7d7146a8a64e02adf9a7f0cb4664b1b514fa3645a939d8296de74067fd747df8.mp3",
+      "sha256": "7d7146a8a64e02adf9a7f0cb4664b1b514fa3645a939d8296de74067fd747df8",
+      "bytes": 24240,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1443,
+        "decodedFrames": 57,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.2,
+        "samplePeakDbfs": -7.19,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 170,
+        "silenceRatio": 0.255,
+        "headRmsDbfs": -28.46,
+        "tailRmsDbfs": -90.89
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.44 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.daily-actions.cena",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L1",
+      "file": "f5d132869bf4854ecc7ffbcca3e81304ab43d49350d5f133bf60cd5322d45b68.mp3",
+      "sha256": "f5d132869bf4854ecc7ffbcca3e81304ab43d49350d5f133bf60cd5322d45b68",
+      "bytes": 35107,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2120,
+        "decodedFrames": 83,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7,
+        "samplePeakDbfs": -7.01,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 130,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.061,
+        "headRmsDbfs": -18.17,
+        "tailRmsDbfs": -91.12
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.17 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.daily-actions.ducha",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L4",
+      "file": "0c15907b83a9aa7dd8d8a96c55e8c9e7921b5ac6dda1f4be4d527b037e007bcf.mp3",
+      "sha256": "0c15907b83a9aa7dd8d8a96c55e8c9e7921b5ac6dda1f4be4d527b037e007bcf",
+      "bytes": 29256,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1772,
+        "decodedFrames": 69,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.2,
+        "samplePeakDbfs": -7.19,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.084,
+        "headRmsDbfs": -18.7,
+        "tailRmsDbfs": -93.53
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.77 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.7 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.daily-actions.escuela",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L3",
+      "file": "fb9ce810a6c9264341c6899719740ed4045973e7b6bfea94724ac1dbc4d6781d.mp3",
+      "sha256": "fb9ce810a6c9264341c6899719740ed4045973e7b6bfea94724ac1dbc4d6781d",
+      "bytes": 39705,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2410,
+        "decodedFrames": 94,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.2,
+        "samplePeakDbfs": -7.23,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 10,
+        "silenceRatio": 0.066,
+        "headRmsDbfs": -18.83,
+        "tailRmsDbfs": -92.85
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.83 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.daily-actions.hermana",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L2",
+      "file": "7516740eae7d696391b006663cb625e6204351e1f3ada8af2ab0d1c7ebdaa867.mp3",
+      "sha256": "7516740eae7d696391b006663cb625e6204351e1f3ada8af2ab0d1c7ebdaa867",
+      "bytes": 37615,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2283,
+        "decodedFrames": 89,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.9,
+        "samplePeakDbfs": -7.87,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 10,
+        "silenceRatio": 0.07,
+        "headRmsDbfs": -19.01,
+        "tailRmsDbfs": -91.37
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.01 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.daily-actions.oficina",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L1",
+      "file": "aaea063988472863e28cfd9d53231c821f833df3213d37f816e5ebc4a991a9b4.mp3",
+      "sha256": "aaea063988472863e28cfd9d53231c821f833df3213d37f816e5ebc4a991a9b4",
+      "bytes": 37197,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2254,
+        "decodedFrames": 88,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.4,
+        "samplePeakDbfs": -7.46,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 10,
+        "silenceRatio": 0.066,
+        "headRmsDbfs": -33.8,
+        "tailRmsDbfs": -92.98
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.daily-actions.sabados",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L5",
+      "file": "c7ad119fda0008da84c2e5d9311fd6162c06dd5a28faf769f6962de37ce5dac3.mp3",
+      "sha256": "c7ad119fda0008da84c2e5d9311fd6162c06dd5a28faf769f6962de37ce5dac3",
+      "bytes": 42212,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2584,
+        "decodedFrames": 100,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.2,
+        "samplePeakDbfs": -7.17,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.054,
+        "headRmsDbfs": -18.63,
+        "tailRmsDbfs": -92.41
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.63 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.routine.carmen",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L6",
+      "file": "7b5aae5d602a44f26e461816b15a20c46fcd2087b38245c630eeaad97214ac1c.mp3",
+      "sha256": "7b5aae5d602a44f26e461816b15a20c46fcd2087b38245c630eeaad97214ac1c",
+      "bytes": 110758,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 6845,
+        "decodedFrames": 264,
+        "integratedLufs": -19.2,
+        "lraLu": 1.1,
+        "truePeakDbtp": -6.3,
+        "samplePeakDbfs": -6.3,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.091,
+        "headRmsDbfs": -17.81,
+        "tailRmsDbfs": -92.61
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.81 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.routine.padre",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-C1",
+      "file": "38c6e5853b71a0bd233834cbb8908ad8d99fa9cd997c787a52ada670a7e1aa51.mp3",
+      "sha256": "38c6e5853b71a0bd233834cbb8908ad8d99fa9cd997c787a52ada670a7e1aa51",
+      "bytes": 80247,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 4941,
+        "decodedFrames": 191,
+        "integratedLufs": -19.3,
+        "lraLu": 0.5,
+        "truePeakDbtp": -6.5,
+        "samplePeakDbfs": -6.45,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.075,
+        "headRmsDbfs": -17.67,
+        "tailRmsDbfs": -93.43
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.67 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-04.routine.sabados",
+      "voice": "macos.monica",
+      "lessonId": "A1-04-L6",
+      "file": "d44e4031e2e027b457ae663817f9f9d06f08477cff49068398fcc72a9f60d0f8.mp3",
+      "sha256": "d44e4031e2e027b457ae663817f9f9d06f08477cff49068398fcc72a9f60d0f8",
+      "bytes": 120789,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 7472,
+        "decodedFrames": 288,
+        "integratedLufs": -19.2,
+        "lraLu": 0.9,
+        "truePeakDbtp": -6.7,
+        "samplePeakDbfs": -6.7,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.071,
+        "headRmsDbfs": -18.38,
+        "tailRmsDbfs": -92.03
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.38 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.amounts.clase",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L1",
+      "file": "888ef79f24e803c577627850bdede89bd5d630181eb04c7937eb3fd26c02c038.mp3",
+      "sha256": "888ef79f24e803c577627850bdede89bd5d630181eb04c7937eb3fd26c02c038",
+      "bytes": 32181,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1947,
+        "decodedFrames": 76,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.5,
+        "samplePeakDbfs": -6.47,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.103,
+        "headRmsDbfs": -21.36,
+        "tailRmsDbfs": -91.06
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.95 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.36 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.amounts.compra",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L1",
+      "file": "a54b0c24cb13b7aa835aa428f877fe8adff0e2685b871aca55557986925c3da2.mp3",
+      "sha256": "a54b0c24cb13b7aa835aa428f877fe8adff0e2685b871aca55557986925c3da2",
+      "bytes": 46810,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2863,
+        "decodedFrames": 111,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.7,
+        "samplePeakDbfs": -5.75,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.122,
+        "headRmsDbfs": -16.12,
+        "tailRmsDbfs": -92.37
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-16.12 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.amounts.edad",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L1",
+      "file": "17645658c8270cfddac5012c1f7150da6721c3f198a7d7079699d3efb4b788f7.mp3",
+      "sha256": "17645658c8270cfddac5012c1f7150da6721c3f198a7d7079699d3efb4b788f7",
+      "bytes": 23404,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1407,
+        "decodedFrames": 55,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.6,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.142,
+        "headRmsDbfs": -34.01,
+        "tailRmsDbfs": -91.13
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.41 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.check.clase",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-C1",
+      "file": "ee8c9f4ddfdcf66d73cc0983f51e85746e4c1e9ed294cddf190d4448c79a5b08.mp3",
+      "sha256": "ee8c9f4ddfdcf66d73cc0983f51e85746e4c1e9ed294cddf190d4448c79a5b08",
+      "bytes": 56005,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 3432,
+        "decodedFrames": 133,
+        "integratedLufs": -19.3,
+        "lraLu": 0.5,
+        "truePeakDbtp": -6.3,
+        "samplePeakDbfs": -6.31,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 190,
+        "silenceRatio": 0.099,
+        "headRmsDbfs": -19.17,
+        "tailRmsDbfs": -92.01
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.17 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.dates.cita",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L4",
+      "file": "ea3ba35bda54dc6aad59a3ece7426395bb29671dd846810677a21ce4bf8a7f8d.mp3",
+      "sha256": "ea3ba35bda54dc6aad59a3ece7426395bb29671dd846810677a21ce4bf8a7f8d",
+      "bytes": 32181,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1946,
+        "decodedFrames": 76,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.7,
+        "samplePeakDbfs": -6.72,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.072,
+        "headRmsDbfs": -19.3,
+        "tailRmsDbfs": -92.68
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.95 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.3 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.dates.cumple",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L4",
+      "file": "9ad43185d0a759fa980e7d06611a7bf90e2741b82a0b621d7c2b26b8477a68bf.mp3",
+      "sha256": "9ad43185d0a759fa980e7d06611a7bf90e2741b82a0b621d7c2b26b8477a68bf",
+      "bytes": 33853,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2062,
+        "decodedFrames": 80,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7,
+        "samplePeakDbfs": -7.05,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 30,
+        "silenceRatio": 0.087,
+        "headRmsDbfs": -18.22,
+        "tailRmsDbfs": -93.07
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.22 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.locations.farmacia",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L5",
+      "file": "695a90ca100c7318fc72b4e0c711d7c39fcfd1558db96ddda41e10ec6332f04b.mp3",
+      "sha256": "695a90ca100c7318fc72b4e0c711d7c39fcfd1558db96ddda41e10ec6332f04b",
+      "bytes": 30928,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1876,
+        "decodedFrames": 73,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.8,
+        "samplePeakDbfs": -6.85,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.074,
+        "headRmsDbfs": -19.16,
+        "tailRmsDbfs": -92.24
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.88 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.16 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.locations.llaves",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L5",
+      "file": "e3b4950b23c6d84007bc56f1c1f8a0abdaf38cee2508fb6dde1a9ccd16bc2335.mp3",
+      "sha256": "e3b4950b23c6d84007bc56f1c1f8a0abdaf38cee2508fb6dde1a9ccd16bc2335",
+      "bytes": 31763,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1923,
+        "decodedFrames": 75,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.64,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.078,
+        "headRmsDbfs": -18.95,
+        "tailRmsDbfs": -93.17
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.92 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.95 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.shop.pago",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L2",
+      "file": "07186166fafc2a7d2ab85bb18413b004ece4dabe614b0bae87d9f25f6e984be1.mp3",
+      "sha256": "07186166fafc2a7d2ab85bb18413b004ece4dabe614b0bae87d9f25f6e984be1",
+      "bytes": 43884,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2673,
+        "decodedFrames": 104,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6,
+        "samplePeakDbfs": -6.06,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.16,
+        "headRmsDbfs": -38.13,
+        "tailRmsDbfs": -89.58
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.shop.pedido",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L2",
+      "file": "3f0327795e8ed48f6440736efec63dfdd1c2d7294c91b78aca3897887384a2c3.mp3",
+      "sha256": "3f0327795e8ed48f6440736efec63dfdd1c2d7294c91b78aca3897887384a2c3",
+      "bytes": 43048,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2619,
+        "decodedFrames": 102,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.6,
+        "samplePeakDbfs": -5.57,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.107,
+        "headRmsDbfs": -15.9,
+        "tailRmsDbfs": -90.92
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-15.9 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.shop.que-le-pongo",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L2",
+      "file": "1bf0d41290d40bf613f6aed9afdd074d8edea2a40ff3ff040cf4c36992e192f2.mp3",
+      "sha256": "1bf0d41290d40bf613f6aed9afdd074d8edea2a40ff3ff040cf4c36992e192f2",
+      "bytes": 28420,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1703,
+        "decodedFrames": 67,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.9,
+        "samplePeakDbfs": -6.92,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.216,
+        "headRmsDbfs": -20.8,
+        "tailRmsDbfs": -91.25
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.70 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.8 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.times.menos-cuarto",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L3",
+      "file": "fcf2d53e099928c211399efb2a06826281ac1776d2c2c0b9d978260b19c4b34d.mp3",
+      "sha256": "fcf2d53e099928c211399efb2a06826281ac1776d2c2c0b9d978260b19c4b34d",
+      "bytes": 27166,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1640,
+        "decodedFrames": 64,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.84,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.085,
+        "headRmsDbfs": -38.33,
+        "tailRmsDbfs": -92.9
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.64 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.times.tienda",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L3",
+      "file": "b11246f8d8e31de304037982b69cdc393bbae94239f74f0bfb6cea67fc203c22.mp3",
+      "sha256": "b11246f8d8e31de304037982b69cdc393bbae94239f74f0bfb6cea67fc203c22",
+      "bytes": 23404,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1400,
+        "decodedFrames": 55,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.8,
+        "samplePeakDbfs": -7.87,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.106,
+        "headRmsDbfs": -20.48,
+        "tailRmsDbfs": -93.17
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.40 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.48 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-05.times.tren",
+      "voice": "macos.monica",
+      "lessonId": "A1-05-L3",
+      "file": "627839d70158f5cec37194a50283a2fcba08f25cfeb37f38400338c70a7cfa35.mp3",
+      "sha256": "627839d70158f5cec37194a50283a2fcba08f25cfeb37f38400338c70a7cfa35",
+      "bytes": 28838,
+      "status": "warn",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 1726,
+        "decodedFrames": 68,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.4,
+        "samplePeakDbfs": -7.52,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.081,
+        "headRmsDbfs": -22.02,
+        "tailRmsDbfs": -91.11
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "1.73 s outside A1 production bounds 2-15 s"
+        },
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-22.02 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-06.check.supermercado",
+      "voice": "macos.monica",
+      "lessonId": "A1-06-C1",
+      "file": "3701218c825dc7f5031ed05bff0cad34e081f23b7018fc26d7df199271d49b60.mp3",
+      "sha256": "3701218c825dc7f5031ed05bff0cad34e081f23b7018fc26d7df199271d49b60",
+      "bytes": 81083,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 5012,
+        "decodedFrames": 193,
+        "integratedLufs": -19.3,
+        "lraLu": 0.7,
+        "truePeakDbtp": -5,
+        "samplePeakDbfs": -5,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.165,
+        "headRmsDbfs": -18.33,
+        "tailRmsDbfs": -91.94
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.33 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-06.invitation.cena",
+      "voice": "macos.monica",
+      "lessonId": "A1-06-L4",
+      "file": "10a7b1d38a9b88d82c64b1c8c56ebcdaaf27e18affd6a9841beb2f450a3db8fe.mp3",
+      "sha256": "10a7b1d38a9b88d82c64b1c8c56ebcdaaf27e18affd6a9841beb2f450a3db8fe",
+      "bytes": 56005,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 3441,
+        "decodedFrames": 133,
+        "integratedLufs": -19.2,
+        "lraLu": 0.6,
+        "truePeakDbtp": -6.4,
+        "samplePeakDbfs": -6.44,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 130,
+        "silenceRatio": 0.078,
+        "headRmsDbfs": -34.69,
+        "tailRmsDbfs": -89.93
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.a1-06.invitation.cine",
+      "voice": "macos.monica",
+      "lessonId": "A1-06-L4",
+      "file": "ddd3071e6674e0e920e21eb382fd7930af9bc8904f2f5b2a8ec0dada40461efa.mp3",
+      "sha256": "ddd3071e6674e0e920e21eb382fd7930af9bc8904f2f5b2a8ec0dada40461efa",
+      "bytes": 41794,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2535,
+        "decodedFrames": 98,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.2,
+        "samplePeakDbfs": -7.18,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.138,
+        "headRmsDbfs": -36.93,
+        "tailRmsDbfs": -94.09
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-06.message.medico",
+      "voice": "macos.monica",
+      "lessonId": "A1-06-L6",
+      "file": "f7db7f08ccc082112283f53ef222b896de404801eae75d24c3e86ff733f5f823.mp3",
+      "sha256": "f7db7f08ccc082112283f53ef222b896de404801eae75d24c3e86ff733f5f823",
+      "bytes": 88606,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 5477,
+        "decodedFrames": 211,
+        "integratedLufs": -19.2,
+        "lraLu": 0.8,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.84,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.122,
+        "headRmsDbfs": -19.81,
+        "tailRmsDbfs": -90.94
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.81 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-06.message.teatro",
+      "voice": "macos.monica",
+      "lessonId": "A1-06-L6",
+      "file": "91ec2a2cf49bf5a388f1abe44088c321a7fa76ae2dccd0b11cf00102b4adcda4.mp3",
+      "sha256": "91ec2a2cf49bf5a388f1abe44088c321a7fa76ae2dccd0b11cf00102b4adcda4",
+      "bytes": 105742,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 6556,
+        "decodedFrames": 252,
+        "integratedLufs": -19.4,
+        "lraLu": 0.6,
+        "truePeakDbtp": -5.2,
+        "samplePeakDbfs": -5.21,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.165,
+        "headRmsDbfs": -18.31,
+        "tailRmsDbfs": -89.97
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.31 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-06.preferences.cine",
+      "voice": "macos.monica",
+      "lessonId": "A1-06-L1",
+      "file": "2c0c0de81636166c76f0b721538555fedbf55d55f409f16355b70b97b26bd359.mp3",
+      "sha256": "2c0c0de81636166c76f0b721538555fedbf55d55f409f16355b70b97b26bd359",
+      "bytes": 42212,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2573,
+        "decodedFrames": 100,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -6.7,
+        "samplePeakDbfs": -6.75,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.054,
+        "headRmsDbfs": -18.18,
+        "tailRmsDbfs": -92.81
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.18 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a1-06.preferences.nadar",
+      "voice": "macos.monica",
+      "lessonId": "A1-06-L1",
+      "file": "2b4356607bcd34c26c652014a4f4d761819fbf8ae425aa234675380eef2851f0.mp3",
+      "sha256": "2b4356607bcd34c26c652014a4f4d761819fbf8ae425aa234675380eef2851f0",
+      "bytes": 40959,
+      "status": "pass",
+      "shortClip": true,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 2505,
+        "decodedFrames": 97,
+        "integratedLufs": -19.4,
+        "lraLu": 0,
+        "truePeakDbtp": -7.1,
+        "samplePeakDbfs": -7.1,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 140,
+        "silenceRatio": 0.112,
+        "headRmsDbfs": -25.22,
+        "tailRmsDbfs": -92.66
+      },
+      "issues": [
+        {
+          "code": "loudness.short-clip",
+          "severity": "info",
+          "message": "clip under 3 s: integrated loudness is approximate"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-25.22 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-01.l4.home-busy",
+      "voice": "macos.monica",
+      "lessonId": "A2-01-L4",
+      "file": "25f449e4970905477413855bca3572cbc890da27e8312498311a8bcd5326fb83.mp3",
+      "sha256": "25f449e4970905477413855bca3572cbc890da27e8312498311a8bcd5326fb83",
+      "bytes": 127476,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 7914,
+        "decodedFrames": 304,
+        "integratedLufs": -19.3,
+        "lraLu": 1.2,
+        "truePeakDbtp": -6.3,
+        "samplePeakDbfs": -6.29,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.085,
+        "headRmsDbfs": -21.22,
+        "tailRmsDbfs": -91.21
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "7.91 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.22 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-01.l4.office-message",
+      "voice": "macos.monica",
+      "lessonId": "A2-01-L4",
+      "file": "1dd67c5ee50b372038a602a1e291d271afde4b4962bf0601d97fac400a5af146.mp3",
+      "sha256": "1dd67c5ee50b372038a602a1e291d271afde4b4962bf0601d97fac400a5af146",
+      "bytes": 155061,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9621,
+        "decodedFrames": 370,
+        "integratedLufs": -19.2,
+        "lraLu": 2,
+        "truePeakDbtp": -5,
+        "samplePeakDbfs": -5.02,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.127,
+        "headRmsDbfs": -18.87,
+        "tailRmsDbfs": -92.3
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.62 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.87 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-01.l4.phone-train",
+      "voice": "macos.monica",
+      "lessonId": "A2-01-L4",
+      "file": "af674ac52103d13848690f862b640a7793acd0d99e5c32a0ffda8b4cc792f303.mp3",
+      "sha256": "af674ac52103d13848690f862b640a7793acd0d99e5c32a0ffda8b4cc792f303",
+      "bytes": 139597,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 8658,
+        "decodedFrames": 333,
+        "integratedLufs": -19.1,
+        "lraLu": 2.2,
+        "truePeakDbtp": -5.3,
+        "samplePeakDbfs": -5.32,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.114,
+        "headRmsDbfs": -19.12,
+        "tailRmsDbfs": -92.44
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "8.66 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.12 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-01.l7.family-weekend",
+      "voice": "macos.monica",
+      "lessonId": "A2-01-L7",
+      "file": "fce5f86ec2cb88d1cc1db3f05259322fb971eb4cde7e7aadf3b8cbe7e7e9abf9.mp3",
+      "sha256": "fce5f86ec2cb88d1cc1db3f05259322fb971eb4cde7e7aadf3b8cbe7e7e9abf9",
+      "bytes": 211904,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 13181,
+        "decodedFrames": 506,
+        "integratedLufs": -19.3,
+        "lraLu": 1,
+        "truePeakDbtp": -6.9,
+        "samplePeakDbfs": -6.89,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.068,
+        "headRmsDbfs": -21.72,
+        "tailRmsDbfs": -92.86
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.72 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-01.l7.voice-weekend",
+      "voice": "macos.monica",
+      "lessonId": "A2-01-L7",
+      "file": "62583ddbfcc59298a98232b6e022cbaf79f30109ab8ab4f85f6f72267519b00d.mp3",
+      "sha256": "62583ddbfcc59298a98232b6e022cbaf79f30109ab8ab4f85f6f72267519b00d",
+      "bytes": 237399,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 14782,
+        "decodedFrames": 567,
+        "integratedLufs": -19.5,
+        "lraLu": 1.6,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.83,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 250,
+        "silenceRatio": 0.139,
+        "headRmsDbfs": -19.68,
+        "tailRmsDbfs": -92.16
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.68 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-01.l7.weather-cafe",
+      "voice": "macos.monica",
+      "lessonId": "A2-01-L7",
+      "file": "e05c962bfdea93c67b719389e7d59c77309a0cbd809f82e5e68c7be0f22a91df.mp3",
+      "sha256": "e05c962bfdea93c67b719389e7d59c77309a0cbd809f82e5e68c7be0f22a91df",
+      "bytes": 127476,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 7915,
+        "decodedFrames": 304,
+        "integratedLufs": -19.4,
+        "lraLu": 1,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.84,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 150,
+        "silenceRatio": 0.074,
+        "headRmsDbfs": -18.89,
+        "tailRmsDbfs": -92.66
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "7.92 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.89 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-02.l3.home-keys",
+      "voice": "macos.monica",
+      "lessonId": "A2-02-L3",
+      "file": "6659e8103524d3c677c4f0d390b8c86f41f1b4774b95753c8b8c92229d9bc288.mp3",
+      "sha256": "6659e8103524d3c677c4f0d390b8c86f41f1b4774b95753c8b8c92229d9bc288",
+      "bytes": 157987,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9818,
+        "decodedFrames": 377,
+        "integratedLufs": -19.3,
+        "lraLu": 1,
+        "truePeakDbtp": -6.1,
+        "samplePeakDbfs": -6.13,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 130,
+        "longestInternalSilenceMs": 210,
+        "silenceRatio": 0.144,
+        "headRmsDbfs": -17.92,
+        "tailRmsDbfs": -89.95
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.82 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.92 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-02.l3.shop-gift",
+      "voice": "macos.monica",
+      "lessonId": "A2-02-L3",
+      "file": "45a9286b43feb2c19181c522ac1fdcdd77d46fe9c907916bfc6aae3cd1214e84.mp3",
+      "sha256": "45a9286b43feb2c19181c522ac1fdcdd77d46fe9c907916bfc6aae3cd1214e84",
+      "bytes": 184737,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 11479,
+        "decodedFrames": 441,
+        "integratedLufs": -19.3,
+        "lraLu": 1.3,
+        "truePeakDbtp": -5.7,
+        "samplePeakDbfs": -5.73,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 240,
+        "silenceRatio": 0.132,
+        "headRmsDbfs": -20.27,
+        "tailRmsDbfs": -90.16
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.27 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-02.l3.short-gift",
+      "voice": "macos.monica",
+      "lessonId": "A2-02-L3",
+      "file": "d2f6131b9a82811ae74692123e0faadbcbace47a2cc2d0442307bdd2cef09e34.mp3",
+      "sha256": "d2f6131b9a82811ae74692123e0faadbcbace47a2cc2d0442307bdd2cef09e34",
+      "bytes": 63110,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 3873,
+        "decodedFrames": 150,
+        "integratedLufs": -19.5,
+        "lraLu": 0.3,
+        "truePeakDbtp": -6.3,
+        "samplePeakDbfs": -6.32,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 240,
+        "silenceRatio": 0.137,
+        "headRmsDbfs": -18.51,
+        "tailRmsDbfs": -91.35
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "3.87 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.51 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-02.l8.agency-flats",
+      "voice": "macos.monica",
+      "lessonId": "A2-02-L8",
+      "file": "737fe61b34e8d1bbe45d050076a62132e85b671ffcbc4a43f3ae775b7713ab7a.mp3",
+      "sha256": "737fe61b34e8d1bbe45d050076a62132e85b671ffcbc4a43f3ae775b7713ab7a",
+      "bytes": 288808,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 17977,
+        "decodedFrames": 690,
+        "integratedLufs": -19.4,
+        "lraLu": 1.2,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.62,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 260,
+        "silenceRatio": 0.107,
+        "headRmsDbfs": -20.78,
+        "tailRmsDbfs": -90.97
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.78 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-02.l8.shop-fridges",
+      "voice": "macos.monica",
+      "lessonId": "A2-02-L8",
+      "file": "e477da5120ece260ede8b2e780b7691aa12355fa71afb2746046d63cced63718.mp3",
+      "sha256": "e477da5120ece260ede8b2e780b7691aa12355fa71afb2746046d63cced63718",
+      "bytes": 211486,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 13148,
+        "decodedFrames": 505,
+        "integratedLufs": -19.5,
+        "lraLu": 1.2,
+        "truePeakDbtp": -5.9,
+        "samplePeakDbfs": -5.95,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 130,
+        "longestInternalSilenceMs": 210,
+        "silenceRatio": 0.09,
+        "headRmsDbfs": -20.83,
+        "tailRmsDbfs": -91
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.83 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-02.l8.short-choice",
+      "voice": "macos.monica",
+      "lessonId": "A2-02-L8",
+      "file": "5514de7195e54c31c43ae377fe059b324ef0992bb4b666ff0d87515fa3e93c2d.mp3",
+      "sha256": "5514de7195e54c31c43ae377fe059b324ef0992bb4b666ff0d87515fa3e93c2d",
+      "bytes": 51826,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 3173,
+        "decodedFrames": 123,
+        "integratedLufs": -19.2,
+        "lraLu": 20.1,
+        "truePeakDbtp": -7.1,
+        "samplePeakDbfs": -7.14,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 0,
+        "silenceRatio": 0.047,
+        "headRmsDbfs": -27.19,
+        "tailRmsDbfs": -94.51
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "3.17 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-27.19 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-03.l5.home-message",
+      "voice": "macos.monica",
+      "lessonId": "A2-03-L5",
+      "file": "3f49a5bdcc9fa3748685afd035ea01c22f5014787822aadc831d766f43d730d6.mp3",
+      "sha256": "3f49a5bdcc9fa3748685afd035ea01c22f5014787822aadc831d766f43d730d6",
+      "bytes": 129984,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 8053,
+        "decodedFrames": 310,
+        "integratedLufs": -19.4,
+        "lraLu": 1.1,
+        "truePeakDbtp": -5.4,
+        "samplePeakDbfs": -5.45,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.117,
+        "headRmsDbfs": -19.32,
+        "tailRmsDbfs": -91.13
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "8.05 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.32 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-03.l5.office-message",
+      "voice": "macos.monica",
+      "lessonId": "A2-03-L5",
+      "file": "1d5e70b877e9b8a15e89e1ca7d564a86a0a8093c258c4cfaf6352e8720a9e6c7.mp3",
+      "sha256": "1d5e70b877e9b8a15e89e1ca7d564a86a0a8093c258c4cfaf6352e8720a9e6c7",
+      "bytes": 153390,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9528,
+        "decodedFrames": 366,
+        "integratedLufs": -19.4,
+        "lraLu": 1.4,
+        "truePeakDbtp": -6.4,
+        "samplePeakDbfs": -6.41,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 210,
+        "silenceRatio": 0.129,
+        "headRmsDbfs": -19.51,
+        "tailRmsDbfs": -92.19
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.53 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.51 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-03.l7.day-message",
+      "voice": "macos.monica",
+      "lessonId": "A2-03-L7",
+      "file": "cb49c70358e625cc579964a63c06f1d36e5e8720fbcd76e27beb30f05de241e6.mp3",
+      "sha256": "cb49c70358e625cc579964a63c06f1d36e5e8720fbcd76e27beb30f05de241e6",
+      "bytes": 230712,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 14346,
+        "decodedFrames": 551,
+        "integratedLufs": -19.5,
+        "lraLu": 1.4,
+        "truePeakDbtp": -5.2,
+        "samplePeakDbfs": -5.18,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.133,
+        "headRmsDbfs": -18.94,
+        "tailRmsDbfs": -91.16
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.94 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-03.l7.travel-profile",
+      "voice": "macos.monica",
+      "lessonId": "A2-03-L7",
+      "file": "f9a006f80fe983362d4f084e921e5933e09455118a4196163f1c3bb7661c4e46.mp3",
+      "sha256": "f9a006f80fe983362d4f084e921e5933e09455118a4196163f1c3bb7661c4e46",
+      "bytes": 198111,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 12325,
+        "decodedFrames": 473,
+        "integratedLufs": -19.3,
+        "lraLu": 0.7,
+        "truePeakDbtp": -6.4,
+        "samplePeakDbfs": -6.41,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.089,
+        "headRmsDbfs": -17.87,
+        "tailRmsDbfs": -93.89
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.87 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-04.l2.weekend-story",
+      "voice": "macos.monica",
+      "lessonId": "A2-04-L2",
+      "file": "3022aa8971bc17519fb3cb8d7cac014ceaeb76e6bbc5dfffb934af349829e42f.mp3",
+      "sha256": "3022aa8971bc17519fb3cb8d7cac014ceaeb76e6bbc5dfffb934af349829e42f",
+      "bytes": 162585,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10085,
+        "decodedFrames": 388,
+        "integratedLufs": -19.3,
+        "lraLu": 0.8,
+        "truePeakDbtp": -6.9,
+        "samplePeakDbfs": -6.98,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.047,
+        "headRmsDbfs": -21.92,
+        "tailRmsDbfs": -93.47
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.92 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-04.l2.yesterday-message",
+      "voice": "macos.monica",
+      "lessonId": "A2-04-L2",
+      "file": "bd349887561e597e60c73a6731f97efd7ff050b095e96e18909647c085a24076.mp3",
+      "sha256": "bd349887561e597e60c73a6731f97efd7ff050b095e96e18909647c085a24076",
+      "bytes": 150882,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9365,
+        "decodedFrames": 360,
+        "integratedLufs": -19.5,
+        "lraLu": 1.4,
+        "truePeakDbtp": -6.1,
+        "samplePeakDbfs": -6.07,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.131,
+        "headRmsDbfs": -19.32,
+        "tailRmsDbfs": -91.3
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.37 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.32 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-04.l8.long-day",
+      "voice": "macos.monica",
+      "lessonId": "A2-04-L8",
+      "file": "63ab4a89ccdb513466b62de71eaad2a4092480aa908b4c3f9ba40ea5d2f4979c.mp3",
+      "sha256": "63ab4a89ccdb513466b62de71eaad2a4092480aa908b4c3f9ba40ea5d2f4979c",
+      "bytes": 205634,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 12779,
+        "decodedFrames": 491,
+        "integratedLufs": -19.3,
+        "lraLu": 1.8,
+        "truePeakDbtp": -6,
+        "samplePeakDbfs": -6.03,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.1,
+        "headRmsDbfs": -24.54,
+        "tailRmsDbfs": -92.89
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.54 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-04.l8.weekend-message",
+      "voice": "macos.monica",
+      "lessonId": "A2-04-L8",
+      "file": "92245e8c7a6d4956a7e9f007f3b75ad7174064c12dd6fefa301255fbf53cd1dc.mp3",
+      "sha256": "92245e8c7a6d4956a7e9f007f3b75ad7174064c12dd6fefa301255fbf53cd1dc",
+      "bytes": 250774,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 15608,
+        "decodedFrames": 599,
+        "integratedLufs": -19.4,
+        "lraLu": 0.9,
+        "truePeakDbtp": -5.7,
+        "samplePeakDbfs": -5.68,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 130,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.108,
+        "headRmsDbfs": -19.43,
+        "tailRmsDbfs": -90.13
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.43 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-05.habits-neighbourhood",
+      "voice": "macos.monica",
+      "lessonId": "A2-05-L4",
+      "file": "37d213be2fcbedd02a81bf0239376c5560c31d397e1620e846291a8c8f37993b.mp3",
+      "sha256": "37d213be2fcbedd02a81bf0239376c5560c31d397e1620e846291a8c8f37993b",
+      "bytes": 127894,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 7925,
+        "decodedFrames": 305,
+        "integratedLufs": -19.3,
+        "lraLu": 1,
+        "truePeakDbtp": -6.7,
+        "samplePeakDbfs": -6.72,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.058,
+        "headRmsDbfs": -17.91,
+        "tailRmsDbfs": -90.64
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "7.92 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.91 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-05.habits-shop-work",
+      "voice": "macos.monica",
+      "lessonId": "A2-05-L4",
+      "file": "4b9859a0ca3bff41e0a95aac0adf3018c324e48fc0620e9ca31efedb7e1d88e1.mp3",
+      "sha256": "4b9859a0ca3bff41e0a95aac0adf3018c324e48fc0620e9ca31efedb7e1d88e1",
+      "bytes": 122043,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 7555,
+        "decodedFrames": 291,
+        "integratedLufs": -19.4,
+        "lraLu": 0.6,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.66,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.061,
+        "headRmsDbfs": -24.94,
+        "tailRmsDbfs": -91.26
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "7.55 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.94 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-05.habits-summer",
+      "voice": "macos.monica",
+      "lessonId": "A2-05-L4",
+      "file": "7ac727b2901fa4c01700bce329862e3f23749cda041e5da64f74a29ede446f52.mp3",
+      "sha256": "7ac727b2901fa4c01700bce329862e3f23749cda041e5da64f74a29ede446f52",
+      "bytes": 145448,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9029,
+        "decodedFrames": 347,
+        "integratedLufs": -19.3,
+        "lraLu": 1.1,
+        "truePeakDbtp": -6.8,
+        "samplePeakDbfs": -6.75,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.079,
+        "headRmsDbfs": -20.1,
+        "tailRmsDbfs": -91.9
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.03 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.1 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-05.memory-first-flat",
+      "voice": "macos.monica",
+      "lessonId": "A2-05-L7",
+      "file": "55d27adda3316ffc02fca7c826eb611930536a4ce69f2c54670a82e1708939d0.mp3",
+      "sha256": "55d27adda3316ffc02fca7c826eb611930536a4ce69f2c54670a82e1708939d0",
+      "bytes": 208978,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 12984,
+        "decodedFrames": 498,
+        "integratedLufs": -19.3,
+        "lraLu": 0.8,
+        "truePeakDbtp": -5.6,
+        "samplePeakDbfs": -5.65,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.094,
+        "headRmsDbfs": -36.74,
+        "tailRmsDbfs": -91.86
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.a2-05.memory-grandmother",
+      "voice": "macos.monica",
+      "lessonId": "A2-05-L7",
+      "file": "c31fb61f6598bb34128cbc53ac885dea3a490fc6f7378e4d61fb275d6254f210.mp3",
+      "sha256": "c31fb61f6598bb34128cbc53ac885dea3a490fc6f7378e4d61fb275d6254f210",
+      "bytes": 183483,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 11396,
+        "decodedFrames": 438,
+        "integratedLufs": -19.3,
+        "lraLu": 1.3,
+        "truePeakDbtp": -6.4,
+        "samplePeakDbfs": -6.4,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.089,
+        "headRmsDbfs": -17.87,
+        "tailRmsDbfs": -90.45
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.87 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-05.memory-old-job",
+      "voice": "macos.monica",
+      "lessonId": "A2-05-L7",
+      "file": "b569cabe90b4b52114bcd328893c5266f0b55201dd3355bc6f220fb619caf4d0.mp3",
+      "sha256": "b569cabe90b4b52114bcd328893c5266f0b55201dd3355bc6f220fb619caf4d0",
+      "bytes": 140433,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 8704,
+        "decodedFrames": 335,
+        "integratedLufs": -19.5,
+        "lraLu": 1.2,
+        "truePeakDbtp": -7,
+        "samplePeakDbfs": -7.02,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.053,
+        "headRmsDbfs": -24.98,
+        "tailRmsDbfs": -93.89
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "8.70 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.98 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-06.account-lost-keys",
+      "voice": "macos.monica",
+      "lessonId": "A2-06-L6",
+      "file": "d1706c69e722d42dc8c297c4c8f93a1f4355e7981bf16dee687f559d84ab56de.mp3",
+      "sha256": "d1706c69e722d42dc8c297c4c8f93a1f4355e7981bf16dee687f559d84ab56de",
+      "bytes": 151300,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9389,
+        "decodedFrames": 361,
+        "integratedLufs": -19.4,
+        "lraLu": 1.2,
+        "truePeakDbtp": -5.9,
+        "samplePeakDbfs": -5.92,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.119,
+        "headRmsDbfs": -29.55,
+        "tailRmsDbfs": -92.14
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.39 s outside A2 production bounds 10-60 s"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-06.account-new-job",
+      "voice": "macos.monica",
+      "lessonId": "A2-06-L6",
+      "file": "48b9ffd9465e31cc898bd6c916859390167f0eb4366b38096dc776193f646817.mp3",
+      "sha256": "48b9ffd9465e31cc898bd6c916859390167f0eb4366b38096dc776193f646817",
+      "bytes": 158823,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9853,
+        "decodedFrames": 379,
+        "integratedLufs": -19.4,
+        "lraLu": 0.9,
+        "truePeakDbtp": -6.8,
+        "samplePeakDbfs": -6.89,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.087,
+        "headRmsDbfs": -21.27,
+        "tailRmsDbfs": -90.66
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.85 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.27 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-06.account-weekend",
+      "voice": "macos.monica",
+      "lessonId": "A2-06-L6",
+      "file": "3f6f1da48677c39150858a7b827c14e39eee57a2c758ad37243a033912a251c5.mp3",
+      "sha256": "3f6f1da48677c39150858a7b827c14e39eee57a2c758ad37243a033912a251c5",
+      "bytes": 195603,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 12152,
+        "decodedFrames": 467,
+        "integratedLufs": -19.3,
+        "lraLu": 1.1,
+        "truePeakDbtp": -6.5,
+        "samplePeakDbfs": -6.55,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.072,
+        "headRmsDbfs": -21.38,
+        "tailRmsDbfs": -90.48
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-21.38 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-06.time-languages",
+      "voice": "macos.monica",
+      "lessonId": "A2-06-L1",
+      "file": "5b0ef2e9028c321615fbefca663f0b9becf8fc02d2a2bb63e5094c83d9e39ebc.mp3",
+      "sha256": "5b0ef2e9028c321615fbefca663f0b9becf8fc02d2a2bb63e5094c83d9e39ebc",
+      "bytes": 122461,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 7601,
+        "decodedFrames": 292,
+        "integratedLufs": -19.4,
+        "lraLu": 0.7,
+        "truePeakDbtp": -6.9,
+        "samplePeakDbfs": -6.94,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 200,
+        "silenceRatio": 0.083,
+        "headRmsDbfs": -24.8,
+        "tailRmsDbfs": -91.71
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "7.60 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.8 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-06.time-sister-move",
+      "voice": "macos.monica",
+      "lessonId": "A2-06-L1",
+      "file": "c811d5f159e866132575c962d6bbef014b1abb07e88af71fdef08f8d31f31403.mp3",
+      "sha256": "c811d5f159e866132575c962d6bbef014b1abb07e88af71fdef08f8d31f31403",
+      "bytes": 107414,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 6648,
+        "decodedFrames": 256,
+        "integratedLufs": -19.3,
+        "lraLu": 0.5,
+        "truePeakDbtp": -6.8,
+        "samplePeakDbfs": -6.78,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.066,
+        "headRmsDbfs": -17.97,
+        "tailRmsDbfs": -94.37
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "6.65 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-17.97 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-06.time-work-now",
+      "voice": "macos.monica",
+      "lessonId": "A2-06-L1",
+      "file": "7831d8a8dc7e7a0d1d43331aca461cf5fb572838913a781ec8eae59abd5fcf2a.mp3",
+      "sha256": "7831d8a8dc7e7a0d1d43331aca461cf5fb572838913a781ec8eae59abd5fcf2a",
+      "bytes": 146702,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 9099,
+        "decodedFrames": 350,
+        "integratedLufs": -19.5,
+        "lraLu": 1,
+        "truePeakDbtp": -6.3,
+        "samplePeakDbfs": -6.29,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.081,
+        "headRmsDbfs": -24.79,
+        "tailRmsDbfs": -91.68
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "9.10 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-24.79 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-07.bicicleta-permiso",
+      "voice": "macos.monica",
+      "lessonId": "A2-07-L2",
+      "file": "0a1ee6a055404ba7cbfd74d816160aa24ae85ebb49657c27fff016de95e25775.mp3",
+      "sha256": "0a1ee6a055404ba7cbfd74d816160aa24ae85ebb49657c27fff016de95e25775",
+      "bytes": 161749,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10050,
+        "decodedFrames": 386,
+        "integratedLufs": -19.3,
+        "lraLu": 0.8,
+        "truePeakDbtp": -5,
+        "samplePeakDbfs": -4.96,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 210,
+        "silenceRatio": 0.153,
+        "headRmsDbfs": -18.29,
+        "tailRmsDbfs": -90.31
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.29 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-07.coche-reply",
+      "voice": "macos.monica",
+      "lessonId": "A2-07-L2",
+      "file": "52b1032d43fec336a5ed6a5f1f89617cf363e77b114f90357917e4db32f8bd2a.mp3",
+      "sha256": "52b1032d43fec336a5ed6a5f1f89617cf363e77b114f90357917e4db32f8bd2a",
+      "bytes": 165510,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10271,
+        "decodedFrames": 395,
+        "integratedLufs": -19.5,
+        "lraLu": 1.3,
+        "truePeakDbtp": -5.2,
+        "samplePeakDbfs": -5.22,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.14,
+        "headRmsDbfs": -19.03,
+        "tailRmsDbfs": -91.66
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.03 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-07.coche-request",
+      "voice": "macos.monica",
+      "lessonId": "A2-07-L2",
+      "file": "95ac944c6ce6b96d617ec58de89d16467f3fbbf8037652fadc7e37073eb3559f.mp3",
+      "sha256": "95ac944c6ce6b96d617ec58de89d16467f3fbbf8037652fadc7e37073eb3559f",
+      "bytes": 170108,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10573,
+        "decodedFrames": 406,
+        "integratedLufs": -19.2,
+        "lraLu": 1.8,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.84,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 270,
+        "silenceRatio": 0.132,
+        "headRmsDbfs": -18.94,
+        "tailRmsDbfs": -90.49
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.94 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-07.farmacia-route",
+      "voice": "macos.monica",
+      "lessonId": "A2-07-L7",
+      "file": "65333cef923ce85d6b2ca7d9cebe8d2428e8a8fb288e04503f30d08b107bc285.mp3",
+      "sha256": "65333cef923ce85d6b2ca7d9cebe8d2428e8a8fb288e04503f30d08b107bc285",
+      "bytes": 142523,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 8831,
+        "decodedFrames": 340,
+        "integratedLufs": -19.6,
+        "lraLu": 1.3,
+        "truePeakDbtp": -5,
+        "samplePeakDbfs": -5.02,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.147,
+        "headRmsDbfs": -18.52,
+        "tailRmsDbfs": -91.66
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "8.83 s outside A2 production bounds 10-60 s"
+        },
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.52 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-07.madre-instructions",
+      "voice": "macos.monica",
+      "lessonId": "A2-07-L7",
+      "file": "346669617f940694f8f71394ba9511a63860e7e066cfce37c6ba4cc0846ed6fa.mp3",
+      "sha256": "346669617f940694f8f71394ba9511a63860e7e066cfce37c6ba4cc0846ed6fa",
+      "bytes": 186826,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 11618,
+        "decodedFrames": 446,
+        "integratedLufs": -19.3,
+        "lraLu": 1.8,
+        "truePeakDbtp": -5.2,
+        "samplePeakDbfs": -5.24,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 190,
+        "silenceRatio": 0.162,
+        "headRmsDbfs": -18.35,
+        "tailRmsDbfs": -92.43
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.35 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-07.museo-group",
+      "voice": "macos.monica",
+      "lessonId": "A2-07-L7",
+      "file": "4121f558a88daa7d9441484cf58169b6a900c79eed39f7adcc9678c963929bb3.mp3",
+      "sha256": "4121f558a88daa7d9441484cf58169b6a900c79eed39f7adcc9678c963929bb3",
+      "bytes": 179721,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 11177,
+        "decodedFrames": 429,
+        "integratedLufs": -19.2,
+        "lraLu": 0.8,
+        "truePeakDbtp": -6.6,
+        "samplePeakDbfs": -6.64,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 210,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.138,
+        "headRmsDbfs": -20.47,
+        "tailRmsDbfs": -92.2
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.47 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-08.autobus-sevilla",
+      "voice": "macos.monica",
+      "lessonId": "A2-08-C1",
+      "file": "53d4e144e8b5fc0c808de138329afc0f63587196ccb061e3b6cbab71513a050b.mp3",
+      "sha256": "53d4e144e8b5fc0c808de138329afc0f63587196ccb061e3b6cbab71513a050b",
+      "bytes": 129566,
+      "status": "warn",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 8043,
+        "decodedFrames": 309,
+        "integratedLufs": -19.2,
+        "lraLu": 1.3,
+        "truePeakDbtp": -6.5,
+        "samplePeakDbfs": -6.5,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 160,
+        "silenceRatio": 0.101,
+        "headRmsDbfs": -29.3,
+        "tailRmsDbfs": -90.34
+      },
+      "issues": [
+        {
+          "code": "duration.bounds",
+          "severity": "warn",
+          "message": "8.04 s outside A2 production bounds 10-60 s"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-08.cambio-plan-nuria",
+      "voice": "macos.monica",
+      "lessonId": "A2-08-C1",
+      "file": "1648103c05f20efbdfc83854b0af0d25d6535b7af7e9d34e959e35233f34bdbb.mp3",
+      "sha256": "1648103c05f20efbdfc83854b0af0d25d6535b7af7e9d34e959e35233f34bdbb",
+      "bytes": 175123,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10875,
+        "decodedFrames": 418,
+        "integratedLufs": -19.3,
+        "lraLu": 1.3,
+        "truePeakDbtp": -5.6,
+        "samplePeakDbfs": -5.59,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.149,
+        "headRmsDbfs": -18.7,
+        "tailRmsDbfs": -89.49
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-18.7 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-08.cena-javier",
+      "voice": "macos.monica",
+      "lessonId": "A2-08-L5",
+      "file": "76dac4fe3ba041b364b0865b03c5dfef6b240fe1ab2cd0e4a2fea84ccdee475f.mp3",
+      "sha256": "76dac4fe3ba041b364b0865b03c5dfef6b240fe1ab2cd0e4a2fea84ccdee475f",
+      "bytes": 216083,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 13429,
+        "decodedFrames": 516,
+        "integratedLufs": -19.5,
+        "lraLu": 1.2,
+        "truePeakDbtp": -5.8,
+        "samplePeakDbfs": -5.78,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.133,
+        "headRmsDbfs": -19.55,
+        "tailRmsDbfs": -94.44
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-19.55 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-08.cita-centro-salud",
+      "voice": "macos.monica",
+      "lessonId": "A2-08-L5",
+      "file": "7d15323acb8cc3225921bbce7c324554848665f6d2ebbd79ff1175884e4cd5b6.mp3",
+      "sha256": "7d15323acb8cc3225921bbce7c324554848665f6d2ebbd79ff1175884e4cd5b6",
+      "bytes": 239071,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 14881,
+        "decodedFrames": 571,
+        "integratedLufs": -19.4,
+        "lraLu": 1.8,
+        "truePeakDbtp": -6.1,
+        "samplePeakDbfs": -6.06,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 200,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.132,
+        "headRmsDbfs": -20.22,
+        "tailRmsDbfs": -89.91
+      },
+      "issues": [
+        {
+          "code": "edge.no-lead-in",
+          "severity": "info",
+          "message": "speech starts within 10 ms (-20.22 dBFS RMS in the first 20 ms): a player start latency may clip the onset, or the start was cut"
+        }
+      ]
+    },
+    {
+      "clipId": "clip.a2-08.supermercado-cierra",
+      "voice": "macos.monica",
+      "lessonId": "A2-08-L5",
+      "file": "5b05ed04ca6ac20d9afc5df5e6a422c12307040b7d2d6bea4bcb10048ef1e58c.mp3",
+      "sha256": "5b05ed04ca6ac20d9afc5df5e6a422c12307040b7d2d6bea4bcb10048ef1e58c",
+      "bytes": 172198,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 10701,
+        "decodedFrames": 411,
+        "integratedLufs": -19.3,
+        "lraLu": 1,
+        "truePeakDbtp": -5.9,
+        "samplePeakDbfs": -5.86,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 150,
+        "longestInternalSilenceMs": 230,
+        "silenceRatio": 0.116,
+        "headRmsDbfs": -29.06,
+        "tailRmsDbfs": -91.7
+      },
+      "issues": []
+    },
+    {
+      "clipId": "clip.a2-08.tren-valencia",
+      "voice": "macos.monica",
+      "lessonId": "A2-08-L5",
+      "file": "5a98ee2965d938eabcb1ab148a71c3b1b060494075aa70e396e9226f5fab49c4.mp3",
+      "sha256": "5a98ee2965d938eabcb1ab148a71c3b1b060494075aa70e396e9226f5fab49c4",
+      "bytes": 193096,
+      "status": "pass",
+      "shortClip": false,
+      "measurements": {
+        "playable": "yes",
+        "format": "mp3",
+        "codec": "mp3",
+        "sampleRate": 44100,
+        "channels": 1,
+        "bitRate": 128000,
+        "durationMs": 12002,
+        "decodedFrames": 461,
+        "integratedLufs": -19.4,
+        "lraLu": 1.1,
+        "truePeakDbtp": -6.1,
+        "samplePeakDbfs": -6.16,
+        "nearFullScaleSamples": 0,
+        "longestNearFullScaleRun": 0,
+        "leadingSilenceMs": 0,
+        "trailingSilenceMs": 140,
+        "longestInternalSilenceMs": 220,
+        "silenceRatio": 0.084,
+        "headRmsDbfs": -29.45,
+        "tailRmsDbfs": -91.27
+      },
+      "issues": []
+    }
+  ]
+}

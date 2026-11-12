@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-01-C1.r1",
+  "packetHash": "6f3db9d770b1014d3749b9f1d2895ac136e6b06d3367bcf43792492e40c83b92",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "58b4cec9343b51dea78c04abad61648a11859031318d2398f552bc85574261bd",
+    "reviewerPacketSha256": "687c4abc083cf74c786d0f1365c810f91015429ca9d32bbd6e5113178763b4fc",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-MR7WFN/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-MR7WFN/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-MR7WFN/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-MR7WFN/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-MR7WFN/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bca9-f44b-77c1-ad36-36c0fabe3491",
+        "version": "v0.166.0",
+        "tokens used": "44,723"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-01-C1",
+        "reviewerAnswer": "Not applicable: this case contains a lesson outline.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-C1-T01",
+        "reviewerAnswer": "I would write: «¡Hola, Ana! Sí, gracias.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The article «un» is not explicitly mapped in taughtBefore, but answering does not depend on it: the requested message is supplied in Ukrainian."
+      },
+      {
+        "caseId": "task:A1-01-C1-T02",
+        "reviewerAnswer": "«Perdón, señor García.» Both this and «¡Perdón, señor García!» fit.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not declared closed, and unresolved feedback covers unlisted alternatives."
+      },
+      {
+        "caseId": "task:A1-01-C1-T03",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The answer agrees with the supplied transcript. Actual audio was not reviewed."
+      },
+      {
+        "caseId": "task:A1-01-C1-T04",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-01-C1-T05",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The article in «Un café» is not explicitly mapped in taughtBefore, but identifying the meaning of «Lo siento, señora» does not depend on interpreting it."
+      },
+      {
+        "caseId": "task:A1-01-C1-T06",
+        "reviewerAnswer": "I would transcribe: «Gracias, Ana. ¡Hasta mañana!» Neutral punctuation, «Gracias, Ana. Hasta mañana.», is also acceptable.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[2].text (id «a3»): «Gracias Ana. ¡Hasta mañana!»",
+        "defect": "This accepted answer omits the obligatory comma separating the vocative «Ana». It therefore accepts incorrect Spanish. The policy's case and final-punctuation allowances do not remove internal comma requirements.",
+        "correction": "Remove a3. Its correctly punctuated form, «Gracias, Ana. ¡Hasta mañana!», is already accepted as a1.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «coma», rule on separating vocatives with commas (from memory).",
+          "Course contract, rule 3: accepted answers must be acceptable answers.",
+          "Course contract, rule 8: Spanish must be correct."
+        ],
+        "notes": "The finding concerns the written key and does not require access to the audio."
+      },
+      {
+        "caseId": "clip:clip.a1-01.gracias-hasta-manana",
+        "reviewerAnswer": "The transcript means: “Thank you, Ana. See you tomorrow!”",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish transcript and Ukrainian translation agree. Actual audio was not reviewed."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-01-C1",
+      "contentHash": "6a8c7a31ade2c241cd9e49040bc5c292a856a7f1251cba54435f67feb5d09de5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-01-C1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this case contains a lesson outline.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T01",
+      "contentHash": "ac732f56e5952a712ee3ee32975f8b2020f3da96209848759ce344e37bf4749b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-C1-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "I would write: «¡Hola, Ana! Sí, gracias.»",
+      "notes": "The article «un» is not explicitly mapped in taughtBefore, but answering does not depend on it: the requested message is supplied in Ukrainian.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T02",
+      "contentHash": "e988567113738dcbd6317363e9e968c93e321a068ca18f3c5a308cd26ff379eb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-C1-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "«Perdón, señor García.» Both this and «¡Perdón, señor García!» fit.",
+      "notes": "The key is not declared closed, and unresolved feedback covers unlisted alternatives.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T03",
+      "contentHash": "6f83c6077cc83bd40d8cc710852736fcf21d0139d661df1be43610e666d5a980",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-C1-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The answer agrees with the supplied transcript. Actual audio was not reviewed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T04",
+      "contentHash": "ef5c76fff6083557f045bcffe3e80cd181e2bbe935af83f5cd40d4a8a37b93bf",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-C1-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T05",
+      "contentHash": "a5053dec48ad7c51c2a2b08dd9b89f0ae021392ff419dde3f8f2621e5a86df26",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-01-C1-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The article in «Un café» is not explicitly mapped in taughtBefore, but identifying the meaning of «Lo siento, señora» does not depend on interpreting it.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T06",
+      "contentHash": "0116dccafc3d6829de07af50fe09ee2b5b901fd32e72130465cdbb9944960fa0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[2].text (id «a3»): «Gracias Ana. ¡Hasta mañana!»",
+          "description": "This accepted answer omits the obligatory comma separating the vocative «Ana». It therefore accepts incorrect Spanish. The policy's case and final-punctuation allowances do not remove internal comma requirements.",
+          "suggestion": "Remove a3. Its correctly punctuated form, «Gracias, Ana. ¡Hasta mañana!», is already accepted as a1."
+        }
+      ],
+      "caseId": "task:A1-01-C1-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "I would transcribe: «Gracias, Ana. ¡Hasta mañana!» Neutral punctuation, «Gracias, Ana. Hasta mañana.», is also acceptable.",
+      "notes": "The finding concerns the written key and does not require access to the audio.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «coma», rule on separating vocatives with commas (from memory).",
+        "Course contract, rule 3: accepted answers must be acceptable answers.",
+        "Course contract, rule 8: Spanish must be correct."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-01.gracias-hasta-manana",
+      "contentHash": "be47c1eea076d598a94d6d907cf31bbc52683d5277cb1525dcfa9b4002e234d2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-01.gracias-hasta-manana",
+      "verdict": "valid",
+      "reviewerAnswer": "The transcript means: “Thank you, Ana. See you tomorrow!”",
+      "notes": "The Spanish transcript and Ukrainian translation agree. Actual audio was not reviewed.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

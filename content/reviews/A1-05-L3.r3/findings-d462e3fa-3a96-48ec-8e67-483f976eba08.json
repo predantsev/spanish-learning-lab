@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-05-L3.r3",
+  "jobId": "d462e3fa-3a96-48ec-8e67-483f976eba08",
+  "receiptId": "06c14d6d-98bd-4584-9c5d-7e0d1540ce0a",
+  "recordedAt": "2026-11-09T06:52:41.911Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "time.abre-cierra",
+      "contentHash": "0d5f743ba132d4f603a06a8c0bf30af65996b250e5d81f2d79d848d12cc2cdc2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: \"Abre — правильне дієслово на -ir (A1-04-L2).\"",
+          "description": "The note identifies the conjugated form abre as an -ir verb. The infinitive naming that verb is abrir; abre is its third-person singular present indicative form.",
+          "suggestion": "Replace with \"Abre — форма дієслова abrir, утворена за правильною моделлю на -ir у теперішньому часі (A1-04-L2).\""
+        }
+      ],
+      "caseId": "skill:time.abre-cierra",
+      "verdict": "flawed",
+      "reviewerAnswer": "Abre/cierra are singular present forms; abren/cierran are plural. Está abierto/cerrado describes a state.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, abrir, conjugation table: present indicative abre (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "time.clock.de-la-manana",
+      "contentHash": "f6d1a36d16c176759f520bfbfb0548456424ac84ecba5176b7e8b5691f67b23d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.variantPolicyUk: \"Розмовне «a las ocho por la mañana» трапляється, але ключ — модель з de; така відповідь лишається нерозв’язаною, а не хибною.\"",
+          "description": "The policy deliberately leaves a reviewed acceptable Peninsular construction unaccepted. When the prompt does not explicitly require de, the natural variant with por answers it correctly.",
+          "suggestion": "Accept reviewed por variants when they satisfy the prompt. Alternatively, explicitly require the model with de in exercises assessing that particular form."
+        }
+      ],
+      "caseId": "skill:time.clock.de-la-manana",
+      "verdict": "flawed",
+      "reviewerAnswer": "Use de la mañana/tarde/noche with clock times; a las ocho por la mañana is also acceptable.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3: accepted lists every reviewed acceptable answer.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T32",
+      "contentHash": "04004ada0d3b44ffc46fdcbd00e9dee9212597cf91b7fc1a167fc8d42b65baa4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la mañana\" receives outcome \"unresolved\".",
+          "description": "A las ocho por la mañana is acceptable Peninsular Spanish. The prompt does not explicitly require de, so this reviewed correct completion should be accepted.",
+          "suggestion": "Add por la mañana to accepted with appropriate feedback, or explicitly require the model with de in the prompt."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; por la mañana also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T33",
+      "contentHash": "f8ff6fe456978294526a0500a0a47d0ea39751a339e866c1a8bb6b3b816f8aaa",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la tarde\" receives outcome \"unresolved\".",
+          "description": "A las cinco por la tarde is acceptable Peninsular Spanish. Showing a model with de does not explicitly exclude this correct completion.",
+          "suggestion": "Accept por la tarde, or explicitly instruct the learner to use de."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T33",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la tarde; por la tarde also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T34",
+      "contentHash": "ff0955b788c1557bf3f19a15d741444f163ae1bf30566814910b17d004b41594",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la noche\" receives outcome \"unresolved\".",
+          "description": "A las once por la noche correctly expresses the requested time in Peninsular Spanish. The prompt contains no restriction requiring de.",
+          "suggestion": "Accept por la noche, or explicitly require a completion with de."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T34",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la noche; por la noche also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T35",
+      "contentHash": "bd6f92b67b3aa8ac366b52527bc5aca218bc2456bedfb228a2b8c51d5db7fd73",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la mañana\" receives outcome \"unresolved\".",
+          "description": "Trabajo a las nueve por la mañana is natural Peninsular Spanish and satisfies the instruction. It is a reviewed acceptable answer, not an unresolved one.",
+          "suggestion": "Accept por la mañana, or explicitly require the model with de."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T35",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; por la mañana also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T36",
+      "contentHash": "289e04e98f66d7307a47b8d5a557fdd00d570b2fec5b4889cbd6ef44daefe7f7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la noche\" receives outcome \"unresolved\".",
+          "description": "Ceno a las diez por la noche is natural Peninsular Spanish and correctly expresses 22:00. The prompt does not restrict the answer to de.",
+          "suggestion": "Accept por la noche, or explicitly require de in the instruction."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la noche; por la noche also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T38",
+      "contentHash": "580de4f6a80b617cf68063389f19025d8d0f84eace073ffda33781bfc0a9498e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la tarde\" receives outcome \"unresolved\".",
+          "description": "A las cuatro por la tarde is acceptable Peninsular Spanish and meets the prompt. A reviewed acceptable completion should not remain unresolved.",
+          "suggestion": "Accept por la tarde, or explicitly require the model with de."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T38",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la tarde; por la tarde also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T39",
+      "contentHash": "6f78858a5a8c12bfab5bdc5b9210bc2e5f6213b20a2f63162ebe89eb341a2dce",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la mañana\" receives outcome \"unresolved\".",
+          "description": "La clase es a las diez por la mañana is natural Peninsular Spanish and answers the stated prompt correctly.",
+          "suggestion": "Accept por la mañana, or explicitly instruct the learner to use de."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T39",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; por la mañana also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T40",
+      "contentHash": "713b260b4268196bb20e6e7c2dac00fb4050adf3fd27a132fcd5a6bee295d70e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la mañana\" receives outcome \"unresolved\".",
+          "description": "El tren sale a las seis por la mañana is acceptable Peninsular Spanish. The instruction does not require the particular preposition de.",
+          "suggestion": "Accept por la mañana, or explicitly require de in the prompt."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T40",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; por la mañana also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T41",
+      "contentHash": "12d3d585ecd32e7cafca92e56e680435bf4232c7d82fe999e106c49a391a48c5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: text \"por la noche\" receives outcome \"unresolved\".",
+          "description": "La cena es a las diez por la noche is acceptable Peninsular Spanish and correctly expresses the specified 22:00.",
+          "suggestion": "Accept por la noche, or explicitly require the model with de."
+        }
+      ],
+      "caseId": "task:A1-05-L3-T41",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la noche; por la noche also fits.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 29, temporal uses of por (from memory)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2065 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L3.r1",
+  "packetHash": "94136ad0a18f5b29eafaa54e9deb8b99685c0ebaa4dd4c524e967ac512a1a18b",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "312efd47f369a62e89d45d63084c6b20669d7762bbfdea5152727c60253fc72a",
+    "reviewerPacketSha256": "3ad7e6d987e37a140acc71850ff63c512a599cf3f968a14abfd95841b08998eb",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-lN8qrH/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-lN8qrH/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-lN8qrH/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-lN8qrH/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-lN8qrH/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc9f-aa33-7af2-b9bc-1dea73259217",
+        "version": "v0.166.0",
+        "tokens used": "18,443"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:article.contraction-al",
+        "reviewerAnswer": "a + el → al; a la, a los and a las remain separate.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The scope explicitly excludes proper names whose integral article prevents written contraction."
+      },
+      {
+        "caseId": "skill:prep.a.destination",
+        "reviewerAnswer": "Voy a Madrid. Vamos a casa. Ana va a la universidad. Location: Estoy en casa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:present.hacer",
+        "reviewerAnswer": "hago, haces, hace, hacemos, hacéis, hacen; ¿Qué haces?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: «Hacer («робити») відмінюється як правильне дієслово на -er, крім форми «я»: yo hago.»",
+        "defect": "The Ukrainian grammatical term «відмінюється» denotes declension; the process described here is verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється», or describe the verb as changing by person and number in the present tense.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The Spanish present-tense forms and irregularity explanation are correct."
+      },
+      {
+        "caseId": "skill:present.ir",
+        "reviewerAnswer": "voy, vas, va, vamos, vais, van; «vais» has no written accent.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.cine",
+        "reviewerAnswer": "cine: masculine; plural cines; «кіно, кінотеатр».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.deporte",
+        "reviewerAnswer": "deporte: masculine; plural deportes; «спорт». Hacer deporte means «займатися спортом».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.escuela",
+        "reviewerAnswer": "escuela: feminine; plural escuelas; «школа». Escuela de idiomas means «мовна школа».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The qualified observation about «colegio» is appropriate; it does not make «escuela» incorrect in Spain."
+      },
+      {
+        "caseId": "lexeme:lex.gimnasio",
+        "reviewerAnswer": "gimnasio: masculine; plural gimnasios; «спортзал».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.hacer",
+        "reviewerAnswer": "hacer: «робити»; first-person singular present hago.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.hacer-la-compra",
+        "reviewerAnswer": "hacer la compra: grocery shopping; «робити покупки (продукти)».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "«Вираз Іспанії» identifies Spain usage without explicitly claiming exclusivity."
+      },
+      {
+        "caseId": "lexeme:lex.ir",
+        "reviewerAnswer": "ir: «іти, їхати, ходити»; voy, vas, va, vamos, vais, van.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.museo",
+        "reviewerAnswer": "museo: masculine; plural museos; «музей».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.playa",
+        "reviewerAnswer": "playa: feminine; plural playas; «пляж».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-04-L3",
+        "reviewerAnswer": "Ir: voy, vas, va, vamos, vais, van. Hacer: hago, haces, hace, hacemos, hacéis, hacen. Destinations use ir a; a + el contracts to al.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s3].blocks[0].text: «Hacer відмінюється як правильне дієслово на -er, крім форми «я»: yo hago.»",
+        "defect": "The Ukrainian explanation uses the term for declension to describe verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» or «змінюється за особами й числами в теперішньому часі».",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The Spanish paradigms and examples are correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T01",
+        "reviewerAnswer": "voy",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T02",
+        "reviewerAnswer": "vamos",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T03",
+        "reviewerAnswer": "vas",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T04",
+        "reviewerAnswer": "van",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T05",
+        "reviewerAnswer": "vais",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T06",
+        "reviewerAnswer": "va",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T07",
+        "reviewerAnswer": "va",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T08",
+        "reviewerAnswer": "van",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T09",
+        "reviewerAnswer": "Yo voy al supermercado y mis padres van a la farmacia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T10",
+        "reviewerAnswer": "Mi hermano va a Valencia y yo voy a Sevilla.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T11",
+        "reviewerAnswer": "hago",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The answer key is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T12",
+        "reviewerAnswer": "hacemos",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The answer key is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T13",
+        "reviewerAnswer": "haces",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The answer key is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T14",
+        "reviewerAnswer": "hace",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The answer key is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T15",
+        "reviewerAnswer": "hacéis",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The key correctly requires the written accent in «hacéis»."
+      },
+      {
+        "caseId": "task:A1-04-L3-T16",
+        "reviewerAnswer": "Yo hago deporte y mi hermano hace la compra.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "Both slot answers are correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T17",
+        "reviewerAnswer": "hace",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The answer key is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T18",
+        "reviewerAnswer": "hacen",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The answer key is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T19",
+        "reviewerAnswer": "En casa, yo hago la cena y vosotros hacéis la compra.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "Both slot answers are correct. «En casa» can frame the household's division of responsibilities."
+      },
+      {
+        "caseId": "task:A1-04-L3-T20",
+        "reviewerAnswer": "¿Qué hacéis en el parque? Optional explicit subjects: vosotros or vosotras.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The reviewed ustedes alternative is explicitly left unresolved rather than marked incorrect, and its regional use is acknowledged."
+      },
+      {
+        "caseId": "task:A1-04-L3-T21",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[id=e2].feedbackUk: «Перед назвою міста артикля немає, тож злиття al не потрібне — просто a.»",
+        "defect": "The feedback incorrectly generalizes article omission to all city names. Some names contain an integral article, such as «El Cairo».",
+        "correction": "Limit the explanation to this name: «Перед Madrid артикля немає, тож потрібно a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», exception for an article forming part of a proper name (from memory)."
+        ],
+        "notes": "The expected answer «a» is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T22",
+        "reviewerAnswer": "Vamos a casa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T23",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T24",
+        "reviewerAnswer": "Voy a casa. / Yo voy a casa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T25",
+        "reviewerAnswer": "Vamos a Madrid. / Nosotros vamos a Madrid. / Nosotras vamos a Madrid.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T26",
+        "reviewerAnswer": "Mis padres van a Sevilla.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T27",
+        "reviewerAnswer": "¿Vas a la playa? / ¿Tú vas a la playa? / ¿Vas tú a la playa?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T28",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T29",
+        "reviewerAnswer": "Mis amigos van a Valencia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T30",
+        "reviewerAnswer": "Voy a la farmacia. / Yo voy a la farmacia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T31",
+        "reviewerAnswer": "al",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The answer «al» is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T32",
+        "reviewerAnswer": "al",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The answer «al» is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T33",
+        "reviewerAnswer": "al",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The expected definite-article answer «al» is correct; no closed key is declared."
+      },
+      {
+        "caseId": "task:A1-04-L3-T34",
+        "reviewerAnswer": "a la",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The expected definite-article answer «a la» is correct; no closed key is declared."
+      },
+      {
+        "caseId": "task:A1-04-L3-T35",
+        "reviewerAnswer": "Pablo va al museo y Ana va a la universidad.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "Both expected slot answers are correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T36",
+        "reviewerAnswer": "Voy al parque. / Yo voy al parque.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The accepted answers and rejection of «a el parque» are correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T37",
+        "reviewerAnswer": "al",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The expected definite-article answer «al» is correct; no closed key is declared."
+      },
+      {
+        "caseId": "task:A1-04-L3-T38",
+        "reviewerAnswer": "¿Vas al trabajo? / ¿Tú vas al trabajo? / ¿Vas tú al trabajo?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The prompt explicitly fixes the workplace reading, and the answer key is correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T39",
+        "reviewerAnswer": "En Madrid, voy al museo y a la estación.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "Both expected slot answers are correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T40",
+        "reviewerAnswer": "Mi padre va al banco. Also natural: Mi papá va al banco.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "The listed translation is correct. No closed key is declared, so the unlisted «papá» variant is not automatically rejected."
+      },
+      {
+        "caseId": "task:A1-04-L3-T41",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T42",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T43",
+        "reviewerAnswer": "c",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The prompt explicitly fixes the speaker's self-reference, so option c is uniquely correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T44",
+        "reviewerAnswer": "b",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+        "defect": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+        "correction": "Replace «відмінюється» with «дієвідмінюється» in both fields.",
+        "sources": [
+          "Course contract, rule 8.",
+          "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+        ],
+        "notes": "The option outcomes are correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T45",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T46",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-04-L3-T47",
+        "reviewerAnswer": "b",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "Option b is uniquely correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T48",
+        "reviewerAnswer": "b",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "Option b is uniquely correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T49",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+        "defect": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+        "correction": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+        ],
+        "notes": "Option a is uniquely correct."
+      },
+      {
+        "caseId": "task:A1-04-L3-T50",
+        "reviewerAnswer": "b",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "context.taughtBefore, relative to clips[0].transcript: «Los niños van a la escuela y yo voy al trabajo.»",
+        "defect": "This case's prerequisite mapping lists the lemma «ir» but omits its newly taught irregular forms «van» and «voy» and the destination construction with «a»/«al». The listening task uses these constructions without teaching them in its prompt or hints.",
+        "correction": "Record the earlier teaching of present.ir, prep.a.destination and article.contraction-al in this case's taughtBefore, or provide that teaching before assessing the clip.",
+        "sources": [
+          "Course contract, rule 1.",
+          "Packet: this case's context.taughtBefore and clips[0].transcript; the lesson case identifies these constructions as new lesson targets."
+        ],
+        "notes": "The transcript supports option b and its Ukrainian translation is accurate. The regular-ending hint would be more useful if it explicitly recalled «voy» and «van». Actual audio was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a1-04.daily-actions.escuela",
+        "reviewerAnswer": "The children go to school; the speaker goes to work. «Діти йдуть до школи, а я йду на роботу.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript and translation are correct. Actual audio was outside this text-only review."
+      },
+      {
+        "caseId": "phrase:phrase.que-haces",
+        "reviewerAnswer": "¿Qué haces? — «Що ти робиш?»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "material:material.a1-04.ir-hacer-al",
+        "reviewerAnswer": "Ir: voy, vas, va, vamos, vais, van. Hacer: hago, haces, hace, hacemos, hacéis, hacen. Voy al cine; voy a la playa; voy a Madrid; estoy en casa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "«a + ciudad» functions as an illustrative pattern with Madrid; it does not explicitly state that every city name lacks an article."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "article.contraction-al",
+      "contentHash": "634977c1dc0481b07788b04aa3daa11cbfa0d23efac210c4524ae960d3454eb8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:article.contraction-al",
+      "verdict": "valid",
+      "reviewerAnswer": "a + el → al; a la, a los and a las remain separate.",
+      "notes": "The scope explicitly excludes proper names whose integral article prevents written contraction.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "prep.a.destination",
+      "contentHash": "f54f51331468a51604b7d6c493195e8edd668714bb31d67542dd4337daf4dff9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:prep.a.destination",
+      "verdict": "valid",
+      "reviewerAnswer": "Voy a Madrid. Vamos a casa. Ana va a la universidad. Location: Estoy en casa.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "present.hacer",
+      "contentHash": "d55bf943badfd0932ce96b371b64038506850d9a0980cec0b1d2216a15a304c2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: «Hacer («робити») відмінюється як правильне дієслово на -er, крім форми «я»: yo hago.»",
+          "description": "The Ukrainian grammatical term «відмінюється» denotes declension; the process described here is verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється», or describe the verb as changing by person and number in the present tense."
+        }
+      ],
+      "caseId": "skill:present.hacer",
+      "verdict": "flawed",
+      "reviewerAnswer": "hago, haces, hace, hacemos, hacéis, hacen; ¿Qué haces?",
+      "notes": "The Spanish present-tense forms and irregularity explanation are correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "present.ir",
+      "contentHash": "1e2b92b0a6b34cb7e91a911d9991fe33ad7f516c17fd36b3e498132bf63d57e1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:present.ir",
+      "verdict": "valid",
+      "reviewerAnswer": "voy, vas, va, vamos, vais, van; «vais» has no written accent.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.cine",
+      "contentHash": "ed9f8b21130d74928848f3bca2ba79db58d34ad04bdb3942e75a40dfcf200b8c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.cine",
+      "verdict": "valid",
+      "reviewerAnswer": "cine: masculine; plural cines; «кіно, кінотеатр».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.deporte",
+      "contentHash": "c23b49f6d188fe797f48fd9269b8be264e1fdd9e69be402a3e2bd7fd8e31f992",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.deporte",
+      "verdict": "valid",
+      "reviewerAnswer": "deporte: masculine; plural deportes; «спорт». Hacer deporte means «займатися спортом».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.escuela",
+      "contentHash": "022021ee4f4b9e45e47127c69435e2974689cf2f99141cea6c7186146fa7cff5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.escuela",
+      "verdict": "valid",
+      "reviewerAnswer": "escuela: feminine; plural escuelas; «школа». Escuela de idiomas means «мовна школа».",
+      "notes": "The qualified observation about «colegio» is appropriate; it does not make «escuela» incorrect in Spain.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.gimnasio",
+      "contentHash": "0beb79f033670c26708c3cb8c5eca1b661eb4cc966e595ccf68af725bd1df4ee",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.gimnasio",
+      "verdict": "valid",
+      "reviewerAnswer": "gimnasio: masculine; plural gimnasios; «спортзал».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.hacer",
+      "contentHash": "14acc38b594595ea9ce081efaca0a14e101b903ea96687a6c5943fccbdcc858c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.hacer",
+      "verdict": "valid",
+      "reviewerAnswer": "hacer: «робити»; first-person singular present hago.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.hacer-la-compra",
+      "contentHash": "d0c0be51deba8dd294721f8a37528af8caa0e4763beee063ca1e71b0b6a7ff1e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.hacer-la-compra",
+      "verdict": "valid",
+      "reviewerAnswer": "hacer la compra: grocery shopping; «робити покупки (продукти)».",
+      "notes": "«Вираз Іспанії» identifies Spain usage without explicitly claiming exclusivity.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.ir",
+      "contentHash": "103d17b5a9114f6daf1877c674a9cd54a5cab9d7bba2546060ce11406be0a053",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.ir",
+      "verdict": "valid",
+      "reviewerAnswer": "ir: «іти, їхати, ходити»; voy, vas, va, vamos, vais, van.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.museo",
+      "contentHash": "5fb715f2aaa0c384b138a3eafd9c1fc4856f3335071bca1f3b1f332777395388",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.museo",
+      "verdict": "valid",
+      "reviewerAnswer": "museo: masculine; plural museos; «музей».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.playa",
+      "contentHash": "583b07c3b5a47329c96989e85ee0afbca1d21294a108e9febdc9418ec0867977",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.playa",
+      "verdict": "valid",
+      "reviewerAnswer": "playa: feminine; plural playas; «пляж».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L3",
+      "contentHash": "9db60f239d08766152b4b1ae4670909d4826d8c3dbf4341e2633743b5e8a9b89",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[0].text: «Hacer відмінюється як правильне дієслово на -er, крім форми «я»: yo hago.»",
+          "description": "The Ukrainian explanation uses the term for declension to describe verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» or «змінюється за особами й числами в теперішньому часі»."
+        }
+      ],
+      "caseId": "lesson:A1-04-L3",
+      "verdict": "flawed",
+      "reviewerAnswer": "Ir: voy, vas, va, vamos, vais, van. Hacer: hago, haces, hace, hacemos, hacéis, hacen. Destinations use ir a; a + el contracts to al.",
+      "notes": "The Spanish paradigms and examples are correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T01",
+      "contentHash": "9fccff9f4b33bb986a38a1f682104320ec5e72e91f1f04f58119ac86133671d5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "voy",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T02",
+      "contentHash": "7a88f6f7c1442f53aed832c9c324e7a1eb42fff6b4519094b99d9dbcaf6a8211",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "vamos",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T03",
+      "contentHash": "de6ed8ef9e6045eaaef4a2369846100496158580a23d60c236eb497ceab10dd5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "vas",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T04",
+      "contentHash": "475fe20507027a0d7d18c215bbc7139ecb883370d51ca493756e87d86d63356a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "van",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T05",
+      "contentHash": "f667731975ac45b951547a0a380b82771fe01ad11ea9ad2ccd7e92c8f3181d62",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "vais",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T06",
+      "contentHash": "56fd635e4a7fd336deea3a8f9589a8c43dcf18806103004397f3d186e7e3b07c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "va",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T07",
+      "contentHash": "55cf626e4f2246fdafb05c345840b4c8662e9410ee4a694db2f0b748fc6250b9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "va",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T08",
+      "contentHash": "4ad455110c199e4c1ec23bd6fe6c241bce1b04d1e2ef6acb03676302f28564ca",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "van",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T09",
+      "contentHash": "79e8e9fd0a3f2453357a77d910909af53d890ba0c74304936f86aab2ca7ffdd5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "Yo voy al supermercado y mis padres van a la farmacia.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T10",
+      "contentHash": "a8fa6e06d54dc9251b0abc99c50b7ca4bed0968d286bae47b670a561ad25ef98",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi hermano va a Valencia y yo voy a Sevilla.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T11",
+      "contentHash": "5eb81bd3b76fedd1fab34f9d216b152bb6aff43ef5f1cfb26521d85f09001cf0",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "hago",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T12",
+      "contentHash": "9ad55b988de425d83c3f1ce73f24dab804f2dabe0794957de9f049f354a54fb4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "hacemos",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T13",
+      "contentHash": "1f28108f9dcd653a7117d9b1eae919a550064914255faee7d022f7bf32e89b7d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "haces",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T14",
+      "contentHash": "77e9dd742105de91f116fc98b2fe3982e83d1b89f66e2cee419610d34b2177e3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T14",
+      "verdict": "flawed",
+      "reviewerAnswer": "hace",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T15",
+      "contentHash": "4645ea70e47722699f3e1f5c79fa5a8f9b7c6785689511ca9d489a6d56513824",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T15",
+      "verdict": "flawed",
+      "reviewerAnswer": "hacéis",
+      "notes": "The key correctly requires the written accent in «hacéis».",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T16",
+      "contentHash": "e298cb6f6878738b07f5c273357c2635500223a612e3ca16494e9e222632a7f5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T16",
+      "verdict": "flawed",
+      "reviewerAnswer": "Yo hago deporte y mi hermano hace la compra.",
+      "notes": "Both slot answers are correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T17",
+      "contentHash": "91363a172c4fb5e470ba233149d2ae329c1c819217ad99fc18daa92c4d76daef",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T17",
+      "verdict": "flawed",
+      "reviewerAnswer": "hace",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T18",
+      "contentHash": "1e759466754cbe0e8f155047931d970eda08dee1e5e8e5d124d023512e971477",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T18",
+      "verdict": "flawed",
+      "reviewerAnswer": "hacen",
+      "notes": "The answer key is correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T19",
+      "contentHash": "d7cb0c38903fa5a924f589a62b271b938a295a1df50796f01371f5d23ea8b42f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T19",
+      "verdict": "flawed",
+      "reviewerAnswer": "En casa, yo hago la cena y vosotros hacéis la compra.",
+      "notes": "Both slot answers are correct. «En casa» can frame the household's division of responsibilities.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T20",
+      "contentHash": "4f6293b743706dd78fcfa451dffa1d0409d219bccb06bbc2e778e51980ef3117",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T20",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Qué hacéis en el parque? Optional explicit subjects: vosotros or vosotras.",
+      "notes": "The reviewed ustedes alternative is explicitly left unresolved rather than marked incorrect, and its regional use is acknowledged.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T21",
+      "contentHash": "bc7fea6b3253133ca1bb4fefc67edb1aa8c513464415718223cd6dfb6bcdb39a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e2].feedbackUk: «Перед назвою міста артикля немає, тож злиття al не потрібне — просто a.»",
+          "description": "The feedback incorrectly generalizes article omission to all city names. Some names contain an integral article, such as «El Cairo».",
+          "suggestion": "Limit the explanation to this name: «Перед Madrid артикля немає, тож потрібно a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The expected answer «a» is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», exception for an article forming part of a proper name (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T22",
+      "contentHash": "8ea8fc245b2849b2acbce644aa4df730c283f2305df6bc835bb4d5310b86be00",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "Vamos a casa.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T23",
+      "contentHash": "b7d0e9fe2077dd019b5b3db1ecd9c68eff0bf053bed502ec47d9d0dd767a174c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T24",
+      "contentHash": "b7cc51c0af638576814cc5890223db516f6e17e111316843881d1cbdc75cce33",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "Voy a casa. / Yo voy a casa.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T25",
+      "contentHash": "5e85b5c7a9d8f8db390e3542953830d38ba991c495732e3aa66357ce8b7703b4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "Vamos a Madrid. / Nosotros vamos a Madrid. / Nosotras vamos a Madrid.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T26",
+      "contentHash": "054465185c114782bcf8fefd6115d4dffb88f006b3086fd76efe6c683270bfe3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis padres van a Sevilla.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T27",
+      "contentHash": "7833a32639342b9d76c900cf627ce2d4996ba5bc14767af7f70d75a46bc72f5a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Vas a la playa? / ¿Tú vas a la playa? / ¿Vas tú a la playa?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T28",
+      "contentHash": "9575b214653ac76fa2a6fb2695e8b4896844656b0c84a436b85fbc05ffaddf44",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T29",
+      "contentHash": "1b283638b6b06b69fc50ca83a0b8cba51fed4e292a74c9160b7d66354060a646",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis amigos van a Valencia.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T30",
+      "contentHash": "991fa92129ee2cd56822bf851ccab9a6b4f84e16107b1e3f72e0b6a85d2462aa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "Voy a la farmacia. / Yo voy a la farmacia.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T31",
+      "contentHash": "79ee6a3a9f192e5aa725d886d19b66332177ec06ddeeb713cbff93cb2fc4b8c8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T31",
+      "verdict": "flawed",
+      "reviewerAnswer": "al",
+      "notes": "The answer «al» is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T32",
+      "contentHash": "48a8852820f316fbe1cdaf083bc55a624afd3469ed6fec49b905a80efb2f3fb9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "al",
+      "notes": "The answer «al» is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T33",
+      "contentHash": "584704e1f9e11818ad4fde1c1128556c30c8a9d485a8d2a9ccd452d089ffd3d4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T33",
+      "verdict": "flawed",
+      "reviewerAnswer": "al",
+      "notes": "The expected definite-article answer «al» is correct; no closed key is declared.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T34",
+      "contentHash": "6efa9775969c0b35ccd8919e57290a6803c75bc92f6898f0324b76786d482e2d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T34",
+      "verdict": "flawed",
+      "reviewerAnswer": "a la",
+      "notes": "The expected definite-article answer «a la» is correct; no closed key is declared.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T35",
+      "contentHash": "dbe76b2090057ad52c8de2936761b4ff6e321d77f511f338816dc514f9ecc9d1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T35",
+      "verdict": "flawed",
+      "reviewerAnswer": "Pablo va al museo y Ana va a la universidad.",
+      "notes": "Both expected slot answers are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T36",
+      "contentHash": "d7e47b16ff45e537a80a33f41c5278c3a7d114f9aca95002035fcf3946550e53",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "Voy al parque. / Yo voy al parque.",
+      "notes": "The accepted answers and rejection of «a el parque» are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T37",
+      "contentHash": "e818d1c0a60245a83bff073b70c2cd02d19a94aa1ce254dd63dd33f6775bcd96",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T37",
+      "verdict": "flawed",
+      "reviewerAnswer": "al",
+      "notes": "The expected definite-article answer «al» is correct; no closed key is declared.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T38",
+      "contentHash": "02b8cb9bbb165d4422db72b5eec2ad679022eef759d3d0a3d8acb982d79e2a0b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T38",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Vas al trabajo? / ¿Tú vas al trabajo? / ¿Vas tú al trabajo?",
+      "notes": "The prompt explicitly fixes the workplace reading, and the answer key is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T39",
+      "contentHash": "16bd65f65c433695b4ec156ac8a0875039a14b2aba291450d6aafbbf0bfc2ad5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T39",
+      "verdict": "flawed",
+      "reviewerAnswer": "En Madrid, voy al museo y a la estación.",
+      "notes": "Both expected slot answers are correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T40",
+      "contentHash": "f5d3036c110ed498be4e215ca6f41b8cbf301f35deefb574386cbd3f41edaa1a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T40",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi padre va al banco. Also natural: Mi papá va al banco.",
+      "notes": "The listed translation is correct. No closed key is declared, so the unlisted «papá» variant is not automatically rejected.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T41",
+      "contentHash": "567d02f5a04862dae8446aef7e421c3867b2fa49927fc1aa3d34d4be6585ad71",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T41",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T42",
+      "contentHash": "49f7f7f4436e9e94225d173b7949fdf6f3868ce028e15f93df90a447d031c2c5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T42",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T43",
+      "contentHash": "b66c0ab8594983ce387ef9fa780dd6ac190ec3ed46942f4bb60acb9b31a1b24d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "c",
+      "notes": "The prompt explicitly fixes the speaker's self-reference, so option c is uniquely correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T44",
+      "contentHash": "c5740ce62d511ec4188598d29038cb0de2e3611b1fb6c802de472a20877e22f5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Hacer відмінюється як правильне дієслово на -er, крім форми yo: hago.»",
+          "description": "«Відмінюється» denotes declension; the explanation describes verb conjugation.",
+          "suggestion": "Replace «відмінюється» with «дієвідмінюється» in both fields."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T44",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "The option outcomes are correct.",
+      "sources": [
+        "Course contract, rule 8.",
+        "Словник української мови в 11 томах, entries «відмінювати» and «дієвідмінювати» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T45",
+      "contentHash": "5d6617c755a24658ee8ff2bcde6f7e958ddfd8f4a0065bc757e5964a7299dba9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T45",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T46",
+      "contentHash": "0f264bfe7dd55e0d22233e26a760241d8661e012d4d3233498d7625098dcf411",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L3-T46",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T47",
+      "contentHash": "db2f7ea37bd7b180db85d03343cd5918e7e2d56805b26ac9a9c5f00f8ee9d194",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T47",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "Option b is uniquely correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T48",
+      "contentHash": "a34d46c3ca34f4b7fb1632ebec5a02635e1918d838b263e08df90fb3bd7b27d1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T48",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "Option b is uniquely correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T49",
+      "contentHash": "ae64bf4cdda1a9b8b2be9c12585ba77f977c511a6ddad9ed0d23332d1caab2c9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Перед назвою міста артикля немає — просто a: Voy a Madrid.»",
+          "description": "This categorical rule is false: some city names contain an integral article, for example «El Cairo».",
+          "suggestion": "Narrow the statement to «Перед Madrid артикля немає — просто a: Voy a Madrid.»"
+        }
+      ],
+      "caseId": "task:A1-04-L3-T49",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Option a is uniquely correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «al», proper-name exception (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L3-T50",
+      "contentHash": "fa720f7f80ba6ab90f14bd1ebcd871699efba70e1a964154daf71461df9279c6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore, relative to clips[0].transcript: «Los niños van a la escuela y yo voy al trabajo.»",
+          "description": "This case's prerequisite mapping lists the lemma «ir» but omits its newly taught irregular forms «van» and «voy» and the destination construction with «a»/«al». The listening task uses these constructions without teaching them in its prompt or hints.",
+          "suggestion": "Record the earlier teaching of present.ir, prep.a.destination and article.contraction-al in this case's taughtBefore, or provide that teaching before assessing the clip."
+        }
+      ],
+      "caseId": "task:A1-04-L3-T50",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "The transcript supports option b and its Ukrainian translation is accurate. The regular-ending hint would be more useful if it explicitly recalled «voy» and «van». Actual audio was not assessed.",
+      "sources": [
+        "Course contract, rule 1.",
+        "Packet: this case's context.taughtBefore and clips[0].transcript; the lesson case identifies these constructions as new lesson targets."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-04.daily-actions.escuela",
+      "contentHash": "2ef429393b3fc9b0e5509cadf8bee0b9362fbd72c73186e14b5e8b921040bb03",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-04.daily-actions.escuela",
+      "verdict": "valid",
+      "reviewerAnswer": "The children go to school; the speaker goes to work. «Діти йдуть до школи, а я йду на роботу.»",
+      "notes": "The transcript and translation are correct. Actual audio was outside this text-only review.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.que-haces",
+      "contentHash": "6d5795d5f6f3b8c79b546774bee8cae0fb535494b1128732cbe00063ee382201",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.que-haces",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Qué haces? — «Що ти робиш?»",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "material",
+      "logicalId": "material.a1-04.ir-hacer-al",
+      "contentHash": "e4b47306c42824eb3d03dc0ee285149123f5ab6d3d100a18ce9fb84132e7139a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "material:material.a1-04.ir-hacer-al",
+      "verdict": "valid",
+      "reviewerAnswer": "Ir: voy, vas, va, vamos, vais, van. Hacer: hago, haces, hace, hacemos, hacéis, hacen. Voy al cine; voy a la playa; voy a Madrid; estoy en casa.",
+      "notes": "«a + ciudad» functions as an illustrative pattern with Madrid; it does not explicitly state that every city name lacks an article.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

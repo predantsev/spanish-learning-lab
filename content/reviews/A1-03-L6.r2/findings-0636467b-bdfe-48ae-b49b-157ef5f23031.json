@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-03-L6.r2",
+  "jobId": "0636467b-bdfe-48ae-b49b-157ef5f23031",
+  "receiptId": "e7cbc51d-8073-4979-a956-7570c805c8bf",
+  "recordedAt": "2026-11-09T06:20:08.157Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "question.word.quien",
+      "contentHash": "e0100bd6bfeedd2658ba620a29e460ec42caa31710c07991c0503ce745001fdc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: «Тут тренуємо лише питання-ідентифікацію ¿Quién es…? / ¿Quiénes son…?, де quién(es) — підмет»",
+          "description": "The blanket subject analysis is incorrect. In the included example ¿Quién es tu profesor?, tu profesor is the subject and quién supplies its identity as the atributo. Identification questions do not universally make quién(es) the subject.",
+          "suggestion": "Remove the blanket subject claim. If syntactic terminology is retained, distinguish the subject from the predicative complement in the actual examples; in Ukrainian, use «іменна частина присудка» for this function."
+        }
+      ],
+      "caseId": "skill:question.word.quien",
+      "verdict": "flawed",
+      "reviewerAnswer": "Quién asks a person's identity; quiénes is used in the illustrated plural identification questions. In ¿Quién es tu profesor?, tu profesor is the subject and quién is the predicative complement.",
+      "notes": "The forms, accents and illustrated singular/plural questions themselves are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of identifying copular clauses and the subject–attribute distinction (from memory).",
+        "Course contract, rule 8: correct Spanish explanations and Ukrainian grammatical terminology."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T43",
+      "contentHash": "2f1876d7e48e76876d08384bae22b8b7521a0ca9e32248c96d891ff9fd135291",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e3]: «¿Ana de dónde es?» receives question.word-order/construction-use = «unresolved» and is omitted from task.accepted.",
+          "description": "The prompt requests the question's meaning without requiring a particular order. The reviewed variant is grammatical conversational Spain Spanish with Ana as an initial topic, as its feedback acknowledges. Rule 3 requires reviewed acceptable answers to be in accepted; leaving this one in errors with unresolved scoring does not meet that requirement.",
+          "suggestion": "Move this variant to accepted and retain ¿De dónde es Ana? as the reference answer. Alternatively, explicitly require the practiced interrogative–verb–subject order in the prompt."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿De dónde es Ana? Also acceptable: ¿Ana de dónde es?",
+      "notes": "This finding concerns an already-reviewed acceptable variant, not exhaustive enumeration of an open key.",
+      "sources": [
+        "Course contract, rule 3: accepted lists every reviewed acceptable answer; errors lists reviewed wrong answers.",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of initial topics preceding partial interrogatives (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T67",
+      "contentHash": "1c3c34f1f95fbbd4023619b9e114bb469382b248c8ee7f97878fa61d659b91cf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=c].feedbackUk: «Так можна хіба що перепитати»",
+          "description": "The feedback restricts an in-situ interrogative to asking again. Spanish interrogatives with an in-situ question word can also request new information in conversational contexts; they are not exclusively echo questions. Option a remains the appropriate answer to the requested basic-order exercise.",
+          "suggestion": "Explain that option c does not follow the basic order requested here, without claiming that it is possible only when asking again."
+        }
+      ],
+      "caseId": "task:A1-03-L6-T67",
+      "verdict": "flawed",
+      "reviewerAnswer": "a for the explicitly requested usual order.",
+      "notes": "The defect is the categorical explanation, not the selection of option a.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of partial interrogatives with an in-situ interrogative and their distinction from echo questions (from memory).",
+        "Review duties: identify false rules and misleading simplifications."
+      ]
+    }
+  ]
+}

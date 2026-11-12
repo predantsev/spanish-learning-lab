@@ -1,0 +1,1387 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-07-L3.r1",
+  "packetHash": "21680d6f49586e111f78313a15961e4b518889d67614c2f6e7124c3ea568333a",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "9dc4d0f48ed5f832f12232975b56022e712360496f0882204910569cac04da59",
+    "reviewerPacketSha256": "bec89772864e1e82685cd873ae7615fc94e7cf86346eafbff9a85330802a3f1f",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-NqWrWs/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-NqWrWs/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-NqWrWs/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-NqWrWs/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-NqWrWs/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc98-cc62-7be2-8a88-f7810b4897e6",
+        "version": "v0.166.0",
+        "tokens used": "19,041"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:imperative.addressee",
+        "reviewerAnswer": "In affirmative instructions, habla addresses tú, hablad addresses vosotros, hable addresses usted, and hablen addresses ustedes.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.variantPolicyUk: «двох адресатів (наприклад, usted і él/ella в оповіданні)»",
+        "defect": "A narrative él/ella identifies a third-person subject, not an alternative addressee. The policy conflates identifying an addressee with distinguishing directive and narrative readings.",
+        "correction": "Distinguish the subject of a narrative from the addressee of an instruction. Require enough context to establish a directive reading before assessing its addressee.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 (personal pronouns and forms of address) and 42 (modality and imperative constructions) (from memory)."
+        ],
+        "notes": "The four affirmative imperative forms themselves are correct."
+      },
+      {
+        "caseId": "skill:imperative.tu.regular",
+        "reviewerAnswer": "habla, mira, espera, llama, come, lee, escribe, abre.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.ruleUk: «Щоб дати інструкцію чи попросити «ти»»",
+        "defect": "«Попросити «ти»» does not naturally or grammatically express making a request to someone addressed informally. The intended address construction is missing.",
+        "correction": "Write: «Щоб дати інструкцію чи звернутися з проханням до однієї людини на «ти», беремо форму él/ella теперішнього часу…»",
+        "sources": [
+          "Course contract, rule 8: learner-facing Ukrainian must be correct and natural.",
+          "Словник української мови в 11 томах, entries «просити» and «попросити» (from memory)."
+        ],
+        "notes": "The Spanish formation rule is correct within the stated regular-verb scope."
+      },
+      {
+        "caseId": "skill:imperative.tu.stem-change",
+        "reviewerAnswer": "cierra, piensa, vuelve, duerme, sigue, pide, repite.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "skill:imperative.vosotros.regular",
+        "reviewerAnswer": "hablad, mirad, comed, leed, escribid, abrid, cerrad, volved, decid, haced, id.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The infinitive warning concerns direct commands to a specified vosotros addressee; its example fits that restriction."
+      },
+      {
+        "caseId": "lexeme:lex.apagar",
+        "reviewerAnswer": "apagar means «вимикати; гасити».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.avisar",
+        "reviewerAnswer": "avisar means «попереджати, повідомляти»; Avísame means «дай мені знати».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.encender",
+        "reviewerAnswer": "encender means «вмикати; запалювати»; its third-person singular present form is enciende.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.girar",
+        "reviewerAnswer": "girar means «повертати» in directions such as turning right or left.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.mirar",
+        "reviewerAnswer": "mirar means «дивитися»; ¡Mira! can be translated as «Подивися!»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.seguir",
+        "reviewerAnswer": "seguir means «продовжувати; іти далі»; Sigue hasta la plaza means «Іди далі до площі».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A2-07-L3",
+        "reviewerAnswer": "Regular affirmative tú forms include habla, come and escribe; the listed stem changes give cierra, vuelve and pide. Vosotros forms include hablad, comed and escribid.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[id=s3].blocks[0].text: «знак наголосу не пишемо»; content.body.steps[id=s8].blocks[0].items[2]: «без чергування й без знака наголосу»",
+        "defect": "The lesson states a blanket rule that vosotros imperative forms have no written accent. Bare forms such as oíd and reíd require one. The listed examples are correct, but the orthographic generalization is misleading.",
+        "correction": "Limit the statement to the forms taught here: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid». Revise the summary accordingly.",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus containing stressed í/ú adjacent to an unstressed open vowel (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: vosotros imperatives oíd and reíd (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T01",
+        "reviewerAnswer": "c",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T02",
+        "reviewerAnswer": "Escribe",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T03",
+        "reviewerAnswer": "Compra",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T04",
+        "reviewerAnswer": "Lee",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T05",
+        "reviewerAnswer": "Espera",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T06",
+        "reviewerAnswer": "Abre el libro. Also acceptable: Abre el libro, por favor; Por favor, abre el libro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not declared closed, so additional valid placements of por favor are not demonstrably rejected. «Можна додати por favor» would describe the optional addition more precisely than «Por favor можна залишити», since the source question contains no por favor."
+      },
+      {
+        "caseId": "task:A2-07-L3-T07",
+        "reviewerAnswer": "Apaga",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T08",
+        "reviewerAnswer": "Escribe",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T09",
+        "reviewerAnswer": "Llama",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T10",
+        "reviewerAnswer": "Llama a Marta mañana. Also acceptable: Llama a Marta mañana, por favor; Por favor, llama a Marta mañana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not declared closed. The optional wording «Можна додати por favor» would be more precise because the source question contains no por favor."
+      },
+      {
+        "caseId": "task:A2-07-L3-T11",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T12",
+        "reviewerAnswer": "Duerme",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T13",
+        "reviewerAnswer": "Enciende",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T14",
+        "reviewerAnswer": "Repite",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T15",
+        "reviewerAnswer": "Empieza",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T16",
+        "reviewerAnswer": "Vuelve a las ocho. Also acceptable: Vuelve a las ocho, por favor; Por favor, vuelve a las ocho.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not declared closed. The optional wording «Можна додати por favor» would be more precise because the source question contains no por favor."
+      },
+      {
+        "caseId": "task:A2-07-L3-T17",
+        "reviewerAnswer": "Piensa",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T18",
+        "reviewerAnswer": "Pide",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The sentence permits one coffee for the group. If one coffee per person is intended, «Pide un café para cada uno» would make that meaning explicit; the required imperative is unchanged."
+      },
+      {
+        "caseId": "task:A2-07-L3-T19",
+        "reviewerAnswer": "Sigue",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T20",
+        "reviewerAnswer": "Recuerda",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T21",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "Option a and the option-specific feedback are correct."
+      },
+      {
+        "caseId": "task:A2-07-L3-T22",
+        "reviewerAnswer": "comed",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Limit the no-accent statement to the examples taught here. For this answer, explain specifically that comed takes no written accent.",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The accepted answer comed and rejection of coméd are correct."
+      },
+      {
+        "caseId": "task:A2-07-L3-T23",
+        "reviewerAnswer": "cerrad",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The answer key and reviewed errors are correct."
+      },
+      {
+        "caseId": "task:A2-07-L3-T24",
+        "reviewerAnswer": "escribid",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The answer key is correct. Singular vuestro nombre can have the distributive meaning expressed by Ukrainian «свої імена»."
+      },
+      {
+        "caseId": "task:A2-07-L3-T25",
+        "reviewerAnswer": "volved",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The answer key and reviewed errors are correct."
+      },
+      {
+        "caseId": "task:A2-07-L3-T26",
+        "reviewerAnswer": "Esperad un momento. Also acceptable: Esperad un momento, por favor; Por favor, esperad un momento.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The key is not declared closed. «Можна додати por favor» would describe the optional addition more precisely because the source question contains no por favor."
+      },
+      {
+        "caseId": "task:A2-07-L3-T27",
+        "reviewerAnswer": "apagad",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The answer key and reviewed errors are correct."
+      },
+      {
+        "caseId": "task:A2-07-L3-T28",
+        "reviewerAnswer": "haced",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The answer key and reviewed errors are correct."
+      },
+      {
+        "caseId": "task:A2-07-L3-T29",
+        "reviewerAnswer": "id",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The answer id is correct."
+      },
+      {
+        "caseId": "task:A2-07-L3-T30",
+        "reviewerAnswer": "Traed agua y fruta. Also acceptable: Traed agua y fruta, por favor; Por favor, traed agua y fruta.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+        "defect": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+        "correction": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid».",
+        "sources": [
+          "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+          "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+        ],
+        "notes": "The key is not declared closed. «Можна додати por favor» would describe the optional addition more precisely because the source question contains no por favor."
+      },
+      {
+        "caseId": "task:A2-07-L3-T31",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The feedback shortcut is understood within this two-way tú/vosotros comparison. It should not be reused unchanged for tasks introducing usted/ustedes."
+      },
+      {
+        "caseId": "task:A2-07-L3-T32",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly identifies the sentence as an instruction, resolving the possible indicative reading of lee."
+      },
+      {
+        "caseId": "task:A2-07-L3-T33",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T34",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-07-L3-T35",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "phrase:phrase.espera-un-momento",
+        "reviewerAnswer": "Espera un momento, por favor.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "imperative.addressee",
+      "contentHash": "bc8a6d61ee85275efa22e41a5b45e084cce6d6d974e831dc54e20cea2c8af81a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.variantPolicyUk: «двох адресатів (наприклад, usted і él/ella в оповіданні)»",
+          "description": "A narrative él/ella identifies a third-person subject, not an alternative addressee. The policy conflates identifying an addressee with distinguishing directive and narrative readings.",
+          "suggestion": "Distinguish the subject of a narrative from the addressee of an instruction. Require enough context to establish a directive reading before assessing its addressee."
+        }
+      ],
+      "caseId": "skill:imperative.addressee",
+      "verdict": "flawed",
+      "reviewerAnswer": "In affirmative instructions, habla addresses tú, hablad addresses vosotros, hable addresses usted, and hablen addresses ustedes.",
+      "notes": "The four affirmative imperative forms themselves are correct.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 16 (personal pronouns and forms of address) and 42 (modality and imperative constructions) (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "imperative.tu.regular",
+      "contentHash": "845b09f31200c373b826ce49f21a38313420034a31eb9f623d551ec1df16d5a1",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: «Щоб дати інструкцію чи попросити «ти»»",
+          "description": "«Попросити «ти»» does not naturally or grammatically express making a request to someone addressed informally. The intended address construction is missing.",
+          "suggestion": "Write: «Щоб дати інструкцію чи звернутися з проханням до однієї людини на «ти», беремо форму él/ella теперішнього часу…»"
+        }
+      ],
+      "caseId": "skill:imperative.tu.regular",
+      "verdict": "flawed",
+      "reviewerAnswer": "habla, mira, espera, llama, come, lee, escribe, abre.",
+      "notes": "The Spanish formation rule is correct within the stated regular-verb scope.",
+      "sources": [
+        "Course contract, rule 8: learner-facing Ukrainian must be correct and natural.",
+        "Словник української мови в 11 томах, entries «просити» and «попросити» (from memory)."
+      ]
+    },
+    {
+      "kind": "skill",
+      "logicalId": "imperative.tu.stem-change",
+      "contentHash": "4e6fce8ef0d874a488be28226cd7334af27b7fe53f0359cd57dbfcd96de7df20",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:imperative.tu.stem-change",
+      "verdict": "valid",
+      "reviewerAnswer": "cierra, piensa, vuelve, duerme, sigue, pide, repite.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "imperative.vosotros.regular",
+      "contentHash": "78a359c5100318e7db52277862ff0c211e05ae987ba8e3bfcc167a71171f90c6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:imperative.vosotros.regular",
+      "verdict": "valid",
+      "reviewerAnswer": "hablad, mirad, comed, leed, escribid, abrid, cerrad, volved, decid, haced, id.",
+      "notes": "The infinitive warning concerns direct commands to a specified vosotros addressee; its example fits that restriction.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.apagar",
+      "contentHash": "b898f360b0db01e2f385cd6edacd866863a1a5fcfc653a22fe531ff0b6344cbc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.apagar",
+      "verdict": "valid",
+      "reviewerAnswer": "apagar means «вимикати; гасити».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.avisar",
+      "contentHash": "42a37703720acf6da870e189a957f06e53d70266140f40c3c3fd8b545dc86513",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.avisar",
+      "verdict": "valid",
+      "reviewerAnswer": "avisar means «попереджати, повідомляти»; Avísame means «дай мені знати».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.encender",
+      "contentHash": "54077423454fdb237e5af05a1c608ac7528f09bd7bdfe8ce2dee92c80990b8da",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.encender",
+      "verdict": "valid",
+      "reviewerAnswer": "encender means «вмикати; запалювати»; its third-person singular present form is enciende.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.girar",
+      "contentHash": "4bf1cddede0432e2e1ec1117b757236a3c4651647924000147f146ae08b2b88c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.girar",
+      "verdict": "valid",
+      "reviewerAnswer": "girar means «повертати» in directions such as turning right or left.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.mirar",
+      "contentHash": "6a065f1e6f03e42db7b25f12f74a781f8cee2a2e5efae99a0cce840ebd096781",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.mirar",
+      "verdict": "valid",
+      "reviewerAnswer": "mirar means «дивитися»; ¡Mira! can be translated as «Подивися!»",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.seguir",
+      "contentHash": "ece65062d8bdf3efea695d51e0fa36cb46598d8376e4bb435f4f4bbf1347f6bb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.seguir",
+      "verdict": "valid",
+      "reviewerAnswer": "seguir means «продовжувати; іти далі»; Sigue hasta la plaza means «Іди далі до площі».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A2-07-L3",
+      "contentHash": "c0476275fb288d69e0386ee00f44233d98747926ded98947f4d282add593c5c2",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[id=s3].blocks[0].text: «знак наголосу не пишемо»; content.body.steps[id=s8].blocks[0].items[2]: «без чергування й без знака наголосу»",
+          "description": "The lesson states a blanket rule that vosotros imperative forms have no written accent. Bare forms such as oíd and reíd require one. The listed examples are correct, but the orthographic generalization is misleading.",
+          "suggestion": "Limit the statement to the forms taught here: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid». Revise the summary accordingly."
+        }
+      ],
+      "caseId": "lesson:A2-07-L3",
+      "verdict": "flawed",
+      "reviewerAnswer": "Regular affirmative tú forms include habla, come and escribe; the listed stem changes give cierra, vuelve and pide. Vosotros forms include hablad, comed and escribid.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus containing stressed í/ú adjacent to an unstressed open vowel (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: vosotros imperatives oíd and reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T01",
+      "contentHash": "44f357aaeff146aa212279e20b9f0d39372de8e1591adf3ad5aaac631b9cdda3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "c",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T02",
+      "contentHash": "726851c476063c1f4a00e408ab60ca1435327b604cce0aecf10d4db5c5e2bf2e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Escribe",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T03",
+      "contentHash": "e2ee18fc941bf5b52923a5116d50bd751f0246c8630b6fbcd1b009ea99fa770b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "Compra",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T04",
+      "contentHash": "97981499781c3235e1d0ae19b54813fe5a13dd3426fef8b1e7f11302b30216f1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "Lee",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T05",
+      "contentHash": "7fdb0f3947a3cfa1fcbce431a55fdc909c48546b22423a83dc6db7d7e8a2a78f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "Espera",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T06",
+      "contentHash": "8cc12f92080fe83721cbb039cffd60ae7219bd2804541dd920ad583ce95873b0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "Abre el libro. Also acceptable: Abre el libro, por favor; Por favor, abre el libro.",
+      "notes": "The key is not declared closed, so additional valid placements of por favor are not demonstrably rejected. «Можна додати por favor» would describe the optional addition more precisely than «Por favor можна залишити», since the source question contains no por favor.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T07",
+      "contentHash": "b15f9b9b7f5cf32603eb4782b5665ffe22f984ab13d84b8fec212610c9979e89",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "Apaga",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T08",
+      "contentHash": "0d261d9fb03e688ce5319a089e23b457992e6a994c0a3c6e9435ec1cf85396d6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "Escribe",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T09",
+      "contentHash": "8e4f225850acc4f376990f32c2ff8bfd3e864d1b46cf7b9442b11f9e09736ac6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "Llama",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T10",
+      "contentHash": "45129ca2eb334bf4710a38cb101922d2e178c9d7733b09d383c022e23d8bbdbb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "Llama a Marta mañana. Also acceptable: Llama a Marta mañana, por favor; Por favor, llama a Marta mañana.",
+      "notes": "The key is not declared closed. The optional wording «Можна додати por favor» would be more precise because the source question contains no por favor.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T11",
+      "contentHash": "074067694b87feed9cfd8936b80d6243d67ef37195e08dfd3bce8343c7fa168e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T12",
+      "contentHash": "97ca5dc1181f85fbcccfdfe2519fe468b2ec5a95d29e22c1b6d79c5e370632bb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "Duerme",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T13",
+      "contentHash": "641ada1b62149ca7605cbd8d131d351de2ce81bb1711245e412732d2003f4723",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "Enciende",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T14",
+      "contentHash": "9ed00800f250904e999dfc27608a60c2924a4f0b42453cbdfafaeef2885c41d1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T14",
+      "verdict": "valid",
+      "reviewerAnswer": "Repite",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T15",
+      "contentHash": "4db9c647e6619389c394d9b0c9b7bd5e44b076478ca7fefa65df189271b3f32f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "Empieza",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T16",
+      "contentHash": "c0aa1c73805dabe25ca2fa0fb6492c70a06dcf314a2e2b050e2174a3ad9bde96",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "Vuelve a las ocho. Also acceptable: Vuelve a las ocho, por favor; Por favor, vuelve a las ocho.",
+      "notes": "The key is not declared closed. The optional wording «Можна додати por favor» would be more precise because the source question contains no por favor.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T17",
+      "contentHash": "9a2a0fa5f7d70f745d7269babf6758e17296c9551f2b1eb0c28f4298e13220f7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T17",
+      "verdict": "valid",
+      "reviewerAnswer": "Piensa",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T18",
+      "contentHash": "3f1e5e122c8a8ca347d8453a0fad9adb212ac2d6734e22a722d0f32cbffbee75",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T18",
+      "verdict": "valid",
+      "reviewerAnswer": "Pide",
+      "notes": "The sentence permits one coffee for the group. If one coffee per person is intended, «Pide un café para cada uno» would make that meaning explicit; the required imperative is unchanged.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T19",
+      "contentHash": "96ca6a17922ed94ce0532596eebfd4af14171c275d2b074d1035ddd4ca03d64a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T19",
+      "verdict": "valid",
+      "reviewerAnswer": "Sigue",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T20",
+      "contentHash": "e5d3359d72b5771bfa64727b854bb9d63a138f02eb7deca1f45ddb9b8ec0d913",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "Recuerda",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T21",
+      "contentHash": "9460e56f5d0ea43c4e2087746813832d029394ce9b2635e2f0a7c484dfba3e83",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T21",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "Option a and the option-specific feedback are correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T22",
+      "contentHash": "b95c35e7956cdf27c3e96e7aaf27cf67b258a5e0e90d33210fff49bbb0ee81a7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Limit the no-accent statement to the examples taught here. For this answer, explain specifically that comed takes no written accent."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T22",
+      "verdict": "flawed",
+      "reviewerAnswer": "comed",
+      "notes": "The accepted answer comed and rejection of coméd are correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T23",
+      "contentHash": "e6a05106fd8f8363ee1a054e5beda6985f2d846cc1ea62ef27a034876f8c5236",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T23",
+      "verdict": "flawed",
+      "reviewerAnswer": "cerrad",
+      "notes": "The answer key and reviewed errors are correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T24",
+      "contentHash": "10dfbac0a4cbc8831b34010b3b3a6469ece1f885b518d9f6b5be86014429372e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T24",
+      "verdict": "flawed",
+      "reviewerAnswer": "escribid",
+      "notes": "The answer key is correct. Singular vuestro nombre can have the distributive meaning expressed by Ukrainian «свої імена».",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T25",
+      "contentHash": "53c9720ead6d6bbb5486b7fea6d85111c4cb727eb469d63afb2d5516feef5d61",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "volved",
+      "notes": "The answer key and reviewed errors are correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T26",
+      "contentHash": "3d495c8850d032267e26f682b915a26e530ea8ec650cd07a29613cbde875e54a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T26",
+      "verdict": "flawed",
+      "reviewerAnswer": "Esperad un momento. Also acceptable: Esperad un momento, por favor; Por favor, esperad un momento.",
+      "notes": "The key is not declared closed. «Можна додати por favor» would describe the optional addition more precisely because the source question contains no por favor.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T27",
+      "contentHash": "8ba86568996df179417f96d44d961310e2a727243e7f3a1858c000f361797577",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T27",
+      "verdict": "flawed",
+      "reviewerAnswer": "apagad",
+      "notes": "The answer key and reviewed errors are correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T28",
+      "contentHash": "10c55ece1c7293f4238883d3a17184255d26f0b22e57a804875abe305b54d83e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T28",
+      "verdict": "flawed",
+      "reviewerAnswer": "haced",
+      "notes": "The answer key and reviewed errors are correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T29",
+      "contentHash": "6e7d272fea00fcb24b9538786d5b3a306c1e482a4fedf16df4a2f8ce66c2e956",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T29",
+      "verdict": "flawed",
+      "reviewerAnswer": "id",
+      "notes": "The answer id is correct.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T30",
+      "contentHash": "1f16263c6d4e946806a74c93f478efde038cb438fda89ccfb91adae8604c7753",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «знак наголосу не пишемо»",
+          "description": "The hint gives a blanket no-accent rule for vosotros imperatives. Forms such as oíd and reíd require written accents.",
+          "suggestion": "Qualify the statement: «У наведених формах знак наголосу не потрібен: hablad, comed, escribid»."
+        }
+      ],
+      "caseId": "task:A2-07-L3-T30",
+      "verdict": "flawed",
+      "reviewerAnswer": "Traed agua y fruta. Also acceptable: Traed agua y fruta, por favor; Por favor, traed agua y fruta.",
+      "notes": "The key is not declared closed. «Можна додати por favor» would describe the optional addition more precisely because the source question contains no por favor.",
+      "sources": [
+        "RAE/ASALE, Ortografía de la lengua española (2010), accentuation of hiatus with stressed í/ú (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, conjugation tables for «oír» and «reír»: oíd, reíd (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T31",
+      "contentHash": "e5018a04d82d7ca0af447c8848bdd1bafa3b2bf01f3e7446189f4fa86d3736c9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "The feedback shortcut is understood within this two-way tú/vosotros comparison. It should not be reused unchanged for tasks introducing usted/ustedes.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T32",
+      "contentHash": "2c8e0c44c1da254b329d1630cef7898defe718e9d7ed3ecf3eb55fbe72585f9d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The prompt explicitly identifies the sentence as an instruction, resolving the possible indicative reading of lee.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T33",
+      "contentHash": "55d0b410cfaa7155394067a677ae00e2bd80b404e9552e8cef1f0f26c3fa7a95",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T34",
+      "contentHash": "c7b0a63bea32df22c8335bee4d1849c8fb32accbc97e7ca0114b2df21a6a19d9",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-07-L3-T35",
+      "contentHash": "9d70d8ebec6ae1dd4d0ec23b68709780602643e43f14f1ae23a9912ae6f9017a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-07-L3-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.espera-un-momento",
+      "contentHash": "fa95c4e757d15dba9ddc9f74296a3223910ac1cc2368c9cacb3e1697d6854824",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.espera-un-momento",
+      "verdict": "valid",
+      "reviewerAnswer": "Espera un momento, por favor.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

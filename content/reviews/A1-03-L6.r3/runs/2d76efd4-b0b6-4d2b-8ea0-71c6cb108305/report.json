@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L6.r3",
+  "packetHash": "d0fb34a16f8690fd2718c96712cc12732e6dad8537333c6ea29824c5e012d019",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "a44dbc82c8baa78b6310d599540f83ddc8274df6234289930071583e2239bcdd",
+    "reviewerPacketSha256": "3bc36510a1bf13f22ed05ec8f64cc39a3c9aa3a481ea64679c99f2c4aa883c29",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-o1TVI8/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-o1TVI8/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-o1TVI8/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-o1TVI8/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-o1TVI8/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bfed-95f1-7e61-8488-42131d253d8b",
+        "version": "v0.166.0",
+        "tokens used": "31,593"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-03-L6-T43",
+        "reviewerAnswer": "¿De dónde es Ana?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly requests the practiced basic order, and e3 feedback correctly acknowledges the conversational alternative."
+      },
+      {
+        "caseId": "task:A1-03-L6-T61",
+        "reviewerAnswer": "¿Dónde está Pablo?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The visible structural reminder fits the supported role. The requested order justifies the treatment of e2."
+      },
+      {
+        "caseId": "task:A1-03-L6-T67",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt specifies a first-time question and asks for the usual order; option c feedback acknowledges other conversational usage."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T43",
+      "contentHash": "e7b6299aa44e0511ad8beddd1786563ffe8336b44eab7d1c8c4dd0218c53619d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T43",
+      "verdict": "valid",
+      "reviewerAnswer": "¿De dónde es Ana?",
+      "notes": "The prompt explicitly requests the practiced basic order, and e3 feedback correctly acknowledges the conversational alternative.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T61",
+      "contentHash": "bde8ae6c877f96b943a011996e090254c72543ae5e3889364de5d66e8fedde45",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T61",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde está Pablo?",
+      "notes": "The visible structural reminder fits the supported role. The requested order justifies the treatment of e2.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L6-T67",
+      "contentHash": "f212693be7a47c3d0c0f00f93e6d877d228a6620c21b858f58a8fabf265c6d67",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L6-T67",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The prompt specifies a first-time question and asks for the usual order; option c feedback acknowledges other conversational usage.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

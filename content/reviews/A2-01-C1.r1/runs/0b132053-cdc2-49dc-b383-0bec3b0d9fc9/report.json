@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-01-C1.r1",
+  "packetHash": "05fb2c647b06952f76ce22e4af50f1f50e13250b04dbeb1253b034d188d6e8f7",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "01d878ef9071ecb8f7aa9dab6d35d40a5857180863f23f1f8fbd1af6fb908043",
+    "reviewerPacketSha256": "acc386b2d5f3fa52d61e21641b7e9be62c4292ccaab9b1ed949bfa1892abd929",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-cTFBCd/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-cTFBCd/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-cTFBCd/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-cTFBCd/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-cTFBCd/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c03d-d95d-7190-9b5c-3ea55bd0316c",
+        "version": "v0.166.0",
+        "tokens used": "19,860"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A2-01-C1",
+        "reviewerAnswer": "Not applicable: this is a lesson overview, with no learner answer requested.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T01",
+        "reviewerAnswer": "empieza",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T02",
+        "reviewerAnswer": "pedís",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T03",
+        "reviewerAnswer": "traigo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T04",
+        "reviewerAnswer": "conduzco",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T05",
+        "reviewerAnswer": "escojo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T06",
+        "reviewerAnswer": "están durmiendo",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets includes \"present.estar/written-form\".",
+        "defect": "The hint explains the progressive construction and the form durmiendo. It gives no conjugated form or conjugation guidance for estar, so it overattributes support to the written-form target.",
+        "correction": "Remove present.estar/written-form from this hint's targets, or add guidance connecting todos with están.",
+        "sources": [
+          "Course contract rule 6: hint targets must match the targets actually explained.",
+          "Packet task:A2-01-C1-T06, task.hints[0].blocks[0] and context.targets."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T07",
+        "reviewerAnswer": "voy a aprender",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T08",
+        "reviewerAnswer": "tienes que trabajar",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets includes \"present.tener/written-form\".",
+        "defect": "The hint explains obligation and which verb is conjugated. It provides no information about the present-tense forms of tener, so the written-form support attribution is excessive.",
+        "correction": "Remove present.tener/written-form from this hint's targets, or add a conjugation cue such as tú → tienes.",
+        "sources": [
+          "Course contract rule 6: hint targets must match the targets actually explained.",
+          "Packet task:A2-01-C1-T08, task.hints[0].blocks[0] and context.targets."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T09",
+        "reviewerAnswer": "hace mucho viento; hay mucho viento also answers the stated prompt.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"hay mucho viento\", alongside the sole target \"formula.weather-hace/construction-use\".",
+        "defect": "The alternative is correct Spanish, but it does not demonstrate hace + noun. Treating it as successful use of that specific construction misattributes assessment evidence (inferred from the sole target and the accepted-answer key).",
+        "correction": "Explicitly require hace + noun in the prompt and retain hace mucho viento for that assessment, or revise the target and grading to accommodate hay separately.",
+        "sources": [
+          "Packet task:A2-01-C1-T09, task.prompt[0], task.targets[0] and task.accepted[1].",
+          "Course contract rule 3: accepted entries are reviewed acceptable answers.",
+          "RAE/ASALE, Diccionario de la lengua española, entry «haber», impersonal existential use (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T10",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Звичка — простий теперішній; дія зараз — estar + gerundio.\"; task.feedback.correctUk: \"Правильно: сьогодні, зараз — estar + gerundio.\"",
+        "defect": "The explanation overstates the contrast. Hoy does not itself imply an ongoing action, and the simple present can also describe an action happening now. Option a is appropriate, but these statements teach an unreliable construction-selection rule.",
+        "correction": "Explain that estoy viendo emphasizes an ongoing process in this message. Remove сьогодні as a trigger and avoid implying that current actions require estar + gerundio.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, treatment of the actual present and the progressive periphrasis estar + gerundio (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-C1-T11",
+        "reviewerAnswer": "a (sabe), the ordinary choice for this directions request.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.options[1].feedbackUk: \"Перед непрямим питанням (dónde…) уживаємо saber.\"; task.feedback.correctUk: \"Правильно: перед dónde — saber.\"; task.feedback.incorrectUk: \"Перед dónde — saber: ¿Sabe dónde está…?\"",
+        "defect": "Sabe is the conventional choice here, but the explanations incorrectly present indirect questions, or dónde itself, as requiring saber. Conocer can also introduce indirect interrogative complements; the preference cannot be explained as an absolute syntactic restriction.",
+        "correction": "Ask for the most natural everyday directions question and explain the contextual preference for sabe. Replace the categorical before-dónde rule with a statement scoped to this request.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, treatment of indirect interrogative complements and knowledge predicates, including conocer (from memory)."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A2-01-C1",
+      "contentHash": "40e1149e4cf2847d55b5d3da41a6d4049a8cf07ca75200b94d8996f4bff89c19",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A2-01-C1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this is a lesson overview, with no learner answer requested.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T01",
+      "contentHash": "c340b653de34ac3c0da03cbaf16a8f46a6cab655fb4bb483e79c09fb3201526c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-C1-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "empieza",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T02",
+      "contentHash": "a2e35246d81c291eaa585c37c7297bfabc9befa30f724c6bfab158538d2fa80a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-C1-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "pedís",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T03",
+      "contentHash": "287215183148a0a66465a4b5375dd73e68f1633462ff7aeff4c48591842ca23f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-C1-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "traigo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T04",
+      "contentHash": "0b1ed4f678e4e42ae7e0c73ee13b05d7bd548fdb026299c6ff3149735065b755",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-C1-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "conduzco",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T05",
+      "contentHash": "3d5a671d4215b753f3b634cc87c186e74323d380f8213df479361b4133845e45",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-C1-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "escojo",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T06",
+      "contentHash": "eb2f91a84873097636207aeb7bfb8eab3fdfce7f2f9dba98d44b11bede0a1a11",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets includes \"present.estar/written-form\".",
+          "description": "The hint explains the progressive construction and the form durmiendo. It gives no conjugated form or conjugation guidance for estar, so it overattributes support to the written-form target.",
+          "suggestion": "Remove present.estar/written-form from this hint's targets, or add guidance connecting todos with están."
+        }
+      ],
+      "caseId": "task:A2-01-C1-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "están durmiendo",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6: hint targets must match the targets actually explained.",
+        "Packet task:A2-01-C1-T06, task.hints[0].blocks[0] and context.targets."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T07",
+      "contentHash": "4a7f2c9b83c9307aff8498df0832c0ee67a145e24f4129d66d74b04beb40de38",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-C1-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "voy a aprender",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T08",
+      "contentHash": "a413d062b6c9b612b9aaa15fa76da4325ee511114b6d70556c72a0eea25c4ccb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets includes \"present.tener/written-form\".",
+          "description": "The hint explains obligation and which verb is conjugated. It provides no information about the present-tense forms of tener, so the written-form support attribution is excessive.",
+          "suggestion": "Remove present.tener/written-form from this hint's targets, or add a conjugation cue such as tú → tienes."
+        }
+      ],
+      "caseId": "task:A2-01-C1-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "tienes que trabajar",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6: hint targets must match the targets actually explained.",
+        "Packet task:A2-01-C1-T08, task.hints[0].blocks[0] and context.targets."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T09",
+      "contentHash": "a971e76a1e42f92e26748ff5b047574ee82bd8349a4cdf83f4e4235764ef5ffd",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"hay mucho viento\", alongside the sole target \"formula.weather-hace/construction-use\".",
+          "description": "The alternative is correct Spanish, but it does not demonstrate hace + noun. Treating it as successful use of that specific construction misattributes assessment evidence (inferred from the sole target and the accepted-answer key).",
+          "suggestion": "Explicitly require hace + noun in the prompt and retain hace mucho viento for that assessment, or revise the target and grading to accommodate hay separately."
+        }
+      ],
+      "caseId": "task:A2-01-C1-T09",
+      "verdict": "flawed",
+      "reviewerAnswer": "hace mucho viento; hay mucho viento also answers the stated prompt.",
+      "notes": "",
+      "sources": [
+        "Packet task:A2-01-C1-T09, task.prompt[0], task.targets[0] and task.accepted[1].",
+        "Course contract rule 3: accepted entries are reviewed acceptable answers.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «haber», impersonal existential use (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T10",
+      "contentHash": "8e4217398429625ebe7f3de198911d27bcd65a6efebb55bafa578ed1f15e1d6c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Звичка — простий теперішній; дія зараз — estar + gerundio.\"; task.feedback.correctUk: \"Правильно: сьогодні, зараз — estar + gerundio.\"",
+          "description": "The explanation overstates the contrast. Hoy does not itself imply an ongoing action, and the simple present can also describe an action happening now. Option a is appropriate, but these statements teach an unreliable construction-selection rule.",
+          "suggestion": "Explain that estoy viendo emphasizes an ongoing process in this message. Remove сьогодні as a trigger and avoid implying that current actions require estar + gerundio."
+        }
+      ],
+      "caseId": "task:A2-01-C1-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of the actual present and the progressive periphrasis estar + gerundio (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-C1-T11",
+      "contentHash": "706830c74be44f4c1d5b6144962e75542ef01411b182b6d1955b11ad9b55bfbe",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[1].feedbackUk: \"Перед непрямим питанням (dónde…) уживаємо saber.\"; task.feedback.correctUk: \"Правильно: перед dónde — saber.\"; task.feedback.incorrectUk: \"Перед dónde — saber: ¿Sabe dónde está…?\"",
+          "description": "Sabe is the conventional choice here, but the explanations incorrectly present indirect questions, or dónde itself, as requiring saber. Conocer can also introduce indirect interrogative complements; the preference cannot be explained as an absolute syntactic restriction.",
+          "suggestion": "Ask for the most natural everyday directions question and explain the contextual preference for sabe. Replace the categorical before-dónde rule with a statement scoped to this request."
+        }
+      ],
+      "caseId": "task:A2-01-C1-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "a (sabe), the ordinary choice for this directions request.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of indirect interrogative complements and knowledge predicates, including conocer (from memory)."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

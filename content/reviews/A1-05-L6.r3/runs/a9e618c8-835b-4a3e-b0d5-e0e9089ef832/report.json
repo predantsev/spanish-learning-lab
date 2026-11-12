@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-05-L6.r3",
+  "packetHash": "24d9ed736ffab00969df098fcc9d546194b0e97be0b84b526b7972a40951f5d8",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "3750b35e0e3bb8eca24274decb2f703f5834bc5ab0181249534bdf9659cfe609",
+    "reviewerPacketSha256": "5131e19d063289d00df09e51b5c33c1b8c45b0c1eb7b416538205b0c1c1f6dea",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-PZBFqV/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-PZBFqV/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-PZBFqV/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-PZBFqV/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-PZBFqV/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c002-af18-7bc2-ae38-c6b44ef523f2",
+        "version": "v0.166.0",
+        "tokens used": "41,851"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-05-L6-T13",
+        "reviewerAnswer": "b — Cuál.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The visible model is permitted for the supported role."
+      },
+      {
+        "caseId": "task:A1-05-L6-T15",
+        "reviewerAnswer": "a — Qué, for the usual usage in Spain requested by the prompt.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The rule hint supplies the before-noun construction. Broadening the target description beyond es/son would improve alignment."
+      },
+      {
+        "caseId": "task:A1-05-L6-T22",
+        "reviewerAnswer": "¿Dónde está la farmacia?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The supported role permits the model. No closed key is declared, so omitted paraphrases do not demonstrate rejection of valid answers."
+      },
+      {
+        "caseId": "task:A1-05-L6-T25",
+        "reviewerAnswer": "¿Quién es la profesora?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The explicitly quoted Ukrainian question fixes the requested meaning. No closed key is declared."
+      },
+      {
+        "caseId": "task:A1-05-L6-T30",
+        "reviewerAnswer": "¿Cuánto cuesta la clase de español? Also valid: ¿Cuánto cuestan las clases de español? Both can omit de español in this context.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key covers both singular and plural readings of “заняття”. No closed key is declared."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T13",
+      "contentHash": "3e330432fa3f2a832c98ef377069c193ab9059523ce929ba07fef1d668345613",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-L6-T13",
+      "verdict": "valid",
+      "reviewerAnswer": "b — Cuál.",
+      "notes": "The visible model is permitted for the supported role.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T15",
+      "contentHash": "60ff0e0d52aff30ce5009530345c890a0a35a7d098b43060b47cfd411642a41d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-L6-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "a — Qué, for the usual usage in Spain requested by the prompt.",
+      "notes": "The rule hint supplies the before-noun construction. Broadening the target description beyond es/son would improve alignment.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T22",
+      "contentHash": "53153fa68c653cf63df9a4c0ad45c5835de2e02118566b8369523aebd05c9e29",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-L6-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde está la farmacia?",
+      "notes": "The supported role permits the model. No closed key is declared, so omitted paraphrases do not demonstrate rejection of valid answers.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T25",
+      "contentHash": "7ab2206415ec20595b4dc780c183a5efb3aeb62ebf279b8a091e2c96cbed23fa",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-L6-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Quién es la profesora?",
+      "notes": "The explicitly quoted Ukrainian question fixes the requested meaning. No closed key is declared.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L6-T30",
+      "contentHash": "e61ff0f7460034db829a6756bd1d034f9b4974530f7a7c9ac6452e2795d9bfa2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-05-L6-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cuánto cuesta la clase de español? Also valid: ¿Cuánto cuestan las clases de español? Both can omit de español in this context.",
+      "notes": "The key covers both singular and plural readings of “заняття”. No closed key is declared.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

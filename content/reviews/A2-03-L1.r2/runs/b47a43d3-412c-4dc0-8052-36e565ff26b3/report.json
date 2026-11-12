@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-03-L1.r2",
+  "packetHash": "e8916d74fc7d2b02eebd3061c4899ef724b32b3d28d20279bd2911868ccf91bf",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "d36582d07decbec8455bff21d85defbf128f60941b523aa64ab1e0eda2d0e34a",
+    "reviewerPacketSha256": "c3a9877d2dbb5f02d848e8f4be527fe8532a47ed2ef5f0c264f12048837b44ee",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-IcBBjn/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-IcBBjn/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-IcBBjn/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-IcBBjn/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-IcBBjn/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc90-83f2-7ed0-b134-9c734ae321ea",
+        "version": "v0.166.0",
+        "tokens used": "23,603"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:perfecto.haber-vs-hay",
+        "reviewerAnswer": "Hay un banco aquí expresses existence. Ana ha comido uses ha as the third-person singular auxiliary of the pretérito perfecto compuesto; *hay comido is incorrect.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The grammatical distinction, Spanish examples and Ukrainian explanations are correct."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "perfecto.haber-vs-hay",
+      "contentHash": "2b1c6aa0554366a18fc4d12da2fdf38013c2dc0ebabc71f197d568d1e666d49b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:perfecto.haber-vs-hay",
+      "verdict": "valid",
+      "reviewerAnswer": "Hay un banco aquí expresses existence. Ana ha comido uses ha as the third-person singular auxiliary of the pretérito perfecto compuesto; *hay comido is incorrect.",
+      "notes": "The grammatical distinction, Spanish examples and Ukrainian explanations are correct.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

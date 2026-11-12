@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-06-L5.r3",
+  "packetHash": "f835759f6e972f580fc141c56c0ea467d6f17c31555a4402369859ba9983def3",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "3bb9f7a0d68d1dd6ea11835ebd73aa6aac043df950a8975a7f46573100d222a4",
+    "reviewerPacketSha256": "df9589984cf37a0e4746c5f034d603c743e3ca8798e9fe75c75d820d4ab2b059",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-4i8On4/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-4i8On4/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-4i8On4/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-4i8On4/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-4i8On4/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c0f9-b3bd-7711-b24a-9cf587fd14ac",
+        "version": "v0.166.0",
+        "tokens used": "33,856"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-06-L5-T02",
+        "reviewerAnswer": "Me gusta leer y cocinar. Also acceptable: Me gusta leer y me gusta cocinar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not marked closed; omitted acceptable variants are not demonstrably rejected."
+      },
+      {
+        "caseId": "task:A1-06-L5-T25",
+        "reviewerAnswer": "Estoy cansado, pero trabajo.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[1].text: \"Estoy cansado pero trabajo.\"",
+        "defect": "This accepted answer omits the required comma before pero connecting two clauses. The policy permits optional final punctuation, not omission of an internal comma.",
+        "correction": "Remove v2 or replace it with a correctly punctuated variant such as \"Yo estoy cansado, pero trabajo.\"",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry «coma», use before adversative coordinated clauses introduced by pero (from memory).",
+          "Course contract rules 3, 5 and 8."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L5-T33",
+        "reviewerAnswer": "Bebo café porque estoy cansado. Also acceptable: Tomo café porque estoy cansado.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not marked closed; additional correct translations are not demonstrably rejected. The unlisted drinking verbs are ordinary A1 vocabulary."
+      },
+      {
+        "caseId": "task:A1-06-L5-T53",
+        "reviewerAnswer": "b",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L5-T56",
+        "reviewerAnswer": "Por qué",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T02",
+      "contentHash": "2e9478e3a2a146e835ff4e08aa68e7db533c5bf74acd5986581e53220075221d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L5-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Me gusta leer y cocinar. Also acceptable: Me gusta leer y me gusta cocinar.",
+      "notes": "The key is not marked closed; omitted acceptable variants are not demonstrably rejected.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T25",
+      "contentHash": "abc9ac049d8a7fedf08595cde724635c4c8d1ede86be3be82aeea3bdb676de60",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[1].text: \"Estoy cansado pero trabajo.\"",
+          "description": "This accepted answer omits the required comma before pero connecting two clauses. The policy permits optional final punctuation, not omission of an internal comma.",
+          "suggestion": "Remove v2 or replace it with a correctly punctuated variant such as \"Yo estoy cansado, pero trabajo.\""
+        }
+      ],
+      "caseId": "task:A1-06-L5-T25",
+      "verdict": "flawed",
+      "reviewerAnswer": "Estoy cansado, pero trabajo.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry «coma», use before adversative coordinated clauses introduced by pero (from memory).",
+        "Course contract rules 3, 5 and 8."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T33",
+      "contentHash": "ed007ce4546ca9c4fa2ae8410ee4b5add05e8643538be81c298810066ed5a9f7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L5-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "Bebo café porque estoy cansado. Also acceptable: Tomo café porque estoy cansado.",
+      "notes": "The key is not marked closed; additional correct translations are not demonstrably rejected. The unlisted drinking verbs are ordinary A1 vocabulary.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T53",
+      "contentHash": "7e736562fb37b144ab0f7250527c8e596447fcfcc60c3cb9ceec8674e288efa1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L5-T53",
+      "verdict": "valid",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L5-T56",
+      "contentHash": "f197225f5af8fb14748275686e53949ada6d53bdd4e8b2d07db2bfb53afdce9b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L5-T56",
+      "verdict": "valid",
+      "reviewerAnswer": "Por qué",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

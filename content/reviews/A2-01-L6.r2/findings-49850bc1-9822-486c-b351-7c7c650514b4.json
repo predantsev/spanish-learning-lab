@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-01-L6.r2",
+  "jobId": "49850bc1-9822-486c-b351-7c7c650514b4",
+  "receiptId": "5f36e29f-dfdb-4f7c-bb1c-c827f66904ce",
+  "recordedAt": "2026-11-09T16:07:27.372Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L6-T34",
+      "contentHash": "f36129f93ede93a0d1cbc3c75559819826996b17efa6a0b53a5e7cf318eacb76",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[1]: label \"puede\", outcome \"incorrect\"; feedbackUk \"Читати вчаться: це вміння, тому saber.\"",
+          "description": "Poder can express general capacity, including an inability resulting from not having learned something. The stated situation therefore permits \"no puede leer\" as a broader description of the same inability. The prompt asks which verb fits, without requiring the verb that specifically denotes learned know-how.",
+          "suggestion": "Explicitly ask for the verb meaning 'know how to', or accept both options and explain that saber specifically identifies the missing learned skill."
+        }
+      ],
+      "caseId": "task:A2-01-L6-T34",
+      "verdict": "flawed",
+      "reviewerAnswer": "a (sabe) specifically expresses the missing learned skill; b (puede) can also express the child's inability to read.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2 and the review duty concerning acceptable answers rejected.",
+        "RAE/ASALE, Diccionario de la lengua española, entries «poder» and «saber», meanings concerning capacity and learned ability (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L6-T50",
+      "contentHash": "1661426738bbb0631740e27044380c2b8e0d935a54ca420c7f8656683e910cb4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets includes \"present.tener/written-form\", while the hint says \"Que обов’язкове; змінюється лише tener.\" and models \"Tengo que trabajar\".",
+          "description": "The hint explains the construction and identifies which verb is conjugated, but does not explain how to form or spell the required nosotros form tenemos. Its attribution to the written-form target overstates the assistance provided.",
+          "suggestion": "Remove \"present.tener/written-form\" from this hint's targets, or add a conjugation explanation that includes tenemos."
+        }
+      ],
+      "caseId": "task:A2-01-L6-T50",
+      "verdict": "flawed",
+      "reviewerAnswer": "tenemos que salir",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6: hint targets must match the targets the help actually explains."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L6-T62",
+      "contentHash": "ae33b1709fcfb27d9d7f7ea6e1960f21d907e1b1f7f444e03d010c6f4b0c510d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.closed: true; task.accepted contains only \"acabo de llegar\" and \"yo acabo de llegar\".",
+          "description": "The closed key rejects grammatical subject placements such as \"acabo yo de llegar\" and \"acabo de llegar yo\". Both complete the supplied sentence correctly; the prompt imposes no subject-position restriction.",
+          "suggestion": "Add these subject-position variants to accepted, or make the key open."
+        }
+      ],
+      "caseId": "task:A2-01-L6-T62",
+      "verdict": "flawed",
+      "reviewerAnswer": "acabo de llegar; yo acabo de llegar; acabo yo de llegar; acabo de llegar yo",
+      "notes": "",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of subject position with verbal periphrases, including subjects between the auxiliary and infinitive (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L6-T64",
+      "contentHash": "15e53d42e3c3211ea82a3570d998b377c966fcbe18977abe766d851a19e9f1ff",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.closed: true; task.accepted contains only \"acabas de llegar\" and \"tú acabas de llegar\".",
+          "description": "The closed key rejects valid questions with other subject positions: \"¿Acabas tú de llegar?\" and \"¿Acabas de llegar tú?\". No restriction in the prompt excludes them.",
+          "suggestion": "Accept \"acabas tú de llegar\" and \"acabas de llegar tú\", or make the key open."
+        }
+      ],
+      "caseId": "task:A2-01-L6-T64",
+      "verdict": "flawed",
+      "reviewerAnswer": "acabas de llegar; tú acabas de llegar; acabas tú de llegar; acabas de llegar tú",
+      "notes": "",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of subject position in interrogatives and verbal periphrases (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L6-T66",
+      "contentHash": "203937de5bfa705ee339ddf6b809fc43ad734cd402009ab2a3c4cac5f4e9c267",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.closed: true; task.accepted contains only \"acabamos de comer\" and \"nosotros acabamos de comer\".",
+          "description": "The closed key rejects the grammatical alternatives \"acabamos nosotros de comer\" and \"acabamos de comer nosotros\". These preserve the requested person and construction.",
+          "suggestion": "Add these subject-position variants to accepted, or make the key open."
+        }
+      ],
+      "caseId": "task:A2-01-L6-T66",
+      "verdict": "flawed",
+      "reviewerAnswer": "acabamos de comer; nosotros acabamos de comer; acabamos nosotros de comer; acabamos de comer nosotros",
+      "notes": "",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of subject position with verbal periphrases (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L6-T68",
+      "contentHash": "3b0d2cbfca44cfe74be809d911960084bc0eb70ce6e0e03ced1c8cd2d3d1e34e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.closed: true; task.accepted contains only \"acabo de recibir\" and \"yo acabo de recibir\".",
+          "description": "The closed key rejects grammatical completions such as \"acabo yo de recibir\" and \"acabo de recibir yo\" before the supplied \"tu mensaje\". The task does not restrict subject position.",
+          "suggestion": "Add these subject-position variants to accepted, or make the key open."
+        }
+      ],
+      "caseId": "task:A2-01-L6-T68",
+      "verdict": "flawed",
+      "reviewerAnswer": "acabo de recibir; yo acabo de recibir; acabo yo de recibir; acabo de recibir yo",
+      "notes": "",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of subject position with verbal periphrases (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L6-T69",
+      "contentHash": "bc9c3aba09d588eb9448fb3a5815aa8e08d7692d48ee51c76ede6b63292a503e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.closed: true; task.accepted contains only \"acabo de llegar\" and \"yo acabo de llegar\".",
+          "description": "The closed key rejects the grammatical completions \"acabo yo de llegar\" and \"acabo de llegar yo\" before \"al hotel\". Neither changes the requested person or construction.",
+          "suggestion": "Add these subject-position variants to accepted, or make the key open."
+        }
+      ],
+      "caseId": "task:A2-01-L6-T69",
+      "verdict": "flawed",
+      "reviewerAnswer": "acabo de llegar; yo acabo de llegar; acabo yo de llegar; acabo de llegar yo",
+      "notes": "",
+      "sources": [
+        "Course contract rules 3 and 5.",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of subject position with verbal periphrases (from memory)."
+      ]
+    }
+  ]
+}

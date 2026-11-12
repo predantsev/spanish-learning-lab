@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-06-L1.r4",
+  "packetHash": "08107ce2c05a98c8375da64ef972c43e4d78ad8e793ad5313e99640d3ca3175a",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "4e984feb6c31f5edab4449a11e1279f9f531196b39129d75c4aab3b64268fb48",
+    "reviewerPacketSha256": "994517b03e3975cfaac99f8fb2a1e9935da0440b719dbb4ba022f2f3d193917f",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-QW9esw/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-QW9esw/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-QW9esw/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-QW9esw/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-QW9esw/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c0f4-ff35-7042-a883-4a209bcd88f9",
+        "version": "v0.166.0",
+        "tokens used": "39,566"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-06-L1-T04",
+        "reviewerAnswer": "Me gusta el chocolate. Also acceptable: A mí me gusta el chocolate.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T08",
+        "reviewerAnswer": "¿Te gusta la playa? Also acceptable: ¿A ti te gusta la playa?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T16",
+        "reviewerAnswer": "Nos gusta viajar. Also acceptable: A nosotros nos gusta viajar. / A nosotras nos gusta viajar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T20",
+        "reviewerAnswer": "Les gusta bailar. Also acceptable: A ellos les gusta bailar. / A ellas les gusta bailar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T43",
+        "reviewerAnswer": "Les gusta correr en el parque. Also acceptable: A ellos les gusta correr en el parque. / A ellas les gusta correr en el parque.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The first hint supplies the plural experiencer pronoun needed here; the assessed infinitive construction is listed in taughtBefore."
+      },
+      {
+        "caseId": "task:A1-06-L1-T77",
+        "reviewerAnswer": "A mis amigos no les gusta el fútbol. Another acceptable word order: El fútbol no les gusta a mis amigos.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not marked closed; an omitted acceptable word order does not establish that a valid answer is rejected."
+      },
+      {
+        "caseId": "task:A1-06-L1-T78",
+        "reviewerAnswer": "No me gusta cocinar. Also acceptable: A mí no me gusta cocinar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L1-T87",
+        "reviewerAnswer": "A mi hermano le encanta el fútbol. Another acceptable word order: El fútbol le encanta a mi hermano.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not marked closed. Optionally, explain the restriction on muy through its grammatical distribution: it does not directly modify the finite verb."
+      },
+      {
+        "caseId": "task:A1-06-L1-T99",
+        "reviewerAnswer": "A mi madre le gusta mucho bailar. Another acceptable word order: Bailar le gusta mucho a mi madre.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not marked closed; the listed answer correctly satisfies the explicit requirement to use mucho."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T04",
+      "contentHash": "f63cd83c68a4409879b97ef1f725f004a11f06e7810cd2106a66d516b75cbd5a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "Me gusta el chocolate. Also acceptable: A mí me gusta el chocolate.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T08",
+      "contentHash": "746fa4f4f44fa13a2381fa41d8f31ecf0f48d4abaa4ebe74ddb68858abcfb133",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Te gusta la playa? Also acceptable: ¿A ti te gusta la playa?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T16",
+      "contentHash": "2e8eee3ab2f0e1572489a0dab9311f49e46566eca690d5ed5a1a564efcae23d2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "Nos gusta viajar. Also acceptable: A nosotros nos gusta viajar. / A nosotras nos gusta viajar.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T20",
+      "contentHash": "fbb89dd798bc95a17db9fcf373ce58975f4908e17659b9d39c8a4c25c9696094",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T20",
+      "verdict": "valid",
+      "reviewerAnswer": "Les gusta bailar. Also acceptable: A ellos les gusta bailar. / A ellas les gusta bailar.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T43",
+      "contentHash": "7f9c1e050edb6792958d52d3987f2726960662576ec6659bcfd773faa4880095",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T43",
+      "verdict": "valid",
+      "reviewerAnswer": "Les gusta correr en el parque. Also acceptable: A ellos les gusta correr en el parque. / A ellas les gusta correr en el parque.",
+      "notes": "The first hint supplies the plural experiencer pronoun needed here; the assessed infinitive construction is listed in taughtBefore.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T77",
+      "contentHash": "5d09880628d9e78b680e49e813399cc182023733d9ff12818d3f0e03f6a078b4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T77",
+      "verdict": "valid",
+      "reviewerAnswer": "A mis amigos no les gusta el fútbol. Another acceptable word order: El fútbol no les gusta a mis amigos.",
+      "notes": "The key is not marked closed; an omitted acceptable word order does not establish that a valid answer is rejected.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T78",
+      "contentHash": "dda45bf5abc077d52c2fb125f4c3ebbfb17832a720c858da7f208d1255f1172c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T78",
+      "verdict": "valid",
+      "reviewerAnswer": "No me gusta cocinar. Also acceptable: A mí no me gusta cocinar.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T87",
+      "contentHash": "ba88749d1c30cf2c3b2ddd977138b2872376fc1ea5d4ff6feb7b118ac5f50014",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T87",
+      "verdict": "valid",
+      "reviewerAnswer": "A mi hermano le encanta el fútbol. Another acceptable word order: El fútbol le encanta a mi hermano.",
+      "notes": "The key is not marked closed. Optionally, explain the restriction on muy through its grammatical distribution: it does not directly modify the finite verb.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L1-T99",
+      "contentHash": "d669bc9c775e80915d5f2ac45a6d3a47f9aadf58bd3f38cfa0d0ce4b6b185073",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L1-T99",
+      "verdict": "valid",
+      "reviewerAnswer": "A mi madre le gusta mucho bailar. Another acceptable word order: Bailar le gusta mucho a mi madre.",
+      "notes": "The key is not marked closed; the listed answer correctly satisfies the explicit requirement to use mucho.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

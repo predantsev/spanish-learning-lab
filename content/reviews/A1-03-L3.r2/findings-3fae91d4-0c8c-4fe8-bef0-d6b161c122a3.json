@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-03-L3.r2",
+  "jobId": "3fae91d4-0c8c-4fe8-bef0-d6b161c122a3",
+  "receiptId": "b33156f3-b594-49ed-8104-6c4874b5a449",
+  "recordedAt": "2026-11-09T05:56:28.992Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T02",
+      "contentHash": "eae8adf881b433eb7e707c15fbe870484ce7a19217949013c90bd34d28f79a1b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e3].text: \"El libro está sobre la mesa.\"; task.errors[id=e3].feedbackUk: \"Теж правильно: sobre — «на, зверху». Тут тренуємо en: en la mesa.\"",
+          "description": "This is an explicitly reviewed acceptable translation, as the feedback acknowledges, but it appears in errors rather than accepted. The prompt reminds learners about en without explicitly requiring its use.",
+          "suggestion": "Explicitly require en in the prompt and explain that sobre conveys the meaning correctly but does not meet that instruction. Alternatively, accept the translation while leaving the en target unassessed."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "El libro está en la mesa. Also acceptable: El libro está sobre la mesa.",
+      "notes": "The defect concerns an explicitly reviewed alternative. The absence of closed=true does not justify treating arbitrary unlisted variants as rejected.",
+      "sources": [
+        "Course contract rule 3: accepted lists reviewed acceptable answers; errors lists reviewed wrong answers.",
+        "Packet: task.prompt and task.errors[id=e3].feedbackUk."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T03",
+      "contentHash": "ab3a79e07c9a550f8b575fb657d29e4cdbfb64f2e0e13ee23cd70907cb7bcf0d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e3].feedbackUk: \"Тут потрібне, де вони: están en Kiev.\"",
+          "description": "The construction \"Тут потрібне, де вони\" is malformed Ukrainian. The adjective потрібне does not introduce the intended indirect question this way.",
+          "suggestion": "Replace it with \"Тут треба сказати, де вони перебувають: están en Kiev.\""
+        }
+      ],
+      "caseId": "task:A1-03-L3-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis padres están en Kiev.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8: learner-facing Ukrainian must be correct and natural.",
+        "Academic Dictionary of Ukrainian (SUM-11), entries «потрібний» and «потрібно», adjectival and predicative uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T08",
+      "contentHash": "aea3331cfc0d742bcae56d53a669d94540feb40fcd68d14153ad3de3c373185c",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e2].feedbackUk: \"Тут потрібне, де вона: está en Madrid.\"",
+          "description": "The construction \"Тут потрібне, де вона\" is malformed Ukrainian. The intended instruction needs an appropriate predicate introducing the indirect question.",
+          "suggestion": "Replace it with \"Тут треба сказати, де вона перебуває: está en Madrid.\""
+        }
+      ],
+      "caseId": "task:A1-03-L3-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi hermana está en Madrid.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 8: learner-facing Ukrainian must be correct and natural.",
+        "Academic Dictionary of Ukrainian (SUM-11), entries «потрібний» and «потрібно», adjectival and predicative uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T10",
+      "contentHash": "e15787172fc2f6b534b99931285edad54cf4aa75597e25f45a92ee8db5fd7cbc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"Ти залишаєш записку сусідові: «Ключ у кімнаті Ани».\"; context.taughtBefore: no possessive noun + de + owner construction; task.referenceAnswer: \"La llave está en la habitación de Ana.\"",
+          "description": "Producing habitación de Ana requires the possessive construction noun + de + owner. That construction is neither mapped in taughtBefore nor glossed in the prompt or explanatory hints. The final-answer reveal does not establish prior teaching.",
+          "suggestion": "Add the prerequisite with evidence of earlier teaching, or gloss \"la habitación de Ana — кімната Ани\" in the prompt or a vocabulary hint with an empty targets list."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "La llave está en la habitación de Ana.",
+      "notes": "This finding concerns the missing construction in the prerequisite mapping; it does not establish that the construction is absent from the wider course.",
+      "sources": [
+        "Course contract rule 1: required constructions must be taught beforehand or supplied through a gloss.",
+        "Course contract rule 6: a vocabulary gloss supports no grammar target.",
+        "Packet: context.taughtBefore, task.prompt[0], and task.hints."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L3-T43",
+      "contentHash": "e321af846edeec6a91ed0ca8d11e08318762fc0196e9fbb25fe0a80eac41bda3",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1].feedbackUk: \"estar bueno має інші значення (наприклад, «одужати»)\"",
+          "description": "The gloss одужати denotes recovering, a change of state. In the health reading, estar bueno describes being healthy or well, including the resulting state after recovery. The gloss confuses a state with the transition into it.",
+          "suggestion": "Replace the example gloss with \"бути здоровим\" or \"уже бути здоровим після хвороби\". Ponerse bueno can express recovering."
+        }
+      ],
+      "caseId": "task:A1-03-L3-T43",
+      "verdict": "flawed",
+      "reviewerAnswer": "Estamos bien. Explicit Nosotros or Nosotras is also acceptable.",
+      "notes": "The explicit general-wellbeing context supports Estamos bien. The defect is the illustrative gloss, not the intended answer.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry bueno, health-related uses of estar bueno and ponerse bueno (from memory).",
+        "Academic Dictionary of Ukrainian (SUM-11), entry «одужувати», recovery/change-of-state meaning (from memory).",
+        "Course contract rule 8: Spanish meanings and Ukrainian translations must be correct."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-01-C1.r2",
+  "jobId": "9e980ced-4150-453e-8475-1c87800855fa",
+  "receiptId": "255c4a9e-80c6-4200-ac66-bc57ac1b9c0b",
+  "recordedAt": "2026-11-09T00:19:18.185Z",
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T06",
+      "contentHash": "0417a7adccf955a50d9cb072ec39b778ce2ed73dfc83a090d251e6e2e4d67045",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: \"Gracias Ana. ¡Hasta mañana!\" receives \"unresolved\" for both targets; feedbackUk requires \"звертання відокремлюємо комою\".",
+          "description": "Success depends on punctuating a vocative, but context.taughtBefore does not document that construction or its comma rule. The feedback introduces this requirement after the attempt. Both taught formulas are otherwise transcribed correctly.",
+          "suggestion": "Teach vocative punctuation beforehand and include it in taughtBefore, or remove \"Ana\" from the recording and update the transcript and corresponding task fields."
+        }
+      ],
+      "caseId": "task:A1-01-C1-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "Gracias, Ana. ¡Hasta mañana! Also acceptable: Gracias, Ana. Hasta mañana.",
+      "notes": "The comma rule itself is correct. The defect is the undocumented prerequisite, not the Spanish punctuation advice.",
+      "sources": [
+        "Course contract, rule 1: Teach before testing.",
+        "Packet: context.taughtBefore and task.errors[id=e1]."
+      ]
+    }
+  ]
+}

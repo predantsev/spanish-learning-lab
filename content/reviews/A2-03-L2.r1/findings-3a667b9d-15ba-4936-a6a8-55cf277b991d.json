@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-03-L2.r1",
+  "jobId": "3a667b9d-15ba-4936-a6a8-55cf277b991d",
+  "receiptId": "65aa4e3a-8d0a-4da1-87a9-7b09f15893ec",
+  "recordedAt": "2026-11-08T19:14:39.911Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "contrast.gerund-participle",
+      "contentHash": "c33744111a3ad62eb014d02f71c7ef312e38f1b13e409256e965d5b83e711f2b",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.ruleUk: \"Haber + дієприкметник (-ado, -ido) — завершену дію: He comido.\"; content.body.scope.noteUk: \"З estar — герундій (-ando, -iendo), з haber — дієприкметник (-ado, -ido).\"",
+          "description": "Completion is presented as a general meaning of haber + participle, although perfect constructions allow continuing situations, as in He vivido aquí desde niño. The categorical auxiliary rule also excludes grammatical resultative estar + participle, such as estar cenado.",
+          "suggestion": "Describe the progressive and perfect constructions explicitly. Limit the completed-event explanation to He comido, and avoid implying that estar cannot combine with a participle."
+        }
+      ],
+      "caseId": "skill:contrast.gerund-participle",
+      "verdict": "flawed",
+      "reviewerAnswer": "Estoy comiendo describes eating in progress; he comido reports prior eating. Perfect constructions do not invariably imply that a situation has ended, and estar can also take resultative participles.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, pretérito perfecto compuesto and continuative interpretations (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 27, adjectival and predicative uses of participles (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-03-L2-T23",
+      "contentHash": "70e01a7e9d8b6140a50a8d8b6ae3340dbef230860780e0ac674293d2c7545074",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Ahora mis padres están ___ (cenar).\"; task.accepted contains only \"cenando\" with task.closed set to true.",
+          "description": "The prompt does not distinguish an ongoing action from a resulting state. Están cenando means they are eating dinner; están cenados means they have had dinner. The instruction permits either a gerund or a participle, but the closed key covers only the progressive reading.",
+          "suggestion": "Specify whether the parents are currently eating or have already eaten before finalizing the key; alternatively, accept and explain both readings."
+        }
+      ],
+      "caseId": "task:A2-03-L2-T23",
+      "verdict": "uncertain",
+      "reviewerAnswer": "cenando for an ongoing dinner; cenados for the resulting state of having eaten dinner. Both fit the wording.",
+      "notes": "Ahora does not by itself exclude a resulting state.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry cenado, da, adjectival meaning referring to someone who has eaten dinner (from memory).",
+        "Course contract, rule 3; verdict definition for uncertain cases with multiple reasonable readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-03-L2-T27",
+      "contentHash": "bda4596123539f3c7205a12b50b9f820ef03d6714ca22204dbe33374ef3b471e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"Ahora Luis está ___ en la cocina.\"; task.options[1] labels \"comido\" incorrect and says \"Після está — герундій: está comiendo.\"",
+          "description": "Está comido can describe someone who has eaten, a resultative use available in Spain Spanish. Neither Ahora nor en la cocina establishes that Luis is currently eating. The key and feedback assume the progressive reading without specifying it.",
+          "suggestion": "Add context explicitly placing Luis in the middle of eating, or allow both options with explanations of their different meanings."
+        }
+      ],
+      "caseId": "task:A2-03-L2-T27",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a for ongoing eating; b for the resulting state of having eaten. Both readings are possible.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry comido, da, adjectival meaning referring to someone who has eaten (from memory).",
+        "Course contract, rule 2; verdict definition for uncertain cases with multiple reasonable readings."
+      ]
+    }
+  ]
+}

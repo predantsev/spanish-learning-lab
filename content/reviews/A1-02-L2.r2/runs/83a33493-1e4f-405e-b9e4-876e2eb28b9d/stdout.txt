@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "caseId": "task:A1-02-L2-T17",
+      "reviewerAnswer": "a is the likely intended answer, but its exclusion of a previously discussed photo is not established by the prompt. The utterance requests a photo without uniquely identifying it.",
+      "verdict": "uncertain",
+      "blocking": "yes",
+      "element": "task.options[0].label: \"Якесь фото, а не те, про яке вже йшлося.\"; task.feedback.incorrectUk: \"Ні. Una не вказує на фото, про яке вже говорили: його вводять уперше.\"",
+      "defect": "The preceding discourse is missing. An indefinite article does not establish that the referent has never been mentioned, nor does it necessarily exclude a particular photo—for example, when requesting one print of a selected photograph. The key therefore assumes a discourse history that the prompt does not supply.",
+      "correction": "Specify that no particular photo has been identified and that any photo is wanted. Alternatively, revise the options and feedback to contrast unique identification with an indefinite request, without asserting that the photo must be mentioned for the first time.",
+      "sources": [
+        "Packet verdict definition for \"uncertain\": use it when the key selects one reading but the context does not determine that reading.",
+        "RAE/ASALE, Nueva gramática de la lengua española (2009), chapter 14, discussion of specificity and indefinite noun phrases (from memory)."
+      ],
+      "notes": "The Spanish request is natural. The uncertainty concerns its interpretation and the categorical feedback."
+    },
+    {
+      "caseId": "task:A1-02-L2-T18",
+      "reviewerAnswer": "a — la llave.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": "The prompt explicitly establishes one mutually identifiable key, supporting the definite article. The key, feedback and hint attribution agree."
+    }
+  ]
+}

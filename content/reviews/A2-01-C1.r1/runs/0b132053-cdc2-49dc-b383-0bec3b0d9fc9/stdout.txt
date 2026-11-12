@@ -1,0 +1,150 @@
+{
+  "cases": [
+    {
+      "caseId": "lesson:A2-01-C1",
+      "reviewerAnswer": "Not applicable: this is a lesson overview, with no learner answer requested.",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T01",
+      "reviewerAnswer": "empieza",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T02",
+      "reviewerAnswer": "pedís",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T03",
+      "reviewerAnswer": "traigo",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T04",
+      "reviewerAnswer": "conduzco",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T05",
+      "reviewerAnswer": "escojo",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T06",
+      "reviewerAnswer": "están durmiendo",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].targets includes \"present.estar/written-form\".",
+      "defect": "The hint explains the progressive construction and the form durmiendo. It gives no conjugated form or conjugation guidance for estar, so it overattributes support to the written-form target.",
+      "correction": "Remove present.estar/written-form from this hint's targets, or add guidance connecting todos with están.",
+      "sources": [
+        "Course contract rule 6: hint targets must match the targets actually explained.",
+        "Packet task:A2-01-C1-T06, task.hints[0].blocks[0] and context.targets."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T07",
+      "reviewerAnswer": "voy a aprender",
+      "verdict": "valid",
+      "blocking": "no",
+      "element": "",
+      "defect": "",
+      "correction": "",
+      "sources": [],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T08",
+      "reviewerAnswer": "tienes que trabajar",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].targets includes \"present.tener/written-form\".",
+      "defect": "The hint explains obligation and which verb is conjugated. It provides no information about the present-tense forms of tener, so the written-form support attribution is excessive.",
+      "correction": "Remove present.tener/written-form from this hint's targets, or add a conjugation cue such as tú → tienes.",
+      "sources": [
+        "Course contract rule 6: hint targets must match the targets actually explained.",
+        "Packet task:A2-01-C1-T08, task.hints[0].blocks[0] and context.targets."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T09",
+      "reviewerAnswer": "hace mucho viento; hay mucho viento also answers the stated prompt.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.accepted[1].text: \"hay mucho viento\", alongside the sole target \"formula.weather-hace/construction-use\".",
+      "defect": "The alternative is correct Spanish, but it does not demonstrate hace + noun. Treating it as successful use of that specific construction misattributes assessment evidence (inferred from the sole target and the accepted-answer key).",
+      "correction": "Explicitly require hace + noun in the prompt and retain hace mucho viento for that assessment, or revise the target and grading to accommodate hay separately.",
+      "sources": [
+        "Packet task:A2-01-C1-T09, task.prompt[0], task.targets[0] and task.accepted[1].",
+        "Course contract rule 3: accepted entries are reviewed acceptable answers.",
+        "RAE/ASALE, Diccionario de la lengua española, entry «haber», impersonal existential use (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T10",
+      "reviewerAnswer": "a",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.hints[0].blocks[0].text: \"Звичка — простий теперішній; дія зараз — estar + gerundio.\"; task.feedback.correctUk: \"Правильно: сьогодні, зараз — estar + gerundio.\"",
+      "defect": "The explanation overstates the contrast. Hoy does not itself imply an ongoing action, and the simple present can also describe an action happening now. Option a is appropriate, but these statements teach an unreliable construction-selection rule.",
+      "correction": "Explain that estoy viendo emphasizes an ongoing process in this message. Remove сьогодні as a trigger and avoid implying that current actions require estar + gerundio.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of the actual present and the progressive periphrasis estar + gerundio (from memory)."
+      ],
+      "notes": ""
+    },
+    {
+      "caseId": "task:A2-01-C1-T11",
+      "reviewerAnswer": "a (sabe), the ordinary choice for this directions request.",
+      "verdict": "flawed",
+      "blocking": "yes",
+      "element": "task.options[1].feedbackUk: \"Перед непрямим питанням (dónde…) уживаємо saber.\"; task.feedback.correctUk: \"Правильно: перед dónde — saber.\"; task.feedback.incorrectUk: \"Перед dónde — saber: ¿Sabe dónde está…?\"",
+      "defect": "Sabe is the conventional choice here, but the explanations incorrectly present indirect questions, or dónde itself, as requiring saber. Conocer can also introduce indirect interrogative complements; the preference cannot be explained as an absolute syntactic restriction.",
+      "correction": "Ask for the most natural everyday directions question and explain the contextual preference for sabe. Replace the categorical before-dónde rule with a statement scoped to this request.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of indirect interrogative complements and knowledge predicates, including conocer (from memory)."
+      ],
+      "notes": ""
+    }
+  ]
+}

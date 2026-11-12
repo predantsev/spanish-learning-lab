@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-C1.r2",
+  "packetHash": "326cc61888563b7a6eefbd29c459a6a68b9ff5cc94c7631bc55dc4a8c865df93",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "5bd8e1e1a3f94ab2e7aa1061251803c34078f7d3734e9e4ecd74320f09fd493b",
+    "reviewerPacketSha256": "2606f035b7ddbe43d7ecde5d712ca71de05f96854b5872942762297f51c3b411",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RFFVVH/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RFFVVH/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RFFVVH/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RFFVVH/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-RFFVVH/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bef6-d19c-7ae2-ba5f-2707b4b71483",
+        "version": "v0.166.0",
+        "tokens used": "56,963"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-03-C1",
+        "reviewerAnswer": "Not applicable: this case contains a lesson overview, not a learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T03",
+        "reviewerAnswer": "En mi calle hay un parque. El parque es muy bonito.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T04",
+        "reviewerAnswer": "Tengo una hermana. Es alta y rubia.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T05",
+        "reviewerAnswer": "No, no tengo hambre. Tengo sed.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "For clarity, hints[1] could use the affirmative example 'Tengo hambre.' after the affirmative label '«Я голодна»'. The current passage explains the construction rather than explicitly presenting a translation pair."
+      },
+      {
+        "caseId": "task:A1-03-C1-T06",
+        "reviewerAnswer": "Mi padre es médico y es de Odesa.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[id=a4].text: \"Mi padre es médico y es de Odessa.\"",
+        "defect": "The standard Spanish spelling of the Ukrainian city is 'Odesa', with one s. The key accepts 'Odessa', a spelling used in other languages, as correct Spanish.",
+        "correction": "Remove a4; its correctly spelled equivalent is already accepted as a1.",
+        "sources": [
+          "RAE/ASALE, Diccionario panhispánico de dudas, entry 'Odesa' (from memory).",
+          "Course contract, rule 8: Spanish must be correct Spain Spanish."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T07",
+        "reviewerAnswer": "¿Tienes bicicleta? Also acceptable: ¿Tienes una bicicleta? Either can include an explicit 'tú'.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T08",
+        "reviewerAnswer": "¿Cómo es tu nuevo profesor? Also acceptable: ¿Cómo es tu profesor nuevo?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T09",
+        "reviewerAnswer": "Mi hotel está en la plaza. En la plaza hay un restaurante.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T11",
+        "reviewerAnswer": "Mis amigos son ingleses y franceses.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-C1",
+      "contentHash": "64e9fedf57fa484153ca06ab3ad46ad320f38cdf471dad61025cca899ccb0855",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-03-C1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this case contains a lesson overview, not a learner task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T03",
+      "contentHash": "2ceeb9c18de889b24bca898814d65fddaad352195384a3f3a9372945f93d6f70",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "En mi calle hay un parque. El parque es muy bonito.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T04",
+      "contentHash": "b76e36b0857e4c1e6e03a060949717579b885ad10b8abd791e8334d607d19def",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "Tengo una hermana. Es alta y rubia.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T05",
+      "contentHash": "241a176f9734623f40d6ba31ad17899e1fec9963a19a3a6201abc9cfeb7a13d2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "No, no tengo hambre. Tengo sed.",
+      "notes": "For clarity, hints[1] could use the affirmative example 'Tengo hambre.' after the affirmative label '«Я голодна»'. The current passage explains the construction rather than explicitly presenting a translation pair.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T06",
+      "contentHash": "29d2bb15246a89edcc22d25e62b6e938689077d09f68250dadeb3d77f7ec722d",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[id=a4].text: \"Mi padre es médico y es de Odessa.\"",
+          "description": "The standard Spanish spelling of the Ukrainian city is 'Odesa', with one s. The key accepts 'Odessa', a spelling used in other languages, as correct Spanish.",
+          "suggestion": "Remove a4; its correctly spelled equivalent is already accepted as a1."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mi padre es médico y es de Odesa.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, entry 'Odesa' (from memory).",
+        "Course contract, rule 8: Spanish must be correct Spain Spanish."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T07",
+      "contentHash": "73c71dc8c513c069e1bb04bd6e5627b09fc4a6f73b12273364fbc7a63b3f7ac7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Tienes bicicleta? Also acceptable: ¿Tienes una bicicleta? Either can include an explicit 'tú'.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T08",
+      "contentHash": "f24fca5171700bb0e0adc9578e48a6e4d697953eb1c545b9b466af72f3321743",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Cómo es tu nuevo profesor? Also acceptable: ¿Cómo es tu profesor nuevo?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T09",
+      "contentHash": "7fa9b127ffa3d634c29226f6177edfc881a5461a863d139918fde8a9130c1ddf",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi hotel está en la plaza. En la plaza hay un restaurante.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T11",
+      "contentHash": "8e05ecd395508023f4b9f4eebd2194ae53853c9743110b53b95ac939a3ece487",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T11",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis amigos son ingleses y franceses.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

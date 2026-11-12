@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-06-L3.r3",
+  "packetHash": "5d454005d731f5a199217c6f90c3d3fbbefb149ce8f6b0594b2b9c1ac46bea3e",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "4dde1f270d23c5a78b2a25b266072410ea812b9253b46ec28f98cc33a5686c95",
+    "reviewerPacketSha256": "f6df55022808bf62ec3f98ca841bca4ba2d8b75c7d721787c79d838113d62bd0",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-79Xy74/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-79Xy74/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-79Xy74/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-79Xy74/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-79Xy74/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1c00a-7532-7923-8ced-291ff613120f",
+        "version": "v0.166.0",
+        "tokens used": "19,165"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-06-L3",
+        "reviewerAnswer": "No response task. The explanatory patterns are necesitar + noun and necesitar + infinitive: Necesito un bolígrafo; Necesitamos agua; Necesito descansar.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T03",
+        "reviewerAnswer": "¿Necesitas algo?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The accepted questions are correct. No closed key is specified, so omitted alternatives do not demonstrate incorrect grading."
+      },
+      {
+        "caseId": "task:A1-06-L3-T05",
+        "reviewerAnswer": "Necesitamos pan.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-06-L3-T08",
+        "reviewerAnswer": "¿Necesita algo?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The explicit usted instruction resolves the form of address."
+      },
+      {
+        "caseId": "task:A1-06-L3-T10",
+        "reviewerAnswer": "Necesitamos dos billetes.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"На вокзалі. Скажи іспанською: «Нам потрібні два квитки».\"; context.taughtBefore and task.hints provide no vocabulary gloss for \"billete/billetes\", required by task.accepted.",
+        "defect": "Answering requires the ticket vocabulary billete/billetes, which is neither listed among the mapped prerequisites nor glossed in the prompt or hints. Its appearance in the full answer reveal does not supply a vocabulary gloss.",
+        "correction": "Teach billete beforehand or add a vocabulary hint such as \"billetes — квитки\" with an empty targets array.",
+        "sources": [
+          "Course contract, rule 1: required new vocabulary must be taught beforehand or glossed in the prompt or a hint.",
+          "Course contract, rule 6: a vocabulary gloss supports no grammar target."
+        ],
+        "notes": "The Spanish answer itself is correct and natural for a station in Spain."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-06-L3",
+      "contentHash": "191f9369200dc2c4e3df014a8501cfe905cfca75306aa9525560c725aa23f3be",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-06-L3",
+      "verdict": "valid",
+      "reviewerAnswer": "No response task. The explanatory patterns are necesitar + noun and necesitar + infinitive: Necesito un bolígrafo; Necesitamos agua; Necesito descansar.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T03",
+      "contentHash": "b1593a3b83c2c2dffe879a87918a04210a668c919002087ea5f7e3facfd96938",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Necesitas algo?",
+      "notes": "The accepted questions are correct. No closed key is specified, so omitted alternatives do not demonstrate incorrect grading.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T05",
+      "contentHash": "0cbab6a73495b02a3cd35c80776bedef34f68a581501039431aa3458229243d0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T05",
+      "verdict": "valid",
+      "reviewerAnswer": "Necesitamos pan.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T08",
+      "contentHash": "913f119c62a7ff39a9b336b1f41528499c1f7e2c87ca3f8fee89b1c21e03afe2",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-06-L3-T08",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Necesita algo?",
+      "notes": "The explicit usted instruction resolves the form of address.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L3-T10",
+      "contentHash": "0a1214b7ccae3bbfdf91fa2151ff00bc4f0b6e64b7bed724f9d889974de42ed6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[0].text: \"На вокзалі. Скажи іспанською: «Нам потрібні два квитки».\"; context.taughtBefore and task.hints provide no vocabulary gloss for \"billete/billetes\", required by task.accepted.",
+          "description": "Answering requires the ticket vocabulary billete/billetes, which is neither listed among the mapped prerequisites nor glossed in the prompt or hints. Its appearance in the full answer reveal does not supply a vocabulary gloss.",
+          "suggestion": "Teach billete beforehand or add a vocabulary hint such as \"billetes — квитки\" with an empty targets array."
+        }
+      ],
+      "caseId": "task:A1-06-L3-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "Necesitamos dos billetes.",
+      "notes": "The Spanish answer itself is correct and natural for a station in Spain.",
+      "sources": [
+        "Course contract, rule 1: required new vocabulary must be taught beforehand or glossed in the prompt or a hint.",
+        "Course contract, rule 6: a vocabulary gloss supports no grammar target."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

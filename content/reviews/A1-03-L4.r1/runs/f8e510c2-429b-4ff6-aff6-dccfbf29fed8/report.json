@@ -1,0 +1,1283 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L4.r1",
+  "packetHash": "bba2c1cce4e890b54d38867e96068db7e6a73d8b503cd961a43d2a6e6ada2473",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "09216c92b4250ddd0e51fb6264de32a47cbb080f976bf653a3ec037c1bcea65c",
+    "reviewerPacketSha256": "47b9b28e60b05e590deee7ec72071bb8acfb9ba11e5d2ea92618781b0881bd83",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-exup38/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-exup38/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-exup38/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-exup38/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-exup38/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bddb-0873-7be2-a549-5cc264e5d422",
+        "version": "v0.166.0",
+        "tokens used": "118,703"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:contrast.hay-estar",
+        "reviewerAnswer": "Use hay to introduce existence and estar to locate an identifiable entity: Hay un banco en la calle. / El banco está en la calle.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The article mnemonic is a tendency, not an exhaustive grammatical restriction. The explicit contextual caveat and variant policy appropriately acknowledge this."
+      },
+      {
+        "caseId": "skill:hay.existence",
+        "reviewerAnswer": "Hay un libro en la mesa. Hay unas sillas. No hay leche. ¿Hay un hotel aquí? Impersonal present-tense hay does not change with the number of the following noun.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The determiner guidance is an appropriate introductory pattern within the stated scope."
+      },
+      {
+        "caseId": "lexeme:lex.farmacia",
+        "reviewerAnswer": "farmacia, feminine; plural farmacias — «аптека».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.hay",
+        "reviewerAnswer": "hay — «є»; the impersonal present indicative form of haber expressing existence.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The note correctly identifies hay as a form of haber. Categorizing the fixed learning item as an expression does not itself establish a learner-facing grammatical error."
+      },
+      {
+        "caseId": "lexeme:lex.leche",
+        "reviewerAnswer": "leche, feminine — «молоко».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.pan",
+        "reviewerAnswer": "pan, masculine; plural panes — «хліб».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.plaza",
+        "reviewerAnswer": "plaza, feminine; plural plazas — «площа».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.restaurante",
+        "reviewerAnswer": "restaurante, masculine; plural restaurantes — «ресторан».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lexeme:lex.supermercado",
+        "reviewerAnswer": "supermercado, masculine; plural supermercados — «супермаркет».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "lesson:A1-03-L4",
+        "reviewerAnswer": "Hay una farmacia en mi calle. La farmacia está en mi calle. Hay pan y leche en la cocina.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The article-based wording is presented as a hint. Adding an explicit warning that indefinite subjects can also occur with estar would improve precision. Referenced tasks receive separate verdicts below."
+      },
+      {
+        "caseId": "task:A1-03-L4-T01",
+        "reviewerAnswer": "Hay un libro en la mesa. / En la mesa hay un libro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T02",
+        "reviewerAnswer": "Hay sillas en la cocina. / Hay unas sillas en la cocina. Either sentence can also begin with En la cocina.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T03",
+        "reviewerAnswer": "En mi calle hay una farmacia. / Hay una farmacia en mi calle.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T04",
+        "reviewerAnswer": "¿Hay un hotel aquí? Other natural possibilities include ¿Aquí hay un hotel? and ¿Hay un hotel por aquí?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T06",
+        "reviewerAnswer": "En la plaza hay un restaurante. / Hay un restaurante en la plaza.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T07",
+        "reviewerAnswer": "En el parque hay un café. / Hay un café en el parque. Cafetería is also a suitable translation of «кав’ярня».",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt gloss supplies the establishment meaning of café without supplying the assessed construction."
+      },
+      {
+        "caseId": "task:A1-03-L4-T09",
+        "reviewerAnswer": "En el piso hay una cocina grande. / Hay una cocina grande en el piso.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Grande and basic adjective placement are ordinary early A1 material; their omission from the non-exhaustive prerequisite list does not establish an untaught dependency."
+      },
+      {
+        "caseId": "task:A1-03-L4-T10",
+        "reviewerAnswer": "En mi calle hay un supermercado. / Hay un supermercado en mi calle.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T11",
+        "reviewerAnswer": "Hay un banco en la plaza.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[a2].text: \"Hay.\" conflicts with task.prompt[1].text: \"Допиши пропущене слово й напиши речення повністю: «На площі є банк».\"",
+        "defect": "The key accepts only the missing word even though the instruction explicitly requires the complete sentence. Correct spelling of the target word does not satisfy that stated response requirement.",
+        "correction": "Remove the bare-word accepted answer, or revise the instruction to explicitly allow either the missing word or the complete sentence.",
+        "sources": [
+          "Course contract, rule 3; packet fields task.prompt[1] and task.accepted[a2]."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T12",
+        "reviewerAnswer": "Hay unas flores en la mesa.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[a2].text: \"Hay.\" conflicts with task.prompt[0].text: \"Допиши пропущене слово й напиши речення повністю: «На столі є квіти».\"",
+        "defect": "The bare-word answer is accepted despite the explicit requirement to write the whole sentence.",
+        "correction": "Remove the bare-word accepted answer, or explicitly allow a word-only response in the prompt.",
+        "sources": [
+          "Course contract, rule 3; packet fields task.prompt[0] and task.accepted[a2]."
+        ],
+        "notes": "The supplied sentence frame and Ukrainian meaning make knowledge of flores unnecessary for producing the missing word."
+      },
+      {
+        "caseId": "task:A1-03-L4-T13",
+        "reviewerAnswer": "En la calle hay unos coches.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.accepted[a2].text: \"hay.\" conflicts with task.prompt[0].text: \"Допиши пропущене слово й напиши речення повністю: «На вулиці є машини».\"",
+        "defect": "The key accepts a single word although the prompt requires the completed sentence.",
+        "correction": "Remove the bare-word accepted answer, or change the instruction to permit either response format.",
+        "sources": [
+          "Course contract, rule 3; packet fields task.prompt[0] and task.accepted[a2]."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T15",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Nuevo is ordinary early A1 vocabulary, and the Ukrainian scenario supplies its relevant meaning."
+      },
+      {
+        "caseId": "task:A1-03-L4-T16",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T21",
+        "reviewerAnswer": "a is the neutral existential answer. b can fit a specific locative reading; the sentence alone does not establish that reading or exclude it.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[1].text: \"En la calle ___ un banco.\"; task.options[b].outcomes marks está incorrect; task.options[b].feedbackUk: \"Після пропуску un banco — нова річ: hay.\"",
+        "defect": "The prompt supplies an article mnemonic instead of a discourse context. An indefinite article does not by itself exclude locative estar or establish that the speaker is merely introducing existence. The intended existential versus specific locative reading is missing.",
+        "correction": "Add a scenario explicitly asking the learner to introduce the existence of a bank. Otherwise accommodate both readings and avoid determining the key solely from un banco.",
+        "sources": [
+          "Course contract, rule 2 and the definition of an uncertain verdict.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 15 and 37: indefinite noun phrases and locative uses of estar (from memory)."
+        ],
+        "notes": "Hay is the natural default. This finding does not mean that both options are equally natural without supporting discourse."
+      },
+      {
+        "caseId": "task:A1-03-L4-T22",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T23",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The scenario explicitly establishes a question about existence."
+      },
+      {
+        "caseId": "task:A1-03-L4-T24",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T25",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T26",
+        "reviewerAnswer": "a for introducing the presence of some keys; b can fit locating particular keys described indefinitely. More than one reading is possible.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: \"En la mesa ___ unas llaves.\"; task.options[b].outcomes marks están incorrect; task.options[b].feedbackUk: \"Unas llaves — нові, невідомі ключі: hay.\"",
+        "defect": "Nothing establishes whether the speaker is introducing existence or locating a particular set of keys. Unas does not necessarily mean that its referent is nonspecific or unknown, and it does not prohibit estar.",
+        "correction": "Specify the intended discourse situation. For an existential introduction, establish that the speaker is reporting what is present; otherwise accommodate the specific locative reading and revise the article-only explanation.",
+        "sources": [
+          "Course contract, rule 2 and the definition of an uncertain verdict.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapters 15 and 37: specific indefinite noun phrases and locative estar (from memory)."
+        ],
+        "notes": "Hay is the neutral presentational answer, but that preference alone does not justify categorically rejecting están."
+      },
+      {
+        "caseId": "task:A1-03-L4-T27",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T28",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The second clause expresses a state rather than location; the earlier-lesson vocabulary includes abierto and estar with its state meaning."
+      },
+      {
+        "caseId": "task:A1-03-L4-T31",
+        "reviewerAnswer": "El libro está en la mesa. / En la mesa está el libro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The alternative word order is unlisted, but the key is not declared closed and does not mark it incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L4-T32",
+        "reviewerAnswer": "La farmacia está en la plaza. / Está en la plaza.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The existential alternative is explicitly left unresolved rather than being called ungrammatical."
+      },
+      {
+        "caseId": "task:A1-03-L4-T33",
+        "reviewerAnswer": "¡Mis llaves están en la mesa! A declarative version, Mis llaves están en la mesa., also conveys the requested information.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T34",
+        "reviewerAnswer": "¿Hay un supermercado aquí? / ¿Hay un supermercado por aquí?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The scenario explicitly requests an existence question. The different location question receives a neutral outcome and an explanation."
+      },
+      {
+        "caseId": "task:A1-03-L4-T35",
+        "reviewerAnswer": "La llave está en la mesa.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The guest-note context supports an identifiable key. The existential alternative is explicitly left unresolved, not graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L4-T36",
+        "reviewerAnswer": "En la plaza hay un restaurante. El restaurante está abierto. The second sentence may also omit its subject.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The gloss of y is unnecessary for the requested two sentences, but its empty target list is correct."
+      },
+      {
+        "caseId": "task:A1-03-L4-T37",
+        "reviewerAnswer": "¿Dónde está el banco?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The accentless answer is not accepted: its outcome is neutral and its spelling error is explicitly identified. «Знак наголосу» is the correct course term."
+      },
+      {
+        "caseId": "task:A1-03-L4-T38",
+        "reviewerAnswer": "Mi padre está en la oficina. En la oficina hay un café. Cafetería is another suitable noun for the establishment.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The café gloss fixes the intended establishment meaning. Other acceptable vocabulary variants are not declared incorrect by this non-closed key."
+      },
+      {
+        "caseId": "task:A1-03-L4-T39",
+        "reviewerAnswer": "Mi madre está en la cocina.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T40",
+        "reviewerAnswer": "En la cocina hay una mesa. / Hay una mesa en la cocina.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T51",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript supports the key and translation. It appears only in an appropriately labeled hint. Audio realization was not assessed."
+      },
+      {
+        "caseId": "task:A1-03-L4-T52",
+        "reviewerAnswer": "a",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: \"Питання з питальним словом (¿Dónde…?) починається з цього слова.\"",
+        "defect": "This states an unrestricted word-order rule that is false. A Spanish question can place a subject or topic before the interrogative word, as in ¿Tú dónde estás?, or begin with a preposition, as in ¿De dónde eres? The provided clip follows one common pattern, not a universal rule.",
+        "correction": "Limit the hint to this recording: explain that dónde means «де» and identifies a question about location. Remove the claim that every question with an interrogative word begins with that word.",
+        "sources": [
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, treatment of interrogative constructions, interrogative phrases and preceding topics (from memory)."
+        ],
+        "notes": "The answer key, transcript and Ukrainian translation otherwise agree. Audio realization was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a1-03.calle-farmacia",
+        "reviewerAnswer": "En mi calle hay una farmacia. — «На моїй вулиці є аптека.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Text and translation only; audio realization was not assessed."
+      },
+      {
+        "caseId": "clip:clip.a1-03.donde-estacion",
+        "reviewerAnswer": "Perdón, ¿dónde está la estación? — «Перепрошую, де вокзал?»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The translation is natural for the railway-station reading of estación. Audio realization was not assessed."
+      },
+      {
+        "caseId": "phrase:phrase.en-mi-calle-hay-una-tienda",
+        "reviewerAnswer": "En mi calle hay una tienda. — «На моїй вулиці є магазин.»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Hay una tienda en mi calle. is another natural word order, but the recall key is not declared closed."
+      },
+      {
+        "caseId": "phrase:phrase.hay-un-hotel-aqui",
+        "reviewerAnswer": "¿Hay un hotel aquí? — «Тут є готель?»",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "contrast.hay-estar",
+      "contentHash": "11030f332c9a3b5491d896e3474eb48700de7d2cea45429e87ad959912e0ce96",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:contrast.hay-estar",
+      "verdict": "valid",
+      "reviewerAnswer": "Use hay to introduce existence and estar to locate an identifiable entity: Hay un banco en la calle. / El banco está en la calle.",
+      "notes": "The article mnemonic is a tendency, not an exhaustive grammatical restriction. The explicit contextual caveat and variant policy appropriately acknowledge this.",
+      "sources": []
+    },
+    {
+      "kind": "skill",
+      "logicalId": "hay.existence",
+      "contentHash": "3f038d66abb1f3e66b078b654424a5eb1517221b87d5e4fdf18b6084eb0e75c5",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:hay.existence",
+      "verdict": "valid",
+      "reviewerAnswer": "Hay un libro en la mesa. Hay unas sillas. No hay leche. ¿Hay un hotel aquí? Impersonal present-tense hay does not change with the number of the following noun.",
+      "notes": "The determiner guidance is an appropriate introductory pattern within the stated scope.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.farmacia",
+      "contentHash": "fd905658ff788c3e2293f12681a2cf3f7c8d9296e8ebabc75163249f730abd6a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.farmacia",
+      "verdict": "valid",
+      "reviewerAnswer": "farmacia, feminine; plural farmacias — «аптека».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.hay",
+      "contentHash": "9b15108d8ef1dae5773141fb4b57e2df6692a13a940fe6cf8cbabe45a5009b9b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.hay",
+      "verdict": "valid",
+      "reviewerAnswer": "hay — «є»; the impersonal present indicative form of haber expressing existence.",
+      "notes": "The note correctly identifies hay as a form of haber. Categorizing the fixed learning item as an expression does not itself establish a learner-facing grammatical error.",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.leche",
+      "contentHash": "1b06466ea84b3db67547608e6a0f7d946f3049d64b9019a9a5db48efdca9574a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.leche",
+      "verdict": "valid",
+      "reviewerAnswer": "leche, feminine — «молоко».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.pan",
+      "contentHash": "7649fb0e5aad8d98be055b3c410d6c9f69afab1442b14539484d511ca9261c89",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.pan",
+      "verdict": "valid",
+      "reviewerAnswer": "pan, masculine; plural panes — «хліб».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.plaza",
+      "contentHash": "3195cb8d8784e5254760b7e72198bfd99d1bc017174e7a02d6693c12a1bfea27",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.plaza",
+      "verdict": "valid",
+      "reviewerAnswer": "plaza, feminine; plural plazas — «площа».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.restaurante",
+      "contentHash": "7a85524b24ae56a1c45fb10547b74708f397cc8799556f327b0e8efd026cc4b0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.restaurante",
+      "verdict": "valid",
+      "reviewerAnswer": "restaurante, masculine; plural restaurantes — «ресторан».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lexeme",
+      "logicalId": "lex.supermercado",
+      "contentHash": "9460ff775f450a8489aef45f1a3b444480c868f659f7f6ce2694b3701178c829",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lexeme:lex.supermercado",
+      "verdict": "valid",
+      "reviewerAnswer": "supermercado, masculine; plural supermercados — «супермаркет».",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L4",
+      "contentHash": "d3c984e80d56a8535ee350da8088e0996f0e4a4e20e421283e4213a4d3007464",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-03-L4",
+      "verdict": "valid",
+      "reviewerAnswer": "Hay una farmacia en mi calle. La farmacia está en mi calle. Hay pan y leche en la cocina.",
+      "notes": "The article-based wording is presented as a hint. Adding an explicit warning that indefinite subjects can also occur with estar would improve precision. Referenced tasks receive separate verdicts below.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T01",
+      "contentHash": "cfbff350615c135e88adf30029322bf8269b6ca794e4fa01fa256851875a6b8d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "Hay un libro en la mesa. / En la mesa hay un libro.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T02",
+      "contentHash": "595d1f563b003e4d1ac0cc36ffb8307ade847489f10c541111cc35bc08a79a1a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Hay sillas en la cocina. / Hay unas sillas en la cocina. Either sentence can also begin with En la cocina.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T03",
+      "contentHash": "d1afb83941def4eafff928bab34f730c04b8d7b903baefcaa92184553a7ceb3d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "En mi calle hay una farmacia. / Hay una farmacia en mi calle.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T04",
+      "contentHash": "e4f4de237001c62fcf30e029dea37dcbbfbfa145526cc1b3a85e5affbdbce94b",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Hay un hotel aquí? Other natural possibilities include ¿Aquí hay un hotel? and ¿Hay un hotel por aquí?",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T06",
+      "contentHash": "b33967a3f22a90d79299a1b3504718ac386fe4cea8eb130424a5e0c52ae93c9a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T06",
+      "verdict": "valid",
+      "reviewerAnswer": "En la plaza hay un restaurante. / Hay un restaurante en la plaza.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T07",
+      "contentHash": "53a65840af8b8646212014d3c8712aef2db7df9c1b403ba1b152d5d1e2b562b0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "En el parque hay un café. / Hay un café en el parque. Cafetería is also a suitable translation of «кав’ярня».",
+      "notes": "The prompt gloss supplies the establishment meaning of café without supplying the assessed construction.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T09",
+      "contentHash": "fb780cf111a8cee7ceb623b708b9bb7f5d94bc9a0e9d14da2feb085e6b4754ba",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "En el piso hay una cocina grande. / Hay una cocina grande en el piso.",
+      "notes": "Grande and basic adjective placement are ordinary early A1 material; their omission from the non-exhaustive prerequisite list does not establish an untaught dependency.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T10",
+      "contentHash": "1a0c2547ede2562631f8185da7302e2486aae7695895c14594568e8302ffb055",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "En mi calle hay un supermercado. / Hay un supermercado en mi calle.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T11",
+      "contentHash": "037f1b6a189917d387e259cdde01926aa77294da81eafbda94d0e85a13fc9fdc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[a2].text: \"Hay.\" conflicts with task.prompt[1].text: \"Допиши пропущене слово й напиши речення повністю: «На площі є банк».\"",
+          "description": "The key accepts only the missing word even though the instruction explicitly requires the complete sentence. Correct spelling of the target word does not satisfy that stated response requirement.",
+          "suggestion": "Remove the bare-word accepted answer, or revise the instruction to explicitly allow either the missing word or the complete sentence."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "Hay un banco en la plaza.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3; packet fields task.prompt[1] and task.accepted[a2]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T12",
+      "contentHash": "eba9923ac1ca92c04a5c85b903a008bd3f8d52e0249b89dbc9571201b480d51f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[a2].text: \"Hay.\" conflicts with task.prompt[0].text: \"Допиши пропущене слово й напиши речення повністю: «На столі є квіти».\"",
+          "description": "The bare-word answer is accepted despite the explicit requirement to write the whole sentence.",
+          "suggestion": "Remove the bare-word accepted answer, or explicitly allow a word-only response in the prompt."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "Hay unas flores en la mesa.",
+      "notes": "The supplied sentence frame and Ukrainian meaning make knowledge of flores unnecessary for producing the missing word.",
+      "sources": [
+        "Course contract, rule 3; packet fields task.prompt[0] and task.accepted[a2]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T13",
+      "contentHash": "c738a674ff054cae3967c897db169d92057c7af13d8cc1c146d92bc1305143d6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.accepted[a2].text: \"hay.\" conflicts with task.prompt[0].text: \"Допиши пропущене слово й напиши речення повністю: «На вулиці є машини».\"",
+          "description": "The key accepts a single word although the prompt requires the completed sentence.",
+          "suggestion": "Remove the bare-word accepted answer, or change the instruction to permit either response format."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "En la calle hay unos coches.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 3; packet fields task.prompt[0] and task.accepted[a2]."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T15",
+      "contentHash": "021bc48f7836755b259c6f9c36e6b74c0ec65e3ff9360636abfcd64bff7d4567",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T15",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "Nuevo is ordinary early A1 vocabulary, and the Ukrainian scenario supplies its relevant meaning.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T16",
+      "contentHash": "969f9fe51f1669c183a83493163699493b9553b563cd82d07a4b8ca4beac3d29",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T16",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T21",
+      "contentHash": "1155bb980d841fc76351b78484335436ed6ff062c81d7a46fd6435f9f2b86668",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: \"En la calle ___ un banco.\"; task.options[b].outcomes marks está incorrect; task.options[b].feedbackUk: \"Після пропуску un banco — нова річ: hay.\"",
+          "description": "The prompt supplies an article mnemonic instead of a discourse context. An indefinite article does not by itself exclude locative estar or establish that the speaker is merely introducing existence. The intended existential versus specific locative reading is missing.",
+          "suggestion": "Add a scenario explicitly asking the learner to introduce the existence of a bank. Otherwise accommodate both readings and avoid determining the key solely from un banco."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T21",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a is the neutral existential answer. b can fit a specific locative reading; the sentence alone does not establish that reading or exclude it.",
+      "notes": "Hay is the natural default. This finding does not mean that both options are equally natural without supporting discourse.",
+      "sources": [
+        "Course contract, rule 2 and the definition of an uncertain verdict.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 15 and 37: indefinite noun phrases and locative uses of estar (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T22",
+      "contentHash": "15538cb2e687a1cd1191422b350b1f9eb40d41f48239b70f8d279cc7b292b67c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T22",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T23",
+      "contentHash": "ea8c6ead524077ff8918d75a273a82547cb6632a3a442d44e4f6defb5e053462",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T23",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The scenario explicitly establishes a question about existence.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T24",
+      "contentHash": "60765d643dc006879d1215a5dcc54476f9ef46b761138057272db7de66b049fe",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T24",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T25",
+      "contentHash": "6075798ea7bcefbad13d20c26e075800eb2fa281649e17b3d2eb7989e00d046c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T25",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T26",
+      "contentHash": "2ec00afd2a07e4f6bedf7fc035cd8c8406f830cde0be61fabd82b542b3b6847a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: \"En la mesa ___ unas llaves.\"; task.options[b].outcomes marks están incorrect; task.options[b].feedbackUk: \"Unas llaves — нові, невідомі ключі: hay.\"",
+          "description": "Nothing establishes whether the speaker is introducing existence or locating a particular set of keys. Unas does not necessarily mean that its referent is nonspecific or unknown, and it does not prohibit estar.",
+          "suggestion": "Specify the intended discourse situation. For an existential introduction, establish that the speaker is reporting what is present; otherwise accommodate the specific locative reading and revise the article-only explanation."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T26",
+      "verdict": "uncertain",
+      "reviewerAnswer": "a for introducing the presence of some keys; b can fit locating particular keys described indefinitely. More than one reading is possible.",
+      "notes": "Hay is the neutral presentational answer, but that preference alone does not justify categorically rejecting están.",
+      "sources": [
+        "Course contract, rule 2 and the definition of an uncertain verdict.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapters 15 and 37: specific indefinite noun phrases and locative estar (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T27",
+      "contentHash": "2907f534f752e6b8037530e1f461b7db31a0c2d4fb1a509c9c5df320af3604dc",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T27",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T28",
+      "contentHash": "e4d79b2567b65ece0e7bd3e9533d441ecdd39ef19c7a349a07e103fe1da539ef",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The second clause expresses a state rather than location; the earlier-lesson vocabulary includes abierto and estar with its state meaning.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T31",
+      "contentHash": "05ce47ba4141ceb7047147d0fcef2e5a7aa0be8a41dc741d3742c2afdeb76ee0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "El libro está en la mesa. / En la mesa está el libro.",
+      "notes": "The alternative word order is unlisted, but the key is not declared closed and does not mark it incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T32",
+      "contentHash": "1ee4c5fed54670c740cd5cc6e9ec958076da82c7df180659d5dcb3107ab234b4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "La farmacia está en la plaza. / Está en la plaza.",
+      "notes": "The existential alternative is explicitly left unresolved rather than being called ungrammatical.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T33",
+      "contentHash": "30ed699cf7295fa9a98bbd2a570c4c479fd82268d7d89bad9eb7f72e4303ad9f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T33",
+      "verdict": "valid",
+      "reviewerAnswer": "¡Mis llaves están en la mesa! A declarative version, Mis llaves están en la mesa., also conveys the requested information.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T34",
+      "contentHash": "98d5895969788055113501c5e3e47abb0633db551809cbefc77dccfdc7e253a0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Hay un supermercado aquí? / ¿Hay un supermercado por aquí?",
+      "notes": "The scenario explicitly requests an existence question. The different location question receives a neutral outcome and an explanation.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T35",
+      "contentHash": "8ce37da21e0ad375cdb4d1c0a6cf50a776dc71be205c19286b0c29f25f6d9bc7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "La llave está en la mesa.",
+      "notes": "The guest-note context supports an identifiable key. The existential alternative is explicitly left unresolved, not graded incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T36",
+      "contentHash": "caa64104a86a6eb4e211c33e98495032a9ffe45331db3a64d194b56682f61a76",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T36",
+      "verdict": "valid",
+      "reviewerAnswer": "En la plaza hay un restaurante. El restaurante está abierto. The second sentence may also omit its subject.",
+      "notes": "The gloss of y is unnecessary for the requested two sentences, but its empty target list is correct.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T37",
+      "contentHash": "167a3a07bc0bd434e3000e5d08b070747b16f01253190029ead1c8dab6b2d471",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T37",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Dónde está el banco?",
+      "notes": "The accentless answer is not accepted: its outcome is neutral and its spelling error is explicitly identified. «Знак наголосу» is the correct course term.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T38",
+      "contentHash": "eb2c07c68c622ddd1de2b25a4c74d285c1a3ec1d3388e6fea40a0c5c44a67ca7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T38",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi padre está en la oficina. En la oficina hay un café. Cafetería is another suitable noun for the establishment.",
+      "notes": "The café gloss fixes the intended establishment meaning. Other acceptable vocabulary variants are not declared incorrect by this non-closed key.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T39",
+      "contentHash": "9d4cdb202b354c035a29ec689289ca256b489d516b6fae012ff0fda3f2eecfbb",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T39",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi madre está en la cocina.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T40",
+      "contentHash": "855d222b1577fff158e9aec338213f2a51e2ce26b16ad8799530256f678f0169",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T40",
+      "verdict": "valid",
+      "reviewerAnswer": "En la cocina hay una mesa. / Hay una mesa en la cocina.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T51",
+      "contentHash": "b8fc1ad9274f5193b8f8dcfa5db58306762ea21441b7e338be104e4404833d86",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T51",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The transcript supports the key and translation. It appears only in an appropriately labeled hint. Audio realization was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T52",
+      "contentHash": "f14213cc2c0dbfa1adf1634a62674a80a2676f756b593f1861f0fc84333a5171",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: \"Питання з питальним словом (¿Dónde…?) починається з цього слова.\"",
+          "description": "This states an unrestricted word-order rule that is false. A Spanish question can place a subject or topic before the interrogative word, as in ¿Tú dónde estás?, or begin with a preposition, as in ¿De dónde eres? The provided clip follows one common pattern, not a universal rule.",
+          "suggestion": "Limit the hint to this recording: explain that dónde means «де» and identifies a question about location. Remove the claim that every question with an interrogative word begins with that word."
+        }
+      ],
+      "caseId": "task:A1-03-L4-T52",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The answer key, transcript and Ukrainian translation otherwise agree. Audio realization was not assessed.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 42, treatment of interrogative constructions, interrogative phrases and preceding topics (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.calle-farmacia",
+      "contentHash": "9e66607cb145d4048f7e113e35e99243039176d063192fa8c81682a5e7173ff4",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.calle-farmacia",
+      "verdict": "valid",
+      "reviewerAnswer": "En mi calle hay una farmacia. — «На моїй вулиці є аптека.»",
+      "notes": "Text and translation only; audio realization was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.donde-estacion",
+      "contentHash": "12af482afb2e3aaa5ce71bf9817771fc3a9cbd54565dada0256884c327158f97",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.donde-estacion",
+      "verdict": "valid",
+      "reviewerAnswer": "Perdón, ¿dónde está la estación? — «Перепрошую, де вокзал?»",
+      "notes": "The translation is natural for the railway-station reading of estación. Audio realization was not assessed.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.en-mi-calle-hay-una-tienda",
+      "contentHash": "a1ae7449f04b56e4facdb54d858ab0fa687683979ea0786e9a67c60d7022aa4d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.en-mi-calle-hay-una-tienda",
+      "verdict": "valid",
+      "reviewerAnswer": "En mi calle hay una tienda. — «На моїй вулиці є магазин.»",
+      "notes": "Hay una tienda en mi calle. is another natural word order, but the recall key is not declared closed.",
+      "sources": []
+    },
+    {
+      "kind": "phrase",
+      "logicalId": "phrase.hay-un-hotel-aqui",
+      "contentHash": "ecc2826c52aeefbac70042deb6796ce02a9b55427afb44dd50598f1376cf4e1d",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "phrase:phrase.hay-un-hotel-aqui",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Hay un hotel aquí? — «Тут є готель?»",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

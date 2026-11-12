@@ -1,0 +1,1448 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "A1-03-C1",
+  "tasks": [
+    {
+      "id": "A1-03-C1-T01",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-chat-intro",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "ser.origin",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "ser.nationality",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти (жінка) знайомишся в чаті. Напиши: «Я з Києва, я українка»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Soy de Kiev y soy ucraniana."
+        },
+        {
+          "id": "a2",
+          "text": "Soy de Kiev, soy ucraniana."
+        },
+        {
+          "id": "a3",
+          "text": "Soy de Kiev. Soy ucraniana."
+        },
+        {
+          "id": "a4",
+          "text": "Yo soy de Kiev y soy ucraniana."
+        },
+        {
+          "id": "a5",
+          "text": "Soy de Kyiv y soy ucraniana."
+        },
+        {
+          "id": "a6",
+          "text": "Soy de Kyiv, soy ucraniana."
+        },
+        {
+          "id": "a7",
+          "text": "Soy de Kyiv. Soy ucraniana."
+        },
+        {
+          "id": "a8",
+          "text": "Soy ucraniana, de Kiev."
+        },
+        {
+          "id": "a9",
+          "text": "Soy ucraniana y soy de Kiev."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Soy Kiev y soy ucraniana.",
+          "outcomes": {
+            "ser.origin/construction-use": "incorrect",
+            "ser.nationality/construction-use": "correct"
+          },
+          "feedbackUk": "Звідки людина — ser de: Soy de Kiev."
+        },
+        {
+          "id": "e2",
+          "text": "Soy de Kiev y soy ucraniano.",
+          "outcomes": {
+            "ser.nationality/construction-use": "incorrect",
+            "ser.origin/construction-use": "correct"
+          },
+          "feedbackUk": "Пише жінка: ucraniana."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.origin/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Звідки людина — ser de + місто чи країна: Soy de Kiev."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.nationality/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Національність — ser + прикметник у роді й числі людини: Soy ucraniana."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "example",
+              "spanish": "y",
+              "ukrainian": "і, та"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "ser.origin/construction-use",
+            "ser.nationality/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Soy de Kiev y soy ucraniana"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Soy de Kiev y soy ucraniana",
+      "feedback": {
+        "correctUk": "Правильно: Soy de Kiev y soy ucraniana",
+        "incorrectUk": "Ще ні. Ser de + місто; національність у жіночому роді: Soy de Kiev y soy ucraniana",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Soy de Kiev y soy ucraniana"
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T02",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-sick-note",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "estar.location",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "estar.state",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти (жінка) пишеш колезі, чому тебе немає в офісі: «Я вдома, я хвора»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Estoy en casa y estoy enferma."
+        },
+        {
+          "id": "a2",
+          "text": "Estoy en casa, estoy enferma."
+        },
+        {
+          "id": "a3",
+          "text": "Estoy en casa. Estoy enferma."
+        },
+        {
+          "id": "a4",
+          "text": "Estoy en casa porque estoy enferma."
+        },
+        {
+          "id": "a5",
+          "text": "Estoy enferma y estoy en casa."
+        },
+        {
+          "id": "a6",
+          "text": "Estoy enferma, estoy en casa."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Soy en casa y estoy enferma.",
+          "outcomes": {
+            "estar.location/construction-use": "incorrect",
+            "estar.state/construction-use": "correct"
+          },
+          "feedbackUk": "Де ти — estar: Estoy en casa."
+        },
+        {
+          "id": "e2",
+          "text": "Estoy en casa y estoy enfermo.",
+          "outcomes": {
+            "estar.state/construction-use": "incorrect",
+            "estar.location/construction-use": "correct"
+          },
+          "feedbackUk": "Пише жінка: enferma."
+        },
+        {
+          "id": "e3",
+          "text": "Estoy en casa y soy enferma.",
+          "outcomes": {
+            "estar.state/construction-use": "incorrect",
+            "estar.location/construction-use": "correct"
+          },
+          "feedbackUk": "Стан зараз — estar: estoy enferma."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "estar.location/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Де знаходиться відома людина чи річ — estar en: Ana está en casa."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "estar.state/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Стан — estar + прикметник: Estoy enferma."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "estar.location/construction-use",
+            "estar.state/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Estoy en casa y estoy enferma"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Estoy en casa y estoy enferma",
+      "feedback": {
+        "correctUk": "Правильно: Estoy en casa y estoy enferma",
+        "incorrectUk": "Ще ні. Estar для місця і стану: Estoy en casa y estoy enferma",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Estoy en casa y estoy enferma"
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T03",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-street",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "hay.existence",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "ser.description",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти пишеш про свою вулицю два речення: «На моїй вулиці є парк. Парк дуже гарний». У другому реченні опиши, який парк загалом (його рису), а не як він виглядає сьогодні."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "En mi calle hay un parque. El parque es muy bonito."
+        },
+        {
+          "id": "a2",
+          "text": "Hay un parque en mi calle. El parque es muy bonito."
+        },
+        {
+          "id": "a3",
+          "text": "En mi calle hay un parque. Es muy bonito."
+        },
+        {
+          "id": "a4",
+          "text": "Hay un parque en mi calle. Es muy bonito."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "En mi calle está un parque. El parque es muy bonito.",
+          "outcomes": {
+            "hay.existence/construction-use": "incorrect",
+            "ser.description/construction-use": "correct"
+          },
+          "feedbackUk": "Що десь є — hay: hay un parque."
+        },
+        {
+          "id": "e2",
+          "text": "En mi calle hay un parque. El parque es muy bonita.",
+          "outcomes": {
+            "ser.description/construction-use": "incorrect",
+            "hay.existence/construction-use": "correct"
+          },
+          "feedbackUk": "Parque — чоловічого роду: bonito."
+        },
+        {
+          "id": "e3",
+          "text": "En mi calle hay un parque. El parque está muy bonito.",
+          "outcomes": {
+            "ser.description/construction-use": "unresolved",
+            "hay.existence/construction-use": "correct"
+          },
+          "feedbackUk": "Está bonito теж буває («гарно виглядає зараз»); щоб описати рису парку, кажемо es muy bonito."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "hay.existence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Що десь є — hay (одна форма), після нього зазвичай un/una або іменник без артикля: En mi calle hay un parque."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.description/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Ser + прикметник описує риси; прикметник узгоджується з підметом: Es alta y rubia."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "hay.existence/construction-use",
+            "ser.description/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "En mi calle hay un parque. El parque es muy bonito."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "En mi calle hay un parque. El parque es muy bonito.",
+      "feedback": {
+        "correctUk": "Правильно: En mi calle hay un parque. El parque es muy bonito.",
+        "incorrectUk": "Ще ні. Hay + un; ser для опису: En mi calle hay un parque. El parque es muy bonito.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: En mi calle hay un parque. El parque es muy bonito."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T04",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-family-profile",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "tener.possession",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "ser.description",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти пишеш про родину: «У мене є сестра. Вона висока й білява». Опиши її звичайні риси."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Tengo una hermana. Es alta y rubia."
+        },
+        {
+          "id": "a2",
+          "text": "Tengo una hermana. Ella es alta y rubia."
+        },
+        {
+          "id": "a3",
+          "text": "Tengo una hermana, es alta y rubia."
+        },
+        {
+          "id": "a4",
+          "text": "Tengo una hermana. Es rubia y alta."
+        },
+        {
+          "id": "a5",
+          "text": "Yo tengo una hermana. Es alta y rubia."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Hay una hermana. Es alta y rubia.",
+          "outcomes": {
+            "tener.possession/construction-use": "incorrect",
+            "ser.description/construction-use": "correct"
+          },
+          "feedbackUk": "«У мене є» — tengo."
+        },
+        {
+          "id": "e2",
+          "text": "Tengo una hermana. Es alto y rubio.",
+          "outcomes": {
+            "ser.description/construction-use": "incorrect",
+            "tener.possession/construction-use": "correct"
+          },
+          "feedbackUk": "Про сестру — alta, rubia."
+        },
+        {
+          "id": "e3",
+          "text": "Tengo una hermana. Está alta y rubia.",
+          "outcomes": {
+            "ser.description/construction-use": "incorrect",
+            "tener.possession/construction-use": "correct"
+          },
+          "feedbackUk": "Звичайні риси людини описуємо з ser: Es alta y rubia. Está alta / está rubia означало б, що вона виросла чи змінила вигляд."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "tener.possession/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "«У мене є» — tengo: Tengo una hermana."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.description/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Ser + прикметник описує риси; прикметник узгоджується з підметом: Es alta y rubia."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "tener.possession/construction-use",
+            "ser.description/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Tengo una hermana. Es alta y rubia."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Tengo una hermana. Es alta y rubia.",
+      "feedback": {
+        "correctUk": "Правильно: Tengo una hermana. Es alta y rubia.",
+        "incorrectUk": "Ще ні. Tengo + una; ser + прикметники: Tengo una hermana. Es alta y rubia.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Tengo una hermana. Es alta y rubia."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T05",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-visit-reply",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "neg.no-before-verb",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "tener.physical-states",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "У гостях тебе (жінку) питають: «¿Tienes hambre?». Відповідай: «Ні, я не голодна. Я хочу пити»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "No, no tengo hambre. Tengo sed."
+        },
+        {
+          "id": "a2",
+          "text": "No, no tengo hambre, tengo sed."
+        },
+        {
+          "id": "a3",
+          "text": "No. No tengo hambre. Tengo sed."
+        },
+        {
+          "id": "a4",
+          "text": "No, no tengo hambre. Pero tengo sed."
+        },
+        {
+          "id": "a5",
+          "text": "No, no tengo hambre, pero tengo sed."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "No, tengo no hambre. Tengo sed.",
+          "outcomes": {
+            "neg.no-before-verb/construction-use": "incorrect",
+            "tener.physical-states/construction-use": "correct"
+          },
+          "feedbackUk": "No ставимо перед дієсловом: no tengo."
+        },
+        {
+          "id": "e2",
+          "text": "No, no estoy hambre. Tengo sed.",
+          "outcomes": {
+            "tener.physical-states/construction-use": "incorrect",
+            "neg.no-before-verb/construction-use": "correct"
+          },
+          "feedbackUk": "У цьому виразі — tener: no tengo hambre."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "neg.no-before-verb/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "No ставимо перед дієсловом: No tengo hambre."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "tener.physical-states/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "«Я голодна», «хочу пити» — tener + іменник, без estar: No tengo hambre. Tengo sed."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "neg.no-before-verb/construction-use",
+            "tener.physical-states/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "No, no tengo hambre. Tengo sed."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "No, no tengo hambre. Tengo sed.",
+      "feedback": {
+        "correctUk": "Правильно: No, no tengo hambre. Tengo sed.",
+        "incorrectUk": "Ще ні. No + tengo; tener sed: No, no tengo hambre. Tengo sed.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: No, no tengo hambre. Tengo sed."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T06",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-family-origin",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "ser.profession",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "ser.origin",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти просто повідомляєш, ким працює тато і звідки він (нейтрально, без оцінки): «Мій тато — лікар, він з Одеси»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Mi padre es médico y es de Odesa."
+        },
+        {
+          "id": "a2",
+          "text": "Mi padre es médico. Es de Odesa."
+        },
+        {
+          "id": "a3",
+          "text": "Mi padre es médico, es de Odesa."
+        },
+        {
+          "id": "a4",
+          "text": "Mi padre es médico. Él es de Odesa."
+        },
+        {
+          "id": "a5",
+          "text": "Mi padre es médico y él es de Odesa."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Mi padre es un médico y es de Odesa.",
+          "outcomes": {
+            "ser.profession/construction-use": "incorrect",
+            "ser.origin/construction-use": "correct"
+          },
+          "feedbackUk": "У простому повідомленні про професію артикль після ser не ставимо: Mi padre es médico."
+        },
+        {
+          "id": "e2",
+          "text": "Mi padre es médico y es Odesa.",
+          "outcomes": {
+            "ser.origin/construction-use": "incorrect",
+            "ser.profession/construction-use": "correct"
+          },
+          "feedbackUk": "Звідки людина — ser de: es de Odesa."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.profession/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Коли просто називаємо професію, після ser артикль зазвичай не ставимо: Pablo es médico."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.origin/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Звідки людина — ser de + місто чи країна: Soy de Kiev."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "example",
+              "spanish": "y",
+              "ukrainian": "і, та"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "ser.profession/construction-use",
+            "ser.origin/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Mi padre es médico y es de Odesa."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Mi padre es médico y es de Odesa.",
+      "feedback": {
+        "correctUk": "Правильно: Mi padre es médico y es de Odesa.",
+        "incorrectUk": "Ще ні. Ser + професія без артикля; ser de: Mi padre es médico y es de Odesa.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Mi padre es médico y es de Odesa."
+      },
+      "reviewStatus": "quarantined"
+    },
+    {
+      "id": "A1-03-C1-T07",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-ask-friend",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.yes-no",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "question.yes-no",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти хочеш покататися з подругою в парку. Спитай її: «У тебе є велосипед?»"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "¿Tienes bicicleta?"
+        },
+        {
+          "id": "a2",
+          "text": "¿Tienes una bicicleta?"
+        },
+        {
+          "id": "a3",
+          "text": "¿Tú tienes bicicleta?"
+        },
+        {
+          "id": "a4",
+          "text": "¿Tú tienes una bicicleta?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Tienes bicicleta?",
+          "outcomes": {
+            "question.yes-no/written-form": "incorrect",
+            "question.yes-no/construction-use": "correct"
+          },
+          "feedbackUk": "На початку питання потрібен знак ¿."
+        },
+        {
+          "id": "e2",
+          "text": "Tienes bicicleta.",
+          "outcomes": {
+            "question.yes-no/construction-use": "incorrect",
+            "question.yes-no/written-form": "unresolved"
+          },
+          "feedbackUk": "Це твердження; питання пишемо між знаками ¿ ?."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "required"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.yes-no/construction-use",
+            "question.yes-no/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Питання «так чи ні» — твердження між знаками ¿ ?: ¿Tienes bicicleta?"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "question.yes-no/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Питання пишуть між знаками ¿ на початку і ? в кінці."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.yes-no/construction-use",
+            "question.yes-no/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Tienes bicicleta?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Tienes bicicleta?",
+      "feedback": {
+        "correctUk": "Правильно: ¿Tienes bicicleta?",
+        "incorrectUk": "Ще ні. Питання між ¿ ?: ¿Tienes bicicleta?",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: ¿Tienes bicicleta?"
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T08",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-ask-teacher",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "question.word.como",
+          "modality": "written-form"
+        },
+        {
+          "skillId": "question.word-order",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Подруга має нового викладача. Спитай її: «Який твій новий викладач?» (який він за вдачею)"
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "¿Cómo es tu profesor nuevo?"
+        },
+        {
+          "id": "a2",
+          "text": "¿Cómo es tu nuevo profesor?"
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "¿Cómo tu profesor nuevo es?",
+          "outcomes": {
+            "question.word-order/construction-use": "incorrect",
+            "question.word.como/written-form": "correct"
+          },
+          "feedbackUk": "Після питального слова йде дієслово: ¿Cómo es tu profesor nuevo?"
+        },
+        {
+          "id": "e2",
+          "text": "¿Como es tu profesor nuevo?",
+          "outcomes": {
+            "question.word.como/written-form": "incorrect",
+            "question.word-order/construction-use": "correct"
+          },
+          "feedbackUk": "Cómo у питанні пишеться зі знаком наголосу."
+        },
+        {
+          "id": "e3",
+          "text": "¿Cómo está tu profesor nuevo?",
+          "outcomes": {
+            "question.word.como/written-form": "correct",
+            "question.word-order/construction-use": "unresolved"
+          },
+          "feedbackUk": "Cómo написано правильно, але так питають про самопочуття; про вдачу — ¿Cómo es…?"
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word.como/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Cómo — «як? який?», зі знаком наголосу: ¿Cómo es…?"
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "question.word-order/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Базовий порядок, який ми тренуємо: питальне слово → дієслово → підмет: ¿Cómo es tu profesor?"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "question.word.como/written-form",
+            "question.word-order/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "¿Cómo es tu profesor nuevo?"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "¿Cómo es tu profesor nuevo?",
+      "feedback": {
+        "correctUk": "Правильно: ¿Cómo es tu profesor nuevo?",
+        "incorrectUk": "Ще ні. Cómo + es + підмет: ¿Cómo es tu profesor nuevo?",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: ¿Cómo es tu profesor nuevo?"
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T09",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-hotel-message",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "contrast.hay-estar",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти пишеш другові, як тебе знайти: «Мій готель на площі. На площі є ресторан»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Mi hotel está en la plaza. En la plaza hay un restaurante."
+        },
+        {
+          "id": "a2",
+          "text": "Mi hotel está en la plaza. Hay un restaurante en la plaza."
+        },
+        {
+          "id": "a3",
+          "text": "Mi hotel está en la plaza y en la plaza hay un restaurante."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Mi hotel hay en la plaza. En la plaza hay un restaurante.",
+          "outcomes": {
+            "contrast.hay-estar/construction-use": "incorrect"
+          },
+          "feedbackUk": "Мій готель — відомий: está."
+        },
+        {
+          "id": "e2",
+          "text": "Mi hotel está en la plaza. En la plaza está un restaurante.",
+          "outcomes": {
+            "contrast.hay-estar/construction-use": "unresolved"
+          },
+          "feedbackUk": "Está з un буває, коли ресторан уже відомий як орієнтир; щоб просто повідомити, що на площі є ресторан, кажемо hay un restaurante."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "contrast.hay-estar/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Hay — що десь є (нова річ); estar — де знаходиться відома річ: Mi hotel está en la plaza. En la plaza hay un restaurante."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "contrast.hay-estar/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Mi hotel está en la plaza. En la plaza hay un restaurante."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Mi hotel está en la plaza. En la plaza hay un restaurante.",
+      "feedback": {
+        "correctUk": "Правильно: Mi hotel está en la plaza. En la plaza hay un restaurante.",
+        "incorrectUk": "Ще ні. Відоме — está; нове — hay: Mi hotel está en la plaza. En la plaza hay un restaurante.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Mi hotel está en la plaza. En la plaza hay un restaurante."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T10",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-caption",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "ser.identity",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "estar.location",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Ти підписуєш фото: «Це мої батьки. Вони в Іспанії»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Son mis padres. Están en España."
+        },
+        {
+          "id": "a2",
+          "text": "Estos son mis padres. Están en España."
+        },
+        {
+          "id": "a3",
+          "text": "Son mis padres y están en España."
+        },
+        {
+          "id": "a4",
+          "text": "Son mis padres. Ellos están en España."
+        },
+        {
+          "id": "a5",
+          "text": "Estos son mis padres y están en España."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Son mis padres. Son en España.",
+          "outcomes": {
+            "estar.location/construction-use": "incorrect",
+            "ser.identity/construction-use": "correct"
+          },
+          "feedbackUk": "Де люди знаходяться — estar: Están en España."
+        },
+        {
+          "id": "e2",
+          "text": "Es mis padres. Están en España.",
+          "outcomes": {
+            "ser.identity/construction-use": "incorrect",
+            "estar.location/construction-use": "correct"
+          },
+          "feedbackUk": "Про кількох — son: Son mis padres."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.identity/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Хто це — ser: Es mi hermano. Son mis padres."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "estar.location/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Де знаходиться відома людина чи річ — estar en: Ana está en casa."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "ser.identity/construction-use",
+            "estar.location/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Son mis padres. Están en España."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Son mis padres. Están en España.",
+      "feedback": {
+        "correctUk": "Правильно: Son mis padres. Están en España.",
+        "incorrectUk": "Ще ні. Ser — хто це; estar — де: Son mis padres. Están en España.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Son mis padres. Están en España."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T11",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-friends-caption",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "ser.nationality",
+          "modality": "construction-use"
+        },
+        {
+          "skillId": "adj.agreement.nationality",
+          "modality": "written-form"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Підпис під фото з друзями (група змішана): «Мої друзі — англійці й французи»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "a1",
+          "text": "Mis amigos son ingleses y franceses."
+        },
+        {
+          "id": "a2",
+          "text": "Mis amigos son franceses e ingleses."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Mis amigos son ingléses y franceses.",
+          "outcomes": {
+            "adj.agreement.nationality/written-form": "incorrect",
+            "ser.nationality/construction-use": "correct"
+          },
+          "feedbackUk": "У множині знак наголосу зникає: ingleses."
+        },
+        {
+          "id": "e2",
+          "text": "Mis amigos son ingleses y francéses.",
+          "outcomes": {
+            "adj.agreement.nationality/written-form": "incorrect",
+            "ser.nationality/construction-use": "correct"
+          },
+          "feedbackUk": "У множині знак наголосу зникає: franceses."
+        },
+        {
+          "id": "e3",
+          "text": "Mis amigos son inglesas y francesas.",
+          "outcomes": {
+            "adj.agreement.nationality/written-form": "incorrect",
+            "ser.nationality/construction-use": "correct"
+          },
+          "feedbackUk": "Група змішана — чоловічий рід: ingleses, franceses."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "ser.nationality/construction-use",
+            "adj.agreement.nationality/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Національність — ser + прикметник у роді й числі людини: Soy ucraniana."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "adj.agreement.nationality/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Español, inglés, francés і alemán мають жіночу форму на -a: española, inglesa, francesa, alemana; в inglés, francés і alemán у жіночому роді й множині знак наголосу зникає: ingleses, franceses."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "example",
+              "spanish": "y",
+              "ukrainian": "і, та"
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "ser.nationality/construction-use",
+            "adj.agreement.nationality/written-form"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Mis amigos son ingleses y franceses."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Mis amigos son ingleses y franceses.",
+      "feedback": {
+        "correctUk": "Правильно: Mis amigos son ingleses y franceses.",
+        "incorrectUk": "Ще ні. Ser + національність у множині: Mis amigos son ingleses y franceses.",
+        "unresolvedUk": "Цієї відповіді немає серед перевірених варіантів, тому вона не оцінюється ні як правильна, ні як помилкова. Зразок: Mis amigos son ingleses y franceses."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-03-C1-T12",
+      "lessonId": "A1-03-C1",
+      "role": "transfer",
+      "family": "c1-listen-neg",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.short-sentences",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай. Де зараз Ана?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-03.ana-no-esta"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "у парку",
+          "outcomes": {
+            "listening.short-sentences/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "вдома",
+          "outcomes": {
+            "listening.short-sentences/listening-meaning": "incorrect"
+          },
+          "feedbackUk": "У записі no está en casa — «її немає вдома»."
+        },
+        {
+          "id": "c",
+          "label": "в офісі",
+          "outcomes": {
+            "listening.short-sentences/listening-meaning": "incorrect"
+          },
+          "feedbackUk": "У записі está en el parque."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.short-sentences/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Послухай речення й визнач, що в ньому сказано. Зверни увагу на no перед дієсловом."
+            }
+          ]
+        },
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.short-sentences/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Ana no está en casa. Está en el parque."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Так: Ana no está en casa. Está en el parque.",
+        "incorrectUk": "Ні. У записі: Ana no está en casa. Está en el parque."
+      },
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

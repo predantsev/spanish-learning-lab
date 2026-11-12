@@ -1,0 +1,529 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-C1.r1",
+  "packetHash": "faf43e61174ff32f8ef2612492d4ba6092af9a45fc04a815da98068f8130bfb5",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "6849e6d5ea82cf3668dd72f3b22f69bdda196b66c1637053d25ee4b81c560725",
+    "reviewerPacketSha256": "b457dd0fe043dbc030e3dad966d91242e3a10f28fb8692ec0f8c6adb9360a626",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-hXOasG/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-hXOasG/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-hXOasG/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-hXOasG/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-hXOasG/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdf0-27b1-7911-8965-c5da05b78eab",
+        "version": "v0.166.0",
+        "tokens used": "68,234"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-03-C1",
+        "reviewerAnswer": "Not applicable: this is a lesson overview, with no learner answer required.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T01",
+        "reviewerAnswer": "Soy de Kiev. Soy ucraniana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "task.closed is absent, and task.feedback.unresolvedUk explicitly leaves unlisted answers ungraded. Additional correct variants missing from accepted therefore do not establish a rejection defect."
+      },
+      {
+        "caseId": "task:A1-03-C1-T02",
+        "reviewerAnswer": "Estoy en casa. Estoy enferma.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T03",
+        "reviewerAnswer": "En mi calle hay un parque. El parque es muy bonito. For its current appearance, the second sentence can also be El parque está muy bonito.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.prompt[0].text: «Парк дуже гарний»; task.errors[id=e3].text: \"En mi calle hay un parque. El parque está muy bonito.\"",
+        "defect": "The prompt does not distinguish a characteristic of the park from its current appearance. Both ser and estar can express the Ukrainian sentence under those respective readings. The feedback acknowledges the estar reading, but its acceptability for this prompt remains unresolved.",
+        "correction": "Clarify whether the learner must describe a general characteristic or the park's appearance now, then align the reviewed alternatives with that context.",
+        "sources": [
+          "Course contract rule 3 and the verdict instruction concerning keys that select one of several context-dependent readings.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 37, adjectival attributes with ser and estar (from memory)."
+        ],
+        "notes": "The unresolved outcome avoids falsely declaring estar universally incorrect; the remaining issue is the unspecified intended reading."
+      },
+      {
+        "caseId": "task:A1-03-C1-T04",
+        "reviewerAnswer": "Tengo una hermana. Es alta y rubia. Está alta y rubia is also possible when reporting observed growth and a current or changed hair colour.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[id=e3]: \"Tengo una hermana. Está alta y rubia.\" is marked incorrect for ser.description/construction-use; feedbackUk: «Риси людини — ser: Es alta y rubia.»",
+        "defect": "Ser is the neutral choice for a general description. However, estar alta can describe observed growth, and estar rubia can describe a current or changed appearance. The prompt does not explicitly exclude that reading, so the unconditional rejection depends on missing context.",
+        "correction": "Specify that the sentence describes her usual characteristics, or treat the estar variant as context-dependent until the intended reading is established.",
+        "sources": [
+          "The verdict instruction requiring uncertain when correctness depends on an unspecified reading.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 37, interpretation changes with ser and estar in adjectival predication (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T05",
+        "reviewerAnswer": "No, no tengo hambre. Tengo sed.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text: «No стоїть безпосередньо перед дієсловом: No tengo hambre.»",
+        "defect": "The categorical claim that no stands immediately before the verb is false. Unstressed pronouns can intervene, as in No me llamo Ana or No lo tengo. Adjacency holds in the current example, but it is not the general rule.",
+        "correction": "Scope the statement to these sentences or remove «безпосередньо»: «No ставимо перед дієсловом: No tengo hambre.»",
+        "sources": [
+          "Duties: identify false rules or misleading simplifications.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter on negation, placement of preverbal no relative to unstressed personal pronouns (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T06",
+        "reviewerAnswer": "Mi padre es médico. Es de Odesa. An article-bearing version can have a classifying or emphatic reading.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[id=e1].text: \"Mi padre es un médico y es de Odesa.\"; its incorrect outcome and feedbackUk: «Професія після ser — без артикля.»",
+        "defect": "Bare médico is the normal neutral occupational predicate. An indefinite article is nevertheless possible with a profession noun in classifying or emphatic predication. The prompt does not explicitly require the neutral articleless construction, while the feedback presents article omission as unconditional.",
+        "correction": "Explicitly request a neutral profession statement without an article and qualify the explanation accordingly, or establish the discourse reading before rejecting the article-bearing answer.",
+        "sources": [
+          "The verdict instruction concerning unspecified context or discourse readings.",
+          "RAE/ASALE, Nueva gramática de la lengua española, chapter 37, nominal attributes and the distinction between bare occupational predicates and predicates with an indefinite article (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T07",
+        "reviewerAnswer": "¿Tienes bicicleta?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets contains only question.yes-no/construction-use, but blocks[0].text says: «Питання «так чи ні» — твердження між знаками ¿ ?: ¿Tienes bicicleta?»",
+        "defect": "This hint explicitly teaches the question marks, which are separately assessed under question.yes-no/written-form. Its support attribution omits that target.",
+        "correction": "Add question.yes-no/written-form to this hint's targets, or rewrite the hint so it explains only the construction target.",
+        "sources": [
+          "Course contract rule 6.",
+          "Packet: task.targets and task.errors[id=e1] identify question-mark spelling as question.yes-no/written-form."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T08",
+        "reviewerAnswer": "¿Cómo es tu nuevo profesor?",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[id=e3].outcomes[\"question.word.como/written-form\"] is \"unresolved\" for \"¿Cómo está tu profesor nuevo?\"",
+        "defect": "Cómo is correctly written, including its accent. Using está changes the question's meaning, as the feedback explains, but does not make the written form of cómo indeterminate.",
+        "correction": "Mark question.word.como/written-form correct for e3. Keep the semantic correction in feedback, or assess it separately under an appropriate ser/estar target.",
+        "sources": [
+          "Packet: context.taughtBefore identifies the written interrogative form as cómo; task.errors[id=e3].text contains that form.",
+          "Packet: lesson.content.body.steps[id=s1].blocks[0] states «Кожне вміння в завданні оцінюється окремо.»",
+          "Duties: identify conflicting feedback and per-target assessment."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T09",
+        "reviewerAnswer": "Mi hotel está en la plaza. En la plaza hay un restaurante. A specific restaurant presented as a located landmark can support a locative estar reading.",
+        "verdict": "uncertain",
+        "blocking": "yes",
+        "element": "task.errors[id=e2].text: \"Mi hotel está en la plaza. En la plaza está un restaurante.\"; its incorrect outcome and feedbackUk: «Що десь є — hay un restaurante.»",
+        "defect": "Hay is the neutral existential choice. However, estar can locate a referential indefinite noun phrase; un does not itself make estar impossible. The wayfinding context leaves open whether the restaurant is merely asserted to exist or presented as a particular landmark.",
+        "correction": "Specify the existential reading more clearly, or treat the specific locative reading as context-dependent rather than rejecting it categorically.",
+        "sources": [
+          "The verdict instruction requiring uncertain when the intended reading is underdetermined.",
+          "RAE/ASALE, Nueva gramática de la lengua española, discussions of locative estar, indefinite subjects and their referential interpretation (from memory)."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T10",
+        "reviewerAnswer": "Son mis padres. Están en España.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T11",
+        "reviewerAnswer": "Mis amigos son ingleses y franceses.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].targets contains only ser.nationality/construction-use, while blocks[0].text includes «прикметник у роді й числі людини».",
+        "defect": "The hint explicitly explains gender and number agreement, which is separately assessed under adj.agreement.nationality/written-form. Recording help only for ser.nationality omits a target that the hint supports.",
+        "correction": "Add adj.agreement.nationality/written-form to this hint's targets, or remove the agreement explanation from this hint.",
+        "sources": [
+          "Course contract rule 6.",
+          "Packet: task.targets separately lists ser.nationality/construction-use and adj.agreement.nationality/written-form."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-C1-T12",
+        "reviewerAnswer": "a",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The transcript places Ana in the park. This verdict covers the supplied text, not the unheard recording."
+      },
+      {
+        "caseId": "clip:clip.a1-03.ana-no-esta",
+        "reviewerAnswer": "Ana is not at home. She is in the park.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The Spanish transcript and Ukrainian translation agree. Audio pronunciation and correspondence with the transcript were outside this text-only review."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-C1",
+      "contentHash": "bb5a29956460909aedaa98b434f83ba6620c84d8946d9dff07d4d7607ae146e1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-03-C1",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this is a lesson overview, with no learner answer required.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T01",
+      "contentHash": "6606f6d67986df1860017114fe39dabed4b26e046b9f341f62ca2882ff0a9790",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy de Kiev. Soy ucraniana.",
+      "notes": "task.closed is absent, and task.feedback.unresolvedUk explicitly leaves unlisted answers ungraded. Additional correct variants missing from accepted therefore do not establish a rejection defect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T02",
+      "contentHash": "41c1ac83976e3ab1b9a2f1c3b017d52a6a8e67c5f9bfc2bde37cb972ceeeebde",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Estoy en casa. Estoy enferma.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T03",
+      "contentHash": "2669c2a307e3b7037e0a8dda5f1af878403ea8aef6c4c46de3ad63994fb6ef86",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[0].text: «Парк дуже гарний»; task.errors[id=e3].text: \"En mi calle hay un parque. El parque está muy bonito.\"",
+          "description": "The prompt does not distinguish a characteristic of the park from its current appearance. Both ser and estar can express the Ukrainian sentence under those respective readings. The feedback acknowledges the estar reading, but its acceptability for this prompt remains unresolved.",
+          "suggestion": "Clarify whether the learner must describe a general characteristic or the park's appearance now, then align the reviewed alternatives with that context."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T03",
+      "verdict": "uncertain",
+      "reviewerAnswer": "En mi calle hay un parque. El parque es muy bonito. For its current appearance, the second sentence can also be El parque está muy bonito.",
+      "notes": "The unresolved outcome avoids falsely declaring estar universally incorrect; the remaining issue is the unspecified intended reading.",
+      "sources": [
+        "Course contract rule 3 and the verdict instruction concerning keys that select one of several context-dependent readings.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 37, adjectival attributes with ser and estar (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T04",
+      "contentHash": "b9885149fbf92d3ed66de4b8e4af62c3878f01324b70c6358f22dec47007a3c9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e3]: \"Tengo una hermana. Está alta y rubia.\" is marked incorrect for ser.description/construction-use; feedbackUk: «Риси людини — ser: Es alta y rubia.»",
+          "description": "Ser is the neutral choice for a general description. However, estar alta can describe observed growth, and estar rubia can describe a current or changed appearance. The prompt does not explicitly exclude that reading, so the unconditional rejection depends on missing context.",
+          "suggestion": "Specify that the sentence describes her usual characteristics, or treat the estar variant as context-dependent until the intended reading is established."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T04",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Tengo una hermana. Es alta y rubia. Está alta y rubia is also possible when reporting observed growth and a current or changed hair colour.",
+      "notes": "",
+      "sources": [
+        "The verdict instruction requiring uncertain when correctness depends on an unspecified reading.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 37, interpretation changes with ser and estar in adjectival predication (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T05",
+      "contentHash": "15e004ab0fbb5fafeb6369b7aac8eecf13a331b37c8b007696ffa37003d41aa5",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text: «No стоїть безпосередньо перед дієсловом: No tengo hambre.»",
+          "description": "The categorical claim that no stands immediately before the verb is false. Unstressed pronouns can intervene, as in No me llamo Ana or No lo tengo. Adjacency holds in the current example, but it is not the general rule.",
+          "suggestion": "Scope the statement to these sentences or remove «безпосередньо»: «No ставимо перед дієсловом: No tengo hambre.»"
+        }
+      ],
+      "caseId": "task:A1-03-C1-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "No, no tengo hambre. Tengo sed.",
+      "notes": "",
+      "sources": [
+        "Duties: identify false rules or misleading simplifications.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter on negation, placement of preverbal no relative to unstressed personal pronouns (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T06",
+      "contentHash": "6cef1c89214ad99483019de6c23ada514a9251b327f304f5f9601403a1a34783",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e1].text: \"Mi padre es un médico y es de Odesa.\"; its incorrect outcome and feedbackUk: «Професія після ser — без артикля.»",
+          "description": "Bare médico is the normal neutral occupational predicate. An indefinite article is nevertheless possible with a profession noun in classifying or emphatic predication. The prompt does not explicitly require the neutral articleless construction, while the feedback presents article omission as unconditional.",
+          "suggestion": "Explicitly request a neutral profession statement without an article and qualify the explanation accordingly, or establish the discourse reading before rejecting the article-bearing answer."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T06",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Mi padre es médico. Es de Odesa. An article-bearing version can have a classifying or emphatic reading.",
+      "notes": "",
+      "sources": [
+        "The verdict instruction concerning unspecified context or discourse readings.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 37, nominal attributes and the distinction between bare occupational predicates and predicates with an indefinite article (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T07",
+      "contentHash": "f6facbb9549a23cb28ac50f49774433ec1f32d9621fabc188dd17b3df2e92622",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets contains only question.yes-no/construction-use, but blocks[0].text says: «Питання «так чи ні» — твердження між знаками ¿ ?: ¿Tienes bicicleta?»",
+          "description": "This hint explicitly teaches the question marks, which are separately assessed under question.yes-no/written-form. Its support attribution omits that target.",
+          "suggestion": "Add question.yes-no/written-form to this hint's targets, or rewrite the hint so it explains only the construction target."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T07",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Tienes bicicleta?",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6.",
+        "Packet: task.targets and task.errors[id=e1] identify question-mark spelling as question.yes-no/written-form."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T08",
+      "contentHash": "2c20c95f108d03e7aeb41eb876934c8c2ab2326af6db783211661fe909d399c7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e3].outcomes[\"question.word.como/written-form\"] is \"unresolved\" for \"¿Cómo está tu profesor nuevo?\"",
+          "description": "Cómo is correctly written, including its accent. Using está changes the question's meaning, as the feedback explains, but does not make the written form of cómo indeterminate.",
+          "suggestion": "Mark question.word.como/written-form correct for e3. Keep the semantic correction in feedback, or assess it separately under an appropriate ser/estar target."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T08",
+      "verdict": "flawed",
+      "reviewerAnswer": "¿Cómo es tu nuevo profesor?",
+      "notes": "",
+      "sources": [
+        "Packet: context.taughtBefore identifies the written interrogative form as cómo; task.errors[id=e3].text contains that form.",
+        "Packet: lesson.content.body.steps[id=s1].blocks[0] states «Кожне вміння в завданні оцінюється окремо.»",
+        "Duties: identify conflicting feedback and per-target assessment."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T09",
+      "contentHash": "804d78faf38c0308f4a5d1518dfc80767d226ab1236860b57bb1a55f58b35489",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[id=e2].text: \"Mi hotel está en la plaza. En la plaza está un restaurante.\"; its incorrect outcome and feedbackUk: «Що десь є — hay un restaurante.»",
+          "description": "Hay is the neutral existential choice. However, estar can locate a referential indefinite noun phrase; un does not itself make estar impossible. The wayfinding context leaves open whether the restaurant is merely asserted to exist or presented as a particular landmark.",
+          "suggestion": "Specify the existential reading more clearly, or treat the specific locative reading as context-dependent rather than rejecting it categorically."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T09",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Mi hotel está en la plaza. En la plaza hay un restaurante. A specific restaurant presented as a located landmark can support a locative estar reading.",
+      "notes": "",
+      "sources": [
+        "The verdict instruction requiring uncertain when the intended reading is underdetermined.",
+        "RAE/ASALE, Nueva gramática de la lengua española, discussions of locative estar, indefinite subjects and their referential interpretation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T10",
+      "contentHash": "4fdf0eee9230353ad874c07543f6ff64af408171f493b63060696ca487b29195",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "Son mis padres. Están en España.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T11",
+      "contentHash": "8f85ec95b5bead7c0c84846421acc64a3fa53d118958251f79b505d3f761ba84",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].targets contains only ser.nationality/construction-use, while blocks[0].text includes «прикметник у роді й числі людини».",
+          "description": "The hint explicitly explains gender and number agreement, which is separately assessed under adj.agreement.nationality/written-form. Recording help only for ser.nationality omits a target that the hint supports.",
+          "suggestion": "Add adj.agreement.nationality/written-form to this hint's targets, or remove the agreement explanation from this hint."
+        }
+      ],
+      "caseId": "task:A1-03-C1-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "Mis amigos son ingleses y franceses.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 6.",
+        "Packet: task.targets separately lists ser.nationality/construction-use and adj.agreement.nationality/written-form."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-C1-T12",
+      "contentHash": "22ffa6b9c79aca9d966852504a40592b6e169694e2e777104248c353115a7814",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-C1-T12",
+      "verdict": "valid",
+      "reviewerAnswer": "a",
+      "notes": "The transcript places Ana in the park. This verdict covers the supplied text, not the unheard recording.",
+      "sources": []
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-03.ana-no-esta",
+      "contentHash": "eaba9b634efadfa41c9e0cb9484c33351084c46b5cc1c511820f04ad82751ca3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "clip:clip.a1-03.ana-no-esta",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana is not at home. She is in the park.",
+      "notes": "The Spanish transcript and Ukrainian translation agree. Audio pronunciation and correspondence with the transcript were outside this text-only review.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-05-L3.r4",
+  "packetHash": "50390931a5ff4151fcb7a202e40281b88c638bcca29afeefd14a6d8e5dbab0c5",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "496f7a3cdff2c56f583dc1146ac8635f5ce66f5d0b2f84fdaff06b8bc7053da3",
+    "reviewerPacketSha256": "f617e21a0df7a9c1c67e8b598d6af5d98c08052abf5856a2350ca362cb4010b5",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-X0dwiO/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-X0dwiO/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-X0dwiO/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-X0dwiO/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-X0dwiO/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bffb-0f30-7703-a510-3c84cef226fc",
+        "version": "v0.166.0",
+        "tokens used": "49,137"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-05-L3",
+        "reviewerAnswer": "Not applicable: lesson content with no task to solve.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[3].blocks[1].text: «Без точного часу кажемо тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false. Standard Spain Spanish also uses expressions such as «Trabajo de noche» without an exact clock time.",
+        "correction": "Replace the sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T32",
+        "reviewerAnswer": "de la mañana; also por la mañana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T33",
+        "reviewerAnswer": "de la tarde; also por la tarde.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": "The visible answer model is permitted for the supported role."
+      },
+      {
+        "caseId": "task:A1-05-L3-T34",
+        "reviewerAnswer": "de la noche; also por la noche.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T35",
+        "reviewerAnswer": "de la mañana; also por la mañana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T36",
+        "reviewerAnswer": "de la noche; also por la noche.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T37",
+        "reviewerAnswer": "La tienda abre a las nueve de la mañana y cierra a las ocho de la tarde. The first blank also permits «por la mañana»; the second also permits «de la noche», «por la tarde» or «por la noche».",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted slot values are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": "Accepting both «tarde» and «noche» at 20:00 appropriately accommodates variation in describing this time."
+      },
+      {
+        "caseId": "task:A1-05-L3-T38",
+        "reviewerAnswer": "de la tarde; also por la tarde.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T39",
+        "reviewerAnswer": "de la mañana; also por la mañana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T40",
+        "reviewerAnswer": "de la mañana; also por la mañana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T41",
+        "reviewerAnswer": "de la noche; also por la noche.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-05-L3-T42",
+        "reviewerAnswer": "b",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+        "defect": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. Option b is correctly keyed.",
+        "correction": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»",
+        "sources": [
+          "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+          "Review duties: identify false rules or misleading simplifications."
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-05-L3",
+      "contentHash": "3e6528164ce725f06fc2a8fa1282384f7760d6c72ab9afe501580b24ac39e4eb",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[3].blocks[1].text: «Без точного часу кажемо тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false. Standard Spain Spanish also uses expressions such as «Trabajo de noche» without an exact clock time.",
+          "suggestion": "Replace the sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "lesson:A1-05-L3",
+      "verdict": "flawed",
+      "reviewerAnswer": "Not applicable: lesson content with no task to solve.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T32",
+      "contentHash": "22a86f90067c23e947bcc1f3a24dbd3ca38ff750991b8f6e00b9ebd66a192261",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T32",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; also por la mañana.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T33",
+      "contentHash": "18bb88ee7209c2b9785c88cda00934c7419771c900c9dbfec3d973ebbecc7867",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T33",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la tarde; also por la tarde.",
+      "notes": "The visible answer model is permitted for the supported role.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T34",
+      "contentHash": "168d5c28080d9b392a18a6bd64f8a291c0e97a15aa38c70311d611bf31ec391e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T34",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la noche; also por la noche.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T35",
+      "contentHash": "ad43b59766329a896666f7565d3bc8d11ecdbbbaf1054da32d7b54d613b1e359",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T35",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; also por la mañana.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T36",
+      "contentHash": "cdd4d707573b941cc70ae71faadfd9a77d2f4f3ec7bce1dcdd779feb75685158",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T36",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la noche; also por la noche.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T37",
+      "contentHash": "c8b4541a69254f76811e425e90235f7ee091a0dad0f2cdc516f7f7b6ca08d007",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted slot values are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T37",
+      "verdict": "flawed",
+      "reviewerAnswer": "La tienda abre a las nueve de la mañana y cierra a las ocho de la tarde. The first blank also permits «por la mañana»; the second also permits «de la noche», «por la tarde» or «por la noche».",
+      "notes": "Accepting both «tarde» and «noche» at 20:00 appropriately accommodates variation in describing this time.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T38",
+      "contentHash": "c4de6528937aacdc889e6c888eef77283a227af9d80b8a3984f050280e6ddd86",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T38",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la tarde; also por la tarde.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T39",
+      "contentHash": "7241c5aeb408bf77c7efd6f34e6d8c40effeae84e6a3b1d3cfb751411b8eb699",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T39",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; also por la mañana.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T40",
+      "contentHash": "a77dbaaed3b2b7b594a343652b33efbb5e8d570e209f65c35016db88eaec8110",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T40",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la mañana; also por la mañana.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T41",
+      "contentHash": "3014d7c82a8331a24cbb190b9dcfae3168c324479855c5861e237ad8974548ca",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. The accepted completions are appropriate.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T41",
+      "verdict": "flawed",
+      "reviewerAnswer": "de la noche; also por la noche.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-05-L3-T42",
+      "contentHash": "6d2c77393bb55c157669e8ed3656ede7ef76180bd44c7f8d3f43f9e59b2adbfc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.hints[0].blocks[0].text and task.feedback.incorrectUk: «Без точного часу — тільки por: Trabajo por la mañana.»",
+          "description": "The exclusive rule is false: «Trabajo de noche» is standard Spain Spanish without an exact clock time. Option b is correctly keyed.",
+          "suggestion": "In both fields, replace the exclusive sentence with «Без точного часу часто кажемо por: Trabajo por la mañana.»"
+        }
+      ],
+      "caseId": "task:A1-05-L3-T42",
+      "verdict": "flawed",
+      "reviewerAnswer": "b",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, entry «noche», locution «de noche» (from memory).",
+        "Review duties: identify false rules or misleading simplifications."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

@@ -1,0 +1,2658 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "A1-04-L6",
+  "tasks": [
+    {
+      "id": "A1-04-L6-T01",
+      "lessonId": "A1-04-L6",
+      "role": "supported",
+      "family": "a104.morning",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю, вставивши слова послідовності: спочатку — душ, потім — сніданок. Зразок: Primero me levanto, después desayuno."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "___ me ducho y ___ desayuno."
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        {
+          "slot": "s1"
+        },
+        " me ducho y ",
+        {
+          "slot": "s2"
+        },
+        " desayuno."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "primero"
+          ],
+          "errors": [
+            {
+              "text": "después",
+              "feedbackUk": "«Después» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "luego",
+              "feedbackUk": "«Luego» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "por último",
+              "feedbackUk": "«Por último» — «наостанок». Для першої дії — primero."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "después",
+            "luego"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для наступної дії — después або luego."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спочатку я приймаю душ, а потім снідаю."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero me ducho y después desayuno."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero me ducho y después desayuno.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T02",
+      "lessonId": "A1-04-L6",
+      "role": "supported",
+      "family": "a104.work",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю: спочатку — робота, потім — обід, наостанок — відпочинок. Зразок: Primero me levanto, después desayuno y por último voy al trabajo."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "___ trabajo, ___ como y ___ descanso."
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        {
+          "slot": "s1"
+        },
+        " trabajo, ",
+        {
+          "slot": "s2"
+        },
+        " como y ",
+        {
+          "slot": "s3"
+        },
+        " descanso."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "primero"
+          ],
+          "errors": [
+            {
+              "text": "después",
+              "feedbackUk": "«Después» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "luego",
+              "feedbackUk": "«Luego» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "por último",
+              "feedbackUk": "«Por último» — «наостанок». Для першої дії — primero."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "después",
+            "luego"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для наступної дії — después або luego."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s3",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "por último",
+            "al final"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для останньої дії — por último або al final."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спочатку я працюю, потім обідаю, а наостанок відпочиваю."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero trabajo, después como y por último descanso."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero trabajo, después como y por último descanso.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T03",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.home",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю: спочатку — покупки, потім — готування."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "___ hago la compra y ___ cocino."
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        {
+          "slot": "s1"
+        },
+        " hago la compra y ",
+        {
+          "slot": "s2"
+        },
+        " cocino."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "primero"
+          ],
+          "errors": [
+            {
+              "text": "después",
+              "feedbackUk": "«Después» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "luego",
+              "feedbackUk": "«Luego» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "por último",
+              "feedbackUk": "«Por último» — «наостанок». Для першої дії — primero."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "después",
+            "luego"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для наступної дії — después або luego."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спочатку я купую продукти, а потім готую."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero hago la compra y después cocino."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero hago la compra y después cocino.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T04",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.morning",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Переклади іспанською: «Спочатку я снідаю, потім іду на роботу»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Primero desayuno y después voy al trabajo."
+        },
+        {
+          "id": "v2",
+          "text": "Primero desayuno y luego voy al trabajo."
+        },
+        {
+          "id": "v3",
+          "text": "Primero desayuno, después voy al trabajo."
+        },
+        {
+          "id": "v4",
+          "text": "Primero desayuno, luego voy al trabajo."
+        },
+        {
+          "id": "v5",
+          "text": "Primero, desayuno y después voy al trabajo."
+        },
+        {
+          "id": "v6",
+          "text": "Primero, desayuno y luego voy al trabajo."
+        },
+        {
+          "id": "v7",
+          "text": "Primero, desayuno, después voy al trabajo."
+        },
+        {
+          "id": "v8",
+          "text": "Primero, desayuno, luego voy al trabajo."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero desayuno y después voy al trabajo."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero desayuno y después voy al trabajo.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T05",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.home",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю, вставивши слово «пізніше»."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Primero leo el periódico y ___ escucho música."
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        "Primero leo el periódico y ",
+        {
+          "slot": "s1"
+        },
+        " escucho música."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "más tarde"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для наступної дії — después або luego."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спочатку я читаю газету, а пізніше слухаю музику."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero leo el periódico y más tarde escucho música."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero leo el periódico y más tarde escucho música.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T06",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.home",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Переклади іспанською: «Наостанок я читаю книжку»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Por último leo un libro."
+        },
+        {
+          "id": "v2",
+          "text": "Por último, leo un libro."
+        },
+        {
+          "id": "v3",
+          "text": "Al final leo un libro."
+        },
+        {
+          "id": "v4",
+          "text": "Al final, leo un libro."
+        }
+      ],
+      "errors": [
+        {
+          "id": "e1",
+          "text": "Primero leo un libro.",
+          "outcomes": {
+            "link.sequence/construction-use": "incorrect"
+          },
+          "feedbackUk": "«Primero» — «спочатку». «Наостанок» — por último або al final."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Por último leo un libro."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Por último leo un libro.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T07",
+      "lessonId": "A1-04-L6",
+      "role": "delayed",
+      "family": "a104.morning",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю: спочатку — встаю, потім — душ, наостанок — сніданок."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "___ me levanto, ___ me ducho y ___ desayuno."
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        {
+          "slot": "s1"
+        },
+        " me levanto, ",
+        {
+          "slot": "s2"
+        },
+        " me ducho y ",
+        {
+          "slot": "s3"
+        },
+        " desayuno."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "primero"
+          ],
+          "errors": [
+            {
+              "text": "después",
+              "feedbackUk": "«Después» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "luego",
+              "feedbackUk": "«Luego» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "por último",
+              "feedbackUk": "«Por último» — «наостанок». Для першої дії — primero."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "después",
+            "luego"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для наступної дії — después або luego."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s3",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "por último",
+            "al final"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для останньої дії — por último або al final."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спочатку я встаю, потім приймаю душ, а наостанок снідаю."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero me levanto, después me ducho y por último desayuno."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero me levanto, después me ducho y por último desayuno.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T08",
+      "lessonId": "A1-04-L6",
+      "role": "delayed",
+      "family": "a104.home",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Переклади іспанською: «Спочатку ми купуємо продукти, потім готуємо»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Primero hacemos la compra y después cocinamos."
+        },
+        {
+          "id": "v2",
+          "text": "Primero hacemos la compra y luego cocinamos."
+        },
+        {
+          "id": "v3",
+          "text": "Primero hacemos la compra, después cocinamos."
+        },
+        {
+          "id": "v4",
+          "text": "Primero hacemos la compra, luego cocinamos."
+        },
+        {
+          "id": "v5",
+          "text": "Primero, hacemos la compra y después cocinamos."
+        },
+        {
+          "id": "v6",
+          "text": "Primero, hacemos la compra y luego cocinamos."
+        },
+        {
+          "id": "v7",
+          "text": "Primero, hacemos la compra, después cocinamos."
+        },
+        {
+          "id": "v8",
+          "text": "Primero, hacemos la compra, luego cocinamos."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero hacemos la compra y después cocinamos."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero hacemos la compra y después cocinamos.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T09",
+      "lessonId": "A1-04-L6",
+      "role": "transfer",
+      "family": "a104.evening-plan",
+      "mode": "exact-variants",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Переклади іспанською: «Спочатку я вивчаю іспанську, а потім іду в спортзал»."
+        }
+      ],
+      "input": "short",
+      "accepted": [
+        {
+          "id": "v1",
+          "text": "Primero estudio español y después voy al gimnasio."
+        },
+        {
+          "id": "v2",
+          "text": "Primero estudio español y luego voy al gimnasio."
+        },
+        {
+          "id": "v3",
+          "text": "Primero estudio español, después voy al gimnasio."
+        },
+        {
+          "id": "v4",
+          "text": "Primero estudio español, luego voy al gimnasio."
+        },
+        {
+          "id": "v5",
+          "text": "Primero, estudio español y después voy al gimnasio."
+        },
+        {
+          "id": "v6",
+          "text": "Primero, estudio español y luego voy al gimnasio."
+        },
+        {
+          "id": "v7",
+          "text": "Primero, estudio español, después voy al gimnasio."
+        },
+        {
+          "id": "v8",
+          "text": "Primero, estudio español, luego voy al gimnasio."
+        }
+      ],
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero estudio español y después voy al gimnasio."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero estudio español y después voy al gimnasio.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T10",
+      "lessonId": "A1-04-L6",
+      "role": "transfer",
+      "family": "a104.holiday",
+      "mode": "finite-slots",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Перепиши речення повністю: у готелі спочатку — сніданок, потім — пляж."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "En el hotel, ___ desayunamos y ___ vamos a la playa."
+        }
+      ],
+      "input": "short",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "template": [
+        "En el hotel, ",
+        {
+          "slot": "s1"
+        },
+        " desayunamos y ",
+        {
+          "slot": "s2"
+        },
+        " vamos a la playa."
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "primero"
+          ],
+          "errors": [
+            {
+              "text": "después",
+              "feedbackUk": "«Después» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "luego",
+              "feedbackUk": "«Luego» — «потім». Для першої дії — primero."
+            },
+            {
+              "text": "por último",
+              "feedbackUk": "«Por último» — «наостанок». Для першої дії — primero."
+            }
+          ],
+          "closed": false
+        },
+        {
+          "id": "s2",
+          "target": "link.sequence/construction-use",
+          "accepted": [
+            "después",
+            "luego"
+          ],
+          "errors": [
+            {
+              "text": "primero",
+              "feedbackUk": "«Primero» — «спочатку». Для наступної дії — después або luego."
+            }
+          ],
+          "closed": false
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "У готелі ми спочатку снідаємо, а потім ідемо на пляж."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "En el hotel, primero desayunamos y después vamos a la playa."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "En el hotel, primero desayunamos y después vamos a la playa.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo.",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T11",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.morning",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Це перша дія ранку. Обери слово, яке підходить."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "___ me levanto."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Por último",
+          "outcomes": {
+            "link.sequence/context-choice": "incorrect"
+          },
+          "feedbackUk": "«Por último» — для останньої дії."
+        },
+        {
+          "id": "b",
+          "label": "Primero",
+          "outcomes": {
+            "link.sequence/context-choice": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Después",
+          "outcomes": {
+            "link.sequence/context-choice": "incorrect"
+          },
+          "feedbackUk": "«Después» — для наступної дії, а це перша."
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спочатку я встаю."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Primero"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Primero",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T12",
+      "lessonId": "A1-04-L6",
+      "role": "delayed",
+      "family": "a104.home",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "context-choice"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Це остання дія вечора. Обери слово, яке підходить."
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "___ escucho música."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Primero",
+          "outcomes": {
+            "link.sequence/context-choice": "incorrect"
+          },
+          "feedbackUk": "«Primero» — для першої дії."
+        },
+        {
+          "id": "b",
+          "label": "Por último",
+          "outcomes": {
+            "link.sequence/context-choice": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "translation",
+          "targets": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Наостанок я слухаю музику."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/context-choice"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Por último"
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Por último",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T13",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.study",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "link.sequence",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай речення. Що Ана робить останнім?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Primero Ana desayuna, después va a la universidad y por último hace deporte."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Снідає.",
+          "outcomes": {
+            "link.sequence/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Іде до університету.",
+          "outcomes": {
+            "link.sequence/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Займається спортом.",
+          "outcomes": {
+            "link.sequence/reading-meaning": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "link.sequence/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "link.sequence/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Займається спортом."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Щоб розповісти про дії по черзі: primero — «спочатку», después і luego — «потім», más tarde — «пізніше», por último і al final — «наостанок, зрештою». Primero me levanto, después desayuno y luego voy al trabajo."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T14",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.text-marta",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Де працює Марта?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Me llamo Marta. Vivo en Valencia y trabajo en una oficina. Normalmente me levanto temprano. Primero me ducho, después desayuno en casa y luego voy al trabajo. Por la tarde estudio inglés. Los fines de semana descanso y a veces voy a la playa."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "У банку.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "В офісі.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Удома.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "В офісі."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T15",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.text-marta",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Що Марта робить одразу після душу?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Me llamo Marta. Vivo en Valencia y trabajo en una oficina. Normalmente me levanto temprano. Primero me ducho, después desayuno en casa y luego voy al trabajo. Por la tarde estudio inglés. Los fines de semana descanso y a veces voy a la playa."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Снідає вдома.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Іде на роботу.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Вивчає англійську.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Снідає вдома."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T16",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.text-marta",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Як часто Марта ходить на пляж?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Me llamo Marta. Vivo en Valencia y trabajo en una oficina. Normalmente me levanto temprano. Primero me ducho, después desayuno en casa y luego voy al trabajo. Por la tarde estudio inglés. Los fines de semana descanso y a veces voy a la playa."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Щодня.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Іноді, на вихідних.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Ніколи.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Іноді, на вихідних."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T17",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.text-javier",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. З ким живе Хав’єр?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Javier es estudiante y vive con sus padres en Sevilla. Por la mañana va a la universidad. Come en casa con su familia. Por la tarde lee en el parque. Por la noche cena con sus padres y escucha música. Los sábados nunca se levanta temprano."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "З друзями.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Сам.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "З батьками.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "З батьками."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T18",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.text-javier",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Що Хав’єр робить зранку?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Javier es estudiante y vive con sus padres en Sevilla. Por la mañana va a la universidad. Come en casa con su familia. Por la tarde lee en el parque. Por la noche cena con sus padres y escucha música. Los sábados nunca se levanta temprano."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Іде до університету.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Читає в парку.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Слухає музику.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Іде до університету."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T19",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.text-javier",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Що правда про суботу?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Javier es estudiante y vive con sus padres en Sevilla. Por la mañana va a la universidad. Come en casa con su familia. Por la tarde lee en el parque. Por la noche cena con sus padres y escucha música. Los sábados nunca se levanta temprano."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Хав’єр встає рано.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Хав’єр ніколи не встає рано.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Хав’єр займається спортом.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Хав’єр ніколи не встає рано."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T20",
+      "lessonId": "A1-04-L6",
+      "role": "delayed",
+      "family": "a104.text-luis",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Коли Луїс працює?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Luis trabaja en un hotel por la noche. Llega a casa por la mañana, se ducha y desayuna. Por la tarde se levanta y hace la compra. Los domingos come con su madre."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Зранку.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Після обіду.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Уночі.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Уночі."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T21",
+      "lessonId": "A1-04-L6",
+      "role": "delayed",
+      "family": "a104.text-luis",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "reading.routine-text",
+          "modality": "reading-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Прочитай текст. Що Луїс робить щонеділі?"
+        },
+        {
+          "type": "paragraph",
+          "language": "es-ES",
+          "text": "Luis trabaja en un hotel por la noche. Llega a casa por la mañana, se ducha y desayuna. Por la tarde se levanta y hace la compra. Los domingos come con su madre."
+        }
+      ],
+      "input": "options",
+      "options": [
+        {
+          "id": "a",
+          "label": "Обідає з мамою.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Працює в готелі.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Купує продукти.",
+          "outcomes": {
+            "reading.routine-text/reading-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "reading.routine-text/reading-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Обідає з мамою."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Прочитай текст і знайди потрібне: що людина робить, як часто і в якій послідовності. Слова primero, después, siempre, a veces підказують порядок і частотність дій."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T22",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.l6.carmen",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.routine",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай запис. Про що розповідає Кармен?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-04.routine.carmen"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "Про свій звичайний день.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Про свої вихідні.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Про роботу брата.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Me llamo Carmen. Me levanto temprano y primero me ducho. Después desayuno y voy a la oficina. Por la tarde hago deporte."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Про свій звичайний день."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T23",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.l6.carmen",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.routine",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай запис. Що Кармен робить після обіду?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-04.routine.carmen"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "Іде в офіс.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Займається спортом.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Снідає.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Me llamo Carmen. Me levanto temprano y primero me ducho. Después desayuno y voy a la oficina. Por la tarde hago deporte."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Займається спортом."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T24",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.l6.saturday",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.routine",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай запис. Коли людина із запису та її брат встають пізно?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-04.routine.sabados"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "Щодня.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Щонеділі.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Щосуботи.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "correct"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Los sábados mi hermano y yo nos levantamos tarde. Primero desayunamos en casa, luego vamos al parque y por la noche cenamos con nuestros padres."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Щосуботи."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T25",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.l6.saturday",
+      "mode": "choice",
+      "targets": [
+        {
+          "skillId": "listening.routine",
+          "modality": "listening-meaning"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Послухай запис. Що вони роблять увечері?"
+        }
+      ],
+      "input": "options",
+      "clipIds": [
+        "clip.a1-04.routine.sabados"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": "Вечеряють із батьками.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "correct"
+          }
+        },
+        {
+          "id": "b",
+          "label": "Ідуть у парк.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        },
+        {
+          "id": "c",
+          "label": "Снідають удома.",
+          "outcomes": {
+            "listening.routine/listening-meaning": "incorrect"
+          }
+        }
+      ],
+      "hints": [
+        {
+          "kind": "transcript",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Los sábados mi hermano y yo nos levantamos tarde. Primero desayunamos en casa, luego vamos al parque y por la noche cenamos con nuestros padres."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "listening.routine/listening-meaning"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Вечеряють із батьками."
+            }
+          ]
+        }
+      ],
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Спершу визнач головне — хто говорить і про що, потім деталі: у якій послідовності й як часто відбуваються дії."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T26",
+      "lessonId": "A1-04-L6",
+      "role": "independent",
+      "family": "a104.write-me",
+      "mode": "rubric-review",
+      "targets": [
+        {
+          "skillId": "writing.routine",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Напиши 3–5 речень іспанською про свій звичайний день: що ти робиш, як часто і в якій послідовності. Це вільне письмо: зразок у підказці — лише приклад."
+        }
+      ],
+      "input": "multiline",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "rubric": {
+        "criteriaUk": [
+          "Є 3–5 речень на тему завдання.",
+          "Дієслова в теперішньому часі узгоджені з особою (yo trabajo, Ana trabaja).",
+          "Є хоча б одне слово частотності (siempre, normalmente, a veces, nunca…).",
+          "Є слова послідовності (primero, después, luego, por último).",
+          "Відповідь може відрізнятися від прикладу: перевіряється зміст і вивчені форми, а не збіг зі зразком."
+        ],
+        "exemplars": [
+          {
+            "id": "x1",
+            "text": "Normalmente me levanto temprano. Primero me ducho y después desayuno en casa. Luego voy al trabajo. Por la tarde estudio español. Los fines de semana a veces voy al cine."
+          }
+        ]
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después)."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Normalmente me levanto temprano. Primero me ducho y después desayuno en casa. Luego voy al trabajo. Por la tarde estudio español. Los fines de semana a veces voy al cine."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Normalmente me levanto temprano. Primero me ducho y después desayuno en casa. Luego voy al trabajo. Por la tarde estudio español. Los fines de semana a veces voy al cine.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después).",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T27",
+      "lessonId": "A1-04-L6",
+      "role": "delayed",
+      "family": "a104.write-friend",
+      "mode": "rubric-review",
+      "targets": [
+        {
+          "skillId": "writing.routine",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Напиши 3–4 речення іспанською про звичайний день свого друга чи подруги (він / вона): що він чи вона робить, як часто і в якій послідовності."
+        }
+      ],
+      "input": "multiline",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "rubric": {
+        "criteriaUk": [
+          "Є 3–4 речення на тему завдання.",
+          "Дієслова у формі для él / ella (trabaja, se levanta).",
+          "Є хоча б одне слово частотності (siempre, normalmente, a veces, nunca…).",
+          "Є слова послідовності (primero, después, luego, por último).",
+          "Відповідь може відрізнятися від прикладу: перевіряється зміст і вивчені форми, а не збіг зі зразком."
+        ],
+        "exemplars": [
+          {
+            "id": "x1",
+            "text": "Mi amiga Lucía vive en Madrid. Siempre se ducha por la mañana. Primero desayuna y después va a la universidad. Por la noche lee un libro."
+          }
+        ]
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Напиши кілька коротких речень про день друга чи подруги: що він чи вона робить, як часто і в якій послідовності. Дієслова — у формі для él / ella (se levanta, trabaja); використовуй слова частотності (siempre, a veces) і порядку (primero, después)."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Mi amiga Lucía vive en Madrid. Siempre se ducha por la mañana. Primero desayuna y después va a la universidad. Por la noche lee un libro."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Mi amiga Lucía vive en Madrid. Siempre se ducha por la mañana. Primero desayuna y después va a la universidad. Por la noche lee un libro.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Напиши кілька коротких речень про день друга чи подруги: що він чи вона робить, як часто і в якій послідовності. Дієслова — у формі для él / ella (se levanta, trabaja); використовуй слова частотності (siempre, a veces) і порядку (primero, después).",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "A1-04-L6-T28",
+      "lessonId": "A1-04-L6",
+      "role": "transfer",
+      "family": "a104.write-weekend",
+      "mode": "rubric-review",
+      "targets": [
+        {
+          "skillId": "writing.routine",
+          "modality": "construction-use"
+        }
+      ],
+      "prompt": [
+        {
+          "type": "paragraph",
+          "language": "uk",
+          "text": "Напиши 3–4 речення іспанською про свої звичайні вихідні: що ти робиш, як часто і в якій послідовності."
+        }
+      ],
+      "input": "multiline",
+      "policy": {
+        "case": "insensitive",
+        "terminalPunctuation": "optional"
+      },
+      "rubric": {
+        "criteriaUk": [
+          "Є 3–4 речення на тему завдання.",
+          "Дієслова в теперішньому часі узгоджені з особою (yo trabajo, Ana trabaja).",
+          "Є хоча б одне слово частотності (siempre, normalmente, a veces, nunca…).",
+          "Є слова послідовності (primero, después, luego, por último).",
+          "Відповідь може відрізнятися від прикладу: перевіряється зміст і вивчені форми, а не збіг зі зразком."
+        ],
+        "exemplars": [
+          {
+            "id": "x1",
+            "text": "Los sábados me levanto tarde. Primero desayuno con mi familia y luego voy al parque. A veces voy al cine con mis amigos. Los domingos descanso en casa."
+          }
+        ]
+      },
+      "hints": [
+        {
+          "kind": "rule",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "uk",
+              "text": "Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después)."
+            }
+          ]
+        },
+        {
+          "kind": "reveal",
+          "targets": [
+            "writing.routine/construction-use"
+          ],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "language": "es-ES",
+              "text": "Los sábados me levanto tarde. Primero desayuno con mi familia y luego voy al parque. A veces voy al cine con mis amigos. Los domingos descanso en casa."
+            }
+          ]
+        }
+      ],
+      "referenceAnswer": "Los sábados me levanto tarde. Primero desayuno con mi familia y luego voy al parque. A veces voy al cine con mis amigos. Los domingos descanso en casa.",
+      "feedback": {
+        "correctUk": "Правильно!",
+        "incorrectUk": "Поки що ні. Напиши кілька коротких речень про день: що робиш, як часто і в якій послідовності. Використовуй вивчені дієслова, слова частотності (siempre, a veces) і порядку (primero, después).",
+        "unresolvedUk": "Цю відповідь не вдалося перевірити автоматично, тож її не зараховано ні як правильну, ні як помилку. Порівняй її зі зразком у підказці «Показати відповідь»."
+      },
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

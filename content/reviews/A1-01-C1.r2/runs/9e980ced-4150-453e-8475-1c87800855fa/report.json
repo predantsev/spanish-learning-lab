@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-01-C1.r2",
+  "packetHash": "d7ac04cce91fa63d89cb3132dfd1a101892983c91462f5502e28957dd96049ff",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "9ff129290fb4fdf9dd9ef3657790f8d741598f370fbdda7dcc56cd28e1c5487f",
+    "reviewerPacketSha256": "e9aea47103355c8f0fb27f2199a6abbef1c6c8f19d4d26a8cf7a63e2a9fe57ea",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AVS7Pn/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AVS7Pn/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AVS7Pn/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AVS7Pn/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-AVS7Pn/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bdab-3385-7331-9dc4-befb1d20bc3f",
+        "version": "v0.166.0",
+        "tokens used": "11,790"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-01-C1-T06",
+        "reviewerAnswer": "Gracias, Ana. ¡Hasta mañana! Also acceptable: Gracias, Ana. Hasta mañana.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "task.errors[id=e1]: \"Gracias Ana. ¡Hasta mañana!\" receives \"unresolved\" for both targets; feedbackUk requires \"звертання відокремлюємо комою\".",
+        "defect": "Success depends on punctuating a vocative, but context.taughtBefore does not document that construction or its comma rule. The feedback introduces this requirement after the attempt. Both taught formulas are otherwise transcribed correctly.",
+        "correction": "Teach vocative punctuation beforehand and include it in taughtBefore, or remove \"Ana\" from the recording and update the transcript and corresponding task fields.",
+        "sources": [
+          "Course contract, rule 1: Teach before testing.",
+          "Packet: context.taughtBefore and task.errors[id=e1]."
+        ],
+        "notes": "The comma rule itself is correct. The defect is the undocumented prerequisite, not the Spanish punctuation advice."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-01-C1-T06",
+      "contentHash": "0417a7adccf955a50d9cb072ec39b778ce2ed73dfc83a090d251e6e2e4d67045",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[id=e1]: \"Gracias Ana. ¡Hasta mañana!\" receives \"unresolved\" for both targets; feedbackUk requires \"звертання відокремлюємо комою\".",
+          "description": "Success depends on punctuating a vocative, but context.taughtBefore does not document that construction or its comma rule. The feedback introduces this requirement after the attempt. Both taught formulas are otherwise transcribed correctly.",
+          "suggestion": "Teach vocative punctuation beforehand and include it in taughtBefore, or remove \"Ana\" from the recording and update the transcript and corresponding task fields."
+        }
+      ],
+      "caseId": "task:A1-01-C1-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "Gracias, Ana. ¡Hasta mañana! Also acceptable: Gracias, Ana. Hasta mañana.",
+      "notes": "The comma rule itself is correct. The defect is the undocumented prerequisite, not the Spanish punctuation advice.",
+      "sources": [
+        "Course contract, rule 1: Teach before testing.",
+        "Packet: context.taughtBefore and task.errors[id=e1]."
+      ]
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L4.r3",
+  "packetHash": "84be8cddc120f93ca071a697efd15bdbc2e79f7fac6940d446d4ed63f5c26d99",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "702a82da618060615427cccad1afb61c2424a84ff3aa68c1be0eaa792489497b",
+    "reviewerPacketSha256": "6b15df358473ff393c1e21bd2cbe633c82d3f0e62a51a514c630733a342e76bd",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-6RwbLv/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-6RwbLv/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-6RwbLv/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-6RwbLv/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-6RwbLv/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bfeb-079b-78e3-b4f6-881296e302d7",
+        "version": "v0.166.0",
+        "tokens used": "46,729"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "task:A1-03-L4-T01",
+        "reviewerAnswer": "Hay un libro en la mesa. / En la mesa hay un libro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T02",
+        "reviewerAnswer": "Hay sillas en la cocina. / Hay unas sillas en la cocina. / En la cocina hay sillas. / En la cocina hay unas sillas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prerequisite example “Hay unas sillas.” supplies the vocabulary needed for the answer."
+      },
+      {
+        "caseId": "task:A1-03-L4-T03",
+        "reviewerAnswer": "En mi calle hay una farmacia. / Hay una farmacia en mi calle.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T04",
+        "reviewerAnswer": "¿Hay un hotel aquí? / ¿Aquí hay un hotel? / ¿Hay un hotel por aquí?",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The bare singular in “¿Hay hotel aquí?” is also acceptable when asking about the availability of a hotel."
+      },
+      {
+        "caseId": "task:A1-03-L4-T07",
+        "reviewerAnswer": "En el parque hay un café. / Hay un café en el parque. “Una cafetería” also fits in place of “un café”.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The vocabulary gloss does not supply a model of the assessed construction. Accepting the additional synonym “cafetería” creates no untaught requirement."
+      },
+      {
+        "caseId": "task:A1-03-L4-T09",
+        "reviewerAnswer": "En el piso hay una cocina grande. / Hay una cocina grande en el piso.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T10",
+        "reviewerAnswer": "En mi calle hay un supermercado. / Hay un supermercado en mi calle.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L4-T31",
+        "reviewerAnswer": "El libro está en la mesa. / En la mesa está el libro.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The alternative word order is not listed, but the key is not declared closed and unlisted answers receive unresolved feedback."
+      },
+      {
+        "caseId": "task:A1-03-L4-T35",
+        "reviewerAnswer": "La llave está en la mesa. / En la mesa está la llave.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The prompt explicitly establishes an identifiable key. The unlisted alternative word order is not rejected by a closed key."
+      },
+      {
+        "caseId": "task:A1-03-L4-T40",
+        "reviewerAnswer": "En la cocina hay una mesa. / Hay una mesa en la cocina.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T01",
+      "contentHash": "84390584c98b81716ca178a8db1fbfe149fdf58623defd46d0a3314b184445c0",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T01",
+      "verdict": "valid",
+      "reviewerAnswer": "Hay un libro en la mesa. / En la mesa hay un libro.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T02",
+      "contentHash": "2b3230df83a4bb72826324f5e0bfc9aed05c6fd75b5823682993d3221d55ea4e",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T02",
+      "verdict": "valid",
+      "reviewerAnswer": "Hay sillas en la cocina. / Hay unas sillas en la cocina. / En la cocina hay sillas. / En la cocina hay unas sillas.",
+      "notes": "The prerequisite example “Hay unas sillas.” supplies the vocabulary needed for the answer.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T03",
+      "contentHash": "ef5efbced146e035b9f33728414ad94d938265b72ec99f2b3b38f56c1672458a",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T03",
+      "verdict": "valid",
+      "reviewerAnswer": "En mi calle hay una farmacia. / Hay una farmacia en mi calle.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T04",
+      "contentHash": "7187f0b1cef447c3651cec215ca17add112b47b95c32f0a1224c350bf2a2b30c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T04",
+      "verdict": "valid",
+      "reviewerAnswer": "¿Hay un hotel aquí? / ¿Aquí hay un hotel? / ¿Hay un hotel por aquí?",
+      "notes": "The bare singular in “¿Hay hotel aquí?” is also acceptable when asking about the availability of a hotel.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T07",
+      "contentHash": "50cd21a0c9c36d2aa4af733cfcf152d0553b6b2f535797444f22440522122238",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T07",
+      "verdict": "valid",
+      "reviewerAnswer": "En el parque hay un café. / Hay un café en el parque. “Una cafetería” also fits in place of “un café”.",
+      "notes": "The vocabulary gloss does not supply a model of the assessed construction. Accepting the additional synonym “cafetería” creates no untaught requirement.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T09",
+      "contentHash": "96ddaa242fd309f23607c5064ac84ec57209b103e100fdf2d95e83616372d927",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T09",
+      "verdict": "valid",
+      "reviewerAnswer": "En el piso hay una cocina grande. / Hay una cocina grande en el piso.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T10",
+      "contentHash": "c5904724d21c317cb5f8d43590b4fb1b2c7f99c1d907996d3759704eaf02b44c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T10",
+      "verdict": "valid",
+      "reviewerAnswer": "En mi calle hay un supermercado. / Hay un supermercado en mi calle.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T31",
+      "contentHash": "ea65d86da0424b1f0ab5cffc5a9b4f9de8f36ce0cc32562c3c1a853deb002fba",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T31",
+      "verdict": "valid",
+      "reviewerAnswer": "El libro está en la mesa. / En la mesa está el libro.",
+      "notes": "The alternative word order is not listed, but the key is not declared closed and unlisted answers receive unresolved feedback.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T35",
+      "contentHash": "b7abaf434c02127570a7e54db1e05a2d80cf0a59494213a8b38f34b1450a2440",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "La llave está en la mesa. / En la mesa está la llave.",
+      "notes": "The prompt explicitly establishes an identifiable key. The unlisted alternative word order is not rejected by a closed key.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L4-T40",
+      "contentHash": "e84ad4f525e0125081c385a08bb7d6a8cb78da453ac6e495597e73cc97ae3d4c",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L4-T40",
+      "verdict": "valid",
+      "reviewerAnswer": "En la cocina hay una mesa. / Hay una mesa en la cocina.",
+      "notes": "",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

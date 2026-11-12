@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-04-L5.r4",
+  "packetHash": "ed649fcdb2dd54193a07054a1ec3446e5c00b527259b614349cd9c9e9dfbf38e",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "7a57118b92a03b041f7e42ac0e8e5d8acdcfeb1d1b71803e8b59f543629c161a",
+    "reviewerPacketSha256": "40a7b04efdb32487d93b4c55b4131cbe3f631423d950e5a76c84d215c2771ae4",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KrerP3/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KrerP3/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KrerP3/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KrerP3/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-KrerP3/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bff2-aa2b-7a31-a537-7a2c351da95d",
+        "version": "v0.166.0",
+        "tokens used": "16,720"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-04-L5",
+        "reviewerAnswer": "The examples correctly use por la mañana, por la tarde and por la noche; nunca before the verb or no with postverbal nunca; and expressions such as todos los días and los sábados.",
+        "verdict": "flawed",
+        "blocking": "yes",
+        "element": "content.body.steps[0].blocks[4].text: «Саме слово mañana без артикля означає «завтра»»",
+        "defect": "Absence of an article does not determine the meaning of mañana: esta mañana means 'this morning' and contains no article. The explanation presents a misleading article-based distinction between 'morning' and 'tomorrow'.",
+        "correction": "Replace that sentence with: «Прислівник mañana означає «завтра»: Mañana trabajo. «Зранку» — por la mañana.»",
+        "sources": [
+          "Review duties: identify false rules or misleading simplifications (provided in the prompt).",
+          "RAE/ASALE, Diccionario de la lengua española, entry «mañana»: distinguishes the noun meaning 'morning' from the adverb meaning 'tomorrow' (from memory).",
+          "RAE/ASALE, Nueva gramática de la lengua española, treatment of demonstrative determiners in temporal noun phrases, including constructions such as «esta mañana» (from memory)."
+        ],
+        "notes": "«Mañana trabajo» itself is correct; the defect concerns the generalization about article absence."
+      },
+      {
+        "caseId": "task:A1-04-L5-T32",
+        "reviewerAnswer": "Nunca bebo café por la noche. Multiple answers fit: tomo can replace bebo, no can precede the verb with postverbal nunca, and por la tarde can describe early evening.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key accommodates both evening readings. No closed setting is supplied, so omitted correct word orders do not establish an incorrect rejection under contract rule 3. The hint supplies the parts-of-day expression without revealing the assessed negation construction."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-04-L5",
+      "contentHash": "b16f2a72173780d53a02e925f1fce9c950c26c90a48c2877fddf37912c814876",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[4].text: «Саме слово mañana без артикля означає «завтра»»",
+          "description": "Absence of an article does not determine the meaning of mañana: esta mañana means 'this morning' and contains no article. The explanation presents a misleading article-based distinction between 'morning' and 'tomorrow'.",
+          "suggestion": "Replace that sentence with: «Прислівник mañana означає «завтра»: Mañana trabajo. «Зранку» — por la mañana.»"
+        }
+      ],
+      "caseId": "lesson:A1-04-L5",
+      "verdict": "flawed",
+      "reviewerAnswer": "The examples correctly use por la mañana, por la tarde and por la noche; nunca before the verb or no with postverbal nunca; and expressions such as todos los días and los sábados.",
+      "notes": "«Mañana trabajo» itself is correct; the defect concerns the generalization about article absence.",
+      "sources": [
+        "Review duties: identify false rules or misleading simplifications (provided in the prompt).",
+        "RAE/ASALE, Diccionario de la lengua española, entry «mañana»: distinguishes the noun meaning 'morning' from the adverb meaning 'tomorrow' (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, treatment of demonstrative determiners in temporal noun phrases, including constructions such as «esta mañana» (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-04-L5-T32",
+      "contentHash": "e117dfc47fecb11fee8295c132b90bf42707f506abde19d97aca0fc8a98dcdf3",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-04-L5-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "Nunca bebo café por la noche. Multiple answers fit: tomo can replace bebo, no can precede the verb with postverbal nunca, and por la tarde can describe early evening.",
+      "notes": "The key accommodates both evening readings. No closed setting is supplied, so omitted correct word orders do not establish an incorrect rejection under contract rule 3. The hint supplies the parts-of-day expression without revealing the assessed negation construction.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

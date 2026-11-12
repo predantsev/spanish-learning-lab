@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A1-06-L4.r1",
+  "jobId": "2db5a883-56db-4a84-a809-ccd96325b599",
+  "receiptId": "b100f49a-d050-4228-a675-a1ac7f767db9",
+  "recordedAt": "2026-11-09T07:46:55.425Z",
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "time.plan.present-for-future",
+      "contentHash": "ef0c5b66ea41fcfdeeb89d288f009c0d348e3cbd208af62638308745e3653b48",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.scope.noteUk: \"Без слова часу теперішній час означає звичну дію, а не план.\"",
+          "description": "This is a false restriction. Without an explicit time expression, the present can describe an ongoing action or a future plan whose timing is understood from context. It does not automatically express a habit.",
+          "suggestion": "Replace the claim with: \"У цих вправах додаємо вираз часу, щоб чітко показати майбутній план. У розмові час може бути зрозумілий із контексту.\""
+        }
+      ],
+      "caseId": "skill:time.plan.present-for-future",
+      "verdict": "flawed",
+      "reviewerAnswer": "The present can express a future arrangement when future reference is established by an expression or by context.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, temporal interpretations of the present indicative, including prospective uses (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T34",
+      "contentHash": "f0dc170b4db9c3ab7d1d9dfb80e1375684e3379db81ca88afafde114ac243f33",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.errors[0]: \"El fin de semana quiero descanso.\" is marked incorrect; feedbackUk: \"Після quiero — інфінітив (словникова форма): descansar.\"",
+          "description": "Descanso is also a noun meaning rest. The reviewed sentence can therefore express wanting rest at the weekend, rather than an erroneous second conjugated verb. The prompt does not require using descansar. The feedback incorrectly treats the infinitive as obligatory after quiero, despite the lesson also teaching noun complements.",
+          "suggestion": "Make the prompt explicitly require descansar, or leave the noun paraphrase unresolved for this infinitive target. Explain that expressing the action with descansar requires the infinitive."
+        }
+      ],
+      "caseId": "task:A1-06-L4-T34",
+      "verdict": "flawed",
+      "reviewerAnswer": "Este fin de semana quiero descansar. / Quiero descansar el fin de semana.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 3: reviewed errors must actually be wrong for the stated task.",
+        "This packet, skill:querer.noun, ruleUk: \"Чого хочемо — quiero + іменник\".",
+        "RAE/ASALE, Diccionario de la lengua española, entry descanso, masculine noun denoting rest (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T37",
+      "contentHash": "0c0f1b80a88dc16fda21f9fa37d368c2d800a8da1eddfb2f46bccca07efd34fe",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[id=b]: \"Por la noche\" is marked incorrect; feedbackUk: \"Por la noche — «увечері» загалом (часто про звичку). «Сьогодні ввечері» — esta noche.\"",
+          "description": "Por la noche can refer to a particular evening supplied by context. The prompt explicitly establishes today, so Por la noche voy al cine can express the stated plan. The task does not ask which expression explicitly encodes today.",
+          "suggestion": "Accept both a and b, or ask which expression explicitly means \"сьогодні ввечері\". Explain that por la noche can accompany either a habit or a specific occasion."
+        }
+      ],
+      "caseId": "task:A1-06-L4-T37",
+      "verdict": "flawed",
+      "reviewerAnswer": "a and b: Esta noche is explicit; Por la noche also fits when today's evening is established by the prompt.",
+      "notes": "",
+      "sources": [
+        "Course contract rule 2: correct choice options must receive correct outcomes.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, prospective present and contextual temporal interpretation (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, entry noche, temporal locution por la noche (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T47",
+      "contentHash": "9533ad3c9e5fec84feb9d109a0e5e114fabfa11b2d369ebe82d9dcfbccd00993",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.errors[0]: \"Por la tarde Pablo trabaja.\" is marked incorrect; feedbackUk: \"Por la tarde — «удень» загалом. «Сьогодні після обіду» — esta tarde.\"",
+          "description": "The judgment depends on whether the response must be a self-contained translation explicitly encoding today, or whether today's date is shared conversational context. Por la tarde can refer to that particular afternoon in context; it is not restricted to habitual reference.",
+          "suggestion": "Specify whether today must be explicit in the Spanish response. Until then, leave this reviewed answer unresolved and avoid presenting por la tarde as necessarily general."
+        }
+      ],
+      "caseId": "task:A1-06-L4-T47",
+      "verdict": "uncertain",
+      "reviewerAnswer": "Esta tarde Pablo trabaja. / Pablo trabaja esta tarde. Por la tarde Pablo trabaja is possible when the day is understood.",
+      "notes": "",
+      "sources": [
+        "Course contract verdict definition for uncertain: acceptability depends on context the task does not fix.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, contextual temporal interpretation of the present (from memory).",
+        "RAE/ASALE, Diccionario de la lengua española, entry tarde, temporal locution por la tarde (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T59",
+      "contentHash": "32ae8db98c61066468a7e4b0a090d34bf7a0b4c864d186358f6749f5ea5487e7",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.prompt[1].text: \"Quiero aprender a bailar.\"",
+          "description": "The sentence introduces aprender a + infinitive without teaching or glossing that construction. The mapped prerequisites show aprender español and querer + infinitive, which do not explain the additional preposition and infinitive complement of aprender.",
+          "suggestion": "Use the already supported \"Quiero bailar.\", or add a gloss such as \"aprender a bailar — навчитися танцювати\" with no grammar-target attribution."
+        }
+      ],
+      "caseId": "task:A1-06-L4-T59",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The intended wish-versus-plan answer itself is clear.",
+      "sources": [
+        "Course contract rule 1: new dependent constructions must be taught or glossed.",
+        "This case's taughtBefore includes \"Quiero aprender español.\" and \"Me gusta leer.\" but does not list aprender a + infinitive."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T67",
+      "contentHash": "b6717f02dbcb67190c4b64b60758367919251fd8f238407d5098d9da7da3b8be",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "clips[0].translationUk: \"—Хочеш піти в кіно в суботу? —Звісно! Чудово!\"",
+          "description": "The Ukrainian dialogue copies Spanish attached-dash typography. Ukrainian dialogue dashes require separation from the following words.",
+          "suggestion": "Use \"— Хочеш піти в кіно в суботу?\\n— Звісно! Чудово!\"."
+        }
+      ],
+      "caseId": "task:A1-06-L4-T67",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The transcript and answer key agree. Audio performance was outside this text-only review.",
+      "sources": [
+        "Course contract rule 8: learner-facing Ukrainian must be orthographically correct.",
+        "Ukrainian Orthography (2019), rules for punctuating direct speech and dialogue (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-06-L4-T68",
+      "contentHash": "93f6f06c935b41edb64e7f49ba4d286a4ced4ff5b89e8f7cc76c8c10b2e4c1e4",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "clips[0].translationUk: \"—Хочете повечеряти вдома сьогодні ввечері? —Шкода, сьогодні ввечері я працюю.\"",
+          "description": "The Ukrainian dialogue lacks spaces after its dialogue dashes.",
+          "suggestion": "Use \"— Хочете повечеряти вдома сьогодні ввечері?\\n— Шкода, сьогодні ввечері я працюю.\"."
+        }
+      ],
+      "caseId": "task:A1-06-L4-T68",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "A person can decline individually after an invitation addressed to several people. The transcript supports the key; audio performance was not assessed.",
+      "sources": [
+        "Course contract rule 8: learner-facing Ukrainian must be orthographically correct.",
+        "Ukrainian Orthography (2019), rules for punctuating direct speech and dialogue (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-06.invitation.cena",
+      "contentHash": "e2a35b38ad3b2c3880168bf0d3206edecca4f47447b1cd691f1abcabef8d3eb6",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.translationUk: \"—Хочете повечеряти вдома сьогодні ввечері? —Шкода, сьогодні ввечері я працюю.\"",
+          "description": "The Ukrainian translation lacks spaces after the dialogue dashes.",
+          "suggestion": "Use \"— Хочете повечеряти вдома сьогодні ввечері?\\n— Шкода, сьогодні ввечері я працюю.\"."
+        }
+      ],
+      "caseId": "clip:clip.a1-06.invitation.cena",
+      "verdict": "flawed",
+      "reviewerAnswer": "An invitation to dinner tonight is declined because the respondent works tonight.",
+      "notes": "The Spanish and translated meaning are otherwise acceptable. This review covers text only.",
+      "sources": [
+        "Course contract rule 8.",
+        "Ukrainian Orthography (2019), rules for punctuating direct speech and dialogue (from memory)."
+      ]
+    },
+    {
+      "kind": "clip",
+      "logicalId": "clip.a1-06.invitation.cine",
+      "contentHash": "c28c4e8a6c8f7f02e3f5331b3692f03439ab274cf1a59c03d6ad80703bbee4c9",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.translationUk: \"—Хочеш піти в кіно в суботу? —Звісно! Чудово!\"",
+          "description": "The Ukrainian translation lacks spaces after the dialogue dashes.",
+          "suggestion": "Use \"— Хочеш піти в кіно в суботу?\\n— Звісно! Чудово!\"."
+        }
+      ],
+      "caseId": "clip:clip.a1-06.invitation.cine",
+      "verdict": "flawed",
+      "reviewerAnswer": "An invitation to the cinema on Saturday receives an enthusiastic acceptance.",
+      "notes": "The Spanish and translated meaning are otherwise acceptable. This review covers text only.",
+      "sources": [
+        "Course contract rule 8.",
+        "Ukrainian Orthography (2019), rules for punctuating direct speech and dialogue (from memory)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "batchId": "A2-05-L4.r1",
+  "jobId": "36eb34a2-0f64-4957-bd46-7fc297ba3f05",
+  "receiptId": "d880b43b-e1e5-4fcf-b184-a9ac63624f49",
+  "recordedAt": "2026-11-08T19:38:56.790Z",
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A2-05-L4",
+      "contentHash": "0f520853b628271659212bf641c95a9933bb044e2f661a984d340f9e7251bdf8",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "content.body.steps[0].blocks[5].text: «Cuando без знака наголосу — «коли» в розповіді; у питанні пишемо ¿cuándo?»",
+          "description": "The wording makes sentence type determine the accent. Temporal cuando remains unaccented inside a question, as in ¿Qué hacías cuando eras pequeño? Interrogative cuándo also takes an accent inside a declarative sentence, as in No sé cuándo llegó.",
+          "suggestion": "Distinguish temporal cuando from interrogative cuándo by function. Explain that question marks or declarative sentence form alone do not determine the accent."
+        }
+      ],
+      "caseId": "lesson:A2-05-L4",
+      "verdict": "flawed",
+      "reviewerAnswer": "Describe former routines with the habitual imperfecto and distinguish them from present routines and completed episodes. Temporal cuando is unaccented; interrogative cuándo is accented.",
+      "notes": "The example Cuando era pequeño, vivía en un pueblo is correct.",
+      "sources": [
+        "RAE/ASALE, Diccionario panhispánico de dudas, treatment of «cuando/cuándo» and direct versus indirect interrogation (from memory).",
+        "Course contract, rule 8."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T01",
+      "contentHash": "88cf68dbeaea9b2db76f66f00901d522272fc187442b36e31829b71822cd365a",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «Antes ___ en un banco, pero ahora trabajo en casa. (trabajar, yo)»; task.errors[e1]: «trabajé».",
+          "description": "The contrast between former and current employment does not uniquely determine aspect. Antes trabajé en un banco, pero ahora trabajo en casa is natural when the former employment is presented as a completed stage. The prompt does not specify the intended viewpoint.",
+          "suggestion": "Specify that the speaker is describing the usual situation during the former period, or review both aspectual readings instead of categorically rejecting trabajé."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T01",
+      "verdict": "uncertain",
+      "reviewerAnswer": "trabajaba is the neutral background reading; trabajé also fits a completed former employment stage.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective and imperfective presentation of past situations (from memory).",
+        "Packet verdict instructions: use uncertain when the key selects one of several contextually possible readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T02",
+      "contentHash": "ae52b1f5371686e8d4f39c667537419361fed4033ebdab4ea6a02c658a237b4f",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore omits the irregular imperfect of ir required by task.prompt[1].text: «De pequeña, Lucía ___ al parque todos los días. (ir)»; task.errors[e1].feedbackUk: «Fue подає дію як одну завершену подію.»",
+          "description": "The required form iba is not established by the mapped singular regular imperfect prerequisites or explained in a teaching hint. In addition, fue does not necessarily denote one occurrence: todos los días can describe repeated visits presented collectively as completed.",
+          "suggestion": "Document prior teaching of iba. Clarify the intended habitual viewpoint or review fue as an alternative reading, and replace the single-occurrence explanation with an accurate explanation of perfective aspect."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T02",
+      "verdict": "flawed",
+      "reviewerAnswer": "iba for a descriptive childhood routine; fue is possible when the repeated visits are summarized as a completed series.",
+      "notes": "The aspectual choice is underdetermined independently of the definite prerequisite and feedback defects.",
+      "sources": [
+        "Course contract, rule 1; this case's context.taughtBefore lists regular singular imperfect forms but no imperfecto.ir.",
+        "RAE, Diccionario de la lengua española, «ir», conjugation table: imperfect indicative iba (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective aspect and repeated past events (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T03",
+      "contentHash": "ed104b9167d0b60b91376ee73f996ea418aa4861a4ee496c0ceba07a0f6e828e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore lists only singular imperfect forms, while task.prompt[1] requires cenaban; task.errors[e1].feedbackUk: «Cenaron — одна завершена подія.»",
+          "description": "Producing the third-person plural imperfect requires a form not documented in the prerequisite map. The feedback also treats cenaron as necessarily one occurrence, although the preterite can summarize a completed series. The sentence does not explicitly fix a habitual rather than episodic reading.",
+          "suggestion": "Document prior instruction in plural -ar imperfect forms. Clarify the intended routine and revise the feedback to distinguish aspectual presentation without equating the preterite with one occurrence."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T03",
+      "verdict": "flawed",
+      "reviewerAnswer": "cenaban for a former routine; cenaron permits a completed-episode reading of antes.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 1; context.taughtBefore names imperfecto.regular-ar.singular but no plural imperfect instruction.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, imperfective and perfective past readings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T04",
+      "contentHash": "799ba27055c7b39f20d3ec7620a0fb0bbbfdb589a9a138766e4fe73919dd3636",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «De niño, mi hermano siempre ___ con su perro. (jugar)»; task.errors[e1]: «jugó».",
+          "description": "De niño and siempre establish a childhood pattern but do not uniquely require imperfective aspect. Siempre jugó can summarize a pattern throughout a completed childhood period. The prompt does not specify which presentation is intended.",
+          "suggestion": "Specify the descriptive habitual viewpoint, or review both jugaba and jugó with explanations of their different aspectual presentations."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T04",
+      "verdict": "uncertain",
+      "reviewerAnswer": "jugaba is the neutral habitual reading; jugó is also possible as a retrospective summary of childhood.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, habitual and iterative readings with imperfective and perfective past forms (from memory).",
+        "Packet verdict instructions on underdetermined readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T05",
+      "contentHash": "e224b811c7962083e30834b1136bf8b6d832bd2c91aea11447514c37ff6e6947",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore lists singular -er/-ir imperfect forms, while task.prompt[1].text «Antes nosotros ___ mucho, pero ahora no tenemos tiempo. (leer)» requires leíamos.",
+          "description": "The task requires production of the first-person plural imperfect, but the prerequisite map establishes only singular forms. The rule hint explains tense use without teaching the plural ending.",
+          "suggestion": "Document prior teaching of plural -er/-ir imperfect forms or use a singular subject. Also clarify the intended habitual viewpoint before categorically rejecting leímos."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T05",
+      "verdict": "flawed",
+      "reviewerAnswer": "leíamos for the former habit; leímos is possible when the earlier reading activity is presented as completed.",
+      "notes": "The antes/ahora contrast alone does not exclude a completed earlier period.",
+      "sources": [
+        "Course contract, rule 1; context.taughtBefore names imperfecto.regular-er-ir.singular but no plural imperfect instruction.",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, aspectual presentation of past situations (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T06",
+      "contentHash": "b0e15c8dbaa5a8db6fb5e5b6d0961631acdd692858cbc0cf7503b22df0ade8ca",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore omits imperfecto.ir; task.prompt[1].text: «De pequeño, yo ___ a casa de mis abuelos todos los veranos. (ir)».",
+          "description": "The assessed production requires irregular iba, which is absent from the mapped prerequisites and is not taught by the rule hint.",
+          "suggestion": "Document earlier teaching of iba or replace ir with a taught regular verb. Clarify the intended aspectual viewpoint or review fui rather than rejecting it solely because the visits recur."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T06",
+      "verdict": "flawed",
+      "reviewerAnswer": "iba for a descriptive childhood habit; fui can summarize the repeated summer visits as a completed series.",
+      "notes": "The tense choice also permits more than one aspectual reading.",
+      "sources": [
+        "Course contract, rule 1; this case's context.taughtBefore.",
+        "RAE, Diccionario de la lengua española, «ir», imperfect indicative conjugation (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, completed series of repeated past events (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T07",
+      "contentHash": "605b163f4e56da652305ea6de325c5a339f042f37ac02a11a421ff6188957463",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «Antes tú ___ mucho café y ahora no tomas nada. (tomar)»; task.errors[e1–e3].",
+          "description": "Antes can mean formerly or earlier on a particular occasion. Ahora no tomas nada can likewise describe a current habit or current behaviour. The task does not establish which temporal scale is intended, so its categorical rejection of episodic past forms is not secure.",
+          "suggestion": "Supply a former habitual period and identify the statement as a description of that routine, or review the episodic readings separately."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T07",
+      "verdict": "uncertain",
+      "reviewerAnswer": "tomabas for a former habit; tomaste or has tomado can fit an earlier episode, depending on its time frame.",
+      "notes": "The choice between tomaste and has tomado additionally depends on the episodic time frame.",
+      "sources": [
+        "RAE/ASALE, Diccionario de la lengua española, «antes», temporal senses (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, past-tense and aspectual contrasts (from memory).",
+        "Packet verdict instructions on underdetermined readings."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T08",
+      "contentHash": "0d4c2fd569c661024e8ff236b1288b604a6069fce38f533ebadcc99769990ecc",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "uncertain",
+          "location": "task.prompt[1].text: «En mi antiguo trabajo, ___ a las ocho y salía a las tres. (empezar, yo)»; task.errors[e1]: «empecé».",
+          "description": "The routine reading is the most natural, but the sentence does not explicitly say that both times describe a recurring schedule. A particular start followed by an imperfect background or planned departure is another possible reading. Coordination with salía does not itself require matching aspect.",
+          "suggestion": "Specify that the speaker is describing the usual daily schedule, rather than a particular starting occasion."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T08",
+      "verdict": "uncertain",
+      "reviewerAnswer": "empezaba for the usual schedule; empecé can refer to a particular starting occasion while salía supplies a usual or planned finishing time.",
+      "notes": "",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, combinations of perfective events with imperfective background and prospective imperfect uses (from memory).",
+        "Packet verdict instructions on missing context."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T09",
+      "contentHash": "42f7dc5fad3d7627788ecbd471868df014ac3f1aeec81aeea25a92549198ff77",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore omits imperfecto.ir; task.options[a].label: «Los domingos íbamos al pueblo.»",
+          "description": "The correct option requires recognition of the irregular plural imperfect íbamos. The mapped prerequisites establish regular singular imperfect forms, without documenting this required irregular form.",
+          "suggestion": "Document prior instruction in the imperfect of ir, including íbamos, or construct the contrast using taught regular singular forms."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T09",
+      "verdict": "flawed",
+      "reviewerAnswer": "a",
+      "notes": "The option key and its meaning distinction are otherwise correct.",
+      "sources": [
+        "Course contract, rule 1; this case's context.taughtBefore.",
+        "RAE, Diccionario de la lengua española, «ir», imperfect indicative conjugation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T10",
+      "contentHash": "46795e2c69517dfa5fd8b4098bc9f8603a31263aae32e78db1518c62c406e341",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[a].feedbackUk: «Jugó — одна завершена подія.»; task.prompt[1].text includes «los sábados».",
+          "description": "The feedback falsely equates jugó with one occurrence. The preterite can present repeated Saturday games as a completed series. The prompt also leaves the aspectual viewpoint underdetermined, so excluding a needs additional context.",
+          "suggestion": "Explain that the preterite presents an event or series as completed. Specify a descriptive habitual viewpoint or review both a and b under their respective readings."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T10",
+      "verdict": "flawed",
+      "reviewerAnswer": "b is the neutral habitual reading; a also fits a completed former series of Saturday games.",
+      "notes": "The false single-occurrence explanation is a definite defect; the choice between a and b additionally requires clarification.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective aspect and iterative past readings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T11",
+      "contentHash": "b239911a91c4a45eb3d8daa5c85fa40b080694f7cb793f838932cf579b063b48",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore omits imperfecto.ir; task.prompt[1].text: «De pequeña, Ana iba al pueblo todos los veranos.»",
+          "description": "The assessed sentence contains irregular iba, whose prior teaching is not documented by the regular singular imperfect prerequisites. The rule hint explains habitual use but does not explain this form.",
+          "suggestion": "Document prior teaching of iba or use a taught regular verb in the assessed sentence."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T11",
+      "verdict": "flawed",
+      "reviewerAnswer": "c",
+      "notes": "Option c accurately expresses the sentence. The sentence does not establish whether the habit continues today.",
+      "sources": [
+        "Course contract, rule 1; this case's context.taughtBefore.",
+        "RAE, Diccionario de la lengua española, «ir», imperfect indicative conjugation (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T12",
+      "contentHash": "8c75b433f7aa8f0e8ac6fa2affb8a1b91c2f5de090d735b0bb69f8580bcdb54e",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore omits imperfecto.ir; task.options[a].label: «íbamos».",
+          "description": "The task requires recognition of irregular first-person plural íbamos, while the mapped imperfect prerequisites cover regular singular forms. The antes/ahora contrast also does not independently exclude every completed-past reading of fuimos.",
+          "suggestion": "Document prior instruction in íbamos. Specify the habitual descriptive viewpoint or review the alternative aspectual reading, and avoid defining fuimos as necessarily one trip."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T12",
+      "verdict": "flawed",
+      "reviewerAnswer": "a for a former routine; b can present the earlier travel as a completed episode or stage.",
+      "notes": "",
+      "sources": [
+        "Course contract, rule 1; this case's context.taughtBefore.",
+        "RAE, Diccionario de la lengua española, «ir», imperfect indicative conjugation (from memory).",
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective and imperfective past readings (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T13",
+      "contentHash": "f79b277841d185e2d2f67d52db54b812f211522668e35ecbef777ae81040f5cf",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "task.options[a].feedbackUk: «Trabajé подає роботу як одну завершену подію.»; task.prompt[1] includes «todos los fines de semana».",
+          "description": "Trabajé can summarize repeated work across a completed period; it does not necessarily express one occurrence. The prompt leaves the viewpoint of the former weekend work unspecified, making the exclusive key additionally uncertain.",
+          "suggestion": "Replace the single-occurrence explanation with a distinction between completed and descriptive presentation. Specify the intended viewpoint or review both a and c."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T13",
+      "verdict": "flawed",
+      "reviewerAnswer": "c for a descriptive former routine; a is also possible as a completed series of weekends.",
+      "notes": "The feedback contains a definite false simplification independently of the contextual uncertainty.",
+      "sources": [
+        "RAE/ASALE, Nueva gramática de la lengua española, chapter 23, perfective aspect with repeated past events (from memory)."
+      ]
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-05-L4-T26",
+      "contentHash": "0b2cad3036c4b9829d1c61b9434c23c0b2ad0fba832679dcc25591911cfb1719",
+      "severity": "blocking",
+      "declaredSeverity": "blocking",
+      "findings": [
+        {
+          "severity": "blocking",
+          "category": "flawed",
+          "location": "context.taughtBefore omits the irregular form iba required in task.accepted[v1]: «Todos los veranos iba a la playa con mis abuelos.»",
+          "description": "The dictation assesses the spelling of irregular iba, including its b, without documenting prior instruction in this form. The answer reveal supplies the solution but does not provide prerequisite instruction.",
+          "suggestion": "Document earlier teaching of iba and its spelling, or select a dictation sentence whose required forms are established in taughtBefore."
+        }
+      ],
+      "caseId": "task:A2-05-L4-T26",
+      "verdict": "flawed",
+      "reviewerAnswer": "Todos los veranos iba a la playa con mis abuelos.",
+      "notes": "The transcription key and the correction of iva to iba are linguistically correct.",
+      "sources": [
+        "Course contract, rule 1; this case's context.taughtBefore.",
+        "RAE, Diccionario de la lengua española, «ir», imperfect indicative conjugation (from memory)."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A1-03-L2.r3",
+  "packetHash": "09548e65665da71e3d4efd356109d168c45850f244e8ba24acbb6715ffa6fd14",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "0a4a5d46dff7b5aff6187bcd80f1b26f3ba79a722310b29e109e587b286fd1aa",
+    "reviewerPacketSha256": "177765b111d900439ac22fcf245aca4cef2bad9263c4bf3e5edd5160f826e2ef",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-jMbyhk/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-jMbyhk/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-jMbyhk/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-jMbyhk/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-jMbyhk/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bfe4-8c46-7e50-aa5f-082b721d0930",
+        "version": "v0.166.0",
+        "tokens used": "44,300"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "lesson:A1-03-L2",
+        "reviewerAnswer": "Not applicable: this case contains a lesson rather than a learner task.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T19",
+        "reviewerAnswer": "Mi padre es de Odesa. Mi papá es de Odesa is also acceptable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The key is not closed, so an unlisted equivalent translation is not automatically graded incorrect."
+      },
+      {
+        "caseId": "task:A1-03-L2-T26",
+        "reviewerAnswer": "Ana es española.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The reviewed spelling error «espanola» is not accepted, and its feedback explicitly corrects ñ. An unresolved diagnosis for agreement does not itself accept the misspelling."
+      },
+      {
+        "caseId": "task:A1-03-L2-T28",
+        "reviewerAnswer": "Pablo es español.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The reviewed spelling error «espanol» is not accepted, and its feedback explicitly corrects ñ."
+      },
+      {
+        "caseId": "task:A1-03-L2-T29",
+        "reviewerAnswer": "Mis amigas son inglesas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "In error e3, the feedback correctly distinguishes the valid adjective «inglesas» from the prerequisite conjugation error «es»."
+      },
+      {
+        "caseId": "task:A1-03-L2-T30",
+        "reviewerAnswer": "Soy francesa. Yo soy francesa is also acceptable.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T32",
+        "reviewerAnswer": "Mis padres son alemanes.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T34",
+        "reviewerAnswer": "Ana y Lucía son españolas.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T35",
+        "reviewerAnswer": "a — inglesa",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T36",
+        "reviewerAnswer": "alemana; alternatively, Ella es alemana.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A1-03-L2-T74",
+        "reviewerAnswer": "alemana",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "Optional editing: remove the repetition in task.feedback.incorrectUk, «Ще ні. Nacionalidad: alemana: alemana»."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "lesson",
+      "logicalId": "A1-03-L2",
+      "contentHash": "bab8d63d4d5b8fcf93b2db1bd60845900b90b948fdd6d9c90a402a051f673aba",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "lesson:A1-03-L2",
+      "verdict": "valid",
+      "reviewerAnswer": "Not applicable: this case contains a lesson rather than a learner task.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T19",
+      "contentHash": "613712dc309f866cd1a7a28073538a77abd6ece481f5f0729a1e8a8a6b9017ea",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T19",
+      "verdict": "valid",
+      "reviewerAnswer": "Mi padre es de Odesa. Mi papá es de Odesa is also acceptable.",
+      "notes": "The key is not closed, so an unlisted equivalent translation is not automatically graded incorrect.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T26",
+      "contentHash": "79bca302e7678675a880e6e90bae15559b04f0296e84c550ae8d980f70b78df8",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T26",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana es española.",
+      "notes": "The reviewed spelling error «espanola» is not accepted, and its feedback explicitly corrects ñ. An unresolved diagnosis for agreement does not itself accept the misspelling.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T28",
+      "contentHash": "f4bdc18ab852a9494848ec7dd923e898054f6cfb9f10764bb508d934444362da",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T28",
+      "verdict": "valid",
+      "reviewerAnswer": "Pablo es español.",
+      "notes": "The reviewed spelling error «espanol» is not accepted, and its feedback explicitly corrects ñ.",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T29",
+      "contentHash": "85cc69e67e37d5af162a20572bcdc7aebaf133fde1d9a3235e1b9595c016441f",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T29",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis amigas son inglesas.",
+      "notes": "In error e3, the feedback correctly distinguishes the valid adjective «inglesas» from the prerequisite conjugation error «es».",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T30",
+      "contentHash": "1a9e9434691d6a96d9683477f3920160a9892b05ec5dd9833945bb52967fc5d1",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T30",
+      "verdict": "valid",
+      "reviewerAnswer": "Soy francesa. Yo soy francesa is also acceptable.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T32",
+      "contentHash": "a9dfd0e51ea11483f565bd224ac17f45ceb7453bfb3d86bc988e84ec7ccac744",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T32",
+      "verdict": "valid",
+      "reviewerAnswer": "Mis padres son alemanes.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T34",
+      "contentHash": "7ed37a952502f88531566514a0b6ee57e4270a8147aecf142c795967a7bbc6ea",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T34",
+      "verdict": "valid",
+      "reviewerAnswer": "Ana y Lucía son españolas.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T35",
+      "contentHash": "0086ed690dfa897e886bc922cca945734b3278e562dd9f0e83d713977eef2e95",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T35",
+      "verdict": "valid",
+      "reviewerAnswer": "a — inglesa",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T36",
+      "contentHash": "d059e9ee558d6631e72c1b9ed2e2a416159642e2828ed311b344501f8b3bfcff",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T36",
+      "verdict": "valid",
+      "reviewerAnswer": "alemana; alternatively, Ella es alemana.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A1-03-L2-T74",
+      "contentHash": "ce1b5646e84bf6843efa3f01bd85b31662a4e32208901f4766ce1a44600b60e7",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A1-03-L2-T74",
+      "verdict": "valid",
+      "reviewerAnswer": "alemana",
+      "notes": "Optional editing: remove the repetition in task.feedback.incorrectUk, «Ще ні. Nacionalidad: alemana: alemana».",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

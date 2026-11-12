@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "batchId": "A2-01-L2.r2",
+  "packetHash": "aabbef3fa988ecd03c25f859ac02379abbbbb20fe549130d678b0b33cae80122",
+  "reviewReport": null,
+  "reviewReportNote": "no https citation in the reviewer output; ReviewReport.sources needs at least one",
+  "route": {
+    "direction": "A",
+    "provider": "openai",
+    "tool": "codex exec",
+    "promptVersion": "reviewer-prompt.v3",
+    "promptTemplate": {
+      "path": "content/reviews/calibration/prompts/reviewer-prompt.v3.md",
+      "sha256": "c911aafe63284a69e5012da7f0bc67f633ba8c0204aa19edfe5d45290c734634"
+    },
+    "outputSchema": {
+      "path": "content/reviews/calibration/prompts/review-output.schema.json",
+      "sha256": "232e91375422fae9f2799a750043c5511a463182e5716c524785d538faa019fe"
+    },
+    "promptAsSentSha256": "c675bc80c82247c31a6f2aea7b3dce537483e77621cfee1cd67b4aaf3196c472",
+    "reviewerPacketSha256": "db5e0746ff9c9c44a14a0f61eeb730d12fe43ff9dfb7bcddb83d085111b0200f",
+    "argv": [
+      "codex",
+      "exec",
+      "--cd",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-a8jBDj/packet",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--ignore-user-config",
+      "--disable",
+      "memories",
+      "-m",
+      "gpt-6.1-sol",
+      "-c",
+      "model_reasoning_effort=xhigh",
+      "--ephemeral",
+      "--output-schema",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-a8jBDj/output-schema.json",
+      "-o",
+      "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-a8jBDj/last-message.json",
+      "-"
+    ],
+    "env": {
+      "CODEX_NO_LANG_DIRECTIVE": "1"
+    },
+    "cwd": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-a8jBDj/packet",
+    "workingDirectoryContents": [
+      "packet.json"
+    ],
+    "cliVersion": "codex-cli 0.166.0",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedEffort": "xhigh",
+    "resolved": {
+      "banner": {
+        "workdir": "/var/folders/m3/wcfq0rw50pj68lsynv4hhpvm0000gn/T/sll-review-a8jBDj/packet",
+        "model": "gpt-6.1-sol",
+        "provider": "openai",
+        "approval": "never",
+        "sandbox": "read-only",
+        "reasoning effort": "xhigh",
+        "reasoning summaries": "none",
+        "session id": "01a1bc9e-985b-72e0-a359-d3ee1e5fd2bc",
+        "version": "v0.166.0",
+        "tokens used": "13,895"
+      },
+      "commandsExecutedByReviewer": []
+    }
+  },
+  "reviewer": {
+    "cases": [
+      {
+        "caseId": "skill:ortho.accent-pair.se",
+        "reviewerAnswer": "sé is the yo form of saber: No sé. The unstressed pronoun se has no written accent: Se levanta a las siete.",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": ""
+      },
+      {
+        "caseId": "task:A2-01-L2-T84",
+        "reviewerAnswer": "cojo",
+        "verdict": "valid",
+        "blocking": "no",
+        "element": "",
+        "defect": "",
+        "correction": "",
+        "sources": [],
+        "notes": "The lesson context establishes presente; using it for a scheduled action tomorrow is natural."
+      }
+    ]
+  },
+  "items": [
+    {
+      "kind": "skill",
+      "logicalId": "ortho.accent-pair.se",
+      "contentHash": "b47573ddc11696350c04ffc5a71a1e6babe13174e9098300d7e92a01a696bce6",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "skill:ortho.accent-pair.se",
+      "verdict": "valid",
+      "reviewerAnswer": "sé is the yo form of saber: No sé. The unstressed pronoun se has no written accent: Se levanta a las siete.",
+      "notes": "",
+      "sources": []
+    },
+    {
+      "kind": "task",
+      "logicalId": "A2-01-L2-T84",
+      "contentHash": "8f7bfd30d8f07cd6fbc407d2e035cd64206cf9b9cbb2111a341b891826e79960",
+      "severity": "none",
+      "declaredSeverity": "none",
+      "findings": [],
+      "caseId": "task:A2-01-L2-T84",
+      "verdict": "valid",
+      "reviewerAnswer": "cojo",
+      "notes": "The lesson context establishes presente; using it for a scheduled action tomorrow is natural.",
+      "sources": []
+    }
+  ],
+  "missingItems": [],
+  "unexpectedItems": [],
+  "missingVerdicts": []
+}

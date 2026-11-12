@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cases"],
+  "properties": {
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["caseId", "reviewerAnswer", "verdict", "blocking", "element", "defect", "correction", "sources", "notes"],
+        "properties": {
+          "caseId": { "type": "string" },
+          "reviewerAnswer": { "type": "string" },
+          "verdict": { "type": "string", "enum": ["valid", "flawed", "uncertain"] },
+          "blocking": { "type": "string", "enum": ["yes", "no"] },
+          "element": { "type": "string" },
+          "defect": { "type": "string" },
+          "correction": { "type": "string" },
+          "sources": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}
